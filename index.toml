@@ -2822,6 +2822,10 @@ file = "kubejs/startup_scripts/ecos_items.js"
 hash = "7d3c41cbb03bb2c65a96ae51afa93c4de12acf730ae5e99800bafebf7d0b608a"
 
 [[files]]
+file = "mods/Echoes-of-Power-3.3.0.jar"
+hash = "b0e89311794c9c624710b5e154bf3578d444f2412fba7300c747e103b570a4c1"
+
+[[files]]
 file = "mods/ad-astra.pw.toml"
 hash = "16b7ba68b0de49eea2511bdb20d85ef694644e5e58d27865250d89c4c11e51f3"
 metafile = true
