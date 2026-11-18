@@ -1,6 +1,6 @@
 version:3465
-renderDistance:12
-simulationDistance:6
+renderDistance:9
+simulationDistance:9
 lang:es_es
 joinedFirstServer:true
 skipMultiplayerWarning:true
@@ -305,4 +305,15 @@ key_supplementaries.keybind.quiver:key.keyboard.x:NONE
 key_tombstone.message.compendium:key.keyboard.unknown:NONE
 key_tombstone.message.config:key.keyboard.unknown:NONE
 key_tombstone.message.knowledge_of_death:key.keyboard.unknown:NONE
-resourcePacks:["vanilla","mod_resources","file/Patrix_1.20_32x_basic.zip","file/Patrix_32x_CTMOverride_multi.zip","file/Better-Leaves-9.6.zip"]
+resourcePacks:["vanilla","mod_resources","file/Patrix_1.20_32x_basic.zip","file/Patrix_32x_CTMOverride_multi.zip"]
+graphicsMode:1
+enableVsync:true
+maxFps:220
+entityShadows:false
+renderClouds:"false"
+particles:1
+mipmapLevels:4
+biomeBlendRadius:2
+entityDistanceScaling:0.75
+ao:true
+prioritizeChunkUpdates:0

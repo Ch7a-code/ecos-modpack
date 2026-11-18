@@ -310,7 +310,7 @@ _version = 5
 		# 
 		# DISABLED 
 		# No distant terrain will be generated.
-		generatorPlan = "SURFACE_THEN_CHUNKS"
+		generatorPlan = "SURFACE_ONLY"
 		#
 		# If true and the player/camera is moving quickly 
 		# Distant Horizons will pause world gen to improve loading speed 
@@ -360,7 +360,7 @@ _version = 5
 			# DEFAULT: Default lod renderer 
 			# DEBUG_TRIANGLE: Debug testing renderer 
 			# DISABLED: Disable rendering
-			rendererMode = "DEFAULT"
+			rendererMode = "DISABLED"
 			#
 			# If true overlapping quads will be rendered as bright red for easy identification. 
 			# If false the quads will be rendered normally.
@@ -716,7 +716,7 @@ _version = 5
 				dimensionEnabledCloudRenderingCsv = "minecraft:overworld"
 				#
 				# If true LOD clouds will be rendered.
-				enableCloudRendering = false
+				enableCloudRendering = true
 				#
 				# If true LOD beacon beams will be rendered wider at extreme distances, 
 				# making them easier to see. 
@@ -809,7 +809,7 @@ _version = 5
 				# Note: this is a best effort number. 
 				# The actual render distance may be above or below this number 
 				# depending on your other graphic settings.
-				lodChunkRenderDistanceRadius = 128
+				lodChunkRenderDistanceRadius = 200
 				#
 				# How should the sides and bottom of grass block LODs render? 
 				# 
