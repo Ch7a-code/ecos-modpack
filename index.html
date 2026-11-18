@@ -78,6 +78,13 @@ h2 { font-family: var(--font-display); font-weight: 700; font-size: var(--text-3
 .copiar code { flex: 1; min-width: 0; padding: var(--space-3); font-family: var(--font-mono); font-size: var(--text-xs); color: var(--cyan); overflow-wrap: anywhere; }
 .copiar button { flex: none; border: 0; background: var(--cyan); color: var(--ink-on-cyan); font-family: var(--font-display); font-weight: 700; font-size: var(--text-xs); padding: 0 var(--space-4); cursor: pointer; min-height: 44px; }
 .copiar button[data-ok] { background: var(--gold); }
+.paso .chico { font-size: var(--text-xs); color: var(--ink-dim); }
+.paso .boton { margin-top: var(--space-1); }
+.dudas { margin-top: var(--space-8); background: var(--panel); border: 1px solid var(--line-2); border-radius: var(--radius-lg); padding: var(--space-6); }
+.dudas h3 { font-family: var(--font-display); font-weight: 700; font-size: var(--text-lg); margin: 0 0 var(--space-4); color: var(--gold); }
+.dudas dl { margin: 0; display: grid; gap: var(--space-4); }
+.dudas dt { font-weight: 700; color: var(--ink); }
+.dudas dd { margin: var(--space-1) 0 0; color: var(--ink-dim); }
 
 .rejilla { display: grid; gap: var(--space-4); grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 900px) { .rejilla { grid-template-columns: repeat(2, 1fr); } }
@@ -127,7 +134,7 @@ footer img { width: 120px; height: auto; opacity: .85; }
     <p class="bajada">Ya no hay zips. Con Prism Launcher, cada vez que abres el juego ECOS se pone al día: baja lo nuevo, quita lo que ya no va y aplica los ajustes que importan.</p>
     <div class="acciones">
       <a class="boton primario" href="#instalar">Cómo instalarlo</a>
-      <a class="boton secundario" href="https://prismlauncher.org/download/" rel="noopener">Descargar Prism Launcher ↗</a>
+      <a class="boton secundario" href="https://github.com/PrismLauncher/PrismLauncher/releases/download/11.1.1/PrismLauncher-Windows-MinGW-w64-Setup-11.1.1.exe" rel="noopener">Descargar Prism para Windows ↓</a>
     </div>
   </div>
 </header>
@@ -136,29 +143,57 @@ footer img { width: 120px; height: auto; opacity: .85; }
 <main>
   <section id="instalar">
     <div class="envoltura">
-      <p class="etiqueta">Una sola vez · 5 minutos</p>
+      <p class="etiqueta">Una sola vez · 10 minutos · 6 pasos</p>
       <h2>Cómo instalarlo</h2>
       <p class="intro">Tu progreso vive en el servidor: no pierdes nada al cambiarte. La primera vez baja todo el modpack (más o menos 1 GB); después, solo lo que cambie.</p>
       <ol class="pasos">
         <li class="paso">
-          <h3>Instala Prism Launcher</h3>
-          <p>Es gratis y abre Minecraft como CurseForge, pero deja que el modpack se actualice solo.</p>
-          <p><a href="https://prismlauncher.org/download/" rel="noopener">prismlauncher.org/download</a> → ábrelo e inicia sesión con tu cuenta de Microsoft (la de Minecraft).</p>
+          <h3>Descarga Prism</h3>
+          <p>Este es el bueno para casi cualquier PC con Windows. No escojas otro.</p>
+          <p><a class="boton primario" href="https://github.com/PrismLauncher/PrismLauncher/releases/download/11.1.1/PrismLauncher-Windows-MinGW-w64-Setup-11.1.1.exe" rel="noopener">Descargar Prism ↓</a></p>
+          <p class="chico">Solo si tu laptop es ARM (Snapdragon / Surface Pro X): <a href="https://github.com/PrismLauncher/PrismLauncher/releases/download/11.1.1/PrismLauncher-Windows-MinGW-arm64-Setup-11.1.1.exe" rel="noopener">esta otra</a>.</p>
         </li>
         <li class="paso">
-          <h3>Importa ECOS</h3>
-          <p>En Prism: <strong>Add Instance → Import</strong>, pega este link y dale OK.</p>
+          <h3>Instálalo</h3>
+          <p>Abre el archivo que bajaste y dale <strong>Siguiente → Siguiente → Instalar</strong>.</p>
+          <p>Si Windows dice «Windows protegió tu PC»: <strong>Más información → Ejecutar de todas formas</strong>.</p>
+        </li>
+        <li class="paso">
+          <h3>Ábrelo la primera vez</h3>
+          <p>Te hace unas preguntas. Contesta así:</p>
+          <p><strong>Idioma:</strong> Español.<br><strong>Java:</strong> deja las casillas como vienen (Prism lo baja solo).<br><strong>Lo demás:</strong> Siguiente / Terminar.</p>
+          <p>Si te pregunta por <strong>importar o vincular</strong> instancias de CurseForge u otros launchers: <strong>no</strong>, sáltalo.</p>
+        </li>
+        <li class="paso">
+          <h3>Inicia sesión</h3>
+          <p>Arriba a la derecha: <strong>Cuentas → Añadir Microsoft</strong>.</p>
+          <p>Se abre una página con un código: entra con tu cuenta de Minecraft y pega el código. Vuelve a Prism y ya.</p>
+        </li>
+        <li class="paso">
+          <h3>Agrega ECOS</h3>
+          <p>Botón <strong>Añadir instancia</strong> (Add Instance) → a la izquierda <strong>Importar</strong> (Import) → pega este link → <strong>Aceptar</strong>.</p>
           <div class="copiar">
             <code id="link-zip">https://github.com/Ch7a-code/ecos-modpack/releases/latest/download/ECOS-Prism.zip</code>
             <button type="button" data-copiar="link-zip">Copiar</button>
           </div>
         </li>
         <li class="paso">
-          <h3>Dale Launch</h3>
-          <p>Antes de abrir sale una ventanita que baja el modpack. La primera vez tarda unos minutos; las siguientes, segundos.</p>
-          <p>Ya en el juego, entra al servidor como siempre.</p>
+          <h3>Juega</h3>
+          <p>Doble clic en <strong>ECOS</strong>. La primera vez sale una ventanita que baja el modpack (≈1 GB, unos minutos); las siguientes, segundos.</p>
+          <p>En el juego: <strong>Multijugador → Agregar servidor</strong> con la dirección que te pase Cha. Si es tu primera vez, pídele que te agregue a la lista del servidor.</p>
         </li>
       </ol>
+      <div class="dudas">
+        <h3>Dudas que siempre salen</h3>
+        <dl>
+          <dt>¿x86, x64, ARM, MSVC, MinGW, Setup, Portable…?</dt><dd>Ninguna: usa el botón «Descargar Prism» de arriba. Ya es el correcto.</dd>
+          <dt>¿Tengo que tener CurseForge o el Forge instalado?</dt><dd>No. Prism baja Minecraft, Forge, Java y los 150 mods solo. Tu CurseForge puede seguir ahí; no se usa.</dd>
+          <dt>¿Vinculo o importo mis instancias de CurseForge?</dt><dd>No. ECOS entra con el link del paso 5.</dd>
+          <dt>¿Qué Java instalo?</dt><dd>Ninguno. Prism descarga el que necesita.</dd>
+          <dt>Se traba o no abre (PC de 8 GB de RAM)</dt><dd>En Prism: clic derecho a ECOS → <strong>Editar → Configuración → Java</strong> → memoria máxima <strong>6144</strong> MB.</dd>
+          <dt>¿Pierdo lo que llevo?</dt><dd>No. Tu progreso vive en el servidor.</dd>
+        </dl>
+      </div>
     </div>
   </section>
 
