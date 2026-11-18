@@ -361,7 +361,7 @@ hash = "7f4c2df61260ec3599aa24f2aafbf062dc06413c7b928c2222114946134ff330"
 
 [[files]]
 file = "kubejs/assets/dialog/textures/dialog_background/background.png"
-hash = "15bffacbd455c60661ef413dfa219d965e3b5e61063cad459f272e77ddc40990"
+hash = "b4da9e34a0ea2427b63dd4a479c51cefe4a7e707f74d64528623ec37dbd32d4b"
 
 [[files]]
 file = "kubejs/assets/dialog/textures/portraits/zykna.png"
@@ -441,7 +441,7 @@ hash = "c32461e10247db2cc6b56dfb565919338e7c431ea06af4a1c666315c2fbf56ed"
 
 [[files]]
 file = "kubejs/assets/ecos/textures/gui/quests/partes.png"
-hash = "38963003ee4432996f21ab2bc827752e5e6c30d1567f6395a4b9c899b75b9ff2"
+hash = "3fcd737c3d4176c086cdd9ce04ede4fa946ad9a2d5d340acd9b2f265e1b43d9e"
 
 [[files]]
 file = "kubejs/assets/ecos/textures/gui/sistema/glifo.png"
@@ -597,15 +597,15 @@ hash = "0ee95b14c7f06ffab34084cd9da06025537124ec59b4ce78bea6a223cb16685f"
 
 [[files]]
 file = "kubejs/assets/minecraft/textures/gui/container/generic_54.png"
-hash = "0222590f47670c621e3795d79f4f94a01c2a3d6402a1cedf5b57d7635a8876ba"
+hash = "3854b8a317753b9df6c8dfaed51a7d88f009925afe61f72af22cdab4fe89c495"
 
 [[files]]
 file = "kubejs/assets/minecraft/textures/gui/container/inventory.png"
-hash = "0f02fe0633a2f3c8e3305e3b7d558492447a3f49d3fc417aca6e3c3e0d06358b"
+hash = "c64a33b1aa1b00c9469d27ea986d3e1c2547ec37b4c4c2a289c5174f86282ffc"
 
 [[files]]
 file = "kubejs/assets/minecraft/textures/gui/container/shulker_box.png"
-hash = "3c5a472d974391be0d1381ffa2789f1d7a2d1a6ef19faec0b715524c2bc89530"
+hash = "bb763b044a76fb933d945c7c4a8a13e9512dfdff8df4f59f8447bb230b3ce150"
 
 [[files]]
 file = "kubejs/assets/minecraft/textures/gui/recipe_button.png"
@@ -653,19 +653,19 @@ hash = "daeb78467656f899a4a86c518bd6d8e6a4e5c8ed001f5853af65a5ece5845cf0"
 
 [[files]]
 file = "kubejs/assets/sophisticatedcore/textures/gui/storage_background_12.png"
-hash = "a215524fae2fee61f8f928cef3013e45e473381ed02efd85585e7a203dabfdfb"
+hash = "291d966436905c8de96981443881c1e52481948401a2bdb039922c9cbc005372"
 
 [[files]]
 file = "kubejs/assets/sophisticatedcore/textures/gui/storage_background_12_wider.png"
-hash = "945b7041f782f79109f2af2b5ea6aeb504411f052072ba8adca5d4ad2b162abd"
+hash = "cb43ccc9ab54e0d6820edfcb845faaddc7b0b457cd5a16eb601ec54473def6e9"
 
 [[files]]
 file = "kubejs/assets/sophisticatedcore/textures/gui/storage_background_9.png"
-hash = "6a20d22c82c3810686f29b27c6fedcb38894754b4daec6ac3da697a26c4aa6e2"
+hash = "d30436869b6fa16b2d96ab182d1bc11085650f85291f510b09e402bf90bfaf64"
 
 [[files]]
 file = "kubejs/assets/sophisticatedcore/textures/gui/storage_background_9_wider.png"
-hash = "2594c351e80ff6df229784090c9d781679e23afcb5cc54c73d17370a6d8570e0"
+hash = "7eb8448ae75c5ba88b3bd92d28b463d6af44e0351fd58c0267ce98c9c5e9a529"
 
 [[files]]
 file = "kubejs/assets/star_wars_expansion/lang/es_es.json"
