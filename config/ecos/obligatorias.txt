@@ -1,0 +1,8 @@
+# ECOS · AJUSTES OBLIGATORIOS (Cha, 18-nov 08:12: "las configuraciones obligatorias que se actualicen solas; todo lo demás
+# que respete la configuración que ellos tienen").
+# Se aplican cada vez que abres el juego desde Prism, justo después de actualizar el modpack (aplicar_obligatorias.ps1).
+# Solo cambian ESTAS claves; todo lo demás de tu configuración se queda como lo tengas.
+# Formato:  archivo|clave|valor|tipo     (tipo: toml · prop = clave=valor · opt = options.txt clave:valor)
+#
+# Nubes propias de Distant Horizons: se ven raras con el shader (Cha 08:05)
+config/DistantHorizons.toml|enableCloudRendering|false|toml

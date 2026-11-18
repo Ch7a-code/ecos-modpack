@@ -110,6 +110,14 @@ file = "config/dynamic_fps.json"
 hash = "144f114bfe29ddde8ea84b6c93d4607808b6189ade20df6defb17510afbf4e7e"
 
 [[files]]
+file = "config/ecos/aplicar_obligatorias.ps1"
+hash = "62033834104179f7b83d06ce99974bdd9ac2d7d5bbd49d712c0772ab405e2947"
+
+[[files]]
+file = "config/ecos/obligatorias.txt"
+hash = "6655edff8c669fa6f41e785a5d5a229bb7e086c2b9ac78b06bb82c2b5c76893a"
+
+[[files]]
 file = "config/fancymenu/assets/ecos_btn_hover.png"
 hash = "8f99ef01d6b48123ae21ca6a765eea8e297e03ddc9783f321b6e8956ed4309c6"
 
@@ -471,6 +479,10 @@ file = "kubejs/assets/xaeroworldmap/lang/es_es.json"
 hash = "7b9a96ed46ef09c5c676ced10b30bf0db82e183f819991f1a25c7522fa36cbb4"
 
 [[files]]
+file = "kubejs/client_scripts/ecos_reporte_cliente.js"
+hash = "668bb75af6dfc16f900dd0448cb154572fef98e55ea882d82fd453335150679b"
+
+[[files]]
 file = "kubejs/client_scripts/ecos_ui_cliente.js"
 hash = "c051d499d1d77f6d722093da0d1df75399c714b46b14ea4c521534bf7fc07d6e"
 
@@ -508,7 +520,7 @@ hash = "bada6d9fb5bf7920bed6edfea9c1c5f7ddc149ad075657861c2ecb4a38f7848b"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_novedades.json"
-hash = "8d420e05e4eccf079f7da92f6719374ea4579dd3ecf47061db34ff5cf7e6f100"
+hash = "f2669e9bba4d7e4a773fe365e741fce2786545f6919621155c9fd43d32f235c9"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_stats_cuerpo.json"

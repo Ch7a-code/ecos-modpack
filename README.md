@@ -18,5 +18,11 @@ Memoria: el modpack ya viene con 10 GB. Si tu PC tiene 16 GB o menos y se traba,
 
 Nada que hacer: cierra el juego y vuelve a abrirlo. Antes de arrancar aparece una ventanita que baja los cambios.
 
-Si alguna vez falla, abre *Edit → Settings → Custom commands* y revisa que el comando de antes de abrir siga así:
-`"$INST_JAVA" -jar packwiz-installer-bootstrap.jar https://raw.githubusercontent.com/Ch7a-code/ecos-modpack/main/pack.toml`
+Además, en cada arranque se aplican los **ajustes obligatorios** (por ejemplo, apagar las nubes de Distant Horizons). Solo esos;
+lo demás de tu configuración se respeta.
+
+Funciona en **Windows** (el actualizador usa PowerShell). Si alguna vez falla, abre *Edit → Settings → Custom commands* y revisa
+que el comando de antes de abrir siga así:
+`powershell -NoProfile -ExecutionPolicy Bypass -File ecos-actualizar.ps1 "$INST_JAVA"`
+
+¿Algo falla en el juego o hay lag? Escribe en el chat `reporte` y qué pasa.

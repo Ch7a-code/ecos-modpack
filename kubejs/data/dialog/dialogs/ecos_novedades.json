@@ -164,6 +164,33 @@
      "brightness": 1.0
     }
    ],
+   "next": "7"
+  },
+  {
+   "id": "7",
+   "speaker": {
+    "text": "Zykna  ·  Novedades",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "",
+     "color": "#E8F3F3"
+    },
+    {
+     "nbt": "actual.p7",
+     "storage": "ecos:nov",
+     "interpret": true
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
    "options": [
     {
      "text": "✔  Entendido, ya lo leí",
