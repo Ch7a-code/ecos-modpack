@@ -1,5 +1,7 @@
 # ECOS · Ecos de la Conciencia
 
+**Página de descarga con instrucciones: https://ch7a-code.github.io/ecos-modpack/**
+
 Modpack de Minecraft 1.20.1 (Forge 47.4.28) para jugar en el servidor del grupo.
 **Se actualiza solo:** cada vez que abres el juego compara tu modpack con este repo, baja lo nuevo y borra lo que se quitó.
 

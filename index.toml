@@ -6,7 +6,7 @@ hash = "3fbedf46636cb67aaa05850b8ddd70fdee556e486df14502f3616acc21f99c78"
 
 [[files]]
 file = "config/DistantHorizons.toml"
-hash = "c5e7dfa205f33dfc8210e3f08edecc73009485da8c88360f7306ba9b106462d0"
+hash = "7fbd51852c7ea610a04cfed74be4777e9e2c5eace857d05daa9b1c0b213e89e1"
 preserve = true
 
 [[files]]
