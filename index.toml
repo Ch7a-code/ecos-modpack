@@ -424,6 +424,10 @@ file = "kubejs/assets/ecos/textures/entity/maestro/sangre.png"
 hash = "a641cb6af6c21b4cd7ad0a0f5a9fd7b8931790d8d1e8692ccb575fe700c0fd78"
 
 [[files]]
+file = "kubejs/assets/ecos/textures/entity/zykna_npc.png"
+hash = "7b3e3c03a278310b3f629ffdc2b9f76cc81ec923b6e15de21c07304b3f404e32"
+
+[[files]]
 file = "kubejs/assets/ecos/textures/gui/sistema/glifo.png"
 hash = "6c480bcd04e5d0b4c8d8afcfaaafa3c14ff9153897052eaa99c49975b54f5509"
 
