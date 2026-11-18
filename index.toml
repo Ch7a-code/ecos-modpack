@@ -199,7 +199,7 @@ hash = "52835d8a1ff48b2b9f91e9c78f83e2a282d251843d54722ecda5f815ac755d62"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/libro_09_armaduras.snbt"
-hash = "c5b99327d80b24fb908b46299ffeb8659d58aa2392e1c319596b022c4ec1faa9"
+hash = "8e2ec74fb8cfebc3c0ee1fb5f8cbfb9e76c94bbb6eff9b35997a45e8ffba6e34"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/libro_10_portadores.snbt"
@@ -207,7 +207,7 @@ hash = "eb61b5ac34c769b42c7006c39c34aad1ca1e785030b0a1d2de47b660ae9b20e6"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/libro_11_noches.snbt"
-hash = "3c2bc04aebf38b5ac5922d5c9a88189c2bd774df3a8c5996bf70ea4f8fbcbd9b"
+hash = "c1c423bd92a7332de7c67e0f72cc08907a6b00ef965d9d961d6d64a36ec1fd10"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/libro_12_vehiculos.snbt"
@@ -215,15 +215,15 @@ hash = "e8f8172a5821522bdcff6a6d619687c6d43095db07ec8d641bead911db815ab3"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/libro_13_crepusculo.snbt"
-hash = "044971ee362fa28c78d8f7f809b16b6c1ae586f9b2d6349cbccaeb36dda82f49"
+hash = "9487297d1a6d6407227441bc706354c8b23ac154572c6cb8676c3f2dba519da1"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/libro_14_cielos.snbt"
-hash = "ec76ba1848448fd05a2b8d2beb62518cff6f035105202612ade670f84657d8c3"
+hash = "6581426d2e952caac5db29694510fad7f9dfc20ae7bde24bea3a5e5240822755"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/libro_15_subsuelo.snbt"
-hash = "3c8fa3fb9eff1d07855304eda792d2bc5089a5f9a5463913f54e5b866ee99dd6"
+hash = "17a7884e62e9ffc1a764c8452a1cf18ccd2094ce429d48f4783e1c1c20cf9455"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/libro_16_ruinas.snbt"
@@ -356,6 +356,14 @@ file = "kubejs/assets/deeperdarker/lang/es_es.json"
 hash = "5e32ae5679abc3fe6ee956d3692112607e8af89d9682030719d5b38101953610"
 
 [[files]]
+file = "kubejs/assets/dialog/textures/buttons/button_atlas.png"
+hash = "7f4c2df61260ec3599aa24f2aafbf062dc06413c7b928c2222114946134ff330"
+
+[[files]]
+file = "kubejs/assets/dialog/textures/dialog_background/background.png"
+hash = "15bffacbd455c60661ef413dfa219d965e3b5e61063cad459f272e77ddc40990"
+
+[[files]]
 file = "kubejs/assets/dialog/textures/portraits/zykna.png"
 hash = "f5881b7851228dbd1f4511eacc8a1d9b0a553114716051682ead76dc4e83b8dd"
 
@@ -428,6 +436,14 @@ file = "kubejs/assets/ecos/textures/entity/zykna_npc.png"
 hash = "7b3e3c03a278310b3f629ffdc2b9f76cc81ec923b6e15de21c07304b3f404e32"
 
 [[files]]
+file = "kubejs/assets/ecos/textures/gui/quests/fondo.png"
+hash = "c32461e10247db2cc6b56dfb565919338e7c431ea06af4a1c666315c2fbf56ed"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/gui/quests/partes.png"
+hash = "38963003ee4432996f21ab2bc827752e5e6c30d1567f6395a4b9c899b75b9ff2"
+
+[[files]]
 file = "kubejs/assets/ecos/textures/gui/sistema/glifo.png"
 hash = "6c480bcd04e5d0b4c8d8afcfaaafa3c14ff9153897052eaa99c49975b54f5509"
 
@@ -452,8 +468,144 @@ file = "kubejs/assets/ftblibrary/lang/es_es.json"
 hash = "3c0eeb9a21e1a7b2f8dda612f3a6a41501fced2d3037c3555ca473d8e5731aed"
 
 [[files]]
+file = "kubejs/assets/ftbquests/ftb_quests_theme.txt"
+hash = "05bbe1f034b89b09036f36012757a4e21c48d2f1283683f82e8e8ef90e52ecbf"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/circle/background.png"
+hash = "8f242a0691838a49bb0eba75f174934851c60093590c7ef49828967ed2cc9a44"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/circle/background.png.mcmeta"
+hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/circle/outline.png"
+hash = "20a37f113c43c9fc08d6b10a3785cf23730207b28f2c0b77ab44fa8b2a9e3ff0"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/circle/outline.png.mcmeta"
+hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/circle/shape.png"
+hash = "6ed0b5cc5c22980901c9764abddefac147fce27e633255cbb5f3754bb66090e2"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/circle/shape.png.mcmeta"
+hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/diamond/background.png"
+hash = "679353a503fe7eecd035e82ff4cf70027f1f36fc61cd7ea1e3601c7c2a49f7e9"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/diamond/background.png.mcmeta"
+hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/diamond/outline.png"
+hash = "53bfa32b7c84a44a409f1f2639e44b3eb5c982d9a0370cfe48c0d797193eb5ee"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/diamond/outline.png.mcmeta"
+hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/diamond/shape.png"
+hash = "efbba0e3a27489b64196c82cde71e233b7c49a198ccdce78bdc84fe32c73498f"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/diamond/shape.png.mcmeta"
+hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/gear/background.png"
+hash = "156f0d221eed0a7be06f36a9125044a774480441fce1c7a3783f70a31cf0d5f0"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/gear/background.png.mcmeta"
+hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/gear/outline.png"
+hash = "5dcf1b07c8e160780429e1c63ea322ab42fb002a5ac71b065a1c862eb247039b"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/gear/outline.png.mcmeta"
+hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/gear/shape.png"
+hash = "b558d40d387f878f277a6fd9218acf9975d04a116ccda55580455494298f461e"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/gear/shape.png.mcmeta"
+hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/hexagon/background.png"
+hash = "69e643356d454d829c7f3c77a028c7a6c3f3b728eae9c0605a4d9bd64af019bc"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/hexagon/background.png.mcmeta"
+hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/hexagon/outline.png"
+hash = "ed91f7caeec1f081c0ff2023f2c00bce6dee448fbdb3d6078fc87ababe77e201"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/hexagon/outline.png.mcmeta"
+hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/hexagon/shape.png"
+hash = "70b087464a6276f132732787ff3bb76881d5784a75ed600fc553653c9264503a"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/hexagon/shape.png.mcmeta"
+hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/square/background.png"
+hash = "92cdf6f6b22c39202cced911a7e684297195af06dd4f5711de49facba9f8946a"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/square/background.png.mcmeta"
+hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/square/outline.png"
+hash = "2724e43344bf5f4b5035d4d1f61bf04f462eb2e5a799eeb27f7298a27b521abb"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/square/outline.png.mcmeta"
+hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/square/shape.png"
+hash = "860feee7e8715f919ba7285941aa2792c35bbcc94754f5aea97c21e7c47d6521"
+
+[[files]]
+file = "kubejs/assets/ftbquests/textures/shapes/square/shape.png.mcmeta"
+hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
+
+[[files]]
 file = "kubejs/assets/jade/lang/es_es.json"
 hash = "0ee95b14c7f06ffab34084cd9da06025537124ec59b4ce78bea6a223cb16685f"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/container/generic_54.png"
+hash = "0222590f47670c621e3795d79f4f94a01c2a3d6402a1cedf5b57d7635a8876ba"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/container/inventory.png"
+hash = "0f02fe0633a2f3c8e3305e3b7d558492447a3f49d3fc417aca6e3c3e0d06358b"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/container/shulker_box.png"
+hash = "3c5a472d974391be0d1381ffa2789f1d7a2d1a6ef19faec0b715524c2bc89530"
 
 [[files]]
 file = "kubejs/assets/minecraft/textures/gui/title/background/panorama_0.png"
@@ -540,40 +692,48 @@ file = "kubejs/data/cold_sweat/cold_sweat/world/dimension_temp/ecos/nether.json"
 hash = "ae50cc8a2cdeaed457938228c2561388b0088b6792ad6f62c213b759a4d9e73c"
 
 [[files]]
+file = "kubejs/data/dialog/dialogs/ecos_cerrar.json"
+hash = "b09391e6975c3e92c0d8df73e100dfaa81259ece6599107207d98f8dbc2feba0"
+
+[[files]]
 file = "kubejs/data/dialog/dialogs/ecos_cronica.json"
 hash = "af7a0983052faeacc05e00940a596cd7bd9409a71c5c9f41a95a4ee51e06f0aa"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_mv_elegir.json"
-hash = "1b6cc8623a8afd0bbdeb9af09a9e1243c69f61e60f341aaae9604618d1ecd8eb"
+hash = "c06685842f32aa21fa4a6039ab3478c2bff89dcc84296104d93a853e785a16c2"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_mv_menu.json"
-hash = "17b6a651fcd51527199d031a0990f95b95b8939eda19d2bae6a5a0fe70a64e52"
+hash = "e9c0597cc72c5123994b261c654aa5de1bc31e459c1a3655be89955da666867a"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_mv_mision.json"
-hash = "893951172273af1830b0937a674ef2d109e06f12d56f9899b8c1fbdd70221fda"
+hash = "880888393c0ba131f489368fef913128b13eb09a0b489b24bba43c6dd3b55fec"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_mv_mundo.json"
-hash = "bada6d9fb5bf7920bed6edfea9c1c5f7ddc149ad075657861c2ecb4a38f7848b"
+hash = "7d2c9040972b1b9f153783da7cc8795e32fc5ff40ee5908b14b9cacccb8e190d"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_novedades.json"
 hash = "9dfd0afbb0cad43dbd5b0631b17120187e7bf41faa1b5490c49ff5a1069ea76e"
 
 [[files]]
+file = "kubejs/data/dialog/dialogs/ecos_preparacion.json"
+hash = "7a87b6e308f9e4b0e1e6fdd22dee00d95ea421fd21878bc0d0122ad44dc3f9ef"
+
+[[files]]
 file = "kubejs/data/dialog/dialogs/ecos_stats_cuerpo.json"
-hash = "75897793f5dfbd3e0d3491ef666b21f8ff5b1aeb28bf19bdec5d580bfcec6580"
+hash = "4aea81483b52af00b409d2bba95c4b1cbfd5394da99aca4c8abb72dc0f298a97"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_stats_mente.json"
-hash = "f701c2fb7d21c9b2be9d08194d5b3f77bf1bb0894777f149c2b67206f73cda9a"
+hash = "f349e8107530478505e65393529c8c77453862e7e71d4d38f100940e0e21f857"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/guia_zykna.json"
-hash = "f456f6c2621da2dec4f3cf3f67471db3668b5781c0bfbdd8ad0d46c75f2ccdcf"
+hash = "4c682d31d1a8269f80d5302695706ccd3c28ffcf1fd1e31074be4371f547e87e"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/intro_opcion.json"
@@ -2886,6 +3046,11 @@ hash = "7d3c41cbb03bb2c65a96ae51afa93c4de12acf730ae5e99800bafebf7d0b608a"
 [[files]]
 file = "mods/Echoes-of-Power-3.3.0.jar"
 hash = "b0e89311794c9c624710b5e154bf3578d444f2412fba7300c747e103b570a4c1"
+
+[[files]]
+file = "mods/a-good-place.pw.toml"
+hash = "864e9ab08541b272941a0d6ed9ca8af78d5720208136c266ccbd01b78b51463f"
+metafile = true
 
 [[files]]
 file = "mods/ad-astra.pw.toml"

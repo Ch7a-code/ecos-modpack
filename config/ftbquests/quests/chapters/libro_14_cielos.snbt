@@ -334,7 +334,7 @@
 		}
 		{
 			dependencies: ["255D593D919EB7C4"]
-			description: ["&#19E6E6Zykna:&r &oLa horizonita arde distinto: se funde en una forja que no es un horno. Con ella se hacen armaduras y herramientas que este cielo recuerda con calor.", "", "&6Qué hacer:&r Funde horizonita en bruto y fabrica una forja de horizonita.", "", "&6Premio:&r 2 cosas al azar: lingotes de horizonita, carbón, oro o un diamante.", "&5A veces (7 %):&r un pico de horizonita encantado con Irrompibilidad."]
+			description: ["&#19E6E6Zykna:&r &oLa horizonita arde distinto: se funde en una forja que no es un horno. Con ella se hacen armaduras y herramientas que este cielo recuerda con calor.", "", "&6Qué hacer:&r Funde horizonita en bruto y fabrica una forja de horizonita.", "", "&6Premio:&r Ninguno aparte: esta misma acción ya paga en «Pre-calentado» (Armaduras, escudos y cuerpo).", "&5A veces (7 %):&r un pico de horizonita encantado con Irrompibilidad."]
 			disable_toast: true
 			icon: "blue_skies:horizonite_forge"
 			id: "4D58BE990E4ED8C6"

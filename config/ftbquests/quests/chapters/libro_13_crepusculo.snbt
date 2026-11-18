@@ -87,7 +87,7 @@
 		}
 		{
 			dependencies: ["78ADCA294C7DADFD"]
-			description: ["&#19E6E6Zykna:&r &oLos fragmentos grandes de la Primera Mente se metieron en los cuerpos más fuertes. Aquí uno vive dentro de la Naga, que defiende su patio como quien defiende un recuerdo. Con ella y el Lich caídos, el mundo puede subir a la Era I.", "", "&6Qué hacer:&r Vence a la Naga en su patio, recoge su escama y fabrica la armadura de pecho y de piernas de Naga.", "", "&6Premio:&r 2 cosas al azar: escamas de Naga, carne cocida, hierro o una esmeralda.", "&5A veces (7 %):&r un peto de Naga encantado con Protección."]
+			description: ["&#19E6E6Zykna:&r &oLos fragmentos grandes de la Primera Mente se metieron en los cuerpos más fuertes. Aquí uno vive dentro de la Naga, que defiende su patio como quien defiende un recuerdo. Con ella y el Lich caídos, el mundo puede subir a la Era I.", "", "&6Qué hacer:&r Vence a la Naga en su patio, recoge su escama y fabrica la armadura de pecho y de piernas de Naga.", "", "&6Premio:&r Ninguno aparte: esta misma acción ya paga en «Escamas de Naga» (Armaduras, escudos y cuerpo) y «La serpiente del patio» (Los Portadores).", "&5A veces (7 %):&r un peto de Naga encantado con Protección."]
 			disable_toast: true
 			icon: "twilightforest:naga_scale"
 			id: "5FD0B0F6B906AA36"
@@ -118,7 +118,7 @@
 		}
 		{
 			dependencies: ["5FD0B0F6B906AA36"]
-			description: ["&#19E6E6Zykna:&r &oEl Lich guarda en lo alto de su torre un fragmento que aún habla como mago. Junto a la Naga, es lo que el Templo pide para encender el Cimiento. Sube, véncelo y recupera un cetro.", "", "&6Qué hacer:&r Sube a la torre del Lich, véncelo y recupera un cetro. Con él y la Naga caídos, el mundo puede subir a la Era I tras el ritual del Cimiento.", "", "&6Premio:&r 2 cosas al azar: lingotes de madera de hierro, hierro, frascos de experiencia o esmeraldas.", "&5A veces (7 %):&r un pico de madera de hierro encantado con Eficiencia."]
+			description: ["&#19E6E6Zykna:&r &oEl Lich guarda en lo alto de su torre un fragmento que aún habla como mago. Junto a la Naga, es lo que el Templo pide para encender el Cimiento. Sube, véncelo y recupera un cetro.", "", "&6Qué hacer:&r Sube a la torre del Lich, véncelo y recupera un cetro. Con él y la Naga caídos, el mundo puede subir a la Era I tras el ritual del Cimiento.", "", "&6Premio:&r Ninguno aparte: esta misma acción ya paga en «El Lich de la torre» (Los Portadores).", "&5A veces (7 %):&r un pico de madera de hierro encantado con Eficiencia."]
 			disable_toast: true
 			icon: "twilightforest:lich_trophy"
 			id: "4C324E5D0A28206F"
@@ -195,7 +195,7 @@
 		}
 		{
 			dependencies: ["4E108F4ED6C48B73"]
-			description: ["&#19E6E6Zykna:&r &oEn su guarida, la Hidra tiene muchas cabezas y una sola idea: no dejarte pasar. Cuando cae, el mundo se acerca a la Era II, junto al Netherite Monstrosity y el ritual del Taller.", "", "&6Qué hacer:&r Vence a la Hidra en su guarida. Es una de las dos pruebas que piden la Era II junto al Netherite Monstrosity.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, chuletas de Hidra o un diamante.", "&5A veces (7 %):&r lingotes ardientes."]
+			description: ["&#19E6E6Zykna:&r &oEn su guarida, la Hidra tiene muchas cabezas y una sola idea: no dejarte pasar. Cuando cae, el mundo se acerca a la Era II, junto al Netherite Monstrosity y el ritual del Taller.", "", "&6Qué hacer:&r Vence a la Hidra en su guarida. Es una de las dos pruebas que piden la Era II junto al Netherite Monstrosity.", "", "&6Premio:&r Ninguno aparte: esta misma acción ya paga en «Cabezas que vuelven» (Los Portadores).", "&5A veces (7 %):&r lingotes ardientes."]
 			disable_toast: true
 			icon: "twilightforest:hydra_trophy"
 			id: "13B99E793AE2AE1C"

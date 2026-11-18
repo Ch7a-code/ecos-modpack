@@ -1,0 +1,131 @@
+{
+ "id": "ecos_preparacion",
+ "title": "Preparación para tu don",
+ "description": "Magia, equipo y stats que le van a tu don, y tu don contra el próximo jefe (ecos_preparacion.js)",
+ "start": "don",
+ "entries": [
+  {
+   "id": "don",
+   "speaker": {
+    "text": "Zykna  ·  Preparación",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "",
+     "color": "#E8F3F3"
+    },
+    {
+     "nbt": "actual.don",
+     "storage": "ecos:prep",
+     "interpret": true
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "options": [
+    {
+     "text": "▸ Tu don",
+     "target": "don"
+    },
+    {
+     "text": "   Próximo jefe",
+     "target": "jefe"
+    },
+    {
+     "text": "◈  Mi Eco (stats)",
+     "target": "fin",
+     "command": [
+      "zykna stats"
+     ]
+    },
+    {
+     "text": "✖  Cerrar",
+     "target": "fin"
+    }
+   ]
+  },
+  {
+   "id": "jefe",
+   "speaker": {
+    "text": "Zykna  ·  Preparación",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "",
+     "color": "#E8F3F3"
+    },
+    {
+     "nbt": "actual.jefe",
+     "storage": "ecos:prep",
+     "interpret": true
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "options": [
+    {
+     "text": "   Tu don",
+     "target": "don"
+    },
+    {
+     "text": "▸ Próximo jefe",
+     "target": "jefe"
+    },
+    {
+     "text": "◈  Mi Eco (stats)",
+     "target": "fin",
+     "command": [
+      "zykna stats"
+     ]
+    },
+    {
+     "text": "✖  Cerrar",
+     "target": "fin"
+    }
+   ]
+  },
+  {
+   "id": "fin",
+   "speaker": {
+    "text": "Zykna  ·  Preparación",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "Escribe ",
+     "color": "#8FA2A8"
+    },
+    {
+     "text": "preparacion",
+     "color": "#19E6E6"
+    },
+    {
+     "text": " cuando quieras verla otra vez. Clic para cerrar.",
+     "color": "#8FA2A8"
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ]
+  }
+ ]
+}

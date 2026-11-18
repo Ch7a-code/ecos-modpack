@@ -426,6 +426,10 @@
     {
      "text": "Volver al menú",
      "target": "menu"
+    },
+    {
+     "text": "✖  Cerrar",
+     "target": "fin"
     }
    ]
   },
@@ -467,6 +471,10 @@
     {
      "text": "Volver al menú",
      "target": "menu"
+    },
+    {
+     "text": "✖  Cerrar",
+     "target": "fin"
     }
    ]
   },
@@ -508,6 +516,10 @@
     {
      "text": "Volver al menú",
      "target": "menu"
+    },
+    {
+     "text": "✖  Cerrar",
+     "target": "fin"
     }
    ]
   },
@@ -531,6 +543,10 @@
     {
      "text": "Volver al menú",
      "target": "menu"
+    },
+    {
+     "text": "✖  Cerrar",
+     "target": "fin"
     }
    ]
   },

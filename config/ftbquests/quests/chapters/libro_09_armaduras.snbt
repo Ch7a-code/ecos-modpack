@@ -195,7 +195,7 @@
 		}
 		{
 			dependencies: ["2A64871FD871BDFB"]
-			description: ["&#19E6E6Zykna:&r &oEl Aether es otro bolsillo de memoria, un cielo que alguien recordó sin guerra. Sus metales no se funden como los de aquí: el Altar es la forja de ese lugar, y sus piezas se hacen a mano.", "", "&6Qué hacer:&r Fabrica un Altar del Aether y úsalo para conseguir gravitita encantada.", "", "&6Premio:&r 2 cosas al azar: lingotes de hierro, esmeraldas, pan o manzanas.", "&5A veces (7 %):&r una manzana dorada."]
+			description: ["&#19E6E6Zykna:&r &oEl Aether es otro bolsillo de memoria, un cielo que alguien recordó sin guerra. Sus metales no se funden como los de aquí: el Altar es la forja de ese lugar, y sus piezas se hacen a mano.", "", "&6Qué hacer:&r Fabrica un Altar del Aether y úsalo para conseguir gravitita encantada.", "", "&6Premio:&r Ninguno aparte: esta misma acción ya paga en «El altar de la gravitita» (Los cielos de memoria) y «El rosa es el nuevo azul» (Los cielos de memoria).", "&5A veces (7 %):&r una manzana dorada."]
 			disable_toast: true
 			icon: "aether:altar"
 			id: "78607A91700312D4"

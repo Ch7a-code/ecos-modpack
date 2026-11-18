@@ -335,7 +335,7 @@
 		}
 		{
 			dependencies: ["0618AD52C5A7726D"]
-			description: ["&#19E6E6Zykna:&r &oCon el corazón y lo que deja el Warden se forja una armadura que escucha por ti. No es abrigo: es oído. Los resonarios del silencio la reconocen.", "", "&6Qué hacer:&r Fabrica la armadura completa del Warden.", "", "&6Premio:&r 2 cosas al azar: diamantes, huesos de sculk, fragmentos de eco o chatarra de netherita.", "&5A veces (7 %):&r un transmisor de sculk."]
+			description: ["&#19E6E6Zykna:&r &oCon el corazón y lo que deja el Warden se forja una armadura que escucha por ti. No es abrigo: es oído. Los resonarios del silencio la reconocen.", "", "&6Qué hacer:&r Fabrica la armadura completa del Warden.", "", "&6Premio:&r Ninguno aparte: esta misma acción ya paga en «Cúbreme de sculk» (Armaduras, escudos y cuerpo).", "&5A veces (7 %):&r un transmisor de sculk."]
 			disable_toast: true
 			icon: "deeperdarker:warden_chestplate"
 			id: "7FEFE3CE827A40BA"

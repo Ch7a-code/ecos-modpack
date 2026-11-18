@@ -77,6 +77,13 @@
      ]
     },
     {
+     "text": "✦  Preparación para tu don",
+     "target": "menu",
+     "command": [
+      "zykna prep"
+     ]
+    },
+    {
      "text": "◎  Estado del mundo",
      "target": "menu",
      "command": [
@@ -89,6 +96,47 @@
      "command": [
       "zykna guia"
      ]
+    },
+    {
+     "text": "✖  Cerrar",
+     "target": "fin"
+    }
+   ]
+  },
+  {
+   "id": "fin",
+   "speaker": {
+    "text": "Zykna",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "Listo. ",
+     "color": "#E8F3F3"
+    },
+    {
+     "text": "Shift + F",
+     "color": "#19E6E6"
+    },
+    {
+     "text": " o escribe ",
+     "color": "#8FA2A8"
+    },
+    {
+     "text": "sistema",
+     "color": "#19E6E6"
+    },
+    {
+     "text": " para volver. Clic para cerrar.",
+     "color": "#8FA2A8"
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
     }
    ]
   }

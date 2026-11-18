@@ -280,7 +280,7 @@
 		}
 		{
 			dependencies: ["76241D897486F15D"]
-			description: ["&#19E6E6Zykna:&r &oLas Eras suben para todo el mundo, y con ellas la Fractura aprieta. Los viejos espíritus de la luz y la oscuridad ya no están encerrados. Lo que antes era una noche mala ahora es lo normal.", "", "&6Qué hacer:&r Haz que el mundo llegue al modo Experto de Majrusz. Es una dificultad del mundo, no personal: cuando se activa, todos lo notan.", "", "&6Premio:&r 2 cosas al azar: diamante, esmeraldas, oro o chatarra de netherita.", "&5A veces (7 %):&r un casco de diamante encantado con Protección."]
+			description: ["&#19E6E6Zykna:&r &oLas Eras suben para todo el mundo, y con ellas la Fractura aprieta. Los viejos espíritus de la luz y la oscuridad ya no están encerrados. Lo que antes era una noche mala ahora es lo normal.", "", "&6Qué hacer:&r Vence al Dragón del Fin y el mundo entra al modo Maestro de Majrusz. Es una dificultad del mundo, no personal: cuando se activa, todos lo notan.", "", "&6Premio:&r 2 cosas al azar: diamante, esmeraldas, oro o chatarra de netherita.", "&5A veces (7 %):&r un casco de diamante encantado con Protección."]
 			disable_toast: true
 			icon: "minecraft:wither_skeleton_skull"
 			id: "5F565FEE8E0AC655"
@@ -291,9 +291,9 @@
 				{
 					disable_toast: true
 					id: "0D30A421B29B5252"
-					icon: "minecraft:wither_skeleton_skull"
+					icon: "minecraft:dragon_head"
 					stage: "ecos_l_noches_experto_modo"
-					title: "El mundo entra en modo Experto"
+					title: "El mundo entra en modo Maestro"
 					type: "gamestage"
 				}
 			]
