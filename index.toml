@@ -270,6 +270,11 @@ file = "config/iceandfire-common.toml"
 hash = "2de6d64660aba8793748b02a3951e21c9e12a3e706cef5b2b8a7f68b3189066a"
 
 [[files]]
+file = "config/inventoryprofilesnext/inventoryprofiles.json"
+hash = "2fe6e55f255598770c6a0ec00d67cc948a970e9a156e68948ce272b3d0e4b826"
+preserve = true
+
+[[files]]
 file = "config/majruszsdifficulty.json"
 hash = "db5fb167f8d7efc956ca1a41f5e6b149fdcf6db4ebb042c8d5e60e497990a5a9"
 
@@ -481,6 +486,10 @@ hash = "7b9a96ed46ef09c5c676ced10b30bf0db82e183f819991f1a25c7522fa36cbb4"
 [[files]]
 file = "kubejs/client_scripts/ecos_reporte_cliente.js"
 hash = "1d952af66d40fae679ddf4c742e20ee4c36a56e16a895da5e4a719188b332669"
+
+[[files]]
+file = "kubejs/client_scripts/ecos_teclas.js"
+hash = "b9bdb98ba1939b109ecc38be04937bb4e41940f24456d9d7dcf5944cdaf7f79c"
 
 [[files]]
 file = "kubejs/client_scripts/ecos_ui_cliente.js"
@@ -2829,6 +2838,10 @@ hash = "7b5bdda452cc5b476c210521079b9ad794b3c7d2fd30e051b963f0fd9e57042b"
 [[files]]
 file = "kubejs/museo/zykna_retrato.json"
 hash = "3c96e8ffe119b137e5c6bfb2844b1eaa9438d004235c0d37a32d093bb513b173"
+
+[[files]]
+file = "kubejs/startup_scripts/ecos_boton_inventario.js"
+hash = "ba8ea2d7089923cdb8a92c7f050bdfc5d9237c0de56fb82b951ed767b56583dd"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_forge.js"
