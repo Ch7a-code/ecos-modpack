@@ -6,7 +6,7 @@ hash = "3fbedf46636cb67aaa05850b8ddd70fdee556e486df14502f3616acc21f99c78"
 
 [[files]]
 file = "config/DistantHorizons.toml"
-hash = "6c338bc345288f05f575286370435487cedb3db4b506fb450a7de9ea2d135185"
+hash = "c5e7dfa205f33dfc8210e3f08edecc73009485da8c88360f7306ba9b106462d0"
 preserve = true
 
 [[files]]
@@ -505,6 +505,10 @@ hash = "893951172273af1830b0937a674ef2d109e06f12d56f9899b8c1fbdd70221fda"
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_mv_mundo.json"
 hash = "bada6d9fb5bf7920bed6edfea9c1c5f7ddc149ad075657861c2ecb4a38f7848b"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/ecos_novedades.json"
+hash = "8d420e05e4eccf079f7da92f6719374ea4579dd3ecf47061db34ff5cf7e6f100"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_stats_cuerpo.json"
@@ -3572,6 +3576,11 @@ hash = "066ce5fc8bd3a62915687dab434516dd331d57b6ce83474cbd96a515c0082881"
 preserve = true
 
 [[files]]
+file = "resourcepacks/create-ultra-pbr.pw.toml"
+hash = "e32f70affb27a059a39c250f67b979a98f2696ffde54d9265bfed50ff9b227e8"
+metafile = true
+
+[[files]]
 file = "resourcepacks/patrix-32x.pw.toml"
 hash = "651fc4b215955ce32aa57014d8b30769eb1547e866996c1ad39511047f544008"
 metafile = true
@@ -3579,6 +3588,11 @@ metafile = true
 [[files]]
 file = "resourcepacks/patrix-ctm-override.pw.toml"
 hash = "38e4b242d8e2b4caf3e2406bb6ae13c8a4f050fe9305371db4f87f45ec844e69"
+metafile = true
+
+[[files]]
+file = "resourcepacks/spbr.pw.toml"
+hash = "ec2f6f1eb72eb0434eda941ac29f40cacff10bdcd2bc2e7231c23fbb6c8de13d"
 metafile = true
 
 [[files]]
@@ -6049,3 +6063,33 @@ hash = "155e1639ff4710142d4632854909f62524bd1face612edc33bf2aff2a407fca7"
 [[files]]
 file = "shaderpacks/ComplementaryUnbound_r5.8.1 + EuphoriaPatches_1.9.3/shaders/world1/voxy_translucent.glsl"
 hash = "873732bf4872d105393846f41f40cc6c39881b422a35a507ec12580083e57a65"
+
+[[files]]
+file = "shaderpacks/bliss-shader.pw.toml"
+hash = "8ffd81a5e0b4c3bc2daf0d86714ef56df4beb1ed87a5c41c4e9bbb94a7006bc1"
+metafile = true
+
+[[files]]
+file = "shaderpacks/bsl-shaders.pw.toml"
+hash = "31135d68099785a089f03c458fb5d1e8060a4ccec81dd3b8c36ae34ea4b9c121"
+metafile = true
+
+[[files]]
+file = "shaderpacks/complementary-reimagined.pw.toml"
+hash = "75d1d2488a0c332a9a58af7e57f980a1b006c02b3a1c580fbd50443088e4eab0"
+metafile = true
+
+[[files]]
+file = "shaderpacks/makeup-ultra-fast-shaders.pw.toml"
+hash = "1d892c58b3e1eede0f0380955b0e53bd6f55d5cbcefa4a6c15eae8d7924c0e26"
+metafile = true
+
+[[files]]
+file = "shaderpacks/rethinking-voxels.pw.toml"
+hash = "0a3f01f56afd065dc65dffb073b4fc5f9ae031aaef08d95d9df92e0093ac8504"
+metafile = true
+
+[[files]]
+file = "shaderpacks/solas-shader.pw.toml"
+hash = "085114584baeb503e8e92c8f1c440a3aa4414a85093043bbde627d268766d482"
+metafile = true

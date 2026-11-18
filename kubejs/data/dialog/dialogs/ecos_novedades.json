@@ -1,0 +1,181 @@
+{
+ "id": "ecos_novedades",
+ "title": "Novedades de ECOS",
+ "description": "Novedades de la actualización (ecos_novedades.js)",
+ "start": "1",
+ "entries": [
+  {
+   "id": "1",
+   "speaker": {
+    "text": "Zykna  ·  Novedades",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "",
+     "color": "#E8F3F3"
+    },
+    {
+     "nbt": "actual.p1",
+     "storage": "ecos:nov",
+     "interpret": true
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "2"
+  },
+  {
+   "id": "2",
+   "speaker": {
+    "text": "Zykna  ·  Novedades",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "",
+     "color": "#E8F3F3"
+    },
+    {
+     "nbt": "actual.p2",
+     "storage": "ecos:nov",
+     "interpret": true
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "3"
+  },
+  {
+   "id": "3",
+   "speaker": {
+    "text": "Zykna  ·  Novedades",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "",
+     "color": "#E8F3F3"
+    },
+    {
+     "nbt": "actual.p3",
+     "storage": "ecos:nov",
+     "interpret": true
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "4"
+  },
+  {
+   "id": "4",
+   "speaker": {
+    "text": "Zykna  ·  Novedades",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "",
+     "color": "#E8F3F3"
+    },
+    {
+     "nbt": "actual.p4",
+     "storage": "ecos:nov",
+     "interpret": true
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "5"
+  },
+  {
+   "id": "5",
+   "speaker": {
+    "text": "Zykna  ·  Novedades",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "",
+     "color": "#E8F3F3"
+    },
+    {
+     "nbt": "actual.p5",
+     "storage": "ecos:nov",
+     "interpret": true
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "6"
+  },
+  {
+   "id": "6",
+   "speaker": {
+    "text": "Zykna  ·  Novedades",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "",
+     "color": "#E8F3F3"
+    },
+    {
+     "nbt": "actual.p6",
+     "storage": "ecos:nov",
+     "interpret": true
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "options": [
+    {
+     "text": "✔  Entendido, ya lo leí",
+     "command": [
+      "zykna novedades ok"
+     ]
+    },
+    {
+     "text": "↺  Leer otra vez desde el principio",
+     "target": "1"
+    }
+   ]
+  }
+ ]
+}
