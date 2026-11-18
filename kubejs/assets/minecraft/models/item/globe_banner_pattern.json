@@ -1,0 +1,44 @@
+{
+ "parent": "minecraft:item/generated",
+ "textures": {
+  "layer0": "minecraft:item/globe_banner_pattern"
+ },
+ "overrides": [
+  {
+   "predicate": {
+    "custom_model_data": 7701
+   },
+   "model": "ecos:item/capsula_eter_1"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 7711
+   },
+   "model": "ecos:item/capsula_eter_1_llena"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 7702
+   },
+   "model": "ecos:item/capsula_eter_2"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 7712
+   },
+   "model": "ecos:item/capsula_eter_2_llena"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 7703
+   },
+   "model": "ecos:item/capsula_eter_3"
+  },
+  {
+   "predicate": {
+    "custom_model_data": 7713
+   },
+   "model": "ecos:item/capsula_eter_3_llena"
+  }
+ ]
+}

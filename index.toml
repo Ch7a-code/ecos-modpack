@@ -384,6 +384,30 @@ file = "kubejs/assets/ecos/lang/es_mx.json"
 hash = "a3ae43a2a8706cbe848a07e8676813666701745fd27de9ffe5bf6c78e1ab3bb9"
 
 [[files]]
+file = "kubejs/assets/ecos/models/item/capsula_eter_1.json"
+hash = "7941fc265c2f7bcee6983e5382fb6574fc63d6639af0df7c4d921d9d8f96f6a0"
+
+[[files]]
+file = "kubejs/assets/ecos/models/item/capsula_eter_1_llena.json"
+hash = "d6e29ece0ee8cfcbe2eda346031143fae9d3c7044b9185e6603a9a6502d9f506"
+
+[[files]]
+file = "kubejs/assets/ecos/models/item/capsula_eter_2.json"
+hash = "65d615048d5be717f76c4457cf2a3875f2199fb5ed35ced7851124d713d445dd"
+
+[[files]]
+file = "kubejs/assets/ecos/models/item/capsula_eter_2_llena.json"
+hash = "b174e069cebd68b661fd4eb2367573d10d38b6175c7f0e645e2da33f3bc4ffc0"
+
+[[files]]
+file = "kubejs/assets/ecos/models/item/capsula_eter_3.json"
+hash = "a1bc06108c97af562fde681454b6693cfd77c97e5caf3408e6a2d0047ceb38c3"
+
+[[files]]
+file = "kubejs/assets/ecos/models/item/capsula_eter_3_llena.json"
+hash = "4ff702c83a3fce3577da40aed4f94180f1ca4b4b4118383de3e48012617cd645"
+
+[[files]]
 file = "kubejs/assets/ecos/sounds.json"
 hash = "12e73fa838c6c169afafdc631b9465ba747a3873c9825fa405079137ad219790"
 
@@ -450,6 +474,30 @@ hash = "6c480bcd04e5d0b4c8d8afcfaaafa3c14ff9153897052eaa99c49975b54f5509"
 [[files]]
 file = "kubejs/assets/ecos/textures/gui/sistema/marco.png"
 hash = "66f32356f4b0e4148db97f3d92dd958fc25380591dd25a7ca3da049415e08219"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/item/capsula_eter_1.png"
+hash = "3077844bd0e83093cfeb56e2c94c0e6a51ab8ff91df60f2b9d4201093f7b0be2"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/item/capsula_eter_1_llena.png"
+hash = "b1ac0bb4c75935da21b3961a57c409665335658ecb61fc6b4269c0ddcbd1eeb6"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/item/capsula_eter_2.png"
+hash = "378f11769fc7438757d6df4cc680e588afe00d55b41d8f63b8aa3bc55c4a22df"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/item/capsula_eter_2_llena.png"
+hash = "9cdf7c69a4467b7f04283aabc1229b89d37882f458516bdf99161984d24f7ef5"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/item/capsula_eter_3.png"
+hash = "1d8b0905ac603a847f3c926c76679084368bcb58a6654b3147ef1c117b813c66"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/item/capsula_eter_3_llena.png"
+hash = "d8e93d616613c056b0aaa76482792f34270e4fcb5ac6b9bb3aa3404e83c347a9"
 
 [[files]]
 file = "kubejs/assets/enhancedcelestials/lang/es_es.json"
@@ -594,6 +642,10 @@ hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
 [[files]]
 file = "kubejs/assets/jade/lang/es_es.json"
 hash = "0ee95b14c7f06ffab34084cd9da06025537124ec59b4ce78bea6a223cb16685f"
+
+[[files]]
+file = "kubejs/assets/minecraft/models/item/globe_banner_pattern.json"
+hash = "fbcb1335f27500b226361ebedb6f955a9d4c2ecdb766baf4d7ebd2c280f19437"
 
 [[files]]
 file = "kubejs/assets/minecraft/textures/gui/container/generic_54.png"
@@ -3822,8 +3874,23 @@ hash = "066ce5fc8bd3a62915687dab434516dd331d57b6ce83474cbd96a515c0082881"
 preserve = true
 
 [[files]]
+file = "resourcepacks/animated-ore.pw.toml"
+hash = "cc13e1a848794fa42c81f68774b72779350e98c2e3112f322ab82c59708cd964"
+metafile = true
+
+[[files]]
 file = "resourcepacks/create-ultra-pbr.pw.toml"
 hash = "e32f70affb27a059a39c250f67b979a98f2696ffde54d9265bfed50ff9b227e8"
+metafile = true
+
+[[files]]
+file = "resourcepacks/glowing-emissive-ores-fusion.pw.toml"
+hash = "98e27b5da2be008c08c1a2d4d4d355ca94c8ab500bf594c27ee64e90f6ef0aa6"
+metafile = true
+
+[[files]]
+file = "resourcepacks/glowing-emissive-ores.pw.toml"
+hash = "1fda5f8f014f41b439d5b9866d9b2b51ce6405c3ba46c11db75c7620e4e9cfc5"
 metafile = true
 
 [[files]]
@@ -3834,6 +3901,11 @@ metafile = true
 [[files]]
 file = "resourcepacks/patrix-ctm-override.pw.toml"
 hash = "38e4b242d8e2b4caf3e2406bb6ae13c8a4f050fe9305371db4f87f45ec844e69"
+metafile = true
+
+[[files]]
+file = "resourcepacks/seamless-glowing-ores.pw.toml"
+hash = "b7d148eb857febbc2a4bf63c32ce0fa65067943e67f8d0baf251f33483fe4410"
 metafile = true
 
 [[files]]

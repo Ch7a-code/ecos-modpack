@@ -1,0 +1,13 @@
+name = "Seamless Glowing Ores"
+filename = "SeamlessGlowingOres.zip"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/NqARqOaz/versions/8wvCl5Td/SeamlessGlowingOres.zip"
+hash-format = "sha512"
+hash = "d10c6884e4f4c990080f486cca71e6d026264b417aa1dfd4075770c002b8a009e56de16b3f5a8fa39bf32422f8b49bf8617e66a33eee3157662f1d757b269b21"
+
+[update]
+[update.modrinth]
+mod-id = "NqARqOaz"
+version = "8wvCl5Td"
