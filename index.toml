@@ -364,12 +364,36 @@ file = "kubejs/assets/dialog/textures/portraits/zykna_cara.png"
 hash = "4b0e25547986c595acfae89e206e02135a3534d9e0bdd45893c7be585a67634d"
 
 [[files]]
+file = "kubejs/assets/ecos/lang/en_us.json"
+hash = "a3ae43a2a8706cbe848a07e8676813666701745fd27de9ffe5bf6c78e1ab3bb9"
+
+[[files]]
+file = "kubejs/assets/ecos/lang/es_es.json"
+hash = "a3ae43a2a8706cbe848a07e8676813666701745fd27de9ffe5bf6c78e1ab3bb9"
+
+[[files]]
+file = "kubejs/assets/ecos/lang/es_mx.json"
+hash = "a3ae43a2a8706cbe848a07e8676813666701745fd27de9ffe5bf6c78e1ab3bb9"
+
+[[files]]
 file = "kubejs/assets/ecos/sounds.json"
-hash = "cd573ce3790d0ec5f6364ca7a94dd0b7ef4e56e6c1a42f4fdf55107b72499e9f"
+hash = "3933cc2c0e0fcf40c2e4904ecdc52b3cef5712618317a81fb9abafa62f5329c6"
 
 [[files]]
 file = "kubejs/assets/ecos/sounds/intro.ogg"
 hash = "d600f70d63549d208e22e21e744fb9a10c0bcfa527bc0de1749406293216ff59"
+
+[[files]]
+file = "kubejs/assets/ecos/sounds/zykna/era.ogg"
+hash = "5d4fec04d53fa7a2215b3448e5865da015ff15bdd62ad1c092e0275d8ce39c0a"
+
+[[files]]
+file = "kubejs/assets/ecos/sounds/zykna/novedades.ogg"
+hash = "cda1e2c9ee74d7df76c14d1630a1a541e933d138fd1a472861dc6e6a088784aa"
+
+[[files]]
+file = "kubejs/assets/ecos/sounds/zykna/volviste.ogg"
+hash = "a9fecacabae5fd3c17932ded046957c2fa495a6ecf3c70c78014b83b5d8c9c12"
 
 [[files]]
 file = "kubejs/assets/ecos/textures/entity/maestro/bestias.png"
@@ -489,7 +513,7 @@ hash = "1d952af66d40fae679ddf4c742e20ee4c36a56e16a895da5e4a719188b332669"
 
 [[files]]
 file = "kubejs/client_scripts/ecos_teclas.js"
-hash = "b9bdb98ba1939b109ecc38be04937bb4e41940f24456d9d7dcf5944cdaf7f79c"
+hash = "5e67648384f50f7156a821b277a1eaf892a035cd5c476d7c785a62ede5d31ce8"
 
 [[files]]
 file = "kubejs/client_scripts/ecos_ui_cliente.js"
@@ -2841,11 +2865,11 @@ hash = "3c96e8ffe119b137e5c6bfb2844b1eaa9438d004235c0d37a32d093bb513b173"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_boton_inventario.js"
-hash = "ba8ea2d7089923cdb8a92c7f050bdfc5d9237c0de56fb82b951ed767b56583dd"
+hash = "425efe2c1ae0a1b4394eb88d00b6a8f9bb984a578c05698ad5d2871bde0d0c6b"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_forge.js"
-hash = "531561c45093ca3fd09db31a6bce81be8ccc5957b47c98acb9aa7b0bd84d1426"
+hash = "0bdc04b6a2367e265a7ad176d0bf0af6be2c4a184072b80e70150b0b997e33e5"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_items.js"

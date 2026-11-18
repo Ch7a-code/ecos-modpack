@@ -1,1 +1,38 @@
-{"intro":{"sounds":[{"name":"ecos:intro","stream":true,"attenuation_distance":1000}]}}
+{
+ "intro": {
+  "sounds": [
+   {
+    "name": "ecos:intro",
+    "stream": true,
+    "attenuation_distance": 1000
+   }
+  ]
+ },
+ "zykna.volviste": {
+  "subtitle": "subtitles.ecos.zykna.volviste",
+  "sounds": [
+   {
+    "name": "ecos:zykna/volviste",
+    "stream": false
+   }
+  ]
+ },
+ "zykna.novedades": {
+  "subtitle": "subtitles.ecos.zykna.novedades",
+  "sounds": [
+   {
+    "name": "ecos:zykna/novedades",
+    "stream": false
+   }
+  ]
+ },
+ "zykna.era": {
+  "subtitle": "subtitles.ecos.zykna.era",
+  "sounds": [
+   {
+    "name": "ecos:zykna/era",
+    "stream": false
+   }
+  ]
+ }
+}

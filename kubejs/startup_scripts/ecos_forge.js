@@ -121,9 +121,18 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.ShieldBlockEvent', f
 ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingSwapItemsEvent$Hands', function (e) {
   try {
     var p = e.getEntity();
-    if (!ecosEsJugador(p) || p.level.isClientSide() || !p.isShiftKeyDown()) return;
-    e.setCanceled(true);
-    p.server.runCommandSilent('execute as ' + p.username + ' run zykna mv menu');
+    if (!ecosEsJugador(p) || p.level.isClientSide()) return;
+    if (p.isShiftKeyDown()) {
+      e.setCanceled(true);
+      p.server.runCommandSilent('execute as ' + p.username + ' run zykna mv menu');
+      return;
+    }
+    // 18-nov: Ctrl + F → stats (el cliente avisa si tiene Ctrl apretado: server_scripts/ecos_teclas.js)
+    var T = global.ecosTeclas;
+    if (T && T.ctrl(String(p.username))) {
+      e.setCanceled(true);
+      T.abrir(p.server, String(p.username));
+    }
   } catch (err) {}
 });
 ForgeEvents.onEvent('net.minecraftforge.event.entity.player.ArrowLooseEvent', function (e) {

@@ -15,7 +15,7 @@ if (Platform.isClientEnvironment()) {
         var x = s.getGuiLeft() + 176 - 22, y = s.getGuiTop() - 22;
         var b = EBI_Btn.builder(EBI_Txt.literal('◈'), function (boton) {
           try { EBI_Mc.getInstance().player.sendData('ecos_tecla', { k: 'stats' }); } catch (e) { console.info('[ECOS-TECLAS] botón: ' + e); }
-        }).bounds(x, y, 20, 20).tooltip(EBI_Tip.create(EBI_Txt.literal('Mi Eco · stats (Ctrl + S)'))).build();
+        }).bounds(x, y, 20, 20).tooltip(EBI_Tip.create(EBI_Txt.literal('Mi Eco · stats (Ctrl + F)'))).build();
         event.addListener(b);
       } catch (e) { console.info('[ECOS-TECLAS] inventario: ' + e); }
     });
