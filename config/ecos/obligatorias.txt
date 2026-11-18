@@ -6,3 +6,5 @@
 #
 # Nubes propias de Distant Horizons: se ven raras con el shader (Cha 08:05)
 config/DistantHorizons.toml|enableCloudRendering|false|toml
+# Sombras del shader apagadas: con ellas el cielo y la escena cambian de golpe al girar la cámara (arreglo del 18-nov; Cha 08:26)
+shaderpacks/ComplementaryUnbound_r5.8.1 + EuphoriaPatches_1.9.3.txt|SHADOW_QUALITY|-1|prop

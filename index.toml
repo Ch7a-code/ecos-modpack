@@ -115,7 +115,7 @@ hash = "62033834104179f7b83d06ce99974bdd9ac2d7d5bbd49d712c0772ab405e2947"
 
 [[files]]
 file = "config/ecos/obligatorias.txt"
-hash = "6655edff8c669fa6f41e785a5d5a229bb7e086c2b9ac78b06bb82c2b5c76893a"
+hash = "99cc451909f4c883f988f975fcdfa86e63765daaba5d4b0121078f9c1c67f5ca"
 
 [[files]]
 file = "config/fancymenu/assets/ecos_btn_hover.png"
@@ -480,7 +480,7 @@ hash = "7b9a96ed46ef09c5c676ced10b30bf0db82e183f819991f1a25c7522fa36cbb4"
 
 [[files]]
 file = "kubejs/client_scripts/ecos_reporte_cliente.js"
-hash = "668bb75af6dfc16f900dd0448cb154572fef98e55ea882d82fd453335150679b"
+hash = "1d952af66d40fae679ddf4c742e20ee4c36a56e16a895da5e4a719188b332669"
 
 [[files]]
 file = "kubejs/client_scripts/ecos_ui_cliente.js"

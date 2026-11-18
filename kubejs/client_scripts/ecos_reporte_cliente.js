@@ -1,6 +1,10 @@
 // ECOS v12.2 · Datos del cliente para los reportes (server_scripts/ecos_reportes.js). Cuando alguien escribe «reporte ...» el
 // servidor pregunta y este script le contesta con sus FPS, su distancia de render y el shader que trae activo. Solo lectura:
 // no cambia nada del juego. Llega con la actualización automática (Prism).
+// Al entrar, le dice al servidor qué versión del pack trae (ecos_aviso_pack.js solo avisa a quien NO la tenga)
+ClientEvents.loggedIn(function (event) {
+  try { Client.player.sendData('ecos_pack', { v: '12.2', prism: true }); } catch (e) { console.info('[ECOS-PACK] no pude avisar: ' + e); }
+});
 NetworkEvents.dataReceived('ecos_diag_pide', function (event) {
   var fps = -1, render = -1, shaders = '';
   try { fps = Number(Client.getFps()); } catch (e) {
