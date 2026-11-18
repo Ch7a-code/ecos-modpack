@@ -1,0 +1,97 @@
+{
+ "id": "tutorial_beast",
+ "title": "Tu don",
+ "description": "Tutorial del poder Leonantropía",
+ "start": "1",
+ "entries": [
+  {
+   "id": "1",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Tu don es Leonantropía, de la familia Bestias. Transfórmate en una criatura leonina, ganando fuerza poderosa, agilidad e instintos territoriales agudizados."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "2"
+  },
+  {
+   "id": "2",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Para qué sirve en el grupo: Peleas cuerpo a cuerpo y te transformas: tu fuerza crece cuando te acercas."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "3"
+  },
+  {
+   "id": "3",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Cómo se usa: B entra en modo batalla y las teclas 1 a 5 lanzan tus habilidades; el 6 cambia al siguiente grupo. En E → Poderes ves tu árbol: ahí compras mejoras con tus puntos de habilidad."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "4"
+  },
+  {
+   "id": "4",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Tu Maestro es Ocelotzin, la Última Domadora. Vive en el Cuenco de los Huesos. Su prueba te da 10 puntos de habilidad y su marca. Escribe mision para ver los pasos."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "5"
+  },
+  {
+   "id": "5",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Si lo olvidas, escribe poder en el chat y te lo repito. Para las teclas de combate, escribe combate."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ]
+  }
+ ]
+}

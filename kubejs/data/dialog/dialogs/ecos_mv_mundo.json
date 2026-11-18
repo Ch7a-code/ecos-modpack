@@ -1,0 +1,88 @@
+{
+ "id": "ecos_mv_mundo",
+ "title": "Sistema de Zykna",
+ "description": "Era del mundo y Portadores (ecos_misiones_v2.js)",
+ "start": "mundo",
+ "entries": [
+  {
+   "id": "mundo",
+   "speaker": {
+    "text": "Zykna  ·  Sistema",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "",
+     "color": "#E8F3F3"
+    },
+    {
+     "nbt": "actual.cab",
+     "storage": "ecos:mv",
+     "interpret": true
+    },
+    {
+     "text": "\n"
+    },
+    {
+     "nbt": "actual.regla",
+     "storage": "ecos:mv",
+     "interpret": true
+    },
+    {
+     "text": "\n"
+    },
+    {
+     "text": "\n"
+    },
+    {
+     "nbt": "actual.jefes",
+     "storage": "ecos:mv",
+     "interpret": true
+    },
+    {
+     "text": "\n"
+    },
+    {
+     "text": "\n"
+    },
+    {
+     "nbt": "actual.ritual",
+     "storage": "ecos:mv",
+     "interpret": true
+    },
+    {
+     "text": "\n\n"
+    },
+    {
+     "nbt": "actual.futuro",
+     "storage": "ecos:mv",
+     "interpret": true
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "options": [
+    {
+     "text": "▶  Continuar",
+     "target": "mundo",
+     "command": [
+      "zykna mv continuar"
+     ]
+    },
+    {
+     "text": "◂  Menú",
+     "target": "mundo",
+     "command": [
+      "zykna mv menu"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+  PresetMetadata:{author:"ECOS",category:"ECOS",created:1763280000000L,description:"Maestro de la familia espiritu (ECOS v12.1). Generado por tools/gen_maestros.py; no editar a mano.",entityTypeId:"easy_npc:humanoid",modified:1763280000000L,name:"Yohualli, el Custodio de la Vela",variantType:"EFE",version:"1.0.0"},
+  data:{
+    id:"easy_npc:humanoid",
+    EasyNPCVersion:3,
+    VariantType:"EFE",
+    CustomName:'{"text": "Yohualli, el Custodio de la Vela", "color": "#B98CFF"}',
+    CustomNameVisible:1b,
+    Invulnerable:1b,
+    PersistenceRequired:1b,
+    CanPickUpLoot:0b,
+    Tags:["ecos_maestro_npc","ecos_maestro_npc_espiritu"],
+    SkinData:{Type:"RESOURCE_LOCATION",Texture:"ecos:textures/entity/maestro/espiritu.png"},
+    Attributes:[{Base:0.0d,Name:"minecraft:generic.movement_speed"},{Base:1.0d,Name:"minecraft:generic.knockback_resistance"}],
+    EntityAttribute:{IsInvulnerable:1b,IsAttackableByPlayers:0b,IsAttackableByMonsters:0b,IsKnockbackResistant:1b,IsExplosionResistant:1b,IsPushable:0b,PushEntities:0b,CanBeLeashed:0b},
+    ObjectiveData:{ObjectiveDataSet:[{Type:"LOOK_AT_RESET"},{Type:"LOOK_AT_PLAYER"},{Type:"LOOK_AT_MOB"}]},
+    ActionData:{ActionEventSet:{ON_INTERACTION:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro espiritu hablar",PermLevel:2},{Type:"OPEN_DEFAULT_DIALOG"}]}},
+    DialogData:{Type:"CUSTOM",DialogDataSet:[
+      {Name:"Bendicion",Label:"bendicion",Priority:100,Texts:[{Text:"Llevas mi marca, @initiator. Cuando todo se apague, tú no.\\n\\nSi la oscuridad te pesa, ven a sentarte junto a la vela."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_espiritu_g2"}],Buttons:[{Name:"Gracias",Label:"b_gracias",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Lista",Label:"lista",Priority:50,Texts:[{Text:"Ya cumpliste, @initiator. Los que cayeron te lo agradecen.\\n\\nQuédate quieto un momento: aquí va mi marca."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_espiritu_lista"}],Buttons:[{Name:"Recibir tu marca",Label:"b_marca",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro espiritu marca",PermLevel:2},{Type:"CLOSE_DIALOG"}]},{Name:"Todavía no",Label:"b_luego",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Progreso",Label:"progreso",Priority:20,Texts:[{Text:"La vela te reconoce, @initiator. Llevas @score(ecos_mpasos) de 5 pasos.\\n\\nLa sombra no es enemiga. Es donde descansa la luz."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_espiritu_aceptada"}],Buttons:[{Name:"¿Qué me falta?",Label:"b_pasos",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro espiritu pasos",PermLevel:2},{Type:"CLOSE_DIALOG"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Saludo",Label:"saludo",Priority:10,Texts:[{Text:"No apagues la vela, @initiator. Soy Yohualli. Morí con el personal del Proyecto y aprendí a no desvanecerme.\\n\\nTu astilla camina entre sombras como la mía. Si quieres mi marca, demuéstrame que sabes honrar a los que caen."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_fam_espiritu"}],Buttons:[{Name:"Acepto tu prueba",Label:"b_acepto",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro espiritu aceptar",PermLevel:2},{Type:"OPEN_NAMED_DIALOG",Cmd:"aceptada"}]},{Name:"¿Quién eres?",Label:"b_quien",Actions:[{Type:"OPEN_NAMED_DIALOG",Cmd:"quien"}]},{Name:"Ahora no",Label:"b_ahora_no",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Ajeno",Label:"ajeno",Priority:0,Texts:[{Text:"Tu astilla no ve en la oscuridad, @initiator. Mi marca te dejaría ciego.\\n\\nTu Maestro está en otra parte. Zykna conoce el rumor."}],Buttons:[{Name:"¿Quién eres?",Label:"b_quien",Actions:[{Type:"OPEN_NAMED_DIALOG",Cmd:"quien"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Quien",Label:"quien",Priority:-1,Texts:[{Text:"Mi nombre quiere decir noche. Soy lo que queda de alguien: una Conciencia, memoria que no quiso irse.\\n\\nCuido esta vela porque, mientras arda, sigo aquí."}],Buttons:[{Name:"Volver",Label:"b_volver",Actions:[{Type:"OPEN_DEFAULT_DIALOG"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Aceptada",Label:"aceptada",Priority:-1,Texts:[{Text:"Que así sea. Son cinco pasos. El primero es el camino hasta la torre y vencer a su guardián de hueso.\\n\\nZykna te los dice. Vuelve cuando estén hechos; la vela te espera."}],Buttons:[{Name:"Entendido",Label:"b_entendido",Actions:[{Type:"CLOSE_DIALOG"}]}]}
+    ]},
+    Status:{finalized:1b}
+  }
+}

@@ -1,0 +1,572 @@
+{
+ "id": "guia_zykna",
+ "title": "Guía de Zykna",
+ "description": "Menú de ayuda con botones",
+ "start": "menu",
+ "entries": [
+  {
+   "id": "menu",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "¿En qué te ayudo? Elige un tema. Me abres cuando quieras escribiendo guia en el chat."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "options": [
+    {
+     "text": "¿Qué hago ahora?",
+     "target": "lab1",
+     "visibility_command": "execute if entity @s[nbt={Dimension:\"ecos:lab\"}]"
+    },
+    {
+     "text": "¿Qué hago ahora?",
+     "target": "mundo1",
+     "visibility_command": "execute unless entity @s[nbt={Dimension:\"ecos:lab\"}]"
+    },
+    {
+     "text": "Mi poder: Leonantropía",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_beast"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_beast]"
+    },
+    {
+     "text": "Mi poder: Tauroantropía",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_bull"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_bull]"
+    },
+    {
+     "text": "Mi poder: Licantropía",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_canine"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_canine]"
+    },
+    {
+     "text": "Mi poder: Wendigoísmo",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_cannibal"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_cannibal]"
+    },
+    {
+     "text": "Mi poder: Sauroantropía",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_reptile"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_reptile]"
+    },
+    {
+     "text": "Mi poder: Selacantropía",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_predator"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_predator]"
+    },
+    {
+     "text": "Mi poder: Quimerantropía",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_aberrant"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_aberrant]"
+    },
+    {
+     "text": "Mi poder: Nargacugamía",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_monster"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_monster]"
+    },
+    {
+     "text": "Mi poder: Magalantropía",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_wyvern"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_wyvern]"
+    },
+    {
+     "text": "Mi poder: Electrocinesis",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_spark"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_spark]"
+    },
+    {
+     "text": "Mi poder: Criocinesis",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_icicle"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_icicle]"
+    },
+    {
+     "text": "Mi poder: Magmacinesis",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_magma"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_magma]"
+    },
+    {
+     "text": "Mi poder: Manipulación del Clima",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_tempest"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_tempest]"
+    },
+    {
+     "text": "Mi poder: Manipulación de la Luz",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_photon"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_photon]"
+    },
+    {
+     "text": "Mi poder: Hidrocinesis",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_marine"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_marine]"
+    },
+    {
+     "text": "Mi poder: Vampirismo",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_bloodsucker"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_bloodsucker]"
+    },
+    {
+     "text": "Mi poder: Manipulación de Sangre",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_bloodweaver"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_bloodweaver]"
+    },
+    {
+     "text": "Mi poder: Neogénesis",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_mender"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_mender]"
+    },
+    {
+     "text": "Mi poder: Maestría Micológica",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_parasite"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_parasite]"
+    },
+    {
+     "text": "Mi poder: Secreción de Veneno",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_toxin"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_toxin]"
+    },
+    {
+     "text": "Mi poder: Manipulación de Energía Astral",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_beyonder"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_beyonder]"
+    },
+    {
+     "text": "Mi poder: Manipulación de Planos",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_drifter"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_drifter]"
+    },
+    {
+     "text": "Mi poder: Reubicación",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_threshold"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_threshold]"
+    },
+    {
+     "text": "Mi poder: Manipulación Neuroquímica",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_phobia"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_phobia]"
+    },
+    {
+     "text": "Mi poder: Geocinesis",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_rock"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_rock]"
+    },
+    {
+     "text": "Mi poder: Mimetismo de Diamante",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_fortress"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_fortress]"
+    },
+    {
+     "text": "Mi poder: Mimetismo de Piedra",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_thing"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_thing]"
+    },
+    {
+     "text": "Mi poder: Infusión Metalúrgica",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_smith"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_smith]"
+    },
+    {
+     "text": "Mi poder: Manipulación de Vidrio",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_vitrum"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_vitrum]"
+    },
+    {
+     "text": "Mi poder: Manifestación de Espíritus",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_veilbinder"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_veilbinder]"
+    },
+    {
+     "text": "Mi poder: Umbracinesis",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_pitch"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_pitch]"
+    },
+    {
+     "text": "Mi poder: Pirafenixis",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_phoenix"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_phoenix]"
+    },
+    {
+     "text": "Mi poder: Manipulación Ósea",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_marrow"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_marrow]"
+    },
+    {
+     "text": "Mi poder: Hipervelocidad",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_speedster"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_speedster]"
+    },
+    {
+     "text": "Mi poder: Destreza Física Mejorada",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_champion"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_champion]"
+    },
+    {
+     "text": "Mi poder: Control Celular Polimórfico",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_experiment"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_experiment]"
+    },
+    {
+     "text": "Mi poder: Elasticidad",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_contortionist"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_contortionist]"
+    },
+    {
+     "text": "Mi poder: Manipulación Genética",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_mimic"
+     ],
+     "visibility_command": "execute if entity @s[tag=ecos_poder_mimic]"
+    },
+    {
+     "text": "Mi misión y mi Maestro",
+     "target": "ventana",
+     "command": [
+      "zykna mision"
+     ]
+    },
+    {
+     "text": "Teclas y combate",
+     "target": "menu",
+     "command": [
+      "dialog show tutorial_combate"
+     ]
+    },
+    {
+     "text": "Las Obras del Templo",
+     "target": "ventana",
+     "command": [
+      "zykna obras"
+     ]
+    },
+    {
+     "text": "La historia y las Eras",
+     "target": "eras1"
+    },
+    {
+     "text": "Palabras que entiendo",
+     "target": "palabras"
+    },
+    {
+     "text": "Cerrar",
+     "target": "fin"
+    }
+   ]
+  },
+  {
+   "id": "lab1",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Estás en el laboratorio central del Proyecto Éter. Recórrelo completo: cada sala tiene algo y hay cajas con cosas para el viaje. Tus poderes están completos aquí adentro: pruébalos en el entrenamiento del sótano."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "lab2"
+  },
+  {
+   "id": "lab2",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Para salir hay que activar 3 sellos: en el Arsenal (planta baja), en el Archivo (segundo nivel) y en el Reactor (sótano). Un sello no responde si quedan criaturas sueltas en su sala."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "lab3"
+  },
+  {
+   "id": "lab3",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "El teletransportador del reactor no los deja salir hasta ver todas las salas. Antes de mandarlos afuera les voy a preguntar si están listos: afuera es peligroso."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "options": [
+    {
+     "text": "Volver al menú",
+     "target": "menu"
+    }
+   ]
+  },
+  {
+   "id": "mundo1",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Antes de la primera noche: refugio, cama y comida. Afuera está el Templo de la Conciencia: ahí empieza todo."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "mundo2"
+  },
+  {
+   "id": "mundo2",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Luego tu Prueba: escribe mision y ahí salen tus 5 pasos. Al cumplirlos recibes la marca de tu Maestro y 10 puntos de habilidad. Junten a su grupo: solos duran poco."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "options": [
+    {
+     "text": "Volver al menú",
+     "target": "menu"
+    }
+   ]
+  },
+  {
+   "id": "eras1",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Eres un Eco: una copia de respaldo con una astilla de la Primera Mente. Cuando ella se rompió, cada fragmento guardó un mundo: el Crepúsculo, el Aether, Blue Skies."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "eras2"
+  },
+  {
+   "id": "eras2",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "La Era es del mundo, no de una persona. Sube cuando cae un Portador y el grupo hace el ritual en el Templo con sus ofrendas. Cada Era abre armas, vehículos y viajes. Al final espera Maledictus."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "options": [
+    {
+     "text": "Volver al menú",
+     "target": "menu"
+    }
+   ]
+  },
+  {
+   "id": "palabras",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Escribe en el chat: mision (tu ventana), guia (este menú), poder, combate, obras, rastreador (fijarlo o quitarlo), hud (apagar o prender mis avisos), codice (te doy otro Códice)."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "options": [
+    {
+     "text": "Volver al menú",
+     "target": "menu"
+    }
+   ]
+  },
+  {
+   "id": "ventana",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Te la dejé a la derecha de la pantalla. Se cierra sola en unos segundos."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ]
+  },
+  {
+   "id": "fin",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Aquí estoy. Escribe guia cuando me necesites."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ]
+  }
+ ]
+}

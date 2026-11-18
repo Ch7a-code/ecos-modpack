@@ -1,0 +1,3143 @@
+{
+  "name": "Hypervelocity",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/speed.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "energy_bars": {
+    "speed_percent": {
+      "color": "#4daae9",
+      "max": 100,
+      "synced_value": {
+        "type": "score",
+        "objective": "Speed.Velocity",
+        "fallback": 0
+      }
+    }
+  },
+  "abilities": {
+    "Speedster": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Speedster",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "scoreboard objectives add Speed.Velocity dummy",
+        "scoreboard players set @s Speed.Velocity 0",
+        "scoreboard objectives add EOP.Dodge.Animation dummy",
+        "scoreboard players set @s EOP.Dodge.Animation 0",
+        "scoreboard objectives add HV.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Speedster",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "tag @s remove Waypoint.Can.Remove",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Hypervelocity": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/speed.png",
+      "title": "Hypervelocity",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to run and incredible speeds"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:speedster @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{speedster:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Hypervelocity\",\"color\":\"blue\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "HV.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s HV.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "HV.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "HV.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s HV.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "HV.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "HV.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s HV.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "HV.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "HV.Scoreboard.Gain4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s HV.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 21600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "HV.Score",
+            "min_score": 15,
+            "max_score": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "HV.Scoreboard.Gain5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s HV.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 36000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "HV.Score",
+            "min_score": 18,
+            "max_score": 19
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Speed": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 10% more movement speed",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.1,
+      "operation": 1,
+      "uuid": "92b250c4-8d3c-47fb-b66a-38ef47173253",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Hypervelocity"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "HV.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/speed.png",
+            "description": {
+              "text": "Hypervelocity Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Speed2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 10% more movement speed",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.1,
+      "operation": 1,
+      "uuid": "0f19ae75-ea37-4968-a97d-e9b3709d9ad0",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "HV.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/speed.png",
+            "description": {
+              "text": "Hypervelocity Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Speed3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 10% more movement speed",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.1,
+      "operation": 1,
+      "uuid": "820b855f-778a-4bf2-a8ee-0fbf1ab34de5",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "HV.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/speed.png",
+            "description": {
+              "text": "Hypervelocity Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Speed4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 10% more movement speed",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.1,
+      "operation": 1,
+      "uuid": "7b4c60af-d519-4abe-98af-8fedbe4066a4",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "HV.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/speed.png",
+            "description": {
+              "text": "Hypervelocity Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Customization.Condition": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Can.Customize"
+          }
+        ]
+      }
+    },
+    "Reduced.Hunger": {
+      "type": "eop:slower_hunger",
+      "reduction_factor": 0.05,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Activate.Speed"
+          }
+        ]
+      }
+    },
+    "Regen": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 20,
+      "amount": 1
+    },
+    "Arrow.Get.Swing": {
+      "type": "palladium:projectile",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Gravity": 0,
+        "Size": 0,
+        "Lifetime": 1,
+        "DieOnEntityHit": false,
+        "DieOnBlockHit": false
+      },
+      "inaccuracy": 0,
+      "velocity": 0,
+      "swinging_arm": "main_arm",
+      "damage_from_player": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:command_result",
+            "command": "execute anchored eyes positioned ^ ^ ^2.1 if entity @e[type=arrow,distance=..3]",
+            "comparison": "==",
+            "compare_to": 1,
+            "log": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:empty_slot",
+            "slot": "mainhand"
+          }
+        ]
+      }
+    },
+    "Arrow.Get.Swing.Offhand": {
+      "type": "palladium:projectile",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Gravity": 0,
+        "Size": 0,
+        "Lifetime": 1,
+        "DieOnEntityHit": false,
+        "DieOnBlockHit": false
+      },
+      "inaccuracy": 0,
+      "velocity": 0,
+      "swinging_arm": "off_arm",
+      "damage_from_player": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:command_result",
+            "command": "execute anchored eyes positioned ^ ^ ^2.1 if entity @e[type=arrow,distance=..3]",
+            "comparison": "==",
+            "compare_to": 1,
+            "log": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:empty_slot",
+            "slot": "offhand"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:empty_slot",
+                "slot": "mainhand"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Arrow.Get": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "last_tick_commands": [],
+      "commands": [
+        "execute anchored eyes positioned ^ ^ ^2.1 as @e[type=arrow,distance=..3] run data modify entity @s inGround set value 1b",
+        "execute anchored eyes positioned ^ ^ ^2.1 as @e[type=arrow,distance=..3] run data modify entity @s pickup set value 1b",
+        "execute anchored eyes positioned ^ ^ ^2.1 at @e[type=arrow,distance=..3] run tp @e[type=arrow,distance=..0.1] @s"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Arrow.Get.Swing"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Arrow.Get.Swing.Offhand"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Speed.Stage1": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Speed.Stage1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Activate.Speed.Unlock"
+          }
+        ]
+      }
+    },
+    "Speed.Stage2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Speed.Stage2"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "tag @s remove Speed.Stage1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Speed.Punches.Unlock"
+          }
+        ]
+      }
+    },
+    "Speed.Stage3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Speed.Stage3"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "tag @s remove Speed.Stage2"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Vibrate.Unlock"
+          }
+        ]
+      }
+    },
+    "Speed.Stage4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Speed.Stage4"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "tag @s remove Speed.Stage3"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Waypoint.Unlock"
+          }
+        ]
+      }
+    },
+    "Speed.Stage5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Speed.Stage5"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "tag @s remove Speed.Stage4"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Lightning.Unlock"
+          }
+        ]
+      }
+    },
+    "Speed.Limit1": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players set @s Speed.Velocity 20"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Speed.Stage1"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Speed.Velocity",
+            "min_score": 20,
+            "max_score": 200
+          }
+        ]
+      }
+    },
+    "Speed.Limit2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players set @s Speed.Velocity 40"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Speed.Stage2"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Speed.Velocity",
+            "min_score": 40,
+            "max_score": 200
+          }
+        ]
+      }
+    },
+    "Speed.Limit3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players set @s Speed.Velocity 60"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Speed.Stage3"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Speed.Velocity",
+            "min_score": 60,
+            "max_score": 200
+          }
+        ]
+      }
+    },
+    "Speed.Limit4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players set @s Speed.Velocity 80"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Speed.Stage4"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Speed.Velocity",
+            "min_score": 80,
+            "max_score": 200
+          }
+        ]
+      }
+    },
+    "Speed.Limit5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players set @s Speed.Velocity 100"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Speed.Stage5"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Speed.Velocity",
+            "min_score": 100,
+            "max_score": 200
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Dodge",
+      "description": "Dodge most attacks just before being hit. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/dodge.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Reflex.Dodge": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "icon": "eop:textures/gui/dodge.png",
+      "title": "Dodge",
+      "list_index": 0,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 20,
+            "ticks": 40,
+            "key_type": "right_click",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Lightning"
+              }
+            ]
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:speedster"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Reflex.Dodge.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 0.5 1.5",
+        "scoreboard players add @s EOP.Dodge.Animation 1",
+        "execute if score @s EOP.Dodge.Animation matches 1 run tag @s add Dodge.Anim1",
+        "execute if score @s EOP.Dodge.Animation matches 2 run tag @s add Dodge.Anim2",
+        "execute if score @s EOP.Dodge.Animation matches 2.. run scoreboard players set @s EOP.Dodge.Animation 0"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Speed.Dodge"
+          }
+        ]
+      }
+    },
+    "Reflex.Dodge.Anim": {
+      "type": "palladium:animation_timer",
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Dodge.Anim1"
+          }
+        ]
+      }
+    },
+    "Reflex.Dodge.Anim2": {
+      "type": "palladium:animation_timer",
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Dodge.Anim2"
+          }
+        ]
+      }
+    },
+    "Reflex.Dodge.Anim.End": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "tag @s remove Speed.Dodge",
+        "tag @s remove Dodge.Anim1",
+        "tag @s remove Dodge.Anim2"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:animation_timer_ability",
+                "ability": "Reflex.Dodge.Anim",
+                "min": 2,
+                "max": 2
+              },
+              {
+                "type": "palladium:animation_timer_ability",
+                "ability": "Reflex.Dodge.Anim2",
+                "min": 2,
+                "max": 2
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Activate.Speed.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "#eop:icons/speedster/superspeed",
+      "title": "Hyperspeed",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "description": "Activate your incredible speed. §dScroll up or down §fwhile holding this ability to change your speed",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Hypervelocity"
+          }
+        ]
+      }
+    },
+    "Activate.Speed.Hold": {
+      "type": "palladium:command",
+      "icon": "#eop:icons/speedster/superspeed",
+      "title": "Hyperspeed",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Activate.Speed.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Lightning"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Activate.Speed": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/superspeed.png",
+      "title": "Hyperspeed",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound eop:speed_start master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [
+        "execute if score @s Speed.Velocity matches 1.. run scoreboard players set @s Speed.Velocity 0",
+        "playsound eop:speed_start master @a ~ ~ ~ 1 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Speed.Velocity",
+            "min_score": 3,
+            "max_score": 200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Activate.Speed.Hold"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Lightning"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Running.Sounds": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "sound": "eop:speed_running",
+      "volume": 1,
+      "pitch": 1,
+      "looping": true,
+      "play_self": false,
+      "play_others": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Activate.Speed"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Lightning"
+              }
+            ]
+          },
+          {
+            "type": "palladium:sprinting"
+          }
+        ]
+      }
+    },
+    "Speed.Up": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "scoreboard players add @s[predicate=!eop:is_sneaking] Speed.Velocity 3",
+        "scoreboard players set @s[predicate=eop:is_sneaking] Speed.Velocity 100",
+        "execute if score @s Speed.Velocity matches 100.. run scoreboard players set @s[predicate=!eop:is_sneaking] Speed.Velocity 100"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "scroll_up",
+            "allow_scrolling_when_crouching": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Activate.Speed.Hold"
+          }
+        ]
+      }
+    },
+    "Speed.Down": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "scoreboard players set @s[predicate=eop:is_sneaking] Speed.Velocity 0",
+        "scoreboard players remove @s[predicate=!eop:is_sneaking] Speed.Velocity 3",
+        "execute if score @s Speed.Velocity matches ..0 run scoreboard players set @s Speed.Velocity 0"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "scroll_down",
+            "allow_scrolling_when_crouching": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Activate.Speed.Hold"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Speed.Increase.Suit": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 1,
+      "operation": 1,
+      "uuid": "ee558c4a-61b6-4078-b056-0b41b105df14",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:wears_suit_set",
+            "suit_set": "eop:speedster"
+          }
+        ]
+      }
+    },
+    "Speed.Increase.Power": {
+      "type": "eop:attribute_increase",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "score_value": "Speed.Velocity",
+      "division_amount": "400",
+      "attribute": "minecraft:generic.movement_speed",
+      "uuid": "abce5aa3-7c43-42bc-ace0-aaed0f51cbcb",
+      "modifier": "addition",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Activate.Speed"
+          }
+        ]
+      }
+    },
+    "Step.Assist": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/superspeed.png",
+      "title": "Hyperspeed",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "scale set pehkui:step_height 5"
+      ],
+      "last_tick_commands": [
+        "scale reset pehkui:step_height @s"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Activate.Speed"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Lightning"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:sprinting"
+          }
+        ]
+      }
+    },
+    "Step.Assist2": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/superspeed.png",
+      "title": "Hyperspeed",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "scale set pehkui:step_height 2"
+      ],
+      "last_tick_commands": [
+        "execute unless predicate eop:is_sprinting run scale reset pehkui:step_height @s"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Activate.Speed"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Lightning"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:sprinting"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Phase.Bush": {
+      "type": "palladium:intangibility",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "vertical": false,
+      "whitelist": "eop:bush_cobweb",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Activate.Speed"
+              }
+            ]
+          },
+          {
+            "type": "palladium:sprinting"
+          }
+        ]
+      }
+    },
+    "Zoom": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:speedster_zoom master @a ~ ~ ~ 1 1.5"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Activate.Speed"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Lightning"
+              }
+            ]
+          },
+          {
+            "type": "palladium:sprinting"
+          }
+        ]
+      }
+    },
+    "Always.On.Ground.Forge": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "forge:entity_gravity",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "a0e99600-b1a3-4bfc-8d05-5aa726fe44af",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Activate.Speed"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Lightning"
+              }
+            ]
+          },
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:on_ground"
+          }
+        ]
+      }
+    },
+    "Attack.Speed": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 1,
+      "operation": 1,
+      "uuid": "6b86a7a2-e8be-444c-98d9-cc4b88773a4c",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Activate.Speed"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Lightning"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mining.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:destroy_speed",
+      "amount": 8,
+      "operation": 1,
+      "uuid": "d7df0987-7390-417b-9a33-3e09609398ea",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Activate.Speed"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Lightning"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Speed.Fall.Immune": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "minecraft:is_fall"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Activate.Speed"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Lightning"
+              }
+            ]
+          },
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:in_water"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Fast.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 1,
+      "operation": 1,
+      "uuid": "8c131cd4-80c4-491b-8c6a-f3dd7b323818",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Activate.Speed"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Lightning"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Sprint.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 6,
+      "operation": 1,
+      "uuid": "2ffe76df-5d3e-4075-9eaf-02b9b0ee3311",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Activate.Speed"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Lightning"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Swim.Speed.Forge": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "forge:swim_speed",
+      "amount": 6,
+      "operation": 1,
+      "uuid": "95cbd838-6ebc-42ad-804e-8f4d8b407f40",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Activate.Speed"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Lightning"
+              }
+            ]
+          },
+          {
+            "type": "palladium:in_water"
+          }
+        ]
+      }
+    },
+    "Swim.Particles": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "particle minecraft:bubble ~ ~ ~ 0.1 0.3 0.1 0 30",
+        "particle eop:water ~ ~ ~ 0.1 0.3 0.1 0 3"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Activate.Speed"
+          },
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:in_water"
+          }
+        ]
+      }
+    },
+    "Trail": {
+      "type": "palladium:trail",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "trail": "eop:speed_trail",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:in_water"
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Activate.Speed"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Sparks": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:speedster/sparks",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:or",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_enabled",
+                    "ability": "Activate.Speed"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Waypoint.Switch.Animation",
+                "property": "value",
+                "min": 1,
+                "max": 20
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Wall.Climb.Check": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Activate.Speed"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Lightning"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Wall.Climb": {
+      "type": "eop:wall_climb",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "climb_speed": 2.3,
+      "allow_wall_jump": false,
+      "jump_force": 1.6,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Activate.Speed"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Lightning"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Vibrate"
+              }
+            ]
+          },
+          {
+            "type": "palladium:is_moving"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Climbing.On"
+          }
+        ]
+      }
+    },
+    "Water.Run": {
+      "type": "palladium:water_walk",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:in_water"
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Activate.Speed"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Lightning"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Lava.Run": {
+      "type": "palladium:fluid_walking",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "fluid_tag": "minecraft:lava",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:in_lava"
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Activate.Speed"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Lightning"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Speed.Punches.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/speed_punches.png",
+      "title": "Speed Punches",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Punch at incredible speeds",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Activate.Speed.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "HV.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/speed.png",
+            "description": {
+              "text": "Hypervelocity Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Speed.Punches": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/speed_punches.png",
+      "title": "Speed Punches",
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "commands": [
+        "effect give @s minecraft:hunger 1 1 true",
+        "playsound minecraft:entity.player.attack.strong master @a ~ ~ ~ 1 2"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Speed.Punches.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Lightning"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Punches.Anim": {
+      "type": "palladium:repeating_animation_timer",
+      "start_value": 1,
+      "max_value": 4,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Speed.Punches"
+          }
+        ]
+      }
+    },
+    "Punch.First": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Speed.Punches"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:animation_timer_ability",
+                "ability": "Punches.Anim",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "palladium:animation_timer_ability",
+                "ability": "Punches.Anim",
+                "min": 3,
+                "max": 3
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Punch.Second": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Speed.Punches"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:animation_timer_ability",
+                "ability": "Punches.Anim",
+                "min": 2,
+                "max": 2
+              },
+              {
+                "type": "palladium:animation_timer_ability",
+                "ability": "Punches.Anim",
+                "min": 4,
+                "max": 4
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Punch.Dam": {
+      "type": "palladium:projectile",
+      "hidden": true,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 4,
+        "DamageType": "eop:basic",
+        "Gravity": 0,
+        "Size": 1,
+        "Lifetime": 3,
+        "DieOnEntityHit": false,
+        "DieOnBlockHit": false
+      },
+      "inaccuracy": 0,
+      "velocity": 1,
+      "swinging_arm": "none",
+      "damage_from_player": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Speed.Punches"
+          }
+        ]
+      }
+    },
+    "Punch.Hands": {
+      "type": "palladium:show_both_arms",
+      "hidden": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Speed.Punches"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Arrow.Get.Swing.Offhand"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Vibrate.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/vibrate.png",
+      "title": "Molecular Acceleration",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Vibrate your molecular structure so fast, you are able to phase through solid surfaces",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Speed.Punches.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "HV.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/speed.png",
+            "description": {
+              "text": "Hypervelocity Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Vibrate": {
+      "type": "palladium:vibrate",
+      "icon": "eop:textures/gui/vibrate.png",
+      "title": "Molecular Acceleration",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Vibrate your molecular structure so fast, you are able to phase through solid surfaces",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Vibrate.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Lightning"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Vibrate.Sounds": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "sound": "eop:phase",
+      "volume": 1,
+      "pitch": 1,
+      "looping": true,
+      "play_self": false,
+      "play_others": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Vibrate"
+          }
+        ]
+      }
+    },
+    "Vibrate.Usage": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "effect give @s minecraft:hunger 1 1 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Vibrate"
+          }
+        ]
+      }
+    },
+    "Phase": {
+      "type": "palladium:intangibility",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "vertical": false,
+      "whitelist": "null",
+      "blacklist": "eop:prevents_intangibility_stronger",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Vibrate"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_impulso_g2"
+          }
+        ]
+      }
+    },
+    "Phase.Down": {
+      "type": "palladium:intangibility",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "vertical": true,
+      "blacklist": "eop:prevents_intangibility",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Vibrate"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Phase.Down"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_impulso_g2"
+          }
+        ]
+      }
+    },
+    "Poison.Expel.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 40,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Vibrate"
+          },
+          {
+            "type": "palladium:has_effect",
+            "effect": "minecraft:poison"
+          }
+        ]
+      }
+    },
+    "Poison.Expel.Part": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "particle minecraft:dust 0.2 0.6 0.2 2 ~ ~ ~ 0.2 0.7 0.2 0 10 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Vibrate"
+          },
+          {
+            "type": "palladium:has_effect",
+            "effect": "minecraft:poison"
+          }
+        ]
+      }
+    },
+    "Poison.Expel": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "effect clear @s minecraft:poison"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Poison.Expel.Timer",
+            "property": "value",
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "Waypoint.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "#eop:icons/speedster/fast_travel",
+      "title": "Fast Travel",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "With incredible speed, fast travel back to a location of your choosing. §dSneak §fto set or remove waypoint",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Vibrate.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "HV.Score",
+            "score": 10,
+            "icon": "eop:textures/gui/speed.png",
+            "description": {
+              "text": "Hypervelocity Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Waypoint": {
+      "type": "palladium:command",
+      "title": "Fast Travel",
+      "icon": "#eop:icons/speedster/fast_travel",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "first_tick_commands": [
+        "execute if predicate eop:is_sneaking run playsound minecraft:block.note_block.bell master @s ~ ~ ~ 1 1",
+        "execute if predicate eop:is_sneaking run title @s actionbar [\"\",{\"text\":\"Location marked!\",\"color\":\"green\",\"bold\":true}]",
+        "execute if predicate eop:is_sneaking run tag @s add EOP.Waypoint.Saved"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 40,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:on_ground"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Waypoint.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Waypoint.Saved"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Lightning"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Waypoint.Save": {
+      "type": "eop:waypoint_travel",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 3,
+      "particle1": "minecraft:sonic_boom",
+      "particle2": "minecraft:poof",
+      "sound1": "minecraft:entity.warden.sonic_boom",
+      "sound2": "null",
+      "one_way": false,
+      "carry_entities": false,
+      "allow_interdim": false,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Waypoint"
+          },
+          {
+            "type": "palladium:crouching"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_impulso_g2"
+          }
+        ]
+      }
+    },
+    "Waypoint.Switch.Begin": {
+      "type": "palladium:command",
+      "icon": "#eop:icons/speedster/fast_travel",
+      "title": "Fast Travel",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "gui_position": "null",
+      "first_tick_commands": [
+        "execute unless predicate eop:is_sneaking run playsound minecraft:entity.evoker.prepare_attack master @a ~ ~ ~ 1 2",
+        "execute unless predicate eop:is_sneaking run tag @s add Speedster.Begin.Fast.Travel",
+        "execute if predicate eop:is_sneaking run title @s actionbar [\"\",{\"text\":\"Location removed!\",\"color\":\"red\",\"bold\":true}]",
+        "execute if predicate eop:is_sneaking run playsound minecraft:block.note_block.snare master @s ~ ~ ~ 1 1",
+        "execute if predicate eop:is_sneaking run tag @s remove EOP.Waypoint.Saved"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:on_ground"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Waypoint.Unlock"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Waypoint.Saved"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Lightning"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Waypoint.Switch.Animation": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/fast_travel.png",
+      "title": "Fast Travel",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "start_value": 0,
+      "max_value": 20,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Speedster.Begin.Fast.Travel"
+          }
+        ]
+      }
+    },
+    "Waypoint.Switch.Hunger": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "gui_position": "null",
+      "first_tick_commands": [
+        "effect give @s minecraft:hunger 1 150 true",
+        "tag @s remove Speedster.Begin.Fast.Travel"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Waypoint.Switch.Animation",
+            "property": "value",
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Waypoint.Switch": {
+      "type": "eop:waypoint_travel",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 3,
+      "gui_position": "null",
+      "particle1": "minecraft:sonic_boom",
+      "particle2": "minecraft:poof",
+      "sound1": "minecraft:entity.warden.sonic_boom",
+      "sound2": "null",
+      "one_way": false,
+      "carry_entities": false,
+      "allow_interdim": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Waypoint.Switch.Animation",
+            "property": "value",
+            "min": 20,
+            "max": 20
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_impulso_g2"
+          }
+        ]
+      }
+    },
+    "Waypoint.Damage": {
+      "type": "eop:aoe_damage_once",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 15,
+      "damage": 1,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Waypoint.Switch.Animation",
+            "property": "value",
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Waypoint.Tag.Remove.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "start_value": 0,
+      "max_value": 30,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Speedster.Begin.Fast.Travel"
+          }
+        ]
+      }
+    },
+    "Waypoint.No.Move.Timer": {
+      "type": "palladium:animation_timer",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "start_value": 0,
+      "max_value": 42,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Speedster.Begin.Fast.Travel"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "16792489-4eb0-4f43-9eb2-0d89034a1d3c",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Waypoint.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 41
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Waypoint.No.Move.Timer"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "fdd00522-74dd-4fed-a8d5-c468b6b54d15",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Waypoint.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 41
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Waypoint.No.Move.Timer"
+          }
+        ]
+      }
+    },
+    "Lightning.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "#eop:icons/speedster/living_lightning",
+      "title": "Living Lightning",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Focus your power and become one with lightning",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Waypoint.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Speed4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "HV.Score",
+            "score": 20,
+            "icon": "eop:textures/gui/speed.png",
+            "description": {
+              "text": "Hypervelocity Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Lightning": {
+      "type": "palladium:animation_timer",
+      "title": "Living Lightning",
+      "icon": "#eop:icons/speedster/living_lightning",
+      "list_index": 4,
+      "start_value": 0,
+      "max_value": 40,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 1800,
+            "ticks": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Lightning.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Lightning.Pose": {
+      "type": "palladium:animation_timer",
+      "start_value": 0,
+      "max_value": 20,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Lightning"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lightning",
+            "property": "value",
+            "min": 0,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "No.Move.Speed2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "5d8bc7f4-5bf7-42d5-a4a5-650833a6287a",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Lightning"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lightning",
+            "property": "value",
+            "min": 0,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "No.Jumping2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "394ffbb6-6029-4a57-85c2-8ee3c66adce6",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Lightning"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lightning",
+            "property": "value",
+            "min": 0,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "Lightning.Commands": {
+      "type": "palladium:command",
+      "title": "Living Lightning",
+      "icon": "eop:textures/gui/living_lightning.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "first_tick_commands": [
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2",
+        "playsound eop:speed_start master @s ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2",
+        "scale set pehkui:held_item 1"
+      ],
+      "commands": [
+        "effect give @s minecraft:saturation 1 10 true",
+        "scale set pehkui:held_item 0"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Lightning"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lightning",
+            "property": "value",
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Lightning.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 2.2,
+      "operation": 1,
+      "uuid": "da5261d3-b559-407e-bd42-304629a6c306",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Lightning"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lightning",
+            "property": "value",
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Lightning.Damage.Immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "eop:wraith_immune",
+        "eop:tacz_guns",
+        "eop:scorched_guns"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Lightning"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lightning",
+            "property": "value",
+            "min": 40,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Remove.Layers": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head_overlay",
+        "chest_overlay",
+        "right_arm",
+        "left_arm",
+        "right_leg",
+        "left_leg",
+        "head",
+        "chest",
+        "cape"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Lightning"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lightning",
+            "property": "value",
+            "min": 40,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Lightning"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lightning",
+            "property": "value",
+            "min": 40,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Store.Armor": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": false,
+      "hide_offhand": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Lightning"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lightning",
+            "property": "value",
+            "min": 40,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Restrict.Slots": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs",
+        "head"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Lightning.Phase": {
+      "type": "palladium:intangibility",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "blacklist": "eop:prevents_intangibility_stronger",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lightning"
+          },
+          {
+            "type": "palladium:crouching"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lightning",
+            "property": "value",
+            "min": 40,
+            "max": 50
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_impulso_g2"
+          }
+        ]
+      }
+    },
+    "Lightning.Damage": {
+      "type": "eop:aoe_damage",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 2,
+      "damage": 5,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:true_basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lightning"
+          },
+          {
+            "type": "palladium:is_moving"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lightning",
+            "property": "value",
+            "min": 40,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Sparks.Ult": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:speedster/big_sparks",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:or",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_enabled",
+                    "ability": "Lightning"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Trail.Lightning": {
+      "type": "palladium:trail",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "trail": "eop:speed_trail",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:in_water"
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Lightning"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

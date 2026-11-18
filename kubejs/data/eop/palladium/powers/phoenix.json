@@ -1,0 +1,3912 @@
+{
+  "name": "Pyraphenyxis",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/phoenix.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "abilities": {
+    "Phoenix": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Phoenix",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "scoreboard objectives add EOP.Phoenix.Revive.Cooldown dummy",
+        "scoreboard players add @s EOP.Phoenix.Revive.Cooldown 0",
+        "scale reset @s",
+        "effect clear @s",
+        "scoreboard objectives add P.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Phoenix",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "scoreboard players set @s EOP.Phoenix.Revive.Cooldown 0",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Pyraphenyxis": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/phoenix.png",
+      "title": "Pyraphenyxis",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to turn into a legendary phoenix"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:phoenix @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{phoenix:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Pyraphenyxis\",\"color\":\"#07f2eb\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "P.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s P.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "P.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "P.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s P.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "P.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "P.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s P.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "P.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "P.Scoreboard.Gain4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s P.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 21600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "P.Score",
+            "min_score": 15,
+            "max_score": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "P.Scoreboard.Gain5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s P.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 36000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "P.Score",
+            "min_score": 18,
+            "max_score": 19
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Health": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "0db4722f-af0c-4253-953f-47990cc8c157",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Pyraphenyxis"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "P.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/phoenix.png",
+            "description": {
+              "text": "Pyraphenyxis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "750032ff-b8a3-46ca-9f72-9245623de264",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "P.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/phoenix.png",
+            "description": {
+              "text": "Pyraphenyxis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "81a01cad-0e89-4c52-899e-a5f9ed73581c",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "P.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/phoenix.png",
+            "description": {
+              "text": "Pyraphenyxis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "ad55cef7-fe64-4e40-ae93-9577feff38cc",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "P.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/phoenix.png",
+            "description": {
+              "text": "Pyraphenyxis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Immortality": {
+      "type": "palladium:immortality",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Phoenix.Revive.Cooldown",
+            "min_score": 0,
+            "max_score": 0
+          }
+        ]
+      }
+    },
+    "Revive": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "effect give @s instant_health 1 200 true",
+        "superpower add eop:effects/phoenix_revive",
+        "scoreboard players set @s EOP.Phoenix.Revive.Cooldown 12000"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:health",
+            "min_health": 0,
+            "max_health": 1
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Phoenix.Revive.Cooldown",
+            "min_score": 0,
+            "max_score": 0
+          }
+        ]
+      }
+    },
+    "Revive.Cooldown": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s EOP.Phoenix.Revive.Cooldown 1"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Phoenix.Revive.Cooldown",
+            "min_score": 1,
+            "max_score": 12000
+          }
+        ]
+      }
+    },
+    "GUI.Rebirth.CD": {
+      "type": "palladium:gui_overlay",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "texture": "eop:textures/gui/phoenix_cd.png",
+      "texture_width": 16,
+      "texture_height": 16,
+      "translate": [
+        -65,
+        10,
+        1
+      ],
+      "rotate": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        2,
+        2,
+        2
+      ],
+      "alignment": "top_right",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Phoenix.Revive.Cooldown",
+            "min_score": 1,
+            "max_score": 12000
+          }
+        ]
+      }
+    },
+    "Reduced.Fall.Damage": {
+      "type": "eop:reduce_fall",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "division_amount": 1.3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Reduced.Hunger": {
+      "type": "eop:slower_hunger",
+      "reduction_factor": 0.3,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Temp.Resistance": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "effect give @s legendarysurvivaloverhaul:cold_resistance 1 0 true",
+        "effect give @s legendarysurvivaloverhaul:heat_immunity 1 0 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform.Half"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "icon": "eop:textures/gui/healing_flames.png",
+      "title": "Healing Flames",
+      "description": "Produce an aura of flames with healing properties. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Healing.Flames": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/healing_flames.png",
+      "title": "Healing Flames",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "first_tick_commands": [
+        "playsound minecraft:entity.ghast.shoot master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [
+        "playsound minecraft:block.fire.extinguish master @a ~ ~ ~ 1 1"
+      ],
+      "commands": [
+        "particle eop:phoenix_heal_fire ~ ~1 ~ 10 5 10 0 20 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 600,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:phoenix"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Half"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Healing.Flames.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "radius": 10,
+      "commands": [
+        "superpower add eop:effects/phoenix_heal_weak @s[tag=!Infinity,tag=!EOP.Phasing]"
+      ],
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "ignore_same_team": false,
+      "ignore_pets": false,
+      "only_same_team": true,
+      "execution_mode": "as",
+      "include_caster": true,
+      "entity_types": [],
+      "entity_types_mode": "all",
+      "tags": [],
+      "tags_mode": "all",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Healing.Flames"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          }
+        ]
+      }
+    },
+    "Burst": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/poison_das.png",
+      "title": "Flame Burst",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 3,
+      "first_tick_commands": [
+        "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 1.5",
+        "playsound minecraft:entity.ghast.shoot master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "particle eop:phoenix_fire ~ ~1 ~ 0.5 0.5 0.5 0.7 70"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 100,
+            "ticks": 5,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:phoenix"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform.Half"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Burst.Commands": {
+      "type": "eop:aoe_damage",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 5,
+      "damage": 7,
+      "set_on_fire_seconds": 4,
+      "damage_type": "eop:basic",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "cone": true,
+      "cone_angle": 90,
+      "create_explosion": false,
+      "explosion_radius": 3,
+      "destroy_blocks": true,
+      "explosion_drop_items": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Burst"
+          }
+        ]
+      }
+    },
+    "Burst.Particles": {
+      "type": "palladium:particles",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "emitter": "eop:flame_breath",
+      "particle_type": "eop:phoenix_fire",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Burst"
+          }
+        ]
+      }
+    },
+    "Dive": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/poison_das.png",
+      "title": "Flame Burst",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 3,
+      "start_value": 0,
+      "max_value": 100,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform.No.Move.Timer",
+                "property": "value",
+                "min": 0,
+                "max": 0
+              },
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform.No.Move.Timer",
+                "property": "value",
+                "min": 52,
+                "max": 52
+              }
+            ]
+          },
+          {
+            "type": "palladium:activation",
+            "ticks": 20,
+            "cooldown": 100,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:phoenix"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Dive.Commands": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/poison_das.png",
+      "title": "Flame Burst",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 3,
+      "first_tick_commands": [
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Dive"
+          }
+        ]
+      }
+    },
+    "Dive.Motion": {
+      "type": "eop:dive",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "motion_scale": 7,
+      "range": 50,
+      "radius": 10,
+      "damage": 12,
+      "set_on_fire_seconds": 4,
+      "damage_type": "eop:basic",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Dive"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dive",
+            "property": "value",
+            "min": 5,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "Transform.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/phoenix_transformation.png",
+      "title": "Phoenix form",
+      "description": "Transform into your half phoenix form, or full form by §dsneaking",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Pyraphenyxis"
+          }
+        ]
+      }
+    },
+    "Transform.Half": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/phoenix_half.png",
+      "title": "Phoenix form",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "first_tick_commands": [
+        "tag @s add EOP.Phoenix",
+        "particle eop:phoenix_fire ~ ~1 ~ 1 1 1 0.5 100 force",
+        "particle eop:phoenix_fire ~ ~1 ~ 1 1 1 0 700 force",
+        "playsound minecraft:entity.ghast.shoot master @a ~ ~ ~ 3 1",
+        "scale set pehkui:held_item 0"
+      ],
+      "last_tick_commands": [
+        "tag @s remove EOP.Phoenix",
+        "particle flame ~ ~1 ~ 1 1 1 0.5 100 force",
+        "particle eop:phoenix_fire ~ ~1 ~ 1 1 1 0.5 100 force",
+        "playsound minecraft:block.fire.extinguish master @a ~ ~ ~ 1 1",
+        "particle poof ~ ~1 ~ 1 1 1 0 400 force",
+        "scale reset pehkui:held_item @s"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:phoenix"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform"
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "palladium:crouching"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Half"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "HP.Regen.Half": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 20,
+      "amount": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Half"
+          }
+        ]
+      }
+    },
+    "Phoenix.Defense.Half": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 10,
+      "operation": 0,
+      "uuid": "30bbe005-eb06-49d3-a8b9-61597059c924",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Half"
+          }
+        ]
+      }
+    },
+    "Phoenix.Strength.Half": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "7f867846-cf20-49fa-bfd8-4570b2b41a3c",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Half"
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer.Half": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Half"
+          }
+        ]
+      }
+    },
+    "Store.Armor.Half": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": false,
+      "hide_chest": false,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": true,
+      "hide_offhand": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Half"
+          }
+        ]
+      }
+    },
+    "Restrict.Slots.Half": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "mainhand",
+        "offhand",
+        "legs",
+        "feet"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer.Half",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Hide.Body.Half": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "right_arm",
+        "left_arm",
+        "right_leg",
+        "left_leg"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform.Half"
+          }
+        ]
+      }
+    },
+    "Render.Half": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:phoenix/half_phoenix",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform.Half"
+          }
+        ]
+      }
+    },
+    "Wings.Render.Half": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:phoenix/half_phoenix_wings",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Flight.Begin.Half",
+            "property": "value",
+            "min": 0,
+            "max": 0
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform.Half"
+          }
+        ]
+      }
+    },
+    "Wings.Render2.Half": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:phoenix/half_phoenix_wings_open",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Flight.Begin.Half",
+            "property": "value",
+            "min": 1,
+            "max": 1
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform.Half"
+          }
+        ]
+      }
+    },
+    "Flight.Begin.Half": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 1,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:is_hovering_or_flying"
+          }
+        ]
+      }
+    },
+    "Flight.On.Timer.Half": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:is_hovering_or_flying"
+          }
+        ]
+      }
+    },
+    "Fly.Sound.Half": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound minecraft:entity.bat.takeoff master @a ~ ~ ~ 1 0.4"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Flight.On.Timer.Half",
+            "property": "value",
+            "min": 10,
+            "max": 10
+          },
+          {
+            "type": "palladium:is_hovering_or_flying"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 26
+          }
+        ]
+      }
+    },
+    "Flight.Half": {
+      "type": "palladium:attribute_modifier",
+      "title": "Flight",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:flight_speed",
+      "list_index": 0,
+      "amount": 1,
+      "uuid": "f08b00da-f1d7-4384-8813-af19e7c61a4f",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:attribute_check",
+            "attribute": "palladium:jump_power",
+            "comparison": ">",
+            "value": 0
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform.Half"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_espiritu_g2"
+          }
+        ]
+      }
+    },
+    "Transform": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/phoenix_transformation.png",
+      "title": "Phoenix form",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "start_value": 0,
+      "max_value": 20,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:phoenix"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Half"
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:crouching"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transform.Animal.Model": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 13,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Transform.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:phoenix/phoenix",
+      "controller": "animations",
+      "animation_trigger": "transform",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Transform.Animal.Model",
+                    "property": "value",
+                    "min": 1,
+                    "max": 1
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform.Animal.Model"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:phoenix/phoenix",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hide.Body": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head_overlay",
+        "chest_overlay",
+        "right_arm",
+        "left_arm",
+        "right_leg",
+        "left_leg",
+        "head",
+        "chest",
+        "cape"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 19,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Name.Hide": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "forge:nametag_distance",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "60a4db00-258b-467d-9736-ad4280b68831",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Phoenix.Defense": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 20,
+      "operation": 0,
+      "uuid": "4a21cd8e-9589-46e5-9401-bd42822dbf05",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Phoenix.Strength": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "875a0507-277c-4e8a-afdb-7861df9d346f",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Phoenix.No.Break": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:destroy_speed",
+      "amount": -0.999,
+      "operation": 1,
+      "uuid": "7d29b0db-e049-4351-b4a9-45cad5507c72",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Half"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Creature.Name": {
+      "type": "palladium:name_change",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "name": {
+        "text": "Phoenix"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "HP.Regen": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 10,
+      "amount": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Bone.Healing": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "bodydamage @s heal ALL 2"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Store.Armor": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": true,
+      "hide_offhand": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Restrict.Slots": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs",
+        "head",
+        "mainhand",
+        "offhand"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Transform.Light": {
+      "type": "eop:light_aura",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "light_level": 15,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Half"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transform.No.Move.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 52,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "IFrame.Transform": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "eop:phase_immune"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "15a31edc-a47a-4463-b14b-32019805c106",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "05af81ec-dca6-468c-8c28-eb9c4a59b107",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Transform.Effects": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Phoenix",
+        "tag @s add EOP.Non.Humanoid.Model",
+        "particle eop:phoenix_fire ~ ~1 ~ 1 1 1 0.5 100 force",
+        "particle eop:phoenix_fire ~ ~1 ~ 1 1 1 0 700 force",
+        "playsound minecraft:entity.ghast.shoot master @a ~ ~ ~ 3 1",
+        "scale set pehkui:hitbox_height 1.3",
+        "scale set pehkui:hitbox_width 1.3",
+        "scale set pehkui:eye_height 1.35",
+        "scale set pehkui:height 1.3",
+        "scale set pehkui:width 1.3",
+        "scale set pehkui:held_item 0"
+      ],
+      "last_tick_commands": [
+        "tag @s remove EOP.Phoenix",
+        "tag @s remove EOP.Non.Humanoid.Model",
+        "particle flame ~ ~1 ~ 1 1 1 0.5 100 force",
+        "particle eop:phoenix_fire ~ ~1 ~ 1 1 1 0.5 100 force",
+        "playsound minecraft:block.fire.extinguish master @a ~ ~ ~ 1 1",
+        "particle poof ~ ~1 ~ 1 1 1 0 400 force",
+        "scale reset @s"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Transform.Night.Vision": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s night_vision"
+      ],
+      "commands": [
+        "effect give @s minecraft:night_vision 20 1 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Night.Vision.On"
+          }
+        ]
+      }
+    },
+    "Fire.Immun": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "damage_sources": [
+        "minecraft:is_fire"
+      ]
+    },
+    "Fire.Extinguish": {
+      "type": "eop:extinguish_silent",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:is_on_fire"
+          }
+        ]
+      }
+    },
+    "Transform.Roar": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:phoenix master @a ~ ~ ~ 3 0.5"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.Animal.Model",
+            "property": "value",
+            "min": 3,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Animal.Model"
+          }
+        ]
+      }
+    },
+    "Flight.Animation.Script": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "start_value": 0,
+      "max_value": 3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:is_hovering_or_flying"
+          },
+          {
+            "type": "palladium:is_fast_flying"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Wings.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:phoenix/phoenix_wings",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Flight.Begin",
+            "property": "value",
+            "min": 0,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "Wings.Render2": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:phoenix/phoenix_wings_open",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Flight.Begin",
+            "property": "value",
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "Flight.Begin": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 1,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:is_hovering_or_flying"
+          }
+        ]
+      }
+    },
+    "Flight.On.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:is_hovering_or_flying"
+          }
+        ]
+      }
+    },
+    "Fly.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound minecraft:entity.bat.takeoff master @a ~ ~ ~ 1 0.4"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Flight.On.Timer",
+            "property": "value",
+            "min": 10,
+            "max": 10
+          },
+          {
+            "type": "palladium:is_hovering_or_flying"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 26
+          }
+        ]
+      }
+    },
+    "Flight": {
+      "type": "palladium:attribute_modifier",
+      "title": "Flight",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:flight_speed",
+      "list_index": 0,
+      "amount": 1.5,
+      "uuid": "7befcefb-179a-4b9a-927f-b5b170da39e2",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:attribute_check",
+            "attribute": "palladium:jump_power",
+            "comparison": ">",
+            "value": 0
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Dive"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_espiritu_g2"
+          }
+        ]
+      }
+    },
+    "Dash.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/flame_dash.png",
+      "title": "Flame Dash",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Dash forward, emitting blue flames",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "P.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/phoenix.png",
+            "description": {
+              "text": "Pyraphenyxis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Dash": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/flame_dash.png",
+      "title": "Flame Dash",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 50,
+            "ticks": 10,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Half"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Dash.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Dash.Motion": {
+      "type": "eop:motion",
+      "title": "Dash",
+      "motion_scale": 1.5,
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Dash"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "Dash.Damage": {
+      "type": "eop:aoe_damage",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 3,
+      "damage": 4,
+      "set_on_fire_seconds": 1,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Dash.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 1 1",
+        "particle eop:phoenix_fire ~ ~1 ~ 0.5 0.5 0.5 0.4 45"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Dash.Half": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/sky_blitz.png",
+      "title": "Sky Blitz",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 100,
+            "ticks": 10,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform.Half"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Dash.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Dash.Motion.Half": {
+      "type": "eop:motion",
+      "title": "Dash",
+      "motion_scale": 2.5,
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Dash.Half"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash.Half",
+            "property": "value",
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "Dash.Damage.Half": {
+      "type": "eop:aoe_damage",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 3,
+      "damage": 5,
+      "set_on_fire_seconds": 4,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash.Half",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Dash.Commands.Half": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 1 1",
+        "playsound minecraft:entity.ghast.shoot master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "particle eop:phoenix_fire ~ ~1 ~ 0.5 0.5 0.5 0.4 15"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash.Half",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Dash.Full": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/aerial_blitz.png",
+      "title": "Aerial Blitz",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform.No.Move.Timer",
+                "property": "value",
+                "min": 0,
+                "max": 0
+              },
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform.No.Move.Timer",
+                "property": "value",
+                "min": 52,
+                "max": 52
+              }
+            ]
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 200,
+            "ticks": 10,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Dash.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Dash.Motion.Full": {
+      "type": "eop:motion",
+      "title": "Dash",
+      "motion_scale": 3.5,
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Dash.Full"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash.Full",
+            "property": "value",
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "Dash.Damage.Full": {
+      "type": "eop:aoe_damage",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 3,
+      "damage": 7,
+      "set_on_fire_seconds": 6,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash.Full",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Dash.Shards": {
+      "type": "eop:power_stand",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "lifetime": 5000,
+      "damage": 3,
+      "damage_radius": 4,
+      "damage_type": "eop:basic",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "stand_power": "eop:models/phoenix_fire",
+      "orbit_enabled": false,
+      "orbit_radius": 3,
+      "first_tick_commands": [],
+      "commands": [],
+      "last_tick_commands": [],
+      "execution_mode": "as",
+      "include_caster": false,
+      "only_same_team": false,
+      "stand_first_tick_commands": [],
+      "stand_commands": [],
+      "stand_last_tick_commands": [],
+      "destroy_blocks": false,
+      "block_break_radius": 3,
+      "block_break_interval": 10,
+      "no_gravity": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash.Full",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1
+          }
+        ]
+      }
+    },
+    "Dash.Commands.Full": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 1 1",
+        "playsound minecraft:entity.ghast.shoot master @a ~ ~ ~ 1 1",
+        "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "particle eop:phoenix_fire ~ ~1 ~ 0.5 0.5 0.5 0.4 45"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash.Full",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Volley.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/feather_volley.png",
+      "title": "Flame Feather Volley",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Shoot several flame feathers",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Dash.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "P.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/phoenix.png",
+            "description": {
+              "text": "Pyraphenyxis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Fireball": {
+      "type": "palladium:projectile",
+      "icon": "eop:textures/gui/feather_volley.png",
+      "title": "Flame Feather Volley",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "main_arm",
+      "inaccuracy": 0,
+      "velocity": 1.5,
+      "damage_from_player": false,
+      "entity_data": {
+        "Size": 0.5,
+        "Gravity": 0,
+        "Damage": 4,
+        "DamageType": "eop:basic",
+        "ExplosionRadius": 1,
+        "ExplosionBlockInteraction": "KEEP",
+        "ExplosionCausesFire": true,
+        "Lifetime": 100,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "eop:phoenix_fire",
+            "Spread": 0,
+            "Amount": 2
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 100,
+            "ticks": 20,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Volley.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Half"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.Destroy"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Fireball2": {
+      "type": "palladium:projectile",
+      "icon": "eop:textures/gui/feather_volley.png",
+      "title": "Flame Feather Volley",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "main_arm",
+      "inaccuracy": 0,
+      "velocity": 1.5,
+      "damage_from_player": false,
+      "entity_data": {
+        "Size": 0.5,
+        "Gravity": 0,
+        "Damage": 4,
+        "DamageType": "eop:basic",
+        "ExplosionRadius": 1,
+        "ExplosionBlockInteraction": "KEEP",
+        "ExplosionCausesFire": false,
+        "Lifetime": 100,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "eop:phoenix_fire",
+            "Spread": 0,
+            "Amount": 2
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 100,
+            "ticks": 20,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Volley.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Half"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.No.Destroy"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Shoot.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound minecraft:entity.blaze.shoot master @a ~ ~ ~ 1 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Fireball"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Fireball2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Fireball.Half": {
+      "type": "palladium:projectile",
+      "icon": "eop:textures/gui/feather_volley.png",
+      "title": "Flame Feather Volley",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "main_arm",
+      "inaccuracy": 20,
+      "velocity": 1.5,
+      "damage_from_player": false,
+      "entity_data": {
+        "Size": 0.5,
+        "Gravity": 0,
+        "Damage": 8,
+        "DamageType": "eop:basic",
+        "ExplosionRadius": 1,
+        "ExplosionBlockInteraction": "KEEP",
+        "ExplosionCausesFire": true,
+        "Lifetime": 6,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "eop:phoenix_fire",
+            "Spread": 0,
+            "Amount": 2
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 100,
+            "ticks": 20,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Volley.Unlock"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform.Half"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.Destroy"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Fireball2.Half": {
+      "type": "palladium:projectile",
+      "icon": "eop:textures/gui/feather_volley.png",
+      "title": "Flame Feather Volley",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "main_arm",
+      "inaccuracy": 20,
+      "velocity": 1.5,
+      "damage_from_player": false,
+      "entity_data": {
+        "Size": 0.5,
+        "Gravity": 0,
+        "Damage": 8,
+        "DamageType": "eop:basic",
+        "ExplosionRadius": 1,
+        "ExplosionBlockInteraction": "KEEP",
+        "ExplosionCausesFire": false,
+        "Lifetime": 6,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "eop:phoenix_fire",
+            "Spread": 0,
+            "Amount": 2
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 100,
+            "ticks": 20,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Volley.Unlock"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform.Half"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.No.Destroy"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Shoot.Sound.Half": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound minecraft:entity.blaze.shoot master @a ~ ~ ~ 1 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Fireball.Half"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Fireball2.Half"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Fireball.Full": {
+      "type": "palladium:projectile",
+      "icon": "eop:textures/gui/feather_volley.png",
+      "title": "Flame Feather Volley",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "main_arm",
+      "inaccuracy": 20,
+      "velocity": 1.5,
+      "damage_from_player": false,
+      "entity_data": {
+        "Size": 0.5,
+        "Gravity": 0,
+        "Damage": 12,
+        "DamageType": "eop:basic",
+        "ExplosionRadius": 2,
+        "ExplosionBlockInteraction": "KEEP",
+        "ExplosionCausesFire": true,
+        "Lifetime": 15,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "eop:phoenix_fire",
+            "Spread": 0,
+            "Amount": 2
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform.No.Move.Timer",
+                "property": "value",
+                "min": 0,
+                "max": 0
+              },
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform.No.Move.Timer",
+                "property": "value",
+                "min": 52,
+                "max": 52
+              }
+            ]
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 100,
+            "ticks": 40,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Volley.Unlock"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.Destroy"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Fireball2.Full": {
+      "type": "palladium:projectile",
+      "icon": "eop:textures/gui/feather_volley.png",
+      "title": "Flame Feather Volley",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "main_arm",
+      "inaccuracy": 20,
+      "velocity": 1.5,
+      "damage_from_player": false,
+      "entity_data": {
+        "Size": 0.5,
+        "Gravity": 0,
+        "Damage": 12,
+        "DamageType": "eop:basic",
+        "ExplosionRadius": 2,
+        "ExplosionBlockInteraction": "KEEP",
+        "ExplosionCausesFire": false,
+        "Lifetime": 15,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "eop:phoenix_fire",
+            "Spread": 0,
+            "Amount": 2
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform.No.Move.Timer",
+                "property": "value",
+                "min": 0,
+                "max": 0
+              },
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform.No.Move.Timer",
+                "property": "value",
+                "min": 52,
+                "max": 52
+              }
+            ]
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 100,
+            "ticks": 40,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Volley.Unlock"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.No.Destroy"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Shoot.Sound.Full": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound minecraft:entity.blaze.shoot master @a ~ ~ ~ 1 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Fireball.Full"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Fireball2.Full"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Explode.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/health_bomb.png",
+      "title": "Rebirth Flames",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Create a small explosion that heals",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Volley.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "P.Score",
+            "score": 10,
+            "icon": "eop:textures/gui/phoenix.png",
+            "description": {
+              "text": "Pyraphenyxis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Explode": {
+      "type": "palladium:command",
+      "title": "Rebirth Flames",
+      "icon": "eop:textures/gui/health_bomb.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "first_tick_commands": [
+        "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 0.7",
+        "particle eop:phoenix_heal_fire ~ ~1 ~ 1 1 1 0.7 200 force"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Explode.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Half"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Explode.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "radius": 5,
+      "commands": [],
+      "first_tick_commands": [
+        "effect give @s[tag=!Infinity,tag=!EOP.Phasing] instant_health 1 1 true"
+      ],
+      "last_tick_commands": [],
+      "ignore_same_team": false,
+      "ignore_pets": false,
+      "only_same_team": true,
+      "execution_mode": "as",
+      "include_caster": true,
+      "entity_types": [],
+      "entity_types_mode": "all",
+      "tags": [],
+      "tags_mode": "all",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Explode"
+          }
+        ]
+      }
+    },
+    "Explode.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "bodydamage @s heal ALL 5"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Explode"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "Explode.Half": {
+      "type": "palladium:command",
+      "title": "Rebirth Flames",
+      "icon": "eop:textures/gui/health_bomb.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "first_tick_commands": [
+        "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 0.7",
+        "playsound minecraft:entity.allay.hurt master @a ~ ~ ~ 1 1.4",
+        "particle eop:phoenix_heal_fire ~ ~1 ~ 1 1 1 0.7 400 force"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Explode.Unlock"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform.Half"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Explode.Custom.Half": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "radius": 5,
+      "commands": [],
+      "first_tick_commands": [
+        "effect give @s[tag=!Infinity,tag=!EOP.Phasing] instant_health 1 1 true",
+        "effect give @s[tag=!Infinity,tag=!EOP.Phasing] resistance 10 0 true"
+      ],
+      "last_tick_commands": [],
+      "ignore_same_team": false,
+      "ignore_pets": false,
+      "only_same_team": true,
+      "execution_mode": "as",
+      "include_caster": true,
+      "entity_types": [],
+      "entity_types_mode": "all",
+      "tags": [],
+      "tags_mode": "all",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Explode.Half"
+          }
+        ]
+      }
+    },
+    "Explode.Commands.Half": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "bodydamage @s heal ALL 5"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Explode.Half"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "Explode.Full": {
+      "type": "palladium:command",
+      "title": "Rebirth Flames",
+      "icon": "eop:textures/gui/health_bomb.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "first_tick_commands": [
+        "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 0.7",
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 1.4",
+        "particle eop:phoenix_heal_fire ~ ~1 ~ 1 1 1 0.7 800 force"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform.No.Move.Timer",
+                "property": "value",
+                "min": 0,
+                "max": 0
+              },
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform.No.Move.Timer",
+                "property": "value",
+                "min": 52,
+                "max": 52
+              }
+            ]
+          },
+          {
+            "type": "palladium:action",
+            "cooldown": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Explode.Unlock"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Explode.Custom.Full": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "radius": 7,
+      "commands": [],
+      "first_tick_commands": [
+        "effect give @s[tag=!Infinity,tag=!EOP.Phasing] instant_health 1 2 true",
+        "effect give @s[tag=!Infinity,tag=!EOP.Phasing] resistance 10 1 true"
+      ],
+      "last_tick_commands": [],
+      "ignore_same_team": false,
+      "ignore_pets": false,
+      "only_same_team": true,
+      "execution_mode": "as",
+      "include_caster": true,
+      "entity_types": [],
+      "entity_types_mode": "all",
+      "tags": [],
+      "tags_mode": "all",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Explode.Full"
+          }
+        ]
+      }
+    },
+    "Explode.Custom2.Full": {
+      "type": "eop:aoe_damage",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 7,
+      "damage": 8,
+      "set_on_fire_seconds": 5,
+      "damage_type": "eop:basic",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "cone": false,
+      "cone_angle": 90,
+      "create_explosion": false,
+      "explosion_radius": 3,
+      "destroy_blocks": true,
+      "explosion_drop_items": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Explode.Full"
+          }
+        ]
+      }
+    },
+    "Explode.Commands.Full": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "bodydamage @s heal ALL 30"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Explode.Full"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "Ignis.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/blue_oven.png",
+      "title": "Dominum Ignis",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Emit intense flames from your body, dealing massive damage around you",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Explode.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Health4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "P.Score",
+            "score": 20,
+            "icon": "eop:textures/gui/phoenix.png",
+            "description": {
+              "text": "Pyraphenyxis Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "Ignis.Not.Work": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/blue_oven.png",
+      "title": "Dominum Ignis",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "first_tick_commands": [
+        "title @s actionbar [\"\",{\"text\":\"Must be fully transformed!\",\"color\":\"red\",\"bold\":true}]",
+        "playsound minecraft:block.note_block.didgeridoo master @s ~ ~ ~ 1 0.5"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 20,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Ignis.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Ignis": {
+      "type": "eop:aoe_damage",
+      "icon": "eop:textures/gui/blue_oven.png",
+      "title": "Dominum Ignis",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 15,
+      "damage": 12,
+      "set_on_fire_seconds": 6,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform.No.Move.Timer",
+                "property": "value",
+                "min": 0,
+                "max": 0
+              },
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform.No.Move.Timer",
+                "property": "value",
+                "min": 52,
+                "max": 52
+              }
+            ]
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 1200,
+            "ticks": 200,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Ignis.Unlock"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Ignis.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "function eop:powers/phoenix/fire_ult"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Ignis"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 10
+          }
+        ]
+      }
+    },
+    "Ignis.Sound": {
+      "type": "palladium:play_sound",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "sound": "eop:sun_ult_fire",
+      "volume": 2,
+      "pitch": 1,
+      "looping": true,
+      "play_self": false,
+      "play_others": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Ignis"
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_espiritu_g2"
+          }
+        ]
+      }
+    }
+  }
+}

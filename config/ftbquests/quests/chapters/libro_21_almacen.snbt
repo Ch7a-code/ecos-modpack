@@ -1,0 +1,277 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_21_almacen"
+	group: "359A020D22896725"
+	icon: "sophisticatedbackpacks:iron_backpack"
+	id: "6C2DEFE4E6289759"
+	order_index: 21
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oUn cofre común guarda y nada más. Los de Sophisticated Storage crecen: de madera a cobre, de cobre a hierro, de hierro a netherita. Lo que no cabe hoy cabrá mañana, si lo mejoras a tiempo.", "", "&6Qué hacer:&r Pon un cofre y un barril de Sophisticated Storage. Cuando necesites más espacio, mejóralos con una mejora de nivel sin sacar lo que tienen dentro.", "", "&6Premio:&r 2 cosas al azar: tablones, lingotes de cobre, hierro o cuero.", "&5A veces (7 %):&r un cofre de cobre de Sophisticated Storage."]
+			disable_toast: true
+			icon: "sophisticatedstorage:chest"
+			id: "42F684D7CE41864B"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "068C069102EB0009"
+					icon: "sophisticatedstorage:chest"
+					stage: "ecos_l_almacen_cofres_cofre"
+					title: "Pon un cofre de Sophisticated Storage"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "2E925E59A4576D64"
+					icon: "sophisticatedstorage:barrel"
+					stage: "ecos_l_almacen_cofres_barril"
+					title: "Pon un barril de Sophisticated Storage"
+					type: "gamestage"
+				}
+			]
+			title: "Cofres con nivel"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["42F684D7CE41864B"]
+			description: ["&#19E6E6Zykna:&r &oEl Proyecto no dejó nada bonito: todo era gris y útil. Tu refugio puede ser otra cosa. La mesa de decoración cambia la madera y los colores de tus cofres, y la herramienta de almacén les da vida.", "", "&6Qué hacer:&r Pon la mesa de decoración de Sophisticated Storage y consigue la herramienta de almacén. Úsalas para darle a tus cofres la madera y el color que quieras.", "", "&6Premio:&r 2 cosas al azar: tablones, tintes, hierro o cuero.", "&5A veces (7 %):&r un cofre de hierro de Sophisticated Storage."]
+			disable_toast: true
+			icon: "sophisticatedstorage:decoration_table"
+			id: "3CE5672C40D303EF"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "628E79BF369738CF"
+					icon: "sophisticatedstorage:decoration_table"
+					stage: "ecos_l_almacen_decoracion_mesa"
+					title: "Pon una mesa de decoración"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "120DF66DB87DF4F1"
+					icon: "sophisticatedstorage:storage_tool"
+					stage: "ecos_l_almacen_decoracion_herramienta"
+					title: "Consigue una herramienta de almacén"
+					type: "gamestage"
+				}
+			]
+			title: "Que se vea como tu casa"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["3CE5672C40D303EF"]
+			description: ["&#19E6E6Zykna:&r &oUna mochila vacía solo carga. Con mejoras, recoge lo que cae, te da de comer y arma cosas por ti. Un Eco que explora mucho aprende pronto que las manos de su mochila valen más que las suyas.", "", "&6Qué hacer:&r Consigue una mejora de recolección o de imán y una mejora de alimentación o de mesa de trabajo, de Sophisticated Backpacks. Ponlas en tu mochila.", "", "&6Premio:&r 2 cosas al azar: cuero, hilo, redstone o hierro.", "&5A veces (7 %):&r una mochila de cobre."]
+			disable_toast: true
+			icon: "sophisticatedbackpacks:magnet_upgrade"
+			id: "1FA9E7090A4DAC7B"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "2ED0869B88660920"
+					icon: "sophisticatedbackpacks:magnet_upgrade"
+					stage: "ecos_l_almacen_manos_recoger"
+					title: "Consigue una mejora de recolección o de imán"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "5B3950B94A054EF4"
+					icon: "sophisticatedbackpacks:crafting_upgrade"
+					stage: "ecos_l_almacen_manos_util"
+					title: "Consigue una mejora de comida o de mesa de trabajo"
+					type: "gamestage"
+				}
+			]
+			title: "Una mochila con manos"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["1FA9E7090A4DAC7B"]
+			description: ["&#19E6E6Zykna:&r &oUn muro liso es un muro triste. Las mesas de Chipped cortan, pulen y dan forma a un bloque en decenas de acabados, y el cincel de Rechiseled hace lo mismo con piedras y maderas. Aquí vive el detalle.", "", "&6Qué hacer:&r Pon una mesa de Chipped (albañil, carpintero, botánico, vidriero, telar, alquimia o tinkering) y consigue el cincel de Rechiseled.", "", "&6Premio:&r 2 cosas al azar: tablones, piedra, vidrio o lana.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "chipped:mason_table"
+			id: "5F419B29431618D1"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "49BD1707398760B8"
+					icon: "chipped:mason_table"
+					stage: "ecos_l_almacen_formas_mesa"
+					title: "Pon una mesa de Chipped"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "0E5373910B84BD1E"
+					icon: "rechiseled:chisel"
+					stage: "ecos_l_almacen_formas_cincel"
+					title: "Consigue el cincel de Rechiseled"
+					type: "gamestage"
+				}
+			]
+			title: "Cada bloque, su forma"
+			x: 0.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["5F419B29431618D1"]
+			description: ["&#19E6E6Zykna:&r &oHay ingenios pequeños que facilitan todo: una llave para girar bloques sin romperlos, un bumerán que va a picar y regresa a tu mano. No salvan el mundo, pero te ahorran mil pasos.", "", "&6Qué hacer:&r Usa la llave inglesa de Supplementaries para girar un bloque, y lanza el pickarang de Quark: pica lo que toca y vuelve a ti.", "", "&6Premio:&r 2 cosas al azar: hierro, redstone, cuero o palos.", "&5A veces (7 %):&r una azada de hierro encantada con Fortuna."]
+			disable_toast: true
+			icon: "supplementaries:wrench"
+			id: "2B0B916AAA978817"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "43CD48FBA61FC8DA"
+					icon: "supplementaries:wrench"
+					stage: "ecos_l_almacen_ingenio_llave"
+					title: "Gira un bloque con la llave inglesa"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "2419C9EA50B54983"
+					icon: "quark:pickarang"
+					stage: "ecos_l_almacen_ingenio_pickarang"
+					title: "Lanza el pickarang"
+					type: "gamestage"
+				}
+			]
+			title: "Herramientas de ingenio"
+			x: 0.00d
+			y: 5.60d
+		}
+		{
+			dependencies: ["2B0B916AAA978817"]
+			description: ["&#19E6E6Zykna:&r &oCon la Resistencia llega el hierro por montones, y una mochila de cuero se queda chica. Las de hierro, oro y diamante tienen más ranuras y más mejoras. Si vas a pelear lejos, vas a cargar más.", "", "&6Qué hacer:&r Sube tu mochila de cuero a una de hierro, oro, diamante o netherita de Sophisticated Backpacks. Hazlo con la mejora de nivel en la mesa de trabajo.", "", "&6Premio:&r 2 cosas al azar: hierro, oro, cuero o hilo.", "&5A veces (7 %):&r una mochila de oro."]
+			disable_toast: true
+			icon: "sophisticatedbackpacks:iron_backpack"
+			id: "4718C3B689F8931A"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7366408B87C5D60A"
+					icon: "sophisticatedbackpacks:iron_backpack"
+					stage: "ecos_l_almacen_hierro_mochila"
+					title: "Consigue una mochila de hierro o mejor"
+					type: "gamestage"
+				}
+			]
+			title: "Una mochila de verdad"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["4718C3B689F8931A"]
+			description: ["&#19E6E6Zykna:&r &oCuando tienes diez cofres, ya no sabes qué hay en cada uno. La terminal de Tom's Storage los junta todos en una sola pantalla, con un cable y un conector. Un Eco ordenado pierde menos tiempo.", "", "&6Qué hacer:&r Pon una terminal de almacenamiento de Tom's Storage y conéctala con un conector de inventario o un cable a tus cofres. Busca algo sin abrir ninguno.", "", "&6Premio:&r 2 cosas al azar: hierro, redstone, madera o hilo.", "&5A veces (7 %):&r un cofre de hierro de Sophisticated Storage."]
+			disable_toast: true
+			icon: "toms_storage:ts.storage_terminal"
+			id: "61917A0475F4571F"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3728212EED01F55F"
+					icon: "toms_storage:ts.storage_terminal"
+					stage: "ecos_l_almacen_terminal_terminal"
+					title: "Pon una terminal de almacenamiento"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "708B7B1518D293BB"
+					icon: "toms_storage:ts.inventory_connector"
+					stage: "ecos_l_almacen_terminal_conector"
+					title: "Pon un conector o un cable"
+					type: "gamestage"
+				}
+			]
+			title: "Una bodega que obedece"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["61917A0475F4571F"]
+			description: ["&#19E6E6Zykna:&r &oEn la Era II tu base ya es un pueblo de cofres. Un controlador los junta, y los cofres de oro o diamante guardan lo que antes llenaba una pared. Con esto, tu refugio es una bodega que respira.", "", "&6Qué hacer:&r Pon un controlador de Sophisticated Storage junto a tus cofres, y consigue un cofre de oro o de diamante para lo que más ocupa. Conecta lo demás.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, diamante o hierro.", "&5A veces (7 %):&r un cofre de diamante de Sophisticated Storage."]
+			disable_toast: true
+			icon: "sophisticatedstorage:controller"
+			id: "210E0A63DA2E5B72"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "57993BFBF04E9B95"
+					icon: "sophisticatedstorage:controller"
+					stage: "ecos_l_almacen_bodega_controlador"
+					title: "Pon un controlador"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "61DF4D4F2EE9FA27"
+					icon: "sophisticatedstorage:gold_chest"
+					stage: "ecos_l_almacen_bodega_cofre"
+					title: "Consigue un cofre de oro o de diamante"
+					type: "gamestage"
+				}
+			]
+			title: "El almacén entero"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["210E0A63DA2E5B72"]
+			description: ["&#19E6E6Zykna:&r &oLo que antes pedía caminar hasta el refugio ahora viaja contigo. La terminal inalámbrica abre tu bodega desde cualquier sitio dentro de su alcance. Es el último toque de un refugio hecho a tu medida.", "", "&6Qué hacer:&r Consigue una terminal inalámbrica o una terminal de fabricación de Tom's Storage. Enlázala con tu terminal en la base y úsala a distancia.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, redstone o diamante.", "&5A veces (7 %):&r una terminal inalámbrica avanzada."]
+			disable_toast: true
+			icon: "toms_storage:ts.wireless_terminal"
+			id: "5E89CF7CAD7C3366"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "624E1EF2332D4E21"
+					icon: "toms_storage:ts.wireless_terminal"
+					stage: "ecos_l_almacen_inalambrica_terminal"
+					title: "Consigue una terminal inalámbrica o de fabricación"
+					type: "gamestage"
+				}
+			]
+			title: "La bodega en la mano"
+			x: 5.00d
+			y: 1.40d
+		}
+	]
+	subtitle: ["Cofres con nivel, mochilas con mejoras y una bodega que se organiza sola.", "Y los pequeños oficios que hacen que una casa se sienta como casa."]
+	title: "Almacén, mochila y hogar"
+}

@@ -1,0 +1,331 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_07_reliquias"
+	group: "67CD27250AE1CA8F"
+	icon: "apotheosis:gem"
+	id: "0C76FFDE66BF0B8F"
+	order_index: 7
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oUna mesa de encantar sola hace poco. Rodeada de estanterías, la magia se concentra y sube de nivel. Cada librero que acomodas es una página más del Éter que se queda en tu cuarto.", "", "&6Qué hacer:&r Pon una estantería junto a una mesa de encantamientos. Con Apotheosis puedes llenar hasta 15 de ellas alrededor.", "", "&6Premio:&r 2 cosas al azar: libros, papel, lapislázuli o cuero.", "&5A veces (7 %):&r un libro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "minecraft:bookshelf"
+			id: "0D770AF4C8FD7FC5"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "2E641B81FB8E8BBF"
+					icon: "minecraft:bookshelf"
+					stage: "ecos_l_reliquias_estanteria_crear"
+					title: "Crea una librería"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "56B0152C0ED989B6"
+					icon: "minecraft:bookshelf"
+					stage: "ecos_l_reliquias_estanteria_poner"
+					title: "Pon una estantería"
+					type: "gamestage"
+				}
+			]
+			title: "Bibliotecario local"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["0D770AF4C8FD7FC5"]
+			description: ["&#19E6E6Zykna:&r &oEn este mundo el Éter no se pide, se aprende a dirigir. Con Apotheosis la mesa de encantar enseña tres números: Eterna, Quanta y Arcana. Rodéala bien y llega a encantar al nivel 30.", "", "&6Qué hacer:&r Consigue una mesa de encantamientos y encanta un objeto a nivel 30. Mira las tres barras de la mesa: Eterna, Quanta y Arcana.", "", "&6Premio:&r 2 cosas al azar: lapislázuli, frascos de experiencia, libros o hierro.", "&5A veces (7 %):&r un pico de diamante encantado con Fortuna."]
+			disable_toast: true
+			icon: "minecraft:enchanting_table"
+			id: "4BBE5544AE2320B6"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "224C5017274E6C4F"
+					icon: "minecraft:enchanting_table"
+					stage: "ecos_l_reliquias_encantar_mesa"
+					title: "Consigue una mesa de encantamientos"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "7473BC5A7E49C49D"
+					icon: "minecraft:experience_bottle"
+					stage: "ecos_l_reliquias_encantar_treinta"
+					title: "Encanta un objeto a nivel 30"
+					type: "gamestage"
+				}
+			]
+			title: "Secretos del encantamiento"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["4BBE5544AE2320B6"]
+			description: ["&#19E6E6Zykna:&r &oLos cofres de las ruinas son ecos del pasado: cada Eco ve el suyo. Entre lo de siempre aparece a veces algo distinto, pequeño, de uso raro y bien guardado. Se llaman artefactos.", "", "&6Qué hacer:&r Abre cofres de ruinas hasta encontrar un Artefacto (un anillo, una bota, un sombrero o una pulsera rara). Equípalo en tu ranura de Curios.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, hierro o frascos de experiencia.", "&5A veces (7 %):&r una manzana dorada."]
+			disable_toast: true
+			icon: "artifacts:crystal_heart"
+			id: "226FDD7F8BBFDA0E"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "52D41C023D18431D"
+					icon: "artifacts:crystal_heart"
+					stage: "ecos_l_reliquias_arqueologo_hallar"
+					title: "Encuentra un Artefacto"
+					type: "gamestage"
+				}
+			]
+			title: "Arqueólogo aficionado"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["226FDD7F8BBFDA0E"]
+			description: ["&#19E6E6Zykna:&r &oAlgunas armas y armaduras nacen con algo extra: un afijo, una bendición que no sale de ninguna mesa. Los monstruos fuertes, los cofres y los mercaderes los sueltan. Aprende a reconocerlos.", "", "&6Qué hacer:&r Encuentra un objeto con afijo de Apotheosis: sale de monstruos, de cofres de ruinas y de mercaderes. Léelo con el cursor para ver sus propiedades.", "", "&6Premio:&r 2 cosas al azar: hierro, oro, polvo de gema o frascos de experiencia.", "&5A veces (7 %):&r un casco de hierro encantado con Protección."]
+			disable_toast: true
+			icon: "minecraft:diamond_sword"
+			id: "35DDE728F91130A3"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "291B75E57E6D0ED2"
+					icon: "minecraft:diamond_sword"
+					stage: "ecos_l_reliquias_afijo_afijo"
+					title: "Encuentra un objeto con afijo"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "68ADAC5D5DE522A3"
+					icon: "minecraft:chest"
+					stage: "ecos_l_reliquias_afijo_cofre"
+					title: "Encuentra uno en un cofre"
+					type: "gamestage"
+				}
+			]
+			title: "Un objeto con afijo"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["35DDE728F91130A3"]
+			description: ["&#19E6E6Zykna:&r &oUna gema de Apotheosis no es adorno: se engasta en un objeto con afijo y le da un poder más. El mercader, los monstruos y los cofres las sueltan en distintas calidades. La mejor es la que nunca viste.", "", "&6Qué hacer:&r Encuentra una gema de Apotheosis y engástala en un objeto con afijo usando una mesa de herrería.", "", "&6Premio:&r 2 cosas al azar: polvo de gema, oro, esmeraldas o frascos de experiencia.", "&5A veces (7 %):&r tres esmeraldas."]
+			disable_toast: true
+			icon: "apotheosis:gem"
+			id: "429E3DAD0BFCA164"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "42789962FBD0D83A"
+					icon: "apotheosis:gem"
+					stage: "ecos_l_reliquias_gema_gema"
+					title: "Encuentra una gema"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "24B685FB010CFBBF"
+					icon: "minecraft:smithing_table"
+					stage: "ecos_l_reliquias_gema_engastar"
+					title: "Engasta una gema en un objeto"
+					type: "gamestage"
+				}
+			]
+			title: "El joyero"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["429E3DAD0BFCA164"]
+			description: ["&#19E6E6Zykna:&r &oQuark enseña otra forma de encantar: la mesa matricial. Tú decides qué encantamiento quieres y ella lo moldea. Las velas alrededor inclinan la balanza hacia lo que prefieres. Pensar vale más que apostar.", "", "&6Qué hacer:&r Fabrica una mesa matricial de Quark, ponla y usa velas alrededor para inclinar el encantamiento hacia el que quieres.", "", "&6Premio:&r 2 cosas al azar: lapislázuli, velas, frascos de experiencia o libros.", "&5A veces (7 %):&r un libro encantado con Irrompibilidad."]
+			disable_toast: true
+			icon: "quark:matrix_enchanter"
+			id: "46DFE16CF21F129E"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "70399294029824BD"
+					icon: "quark:matrix_enchanter"
+					stage: "ecos_l_reliquias_matricial_poner"
+					title: "Pon una mesa matricial"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "60B2C0067898AC2B"
+					icon: "minecraft:candle"
+					stage: "ecos_l_reliquias_matricial_influir"
+					title: "Influye en un encantamiento con velas"
+					type: "gamestage"
+				}
+			]
+			title: "Encantar con matriz"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["46DFE16CF21F129E"]
+			description: ["&#19E6E6Zykna:&r &oUna gema cruda sirve, pero cortada rinde más. La mesa de corte de gemas sube una calidad con dos piezas parecidas y polvo de gema. Con la Era II ya tienes de dónde sacar piezas buenas.", "", "&6Qué hacer:&r Fabrica una Mesa de Corte de Gemas, ponla y mejora una gema de Apotheosis con ella.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, polvo de gema o un diamante.", "&5A veces (7 %):&r dos diamantes."]
+			disable_toast: true
+			icon: "apotheosis:gem_cutting_table"
+			id: "43E722C7EA76664C"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7725069B9F86A45B"
+					icon: "apotheosis:gem_cutting_table"
+					stage: "ecos_l_reliquias_pulido_poner"
+					title: "Pon una mesa de corte de gemas"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1E54C5EAD881F7D6"
+					icon: "apotheosis:gem"
+					stage: "ecos_l_reliquias_pulido_mejorar"
+					title: "Mejora una gema"
+					type: "gamestage"
+				}
+			]
+			title: "Un corte perfecto"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["43E722C7EA76664C"]
+			description: ["&#19E6E6Zykna:&r &oUn afijo malo no tiene que quedarse malo. La mesa de reforja vuelve a tirar los dados, y la de rescate desarma lo que ya no sirve para guardar sus piezas. Ahorrar es parte del oficio.", "", "&6Qué hacer:&r Pon una Mesa de Reforja y una Mesa de Rescate de Apotheosis. Con la primera cambias el afijo de un objeto; con la otra lo desarmas para recuperar materiales.", "", "&6Premio:&r 2 cosas al azar: oro, diamantes, polvo de gema o frascos de experiencia.", "&5A veces (7 %):&r una manzana dorada."]
+			disable_toast: true
+			icon: "apotheosis:reforging_table"
+			id: "004729992D8F5856"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "481AF4EFF067DA0E"
+					icon: "apotheosis:reforging_table"
+					stage: "ecos_l_reliquias_forja_reforja"
+					title: "Pon una mesa de reforja"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "4A1AAF9FDE125C34"
+					icon: "apotheosis:salvaging_table"
+					stage: "ecos_l_reliquias_forja_rescate"
+					title: "Pon una mesa de rescate"
+					type: "gamestage"
+				}
+			]
+			title: "Reforja y rescate"
+			x: 5.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["004729992D8F5856"]
+			description: ["&#19E6E6Zykna:&r &oNo todos los cofres de las ruinas son ecos inocentes. Algunos tienen dientes. Un mímico espera hasta que abres la tapa, y muerde con ganas. Aprende a oír el cofre antes de tocarlo.", "", "&6Qué hacer:&r Mata a un mímico de Artifacts. Se disfraza de cofre: golpea los cofres sospechosos desde lejos antes de abrirlos.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, diamantes o frascos de experiencia.", "&5A veces (7 %):&r tres esmeraldas."]
+			disable_toast: true
+			icon: "artifacts:mimic_spawn_egg"
+			id: "05184F94614734DE"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "49C2F552EAF5B256"
+					icon: "artifacts:mimic_spawn_egg"
+					stage: "ecos_l_reliquias_mimico_matar"
+					title: "Mata a un mímico"
+					type: "gamestage"
+				}
+			]
+			title: "Asesino de cofres"
+			x: 5.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["05184F94614734DE"]
+			description: ["&#19E6E6Zykna:&r &oLa Era III cambia lo que vale la pena. La mesa de aumento sube la calidad de un objeto con afijo sin tirarlo a la suerte: es el último taller de la magia de piedra y gema. Úsala con algo épico.", "", "&6Qué hacer:&r Pon una Mesa de Aumento de Apotheosis y encuentra un objeto con afijo épico para usarla.", "", "&6Premio:&r 2 cosas al azar: diamantes, oro, polvo de gema o frascos de experiencia.", "&5A veces (7 %):&r chatarra de netherita."]
+			disable_toast: true
+			icon: "apotheosis:augmenting_table"
+			id: "2043F28911D4A7A7"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5787FD794BDBE727"
+					icon: "apotheosis:augmenting_table"
+					stage: "ecos_l_reliquias_aumento_poner"
+					title: "Pon una mesa de aumento"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3A345BEFE972B434"
+					icon: "apotheosis:epic_material"
+					stage: "ecos_l_reliquias_aumento_epico"
+					title: "Encuentra un objeto de afijo épico"
+					type: "gamestage"
+				}
+			]
+			title: "La mesa de aumento"
+			x: 7.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["2043F28911D4A7A7"]
+			description: ["&#19E6E6Zykna:&r &oMás arriba de lo épico hay un escalón al que casi nadie llega: lo mítico. Un objeto así no se compra ni se encuentra en un cofre cualquiera. Cae de los jefes más duros, o de la suerte de siglos.", "", "&6Qué hacer:&r Encuentra un objeto de afijo mítico. Se consigue venciendo a jefes de Apotheosis o con mucha suerte en los monstruos más fuertes.", "", "&6Premio:&r 2 cosas al azar: diamantes, oro, chatarra de netherita o frascos de experiencia.", "&5A veces (7 %):&r tres diamantes."]
+			disable_toast: true
+			icon: "apotheosis:mythic_material"
+			id: "0AE6CB289796AD85"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3DD5F7C4A5136E6D"
+					icon: "apotheosis:mythic_material"
+					stage: "ecos_l_reliquias_mitico_mitico"
+					title: "Encuentra un objeto de afijo mítico"
+					type: "gamestage"
+				}
+			]
+			title: "Forjado por titanes"
+			x: 7.50d
+			y: 1.40d
+		}
+	]
+	subtitle: ["Apotheosis, la mesa matricial de Quark y los Artefactos: encantar, engastar gemas y desenterrar reliquias.", "Lo que el Proyecto dejó escondido en las ruinas también es parte de tu don."]
+	title: "Encantamientos y reliquias"
+}

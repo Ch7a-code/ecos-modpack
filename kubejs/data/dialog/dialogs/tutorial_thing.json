@@ -1,0 +1,97 @@
+{
+ "id": "tutorial_thing",
+ "title": "Tu don",
+ "description": "Tutorial del poder Mimetismo de Piedra",
+ "start": "1",
+ "entries": [
+  {
+   "id": "1",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Tu don es Mimetismo de Piedra, de la familia Materia. Convierte tu cuerpo en piedra viva, ganando enorme durabilidad, peso y resistencia al daño físico."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "2"
+  },
+  {
+   "id": "2",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Para qué sirve en el grupo: Eres el muro y la forja: aguantas, proteges y das forma a la materia."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "3"
+  },
+  {
+   "id": "3",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Cómo se usa: B entra en modo batalla y las teclas 1 a 5 lanzan tus habilidades; el 6 cambia al siguiente grupo. En E → Poderes ves tu árbol: ahí compras mejoras con tus puntos de habilidad."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "4"
+  },
+  {
+   "id": "4",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Tu Maestro es Tepoztli, el Herrero de la Roca. Vive en las Cuevas de los Gigantes. Su prueba te da 10 puntos de habilidad y su marca. Escribe mision para ver los pasos."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "5"
+  },
+  {
+   "id": "5",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Si lo olvidas, escribe poder en el chat y te lo repito. Para las teclas de combate, escribe combate."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ]
+  }
+ ]
+}

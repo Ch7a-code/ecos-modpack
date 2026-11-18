@@ -1,0 +1,6 @@
+{
+  "dimensions": ["minecraft:the_nether"],
+  "temperature": 20,
+  "units": "f",
+  "is_offset": true
+}

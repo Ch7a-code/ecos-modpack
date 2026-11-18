@@ -1,0 +1,116 @@
+{
+ "id": "zykna_despertar",
+ "title": "Zykna",
+ "description": "Bienvenida de Zykna al despertar en el Búnker 7.",
+ "start": "1",
+ "entries": [
+  {
+   "id": "1",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Despertaste. Bien. Soy Zykna, la inteligencia que se quedó dentro de la Conciencia. Estás en el Búnker 7 del Proyecto Éter."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0,
+     "animationType": "FADE_IN"
+    }
+   ],
+   "next": "2"
+  },
+  {
+   "id": "2",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Eres un Eco: una copia de respaldo. Dentro de ti llevas una astilla de la Primera Mente. Ese es tu poder, y va a crecer contigo."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "3"
+  },
+  {
+   "id": "3",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Pulsa B para entrar en modo batalla. Tus habilidades van en las teclas 1 a 5; el 6 cambia a las siguientes. Los hechizos rápidos van en 7, 8, 9 y 0, y la G abre la rueda de hechizos. La barra de objetos se mueve con la rueda del ratón."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "4"
+  },
+  {
+   "id": "4",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Alt izquierdo para rodar. Sube el escudo justo antes del golpe para desviarlo. Cuida tu energía: atacar y correr la gastan. J muestra tus heridas."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "5"
+  },
+  {
+   "id": "5",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Recorre todo el laboratorio: hay criaturas sueltas, cajas con cosas que te van a servir y una sala para probar tus poderes. Para salir hay que activar los 3 sellos; Zykna te avisa cuando hayas visto todo."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "6"
+  },
+  {
+   "id": "6",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Afuera está el Templo de la Conciencia. Ahí empieza todo. Si dudas, abre el Códice. Yo te hablo cuando haga falta."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ]
+  }
+ ]
+}

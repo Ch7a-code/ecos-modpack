@@ -1,0 +1,19 @@
+{
+ "criteria": {
+  "lugar0": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "dimension": "blue_skies:everbright"
+     }
+    }
+   }
+  }
+ },
+ "requirements": [
+  [
+   "lugar0"
+  ]
+ ]
+}

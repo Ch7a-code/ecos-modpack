@@ -1,0 +1,19 @@
+{
+ "criteria": {
+  "lugar0": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "dimension": "ad_astra:moon"
+     }
+    }
+   }
+  }
+ },
+ "requirements": [
+  [
+   "lugar0"
+  ]
+ ]
+}

@@ -1,0 +1,474 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_04_atlas"
+	group: "39FD9A44732FCDBA"
+	icon: "minecraft:map"
+	id: "54EE7DD237E77D40"
+	order_index: 4
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oEn el Búnker hay una maqueta del Templo de la Conciencia, pequeña y completa. El de verdad es enorme y está cerca de donde despertaste. Ve y mide la diferencia.", "", "&6Qué hacer:&r Acércate al Templo de la Conciencia: ponte a 40 bloques de su centro.", "", "&6Premio:&r 2 cosas al azar: velas, oro, esmeraldas o frascos de experiencia.", "&5A veces (7 %):&r dos manzanas doradas."]
+			disable_toast: true
+			icon: "minecraft:crying_obsidian"
+			id: "31A0A99D4B529D43"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5939CD0EED45F6C9"
+					icon: "minecraft:crying_obsidian"
+					stage: "ecos_l_atlas_templo_pisar"
+					title: "Llega al Templo de la Conciencia"
+					type: "gamestage"
+				}
+			]
+			title: "El Templo, a escala real"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["31A0A99D4B529D43"]
+			description: ["&#19E6E6Zykna:&r &oEl Bosque Crepuscular es un bolsillo de memoria: un mundo que un fragmento recordó, y su portal es una cicatriz. En la maqueta se ve tranquilo. Adentro, no tanto.", "", "&6Qué hacer:&r Abre el portal del Bosque Crepuscular (un estanque rodeado de flores al que se le arroja un diamante) y cruza a su dimensión.", "", "&6Premio:&r 2 cosas al azar: lingotes de madera de hierro, bayas antorcha, plumas de cuervo o pan.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "twilightforest:ironwood_ingot"
+			id: "10D0E2F47C167BC2"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "60725C4D1E899020"
+					icon: "twilightforest:ironwood_ingot"
+					stage: "ecos_l_atlas_crepusculo_pisar"
+					title: "Entra al Bosque Crepuscular"
+					type: "gamestage"
+				}
+			]
+			title: "El portal del crepúsculo"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["10D0E2F47C167BC2"]
+			description: ["&#19E6E6Zykna:&r &oEl atlas muestra casas de montaña bajo la nieve, con humo en las chimeneas. Es gente sin astilla que sigue en pie: no pelea como ustedes, pero los necesita.", "", "&6Qué hacer:&r Encuentra una aldea de montaña de CTOV (casas de madera entre la nieve) y entra a ella.", "", "&6Premio:&r 2 cosas al azar: lana, pan, esmeraldas o linternas.", "&5A veces (7 %):&r un bloque de esmeralda."]
+			disable_toast: true
+			icon: "minecraft:white_wool"
+			id: "5985A84BE4781A8E"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0A60330F6D8B37B4"
+					icon: "minecraft:white_wool"
+					stage: "ecos_l_atlas_alpina_pisar"
+					title: "Pisa una aldea de montaña"
+					type: "gamestage"
+				}
+			]
+			title: "Una aldea entre la nieve"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["5985A84BE4781A8E"]
+			description: ["&#19E6E6Zykna:&r &oRascacielos en ruinas cubiertos de verde: la maqueta no dice si es de antes de la Fractura o de otra era, y las filtraciones traen de ambas. Sus tiendas aún guardan cosas.", "", "&6Qué hacer:&r Encuentra una ciudad perdida de Big Lost City y pisa uno de sus edificios: un rascacielos, la planta de energía, la bodega o la rueda de la fortuna.", "", "&6Premio:&r 2 cosas al azar: hierro, vidrio, latas de comida o esmeraldas.", "&5A veces (7 %):&r un casco de hierro encantado con Protección."]
+			disable_toast: true
+			icon: "minecraft:iron_block"
+			id: "5E0917FC8069B8CF"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "51CBC209A4E64031"
+					icon: "minecraft:iron_block"
+					stage: "ecos_l_atlas_ciudad_pisar"
+					title: "Pisa un rascacielos en ruinas"
+					type: "gamestage"
+				}
+			]
+			title: "La ciudad perdida"
+			x: 0.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["5E0917FC8069B8CF"]
+			description: ["&#19E6E6Zykna:&r &oEn la sabana vive una tribu que honra a un ave del sol. La maqueta los muestra en su santuario, quietos. En persona conviene llegar con respeto y la espada envainada.", "", "&6Qué hacer:&r Busca en la sabana la arboleda de los Umvuthana (Mowzie's Mobs) y entra en ella.", "", "&6Premio:&r 2 cosas al azar: cobre, oro, frascos de experiencia o pan.", "&5A veces (7 %):&r un escudo encantado con Irrompibilidad."]
+			disable_toast: true
+			icon: "minecraft:sunflower"
+			id: "04A3B6AAAD2E202D"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "29CA671EEAE19F9E"
+					icon: "minecraft:sunflower"
+					stage: "ecos_l_atlas_umvuthana_pisar"
+					title: "Pisa la arboleda Umvuthana"
+					type: "gamestage"
+				}
+			]
+			title: "La tribu del sol"
+			x: 0.00d
+			y: 5.60d
+		}
+		{
+			dependencies: ["04A3B6AAAD2E202D"]
+			description: ["&#19E6E6Zykna:&r &oBajo la tierra hay una selva que nunca vio el sol, con un dinosaurio que la maqueta apenas alcanza a mostrar. Dinos y dragones son filtraciones de otras eras, y aquí se nota.", "", "&6Qué hacer:&r Baja por las cuevas hasta el bioma de las Cuevas Primordiales (Alex's Caves). Lleva luz, comida y buena armadura.", "", "&6Premio:&r 2 cosas al azar: antorchas, comida, musgo o hierro.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "minecraft:moss_block"
+			id: "6495356E5FB9ACF7"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6F939F7A002E1434"
+					icon: "minecraft:moss_block"
+					stage: "ecos_l_atlas_cuevas_pisar"
+					title: "Llega a las Cuevas Primordiales"
+					type: "gamestage"
+				}
+			]
+			title: "La selva bajo el mundo"
+			x: 0.00d
+			y: 7.00d
+		}
+		{
+			dependencies: ["6495356E5FB9ACF7"]
+			description: ["&#19E6E6Zykna:&r &oLa maqueta del Nether es lava y piedra roja detrás de un cristal. Es el otro lado del mismo mundo, y el calor no perdona: ahí también vive un Portador.", "", "&6Qué hacer:&r Construye un portal de obsidiana, enciéndelo y cruza al Nether.", "", "&6Premio:&r 2 cosas al azar: obsidiana, carbón, cuarzo o piedra de alma.", "&5A veces (7 %):&r unas botas de hierro encantadas con Caída de pluma."]
+			disable_toast: true
+			icon: "minecraft:netherrack"
+			id: "6D8F1A1470F31E8B"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "262169259D35859B"
+					icon: "minecraft:netherrack"
+					stage: "ecos_l_atlas_nether_pisar"
+					title: "Entra al Nether"
+					type: "gamestage"
+				}
+			]
+			title: "El otro lado del fuego"
+			x: 0.00d
+			y: 8.40d
+		}
+		{
+			dependencies: ["6D8F1A1470F31E8B"]
+			description: ["&#19E6E6Zykna:&r &oPuentes, torres y un mar de lava: la fortaleza fue de lo primero que pusieron en el atlas. Ahí se junta lo que en ningún otro lugar del Nether se encuentra.", "", "&6Qué hacer:&r Dentro del Nether, encuentra una fortaleza y entra a ella.", "", "&6Premio:&r 2 cosas al azar: polvo de blaze, verruga del Nether, oro o hierro.", "&5A veces (7 %):&r un peto de hierro encantado con Protección."]
+			disable_toast: true
+			icon: "minecraft:nether_bricks"
+			id: "574AB10270923406"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "19F4EEDB9DA40CA4"
+					icon: "minecraft:nether_bricks"
+					stage: "ecos_l_atlas_fortaleza_pisar"
+					title: "Pisa una fortaleza del Nether"
+					type: "gamestage"
+				}
+			]
+			title: "La fortaleza del Nether"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["574AB10270923406"]
+			description: ["&#19E6E6Zykna:&r &oUn navío atrapado en el hielo, con la proa levantada como si el mar se hubiera detenido de golpe. La maqueta lo muestra callado; en los mares helados, no lo está.", "", "&6Qué hacer:&r Navega por los mares helados hasta encontrar el barco congelado de Aquamirae y pisa su cubierta.", "", "&6Premio:&r 2 cosas al azar: hielo azul, pescado cocido, hierro o cuerda.", "&5A veces (7 %):&r un casco de tortuga encantado con Respiración."]
+			disable_toast: true
+			icon: "minecraft:blue_ice"
+			id: "7DAE0F917614BC63"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3D913630E1B9BE3C"
+					icon: "minecraft:blue_ice"
+					stage: "ecos_l_atlas_barco_pisar"
+					title: "Pisa el barco congelado"
+					type: "gamestage"
+				}
+			]
+			title: "El barco en el hielo"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["7DAE0F917614BC63"]
+			description: ["&#19E6E6Zykna:&r &oUna fortaleza de hierro y cobre que flota sobre el Overworld, con engranes que giran sin que nadie los vigile. La maqueta es la única manera de verla entera sin subir a ella.", "", "&6Qué hacer:&r Busca en el cielo del Overworld el Nido Mecánico (When Dungeons Arise) y entra a él.", "", "&6Premio:&r 2 cosas al azar: cobre, hierro, engranes o redstone.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "minecraft:copper_block"
+			id: "56BC84422E121980"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "26354B91A6F5A43F"
+					icon: "minecraft:copper_block"
+					stage: "ecos_l_atlas_nido_pisar"
+					title: "Pisa el Nido Mecánico"
+					type: "gamestage"
+				}
+			]
+			title: "La fortaleza en el cielo"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["56BC84422E121980"]
+			description: ["&#19E6E6Zykna:&r &oEl Aether es otro bolsillo de memoria: islas flotando sobre un mar de nubes, y un portal azul que es una cicatriz. En la maqueta las nubes parecen de algodón.", "", "&6Qué hacer:&r Abre el portal del Aether (un marco de piedra luminosa que se enciende con agua) y entra a su dimensión.", "", "&6Premio:&r 2 cosas al azar: zanita, ámbar dorado, bayas azules o palos de skyroot.", "&5A veces (7 %):&r unas botas de hierro encantadas con Caída de pluma."]
+			disable_toast: true
+			icon: "aether:zanite_gemstone"
+			id: "3B0FBF024ECCFD32"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4D72CDDB7AEFCF9D"
+					icon: "aether:zanite_gemstone"
+					stage: "ecos_l_atlas_aether_pisar"
+					title: "Entra al Aether"
+					type: "gamestage"
+				}
+			]
+			title: "Las islas sobre las nubes"
+			x: 2.50d
+			y: 4.20d
+		}
+		{
+			dependencies: ["3B0FBF024ECCFD32"]
+			description: ["&#19E6E6Zykna:&r &oEverbright es otro cielo recordado: un día que no termina, con sus propias criaturas y sus propias gemas. En el atlas es la maqueta que más brilla.", "", "&6Qué hacer:&r Abre el portal de Blue Skies y cruza a la dimensión de Everbright.", "", "&6Premio:&r 2 cosas al azar: diopsida, piropo, aquita o esmeraldas.", "&5A veces (7 %):&r una pala de hierro encantada con Eficiencia."]
+			disable_toast: true
+			icon: "blue_skies:diopside_gem"
+			id: "6162031B8B67B9F6"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "34460C21A1299DD1"
+					icon: "blue_skies:diopside_gem"
+					stage: "ecos_l_atlas_everbright_pisar"
+					title: "Entra a Everbright"
+					type: "gamestage"
+				}
+			]
+			title: "Everbright"
+			x: 2.50d
+			y: 5.60d
+		}
+		{
+			dependencies: ["6162031B8B67B9F6"]
+			description: ["&#19E6E6Zykna:&r &oLa maqueta de la Luna tiene luces donde no debería: la colonia lunar del Proyecto, con naves que nunca despegaron. Desde la Era II ya puedes ir a ver quién las dejó encendidas.", "", "&6Qué hacer:&r Arma el cohete de nivel 1 (se abre en la Era II), carga combustible, lleva oxígeno y aterriza en la Luna.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, hierro o piedra lunar.", "&5A veces (7 %):&r un diamante."]
+			disable_toast: true
+			icon: "ad_astra:moon_stone"
+			id: "07A729BD6FCE1812"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "028F5A63A70811C0"
+					icon: "ad_astra:moon_stone"
+					stage: "ecos_l_atlas_luna_pisar"
+					title: "Llega a la Luna"
+					type: "gamestage"
+				}
+			]
+			title: "La colonia lunar"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["07A729BD6FCE1812"]
+			description: ["&#19E6E6Zykna:&r &oLa Otra Orilla se parece a un mundo hecho de silencio. En el atlas, el diorama pide que te acerques despacio. Allí está el hogar de uno de los Maestros.", "", "&6Qué hacer:&r Abre el camino hacia la Otra Orilla (Deeper and Darker) y entra a su dimensión.", "", "&6Premio:&r 2 cosas al azar: polvo de alma, fragmentos de eco, esmeraldas o diamante.", "&5A veces (7 %):&r un diamante."]
+			disable_toast: true
+			icon: "deeperdarker:soul_dust"
+			id: "02FE08FF1023DE78"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "115D061F194CA0B7"
+					icon: "deeperdarker:soul_dust"
+					stage: "ecos_l_atlas_otraorilla_pisar"
+					title: "Entra a la Otra Orilla"
+					type: "gamestage"
+				}
+			]
+			title: "La Otra Orilla"
+			x: 5.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["02FE08FF1023DE78"]
+			description: ["&#19E6E6Zykna:&r &oEl End es el borde del atlas: un vacío con una isla y un Dragón. Cuando el Dragón cae, el mundo sube a la Era III. La maqueta termina ahí porque el mapa también.", "", "&6Qué hacer:&r Encuentra una fortaleza, repara el portal con ojos de Ender y cruza al End.", "", "&6Premio:&r 2 cosas al azar: fruta de chorus, perlas de Ender, varas del End o diamante.", "&5A veces (7 %):&r dos o tres diamantes."]
+			disable_toast: true
+			icon: "minecraft:end_rod"
+			id: "3D125BF498C0E5B6"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "395D39456180FC5C"
+					icon: "minecraft:end_rod"
+					stage: "ecos_l_atlas_end_pisar"
+					title: "Entra al End"
+					type: "gamestage"
+				}
+			]
+			title: "El borde del atlas"
+			x: 7.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["3D125BF498C0E5B6"]
+			description: ["&#19E6E6Zykna:&r &oMarte es rojo y sin aire, y en la maqueta lo ves de lejos. El cohete de nivel 2 llega hasta ahí; con un traje y combustible suficiente, ya no es una maqueta.", "", "&6Qué hacer:&r Con el cohete de nivel 2 (Era III), aterriza en Marte.", "", "&6Premio:&r 2 cosas al azar: diamantes, lingotes de desh, hierro o frascos de experiencia.", "&5A veces (7 %):&r dos o tres diamantes."]
+			disable_toast: true
+			icon: "ad_astra:desh_ingot"
+			id: "4C03B30B1C2D8114"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "30328CFE86F9514E"
+					icon: "ad_astra:desh_ingot"
+					stage: "ecos_l_atlas_marte_pisar"
+					title: "Llega a Marte"
+					type: "gamestage"
+				}
+			]
+			title: "Marte"
+			x: 7.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["4C03B30B1C2D8114"]
+			description: ["&#19E6E6Zykna:&r &oVenus es un horno envuelto en nubes. La maqueta lo pinta amarillo y quieto, pero con el cohete de nivel 3 sabrás por qué la sala del espacio tiene un cristal grueso.", "", "&6Qué hacer:&r Con el cohete de nivel 3 (Era III), aterriza en Venus.", "", "&6Premio:&r 2 cosas al azar: diamantes, lingotes de calorita, hierro o frascos de experiencia.", "&5A veces (7 %):&r dos o tres diamantes."]
+			disable_toast: true
+			icon: "ad_astra:calorite_ingot"
+			id: "7FB068546EBEE6F6"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "213D631BC4FE780E"
+					icon: "ad_astra:calorite_ingot"
+					stage: "ecos_l_atlas_venus_pisar"
+					title: "Llega a Venus"
+					type: "gamestage"
+				}
+			]
+			title: "Venus"
+			x: 7.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["7FB068546EBEE6F6"]
+			description: ["&#19E6E6Zykna:&r &oMercurio es el más cercano al sol y el más expuesto. La maqueta lo pone al final de la fila, como quien deja lo difícil para después.", "", "&6Qué hacer:&r Con el cohete de nivel 3 (Era III), aterriza en Mercurio.", "", "&6Premio:&r 2 cosas al azar: diamantes, lingotes de ostrum, hierro o frascos de experiencia.", "&5A veces (7 %):&r dos o tres diamantes."]
+			disable_toast: true
+			icon: "ad_astra:ostrum_ingot"
+			id: "633B011138F67713"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "030AF26B343468A8"
+					icon: "ad_astra:ostrum_ingot"
+					stage: "ecos_l_atlas_mercurio_pisar"
+					title: "Llega a Mercurio"
+					type: "gamestage"
+				}
+			]
+			title: "Mercurio"
+			x: 7.50d
+			y: 4.20d
+		}
+		{
+			dependencies: ["633B011138F67713"]
+			description: ["&#19E6E6Zykna:&r &oLos Custodios llegaron a la Fractura antes que nadie, y su mundo de arena sigue ahí. Al Éter lo llamaron la Fuerza. La maqueta tiene dos soles que no se ven en el cuarto.", "", "&6Qué hacer:&r Llega a la dimensión de Tatooine (Star Wars Expansion).", "", "&6Premio:&r 2 cosas al azar: diamantes, arena de Tatooine, cristales kyber o hierro.", "&5A veces (7 %):&r dos o tres diamantes."]
+			disable_toast: true
+			icon: "star_wars_expansion:tatooine_sandstone"
+			id: "48E7DAC8B59D247B"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1E5522DB53EC6090"
+					icon: "star_wars_expansion:tatooine_sandstone"
+					stage: "ecos_l_atlas_tatooine_pisar"
+					title: "Llega a Tatooine"
+					type: "gamestage"
+				}
+			]
+			title: "El mundo de arena"
+			x: 7.50d
+			y: 5.60d
+		}
+		{
+			dependencies: ["48E7DAC8B59D247B"]
+			description: ["&#19E6E6Zykna:&r &oEl núcleo cayó en Glacio, y por eso su maqueta es la última: hielo, una luz débil y algo que sigue latiendo debajo. Aquí termina el atlas y empieza lo que queda.", "", "&6Qué hacer:&r Con el cohete de nivel 4 (Era IV), aterriza en Glacio.", "", "&6Premio:&r 2 cosas al azar: diamantes, chatarra de netherita, hielo azul o frascos de experiencia.", "&5A veces (7 %):&r tres diamantes."]
+			disable_toast: true
+			icon: "minecraft:packed_ice"
+			id: "09FD71AB847B53AF"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "596D56A63AEE676C"
+					icon: "minecraft:packed_ice"
+					stage: "ecos_l_atlas_glacio_pisar"
+					title: "Llega a Glacio"
+					type: "gamestage"
+				}
+			]
+			title: "Glacio, donde cayó el núcleo"
+			x: 10.00d
+			y: 0.00d
+		}
+	]
+	subtitle: ["Veinte maquetas en el Búnker 7. Cada una es un lugar real que te espera.", "Viste la maqueta; ahora pisa el sitio, cada uno en su Era."]
+	title: "Las maquetas: el atlas"
+}

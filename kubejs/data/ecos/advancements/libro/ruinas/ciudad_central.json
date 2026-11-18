@@ -1,0 +1,96 @@
+{
+ "criteria": {
+  "lugar0": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:powerplant"
+     }
+    }
+   }
+  },
+  "lugar1": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:blackskyscraper"
+     }
+    }
+   }
+  },
+  "lugar2": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:redskyscraper"
+     }
+    }
+   }
+  },
+  "lugar3": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:tallskyscraper"
+     }
+    }
+   }
+  },
+  "lugar4": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:ruinedskyscraper"
+     }
+    }
+   }
+  },
+  "lugar5": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:ruinedblackskyscraper"
+     }
+    }
+   }
+  },
+  "lugar6": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:ruindedredskyscraper"
+     }
+    }
+   }
+  },
+  "lugar7": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:warehouse"
+     }
+    }
+   }
+  }
+ },
+ "requirements": [
+  [
+   "lugar0",
+   "lugar1",
+   "lugar2",
+   "lugar3",
+   "lugar4",
+   "lugar5",
+   "lugar6",
+   "lugar7"
+  ]
+ ]
+}

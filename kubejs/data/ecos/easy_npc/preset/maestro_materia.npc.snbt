@@ -1,0 +1,29 @@
+{
+  PresetMetadata:{author:"ECOS",category:"ECOS",created:1763280000000L,description:"Maestro de la familia materia (ECOS v12.1). Generado por tools/gen_maestros.py; no editar a mano.",entityTypeId:"easy_npc:humanoid",modified:1763280000000L,name:"Tepoztli, el Herrero de la Roca",variantType:"KAI",version:"1.0.0"},
+  data:{
+    id:"easy_npc:humanoid",
+    EasyNPCVersion:3,
+    VariantType:"KAI",
+    CustomName:'{"text": "Tepoztli, el Herrero de la Roca", "color": "#E5B43A"}',
+    CustomNameVisible:1b,
+    Invulnerable:1b,
+    PersistenceRequired:1b,
+    CanPickUpLoot:0b,
+    Tags:["ecos_maestro_npc","ecos_maestro_npc_materia"],
+    SkinData:{Type:"RESOURCE_LOCATION",Texture:"ecos:textures/entity/maestro/materia.png"},
+    Attributes:[{Base:0.0d,Name:"minecraft:generic.movement_speed"},{Base:1.0d,Name:"minecraft:generic.knockback_resistance"}],
+    EntityAttribute:{IsInvulnerable:1b,IsAttackableByPlayers:0b,IsAttackableByMonsters:0b,IsKnockbackResistant:1b,IsExplosionResistant:1b,IsPushable:0b,PushEntities:0b,CanBeLeashed:0b},
+    ObjectiveData:{ObjectiveDataSet:[{Type:"LOOK_AT_RESET"},{Type:"LOOK_AT_PLAYER"},{Type:"LOOK_AT_MOB"}]},
+    ActionData:{ActionEventSet:{ON_INTERACTION:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro materia hablar",PermLevel:2},{Type:"OPEN_DEFAULT_DIALOG"}]}},
+    DialogData:{Type:"CUSTOM",DialogDataSet:[
+      {Name:"Bendicion",Label:"bendicion",Priority:100,Texts:[{Text:"Llevas mi marca, @initiator. Que nada te doble.\\n\\nSi se te mella el filo, aquí está la fragua."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_materia_g2"}],Buttons:[{Name:"Gracias",Label:"b_gracias",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Lista",Label:"lista",Priority:50,Texts:[{Text:"Ya tienes el temple, @initiator. Se oye cuando caminas.\\n\\nAcércate al yunque: aquí va mi marca."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_materia_lista"}],Buttons:[{Name:"Recibir tu marca",Label:"b_marca",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro materia marca",PermLevel:2},{Type:"CLOSE_DIALOG"}]},{Name:"Todavía no",Label:"b_luego",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Progreso",Label:"progreso",Priority:20,Texts:[{Text:"A ver ese temple. Llevas @score(ecos_mpasos) de 5 pasos, @initiator.\\n\\nEl metal no se apura. Si lo apuras, se quiebra."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_materia_aceptada"}],Buttons:[{Name:"¿Qué me falta?",Label:"b_pasos",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro materia pasos",PermLevel:2},{Type:"CLOSE_DIALOG"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Saludo",Label:"saludo",Priority:10,Texts:[{Text:"Cuidado con la brasa, @initiator. Soy Tepoztli. Forjé la primera pieza del Núcleo con estas manos.\\n\\nTu astilla es dura como la mía. Si quieres mi marca, demuéstrame que sabes trabajar la piedra y el metal."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_fam_materia"}],Buttons:[{Name:"Acepto tu prueba",Label:"b_acepto",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro materia aceptar",PermLevel:2},{Type:"OPEN_NAMED_DIALOG",Cmd:"aceptada"}]},{Name:"¿Quién eres?",Label:"b_quien",Actions:[{Type:"OPEN_NAMED_DIALOG",Cmd:"quien"}]},{Name:"Ahora no",Label:"b_ahora_no",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Ajeno",Label:"ajeno",Priority:0,Texts:[{Text:"Tu astilla no suena a roca, @initiator. Mi marca te partiría.\\n\\nTu Maestro anda en otro lado. Pregúntale a Zykna."}],Buttons:[{Name:"¿Quién eres?",Label:"b_quien",Actions:[{Type:"OPEN_NAMED_DIALOG",Cmd:"quien"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Quien",Label:"quien",Priority:-1,Texts:[{Text:"Mi nombre quiere decir metal. Sobreviví a la Fractura dentro de esta roca.\\n\\nLa materia recuerda los golpes que recibe; yo también. No enseño a romper: enseño a endurecer."}],Buttons:[{Name:"Volver",Label:"b_volver",Actions:[{Type:"OPEN_DEFAULT_DIALOG"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Aceptada",Label:"aceptada",Priority:-1,Texts:[{Text:"Trato hecho. Son cinco pasos. El primero es el camino por las cuevas de los gigantes y vencer a su guardián.\\n\\nZykna te los dice. Cuando termines, vuelve a mi yunque."}],Buttons:[{Name:"Entendido",Label:"b_entendido",Actions:[{Type:"CLOSE_DIALOG"}]}]}
+    ]},
+    Status:{finalized:1b}
+  }
+}

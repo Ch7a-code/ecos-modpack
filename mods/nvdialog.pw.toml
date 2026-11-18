@@ -1,0 +1,13 @@
+name = "VNDialog"
+filename = "VNDialog-1.1.2-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/DPom7rJT/versions/qSn9DDzO/VNDialog-1.1.2-1.20.1.jar"
+hash-format = "sha512"
+hash = "78c6eae210400a25435de7eaf5120ae9daaf88a68a7a4b43d71512356170bc21dfb5e2c3dbabca36fa8826ed3c4ea41b595e94aa404438c090c0a226970273a6"
+
+[update]
+[update.modrinth]
+mod-id = "DPom7rJT"
+version = "qSn9DDzO"

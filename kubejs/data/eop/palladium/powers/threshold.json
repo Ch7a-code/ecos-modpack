@@ -1,0 +1,1578 @@
+{
+  "name": "Relocation",
+  "persistent_data": true,
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "icon": "eop:textures/gui/relocation.png",
+  "energy_bars": {
+    "teleport_percent": {
+      "color": "#800080",
+      "max": 100,
+      "synced_value": {
+        "type": "score",
+        "objective": "Entropic.Energy",
+        "fallback": 0
+      }
+    }
+  },
+  "abilities": {
+    "Threshold": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Threshold",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "tag @s add EOP.Has.BM",
+        "scoreboard objectives add Entropic.Energy dummy",
+        "scoreboard players add @s Entropic.Energy 0",
+        "scoreboard objectives add TP.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Threshold",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "tag @s remove Warp.Point.Can.Remove",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Relocation": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/relocation.png",
+      "title": "Relocation",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to relocate yourself anywhere, everywhere at anytime you desire"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:threshold @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{threshold:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Relocation\",\"color\":\"#800080\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "TP.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s TP.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "TP.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "TP.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s TP.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "TP.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "TP.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s TP.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "TP.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Speed": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 5% more movement speed",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.05,
+      "operation": 1,
+      "uuid": "2eaf0122-e9bb-4c5a-8fea-7a52388d7a40",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Relocation"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TP.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/relocation.png",
+            "description": {
+              "text": "Relocation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Speed2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 5% more movement speed",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.05,
+      "operation": 1,
+      "uuid": "33c83dee-ba5b-416a-8460-98ac351b1ca3",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TP.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/relocation.png",
+            "description": {
+              "text": "Relocation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Speed3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 5% more movement speed",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.05,
+      "operation": 1,
+      "uuid": "61ba3f56-cf6c-4983-905d-d4f889370b07",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TP.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/relocation.png",
+            "description": {
+              "text": "Relocation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Speed4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 5% more movement speed",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.05,
+      "operation": 1,
+      "uuid": "cfb4ed79-f424-4312-b1eb-d20326581e52",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TP.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/relocation.png",
+            "description": {
+              "text": "Relocation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Set.Scoreboard.Max": {
+      "type": "eop:set_scoreboard",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "scoreboard_objective": "Entropic.Energy",
+      "scoreboard_value": 100
+    },
+    "Entropic.Amount.Infinite": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players set @s Entropic.Energy 100"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Entropic.Energy",
+            "min_score": -1000,
+            "max_score": 99
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Inf.Energy"
+          }
+        ]
+      }
+    },
+    "Entropic.Energy.Regen": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "scoreboard players add @s Entropic.Energy 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Entropic.Energy",
+            "min_score": -100,
+            "max_score": 99
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "Ability.Being.Used"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Reflexive Warp",
+      "description": "Dodge most attacks just before being hit by teleporting away. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/reflex_warp.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Reflex.Dodge": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "icon": "eop:textures/gui/reflex_warp.png",
+      "title": "Reflexive Warp",
+      "list_index": 0,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 20,
+            "ticks": 40,
+            "key_type": "right_click",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Entropic.Energy",
+            "min_score": 1,
+            "max_score": 2110
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:threshold"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "eop:fatigue"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Reflex.Dodge.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2",
+        "particle portal ~ ~1 ~ 1 1 1 1 100 force"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "TP.Dodge"
+          }
+        ]
+      }
+    },
+    "Reflex.Dodge.Commands2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s remove TP.Dodge"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "TP.Dodge"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Reflex.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Reflex.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "TP.Dodge"
+          }
+        ]
+      }
+    },
+    "Reflex.Dodge.Random.Tp": {
+      "type": "eop:random_teleport",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 5,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "TP.Dodge"
+          }
+        ]
+      }
+    },
+    "Relocate.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/relocate.png",
+      "title": "Relocate",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "description": "Teleport to where you are looking",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Relocation"
+          }
+        ]
+      }
+    },
+    "Relocate.Ability": {
+      "type": "eop:raycast_teleport",
+      "icon": "eop:textures/gui/relocate.png",
+      "title": "Relocate",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "range": 150,
+      "particle": "minecraft:dust 0.5 0 1 5",
+      "particle_count": 100,
+      "sound": "minecraft:entity.enderman.teleport",
+      "sound_volume": 1,
+      "sound_pitch": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 20,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Relocate.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "eop:fatigue"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_mente_g2"
+          }
+        ]
+      }
+    },
+    "Warp.Point.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/warp_point.png",
+      "title": "Warp Point",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Place a Warp Point, with the ability to teleport back to and from it. §dSneak §fto set or remove waypoint",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Relocate.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TP.Score",
+            "score": 3,
+            "icon": "eop:textures/gui/relocation.png",
+            "description": {
+              "text": "Relocation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Warp.Point": {
+      "type": "palladium:command",
+      "title": "Warp Point",
+      "icon": "eop:textures/gui/warp_point.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "first_tick_commands": [
+        "execute if predicate eop:is_sneaking run playsound minecraft:block.note_block.bell master @s ~ ~ ~ 1 1",
+        "execute if predicate eop:is_sneaking run title @s actionbar [\"\",{\"text\":\"Location marked!\",\"color\":\"green\",\"bold\":true}]",
+        "execute if predicate eop:is_sneaking run tag @s add EOP.Warp.Point.Saved"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 40,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:on_ground"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Warp.Point.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "eop:fatigue"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Warp.Point.Saved"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Warp.Point.Save": {
+      "type": "eop:waypoint_travel",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 3,
+      "particle1": "minecraft:end_rod",
+      "particle2": "portal",
+      "sound1": "eop:blue",
+      "sound2": "null",
+      "one_way": false,
+      "carry_entities": true,
+      "allow_interdim": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Warp.Point"
+          },
+          {
+            "type": "palladium:crouching"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_mente_g2"
+          }
+        ]
+      }
+    },
+    "Warp.Point.Switch.Begin": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/warp_point.png",
+      "title": "Warp Point",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "gui_position": "null",
+      "first_tick_commands": [
+        "execute unless predicate eop:is_sneaking run playsound minecraft:entity.evoker.prepare_attack master @a ~ ~ ~ 1 2",
+        "execute unless predicate eop:is_sneaking run tag @s add Relocation.Begin.Warping",
+        "execute if predicate eop:is_sneaking run title @s actionbar [\"\",{\"text\":\"Location removed!\",\"color\":\"red\",\"bold\":true}]",
+        "execute if predicate eop:is_sneaking run playsound minecraft:block.note_block.snare master @s ~ ~ ~ 1 1",
+        "execute if predicate eop:is_sneaking run tag @s remove EOP.Warp.Point.Saved"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:on_ground"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Entropic.Energy",
+            "min_score": 10,
+            "max_score": 2000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Warp.Point.Unlock"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Warp.Point.Saved"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "eop:fatigue"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Warp.Point.Switch.Animation": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/fast_travel.png",
+      "title": "Warp Point",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 3,
+      "start_value": 0,
+      "max_value": 20,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Relocation.Begin.Warping"
+          }
+        ]
+      }
+    },
+    "Warp.Point.Remove.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "gui_position": "null",
+      "first_tick_commands": [
+        "particle dust 0.5 0 1 5 ~ ~ ~ 0.3 1 0.3 0 25 force",
+        "scoreboard players remove @s Entropic.Energy 10",
+        "tag @s remove Relocation.Begin.Warping"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Warp.Point.Switch.Animation",
+            "property": "value",
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Warp.Point.Switch": {
+      "type": "eop:waypoint_travel",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 3,
+      "gui_position": "null",
+      "particle1": "minecraft:end_rod",
+      "particle2": "portal",
+      "sound1": "eop:blue",
+      "sound2": "null",
+      "one_way": false,
+      "carry_entities": true,
+      "allow_interdim": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Warp.Point.Switch.Animation",
+            "property": "value",
+            "min": 20,
+            "max": 20
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_mente_g2"
+          }
+        ]
+      }
+    },
+    "Warp.Point.Tag.Remove.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "start_value": 0,
+      "max_value": 30,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Relocation.Begin.Warping"
+          }
+        ]
+      }
+    },
+    "Warp.Point.No.Move.Timer": {
+      "type": "palladium:animation_timer",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "start_value": 0,
+      "max_value": 42,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Relocation.Begin.Warping"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "b1fb5d42-5828-4a81-9dd2-eb090b94773b",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Warp.Point.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 41
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Warp.Point.No.Move.Timer"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "78935d7c-b528-4edf-b880-6f838547a1be",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Warp.Point.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 41
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Warp.Point.No.Move.Timer"
+          }
+        ]
+      }
+    },
+    "Disruption.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Entropic Disruption",
+      "icon": "eop:textures/gui/disruption.png",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Break the confines of space-time, warping everyone around you randomly",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Warp.Point.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TP.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/relocation.png",
+            "description": {
+              "text": "Relocation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Disruption": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/disruption.png",
+      "title": "Entropic Disruption",
+      "list_index": 2,
+      "start_value": 0,
+      "max_value": 25,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 400,
+            "ticks": 25,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Entropic.Energy",
+            "min_score": 15,
+            "max_score": 2000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Disruption.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "eop:fatigue"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Disruption.Commands": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "particle dust 0.4 0.4 1 1 ~ ~1 ~ 10 4 10 0.03 200 force",
+        "particle end_rod ~ ~1 ~ 10 4 10 0.03 150 force",
+        "playsound minecraft:entity.allay.hurt master @a ~ ~ ~ 1 0.5",
+        "scoreboard players remove @s Entropic.Energy 15"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Disruption",
+            "property": "value",
+            "min": 25,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Disruption.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 10,
+      "commands": [
+        "superpower add eop:effects/entropy_teleport @s[type=!armor_stand,tag=!Warper,tag=!Drifter]"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Disruption"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Disruption",
+            "property": "value",
+            "min": 25,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "Dimension.Grab.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Entropic Pull",
+      "icon": "eop:textures/gui/dimensional_grab.png",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 4,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Warp a target to your location, briefly stunning them upon success. §dTargets entities you are looking at",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Disruption.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TP.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/relocation.png",
+            "description": {
+              "text": "Relocation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Dimension.Grab": {
+      "type": "eop:raycast_command",
+      "icon": "eop:textures/gui/dimensional_grab.png",
+      "title": "Entropic Pull",
+      "bar_color": "purple",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "range": 60,
+      "damage": 0,
+      "damage_type": "minecraft:player_attack",
+      "set_on_fire_seconds": 0,
+      "ignore_same_team": true,
+      "commands_on_entity_hit": [
+        "effect give @e[distance=..2,limit=1,sort=nearest] minecraft:slowness 8 2 true",
+        "effect give @e[distance=..2,limit=1,sort=nearest] minecraft:weakness 8 3 true",
+        "effect give @e[distance=..2,limit=1,sort=nearest] minecraft:mining_fatigue 8 3 true"
+      ],
+      "commands_on_block_hit": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Entropic.Energy",
+            "min_score": 20,
+            "max_score": 2000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Dimension.Grab.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "eop:fatigue"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Dimension.Grab.Custom": {
+      "type": "eop:raycast_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 3,
+      "range": 60,
+      "damage": 0,
+      "damage_type": "minecraft:player_attack",
+      "set_on_fire_seconds": 0,
+      "ignore_same_team": false,
+      "commands_on_entity_hit": [
+        "scoreboard players remove @s Entropic.Energy 20",
+        "execute at @s run playsound minecraft:entity.illusioner.cast_spell master @a ~ ~ ~ 2 2",
+        "playsound minecraft:entity.illusioner.cast_spell master @a ~ ~ ~ 2 2",
+        "particle dust 0.5 0 1.00 3 ~ ~1 ~ 1 1 1 1 50 force",
+        "execute at @s run particle dust 0.5 0 1.00 3 ~ ~1 ~ 1 1 1 1 50 force",
+        "tp @e[distance=..2,limit=1,sort=nearest] @s"
+      ],
+      "commands_on_block_hit": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Dimension.Grab"
+          }
+        ]
+      }
+    },
+    "Banishment.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Banishment",
+      "icon": "eop:textures/gui/banishment.png",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 4,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Surge your power to a breaking point, warping all enemies extremely far from you",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Dimension.Grab.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TP.Score",
+            "score": 15,
+            "icon": "eop:textures/gui/relocation.png",
+            "description": {
+              "text": "Relocation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Banishment.NEE": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/banishment.png",
+      "title": "Banishment",
+      "list_index": 4,
+      "first_tick_commands": [
+        "playsound minecraft:block.note_block.didgeridoo master @s ~ ~ ~ 1 0.5",
+        "title @s actionbar [\"\",{\"text\":\"Not enough energy!\",\"color\":\"red\",\"bold\":true}]"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 20,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Banishment.Unlock"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Entropic.Energy",
+            "min_score": 0,
+            "max_score": 69
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Banishment": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/banishment.png",
+      "title": "Banishment",
+      "list_index": 4,
+      "start_value": 0,
+      "max_value": 40,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 1200,
+            "ticks": 45,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Banishment.Unlock"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Entropic.Energy",
+            "min_score": 70,
+            "max_score": 1000
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Usage": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players remove @s Entropic.Energy 70"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Banishment"
+          }
+        ]
+      }
+    },
+    "Banishment.Commands": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "particle dust 0.4 0.4 1 1 ~ ~1 ~ 10 4 10 0.03 120 force",
+        "playsound minecraft:entity.allay.hurt master @a ~ ~ ~ 1 0.5",
+        "effect give @s slowness 15 3 true",
+        "effect give @s weakness 15 3 true",
+        "effect give @s mining_fatigue 15 3 true",
+        "effect give @s eop:fatigue 15 3 true"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Banishment",
+            "property": "value",
+            "min": 40,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Banishment.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 30,
+      "commands": [
+        "particle dust 0.5 0 1 1 ~ ~1 ~ 5 4 5 0.03 500 force",
+        "spreadplayers ~ ~ 150 400 true @s"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Banishment"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Banishment",
+            "property": "value",
+            "min": 40,
+            "max": 40
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+name = "Echoes of Power: Reborn"
+filename = "Echoes-of-Power-3.3.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/w4sKdrVq/versions/uWHTfV34/Echoes-of-Power-3.3.0.jar"
+hash-format = "sha512"
+hash = "00f7db68cbdf65296c2ea072d52e1872d7d4a311fc37712ac66657869e674fd56c1a9ee4288b4664427690c754fbb5e9a437bab349b8be43c6b9fccfb3d244c9"
+
+[update]
+[update.modrinth]
+mod-id = "w4sKdrVq"
+version = "uWHTfV34"

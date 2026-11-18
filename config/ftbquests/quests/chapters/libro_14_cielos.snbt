@@ -1,0 +1,446 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_14_cielos"
+	group: "56F3188FE75A98A8"
+	icon: "aether:zanite_gemstone"
+	id: "178A9056DDCDB18F"
+	order_index: 14
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oEl Aether es un bolsillo de memoria: un fragmento recordó un cielo entero, y ahí se cristalizó el Éter. Se entra por una cicatriz que brilla. Pisa con cuidado: aquí abajo no hay suelo.", "", "&6Qué hacer:&r Enciende el portal del Aether (marco de piedra luminosa con agua dentro) y cruza.", "", "&6Premio:&r 2 cosas al azar: pan, bayas azules, fragmentos de ambrosio o hierro.", "&5A veces (7 %):&r ámbar dorado."]
+			disable_toast: true
+			icon: "aether:aether_portal_frame"
+			id: "32798C70BBFCFAFA"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "000A2187C293D2D7"
+					icon: "aether:aether_portal_frame"
+					stage: "ecos_l_cielos_aether_entrar"
+					title: "Entra al Aether"
+					type: "gamestage"
+				}
+			]
+			title: "La isla que recordó el cielo"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["32798C70BBFCFAFA"]
+			description: ["&#19E6E6Zykna:&r &oLo que flota necesita un lugar donde asentarse. El altar trabaja las piedras del cielo y las convierte en cosas útiles. Hazte uno antes de pedirle nada.", "", "&6Qué hacer:&r Fabrica un altar del Aether.", "", "&6Premio:&r 2 cosas al azar: fragmentos de ambrosio, gemas de zanita, piedra sagrada o hierro.", "&5A veces (7 %):&r un pico de zanita encantado con Eficiencia."]
+			disable_toast: true
+			icon: "aether:altar"
+			id: "1D745E23AEC02F0A"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "66EE0E96B8080166"
+					icon: "aether:altar"
+					stage: "ecos_l_cielos_altar_altar"
+					title: "Fabrica un altar"
+					type: "gamestage"
+				}
+			]
+			title: "El altar de la gravitita"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["1D745E23AEC02F0A"]
+			description: ["&#19E6E6Zykna:&r &oLas moas corren por el cielo como si fuera suelo. Con un huevo y una incubadora tendrás una propia, y ella te llevará más lejos de lo que tus pies recuerdan.", "", "&6Qué hacer:&r Consigue un huevo de moa y haz que nazca en una incubadora.", "", "&6Premio:&r 2 cosas al azar: bayas azules, semillas de trigo, ámbar dorado o pan.", "&5A veces (7 %):&r un huevo de moa blanca."]
+			disable_toast: true
+			icon: "aether:blue_moa_egg"
+			id: "5C1837E00053C1C0"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "60CAB3DE5D4434C7"
+					icon: "aether:blue_moa_egg"
+					stage: "ecos_l_cielos_moas_huevo"
+					title: "Consigue un huevo de moa"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "23699897C7A968A2"
+					icon: "aether:incubator"
+					stage: "ecos_l_cielos_moas_nacer"
+					title: "Incuba una moa"
+					type: "gamestage"
+				}
+			]
+			title: "Un huevo, una moa"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["5C1837E00053C1C0"]
+			description: ["&#19E6E6Zykna:&r &oLa mazmorra de bronce es la primera de las tres que guardan este cielo. Su jefe se mueve a golpes y no perdona los descuidos. Lo que dejan sus cofres te prepara para la de plata.", "", "&6Qué hacer:&r Entra a la mazmorra de bronce y derrota a su jefe.", "", "&6Premio:&r 2 cosas al azar: hierro, gemas de zanita, carne cocida o una esmeralda.", "&5A veces (7 %):&r un anillo de hierro del Aether."]
+			disable_toast: true
+			icon: "aether:bronze_dungeon_key"
+			id: "3A70E544371C2A6E"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6F9B18DFB17789F7"
+					icon: "aether:bronze_dungeon_key"
+					stage: "ecos_l_cielos_bronce_jefe"
+					title: "Derrota al jefe de bronce"
+					type: "gamestage"
+				}
+			]
+			title: "La mazmorra de bronce"
+			x: 0.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["3A70E544371C2A6E"]
+			description: ["&#19E6E6Zykna:&r &oBlue Skies guarda dos recuerdos del mismo cielo. Everbright es el que nunca oscurece, y su portal es otra cicatriz: lo enciendes y te deja del otro lado. Golpea un tronco azuliente al llegar.", "", "&6Qué hacer:&r Construye un portal a Everbright, cruza y golpea un tronco azuliente.", "", "&6Premio:&r 2 cosas al azar: fermentamoras, tablas azulientes, hierro o tarta de cerezo.", "&5A veces (7 %):&r gemas de piropo."]
+			disable_toast: true
+			icon: "blue_skies:bluebright_log"
+			id: "1BAABC00D496E14E"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "45A08A16F4CA404E"
+					icon: "blue_skies:bluebright_log"
+					stage: "ecos_l_cielos_everbright_entrar"
+					title: "Entra a Everbright"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "35AFBC9082C81EEC"
+					icon: "blue_skies:bluebright_planks"
+					stage: "ecos_l_cielos_everbright_tronco"
+					title: "Golpea un tronco azuliente"
+					type: "gamestage"
+				}
+			]
+			title: "Siempre brillante"
+			x: 0.00d
+			y: 5.60d
+		}
+		{
+			dependencies: ["1BAABC00D496E14E"]
+			description: ["&#19E6E6Zykna:&r &oEn Everbright el metal tiene nombre propio. Funde falsita en bruto y póntela a una herramienta con una caja de herramientas: es el primer truco útil de este cielo.", "", "&6Qué hacer:&r Funde falsita en bruto y úsala en una herramienta con una caja de herramientas.", "", "&6Premio:&r 2 cosas al azar: lingotes de falsita, hierro, cobre o esmeraldas.", "&5A veces (7 %):&r un pico de diópsido encantado con Eficiencia."]
+			disable_toast: true
+			icon: "blue_skies:tool_box"
+			id: "6BBAEE779E331686"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "24AA5141897545F7"
+					icon: "blue_skies:falsite_ingot"
+					stage: "ecos_l_cielos_caja_falsita"
+					title: "Funde falsita en bruto"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "427A855CC181F0CB"
+					icon: "blue_skies:tool_box"
+					stage: "ecos_l_cielos_caja_caja"
+					title: "Ponle falsita a una herramienta"
+					type: "gamestage"
+				}
+			]
+			title: "Falsita y caja de herramientas"
+			x: 0.00d
+			y: 7.00d
+		}
+		{
+			dependencies: ["6BBAEE779E331686"]
+			description: ["&#19E6E6Zykna:&r &oEn la mazmorra de plata espera la Reina Valquiria, y detrás de ella vive Citlali, la Tejedora de Tormentas. Cuando la Reina cae, tu Maestra despierta. Si tu don es de Elementales, aquí empieza tu Prueba.", "", "&6Qué hacer:&r Entra a la mazmorra de plata y derrota a su jefa, la Reina Valquiria.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, gemas de zanita o un diamante.", "&5A veces (7 %):&r un peto de Valquiria."]
+			disable_toast: true
+			icon: "aether:silver_dungeon_key"
+			id: "3D613EFCA3787B0D"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "63FF7ED503E7FB71"
+					icon: "aether:silver_dungeon_key"
+					stage: "ecos_l_cielos_plata_jefa"
+					title: "Derrota al jefe plateado"
+					type: "gamestage"
+				}
+			]
+			title: "La Reina Valquiria"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["3D613EFCA3787B0D"]
+			description: ["&#19E6E6Zykna:&r &oLa gravitita encantada es piedra que olvidó cuánto pesa. Un altar la despierta, y con ella se hacen armaduras que le ganan a la caída.", "", "&6Qué hacer:&r Usa un altar para obtener gravitita encantada.", "", "&6Premio:&r 2 cosas al azar: fragmentos de ambrosio, gemas de zanita, oro o esmeraldas.", "&5A veces (7 %):&r un pico de gravitita encantado con Eficiencia."]
+			disable_toast: true
+			icon: "aether:enchanted_gravitite"
+			id: "6642773453D28930"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "636DB5F0372D666C"
+					icon: "aether:enchanted_gravitite"
+					stage: "ecos_l_cielos_gravitita_encantar"
+					title: "Obtén gravitita encantada"
+					type: "gamestage"
+				}
+			]
+			title: "El rosa es el nuevo azul"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["6642773453D28930"]
+			description: ["&#19E6E6Zykna:&r &oEn las islas altas de Everbright vive Cuauhtli, la Corredora de Cielos, y el Invocador guarda su hogar. Cuando él cae, ella despierta. Si tu don es de Impulso, este es tu camino.", "", "&6Qué hacer:&r Entra a la mazmorra de Everbright y mata al Invocador.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, gemas de diópsido o un diamante.", "&5A veces (7 %):&r un pico de piropo encantado con Fortuna."]
+			disable_toast: true
+			icon: "blue_skies:summoning_table"
+			id: "287234B1CD780312"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "72FA14A2FC5316F0"
+					icon: "blue_skies:summoning_table"
+					stage: "ecos_l_cielos_evocador_matar"
+					title: "Mata al Invocador"
+					type: "gamestage"
+				}
+			]
+			title: "El Invocador de Everbright"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["287234B1CD780312"]
+			description: ["&#19E6E6Zykna:&r &oLo que un evocador aprende, se puede enseñar. Una mesa de convocación lee un tomo y llama a un gólem armado de piezas. No es amigo por voluntad, pero pelea de tu lado.", "", "&6Qué hacer:&r Fabrica una mesa de convocación y úsala con un tomo para invocar a un gólem artificial.", "", "&6Premio:&r 2 cosas al azar: fragmentos de piedra lunar, oro, esmeraldas o frascos de experiencia.", "&5A veces (7 %):&r bloques de piedra lunar."]
+			disable_toast: true
+			icon: "blue_skies:summoning_table"
+			id: "041CC0A22B432546"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7016EE6B5FC0066C"
+					icon: "blue_skies:summoning_table"
+					stage: "ecos_l_cielos_convocacion_mesa"
+					title: "Ten una mesa de convocación"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "410E180FFB1FD751"
+					icon: "blue_skies:summoning_table"
+					stage: "ecos_l_cielos_convocacion_golem"
+					title: "Invoca a un gólem artificial"
+					type: "gamestage"
+				}
+			]
+			title: "La mesa de convocación"
+			x: 2.50d
+			y: 4.20d
+		}
+		{
+			dependencies: ["041CC0A22B432546"]
+			description: ["&#19E6E6Zykna:&r &oEverdawn es el otro recuerdo de Blue Skies: el que siempre está amaneciendo. Su portal también es una cicatriz. Los bichos son grandes y no te quieren cerca; la mazmorra venenosa es peor.", "", "&6Qué hacer:&r Entra a Everdawn y encuentra una mazmorra venenosa.", "", "&6Premio:&r 2 cosas al azar: tablas lunares, oro, esmeraldas o carne cocida.", "&5A veces (7 %):&r lingotes de horizonita."]
+			disable_toast: true
+			icon: "blue_skies:lunar_log"
+			id: "4016347227C59CD1"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "47D003631A79BC4A"
+					icon: "blue_skies:lunar_log"
+					stage: "ecos_l_cielos_everdawn_entrar"
+					title: "Entra a Everdawn"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1AF9E27FB0B60C80"
+					icon: "blue_skies:lunar_planks"
+					stage: "ecos_l_cielos_everdawn_mazmorra"
+					title: "Entra a una mazmorra venenosa"
+					type: "gamestage"
+				}
+			]
+			title: "Siempre amaneciendo"
+			x: 2.50d
+			y: 5.60d
+		}
+		{
+			dependencies: ["4016347227C59CD1"]
+			description: ["&#19E6E6Zykna:&r &oHay un oficio viejo que promete oro desde cualquier cosa. Aquí funciona un poco: una mesa de alquimia transforma materiales si sabes qué pedirle. Hazlo y verás.", "", "&6Qué hacer:&r Usa una mesa de alquimia y crea oro con ella.", "", "&6Premio:&r 2 cosas al azar: oro, pepitas de oro, botellas de vidrio o esmeraldas.", "&5A veces (7 %):&r un montón de frascos de experiencia."]
+			disable_toast: true
+			icon: "blue_skies:alchemy_table"
+			id: "255D593D919EB7C4"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0A25F5D025280304"
+					icon: "blue_skies:alchemy_table"
+					stage: "ecos_l_cielos_alquimia_usar"
+					title: "Usa una mesa de alquimia"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "2A7BC7EF1CA2ABAD"
+					icon: "minecraft:gold_ingot"
+					stage: "ecos_l_cielos_alquimia_oro"
+					title: "Crea oro con alquimia"
+					type: "gamestage"
+				}
+			]
+			title: "Oro de alquimia"
+			x: 2.50d
+			y: 7.00d
+		}
+		{
+			dependencies: ["255D593D919EB7C4"]
+			description: ["&#19E6E6Zykna:&r &oLa horizonita arde distinto: se funde en una forja que no es un horno. Con ella se hacen armaduras y herramientas que este cielo recuerda con calor.", "", "&6Qué hacer:&r Funde horizonita en bruto y fabrica una forja de horizonita.", "", "&6Premio:&r 2 cosas al azar: lingotes de horizonita, carbón, oro o un diamante.", "&5A veces (7 %):&r un pico de horizonita encantado con Irrompibilidad."]
+			disable_toast: true
+			icon: "blue_skies:horizonite_forge"
+			id: "4D58BE990E4ED8C6"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "291ADE9EEE2551D5"
+					icon: "blue_skies:horizonite_ingot"
+					stage: "ecos_l_cielos_forja_fundir"
+					title: "Funde horizonita en bruto"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "0DEFD2B5B0F86B43"
+					icon: "blue_skies:horizonite_forge"
+					stage: "ecos_l_cielos_forja_forja"
+					title: "Fabrica una forja de horizonita"
+					type: "gamestage"
+				}
+			]
+			title: "La forja de horizonita"
+			x: 2.50d
+			y: 8.40d
+		}
+		{
+			dependencies: ["4D58BE990E4ED8C6"]
+			description: ["&#19E6E6Zykna:&r &oEn el Domo Envenenado de Everdawn vive Yolotl, la Curandera de Hueso, y la Arachnarch guarda su hogar. Cae la araña y despierta la curandera. Si tu don es de Sangre, aquí te espera.", "", "&6Qué hacer:&r Entra a la mazmorra venenosa de Everdawn y mata a la Arachnarch.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, hilo o un diamante.", "&5A veces (7 %):&r gemas de charoita."]
+			disable_toast: true
+			icon: "blue_skies:poison_key"
+			id: "0E07CF48852ADA42"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1A2E4A65EDAFBC63"
+					icon: "minecraft:spider_eye"
+					stage: "ecos_l_cielos_arachnarch_matar"
+					title: "Mata a la Arachnarch"
+					type: "gamestage"
+				}
+			]
+			title: "La Arachnarch del domo"
+			x: 2.50d
+			y: 9.80d
+		}
+		{
+			dependencies: ["0E07CF48852ADA42"]
+			description: ["&#19E6E6Zykna:&r &oLa mazmorra de oro es la última del Aether y la más brava: lo que la guarda es lo más cercano a un fragmento que sigue ardiendo. Cuando cae, deja armadura de fénix.", "", "&6Qué hacer:&r Entra a la mazmorra de oro, derrota a su jefe y consigue una pieza de armadura de fénix.", "", "&6Premio:&r 2 cosas al azar: diamantes, oro, ámbar dorado o chatarra de netherita.", "&5A veces (7 %):&r un arco de fénix."]
+			disable_toast: true
+			icon: "aether:gold_dungeon_key"
+			id: "01E6136238C92245"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0AE2AF724D8797DA"
+					icon: "aether:gold_dungeon_key"
+					stage: "ecos_l_cielos_oro_jefe"
+					title: "Derrota al jefe dorado"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "15BE435D6A7B2E39"
+					icon: "aether:phoenix_chestplate"
+					stage: "ecos_l_cielos_oro_fenix"
+					title: "Consigue armadura de fénix"
+					type: "gamestage"
+				}
+			]
+			title: "El Espíritu del Sol"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["01E6136238C92245"]
+			description: ["&#19E6E6Zykna:&r &oEn la mazmorra de la naturaleza de Everbright vive el Triturador Astral, un jefe que parece más árbol que criatura. Es duro y lento, y cae si lo entiendes.", "", "&6Qué hacer:&r Entra a una mazmorra de la naturaleza de Everbright y mata al Triturador Astral.", "", "&6Premio:&r 2 cosas al azar: diamantes, lingotes de horizonita, esmeraldas o chatarra de netherita.", "&5A veces (7 %):&r tres diamantes."]
+			disable_toast: true
+			icon: "blue_skies:starlit_log"
+			id: "3473ED4173264A73"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "2EF61116063579D6"
+					icon: "blue_skies:starlit_log"
+					stage: "ecos_l_cielos_triturador_matar"
+					title: "Mata al Triturador Astral"
+					type: "gamestage"
+				}
+			]
+			title: "El Triturador Astral"
+			x: 5.00d
+			y: 1.40d
+		}
+	]
+	subtitle: ["Aether, Everbright y Everdawn: bolsillos de memoria donde se cristalizó el Éter.", "Tres mazmorras, dos portales y los guardianes de tres Maestros."]
+	title: "Los cielos de memoria"
+}

@@ -1,0 +1,19 @@
+{
+ "criteria": {
+  "lugar0": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "dungeons_arise:mechanical_nest"
+     }
+    }
+   }
+  }
+ },
+ "requirements": [
+  [
+   "lugar0"
+  ]
+ ]
+}

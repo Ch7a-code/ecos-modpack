@@ -1,0 +1,29 @@
+{
+  PresetMetadata:{author:"ECOS",category:"ECOS",created:1763280000000L,description:"Maestro de la familia mente (ECOS v12.1). Generado por tools/gen_maestros.py; no editar a mano.",entityTypeId:"easy_npc:humanoid",modified:1763280000000L,name:"Mixtli, el Archivista del Silencio",variantType:"PROFESSOR_01",version:"1.0.0"},
+  data:{
+    id:"easy_npc:humanoid",
+    EasyNPCVersion:3,
+    VariantType:"PROFESSOR_01",
+    CustomName:'{"text": "Mixtli, el Archivista del Silencio", "color": "#3FE0C8"}',
+    CustomNameVisible:1b,
+    Invulnerable:1b,
+    PersistenceRequired:1b,
+    CanPickUpLoot:0b,
+    Tags:["ecos_maestro_npc","ecos_maestro_npc_mente"],
+    SkinData:{Type:"RESOURCE_LOCATION",Texture:"ecos:textures/entity/maestro/mente.png"},
+    Attributes:[{Base:0.0d,Name:"minecraft:generic.movement_speed"},{Base:1.0d,Name:"minecraft:generic.knockback_resistance"}],
+    EntityAttribute:{IsInvulnerable:1b,IsAttackableByPlayers:0b,IsAttackableByMonsters:0b,IsKnockbackResistant:1b,IsExplosionResistant:1b,IsPushable:0b,PushEntities:0b,CanBeLeashed:0b},
+    ObjectiveData:{ObjectiveDataSet:[{Type:"LOOK_AT_RESET"},{Type:"LOOK_AT_PLAYER"},{Type:"LOOK_AT_MOB"}]},
+    ActionData:{ActionEventSet:{ON_INTERACTION:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro mente hablar",PermLevel:2},{Type:"OPEN_DEFAULT_DIALOG"}]}},
+    DialogData:{Type:"CUSTOM",DialogDataSet:[
+      {Name:"Bendicion",Label:"bendicion",Priority:100,Texts:[{Text:"Llevas mi marca, @initiator. Ya estás escrito en mis códices.\\n\\nVuelve si necesitas recordar algo; yo no olvido."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_mente_g2"}],Buttons:[{Name:"Gracias",Label:"b_gracias",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Lista",Label:"lista",Priority:50,Texts:[{Text:"El registro está completo, @initiator. No falta nada.\\n\\nAcércate: la marca va en silencio."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_mente_lista"}],Buttons:[{Name:"Recibir tu marca",Label:"b_marca",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro mente marca",PermLevel:2},{Type:"CLOSE_DIALOG"}]},{Name:"Todavía no",Label:"b_luego",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Progreso",Label:"progreso",Priority:20,Texts:[{Text:"Tu expediente dice @score(ecos_mpasos) de 5 pasos, @initiator.\\n\\nNo corras. Lo que se aprende con prisa se olvida igual."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_mente_aceptada"}],Buttons:[{Name:"¿Qué me falta?",Label:"b_pasos",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro mente pasos",PermLevel:2},{Type:"CLOSE_DIALOG"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Saludo",Label:"saludo",Priority:10,Texts:[{Text:"Habla bajo, @initiator. Aquí el ruido llama a cosas que escuchan.\\n\\nSoy Mixtli. Registré el Éter hasta que el Éter me registró a mí. Tu astilla piensa como la mía: si quieres mi marca, demuéstrame que sabes llegar lejos sin perderte."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_fam_mente"}],Buttons:[{Name:"Acepto tu prueba",Label:"b_acepto",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro mente aceptar",PermLevel:2},{Type:"OPEN_NAMED_DIALOG",Cmd:"aceptada"}]},{Name:"¿Quién eres?",Label:"b_quien",Actions:[{Type:"OPEN_NAMED_DIALOG",Cmd:"quien"}]},{Name:"Ahora no",Label:"b_ahora_no",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Ajeno",Label:"ajeno",Priority:0,Texts:[{Text:"Tu astilla no lee mis libros, @initiator. Mi marca te dejaría en blanco.\\n\\nTu Maestro está en otra parte. Zykna sabe dónde."}],Buttons:[{Name:"¿Quién eres?",Label:"b_quien",Actions:[{Type:"OPEN_NAMED_DIALOG",Cmd:"quien"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Quien",Label:"quien",Priority:-1,Texts:[{Text:"Mi nombre quiere decir nube. Fui Custodio y tlacuilo: pintaba en códices lo que el Proyecto no quería recordar.\\n\\nCuando el Éter estalló me quedé en esta orilla con mis libros. El silencio es mi idioma."}],Buttons:[{Name:"Volver",Label:"b_volver",Actions:[{Type:"OPEN_DEFAULT_DIALOG"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Aceptada",Label:"aceptada",Priority:-1,Texts:[{Text:"Anotado. Son cinco pasos. El primero es el camino hasta este archivo y vencer al acechador que lo cuida.\\n\\nZykna te los lee. Vuelve cuando estén cumplidos."}],Buttons:[{Name:"Entendido",Label:"b_entendido",Actions:[{Type:"CLOSE_DIALOG"}]}]}
+    ]},
+    Status:{finalized:1b}
+  }
+}

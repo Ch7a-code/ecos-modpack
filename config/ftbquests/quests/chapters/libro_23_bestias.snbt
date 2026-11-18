@@ -1,0 +1,471 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_23_bestias"
+	group: "2A4B6750AD6AF7B2"
+	icon: "alexsmobs:banana"
+	id: "7DF820EE46DDE5E2"
+	order_index: 23
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oNo todas las criaturas que cruzaron la Fractura son enemigas. Algunas solo tienen hambre y miedo, y se quedan con quien les da de comer. Empieza por la más curiosa: un mono con un plátano en la mano.", "", "&6Qué hacer:&r Consigue bananas y domestica un mono capuchino dándole bananas. Si lo logras, te sigue y se queda contigo.", "", "&6Premio:&r 2 cosas al azar: plátanos, manzanas, correas o pan.", "&5A veces (7 %):&r una montura de silla de montar."]
+			disable_toast: true
+			icon: "alexsmobs:banana"
+			id: "39EED549601FD026"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1468A12F52C77697"
+					icon: "alexsmobs:banana"
+					stage: "ecos_l_bestias_mono_capuchino"
+					title: "Domestica un mono capuchino"
+					type: "gamestage"
+				}
+			]
+			title: "Primates inteligentes"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["39EED549601FD026"]
+			description: ["&#19E6E6Zykna:&r &oHay animales que pesan más que una casa y aun así se dejan guiar con una flor o con una fruta. Domesticarlos cambia cómo cargas, cómo viajas y cuánto te puedes alejar sin sentirte solo.", "", "&6Qué hacer:&r Domestica un elefante dándole flores de acacia, y un gorila dándole bananas.", "", "&6Premio:&r 2 cosas al azar: flores de acacia, bananas, heno o pan.", "&5A veces (7 %):&r un montón de manzanas doradas."]
+			disable_toast: true
+			icon: "alexsmobs:acacia_blossom"
+			id: "559093D62E74F423"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5447D89F6E9777C6"
+					icon: "alexsmobs:acacia_blossom"
+					stage: "ecos_l_bestias_gigantes_elefante"
+					title: "Domestica un elefante"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "16926E496E0E5CA5"
+					icon: "alexsmobs:banana"
+					stage: "ecos_l_bestias_gigantes_gorila"
+					title: "Domestica un gorila"
+					type: "gamestage"
+				}
+			]
+			title: "Gigantes amables"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["559093D62E74F423"]
+			description: ["&#19E6E6Zykna:&r &oUna criatura domada que se pierde es una criatura que no vuelves a ver. Un collar y una escritura de propiedad dicen de quién es cada una, y le dan al mundo la oportunidad de respetarlo.", "", "&6Qué hacer:&r Fabrica una etiqueta de collar y una escritura de propiedad de Domestication Innovation. Ten ambas en tu inventario.", "", "&6Premio:&r 2 cosas al azar: correas, nombres de etiqueta, huesos o hierro.", "&5A veces (7 %):&r una silla de montar."]
+			disable_toast: true
+			icon: "domesticationinnovation:collar_tag"
+			id: "2C0C0E998AFD2C7A"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "58FD3757F00FE340"
+					icon: "domesticationinnovation:collar_tag"
+					stage: "ecos_l_bestias_collar_etiqueta"
+					title: "Ten una etiqueta de collar"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "20C4D01AC43C2D87"
+					icon: "domesticationinnovation:deed_of_ownership"
+					stage: "ecos_l_bestias_collar_escritura"
+					title: "Ten una escritura de propiedad"
+					type: "gamestage"
+				}
+			]
+			title: "Que sepan de quién son"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["2C0C0E998AFD2C7A"]
+			description: ["&#19E6E6Zykna:&r &oUn águila ve lo que tú no. Con el guante puesto, la mandas a cazar y vuelve; con la capucha, la guías tú mismo. Eso en un mundo que no deja de crecer vale un montón de ojos.", "", "&6Qué hacer:&r Fabrica un guante de cetrería y una capucha de cetrería. Domestica un águila calva con aceite de pescado.", "", "&6Premio:&r 2 cosas al azar: pescado, plumas, cuero o hilo.", "&5A veces (7 %):&r un casco de cuero encantado con Protección."]
+			disable_toast: true
+			icon: "alexsmobs:falconry_glove"
+			id: "37518684026EEF38"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7F9523FA77B16731"
+					icon: "alexsmobs:falconry_glove"
+					stage: "ecos_l_bestias_aguila_guante"
+					title: "Fabrica un guante de cetrería"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "6E94A4449739D491"
+					icon: "alexsmobs:falconry_hood"
+					stage: "ecos_l_bestias_aguila_capucha"
+					title: "Fabrica una capucha de cetrería"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "468D47279A29A3F0"
+					icon: "alexsmobs:falconry_glove"
+					stage: "ecos_l_bestias_aguila_calva"
+					title: "Domestica un águila calva"
+					type: "gamestage"
+				}
+			]
+			title: "Cetrería"
+			x: 0.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["37518684026EEF38"]
+			description: ["&#19E6E6Zykna:&r &oLos dinosaurios no son de aquí: son filtraciones de otras eras por la Fractura. El Tremorsaurus no se deja domar con mimos; hay que aturdirlo, y darle de comer lo que más le gusta, en un mundo que se parece al suyo.", "", "&6Qué hacer:&r Consigue una estrella arbórea y una ensalada serena. Aturde a un tremorsaurus y domestícalo dándole ensaladas serenas.", "", "&6Premio:&r 2 cosas al azar: carne de dinosaurio, hierro, huesos o ensaladas.", "&5A veces (7 %):&r un montón de chuletas de dinosaurio cocinadas."]
+			disable_toast: true
+			icon: "alexscaves:tree_star"
+			id: "3C92964A987CAA52"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "126CB425231F77AC"
+					icon: "alexscaves:tree_star"
+					stage: "ecos_l_bestias_tremorsaurio_estrella"
+					title: "Consigue una estrella arbórea"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "7995588C1DAD3E5B"
+					icon: "alexscaves:serene_salad"
+					stage: "ecos_l_bestias_tremorsaurio_rey"
+					title: "Domestica un tremorsaurio"
+					type: "gamestage"
+				}
+			]
+			title: "El rey tirano"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["3C92964A987CAA52"]
+			description: ["&#19E6E6Zykna:&r &oLos bolsillos de memoria guardan criaturas que el mundo ya no recuerda. El hipogrifo aparece cuando le dejas una pata de conejo; el hada, con un pastel. Con un gesto pequeño alguien aprende a confiar en ti.", "", "&6Qué hacer:&r Domestica un hipogrifo dejando patas de conejo cerca de él. Haz amistad con un hada dejando un pastel cerca.", "", "&6Premio:&r 2 cosas al azar: patas de conejo, pasteles, hierro o zanahorias.", "&5A veces (7 %):&r una silla de montar."]
+			disable_toast: true
+			icon: "iceandfire:hippogryph_egg"
+			id: "358AE7A80BB84754"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4C7C0CF0DCA6C2F3"
+					icon: "iceandfire:hippogryph_egg"
+					stage: "ecos_l_bestias_hipogrifo_hipogrifo"
+					title: "Domestica un hipogrifo"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "78B83B8812131118"
+					icon: "minecraft:cake"
+					stage: "ecos_l_bestias_hipogrifo_hada"
+					title: "Haz amistad con un hada"
+					type: "gamestage"
+				}
+			]
+			title: "Criaturas de memoria"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["358AE7A80BB84754"]
+			description: ["&#19E6E6Zykna:&r &oUna criatura que trabaja para ti merece un lugar donde dormir sin pelear con el resto del refugio. Una cama de mascota es un gesto pequeño, y también la primera cosa que una bestia reconoce como suya.", "", "&6Qué hacer:&r Fabrica una cama de mascota de cualquier color y un palo con pluma de Domestication Innovation.", "", "&6Premio:&r 2 cosas al azar: lana, hilo, plumas o huesos.", "&5A veces (7 %):&r una bolsa de lana de colores."]
+			disable_toast: true
+			icon: "domesticationinnovation:pet_bed_red"
+			id: "038A733446F5D343"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6E2C260B5404A789"
+					icon: "domesticationinnovation:pet_bed_red"
+					stage: "ecos_l_bestias_cama_cama"
+					title: "Ten una cama de mascota"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "4DF8C89B5357AD8C"
+					icon: "domesticationinnovation:feather_on_a_stick"
+					stage: "ecos_l_bestias_cama_pluma"
+					title: "Ten un palo con pluma"
+					type: "gamestage"
+				}
+			]
+			title: "Un rincón propio"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["038A733446F5D343"]
+			description: ["&#19E6E6Zykna:&r &oEl anfíptero no se deja domar con comida: hay que derribarlo en pleno vuelo con un disparo certero y subirse a su lomo antes de que se levante. Desde la Era II es la primera bestia que sí te da cielo.", "", "&6Qué hacer:&r Derriba un anfíptero disparándole con arco o ballesta, súbete a su lomo y domestícalo.", "", "&6Premio:&r 2 cosas al azar: plumas de anfíptero, oro, flechas o esmeraldas.", "&5A veces (7 %):&r un arco encantado con Poder."]
+			disable_toast: true
+			icon: "iceandfire:amphithere_feather"
+			id: "5D3893804A68B9D4"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "431207607B7A8D68"
+					icon: "iceandfire:amphithere_feather"
+					stage: "ecos_l_bestias_anfiptero_anfiptero"
+					title: "Domestica un anfíptero"
+					type: "gamestage"
+				}
+			]
+			title: "Anfíptero"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["5D3893804A68B9D4"]
+			description: ["&#19E6E6Zykna:&r &oEl vallumráptor es listo: no se doma, se convence dejándole nuggets de dinosaurio en un cofre, y mirando desde lejos. El subterraneodonte vuela por las cuevas y se deja domar con colas de trilocárido.", "", "&6Qué hacer:&r Domestica un vallumráptor dejando nuggets de dinosaurio en un cofre. Domestica un subterraneodonte con colas de trilocárido.", "", "&6Premio:&r 2 cosas al azar: nuggets de dinosaurio, oro, hierro o pescado.", "&5A veces (7 %):&r un montón de nuggets de dinosaurio."]
+			disable_toast: true
+			icon: "alexscaves:dinosaur_nugget"
+			id: "067B8E56E089F2B5"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3D757519FE5A44A8"
+					icon: "alexscaves:dinosaur_nugget"
+					stage: "ecos_l_bestias_raptores_vallumraptor"
+					title: "Domestica un vallumráptor"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "62764FD0C1DF3368"
+					icon: "alexscaves:cooked_trilocaris_tail"
+					stage: "ecos_l_bestias_raptores_subterranodon"
+					title: "Domestica un subterraneodonte"
+					type: "gamestage"
+				}
+			]
+			title: "Dinosaurios que piensan"
+			x: 5.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["067B8E56E089F2B5"]
+			description: ["&#19E6E6Zykna:&r &oUn grutacerátops no es un arma: es un rebaño que te sigue si lo cuidas. Con un par criado con estrellas arbóreas, la cueva primordial deja de ser un lugar al que bajas con miedo.", "", "&6Qué hacer:&r Cría a dos grutacerátops con estrellas arbóreas y monta un atlatitán para hacer temblar la cueva con sus pisotones.", "", "&6Premio:&r 2 cosas al azar: estrellas arbóreas, ensaladas serenas, oro o esmeraldas.", "&5A veces (7 %):&r una pieza de armadura primordial."]
+			disable_toast: true
+			icon: "alexscaves:grottoceratops_egg"
+			id: "7A355C37BD1B3E2B"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "17AA15FC5664E1A1"
+					icon: "alexscaves:tree_star"
+					stage: "ecos_l_bestias_grutaceratops_criar"
+					title: "Cría dos grutacerátops"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "665D114D7D167F4F"
+					icon: "alexscaves:atlatitan_egg"
+					stage: "ecos_l_bestias_grutaceratops_atlatitan"
+					title: "Pisotones de atlatitán"
+					type: "gamestage"
+				}
+			]
+			title: "Rebaño en las cuevas"
+			x: 5.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["7A355C37BD1B3E2B"]
+			description: ["&#19E6E6Zykna:&r &oLos dragones llegaron por la Fractura de otra era, y su huevo es lo único que de ellos se puede cargar sin sangre. Con el Éxodo vuelven a ser posibles: hay que incubar uno y darle de comer para que crezca.", "", "&6Qué hacer:&r Consigue un huevo de dragón y fabrica harina de dragón para hacer crecer a una cría.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, huesos de dragón o experiencia.", "&5A veces (7 %):&r un diamante."]
+			disable_toast: true
+			icon: "iceandfire:dragonegg_red"
+			id: "279EB704D5BF8C8E"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5BCACBFBE1C704CE"
+					icon: "iceandfire:dragonegg_red"
+					stage: "ecos_l_bestias_huevodragon_huevo"
+					title: "Consigue un huevo de dragón"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "0AD4D09CE3320F9D"
+					icon: "iceandfire:dragon_meal"
+					stage: "ecos_l_bestias_huevodragon_harina"
+					title: "Fabrica harina de dragón"
+					type: "gamestage"
+				}
+			]
+			title: "Madre de dragones"
+			x: 7.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["279EB704D5BF8C8E"]
+			description: ["&#19E6E6Zykna:&r &oUn dragón no obedece: te permite subir. Con el cuerno lo guardas y con el bastón lo guías, pero lo que de verdad decide es si te dejó montar. Aquí empieza lo grande.", "", "&6Qué hacer:&r Fabrica un bastón de mando y un cuerno de dragón, y monta un dragón de fuego, de hielo o de rayo.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, oro o experiencia.", "&5A veces (7 %):&r 2 diamantes."]
+			disable_toast: true
+			icon: "iceandfire:dragon_horn"
+			id: "4DD708F474E24546"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6351C2075995DD0D"
+					icon: "iceandfire:dragon_stick"
+					stage: "ecos_l_bestias_jinete_baston"
+					title: "Fabrica un bastón de mando de dragón"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "673625810545ED2B"
+					icon: "iceandfire:dragon_horn"
+					stage: "ecos_l_bestias_jinete_cuerno"
+					title: "Fabrica un cuerno de dragón"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "639857737BA754C3"
+					icon: "iceandfire:dragon_horn"
+					stage: "ecos_l_bestias_jinete_montar"
+					title: "Monta un dragón"
+					type: "gamestage"
+				}
+			]
+			title: "Jinete"
+			x: 7.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["4DD708F474E24546"]
+			description: ["&#19E6E6Zykna:&r &oUn dragón que te acepta también se viste: la armadura para dragón le da el cuerpo que la Fractura le negó. Que lleve algo tuyo es como decir que ya no es solo una filtración, sino parte del refugio.", "", "&6Qué hacer:&r Consigue una armadura de dragón para tu bestia.", "", "&6Premio:&r 2 cosas al azar: diamantes, hierro, oro o carne cocida.", "&5A veces (7 %):&r un diamante."]
+			disable_toast: true
+			icon: "iceandfire:dragonarmor_iron"
+			id: "472EBE4058CEF773"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "150830BA41E75DC1"
+					icon: "iceandfire:dragonarmor_iron"
+					stage: "ecos_l_bestias_armaduradragon_armadura"
+					title: "Consigue una armadura de dragón"
+					type: "gamestage"
+				}
+			]
+			title: "Escamas de la Fractura"
+			x: 7.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["472EBE4058CEF773"]
+			description: ["&#19E6E6Zykna:&r &oDel núcleo de la Fractura salen cosas que no se parecen a nada. Un temblorzilla es lo más cerca que el mundo ha estado de un dios hecho de átomos. Quien lo doma ya no habla con un animal: habla con una era entera.", "", "&6Qué hacer:&r Fabrica un huevo de temblorzilla, incúbalo con una llamarada nuclear y domestica al temblorzilla dándole residuos nucleares.", "", "&6Premio:&r 2 cosas al azar: diamantes, oro, esmeraldas o chatarra de netherita.", "&5A veces (7 %):&r un lingote de netherita."]
+			disable_toast: true
+			icon: "alexscaves:tremorzilla_egg"
+			id: "6DC8FAD48A8977A9"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1F23B282B73EA755"
+					icon: "alexscaves:tremorzilla_egg"
+					stage: "ecos_l_bestias_temblorzilla_huevo"
+					title: "Fabrica un huevo de temblorzilla"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "4F3B67398F4ECF14"
+					icon: "alexscaves:tremorzilla_egg"
+					stage: "ecos_l_bestias_temblorzilla_eclosion"
+					title: "Eclosiona el huevo"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "503C5D9233975504"
+					icon: "alexscaves:tremorzilla_egg"
+					stage: "ecos_l_bestias_temblorzilla_domar"
+					title: "Domestica un temblorzilla"
+					type: "gamestage"
+				}
+			]
+			title: "El rey de los monstruos"
+			x: 10.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["6DC8FAD48A8977A9"]
+			description: ["&#19E6E6Zykna:&r &oCuando por fin está de tu lado, se vuelve lo que la Primera Mente temía: algo que no duda. Súbete y deja que su aliento diga lo que tu voz no pudo decir.", "", "&6Qué hacer:&r Monta a tu temblorzilla y mata a 20 monstruos con un solo aliento atómico.", "", "&6Premio:&r 2 cosas al azar: diamantes, netherita, oro o esmeraldas.", "&5A veces (7 %):&r un lingote de netherita."]
+			disable_toast: true
+			icon: "alexscaves:tremorzilla_egg"
+			id: "28144E75F96D2558"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "455E6AF04C7894C4"
+					icon: "alexscaves:tremorzilla_egg"
+					stage: "ecos_l_bestias_aliento_aliento"
+					title: "Mata a 20 monstruos con un solo aliento"
+					type: "gamestage"
+				}
+			]
+			title: "Destruye a todos los monstruos"
+			x: 10.00d
+			y: 1.40d
+		}
+	]
+	subtitle: ["Dinos, dragones y criaturas: filtraciones de otras eras por la Fractura.", "Del mono con su plátano al rey de los monstruos."]
+	title: "Bestias y compañeros"
+}

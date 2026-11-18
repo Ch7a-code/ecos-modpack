@@ -1,0 +1,8 @@
+##[window]
+
+S:custom_window_title = 'Ecos de la Conciencia';
+
+##[customization]
+
+B:show_customization_overlay = 'false';
+B:show_welcome_screen = 'false';

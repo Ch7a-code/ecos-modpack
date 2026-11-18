@@ -1,0 +1,5 @@
+{"replace":false,"values":[
+ {"id":"cave_dweller:cave_dweller","required":false},
+ {"id":"cataclysm:the_harbinger","required":false},
+ {"id":"cataclysm:ignis","required":false}
+]}

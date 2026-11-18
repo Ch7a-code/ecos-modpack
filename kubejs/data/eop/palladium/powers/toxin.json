@@ -1,0 +1,2817 @@
+{
+  "name": "Poison Secretion",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/toxic.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "energy_bars": {
+    "poison_percent": {
+      "color": "#c42acb",
+      "max": 100,
+      "synced_value": {
+        "type": "score",
+        "objective": "Poison.Amount",
+        "fallback": 0
+      }
+    }
+  },
+  "abilities": {
+    "Toxin": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Toxin",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "scoreboard objectives add Poison.Amount dummy",
+        "scoreboard players add @s Poison.Amount 0",
+        "scoreboard objectives add TS.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Toxin",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Poison.Secretion": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/toxic.png",
+      "title": "Poison Secretion",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to secrete poison"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:toxin @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{toxin:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Poison Secretion\",\"color\":\"#813494\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "TS.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s TS.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "TS.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "TS.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s TS.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "TS.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "TS.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s TS.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "TS.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "TS.Scoreboard.Gain4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s TS.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 21600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "TS.Score",
+            "min_score": 15,
+            "max_score": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "TS.Scoreboard.Gain5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s TS.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 36000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "TS.Score",
+            "min_score": 18,
+            "max_score": 19
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Damage": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "b7962acd-36b5-4545-945d-51e6815fd175",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Poison.Secretion"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TS.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/toxic.png",
+            "description": {
+              "text": "Poison Secretion Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "de70c141-57f0-4377-81e0-2dfa62cadfdb",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TS.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/toxic.png",
+            "description": {
+              "text": "Poison Secretion Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "86eac748-4a89-494a-a2cb-46d6f70b022c",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TS.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/toxic.png",
+            "description": {
+              "text": "Poison Secretion Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "c1137e46-099e-480e-be15-f46e086f8c06",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TS.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/toxic.png",
+            "description": {
+              "text": "Poison Secretion Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Set.Scoreboard.Max": {
+      "type": "eop:set_scoreboard",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "scoreboard_objective": "Poison.Amount",
+      "scoreboard_value": 100
+    },
+    "Effect.Immunity": {
+      "type": "eop:effect_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "effects": [
+        "minecraft:poison",
+        "eop:acidic_poison"
+      ]
+    },
+    "Poison.Amount.Infinite": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players set @s Poison.Amount 100"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Poison.Amount",
+            "min_score": -1000,
+            "max_score": 99
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Inf.Energy"
+          }
+        ]
+      }
+    },
+    "Poison.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players add @s Poison.Amount 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Poison.Amount",
+            "min_score": -100,
+            "max_score": 99
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "Ability.Being.Used"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Poison Blast",
+      "description": "Shoot poisonous goo out of your hand. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/poison_blast.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Poisonball.Ability": {
+      "type": "palladium:command",
+      "title": "Poison Blast",
+      "icon": "eop:textures/gui/poison_blast.png",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:splash master @a ~ ~ ~ 1 1",
+        "scoreboard players remove @s Poison.Amount 2"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 10,
+            "key_type": "right_click"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Poison.Amount",
+            "min_score": 1,
+            "max_score": 150
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:toxin"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Transform.No.Move.Timer",
+                    "property": "value",
+                    "min": 52,
+                    "max": 52
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Hydra"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Poisonball": {
+      "type": "palladium:projectile",
+      "icon": "minecraft:fire_charge",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 3,
+        "DamageType": "eop:basic_projectile",
+        "SetEntityOnFireSeconds": 0,
+        "Gravity": 0.03,
+        "Lifetime": 80,
+        "CommandOnEntityHit": "function eop:powers/toxin/poisonball_entity",
+        "CommandOnBlockHit": "function eop:powers/toxin/poisonball",
+        "DieOnEntityHit": true,
+        "DieOnBlockHit": true,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "eop:chimera_slime",
+            "Spread": 0.3,
+            "Amount": 10
+          }
+        ]
+      },
+      "inaccuracy": 0,
+      "velocity": 1.5,
+      "swinging_arm": "main_arm",
+      "damage_from_player": false,
+      "ignore_player_movement": false,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Poisonball.Ability"
+          }
+        ]
+      }
+    },
+    "Poison.Trail.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/poison_punch.png",
+      "title": "Poison Trail",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "description": "Leave a trail of poison behind while moving, dealing damage to targets caught in its path",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Poison.Secretion"
+          }
+        ]
+      }
+    },
+    "Trail": {
+      "type": "palladium:command",
+      "title": "Poison Trail",
+      "icon": "eop:textures/gui/poison_punch.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "first_tick_commands": [
+        "playsound minecraft:entity.wither.ambient master @a ~ ~ ~ 1 1.5",
+        "tag @s add Ability.Being.Used"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Ability.Being.Used"
+      ],
+      "commands": [
+        "particle minecraft:dust 0.7 0.2 0.7 5 ~ ~1.5 ~ 0.3 0.3 0.3 0 2 force",
+        "tag @s add Ability.Being.Used"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Transform.No.Move.Timer",
+                    "property": "value",
+                    "min": 52,
+                    "max": 52
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:toxin"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Poison.Trail.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Trail.Usage": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Poison.Amount 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Poison"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          }
+        ]
+      }
+    },
+    "Trail.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.2,
+      "operation": 1,
+      "uuid": "3c680eaf-07e0-4905-b0bf-036c03565fcc",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Trail"
+          }
+        ]
+      }
+    },
+    "Trail.Custom": {
+      "type": "eop:power_stand",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "lifetime": 5000,
+      "damage": 3,
+      "damage_radius": 3,
+      "damage_type": "eop:acidic_poison",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "stand_power": "eop:models/poison_trail",
+      "orbit_enabled": false,
+      "orbit_radius": 3,
+      "first_tick_commands": [],
+      "commands": [],
+      "last_tick_commands": [],
+      "execution_mode": "as",
+      "include_caster": false,
+      "only_same_team": false,
+      "stand_first_tick_commands": [],
+      "stand_commands": [],
+      "stand_last_tick_commands": [],
+      "destroy_blocks": false,
+      "block_break_radius": 3,
+      "block_break_interval": 10,
+      "no_gravity": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Trail"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 10
+          }
+        ]
+      }
+    },
+    "Poison.Vomit.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/poison_vomit.png",
+      "title": "Poison Vomit",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Release toxic bile out of your mouth",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Poison.Trail.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TS.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/toxic.png",
+            "description": {
+              "text": "Poison Secretion Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Poison": {
+      "type": "palladium:energy_beam",
+      "icon": "eop:textures/gui/poison_vomit.png",
+      "title": "Poison Vomit",
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "energy_beam": "eop:noenergybeam",
+      "damage_type": "eop:basic",
+      "damage": 8,
+      "max_distance": 9,
+      "speed": 0.3,
+      "set_on_fire_seconds": 0,
+      "cause_fire": false,
+      "smelt_blocks": false,
+      "commands_on_entity_hit": [
+        "particle eop:chimera_slime_still ~ ~ ~ 1 0.3 1 0 50 force",
+        "function eop:powers/toxin/slime"
+      ],
+      "commands_on_block_hit": [
+        "particle eop:chimera_slime_still ~ ~ ~ 1 0.3 1 0 50 force",
+        "function eop:powers/toxin/slime"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 100,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Poison.Amount",
+            "min_score": 4,
+            "max_score": 150
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Transform.No.Move.Timer",
+                    "property": "value",
+                    "min": 52,
+                    "max": 52
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Poison.Vomit.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Poison.Commands": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound eop:slime master @a ~ ~ ~ 1 1",
+        "tag @s add Ability.Being.Used"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Ability.Being.Used"
+      ],
+      "commands": [
+        "tag @s add Ability.Being.Used"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Poison"
+          }
+        ]
+      }
+    },
+    "Poison.Particles": {
+      "type": "palladium:particles",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "emitter": "eop:flame_breath",
+      "particle_type": "eop:chimera_slime",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Poison"
+          }
+        ]
+      }
+    },
+    "Poison.Sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "sound": "eop:slime",
+      "volume": 1,
+      "pitch": 1,
+      "looping": true,
+      "play_self": false,
+      "play_others": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Poison"
+          }
+        ]
+      }
+    },
+    "Poison.Vomit.Usage": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Poison.Amount 4"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Poison"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Poison.Gas.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/poison_gas.png",
+      "title": "Poison Gas",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Release deadly posionous gas around you",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Poison.Vomit.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TS.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/toxic.png",
+            "description": {
+              "text": "Poison Secretion Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Poison.Gas": {
+      "type": "palladium:command",
+      "title": "Poison Gas",
+      "icon": "eop:textures/gui/poison_gas.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "first_tick_commands": [
+        "playsound minecraft:entity.wither.death master @a ~ ~ ~ 1 1.5"
+      ],
+      "last_tick_commands": [
+        "scoreboard players remove @s Poison.Amount 20"
+      ],
+      "commands": [
+        "particle minecraft:dust 0.7 0.2 0.7 5 ~ ~ ~ 10 2 10 0.05 100 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 600,
+            "ticks": 40,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Poison.Amount",
+            "min_score": 20,
+            "max_score": 200
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Transform.No.Move.Timer",
+                    "property": "value",
+                    "min": 52,
+                    "max": 52
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Poison.Gas.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Gas.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 10,
+      "commands": [
+        "effect give @s[tag=!Toxin,tag=!Infinity,tag=!EOP.Phasing] minecraft:poison 10 0 true",
+        "effect give @s[tag=!Toxin,tag=!Infinity,tag=!EOP.Phasing] minecraft:weakness 10 1 true",
+        "effect give @s[tag=!Toxin,tag=!Infinity,tag=!EOP.Phasing] minecraft:mining_fatigue 10 1 true",
+        "effect give @s[tag=!Toxin,tag=!Infinity,tag=!EOP.Phasing] minecraft:blindness 10 1 true"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Poison.Gas"
+          }
+        ]
+      }
+    },
+    "Hydra.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/poison_hydra.png",
+      "title": "Hydra",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Summon a giant hydra made of poison",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Poison.Gas.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TS.Score",
+            "score": 10,
+            "icon": "eop:textures/gui/toxic.png",
+            "description": {
+              "text": "Poison Secretion Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Hydra": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/poison_hydra.png",
+      "title": "Hydra",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "first_tick_commands": [
+        "particle minecraft:dust 0.7 0.2 0.7 5 ~ ~ ~ 1 1 1 0 150",
+        "playsound eop:monster master @a ~ ~ ~ 1 2",
+        "playsound eop:slime master @a ~ ~ ~ 1 1",
+        "playsound eop:nibster master @a ~ ~ ~ 1 2",
+        "tag @s add Ability.Being.Used"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Ability.Being.Used",
+        "particle minecraft:dust 0.7 0.2 0.7 5 ~ ~ ~ 1 1 1 0 150",
+        "playsound eop:slime master @a ~ ~ ~ 1 1"
+      ],
+      "commands": [
+        "tag @s add Ability.Being.Used"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Poison.Amount",
+            "min_score": 1,
+            "max_score": 150
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Hydra.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hydra.Stats": {
+      "type": "eop:multi_attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attributes": [
+        "minecraft:generic.attack_damage",
+        "minecraft:generic.armor",
+        "minecraft:generic.knockback_resistance"
+      ],
+      "amounts": [
+        3,
+        20,
+        0.5
+      ],
+      "operations": [
+        "addition",
+        "addition",
+        "addition"
+      ],
+      "modifier_uuids": [
+        "23c97526-c573-40ee-be0d-193bfd468d08",
+        "49d547c8-6a97-4d6c-9080-3fbb55b8c10e",
+        "23bcd8b8-f957-447d-9909-2e807dbdb54a"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Hydra"
+          }
+        ]
+      }
+    },
+    "Hydra.Timer": {
+      "type": "palladium:animation_timer",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "start_value": 0,
+      "max_value": 31,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Hydra"
+          }
+        ]
+      }
+    },
+    "Transform.Animation.Hydra": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:toxin/hydra",
+      "controller": "form",
+      "animation_trigger": "form",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:and",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Hydra.Timer",
+                "property": "value",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Hydra"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hydra.Usage": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Poison.Amount 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Hydra"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 10
+          }
+        ]
+      }
+    },
+    "Hydra.Particles": {
+      "type": "palladium:particles",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "emitter": "eop:general_body_behind",
+      "particle_type": "minecraft:dust",
+      "options": "0.7 0.2 0.7 5",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Hydra"
+          }
+        ]
+      }
+    },
+    "Hydra.Render": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:toxin/hydra",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Hydra"
+          }
+        ]
+      }
+    },
+    "Hydra.Smash": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 41,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 40,
+            "ticks": 45,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Hydra"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Hydra.Timer",
+            "property": "value",
+            "min": 31,
+            "max": 31
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "palladium:crouching"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Hydra.Smash"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Hydra.Pool"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hydra.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:toxin/hydra",
+      "controller": "attack",
+      "animation_trigger": "attack",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Hydra.Smash",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Hydra.Smash"
+          }
+        ]
+      }
+    },
+    "Hydra.Damage": {
+      "type": "eop:aoe_damage_once",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 6,
+      "damage": 10,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "cone": true,
+      "cone_angle": 90,
+      "create_explosion": false,
+      "explosion_radius": 3,
+      "destroy_blocks": true,
+      "explosion_drop_items": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Hydra.Smash",
+            "property": "value",
+            "min": 27,
+            "max": 27
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Hydra.Smash"
+          }
+        ]
+      }
+    },
+    "Hydra.Part": {
+      "type": "palladium:command",
+      "icon": "minecraft:command_block",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "particle minecraft:explosion ^ ^1 ^2 1.5 1 1.5 0.1 5",
+        "particle eop:chimera_slime_big ^ ^1 ^2 1.5 1 1.5 0.7 350",
+        "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Hydra.Damage"
+          }
+        ]
+      }
+    },
+    "Hydra.Pool": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 51,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 200,
+            "ticks": 55,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Hydra"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Hydra.Timer",
+            "property": "value",
+            "min": 31,
+            "max": 31
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:crouching"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Hydra.Pool"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Hydra.Smash"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hydra.Pool.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:toxin/hydra",
+      "controller": "attack",
+      "animation_trigger": "pool",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Hydra.Pool",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Hydra.Pool"
+          }
+        ]
+      }
+    },
+    "Hydra.Pool.Stand": {
+      "type": "eop:power_stand",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "lifetime": 10000,
+      "damage": 1,
+      "damage_radius": 10,
+      "damage_type": "eop:acidic_poison",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "stand_power": "eop:models/toxin_puddle",
+      "orbit_enabled": false,
+      "orbit_radius": 3,
+      "first_tick_commands": [],
+      "commands": [
+        "effect give @s[type=!armor_stand,type=!item,tag=!Infinity,tag=!EOP.Phasing] slowness 1 4 true"
+      ],
+      "last_tick_commands": [],
+      "execution_mode": "as",
+      "include_caster": false,
+      "only_same_team": false,
+      "stand_first_tick_commands": [
+        "playsound eop:slime master @a ~ ~ ~ 1 1",
+        "playsound eop:monster master @a ~ ~ ~ 1 2"
+      ],
+      "stand_commands": [],
+      "stand_last_tick_commands": [],
+      "destroy_blocks": false,
+      "block_break_radius": 3,
+      "block_break_interval": 10,
+      "no_gravity": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Hydra.Pool",
+            "property": "value",
+            "min": 27,
+            "max": 27
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Hydra.Pool"
+          }
+        ]
+      }
+    },
+    "Transform.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/poison_demon.png",
+      "title": "Poison Demon",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Release toxic slime that molds around you to form an offensive monster",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Hydra.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Damage4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TS.Score",
+            "score": 20,
+            "icon": "eop:textures/gui/toxic.png",
+            "description": {
+              "text": "Poison Secretion Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "Transform": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/poison_demon.png",
+      "title": "Poison Demon",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "start_value": 0,
+      "max_value": 20,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 2400,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Poison.Amount",
+            "min_score": 20,
+            "max_score": 150
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:toxin"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transform.Animal.Model": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 13,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Transform.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:toxin/venom_demon",
+      "controller": "transform",
+      "animation_trigger": "transform",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Transform.Animal.Model",
+                    "property": "value",
+                    "min": 1,
+                    "max": 1
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform.Animal.Model"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Demon.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:toxin/venom_demon",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hide.Body": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head_overlay",
+        "chest_overlay",
+        "right_arm",
+        "left_arm",
+        "right_leg",
+        "left_leg",
+        "head",
+        "chest",
+        "cape"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 19,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Regen": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 20,
+      "amount": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Store.Armor": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": true,
+      "hide_offhand": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Restrict.Slots": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs",
+        "head",
+        "mainhand",
+        "offhand"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Transform.No.Move.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 52,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "IFrame.Transform": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "eop:phase_immune"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "de202c27-3f02-4992-8ef0-a8cb8a80357d",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "69d4b61c-dc47-4d73-b06f-9f17ab28b2f2",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Transform.Effects": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scale set pehkui:eye_height 1.4",
+        "tag @s add EOP.Non.Humanoid.Model",
+        "scale set pehkui:hitbox_height 1.5",
+        "scale set pehkui:hitbox_width 1.6",
+        "scale set pehkui:height 1.9",
+        "scale set pehkui:width 1.9",
+        "scale set pehkui:reach 1.4",
+        "scale set pehkui:held_item 0",
+        "scale set pehkui:step_height 2",
+        "particle eop:chimera_slime_big ~ ~1 ~ 1 1 1 1 150 force",
+        "playsound eop:slime master @a ~ ~ ~ 1 0.5"
+      ],
+      "last_tick_commands": [
+        "scale reset @s",
+        "tag @s remove EOP.Non.Humanoid.Model",
+        "particle eop:chimera_slime_big ~ ~1 ~ 1 1 1 1 150 force",
+        "playsound eop:slime master @a ~ ~ ~ 1 0.5"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Save.Health": {
+      "type": "eop:transform_stat_save",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Transform.Damage": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 6,
+      "operation": 0,
+      "uuid": "6c60ddd2-8944-45e3-b664-52f71d03e8b0",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Transform.Stats": {
+      "type": "eop:multi_attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attributes": [
+        "minecraft:generic.attack_damage",
+        "minecraft:generic.movement_speed",
+        "forge:nametag_distance",
+        "minecraft:generic.armor",
+        "minecraft:generic.armor_toughness",
+        "minecraft:generic.knockback_resistance",
+        "minecraft:generic.max_health"
+      ],
+      "amounts": [
+        6,
+        -0.3,
+        -1000,
+        20,
+        10,
+        1,
+        20
+      ],
+      "operations": [
+        "addition",
+        "multiply_base",
+        "addition",
+        "addition",
+        "addition",
+        "addition",
+        "addition"
+      ],
+      "modifier_uuids": [
+        "f4001067-157c-4162-bcda-8de0e4008346",
+        "9dd7a596-c776-4615-8065-e5f1d75dbe83",
+        "7dbbdb54-ccfe-438e-a289-dd6eb50dbdd4",
+        "c0fdfa95-50c0-4951-974f-7b3e61b407b4",
+        "3d9b12a2-d969-4445-9797-67936ae960bf",
+        "827a4506-dc09-4b9b-9d9b-51754952a7d2",
+        "ca9a6f6d-4fec-4b78-8a2e-4dc69a26c494",
+        "66d05d3d-5764-4a46-bb68-9dcd41dec2e1",
+        "8a548952-d231-494b-8ac3-56b8e2c44c53"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Transform.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 3,
+      "commands": [
+        "effect give @s[tag=!Toxin,tag=!Infinity,tag=!EOP.Phasing] eop:acidic_poison 2 0 true",
+        "effect give @s[tag=!Toxin,tag=!Infinity,tag=!EOP.Phasing] slowness 2 0 true",
+        "effect give @s[tag=!Toxin,tag=!Infinity,tag=!EOP.Phasing] weakness 2 0 true",
+        "effect give @s[tag=!Toxin,tag=!Infinity,tag=!EOP.Phasing] blindness 2 0 true"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Creature.Name": {
+      "type": "palladium:name_change",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "name": {
+        "text": "Poison Demon"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transform.Roar": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:monster master @a ~ ~ ~ 3 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.Animal.Model",
+            "property": "value",
+            "min": 3,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Animal.Model"
+          }
+        ]
+      }
+    },
+    "Demon.Form.Smash": {
+      "type": "palladium:animation_timer",
+      "title": "Smash",
+      "icon": "eop:textures/gui/poison_smash.png",
+      "start_value": 0,
+      "max_value": 30,
+      "list_index": 0,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 40,
+            "ticks": 35,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:on_ground"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Demon.Form.Smash"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Smash.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:toxin/venom_demon",
+      "controller": "smash",
+      "animation_trigger": "smash",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Demon.Form.Smash",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Demon.Form.Smash"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "d5fb67ca-d097-4b74-96c0-08697072698c",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Demon.Form.Smash"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "No.Jumping2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "5e5a33be-c5ab-411a-b9ed-f07e83196d33",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Demon.Form.Smash"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Golem.Clap.Damage": {
+      "type": "eop:aoe_damage_once",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 6,
+      "damage": 20,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Demon.Form.Smash",
+            "property": "value",
+            "min": 17,
+            "max": 17
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Demon.Form.Smash"
+          }
+        ]
+      }
+    },
+    "Golem.Clap.Part": {
+      "type": "palladium:command",
+      "icon": "minecraft:command_block",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "particle minecraft:explosion ~ ~ ~ 1.5 1 1.5 0 5",
+        "particle eop:chimera_slime_big ~ ~ ~ 1.5 1 1.5 1 150",
+        "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Golem.Clap.Damage"
+          }
+        ]
+      }
+    },
+    "Demon.Smash.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 6,
+      "commands": [
+        "effect give @s[tag=!Toxin,tag=!Infinity,tag=!EOP.Phasing] eop:acidic_poison 5 0 true"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Golem.Clap.Damage"
+          }
+        ]
+      }
+    },
+    "Dash": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/poison_dash.png",
+      "title": "Poison Dash",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 100,
+            "ticks": 10,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Dash.Damage": {
+      "type": "eop:aoe_damage",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 3,
+      "damage": 10,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:acidic_poison",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "Dash.Puddle": {
+      "type": "eop:power_stand",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "lifetime": 5000,
+      "damage": 3,
+      "damage_radius": 6,
+      "damage_type": "eop:basic",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "stand_power": "eop:models/toxin_puddle_small",
+      "orbit_enabled": false,
+      "orbit_radius": 3,
+      "first_tick_commands": [],
+      "commands": [],
+      "last_tick_commands": [],
+      "execution_mode": "as",
+      "include_caster": false,
+      "only_same_team": false,
+      "stand_first_tick_commands": [],
+      "stand_commands": [],
+      "stand_last_tick_commands": [],
+      "destroy_blocks": false,
+      "block_break_radius": 3,
+      "block_break_interval": 10,
+      "no_gravity": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1
+          }
+        ]
+      }
+    },
+    "Dash.Motion": {
+      "type": "eop:motion",
+      "title": "Dash",
+      "motion_scale": 2,
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Dash"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "Dash.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 1 1",
+        "playsound eop:slime master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "particle minecraft:dust 0.7 0.2 0.7 5 ~ ~1 ~ 1 1 1 0 20 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_sangre_g2"
+          }
+        ]
+      }
+    }
+  }
+}

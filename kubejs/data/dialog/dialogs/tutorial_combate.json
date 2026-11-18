@@ -1,0 +1,97 @@
+{
+ "id": "tutorial_combate",
+ "title": "Combate",
+ "description": "Teclas y reglas del combate",
+ "start": "1",
+ "entries": [
+  {
+   "id": "1",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Tutorial de combate. Atacar y correr gastan energía (la barra junto a la barra rápida): si se vacía, te cansas."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "2"
+  },
+  {
+   "id": "2",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Alt izquierdo para rodar: en la rodada no te pegan. Sube el escudo con clic derecho justo antes del golpe para desviarlo."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "3"
+  },
+  {
+   "id": "3",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Tus poderes: B modo batalla, 1 a 5 habilidades, 6 cambia de grupo. Los hechizos de Iron's van en 7, 8, 9 y 0; G abre la rueda y V lanza el del libro."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "4"
+  },
+  {
+   "id": "4",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "J muestra tus heridas: la cabeza y el torso son los que te matan. Las vendas y los botiquines curan partes."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "next": "5"
+  },
+  {
+   "id": "5",
+   "speaker": {
+    "text": "Zykna",
+    "color": "aqua"
+   },
+   "text": {
+    "text": "Armas de fuego: R recarga, N cambia el modo de disparo. Se abren por Era. Practica con lo que salió de las celdas: no peleen solos."
+   },
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ]
+  }
+ ]
+}

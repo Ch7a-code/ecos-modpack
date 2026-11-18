@@ -1,0 +1,37 @@
+{
+ "id": "salida_lab",
+ "title": "Zykna",
+ "description": "Antes de salir del laboratorio",
+ "start": "1",
+ "entries": [
+  {
+   "id": "1",
+   "speaker": {"text": "Zykna", "color": "aqua"},
+   "text": {"text": "El teletransportador tiene energía. Afuera ya no es el mundo que conocían: hay criaturas, tormentas y noches largas. Lleven armas, comida y su Códice."},
+   "portraits": [{"path": "zykna.png", "position": "LEFT", "brightness": 1.0, "animationType": "FADE_IN"}],
+   "next": "2"
+  },
+  {
+   "id": "2",
+   "speaker": {"text": "Zykna", "color": "aqua"},
+   "text": {"text": "¿Están listos para salir? Si alguien del grupo no lo está, espérenlo: juntos duran más."},
+   "portraits": [{"path": "zykna.png", "position": "LEFT", "brightness": 1.0}],
+   "options": [
+    {"text": "Sí, estamos listos", "target": "3", "command": ["tag @s add ecos_listo_salir"]},
+    {"text": "Todavía no", "target": "4"}
+   ]
+  },
+  {
+   "id": "3",
+   "speaker": {"text": "Zykna", "color": "aqua"},
+   "text": {"text": "Bien. Crucen el anillo. Nos vemos del otro lado."},
+   "portraits": [{"path": "zykna.png", "position": "LEFT", "brightness": 1.0}]
+  },
+  {
+   "id": "4",
+   "speaker": {"text": "Zykna", "color": "aqua"},
+   "text": {"text": "Tómense su tiempo. La sala de entrenamiento está en N-1, al oeste del atrio: ahí pueden probar sus poderes con calma."},
+   "portraits": [{"path": "zykna.png", "position": "LEFT", "brightness": 1.0}]
+  }
+ ]
+}

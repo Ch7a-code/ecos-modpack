@@ -1,0 +1,29 @@
+{
+  PresetMetadata:{author:"ECOS",category:"ECOS",created:1763280000000L,description:"Maestro de la familia impulso (ECOS v12.1). Generado por tools/gen_maestros.py; no editar a mano.",entityTypeId:"easy_npc:humanoid_slim",modified:1763280000000L,name:"Cuauhtli, la Corredora de Cielos",variantType:"SUNNY",version:"1.0.0"},
+  data:{
+    id:"easy_npc:humanoid_slim",
+    EasyNPCVersion:3,
+    VariantType:"SUNNY",
+    CustomName:'{"text": "Cuauhtli, la Corredora de Cielos", "color": "#FF9A4D"}',
+    CustomNameVisible:1b,
+    Invulnerable:1b,
+    PersistenceRequired:1b,
+    CanPickUpLoot:0b,
+    Tags:["ecos_maestro_npc","ecos_maestro_npc_impulso"],
+    SkinData:{Type:"RESOURCE_LOCATION",Texture:"ecos:textures/entity/maestro/impulso.png"},
+    Attributes:[{Base:0.0d,Name:"minecraft:generic.movement_speed"},{Base:1.0d,Name:"minecraft:generic.knockback_resistance"}],
+    EntityAttribute:{IsInvulnerable:1b,IsAttackableByPlayers:0b,IsAttackableByMonsters:0b,IsKnockbackResistant:1b,IsExplosionResistant:1b,IsPushable:0b,PushEntities:0b,CanBeLeashed:0b},
+    ObjectiveData:{ObjectiveDataSet:[{Type:"LOOK_AT_RESET"},{Type:"LOOK_AT_PLAYER"},{Type:"LOOK_AT_MOB"}]},
+    ActionData:{ActionEventSet:{ON_INTERACTION:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro impulso hablar",PermLevel:2},{Type:"OPEN_DEFAULT_DIALOG"}]}},
+    DialogData:{Type:"CUSTOM",DialogDataSet:[
+      {Name:"Bendicion",Label:"bendicion",Priority:100,Texts:[{Text:"Llevas mi marca, @initiator. Ahora el camino te sigue a ti.\\n\\nSi me necesitas, grita: igual llego antes."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_impulso_g2"}],Buttons:[{Name:"Gracias",Label:"b_gracias",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Lista",Label:"lista",Priority:50,Texts:[{Text:"¡Lo lograste, @initiator! Ni el viento te alcanzó.\\n\\nVen, recibe mi marca."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_impulso_lista"}],Buttons:[{Name:"Recibir tu marca",Label:"b_marca",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro impulso marca",PermLevel:2},{Type:"CLOSE_DIALOG"}]},{Name:"Todavía no",Label:"b_luego",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Progreso",Label:"progreso",Priority:20,Texts:[{Text:"¡Ya vas! Llevas @score(ecos_mpasos) de 5 pasos, @initiator.\\n\\nCorre, pero mira dónde pisas: el cielo no perdona."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_impulso_aceptada"}],Buttons:[{Name:"¿Qué me falta?",Label:"b_pasos",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro impulso pasos",PermLevel:2},{Type:"CLOSE_DIALOG"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Saludo",Label:"saludo",Priority:10,Texts:[{Text:"¡Llegaste! Te tardaste, @initiator. Soy Cuauhtli, mensajera del Proyecto: cruzaba la Fractura corriendo.\\n\\nTu astilla no se queda quieta, igual que la mía. Si quieres mi marca, demuéstrame que eres rápido y que no fallas."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_fam_impulso"}],Buttons:[{Name:"Acepto tu prueba",Label:"b_acepto",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro impulso aceptar",PermLevel:2},{Type:"OPEN_NAMED_DIALOG",Cmd:"aceptada"}]},{Name:"¿Quién eres?",Label:"b_quien",Actions:[{Type:"OPEN_NAMED_DIALOG",Cmd:"quien"}]},{Name:"Ahora no",Label:"b_ahora_no",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Ajeno",Label:"ajeno",Priority:0,Texts:[{Text:"Tu astilla no corre como la mía, @initiator. Mi marca te haría tropezar.\\n\\nTu Maestro está en otro lado. Zykna conoce el rumor."}],Buttons:[{Name:"¿Quién eres?",Label:"b_quien",Actions:[{Type:"OPEN_NAMED_DIALOG",Cmd:"quien"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Quien",Label:"quien",Priority:-1,Texts:[{Text:"Mi nombre quiere decir águila. Llevaba mensajes de un laboratorio a otro cuando el Éter estalló.\\n\\nSeguí corriendo y aparecí en estas islas. No sé estar quieta; por eso sigo viva."}],Buttons:[{Name:"Volver",Label:"b_volver",Actions:[{Type:"OPEN_DEFAULT_DIALOG"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Aceptada",Label:"aceptada",Priority:-1,Texts:[{Text:"¡Eso! Son cinco pasos. El primero es el camino por las islas altas y vencer a su invocador.\\n\\nZykna te los dice. Cuando acabes, regresa corriendo."}],Buttons:[{Name:"Entendido",Label:"b_entendido",Actions:[{Type:"CLOSE_DIALOG"}]}]}
+    ]},
+    Status:{finalized:1b}
+  }
+}

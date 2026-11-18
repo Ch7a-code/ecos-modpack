@@ -1,0 +1,30 @@
+{
+ "criteria": {
+  "lugar0": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "aquamirae:pirate_ship"
+     }
+    }
+   }
+  },
+  "lugar1": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "aquamirae:shipwreck"
+     }
+    }
+   }
+  }
+ },
+ "requirements": [
+  [
+   "lugar0",
+   "lugar1"
+  ]
+ ]
+}

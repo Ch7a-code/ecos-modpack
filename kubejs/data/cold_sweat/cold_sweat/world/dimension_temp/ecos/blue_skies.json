@@ -1,0 +1,7 @@
+{
+  "required_mods": ["blue_skies"],
+  "dimensions": ["blue_skies:everbright", "blue_skies:everdawn"],
+  "temperature": -10,
+  "units": "f",
+  "is_offset": true
+}

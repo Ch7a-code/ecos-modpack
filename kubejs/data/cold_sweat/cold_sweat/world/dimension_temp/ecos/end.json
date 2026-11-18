@@ -1,0 +1,6 @@
+{
+  "dimensions": ["minecraft:the_end"],
+  "temperature": -40,
+  "units": "f",
+  "is_offset": true
+}

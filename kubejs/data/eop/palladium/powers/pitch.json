@@ -1,0 +1,2587 @@
+{
+  "name": "Umbrakinesis",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/darkness.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "energy_bars": {
+    "darkness_percent": {
+      "color": "#000000",
+      "max": 100,
+      "synced_value": {
+        "type": "score",
+        "objective": "Darkness.Energy",
+        "fallback": 0
+      }
+    }
+  },
+  "abilities": {
+    "Pitch": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Pitch",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "tag @s add EOP.Has.BM",
+        "tag @s remove EOP.Domain",
+        "scoreboard objectives add Darkness.Energy dummy",
+        "scoreboard players add @s Darkness.Energy 0",
+        "scoreboard objectives add EOP.Domain.Timer dummy",
+        "scoreboard players set @s EOP.Domain.Timer 0",
+        "scoreboard objectives add UM.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Pitch",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "tag @s remove EOP.Domain",
+        "scoreboard players set EOP.Domain.Timer 0",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Umbrakinesis": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/darkness.png",
+      "title": "Umbrakinesis",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to manipulate darkness at will, becoming a denizen of darkness"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:pitch @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{pitch:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Umbrakinesis\",\"color\":\"#2B0545\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "UM.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s UM.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "UM.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "UM.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s UM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "UM.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "UM.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s UM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "UM.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "UM.Scoreboard.Gain4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s UM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 21600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "UM.Score",
+            "min_score": 15,
+            "max_score": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "UM.Scoreboard.Gain5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s UM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 36000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "UM.Score",
+            "min_score": 18,
+            "max_score": 19
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Speed": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 5% more movement speed",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.05,
+      "operation": 1,
+      "uuid": "543fee21-027c-4388-a4ce-e825802c1d46",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Umbrakinesis"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "UM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/darkness.png",
+            "description": {
+              "text": "Umbrakinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Speed2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 5% more movement speed",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.05,
+      "operation": 1,
+      "uuid": "a5feed24-68b6-464a-9315-a1593034be4a",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "UM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/darkness.png",
+            "description": {
+              "text": "Umbrakinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "3ab76fae-e4b3-4a4e-a436-135dd2fe315d",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "UM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/darkness.png",
+            "description": {
+              "text": "Umbrakinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "b38fc46c-45b9-4d09-b490-ca14e3aad709",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "UM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/darkness.png",
+            "description": {
+              "text": "Umbrakinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Set.Scoreboard.Max": {
+      "type": "eop:set_scoreboard",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "scoreboard_objective": "Darkness.Energy",
+      "scoreboard_value": 100
+    },
+    "Stats.Dark": {
+      "type": "eop:multi_attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attributes": [
+        "minecraft:generic.attack_damage",
+        "minecraft:generic.movement_speed"
+      ],
+      "amounts": [
+        4,
+        0.8
+      ],
+      "operations": [
+        "addition",
+        "multiply_base"
+      ],
+      "modifier_uuids": [
+        "4df19831-4535-448e-be42-f31281b8f955",
+        "fb560036-c0a4-4ccd-940a-be482136722e"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:brightness_at_position",
+            "min_brightness": 0,
+            "max_brightness": 6
+          }
+        ]
+      }
+    },
+    "Dark.Check": {
+      "type": "palladium:gui_overlay",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "texture": "#eop:dark_check",
+      "texture_width": 16,
+      "texture_height": 16,
+      "translate": [
+        -65,
+        10,
+        1
+      ],
+      "rotate": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        2,
+        2,
+        2
+      ],
+      "alignment": "top_right"
+    },
+    "Dark.Check.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:brightness_at_position",
+            "min_brightness": 0,
+            "max_brightness": 6
+          }
+        ]
+      }
+    },
+    "Resistance.Dark": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "reduction": 0.75,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:brightness_at_position",
+            "min_brightness": 0,
+            "max_brightness": 6
+          }
+        ]
+      }
+    },
+    "Heal.Dark": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 10,
+      "amount": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:brightness_at_position",
+            "min_brightness": 0,
+            "max_brightness": 6
+          }
+        ]
+      }
+    },
+    "Delete.Item": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 3,
+      "first_tick_commands": [
+        "playsound minecraft:entity.wither.ambient master @a ~ ~ ~ 1 1.3",
+        "item replace entity @s weapon.mainhand with air"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Item.Erase.On"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:empty_slot",
+                "slot": "mainhand"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Delete.Item.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Delete.Item.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 3,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Item.Erase.On"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:empty_slot",
+                "slot": "mainhand"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Delete.Item.Particles": {
+      "type": "palladium:particles",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "emitter": [
+        "eop:mainhand_basic"
+      ],
+      "particle_type": "minecraft:dust",
+      "options": "0 0 0 2",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Item.Erase.On"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:empty_slot",
+                "slot": "mainhand"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Night.Vision": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s night_vision"
+      ],
+      "commands": [
+        "effect give @s minecraft:night_vision 20 1 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Night.Vision.On"
+          }
+        ]
+      }
+    },
+    "AOE.Slow.Fall.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 15,
+      "commands": [
+        "effect give @s slow_falling 2 3 true"
+      ],
+      "ignore_same_team": false,
+      "ignore_pets": false,
+      "only_same_team": true,
+      "include_caster": true,
+      "execution_mode": "as",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Slow.Fall.On"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 18
+          }
+        ]
+      }
+    },
+    "Entity.Sense": {
+      "type": "palladium:entity_glow",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "mode": "others",
+      "color": "#430963",
+      "distance": 20,
+      "property_key": "EOP.inDark",
+      "property_value": "true",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Entity.Sense.On"
+          }
+        ]
+      }
+    },
+    "Dark.Amount.Infinite": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players set @s Darkness.Energy 100"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Darkness.Energy",
+            "min_score": -1000,
+            "max_score": 99
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Inf.Energy"
+          }
+        ]
+      }
+    },
+    "Dark.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players add @s Darkness.Energy 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 10
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "Ability.Being.Used"
+              }
+            ]
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Darkness.Energy",
+            "min_score": -1000,
+            "max_score": 99
+          }
+        ]
+      }
+    },
+    "Dark.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players add @s Darkness.Energy 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 5
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "Ability.Being.Used"
+              }
+            ]
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Darkness.Energy",
+            "min_score": -1000,
+            "max_score": 99
+          },
+          {
+            "type": "palladium:brightness_at_position",
+            "min_brightness": 0,
+            "max_brightness": 6
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Shadow Ball",
+      "description": "Shoot out a ball of darkness, blinding and damaging enemies",
+      "icon": "eop:textures/gui/shadow_blast.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Shadow.Ball": {
+      "type": "palladium:command",
+      "title": "Shadow Ball",
+      "icon": "eop:textures/gui/shadow_blast.png",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "first_tick_commands": [
+        "playsound minecraft:entity.wither.ambient master @a ~ ~ ~ 1 2",
+        "scoreboard players remove @s Darkness.Energy 5"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 40,
+            "key_type": "right_click"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Darkness.Energy",
+            "min_score": 5,
+            "max_score": 200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:pitch"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Darkness.Form"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Ensnared"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Shadow.Ball.Projectile": {
+      "type": "palladium:projectile",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 2,
+        "DamageType": "eop:basic",
+        "Gravity": 0.03,
+        "Lifetime": 80,
+        "CommandOnBlockHit": "function eop:powers/pitch/shadowball",
+        "CommandOnEntityHit": "function eop:powers/pitch/shadowball",
+        "DieOnEntityHit": true,
+        "DieOnBlockHit": true,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "eop:dark_energy",
+            "Spread": 0.2,
+            "Amount": 15
+          }
+        ]
+      },
+      "inaccuracy": 0,
+      "velocity": 1.5,
+      "swinging_arm": "main_arm",
+      "damage_from_player": false,
+      "ignore_player_movement": false,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Shadow.Ball"
+          }
+        ]
+      }
+    },
+    "Darkness.Form.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Shadow Veil",
+      "icon": "eop:textures/gui/shadow_veil.png",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "description": "Transform into pure darkness, being able to fly and blind enemies",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Umbrakinesis"
+          }
+        ]
+      }
+    },
+    "Darkness.Form": {
+      "type": "palladium:command",
+      "title": "Shadow Veil",
+      "icon": "eop:textures/gui/shadow_veil.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "first_tick_commands": [
+        "tag @s add Ability.Being.Used",
+        "particle dust 0 0 0 4 ~ ~1 ~ 0.3 0.5 0.3 1 50 force",
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Ability.Being.Used",
+        "particle dust 0 0 0 4 ~ ~1 ~ 0.3 0.5 0.3 1 50 force",
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2",
+        "effect clear @s minecraft:invisibility"
+      ],
+      "commands": [
+        "tag @s add Ability.Being.Used",
+        "effect give @s minecraft:invisibility 1 255 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Darkness.Energy",
+            "min_score": 1,
+            "max_score": 2000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Darkness.Form.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Darkness.Slowfall": {
+      "type": "palladium:slowfall",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Darkness.Form"
+          }
+        ]
+      }
+    },
+    "Darkness.Form.Phase": {
+      "type": "palladium:intangibility",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "blacklist": "eop:prevents_intangibility_stronger",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Darkness.Form"
+          },
+          {
+            "type": "palladium:brightness_at_position",
+            "min_brightness": 0,
+            "max_brightness": 6
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_espiritu_g2"
+          }
+        ]
+      }
+    },
+    "Phase.Down": {
+      "type": "palladium:intangibility",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "vertical": true,
+      "blacklist": "eop:prevents_intangibility_stronger",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Darkness.Form"
+          },
+          {
+            "type": "palladium:brightness_at_position",
+            "min_brightness": 0,
+            "max_brightness": 6
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Phase.Down"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_espiritu_g2"
+          }
+        ]
+      }
+    },
+    "Darkness.Form.Invis": {
+      "type": "palladium:invisibility",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Darkness.Form"
+          }
+        ]
+      }
+    },
+    "Darkness.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 1,
+      "operation": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Darkness.Form"
+          }
+        ]
+      }
+    },
+    "Teleport.Usage": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Darkness.Energy 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Darkness.Form"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 10
+          }
+        ]
+      }
+    },
+    "Teleport.Damage.Immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "eop:rift_immune",
+        "eop:rift_immune_alexscaves",
+        "eop:rift_immune_alexsmobs",
+        "eop:tacz_guns"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Darkness.Form"
+          }
+        ]
+      }
+    },
+    "Darkness.Undetected": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "first_tick_commands": [
+        "scale set pehkui:visibility -1 @s"
+      ],
+      "last_tick_commands": [
+        "scale set pehkui:visibility 1 @s"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Darkness.Form"
+          },
+          {
+            "type": "palladium:brightness_at_position",
+            "min_brightness": 0,
+            "max_brightness": 6
+          }
+        ]
+      }
+    },
+    "Darkness.Effects": {
+      "type": "palladium:particles",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "emitter": [
+        "eop:body_smoke"
+      ],
+      "particle_type": "dust",
+      "options": "0 0 0 2",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Darkness.Form"
+          },
+          {
+            "type": "palladium:brightness_at_position",
+            "min_brightness": 6,
+            "max_brightness": 15
+          }
+        ]
+      }
+    },
+    "Flight.Cloud": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:flight_speed",
+      "amount": 1,
+      "uuid": "29bb36fb-e27f-43ef-b0bd-ecd00ea7c7db",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:attribute_check",
+            "attribute": "palladium:jump_power",
+            "comparison": ">",
+            "value": 0
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Darkness.Form"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_espiritu_g2"
+          }
+        ]
+      }
+    },
+    "Darkness.Mode.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 3,
+      "commands": [
+        "effect give @s[tag=!Pitch,tag=!EOP.Phasing,tag=!Infinity] minecraft:darkness 2 0 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Darkness.Form"
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Darkness.Form"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Store.Armor": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": true,
+      "hide_offhand": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Darkness.Form"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Restrict.Slots": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs",
+        "head",
+        "mainhand",
+        "offhand"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Shadow.Ensnare.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/umbra_threads.png",
+      "title": "Umbra Threads",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Encase enemies in darkness, preventing them from moving for a brief time. §dTargets the entity you are looking at",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Darkness.Form.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "UM.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/darkness.png",
+            "description": {
+              "text": "Umbrakinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Shadow.Ensnare": {
+      "type": "palladium:energy_beam",
+      "icon": "eop:textures/gui/umbra_threads.png",
+      "title": "Umbra Threads",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "energy_beam": "eop:noenergybeam",
+      "damage": 0,
+      "max_distance": 15,
+      "speed": 100,
+      "set_on_fire_seconds": 0,
+      "cause_fire": false,
+      "smelt_blocks": false,
+      "commands_on_block_hit": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 200,
+            "ticks": 20,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Darkness.Energy",
+            "min_score": 10,
+            "max_score": 2000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Shadow.Ensnare.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Darkness.Form"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Shadow.Ensnare.Usage": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players remove @s Darkness.Energy 10"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Shadow.Ensnare"
+          }
+        ]
+      }
+    },
+    "Shadow.Ensnare.Custom": {
+      "type": "eop:raycast_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage": 0,
+      "range": 15,
+      "ignore_same_team": true,
+      "set_on_fire_seconds": 0,
+      "commands_on_entity_hit": [
+        "tag @s add Ignore.Me",
+        "execute if entity @e[distance=..3,limit=1,tag=!Ignore.Me,tag=!EOP.Phasing,tag=!Infinity,tag=!Pitch,palladium.power=!eop:effects/ensnare_weak] run playsound minecraft:entity.illusioner.cast_spell ambient @a ~ ~ ~ 2 2",
+        "execute if entity @e[distance=..3,limit=1,tag=!Ignore.Me,tag=!EOP.Phasing,tag=!Infinity,tag=!Pitch,palladium.power=!eop:effects/ensnare_weak] run particle dust 0 0 0 1 ~ ~1 ~ 1 1 1 1 50 force",
+        "superpower add eop:effects/ensnare_weak @e[distance=..3,limit=1,tag=!Ignore.Me,tag=!EOP.Phasing,tag=!Infinity,tag=!Pitch]",
+        "tag @s remove Ignore.Me"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Shadow.Ensnare"
+          },
+          {
+            "type": "palladium:brightness_at_position",
+            "min_brightness": 7,
+            "max_brightness": 16
+          }
+        ]
+      }
+    },
+    "Shadow.Ensnare.Custom2": {
+      "type": "eop:raycast_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage": 0,
+      "range": 15,
+      "ignore_same_team": true,
+      "set_on_fire_seconds": 0,
+      "commands_on_entity_hit": [
+        "tag @s add Ignore.Me",
+        "execute if entity @e[distance=..3,limit=1,tag=!Ignore.Me,tag=!EOP.Phasing,tag=!Infinity,tag=!Pitch,palladium.power=!eop:effects/ensnare] run playsound minecraft:entity.illusioner.cast_spell ambient @a ~ ~ ~ 2 2",
+        "execute if entity @e[distance=..3,limit=1,tag=!Ignore.Me,tag=!EOP.Phasing,tag=!Infinity,tag=!Pitch,palladium.power=!eop:effects/ensnare] run particle dust 0 0 0 1 ~ ~1 ~ 1 1 1 1 50 force",
+        "superpower add eop:effects/ensnare @e[distance=..3,limit=1,tag=!Ignore.Me,tag=!EOP.Phasing,tag=!Infinity,tag=!Pitch]",
+        "tag @s remove Ignore.Me"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Shadow.Ensnare"
+          },
+          {
+            "type": "palladium:brightness_at_position",
+            "min_brightness": 0,
+            "max_brightness": 6
+          }
+        ]
+      }
+    },
+    "Pure.Darkness.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Pure Darkness",
+      "icon": "eop:textures/gui/pure_darkness.png",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Create a smokescreen of darkness, blinding enemies around",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Shadow.Ensnare.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "UM.Score",
+            "score": 10,
+            "icon": "eop:textures/gui/darkness.png",
+            "description": {
+              "text": "Umbrakinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Pure.Darkness": {
+      "type": "palladium:command",
+      "title": "Pure Darkness",
+      "icon": "eop:textures/gui/pure_darkness.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "first_tick_commands": [
+        "playsound minecraft:entity.wither.death master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [
+        "scoreboard players remove @s Darkness.Energy 20",
+        "tag @s remove Ability.Being.Used"
+      ],
+      "commands": [
+        "tag @s add Ability.Being.Used"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 600,
+            "ticks": 100,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Darkness.Energy",
+            "min_score": 20,
+            "max_score": 200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Pure.Darkness.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Darkness.Form"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Night.Veil.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "particle eop:dark_energy ~ ~ ~ 5 2 5 0.08 50",
+        "playsound minecraft:block.fire.extinguish master @a ~ ~ ~ 1 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Pure.Darkness"
+          }
+        ]
+      }
+    },
+    "Night.Veil.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 10,
+      "commands": [
+        "effect give @s[tag=!Pitch,tag=!Infinity,tag=!EOP.Phasing] darkness 10 0 true",
+        "effect give @s[tag=!Pitch,tag=!Infinity,tag=!EOP.Phasing] slowness 4 2 true",
+        "execute at @s[type=!#eop:not_alive] run particle dust 0 0 0 3 ~ ~1 ~ 1 1 1 0 5 force"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Pure.Darkness"
+          },
+          {
+            "type": "palladium:brightness_at_position",
+            "min_brightness": 7,
+            "max_brightness": 16
+          }
+        ]
+      }
+    },
+    "Night.Veil.Custom2": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 10,
+      "commands": [
+        "effect give @s[tag=!Pitch,tag=!Infinity,tag=!EOP.Phasing] blindness 15 0 true",
+        "effect give @s[tag=!Pitch,tag=!Infinity,tag=!EOP.Phasing] slowness 6 3 true",
+        "execute at @s[type=!#eop:not_alive] run particle dust 0 0 0 3 ~ ~1 ~ 1 1 1 0 5 force"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Pure.Darkness"
+          },
+          {
+            "type": "palladium:brightness_at_position",
+            "min_brightness": 0,
+            "max_brightness": 6
+          }
+        ]
+      }
+    },
+    "Abyssal.Grip.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Abyssal Grip",
+      "icon": "eop:textures/gui/abyssal_grip.png",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 4,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Create a patch of living shadow acting as a return point to travel back to at will. §dSneak §fto set or remove waypoint",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Pure.Darkness.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "UM.Score",
+            "score": 15,
+            "icon": "eop:textures/gui/darkness.png",
+            "description": {
+              "text": "Umbrakinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Portal": {
+      "type": "palladium:command",
+      "title": "Abyssal Grip",
+      "icon": "eop:textures/gui/abyssal_grip.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "first_tick_commands": [
+        "execute if predicate eop:is_sneaking run playsound minecraft:block.note_block.bell master @s ~ ~ ~ 1 1",
+        "execute if predicate eop:is_sneaking run title @s actionbar [\"\",{\"text\":\"Location marked!\",\"color\":\"green\",\"bold\":true}]",
+        "execute if predicate eop:is_sneaking run tag @s add EOP.Portal.Saved"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 40,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Abyssal.Grip.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Portal.Saved"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Portal.Save": {
+      "type": "eop:waypoint_travel",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 3,
+      "particle1": "eop:dark_energy",
+      "particle2": "dust 0 0 0 2",
+      "sound1": "minecraft:entity.wither.death",
+      "sound2": "null",
+      "one_way": false,
+      "carry_entities": true,
+      "allow_interdim": false,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Portal"
+          },
+          {
+            "type": "palladium:crouching"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_espiritu_g2"
+          }
+        ]
+      }
+    },
+    "Portal.Switch.Begin": {
+      "type": "palladium:command",
+      "title": "Abyssal Grip",
+      "icon": "eop:textures/gui/abyssal_grip.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "gui_position": "null",
+      "first_tick_commands": [
+        "execute unless predicate eop:is_sneaking run playsound minecraft:entity.evoker.prepare_attack master @a ~ ~ ~ 1 2",
+        "execute unless predicate eop:is_sneaking run tag @s add Shadow.Begin.Teleport",
+        "execute if predicate eop:is_sneaking run title @s actionbar [\"\",{\"text\":\"Location removed!\",\"color\":\"red\",\"bold\":true}]",
+        "execute if predicate eop:is_sneaking run playsound minecraft:block.note_block.snare master @s ~ ~ ~ 1 1",
+        "execute if predicate eop:is_sneaking run tag @s remove EOP.Portal.Saved"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Darkness.Energy",
+            "min_score": 20,
+            "max_score": 200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Abyssal.Grip.Unlock"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Portal.Saved"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Portal.Switch.Animation": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/fast_travel.png",
+      "title": "Fast Travel",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "start_value": 0,
+      "max_value": 20,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Shadow.Begin.Teleport"
+          }
+        ]
+      }
+    },
+    "Portal.Switch.Drain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "gui_position": "null",
+      "first_tick_commands": [
+        "scoreboard players remove @s Darkness.Energy 15",
+        "tag @s remove Shadow.Begin.Teleport"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Portal.Switch.Animation",
+            "property": "value",
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Portal.Switch": {
+      "type": "eop:waypoint_travel",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "particle1": "eop:dark_energy",
+      "particle2": "dust 0 0 0 2",
+      "sound1": "minecraft:entity.wither.death",
+      "sound2": "null",
+      "one_way": false,
+      "carry_entities": true,
+      "allow_interdim": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Portal.Switch.Animation",
+            "property": "value",
+            "min": 20,
+            "max": 20
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_espiritu_g2"
+          }
+        ]
+      }
+    },
+    "Portal.Tag.Remove.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "start_value": 0,
+      "max_value": 30,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Shadow.Begin.Teleport"
+          }
+        ]
+      }
+    },
+    "Portal.No.Move.Timer": {
+      "type": "palladium:animation_timer",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "start_value": 0,
+      "max_value": 42,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Shadow.Begin.Teleport"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "dcbe5b12-d536-4df7-9785-375c715d1941",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Portal.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 41
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Portal.No.Move.Timer"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "aa7ead55-6adf-4d12-8072-f3bf75101eb1",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Portal.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 41
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Portal.No.Move.Timer"
+          }
+        ]
+      }
+    },
+    "Null.Abyss.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Null Abyss",
+      "icon": "eop:textures/gui/null_abyss.png",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 4,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Create a lightless domain, suffocating targets in darkness",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Abyssal.Grip.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "UM.Score",
+            "score": 20,
+            "icon": "eop:textures/gui/darkness.png",
+            "description": {
+              "text": "Umbrakinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Null.Abyss.NEE": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/null_abyss.png",
+      "title": "Null Abyss",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "first_tick_commands": [
+        "playsound minecraft:block.note_block.didgeridoo master @s ~ ~ ~ 1 0.5",
+        "title @s actionbar [\"\",{\"text\":\"Not enough energy!\",\"color\":\"red\",\"bold\":true}]"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 20,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:pitch"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Null.Abyss.Unlock"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Darkness.Energy",
+            "min_score": 0,
+            "max_score": 89
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Domain"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Null.Abyss.Activate": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/null_abyss.png",
+      "title": "Null Abyss",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "first_tick_commands": [
+        "tag @s add EOP.Domain"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 3600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:pitch"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Null.Abyss.Unlock"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Darkness.Energy",
+            "min_score": 90,
+            "max_score": 150
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Domain"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Domain.Usage": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players remove @s Darkness.Energy 90"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:pitch"
+          }
+        ]
+      }
+    },
+    "Domain.Timer.Start": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:pitch"
+          }
+        ]
+      }
+    },
+    "Domain": {
+      "type": "eop:domain",
+      "icon": "eop:textures/gui/null_abyss.png",
+      "title": "Null Abyss",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "spawn_delay": 1000,
+      "lifetime": 60000,
+      "stand_power": "eop:models/null_abyss",
+      "stand_first_tick_commands": [
+        "scoreboard players set @p EOP.Domain.Timer 1200"
+      ],
+      "stand_commands": [],
+      "stand_last_tick_commands": [
+        "stopsound @a[distance=..25] * eop:unlimited_void"
+      ],
+      "despawn_if_too_far": true,
+      "despawn_distance": 17,
+      "aoe_radius": 16,
+      "aoe_first_tick_commands": [],
+      "aoe_commands": [
+        "effect give @s[tag=!Pitch,tag=!Warper,type=!#eop:not_alive] blindness 10 0 true",
+        "effect give @s[tag=!Pitch,tag=!Warper,type=!#eop:not_alive] slowness 10 2 true",
+        "effect give @s[tag=!Pitch,tag=!Warper,type=!#eop:not_alive] weakness 10 1 true"
+      ],
+      "aoe_last_tick_commands": [],
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "only_same_team": false,
+      "include_caster": false,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Domain.Timer.Start",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:pitch"
+          }
+        ]
+      }
+    },
+    "Dome": {
+      "type": "eop:dome_creation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "replace_block": "eop:domain",
+      "radius": 16,
+      "depth": 1,
+      "animation_speed": 0.5,
+      "dome": true,
+      "dome_height": 15,
+      "spawn_light": false,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Domain.Timer.Start",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:pitch"
+          }
+        ]
+      }
+    },
+    "Domain.Lifetime": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s EOP.Domain.Timer 1"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:pitch"
+          }
+        ]
+      }
+    },
+    "Domain.Remove.Naturally": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s remove EOP.Domain"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Domain.Timer",
+                "min_score": -100,
+                "max_score": 0
+              },
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "eop:power_selected",
+                    "power": "eop:pitch"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Domain.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 105,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:pitch"
+          }
+        ]
+      }
+    },
+    "Domain.Hands.Animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "ability": "Domain.Timer",
+            "property": "value",
+            "min": 0,
+            "max": 100
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:pitch"
+          }
+        ]
+      }
+    },
+    "Domain.Effects": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "particle dust 0 0 0 1 ~ ~ ~ 20 10 20 0.5 400 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "ability": "Domain.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:pitch"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "77c86fe8-07f9-49dd-89bb-f92b5c772ee2",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "ability": "Domain.Timer",
+            "property": "value",
+            "min": 0,
+            "max": 100
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:pitch"
+          }
+        ]
+      }
+    },
+    "No.Jumping2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "2d939403-ea46-4d88-b4a9-b5ea04d76fcb",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "ability": "Domain.Timer",
+            "property": "value",
+            "min": 0,
+            "max": 100
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:pitch"
+          }
+        ]
+      }
+    },
+    "Null.Abyss.Deactivate": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/null_abyss.png",
+      "title": "Remove Null Abyss",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "first_tick_commands": [
+        "scoreboard players set @s EOP.Domain.Timer 0",
+        "tag @s remove EOP.Domain"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 10,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:pitch"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Null.Abyss.Unlock"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Phase.Domain": {
+      "type": "palladium:intangibility",
+      "whitelist": "eop:domain",
+      "hidden": true,
+      "hidden_in_bar": true
+    }
+  }
+}

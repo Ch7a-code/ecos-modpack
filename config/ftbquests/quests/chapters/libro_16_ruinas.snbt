@@ -1,0 +1,401 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_16_ruinas"
+	group: "56F3188FE75A98A8"
+	icon: "minecraft:compass"
+	id: "332F3C81AD37AA8C"
+	order_index: 16
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oLos cofres de las ruinas son ecos del pasado: lo que guardaban se quedó esperando a cada Eco por separado. Lo que tú saques no le quita nada a nadie más.", "", "&6Qué hacer:&r Abre un cofre de botín en unas ruinas (Lootr). Cada jugador ve su propio contenido.", "", "&6Premio:&r 2 cosas al azar: lingotes de hierro, pan, antorchas, flechas o una esmeralda.", "&5A veces (7 %):&r una pala de hierro encantada con Eficiencia."]
+			disable_toast: true
+			icon: "lootr:lootr_chest"
+			id: "31F78CB8F4CE0AA9"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1944B59485A12EC4"
+					icon: "lootr:lootr_chest"
+					stage: "ecos_l_ruinas_eco_cofre"
+					title: "Abre un cofre de botín"
+					type: "gamestage"
+				}
+			]
+			title: "Un cofre que es solo tuyo"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["31F78CB8F4CE0AA9"]
+			description: ["&#19E6E6Zykna:&r &oEl faro sobrevivió a la Fractura mejor que casi todo. Sube hasta arriba y mira: desde ahí se ve cuánto mundo queda por pisar y qué tan lejos está cada ruina.", "", "&6Qué hacer:&r Encuentra un faro (Dungeons Arise) y llega hasta él.", "", "&6Premio:&r 2 cosas al azar: antorchas, pan, un catalejo, cobre o semillas.", "&5A veces (7 %):&r un pico de hierro encantado con Irrompibilidad."]
+			disable_toast: true
+			icon: "minecraft:lantern"
+			id: "7E1DF91570B471DF"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "097E0FFF07606A2B"
+					icon: "minecraft:lantern"
+					stage: "ecos_l_ruinas_faro_faro"
+					title: "Llega a un faro"
+					type: "gamestage"
+				}
+			]
+			title: "El faro sigue en pie"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["7E1DF91570B471DF"]
+			description: ["&#19E6E6Zykna:&r &oEntre las ruinas hay aldeas enteras que siguen en pie. Su gente no tiene astilla y no pelea como ustedes, pero los necesita. Pasa a saludar: tienen cosas que comerciar.", "", "&6Qué hacer:&r Camina hasta una aldea de CTOV (de llanura, desierto, nieve, montaña, pantano o cualquier otra) y entra en ella.", "", "&6Premio:&r 2 cosas al azar: esmeraldas, pan, zanahorias, papas o hierro.", "&5A veces (7 %):&r una espada de hierro encantada con Filo."]
+			disable_toast: true
+			icon: "minecraft:bell"
+			id: "581BCB9D5501C549"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1CF4D6BE3FABFB23"
+					icon: "minecraft:bell"
+					stage: "ecos_l_ruinas_aldea_aldea"
+					title: "Pisa una aldea mediana de llanura"
+					type: "gamestage"
+				}
+			]
+			title: "Aldeas que aún respiran"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["581BCB9D5501C549"]
+			description: ["&#19E6E6Zykna:&r &oParte del mundo viejo se quedó dormido con sus torres y sus coches adentro. Busca la central eléctrica de la ciudad perdida: lo que la Fractura no alcanzó a llevarse sigue ahí.", "", "&6Qué hacer:&r Llega a la ciudad perdida y entra a uno de sus edificios grandes: la central eléctrica, un rascacielos o la bodega.", "", "&6Premio:&r 2 cosas al azar: hierro, cobre, redstone, pan o una esmeralda.", "&5A veces (7 %):&r un casco de hierro encantado con Protección."]
+			disable_toast: true
+			icon: "minecraft:lightning_rod"
+			id: "208C3C4CE55FA83B"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4D4D54DBD2109A8A"
+					icon: "minecraft:lightning_rod"
+					stage: "ecos_l_ruinas_ciudad_central"
+					title: "Entra en la central eléctrica"
+					type: "gamestage"
+				}
+			]
+			title: "La ciudad que se quedó dormida"
+			x: 0.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["208C3C4CE55FA83B"]
+			description: ["&#19E6E6Zykna:&r &oBajo el suelo hay salas que no deberían existir, llenas de lo que la Fractura dejó dormido. Entra en las tres clases y sal de cada una con vida: los huesos no perdonan.", "", "&6Qué hacer:&r Entra en una fortaleza de no muertos, en una catacumba y en una cueva de arañas (YUNG's Better Dungeons).", "", "&6Premio:&r 2 cosas al azar: flechas, hierro, pan, hilo o una esmeralda.", "&5A veces (7 %):&r un arco encantado con Poder."]
+			disable_toast: true
+			icon: "minecraft:bone"
+			id: "2153486CE6543581"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "64F0A493FA3D33B8"
+					icon: "minecraft:bone"
+					stage: "ecos_l_ruinas_mazmorra_huesos"
+					title: "Entra en una fortaleza de no muertos"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "187E42E719B79228"
+					icon: "minecraft:rotten_flesh"
+					stage: "ecos_l_ruinas_mazmorra_catacumba"
+					title: "Entra en una catacumba"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "2F2D31C79FF89B17"
+					icon: "minecraft:spider_eye"
+					stage: "ecos_l_ruinas_mazmorra_aranas"
+					title: "Descubre una cueva de arañas"
+					type: "gamestage"
+				}
+			]
+			title: "Salas bajo tierra"
+			x: 0.00d
+			y: 5.60d
+		}
+		{
+			dependencies: ["2153486CE6543581"]
+			description: ["&#19E6E6Zykna:&r &oHay templos y minas que nadie recuerda haber construido. No sabes quién los dejó ni para qué, y quizá nunca lo sepas. Lo que sí sabes es que adentro hay cosas que vale la pena sacar.", "", "&6Qué hacer:&r Encuentra un templo abandonado y un sistema de minas (Dungeons Arise) y llega hasta ellos.", "", "&6Premio:&r 2 cosas al azar: hierro, cobre, antorchas, pan o una esmeralda.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "minecraft:sandstone"
+			id: "355F5C3630083F2F"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1816EE9D4EFD1663"
+					icon: "minecraft:sandstone"
+					stage: "ecos_l_ruinas_templo_templo"
+					title: "Encuentra un templo abandonado"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "14BDCA960919A8D8"
+					icon: "minecraft:iron_pickaxe"
+					stage: "ecos_l_ruinas_templo_minas"
+					title: "Encuentra un sistema de minas"
+					type: "gamestage"
+				}
+			]
+			title: "Templos sin nombre"
+			x: 0.00d
+			y: 7.00d
+		}
+		{
+			dependencies: ["355F5C3630083F2F"]
+			description: ["&#19E6E6Zykna:&r &oHay torres y aldeas tomadas por saqueadores. Con astilla o sin ella, una ballesta duele igual. Acércate con armadura, comida y un plan; si puedes, no vayas a ciegas.", "", "&6Qué hacer:&r Encuentra una torre de bandidos y una aldea de bandidos (Dungeons Arise).", "", "&6Premio:&r 2 cosas al azar: hierro, flechas, pan, esmeraldas o cobre.", "&5A veces (7 %):&r una ballesta encantada con Carga Rápida."]
+			disable_toast: true
+			icon: "minecraft:crossbow"
+			id: "7E1E5236E96CF524"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5F7E6A56A9D705F6"
+					icon: "minecraft:crossbow"
+					stage: "ecos_l_ruinas_bandidos_torres"
+					title: "Encuentra una torre de bandidos"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "212C6D246F643D01"
+					icon: "minecraft:iron_sword"
+					stage: "ecos_l_ruinas_bandidos_aldeabandida"
+					title: "Encuentra una aldea de bandidos"
+					type: "gamestage"
+				}
+			]
+			title: "Torres tomadas"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["7E1E5236E96CF524"]
+			description: ["&#19E6E6Zykna:&r &oLos magos que vivían en estas torres sabían cosas que el Proyecto aún no escribía. Sube a tres de ellas: sus pisos guardan libros, tintas y trampas para quien llega sin preparación.", "", "&6Qué hacer:&r Entra en una Torre de Mago, en la Torre del Archimago y en una Torre de Encantamiento (IDAS).", "", "&6Premio:&r 2 cosas al azar: libros, lingotes de hierro, esmeraldas, lapislázuli o pan.", "&5A veces (7 %):&r una pechera de hierro encantada con Protección."]
+			disable_toast: true
+			icon: "minecraft:enchanting_table"
+			id: "5E098FE587360A42"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1602EB9338548EE3"
+					icon: "minecraft:enchanting_table"
+					stage: "ecos_l_ruinas_torres_mago"
+					title: "Entra en una Torre de Mago"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "7D3D5744C8F825CA"
+					icon: "minecraft:book"
+					stage: "ecos_l_ruinas_torres_archimago"
+					title: "Entra en la Torre del Archimago"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "47D0D75C73BC7901"
+					icon: "minecraft:lapis_lazuli"
+					stage: "ecos_l_ruinas_torres_encanto"
+					title: "Entra en una Torre de Encantamiento"
+					type: "gamestage"
+				}
+			]
+			title: "Torres de magos"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["5E098FE587360A42"]
+			description: ["&#19E6E6Zykna:&r &oEl mar también tiene ruinas: barcos hundidos y cascos piratas con tripulación que no se fue. Respira bajo el agua, lleva luz y no te confíes de la superficie.", "", "&6Qué hacer:&r Encuentra un barco hundido (IDAS) y un barco pirata no muerto (Dungeons Arise).", "", "&6Premio:&r 2 cosas al azar: bacalao cocido, hierro, esmeraldas, prismarina o pan.", "&5A veces (7 %):&r un casco de hierro encantado con Respiración."]
+			disable_toast: true
+			icon: "minecraft:trident"
+			id: "2F2147677A8FFD61"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "06EDA06023C1D8DE"
+					icon: "minecraft:cooked_cod"
+					stage: "ecos_l_ruinas_hundido_hundido"
+					title: "Encuentra un barco hundido"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "7668B7D9D80703A0"
+					icon: "minecraft:trident"
+					stage: "ecos_l_ruinas_hundido_pirata"
+					title: "Encuentra un barco pirata no muerto"
+					type: "gamestage"
+				}
+			]
+			title: "Lo que guarda el agua"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["2F2147677A8FFD61"]
+			description: ["&#19E6E6Zykna:&r &oMás al norte el mar se vuelve hielo y el hielo se vuelve laberinto. Ahí se juntan los barcos que la Fractura arrastró hasta la orilla. Entra, escucha y busca lo que aún suena.", "", "&6Qué hacer:&r Entra en el Laberinto de hielo (Aquamirae) y consigue un Cuerno de concha en un barco pirata congelado.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, bacalao cocido, hielo azul o un diamante.", "&5A veces (7 %):&r un tridente encantado con Irrompibilidad."]
+			disable_toast: true
+			icon: "minecraft:blue_ice"
+			id: "483F12A362B379B1"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "61ED5E039F124BDB"
+					icon: "minecraft:blue_ice"
+					stage: "ecos_l_ruinas_voragine_hielo"
+					title: "Entra en el Laberinto de hielo"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "5ABD41C2F3376150"
+					icon: "minecraft:nautilus_shell"
+					stage: "ecos_l_ruinas_voragine_cuerno"
+					title: "Consigue un Cuerno de concha"
+					type: "gamestage"
+				}
+			]
+			title: "El mar helado"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["483F12A362B379B1"]
+			description: ["&#19E6E6Zykna:&r &oEn el cementerio de barcos, el fantasma de la Capitana Cornelia sigue de guardia. Guarda una llave helada y un arma con su nombre. Gánatelas con paciencia, no con prisa.", "", "&6Qué hacer:&r Vence al Fantasma de la Capitana Cornelia (Aquamirae): arrébatale la llave helada y el Perforamareas.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, un diamante, bacalao cocido o prismarina.", "&5A veces (7 %):&r un casco de hierro encantado con Afinidad Acuática."]
+			disable_toast: true
+			icon: "minecraft:heart_of_the_sea"
+			id: "445095F3F82A9DFD"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "33D7D5F55077C7CF"
+					icon: "minecraft:heart_of_the_sea"
+					stage: "ecos_l_ruinas_cornelia_llave"
+					title: "Arrebátale la llave helada"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "2418BBB0DB8FE6B2"
+					icon: "minecraft:trident"
+					stage: "ecos_l_ruinas_cornelia_tidepiercer"
+					title: "Obtén el Perforamareas"
+					type: "gamestage"
+				}
+			]
+			title: "La Capitana que no soltó el timón"
+			x: 5.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["445095F3F82A9DFD"]
+			description: ["&#19E6E6Zykna:&r &oAlgo muy grande mueve las olas del cementerio y rompe lo que flota. Si lo oyes venir, ya es tarde para correr. Prepárate antes y cobra el rastro que deja.", "", "&6Qué hacer:&r Encuentra al Rompenaufragios y recoge su rastro (Aquamirae). Lleva armadura buena, comida y una ruta de escape.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, un diamante, bacalao cocido o corazón del mar.", "&5A veces (7 %):&r una espada de hierro encantada con Filo."]
+			disable_toast: true
+			icon: "minecraft:conduit"
+			id: "09C3B7EEA77A088A"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7F9500B0C472F0F4"
+					icon: "minecraft:conduit"
+					stage: "ecos_l_ruinas_rompe_bestia"
+					title: "Encuentra al Rompenaufragios"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "109ABDE50B194052"
+					icon: "minecraft:echo_shard"
+					stage: "ecos_l_ruinas_rompe_rastro"
+					title: "Recoge el rastro del Leviatán"
+					type: "gamestage"
+				}
+			]
+			title: "Lo que rompe los barcos"
+			x: 5.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["09C3B7EEA77A088A"]
+			description: ["&#19E6E6Zykna:&r &oCada cofre que abres es una página de lo que fue. Con veinticinco ya entiendes cómo guardaba cosas el mundo viejo. Con cincuenta, lo lees mejor que él mismo.", "", "&6Qué hacer:&r Abre 25 contenedores de botín por jugador y luego 50 (Lootr).", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, un diamante, libros o pan.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "lootr:trophy"
+			id: "08CF4779CD09BDA1"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "2033FE3ED71EDB7D"
+					icon: "lootr:lootr_barrel"
+					stage: "ecos_l_ruinas_botin_v25"
+					title: "Abre 25 contenedores de botín"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1B5B95ECF1D45B1B"
+					icon: "lootr:lootr_shulker"
+					stage: "ecos_l_ruinas_botin_v50"
+					title: "Abre 50 contenedores de botín"
+					type: "gamestage"
+				}
+			]
+			title: "Leer el mundo viejo"
+			x: 5.00d
+			y: 4.20d
+		}
+	]
+	subtitle: ["Lo que quedó en pie después de la Fractura: aldeas, torres, mazmorras y un mar que guarda barcos.", "Cada cofre de las ruinas es un eco del pasado, y cada Eco ve el suyo."]
+	title: "Ruinas, mapas y mar"
+}

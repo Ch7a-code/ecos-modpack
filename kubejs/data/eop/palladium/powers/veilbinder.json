@@ -1,0 +1,3161 @@
+{
+  "name": "Spirit Manifestation",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/ghost.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "abilities": {
+    "Veilbinder": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Veilbinder",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.Has.Power",
+        "scoreboard objectives add EOP.Soul.Orb.Number dummy",
+        "scoreboard players set @s EOP.Soul.Orb.Number 0",
+        "scoreboard objectives add SOM.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Veilbinder",
+        "tag @s remove EOP.Has.BM",
+        "clear @s eop:soul_sword",
+        "tag @s remove EOP.Has.Power",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Spirit.Manifestation": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/ghost.png",
+      "title": "Spirit Manifestation",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to manifest and control spirits"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "SOM.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s SOM.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "SOM.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "SOM.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s SOM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "SOM.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "SOM.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s SOM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "SOM.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "SOM.Scoreboard.Gain4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s SOM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 21600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "SOM.Score",
+            "min_score": 15,
+            "max_score": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "SOM.Scoreboard.Gain5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s SOM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 36000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "SOM.Score",
+            "min_score": 18,
+            "max_score": 19
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Health": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "05198aa7-58d3-47de-a61d-f26f1ba7ca87",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Spirit.Manifestation"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "SOM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/ghost.png",
+            "description": {
+              "text": "Spirit Manifestation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "58a10378-a5b7-4fba-a223-0a29e3610faa",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "SOM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/ghost.png",
+            "description": {
+              "text": "Spirit Manifestation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "5281da05-b722-4f73-9e09-2dae3ffbc3ed",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "SOM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/ghost.png",
+            "description": {
+              "text": "Spirit Manifestation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "4bc72b5d-2969-4e94-ae0e-bef87c7c32de",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "SOM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/ghost.png",
+            "description": {
+              "text": "Spirit Manifestation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Temp.Resistance": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "effect give @s legendarysurvivaloverhaul:temperature_immunity 1 0 true"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "Temp.Resistance2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "effect give @s toughasnails:climate_clemency 1 0 true"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "toughasnails"
+          }
+        ]
+      }
+    },
+    "AOE.Slow.Fall.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 15,
+      "commands": [
+        "effect give @s slow_falling 2 3 true"
+      ],
+      "ignore_same_team": false,
+      "ignore_pets": false,
+      "only_same_team": true,
+      "include_caster": true,
+      "execution_mode": "as",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Slow.Fall.On"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 18
+          }
+        ]
+      }
+    },
+    "Night.Vision": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s night_vision"
+      ],
+      "commands": [
+        "effect give @s minecraft:night_vision 20 1 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Night.Vision.On"
+          }
+        ]
+      }
+    },
+    "Abilities.Light": {
+      "type": "eop:light_aura",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "light_level": 8,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Wings"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Blessed.Soul"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Wolf.Soul"
+              },
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "item": "eop:soul_sword"
+                },
+                "slot": "mainhand"
+              },
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Soul.Orb.Number",
+                "min_score": 1,
+                "max_score": 3
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "icon": "eop:textures/gui/soul_essence.png",
+      "title": "Soul Essence",
+      "description": "Form bits of soul essence to use as deadly projectiles. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Soul.Orb": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 0.5 1",
+        "particle dust 0 0.6 0 3 ~ ~1 ~ 0.5 0.1 0.5 0 50 force",
+        "scoreboard players set @s EOP.Soul.Orb.Number 3"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 100,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Soul.Orb.Number",
+                "min_score": 1,
+                "max_score": 3
+              }
+            ]
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:veilbinder"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Wolf.Soul"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Spirit"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Blessed.Soul"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Soul.Orb.Projectile": {
+      "type": "palladium:projectile",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "none",
+      "velocity": 1.5,
+      "inaccuracy": 0,
+      "damage_from_player": false,
+      "entity_data": {
+        "CommandOnEntityHit": "function eop:powers/veilbinder/soul_orb",
+        "CommandOnBlockHit": "function eop:powers/veilbinder/soul_orb",
+        "Size": 1,
+        "Gravity": 0.01,
+        "Damage": 5,
+        "DamageType": "eop:basic_projectile",
+        "Lifetime": 40,
+        "Appearances": [
+          {
+            "Type": "renderLayer",
+            "RenderLayer": "eop:veilbinder/soul_orb_shoot"
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 10,
+            "key_type": "right_click"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Soul.Orb.Number",
+            "min_score": 1,
+            "max_score": 3
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Orb.Shoot.Command": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 1 1.8",
+        "scoreboard players remove @s EOP.Soul.Orb.Number 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Soul.Orb.Projectile"
+          }
+        ]
+      }
+    },
+    "Orb.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:veilbinder/soul_orb"
+    },
+    "Soul.Sword.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Soul Sword",
+      "description": "Create a sword imbued with soul flames",
+      "icon": "eop:textures/gui/soul_sword.png",
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 4,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Spirit.Manifestation"
+          }
+        ]
+      }
+    },
+    "Soul.Sword": {
+      "type": "eop:give_item",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": "Soul Sword",
+      "icon": "eop:textures/gui/soul_sword.png",
+      "list_index": 0,
+      "enable_mainhand": true,
+      "mainhand_item": "eop:soul_sword",
+      "enable_offhand": false,
+      "offhand_item": "minecraft:shield",
+      "sound": "minecraft:block.beacon.power_select",
+      "give_particles": "minecraft:end_rod",
+      "remove_particles": "minecraft:end_rod",
+      "score_cost": 0,
+      "score_objective": "null",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Soul.Sword.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Wolf.Soul"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Spirit"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Blessed.Soul"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Wings.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/soul_wings.png",
+      "title": "Wings of Light",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Manifest wings that allow you to fly",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Soul.Sword.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "SOM.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/ghost.png",
+            "description": {
+              "text": "Spirit Manifestation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Wings": {
+      "type": "palladium:command",
+      "title": "Wings of Light",
+      "icon": "eop:textures/gui/soul_wings.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "first_tick_commands": [
+        "playsound minecraft:entity.bat.takeoff master @a ~ ~ ~ 1 0.7",
+        "particle eop:green_feather ~ ~1 ~ 0.3 0.3 0.3 0.15 50 force",
+        "particle eop:blue_feather ~ ~1 ~ 0.3 0.3 0.3 0.15 50 force",
+        "particle end_rod ~ ~1 ~ 0.3 0.3 0.3 0.4 30 force"
+      ],
+      "last_tick_commands": [
+        "playsound minecraft:entity.bat.takeoff master @a ~ ~ ~ 1 0.7",
+        "particle eop:green_feather ~ ~1 ~ 0.3 0.3 0.3 0.15 50 force",
+        "particle eop:blue_feather ~ ~1 ~ 0.3 0.3 0.3 0.15 50 force",
+        "particle end_rod ~ ~1 ~ 0.3 0.3 0.3 0.4 30 force"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Wings.Unlock"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:veilbinder"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Wolf.Soul"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Blessed.Soul"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Spirit"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "AOE.Regen.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 15,
+      "commands": [
+        "effect give @s regeneration 2 1 true"
+      ],
+      "ignore_same_team": false,
+      "ignore_pets": false,
+      "only_same_team": true,
+      "include_caster": true,
+      "execution_mode": "as",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Wings"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 18
+          }
+        ]
+      }
+    },
+    "Wings.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:veilbinder/wings",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Wings"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Flight.Begin",
+            "property": "value",
+            "min": 0,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "Wings.Render2": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:veilbinder/wings_open",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Wings"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Flight.Begin",
+            "property": "value",
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "Flight.Begin": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 1,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:is_hovering_or_flying"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Wings"
+          }
+        ]
+      }
+    },
+    "Flight.On.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:is_hovering_or_flying"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Wings"
+          }
+        ]
+      }
+    },
+    "Fly.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound minecraft:entity.bat.takeoff master @a ~ ~ ~ 1 0.4"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Flight.On.Timer",
+            "property": "value",
+            "min": 10,
+            "max": 10
+          },
+          {
+            "type": "palladium:is_hovering_or_flying"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 26
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Wings"
+          }
+        ]
+      }
+    },
+    "Flight": {
+      "type": "palladium:attribute_modifier",
+      "title": "Flight",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:flight_speed",
+      "list_index": 0,
+      "amount": 1,
+      "uuid": "a0f666b9-193e-46f2-b295-545d9285939f",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:attribute_check",
+            "attribute": "palladium:jump_power",
+            "comparison": ">",
+            "value": 0
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Wings"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_espiritu_g2"
+          }
+        ]
+      }
+    },
+    "Spirit.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/spirit_form.png",
+      "title": "Spirit Form",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Merge your body with the spirit world and become a spectre yourself",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Wings.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "SOM.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/ghost.png",
+            "description": {
+              "text": "Spirit Manifestation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Spirit": {
+      "type": "palladium:command",
+      "title": "Spirit Form",
+      "icon": "eop:textures/gui/spirit_form.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 1",
+        "playsound minecraft:entity.wither.ambient master @a ~ ~ ~ 1 2",
+        "particle dust 0.2 0.6 0.8 3 ~ ~1 ~ 0.5 0.7 0.5 0 10 force",
+        "scale set pehkui:visibility -1",
+        "scale set pehkui:projectiles -1",
+        "tag @s add EOP.Phasing"
+      ],
+      "last_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 1",
+        "scale set pehkui:visibility 1",
+        "scale set pehkui:projectiles 1",
+        "tag @s remove EOP.Phasing",
+        "playsound minecraft:entity.wither.ambient master @a ~ ~ ~ 1 2",
+        "particle dust 0.2 0.6 0.8 3 ~ ~1 ~ 0.5 0.7 0.5 0 10 force"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 2400,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Spirit.Unlock"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:veilbinder"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Wolf.Soul"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Blessed.Soul"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Water.Breathing": {
+      "type": "eop:respiration",
+      "hidden": true,
+      "level": 200,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Spirit"
+          }
+        ]
+      }
+    },
+    "Slow.Fall": {
+      "type": "palladium:slowfall",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Spirit"
+          }
+        ]
+      }
+    },
+    "Transformation": {
+      "type": "palladium:animation_timer",
+      "start_value": 0,
+      "max_value": 15,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Spirit"
+          }
+        ]
+      }
+    },
+    "Name.Hide": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "forge:nametag_distance",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "8febf44a-0211-4e09-ba78-083c4b26187e",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Spirit"
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Spirit"
+          }
+        ]
+      }
+    },
+    "Store.Armor": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": false,
+      "hide_offhand": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Spirit"
+          }
+        ]
+      }
+    },
+    "Restrict.Slots": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs",
+        "head"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Spirit.Levitate": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:levitation_speed",
+      "list_index": 0,
+      "amount": 0.5,
+      "uuid": "98cbe9e6-cf9f-4d3c-b6db-2f5804f7d4da",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:attribute_check",
+            "attribute": "palladium:jump_power",
+            "comparison": ">",
+            "value": 0
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Spirit"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_espiritu_g2"
+          }
+        ]
+      }
+    },
+    "Phase": {
+      "type": "palladium:intangibility",
+      "blacklist": "eop:prevents_intangibility_stronger",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Spirit"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_espiritu_g2"
+          }
+        ]
+      }
+    },
+    "Phase.Down": {
+      "type": "palladium:intangibility",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "vertical": true,
+      "blacklist": "eop:prevents_intangibility_stronger",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Spirit"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Phase.Down"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_espiritu_g2"
+          }
+        ]
+      }
+    },
+    "Invis": {
+      "type": "palladium:invisibility",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Spirit"
+          },
+          {
+            "type": "palladium:crouching"
+          }
+        ]
+      }
+    },
+    "Invis.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s invisibility"
+      ],
+      "commands": [
+        "effect give @s invisibility 1 2 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Spirit"
+          },
+          {
+            "type": "palladium:crouching"
+          }
+        ]
+      }
+    },
+    "No.Break": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:destroy_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "b0eec310-e46f-4969-b6fa-e88c1a517be7",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Spirit"
+          }
+        ]
+      }
+    },
+    "No.Damage": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "e27a827a-3280-4297-83f7-2cfc040629cd",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Spirit"
+          }
+        ]
+      }
+    },
+    "Effects.Immune.Mods": {
+      "type": "eop:effect_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "effects": [
+        "alexscaves:irradiated",
+        "alexscaves:bubbled",
+        "alexsmobs:ender_flu",
+        "alexsmobs:debilitating_sting",
+        "alexsmobs:earthquake",
+        "alexsmobs:exsanguination"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Spirit"
+          }
+        ]
+      }
+    },
+    "Skulk": {
+      "type": "palladium:sculk_immunity",
+      "icon": "minecraft:sculk",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Spirit"
+          }
+        ]
+      }
+    },
+    "Damage.Immunity": {
+      "type": "palladium:damage_immunity",
+      "icon": "minecraft:potion",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "damage_sources": [
+        "eop:phase_immune",
+        "eop:tacz_guns",
+        "eop:scorched_guns",
+        "eop:space_oxygen",
+        "eop:phase_immune_alexscaves",
+        "eop:phase_immune_alexsmobs"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Spirit"
+          }
+        ]
+      }
+    },
+    "Spirit.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:veilbinder/spirit"
+    },
+    "Remove.Layers": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head_overlay",
+        "chest_overlay",
+        "right_arm",
+        "left_arm",
+        "right_leg",
+        "left_leg",
+        "head",
+        "chest"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Spirit"
+          }
+        ]
+      }
+    },
+    "Spirit.Name": {
+      "type": "palladium:name_change",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "name": {
+        "text": "Apparition"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Spirit"
+          }
+        ]
+      }
+    },
+    "Wolf.Soul.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/wolf_soul.png",
+      "title": "Wolf Soul",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Create a ferocious bestial soul to aid you in battle",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Spirit.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "SOM.Score",
+            "score": 10,
+            "icon": "eop:textures/gui/ghost.png",
+            "description": {
+              "text": "Spirit Manifestation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Wolf.Soul": {
+      "type": "palladium:command",
+      "title": "Wolf Soul",
+      "icon": "eop:textures/gui/wolf_soul.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "first_tick_commands": [
+        "scoreboard players set @s EOP.Soul.Orb.Number 0",
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 1",
+        "playsound minecraft:entity.wither.ambient master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 0.5",
+        "playsound minecraft:entity.wither.ambient master @a ~ ~ ~ 1 0.5"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 1200,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Wolf.Soul.Unlock"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:veilbinder"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Blessed.Soul"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Spirit"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transformation.Wolf": {
+      "type": "palladium:animation_timer",
+      "start_value": 0,
+      "max_value": 17,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Wolf.Soul"
+          }
+        ]
+      }
+    },
+    "Fires.Animation": {
+      "type": "palladium:repeating_animation_timer",
+      "start_value": 0,
+      "max_value": 18,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transformation.Wolf",
+            "property": "value",
+            "min": 17,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "Fires.Animation2": {
+      "type": "palladium:repeating_animation_timer",
+      "start_value": 0,
+      "max_value": 18,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transformation.Wolf",
+            "property": "value",
+            "min": 17,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "Fires.Animation.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "particle soul_fire_flame ~ ~2 ~ 0.5 0.7 0.5 0.7 100 force",
+        "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transformation.Wolf",
+            "property": "value",
+            "min": 17,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "Wolf.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:veilbinder/wolf"
+    },
+    "Slash.AOE": {
+      "type": "palladium:animation_timer",
+      "title": "Ghostly Slashes",
+      "icon": "eop:textures/gui/soul_claw.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "start_value": 0,
+      "max_value": 45,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 100,
+            "ticks": 45,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Wolf.Soul"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transformation.Wolf",
+            "property": "value",
+            "min": 17,
+            "max": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Slash.AOE.Damage": {
+      "type": "eop:aoe_damage",
+      "title": "Ghostly Slashes",
+      "icon": "eop:textures/gui/soul_claw.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 10,
+      "damage": 7,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:slash",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Slash.AOE"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Slash.AOE",
+            "property": "value",
+            "min": 30,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "Slash.Effects": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound eop:slash master @a ~ ~ ~ 1.5 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Slash.AOE"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Slash.AOE",
+            "property": "value",
+            "min": 30,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "Slash.Particles": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 10,
+      "include_caster": false,
+      "execution_mode": "as",
+      "entity_types": [],
+      "entity_types_mode": "all",
+      "tags": [],
+      "tags_mode": "all",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "only_same_team": false,
+      "commands": [
+        "particle eop:ghost_slice ~ ~ ~ 1 1 1 0 1 force",
+        "particle eop:ghost_slice2 ~ ~ ~ 1 1 1 0 1 force",
+        "particle eop:ghost_slice3 ~ ~ ~ 1 1 1 0 1 force"
+      ],
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Slash.AOE"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Slash.AOE",
+            "property": "value",
+            "min": 30,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "Slash.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:veilbinder/wolf",
+      "controller": "slash",
+      "animation_trigger": "slash",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Slash.AOE",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Slash.AOE"
+          }
+        ]
+      }
+    },
+    "Slow.AOE": {
+      "type": "palladium:animation_timer",
+      "title": "Paranormal Slow",
+      "icon": "eop:textures/gui/soul_slow.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "start_value": 0,
+      "max_value": 30,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 100,
+            "ticks": 30,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Wolf.Soul"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transformation.Wolf",
+            "property": "value",
+            "min": 17,
+            "max": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Slow.Effects": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound minecraft:entity.wither.ambient master @a ~ ~ ~ 1.5 0.3",
+        "particle dust 0 0 0 3 ~ ~ ~ 10 5 10 0 200 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Slow.AOE"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Slow.AOE",
+            "property": "value",
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Slow.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 10,
+      "commands": [
+        "effect give @s slowness 10 1 true"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Slow.AOE"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Slow.AOE",
+            "property": "value",
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Slow.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:veilbinder/wolf",
+      "controller": "slow",
+      "animation_trigger": "slow",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Slow.AOE",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Slow.AOE"
+          }
+        ]
+      }
+    },
+    "Howl.AOE": {
+      "type": "palladium:animation_timer",
+      "title": "Parabolic Howl",
+      "icon": "eop:textures/gui/soul_howl.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "start_value": 0,
+      "max_value": 60,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 200,
+            "ticks": 110,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Wolf.Soul"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transformation.Wolf",
+            "property": "value",
+            "min": 17,
+            "max": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Howl.Effects": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "particle sonic_boom ~ ~ ~ 10 5 10 0.3 20 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Howl.AOE"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Howl.AOE",
+            "property": "value",
+            "min": 5,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "Howl.Effects2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound minecraft:entity.wolf.howl master @a ~ ~ ~ 1.5 0.3"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Howl.AOE"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Howl.AOE",
+            "property": "value",
+            "min": 5,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Howl.AOE.Damage": {
+      "type": "eop:aoe_damage",
+      "title": "Ghostly Slashes",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 20,
+      "damage": 1,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:scream",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Howl.AOE"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Howl.AOE",
+            "property": "value",
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "Howl.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:veilbinder/wolf",
+      "controller": "howl",
+      "animation_trigger": "howl",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Howl.AOE",
+            "property": "value",
+            "min": 3,
+            "max": 3
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Howl.AOE"
+          }
+        ]
+      }
+    },
+    "Blessed.Soul.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/blessed_soul.png",
+      "title": "Blessed Soul",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Transform into a powerful spectral warrior",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Wolf.Soul.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Health4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "SOM.Score",
+            "score": 20,
+            "icon": "eop:textures/gui/ghost.png",
+            "description": {
+              "text": "Spirit Manifestation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Blessed.Soul": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/blessed_soul.png",
+      "title": "Blessed Soul",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "start_value": 0,
+      "max_value": 20,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 1200,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Blessed.Soul.Unlock"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:veilbinder"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Spirit"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Blessed.Soul.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:veilbinder/blessed_soul",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Blessed.Soul.Commands": {
+      "type": "palladium:command",
+      "first_tick_commands": [
+        "scoreboard players set @s EOP.Soul.Orb.Number 0",
+        "tag @s add EOP.Non.Humanoid.Model",
+        "playsound minecraft:entity.wither.ambient master @a ~ ~ ~ 1 2",
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 1",
+        "particle dust 0.2 0.6 0.8 3 ~ ~1 ~ 0.5 0.7 0.5 0 10 force"
+      ],
+      "last_tick_commands": [
+        "playsound minecraft:entity.wither.ambient master @a ~ ~ ~ 1 2",
+        "tag @s remove EOP.Non.Humanoid.Model",
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 1",
+        "particle dust 0.2 0.6 0.8 3 ~ ~1 ~ 0.5 0.7 0.5 0 10 force"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Blessed.Soul"
+          }
+        ]
+      }
+    },
+    "Water.Breathing2": {
+      "type": "eop:respiration",
+      "hidden": true,
+      "level": 200,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Blessed.Soul"
+          }
+        ]
+      }
+    },
+    "Slow.Fall2": {
+      "type": "palladium:slowfall",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Blessed.Soul"
+          }
+        ]
+      }
+    },
+    "Transform.Soul.Model": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 17,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Blessed.Soul"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Blessed.Soul",
+            "property": "value",
+            "min": 13,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Transform.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:veilbinder/blessed_soul",
+      "controller": "transform",
+      "animation_trigger": "transform",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Transform.Soul.Model",
+                    "property": "value",
+                    "min": 1,
+                    "max": 1
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform.Soul.Model"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transform.No.Move.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 52,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Blessed.Soul",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Blessed.Soul"
+          }
+        ]
+      }
+    },
+    "IFrame.Transform": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "eop:phase_immune"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "134dbb8e-9f14-4582-a59b-38a48f288753",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Blessed.Soul"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "8f22f408-f729-4d66-84b1-fbeba96d44fa",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Blessed.Soul"
+          }
+        ]
+      }
+    },
+    "Remove.Layers2": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head_overlay",
+        "chest_overlay",
+        "right_arm",
+        "left_arm",
+        "right_leg",
+        "left_leg",
+        "head",
+        "chest"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Blessed.Soul"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Blessed.Soul",
+            "property": "value",
+            "min": 19,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Transform.Roar": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 3 0.6"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.Soul.Model",
+            "property": "value",
+            "min": 3,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Soul.Model"
+          }
+        ]
+      }
+    },
+    "Name.Hide2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "forge:nametag_distance",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "0fa67756-968d-4110-8c8a-6ce3f58fd51a",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Blessed.Soul",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Blessed.Soul.Defense": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 20,
+      "operation": 0,
+      "uuid": "81fbd919-2f9f-4ed7-8df9-62829dc36cac",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Blessed.Soul",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Blessed.Soul.Attack": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 7,
+      "operation": 0,
+      "uuid": "87032400-e1b5-4190-a346-996c9ce65663",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Blessed.Soul",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Blessed.Soul.Levitate": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:levitation_speed",
+      "list_index": 0,
+      "amount": 0.5,
+      "uuid": "4f069ee7-2035-4c99-9f05-ffd10f20b13d",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:attribute_check",
+            "attribute": "palladium:jump_power",
+            "comparison": ">",
+            "value": 0
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Blessed.Soul",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_espiritu_g2"
+          }
+        ]
+      }
+    },
+    "Regen": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 20,
+      "amount": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Blessed.Soul",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Blessed.Soul.Immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "damage_sources": [
+        "eop:space_oxygen",
+        "eop:phase_immune_alexscaves",
+        "eop:phase_immune_alexsmobs"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Blessed.Soul"
+          }
+        ]
+      }
+    },
+    "Effects.Immune.Mods2": {
+      "type": "eop:effect_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "effects": [
+        "alexscaves:irradiated",
+        "alexscaves:bubbled",
+        "alexsmobs:ender_flu",
+        "alexsmobs:debilitating_sting",
+        "alexsmobs:earthquake",
+        "alexsmobs:exsanguination"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Blessed.Soul"
+          }
+        ]
+      }
+    },
+    "Skulk2": {
+      "type": "palladium:sculk_immunity",
+      "icon": "minecraft:sculk",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Blessed.Soul"
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer2": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Blessed.Soul"
+          }
+        ]
+      }
+    },
+    "Store.Armor2": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": true,
+      "hide_offhand": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Blessed.Soul"
+          }
+        ]
+      }
+    },
+    "Restrict.Slots2": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs",
+        "head",
+        "mainhand",
+        "offhand"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer2",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Blessed.Soul.Name": {
+      "type": "palladium:name_change",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "name": {
+        "text": "Blessed Soul"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Blessed.Soul"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Blessed.Soul",
+            "property": "value",
+            "min": 19,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Soulball.Ability": {
+      "type": "palladium:command",
+      "first_tick_commands": [
+        "playsound eop:sun_energy_blast master @a ~ ~ ~ 1 1"
+      ],
+      "commands": [],
+      "title": "Soul Blast",
+      "icon": "eop:textures/gui/soul_blast.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 10,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Blessed.Soul"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Soulball": {
+      "type": "palladium:projectile",
+      "icon": "minecraft:fire_charge",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 8,
+        "DamageType": "eop:basic",
+        "SetEntityOnFireSeconds": 6,
+        "Gravity": 0.03,
+        "Lifetime": 80,
+        "CommandOnBlockHit": "function eop:powers/flame/fireball",
+        "DieOnEntityHit": true,
+        "DieOnBlockHit": true,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:end_rod",
+            "Spread": 0.1,
+            "Amount": 35
+          }
+        ]
+      },
+      "inaccuracy": 0,
+      "velocity": 1.5,
+      "swinging_arm": "main_arm",
+      "damage_from_player": false,
+      "ignore_player_movement": false,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Soulball.Ability"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.Destroy"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Soulball2": {
+      "type": "palladium:projectile",
+      "icon": "minecraft:fire_charge",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 8,
+        "DamageType": "eop:basic",
+        "SetEntityOnFireSeconds": 6,
+        "Gravity": 0.03,
+        "Lifetime": 80,
+        "CommandOnBlockHit": "function eop:powers/flame/fireball",
+        "DieOnEntityHit": true,
+        "DieOnBlockHit": true,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:end_rod",
+            "Spread": 0.1,
+            "Amount": 35
+          }
+        ]
+      },
+      "inaccuracy": 0,
+      "velocity": 1.5,
+      "swinging_arm": "main_arm",
+      "damage_from_player": false,
+      "ignore_player_movement": false,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Soulball.Ability"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.No.Destroy"
+          }
+        ]
+      }
+    },
+    "Speed.Punches": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/speed_punches.png",
+      "title": "Blinding Jabs",
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "commands": [
+        "playsound minecraft:entity.player.attack.strong master @a ~ ~ ~ 1 2"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 100,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Blessed.Soul"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Punches.Anim": {
+      "type": "palladium:repeating_animation_timer",
+      "start_value": 1,
+      "max_value": 4,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Speed.Punches"
+          }
+        ]
+      }
+    },
+    "Punch.First": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Speed.Punches"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:animation_timer_ability",
+                "ability": "Punches.Anim",
+                "min": 1,
+                "max": 1
+              },
+              {
+                "type": "palladium:animation_timer_ability",
+                "ability": "Punches.Anim",
+                "min": 3,
+                "max": 3
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Punch.Second": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Speed.Punches"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:animation_timer_ability",
+                "ability": "Punches.Anim",
+                "min": 2,
+                "max": 2
+              },
+              {
+                "type": "palladium:animation_timer_ability",
+                "ability": "Punches.Anim",
+                "min": 4,
+                "max": 4
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Punch.Dam": {
+      "type": "palladium:projectile",
+      "hidden": true,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 4,
+        "DamageType": "eop:basic",
+        "Gravity": 0,
+        "Size": 1,
+        "Lifetime": 3,
+        "DieOnEntityHit": false,
+        "DieOnBlockHit": false
+      },
+      "inaccuracy": 0,
+      "velocity": 1,
+      "swinging_arm": "none",
+      "damage_from_player": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Speed.Punches"
+          }
+        ]
+      }
+    },
+    "Punch.Hands": {
+      "type": "palladium:show_both_arms",
+      "hidden": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Speed.Punches"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

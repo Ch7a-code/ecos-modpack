@@ -1,0 +1,462 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_19_cocina"
+	group: "359A020D22896725"
+	icon: "farmersdelight:cooking_pot"
+	id: "73C2292D1437523E"
+	order_index: 19
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oUna tabla y un cuchillo: el Proyecto dejó máquinas enormes, pero una cocina empieza aquí. Un ingrediente bien cortado rinde más y se aprovecha mejor.", "", "&6Qué hacer:&r Fabrica un cuchillo (de pedernal o de hierro), pon una tabla de picar, deja un ingrediente encima y córtalo con el cuchillo en la mano.", "", "&6Premio:&r 2 cosas al azar: un cuchillo de hierro, tomates, cebollas o col.", "&5A veces (7 %):&r un cuchillo de diamante encantado con Botín."]
+			disable_toast: true
+			icon: "farmersdelight:cutting_board"
+			id: "1326A4FD049093E6"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "76CA4D926253F726"
+					icon: "farmersdelight:flint_knife"
+					stage: "ecos_l_cocina_tabla_cuchillo"
+					title: "Fabrica un cuchillo"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "660F142D93BAC9EE"
+					icon: "farmersdelight:cutting_board"
+					stage: "ecos_l_cocina_tabla_usar"
+					title: "Corta algo en la tabla de picar"
+					type: "gamestage"
+				}
+			]
+			title: "Filo y madera"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["1326A4FD049093E6"]
+			description: ["&#19E6E6Zykna:&r &oNo siempre vas a volver al refugio para comer. Un sartén pesa poco, se cuelga al hombro y convierte cualquier fogata en cocina.", "", "&6Qué hacer:&r Agáchate y pon un sartén como bloque. Luego tómalo en la mano, párate cerca de una fuente de calor (hoguera, fogata o estufa) y cocina algo con él.", "", "&6Premio:&r 2 cosas al azar: huevos, tocino crudo, carne o papas.", "&5A veces (7 %):&r un sartén y una estufa de Farmer's Delight."]
+			disable_toast: true
+			icon: "farmersdelight:skillet"
+			id: "2D97A2A716F0264B"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "44AAD2A424896775"
+					icon: "farmersdelight:skillet"
+					stage: "ecos_l_cocina_sarten_poner"
+					title: "Pon un sartén como bloque"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "316CF5CD77C8E626"
+					icon: "minecraft:campfire"
+					stage: "ecos_l_cocina_sarten_usar"
+					title: "Cocina con el sartén en la mano"
+					type: "gamestage"
+				}
+			]
+			title: "Cocina portátil"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["2D97A2A716F0264B"]
+			description: ["&#19E6E6Zykna:&r &oUn animal y una espiga rinden más cuando el filo es bueno. Aquí nada se tira: cada pedazo de carne o de paja es una comida más para alguien.", "", "&6Qué hacer:&r Mata un cerdo con un cuchillo en la mano para sacar jamón, y cosecha trigo u otra planta de hierba con el cuchillo para sacar paja.", "", "&6Premio:&r 2 cosas al azar: jamón, paja, pan o carne cocida.", "&5A veces (7 %):&r un cuchillo de hierro encantado con Botín."]
+			disable_toast: true
+			icon: "farmersdelight:ham"
+			id: "0079BB232E177F93"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4C4F1407E69B8571"
+					icon: "farmersdelight:ham"
+					stage: "ecos_l_cocina_despojos_jamon"
+					title: "Consigue jamón con un cuchillo"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3686C4D2CB65DB79"
+					icon: "farmersdelight:straw"
+					stage: "ecos_l_cocina_despojos_paja"
+					title: "Cosecha paja con un cuchillo"
+					type: "gamestage"
+				}
+			]
+			title: "El filo en el campo"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["0079BB232E177F93"]
+			description: ["&#19E6E6Zykna:&r &oEl mundo de afuera no es el que recuerdas: hay cultivos silvestres entre la hierba, y el arroz crece con los pies metidos en el agua. Es de lo que más rinde para alimentar a muchos.", "", "&6Qué hacer:&r Busca un cultivo silvestre en el mundo (arroz, tomate, cebolla, col, zanahoria, remolacha o papa) y planta arroz en un charco poco profundo.", "", "&6Premio:&r 2 cosas al azar: arroz, semillas de col, cebollas o zanahorias.", "&5A veces (7 %):&r una azada de hierro encantada con Fortuna."]
+			disable_toast: true
+			icon: "farmersdelight:rice"
+			id: "60F571A8ACE9A5C8"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "52AC5860F698E54E"
+					icon: "farmersdelight:wild_rice"
+					stage: "ecos_l_cocina_arroz_silvestre"
+					title: "Encuentra un cultivo silvestre"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "19E28C0898C49FDE"
+					icon: "farmersdelight:rice"
+					stage: "ecos_l_cocina_arroz_plantar"
+					title: "Planta arroz en un charco"
+					type: "gamestage"
+				}
+			]
+			title: "Raíces en el agua"
+			x: 0.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["60F571A8ACE9A5C8"]
+			description: ["&#19E6E6Zykna:&r &oLo que sobra de una cocina no se tira: se devuelve a la tierra. Con tiempo y sol, la composta se vuelve una tierra que hace crecer todo más fuerte, hasta lo que vive en la oscuridad.", "", "&6Qué hacer:&r Pon bloques de composta orgánica bajo el sol hasta que se vuelvan tierra enriquecida, y planta en ella una colonia de hongos en un lugar oscuro.", "", "&6Premio:&r 2 cosas al azar: composta orgánica, tierra enriquecida, harina de hueso o colonias de hongos.", "&5A veces (7 %):&r una azada de hierro encantada con Eficiencia."]
+			disable_toast: true
+			icon: "farmersdelight:rich_soil"
+			id: "73B071B849D085D9"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "42EFD396EEFBBB8C"
+					icon: "farmersdelight:organic_compost"
+					stage: "ecos_l_cocina_composta_composta"
+					title: "Pon composta orgánica"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "2F38B006A894A965"
+					icon: "farmersdelight:rich_soil"
+					stage: "ecos_l_cocina_composta_tierra"
+					title: "Consigue tierra enriquecida"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "282E4739FCF5BECA"
+					icon: "farmersdelight:red_mushroom_colony"
+					stage: "ecos_l_cocina_composta_hongos"
+					title: "Haz crecer una colonia de hongos"
+					type: "gamestage"
+				}
+			]
+			title: "Tierra que alimenta"
+			x: 0.00d
+			y: 5.60d
+		}
+		{
+			dependencies: ["73B071B849D085D9"]
+			description: ["&#19E6E6Zykna:&r &oAquí las estaciones cambian y no todo crece en todo momento. Sembrar a ciegas es perder una cosecha; conocer el calendario es comer todo el año.", "", "&6Qué hacer:&r Fabrica o consigue un calendario de Serene Seasons, o un sensor de estación, y revisa en qué estación estás antes de sembrar.", "", "&6Premio:&r 2 cosas al azar: semillas, harina de hueso, relojes o brújulas.", "&5A veces (7 %):&r un reloj y una brújula, y semillas de más."]
+			disable_toast: true
+			icon: "sereneseasons:calendar"
+			id: "3F31AB9FEB6616FA"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "16E68832D0250EAA"
+					icon: "sereneseasons:calendar"
+					stage: "ecos_l_cocina_estaciones_calendario"
+					title: "Ten un calendario o un sensor de estación"
+					type: "gamestage"
+				}
+			]
+			title: "Lo que da cada estación"
+			x: 0.00d
+			y: 7.00d
+		}
+		{
+			dependencies: ["3F31AB9FEB6616FA"]
+			description: ["&#19E6E6Zykna:&r &oLas aguas de aquí guardan más de lo que parece. Con la caña y el anzuelo adecuados sube lo que flota, lo que nada hondo y, de vez en cuando, algo que no esperabas.", "", "&6Qué hacer:&r Haz una caña de Aquaculture y un anzuelo (de hierro, ligero o pesado), y pesca un pez.", "", "&6Premio:&r 2 cosas al azar: hilo de pesca, boyas, anzuelos de hierro o carnada.", "&5A veces (7 %):&r una caña de hierro encantada con Suerte del mar."]
+			disable_toast: true
+			icon: "aquaculture:iron_fishing_rod"
+			id: "3735B96E5A91332D"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "63D4AA09A7A6E4C3"
+					icon: "aquaculture:iron_fishing_rod"
+					stage: "ecos_l_cocina_cana_cana"
+					title: "Ten una caña de Aquaculture"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3F07D06DDD5B448A"
+					icon: "aquaculture:iron_hook"
+					stage: "ecos_l_cocina_cana_anzuelo"
+					title: "Ten un anzuelo"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "5306911D4CE87022"
+					icon: "minecraft:cod"
+					stage: "ecos_l_cocina_cana_pescar"
+					title: "Pesca un pez"
+					type: "gamestage"
+				}
+			]
+			title: "Caña, anzuelo y paciencia"
+			x: 0.00d
+			y: 8.40d
+		}
+		{
+			dependencies: ["3735B96E5A91332D"]
+			description: ["&#19E6E6Zykna:&r &oUn pescador paciente se organiza: anzuelos, boyas y carnada en un mismo lugar. Con la caja a la mano, el agua deja de ser azar y se vuelve oficio.", "", "&6Qué hacer:&r Arma una caja de aparejos y una boya, y pon una granja de gusanos para tener carnada siempre.", "", "&6Premio:&r 2 cosas al azar: boyas, hilo de pesca, anzuelos ligeros o gusanos.", "&5A veces (7 %):&r una caña de hierro encantada con Atracción."]
+			disable_toast: true
+			icon: "aquaculture:tackle_box"
+			id: "3771DEC892C99B30"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1E845C658EAC8E6C"
+					icon: "aquaculture:tackle_box"
+					stage: "ecos_l_cocina_aparejos_caja"
+					title: "Ten una caja de aparejos"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "529B10CFC001F7B0"
+					icon: "aquaculture:bobber"
+					stage: "ecos_l_cocina_aparejos_boya"
+					title: "Ten una boya"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "5B91993126FA5992"
+					icon: "aquaculture:worm_farm"
+					stage: "ecos_l_cocina_aparejos_gusanos"
+					title: "Pon una granja de gusanos"
+					type: "gamestage"
+				}
+			]
+			title: "La caja de aparejos"
+			x: 0.00d
+			y: 9.80d
+		}
+		{
+			dependencies: ["3771DEC892C99B30"]
+			description: ["&#19E6E6Zykna:&r &oLo que sembraste ya da fruto. Ahora se trata de que dé más: el tomate sube si lo amarras, y la gente de la colonia y de las aldeas lo agradece en la mesa.", "", "&6Qué hacer:&r Siembra tomate, amarra una cuerda sobre la planta para que crezca más alta y cosecha el tomate.", "", "&6Premio:&r 2 cosas al azar: tomates, salsa de tomate, cuerdas o pan.", "&5A veces (7 %):&r un cuchillo de hierro encantado con Filo."]
+			disable_toast: true
+			icon: "farmersdelight:tomato"
+			id: "646AF08BB63A9953"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "519AE2867AAFF84F"
+					icon: "farmersdelight:rope"
+					stage: "ecos_l_cocina_tomate_cuerda"
+					title: "Cosecha un tomate con cuerda"
+					type: "gamestage"
+				}
+			]
+			title: "Alto-mate"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["646AF08BB63A9953"]
+			description: ["&#19E6E6Zykna:&r &oLas abejas no saben del Proyecto ni de la Fractura, y eso las hace buena compañía. Humo debajo, botella en la mano, y la colmena te da lo suyo sin enojarse.", "", "&6Qué hacer:&r Pon una hoguera debajo de una colmena y saca miel con una botella de vidrio sin que las abejas se enojen.", "", "&6Premio:&r 2 cosas al azar: miel, panales, velas o pan.", "&5A veces (7 %):&r una cubeta de agua y un nido de abejas vacío."]
+			disable_toast: true
+			icon: "minecraft:honey_bottle"
+			id: "41E22CD0A4D4536B"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7E359BC8216EB7E3"
+					icon: "minecraft:beehive"
+					stage: "ecos_l_cocina_miel_colmena"
+					title: "Saca miel con una hoguera"
+					type: "gamestage"
+				}
+			]
+			title: "Miel sin pelea"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["41E22CD0A4D4536B"]
+			description: ["&#19E6E6Zykna:&r &oHay comidas que no se sirven en un plato, sino en el centro de la mesa, para compartir. Cuando la colonia come junta, aguanta junta.", "", "&6Qué hacer:&r Prepara una comida de banquete de Farmer's Delight (pollo asado, jamón glaseado, calabaza rellena o similar) y colócala sobre una mesa para servirla.", "", "&6Premio:&r 2 cosas al azar: un guiso, pan, carne cocida o velas.", "&5A veces (7 %):&r una manzana dorada."]
+			disable_toast: true
+			icon: "farmersdelight:roast_chicken_block"
+			id: "62AB7745AA38E316"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7DDFB7F0F08F1D2B"
+					icon: "farmersdelight:roast_chicken_block"
+					stage: "ecos_l_cocina_festin_banquete"
+					title: "Pon un banquete en la mesa"
+					type: "gamestage"
+				}
+			]
+			title: "Un festín glorioso"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["62AB7745AA38E316"]
+			description: ["&#19E6E6Zykna:&r &oHay un metal que no se mina ni se forja con lo común: sube del fondo con el anzuelo. El neptunio es lo más valioso que guarda el agua, y el agua solo lo da a quien insiste.", "", "&6Qué hacer:&r Consigue un lingote de neptunio: sale de la pesca de Aquaculture. Sigue pescando con buen aparejo hasta tener uno.", "", "&6Premio:&r 2 cosas al azar: lingotes de neptunio, oro, esmeraldas o un diamante.", "&5A veces (7 %):&r una caña de diamante encantada con Suerte del mar."]
+			disable_toast: true
+			icon: "aquaculture:neptunium_ingot"
+			id: "64716ADB7A196188"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "78301D5A4C2F3AD1"
+					icon: "aquaculture:neptunium_ingot"
+					stage: "ecos_l_cocina_neptunio_lingote"
+					title: "Ten un lingote de neptunio"
+					type: "gamestage"
+				}
+			]
+			title: "El oro del mar"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["64716ADB7A196188"]
+			description: ["&#19E6E6Zykna:&r &oEl Invernadero del Búnker vuelve a funcionar en esta Era, pero sus semillas venían de los bolsillos de memoria: crecían como alguien las recordaba, no como son. Siembra de verdad cada cosa comestible que encuentres.", "", "&6Qué hacer:&r Siembra y cultiva cada planta comestible que encuentres: verduras, frutas, hongos y raíces. No hace falta cosechar todo a la vez.", "", "&6Premio:&r 2 cosas al azar: semillas, harina de hueso, esmeraldas u oro.", "&5A veces (7 %):&r una azada de diamante encantada con Fortuna."]
+			disable_toast: true
+			icon: "minecraft:carrot"
+			id: "77A098B5C5C1B2CB"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "21B01F922A669476"
+					icon: "minecraft:carrot"
+					stage: "ecos_l_cocina_rotacion_todo"
+					title: "Cultiva todas las plantas comestibles"
+					type: "gamestage"
+				}
+			]
+			title: "Rotación de cultivos"
+			x: 5.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["77A098B5C5C1B2CB"]
+			description: ["&#19E6E6Zykna:&r &oCada receta es un recuerdo que el mundo todavía guarda. Probar un plato de cada comida disponible es juntar esos recuerdos uno por uno, sin que se pierdan.", "", "&6Qué hacer:&r Come un plato de cada comida de Farmer's Delight. Lleva la cuenta en tu libro de recetas y prepara lo que falte.", "", "&6Premio:&r 2 cosas al azar: una manzana dorada, esmeraldas, oro o un diamante.", "&5A veces (7 %):&r dos manzanas doradas."]
+			disable_toast: true
+			icon: "farmersdelight:steak_and_potatoes"
+			id: "3DAF6B7EB5D6888E"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "12844E6FF89BAE11"
+					icon: "farmersdelight:steak_and_potatoes"
+					stage: "ecos_l_cocina_chef_todos"
+					title: "Come un plato de cada comida"
+					type: "gamestage"
+				}
+			]
+			title: "Master Chef"
+			x: 5.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["3DAF6B7EB5D6888E"]
+			description: ["&#19E6E6Zykna:&r &oUna pareja de cada animal del mundo: el rebaño de todos, no solo el tuyo. Si algún día hay que irse, lo que críes hoy es lo que alimente a los que se queden.", "", "&6Qué hacer:&r Cría una pareja de cada animal que se pueda criar: vacas, ovejas, cerdos, gallinas, caballos, conejos, abejas, lobos, gatos y los demás.", "", "&6Premio:&r 2 cosas al azar: carne cocida, esmeraldas, diamantes o harina de hueso.", "&5A veces (7 %):&r un cuchillo de diamante encantado."]
+			disable_toast: true
+			icon: "minecraft:wheat"
+			id: "7AC3C2C5F5662C9E"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6733933884D67DCE"
+					icon: "minecraft:wheat"
+					stage: "ecos_l_cocina_dosxdos_todos"
+					title: "Cría a todos los animales"
+					type: "gamestage"
+				}
+			]
+			title: "Dos por dos"
+			x: 7.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["7AC3C2C5F5662C9E"]
+			description: ["&#19E6E6Zykna:&r &oUn filo de netherita en la cocina es el lujo más caro que te puedes dar. Pero corta lo que otros cuchillos no cortan, y no se acaba.", "", "&6Qué hacer:&r Mejora un cuchillo de diamante con un lingote de netherita en una mesa de herrería.", "", "&6Premio:&r 2 cosas al azar: diamantes, chatarra de netherita, carne cocida o esmeraldas.", "&5A veces (7 %):&r un cuchillo de netherita encantado con Botín."]
+			disable_toast: true
+			icon: "farmersdelight:netherite_knife"
+			id: "549B8270773CC5E3"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "57E1D47A8BFDA6BD"
+					icon: "farmersdelight:netherite_knife"
+					stage: "ecos_l_cocina_netherita_cuchillo"
+					title: "Mejora un cuchillo con netherita"
+					type: "gamestage"
+				}
+			]
+			title: "Si no soportas el calor"
+			x: 7.50d
+			y: 1.40d
+		}
+	]
+	subtitle: ["Del primer corte en la tabla al banquete: comer bien también es sobrevivir.", "Cuchillos, ollas, estaciones, tierra rica y el agua que guarda más de lo que parece."]
+	title: "Cocina, granja y pesca"
+}

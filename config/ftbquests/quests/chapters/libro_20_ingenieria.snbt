@@ -1,0 +1,589 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_20_ingenieria"
+	group: "359A020D22896725"
+	icon: "create:mechanical_press"
+	id: "60569DA0D3522C70"
+	order_index: 20
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oEl Proyecto Éter movía el mundo con máquinas, y las ruinas todavía guardan sus planos. Todo empieza con una aleación: andesita, hierro y un poco de paciencia.", "", "&6Qué hacer:&r Consigue una aleación de andesita, y úsala sobre un tronco sin corteza para hacer una cubierta de andesita.", "", "&6Premio:&r 2 cosas al azar: aleación de andesita, ejes, engranes o hierro.", "&5A veces (7 %):&r una llave inglesa y unas gafas del ingeniero."]
+			disable_toast: true
+			icon: "create:andesite_alloy"
+			id: "2B48BFA58620EFAC"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6BAA2CEDDBAB768C"
+					icon: "create:andesite_alloy"
+					stage: "ecos_l_ingenieria_aleacion_aleacion"
+					title: "Consigue aleación de andesita"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "46FF8767485DDA17"
+					icon: "create:andesite_casing"
+					stage: "ecos_l_ingenieria_aleacion_cubierta"
+					title: "Haz una cubierta de andesita"
+					type: "gamestage"
+				}
+			]
+			title: "Rocas más robustas"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["2B48BFA58620EFAC"]
+			description: ["&#19E6E6Zykna:&r &oUna máquina necesita algo que la haga girar: el agua, el viento, tus manos. Aquí lo que se mueve vale más que lo que pesa. Aprende a mover, a engranar y a medir el esfuerzo.", "", "&6Qué hacer:&r Pon una rueda hidráulica en una corriente y un molino de viento con sus velas. Conecta un engranaje grande a uno pequeño. Equípate las gafas del ingeniero y una llave.", "", "&6Premio:&r 2 cosas al azar: ejes, engranes, andamios o aleación de andesita.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "create:water_wheel"
+			id: "03E4BBD54724FBCF"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "327D0E326022B831"
+					icon: "create:water_wheel"
+					stage: "ecos_l_ingenieria_fuerza_agua"
+					title: "Pon una rueda hidráulica"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3412ED2EE2B62705"
+					icon: "create:windmill_bearing"
+					stage: "ecos_l_ingenieria_fuerza_viento"
+					title: "Monta un molino de viento"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "5DADDC2FDA320522"
+					icon: "create:large_cogwheel"
+					stage: "ecos_l_ingenieria_fuerza_marcha"
+					title: "Cambia de marcha con dos engranes"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "45C3650ABEF23709"
+					icon: "create:goggles"
+					stage: "ecos_l_ingenieria_fuerza_gafas"
+					title: "Equipa las gafas y la llave"
+					type: "gamestage"
+				}
+			]
+			title: "La fuerza que gira"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["03E4BBD54724FBCF"]
+			description: ["&#19E6E6Zykna:&r &oCon la fuerza ya girando, las máquinas empiezan a trabajar por ti: una muele, otra aplana, otra transforma con el aire. Para ti es menos esfuerzo; para la colonia, más pan en la mesa.", "", "&6Qué hacer:&r Pon una piedra de molino y muele algo. Haz láminas en una prensa mecánica. Pon un ventilador revestido y úsalo para procesar materiales.", "", "&6Premio:&r 2 cosas al azar: cobre, hierro, láminas de hierro o lingotes de cobre.", "&5A veces (7 %):&r un hacha de hierro encantada con Eficiencia."]
+			disable_toast: true
+			icon: "create:millstone"
+			id: "52E44EB0FF0CE791"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "543DE353517672F9"
+					icon: "create:millstone"
+					stage: "ecos_l_ingenieria_procesar_molino"
+					title: "Alimenta una piedra de molino"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "788AE5FA2463709D"
+					icon: "create:mechanical_press"
+					stage: "ecos_l_ingenieria_procesar_prensa"
+					title: "Haz láminas en una prensa mecánica"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3798BD1E669D0756"
+					icon: "create:encased_fan"
+					stage: "ecos_l_ingenieria_procesar_aire"
+					title: "Procesa materiales con un ventilador"
+					type: "gamestage"
+				}
+			]
+			title: "Moler, prensar y soplar"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["52E44EB0FF0CE791"]
+			description: ["&#19E6E6Zykna:&r &oUna cinta lleva lo que tus manos ya no tienen que cargar. Si ya hay una fábrica funcionando, lo que sigue es que las cosas se muevan solas de una máquina a otra.", "", "&6Qué hacer:&r Conecta dos ejes con una cinta mecánica. Saca o mete objetos en un contenedor con un embudo. Sube objetos con un conducto.", "", "&6Premio:&r 2 cosas al azar: embudos de andesita, conductos, hierro o cobre.", "&5A veces (7 %):&r una mochila de hierro de Sophisticated Backpacks."]
+			disable_toast: true
+			icon: "create:belt_connector"
+			id: "64E6F5DA593D1588"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "48F9FDA889D581D1"
+					icon: "create:belt_connector"
+					stage: "ecos_l_ingenieria_cintas_cinta"
+					title: "Conecta dos ejes con una cinta"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "146BFC1F620C7C82"
+					icon: "create:andesite_funnel"
+					stage: "ecos_l_ingenieria_cintas_embudo"
+					title: "Usa un embudo en un contenedor"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "193C0107CC58AAA5"
+					icon: "create:chute"
+					stage: "ecos_l_ingenieria_cintas_conducto"
+					title: "Transporta objetos con un conducto"
+					type: "gamestage"
+				}
+			]
+			title: "Cintas y embudos"
+			x: 0.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["64E6F5DA593D1588"]
+			description: ["&#19E6E6Zykna:&r &oEl Taller del Búnker 7 se abre en esta Era, y con él un metal más fino: latón, cobre y zinc fundidos en una mezcladora. Las máquinas que vienen después ya no se hacen con andesita.", "", "&6Qué hacer:&r Alea cobre y zinc en una mezcladora mecánica sobre una cuenca para hacer lingotes de latón, y úsalos sobre un tronco sin corteza para hacer una cubierta de latón.", "", "&6Premio:&r 2 cosas al azar: zinc, cobre, láminas de cobre o latón.", "&5A veces (7 %):&r un mecanismo de precisión."]
+			disable_toast: true
+			icon: "create:brass_ingot"
+			id: "5791791B963F3580"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "2313E69A5569B480"
+					icon: "create:mechanical_mixer"
+					stage: "ecos_l_ingenieria_laton_mezcla"
+					title: "Mezcla ingredientes en una mezcladora"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "02C686D9D153B7CF"
+					icon: "create:brass_ingot"
+					stage: "ecos_l_ingenieria_laton_lingotes"
+					title: "Haz lingotes de latón"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "413D73E785338EAF"
+					icon: "create:brass_casing"
+					stage: "ecos_l_ingenieria_laton_cubierta"
+					title: "Haz una cubierta de latón"
+					type: "gamestage"
+				}
+			]
+			title: "La Edad de Latón"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["5791791B963F3580"]
+			description: ["&#19E6E6Zykna:&r &oUn desplegador hace lo que tus manos hacen: poner, clavar, golpear. Una vez que lo pones, no se cansa. Dos ensambladores en fila fabrican lo que antes armabas pieza por pieza.", "", "&6Qué hacer:&r Pon y da energía a un desplegador. Luego coloca y activa un grupo de ensambladores mecánicos para fabricar un objeto.", "", "&6Premio:&r 2 cosas al azar: hierro, redstone, latón o láminas de latón.", "&5A veces (7 %):&r un desplegador."]
+			disable_toast: true
+			icon: "create:deployer"
+			id: "3157E40F0774EBF9"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "35A66AC02321CCCB"
+					icon: "create:deployer"
+					stage: "ecos_l_ingenieria_desplegador_desplegador"
+					title: "Pon y activa un desplegador"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "744E32AC2834541A"
+					icon: "create:mechanical_crafter"
+					stage: "ecos_l_ingenieria_desplegador_ensamblador"
+					title: "Activa ensambladores mecánicos"
+					type: "gamestage"
+				}
+			]
+			title: "El reflejo perfecto"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["3157E40F0774EBF9"]
+			description: ["&#19E6E6Zykna:&r &oCon pegamento y un rodamiento, un edificio gira, una pared sube, un molino cosecha. Es el truco de las máquinas del Proyecto: no solo hacer cosas, sino hacer que lo hecho se mueva.", "", "&6Qué hacer:&r Pega varios bloques con pegamento. Arma un artilugio móvil (con un rodamiento mecánico, un pistón o una polea) que lleve taladros, sierras o cosechadoras.", "", "&6Premio:&r 2 cosas al azar: pegamento, hierro, cobre o redstone.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "create:mechanical_bearing"
+			id: "5B4D21186964BBB7"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0FEC867EBC9EDA8D"
+					icon: "create:super_glue"
+					stage: "ecos_l_ingenieria_artilugios_pegamento"
+					title: "Pega varios bloques"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "4DDF59D1E11C5D4E"
+					icon: "create:mechanical_drill"
+					stage: "ecos_l_ingenieria_artilugios_actores"
+					title: "Mueve taladros, sierras o cosechadoras"
+					type: "gamestage"
+				}
+			]
+			title: "Cosas que se mueven solas"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["5B4D21186964BBB7"]
+			description: ["&#19E6E6Zykna:&r &oOtra idea del Proyecto: doblar el espacio y guardar una habitación dentro de un bloque. Es poca cosa por fuera y un cuarto entero por dentro, y ahí caben máquinas que de otro modo ocuparían una colina.", "", "&6Qué hacer:&r Consigue una máquina compacta diminuta (la más chica) y el dispositivo de reducción personal, que te enseña a usarla.", "", "&6Premio:&r 2 cosas al azar: hierro, vidrio, redstone o cobre.", "&5A veces (7 %):&r una máquina compacta diminuta."]
+			disable_toast: true
+			icon: "compactmachines:machine_tiny"
+			id: "7CED9525996443E1"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "477AD4434F55DAB7"
+					icon: "compactmachines:machine_tiny"
+					stage: "ecos_l_ingenieria_minimundo_cubo"
+					title: "Ten una máquina compacta diminuta"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "63EC43F164C59720"
+					icon: "compactmachines:personal_shrinking_device"
+					stage: "ecos_l_ingenieria_minimundo_guia"
+					title: "Ten el dispositivo de reducción personal"
+					type: "gamestage"
+				}
+			]
+			title: "Un mundo del tamaño de un cubo"
+			x: 2.50d
+			y: 4.20d
+		}
+		{
+			dependencies: ["7CED9525996443E1"]
+			description: ["&#19E6E6Zykna:&r &oEn la Era II el Proyecto vuelve a hablar con precisión: engranes tan pequeños que casi no se ven. Un mecanismo de precisión no es lujo, es el puente entre lo que armas y lo que realmente funciona.", "", "&6Qué hacer:&r Arma un mecanismo de precisión y refina obsidiana molida en una lámina robusta.", "", "&6Premio:&r 2 cosas al azar: oro, láminas de latón, esmeraldas o un diamante.", "&5A veces (7 %):&r un mecanismo de precisión y dos láminas robustas."]
+			disable_toast: true
+			icon: "create:precision_mechanism"
+			id: "5FFE9A3590286938"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5B372DADB69A936D"
+					icon: "create:precision_mechanism"
+					stage: "ecos_l_ingenieria_precision_mecanismo"
+					title: "Monta un mecanismo de precisión"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1E07B36274AB2692"
+					icon: "create:sturdy_sheet"
+					stage: "ecos_l_ingenieria_precision_lamina"
+					title: "Ensambla una lámina robusta"
+					type: "gamestage"
+				}
+			]
+			title: "Curiosidades complejas"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["5FFE9A3590286938"]
+			description: ["&#19E6E6Zykna:&r &oUna rueda de agua se queda corta cuando hay que mover una fábrica entera. El vapor no se queja: un quemador de Blaze, una caldera y un motor te dan fuerza que el viento no te da.", "", "&6Qué hacer:&r Consigue un quemador de Blaze, arma una caldera con agua y colócale un motor de vapor para generar torque.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, carbón o láminas de cobre.", "&5A veces (7 %):&r un pico de diamante encantado con Eficiencia."]
+			disable_toast: true
+			icon: "create:steam_engine"
+			id: "49E801225F00FD0A"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "106E9D6D1DD33ABD"
+					icon: "create:blaze_burner"
+					stage: "ecos_l_ingenieria_vapor_quemador"
+					title: "Consigue un quemador de Blaze"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "541E33BFC21C3868"
+					icon: "create:steam_engine"
+					stage: "ecos_l_ingenieria_vapor_motor"
+					title: "Genera torque con un motor de vapor"
+					type: "gamestage"
+				}
+			]
+			title: "La central eléctrica"
+			x: 5.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["49E801225F00FD0A"]
+			description: ["&#19E6E6Zykna:&r &oEl aire a presión que antes alimentaba máquinas también alimenta a quien se mete bajo el agua. Con un tanque de cobre y un casco, el fondo deja de ser frontera y empieza a ser lugar de trabajo.", "", "&6Qué hacer:&r Arma un tanque de buceo de cobre y hazlo acumular presión de aire. Equípate casco y tanque, y sumérgete en el agua.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, láminas de cobre o un diamante.", "&5A veces (7 %):&r una bota de buceo de cobre encantada con Caída de pluma."]
+			disable_toast: true
+			icon: "create:copper_diving_helmet"
+			id: "48C65E0F0307016F"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4CDC6F368008E856"
+					icon: "create:copper_backtank"
+					stage: "ecos_l_ingenieria_buceo_tanque"
+					title: "Acumula presión en un tanque de cobre"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "7BFDAB279C840078"
+					icon: "create:copper_diving_helmet"
+					stage: "ecos_l_ingenieria_buceo_traje"
+					title: "Sumérgete con casco y tanque"
+					type: "gamestage"
+				}
+			]
+			title: "Preparado para las profundidades"
+			x: 5.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["48C65E0F0307016F"]
+			description: ["&#19E6E6Zykna:&r &oCon tubos, bombas y boquillas, el agua, la lava y la miel van adonde tú digas. Si algo se puede llenar, vaciar o transportar, una red de tubos lo hace por ti.", "", "&6Qué hacer:&r Pon y activa una bomba mecánica con tubos. Llena un objeto con una boquilla. Baja una polea de manguera para vaciar o llenar un cuerpo de líquido.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, láminas de cobre o cubetas.", "&5A veces (7 %):&r una cubeta de lava y una de agua."]
+			disable_toast: true
+			icon: "create:mechanical_pump"
+			id: "0640E2C42BEB84A0"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7E923BB6F757F614"
+					icon: "create:mechanical_pump"
+					stage: "ecos_l_ingenieria_fluidos_bomba"
+					title: "Pon y activa una bomba mecánica"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1FC622767C33EAE8"
+					icon: "create:spout"
+					stage: "ecos_l_ingenieria_fluidos_boquilla"
+					title: "Llena algo con una boquilla"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "01D28772419AB3AA"
+					icon: "create:hose_pulley"
+					stage: "ecos_l_ingenieria_fluidos_manguera"
+					title: "Usa una polea de manguera"
+					type: "gamestage"
+				}
+			]
+			title: "Líquido bajo presión"
+			x: 5.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["0640E2C42BEB84A0"]
+			description: ["&#19E6E6Zykna:&r &oLo diminuto ya no basta. Una máquina compacta pequeña da espacio para una fábrica de verdad, y un túnel la conecta con el mundo de afuera para que entren las materias primas y salgan los productos.", "", "&6Qué hacer:&r Consigue una máquina compacta pequeña y un túnel, para conectar tu mini mundo con el exterior.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, redstone o un diamante.", "&5A veces (7 %):&r una máquina compacta pequeña."]
+			disable_toast: true
+			icon: "compactmachines:machine_small"
+			id: "2540B019DE280201"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "138D7CB61D1BB152"
+					icon: "compactmachines:machine_small"
+					stage: "ecos_l_ingenieria_minimundo2_pequena"
+					title: "Ten una máquina compacta pequeña"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1296C54A9171B403"
+					icon: "compactmachines:tunnel"
+					stage: "ecos_l_ingenieria_minimundo2_tunel"
+					title: "Ten un túnel"
+					type: "gamestage"
+				}
+			]
+			title: "Un cuarto más grande"
+			x: 5.00d
+			y: 5.60d
+		}
+		{
+			dependencies: ["2540B019DE280201"]
+			description: ["&#19E6E6Zykna:&r &oA veces no hace falta una máquina lista, solo mover mucho a la vez. Un pistón múltiple empuja una pared entera con un solo bloque: otra pieza del Proyecto que se rescató de las ruinas.", "", "&6Qué hacer:&r Coloca un pistón múltiple en una construcción de tu base y haz que mueva una pared o un techo.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, redstone o pistones.", "&5A veces (7 %):&r un pistón múltiple extra."]
+			disable_toast: true
+			icon: "multipiston:multipistonblock"
+			id: "7623D1D69B87D236"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "01F4E6422E938353"
+					icon: "multipiston:multipistonblock"
+					stage: "ecos_l_ingenieria_piston_poner"
+					title: "Pon un pistón múltiple"
+					type: "gamestage"
+				}
+			]
+			title: "Muchos pistones, un solo bloque"
+			x: 5.00d
+			y: 7.00d
+		}
+		{
+			dependencies: ["7623D1D69B87D236"]
+			description: ["&#19E6E6Zykna:&r &oEl Proyecto tendió rieles donde ya no hay nadie que los use. Con vías, una estación y una locomotora, el mundo se vuelve más chico para ti y para la colonia. Si hay que llevar gente o material lejos, esto es lo que importa.", "", "&6Qué hacer:&r Coloca vías de tren y una estación, ensambla tu primer tren y suena su silbato mientras lo conduces.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, láminas de latón o chatarra de netherita.", "&5A veces (7 %):&r una agenda de tren y 32 vías."]
+			disable_toast: true
+			icon: "create:track"
+			id: "2C52310EEB0B78CF"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "563B0421BAE33628"
+					icon: "create:track"
+					stage: "ecos_l_ingenieria_tren_vias"
+					title: "Consigue vías de tren"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "172A11036BF418D4"
+					icon: "create:track_station"
+					stage: "ecos_l_ingenieria_tren_tren"
+					title: "Ensambla tu primer tren"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "331A6E3D9FAC4350"
+					icon: "create:steam_whistle"
+					stage: "ecos_l_ingenieria_tren_silbato"
+					title: "Suena el silbato mientras conduces"
+					type: "gamestage"
+				}
+			]
+			title: "¡Todos a bordo!"
+			x: 7.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["2C52310EEB0B78CF"]
+			description: ["&#19E6E6Zykna:&r &oCuando la base crece, el problema ya no es fabricar sino repartir. Paquetes, puertos y medidores de fábrica llevan lo justo a donde se necesita, sin que tú cargues un solo objeto.", "", "&6Qué hacer:&r Empaqueta objetos con una empaquetadora, recibe un paquete con un puerto Frogport y activa un pedido automático con medidores de fábrica.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, láminas de latón o chatarra de netherita.", "&5A veces (7 %):&r un mecanismo de precisión y cartón."]
+			disable_toast: true
+			icon: "create:packager"
+			id: "0133667858326280"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4E357AE543C0F18A"
+					icon: "create:packager"
+					stage: "ecos_l_ingenieria_logistica_paquete"
+					title: "Empaqueta objetos"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "2676341B1E14FE8D"
+					icon: "create:package_frogport"
+					stage: "ecos_l_ingenieria_logistica_puerto"
+					title: "Recibe un paquete con un Frogport"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3FCD18699190519B"
+					icon: "create:factory_gauge"
+					stage: "ecos_l_ingenieria_logistica_pedido"
+					title: "Activa un pedido automático"
+					type: "gamestage"
+				}
+			]
+			title: "Alta logística"
+			x: 7.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["0133667858326280"]
+			description: ["&#19E6E6Zykna:&r &oUna caldera al máximo es la fuerza más grande que el Proyecto dejó a tu alcance. Úsala con cuidado: lo que se mueve a esa potencia cambia lo que puedes construir.", "", "&6Qué hacer:&r Lleva una caldera a su nivel máximo de potencia y haz que sus motores de vapor la aprovechen.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, láminas de latón o chatarra de netherita.", "&5A veces (7 %):&r un pico de diamante encantado con Eficiencia."]
+			disable_toast: true
+			icon: "create:steam_engine"
+			id: "248A87E35AD8ED1A"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6820EC23F132BE32"
+					icon: "create:blaze_burner"
+					stage: "ecos_l_ingenieria_vapormax_maxima"
+					title: "Ten una caldera al nivel máximo"
+					type: "gamestage"
+				}
+			]
+			title: "A todo vapor"
+			x: 7.50d
+			y: 2.80d
+		}
+	]
+	subtitle: ["Create, las máquinas compactas y el pistón múltiple: la tecnología del Proyecto, reconstruida pieza por pieza.", "De una aleación de andesita a un tren que cruza el mundo."]
+	title: "Ingeniería y mini mundos"
+}

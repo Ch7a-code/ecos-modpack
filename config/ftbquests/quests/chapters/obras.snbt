@@ -1,0 +1,1212 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "obras"
+	group: "39FD9A44732FCDBA"
+	icon: "minecraft:crying_obsidian"
+	id: "7C82C2C956E05905"
+	order_index: 2
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["Una colonia con 5 habitantes.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "minecolonies:blockhuttownhall"
+			id: "2186D0A19B4BE6B2"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Obligatoria · Nivel I · Cimiento"
+			tasks: [
+				{
+					disable_toast: true
+					id: "116E1A68B3C781AA"
+					stage: "ecos_m_0a"
+					type: "gamestage"
+				}
+			]
+			title: "★ Un techo y un fuego"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			description: ["Cuando cae, cuenta para todo el servidor.", "Pelear juntos también vale: basta con que caiga."]
+			disable_toast: true
+			icon: "mowziesmobs:wrought_axe"
+			id: "07E8F7A838FDE12B"
+			shape: "square"
+			size: 0.70d
+			subtitle: "Portador del mundo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "13080DC00DF8BDA0"
+					stage: "ecos_m_k_wroughtnaut"
+					type: "gamestage"
+				}
+			]
+			title: "Ferrous Wroughtnaut"
+			x: 0.70d
+			y: 1.25d
+		}
+		{
+			description: ["Cuando cae, cuenta para todo el servidor.", "Pelear juntos también vale: basta con que caiga."]
+			disable_toast: true
+			icon: "twilightforest:naga_trophy"
+			id: "59C0F8D1758CB99E"
+			shape: "square"
+			size: 0.70d
+			subtitle: "Portador del mundo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0178B4E88E481F21"
+					stage: "ecos_m_k_naga"
+					type: "gamestage"
+				}
+			]
+			title: "Naga"
+			x: 1.50d
+			y: 1.25d
+		}
+		{
+			description: ["Cuando cae, cuenta para todo el servidor.", "Pelear juntos también vale: basta con que caiga."]
+			disable_toast: true
+			icon: "twilightforest:lich_trophy"
+			id: "383FA6A10D34D9C4"
+			shape: "square"
+			size: 0.70d
+			subtitle: "Portador del mundo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "25C5A7F51FD3FBF3"
+					stage: "ecos_m_k_lich"
+					type: "gamestage"
+				}
+			]
+			title: "Lich"
+			x: 2.30d
+			y: 1.25d
+		}
+		{
+			dependencies: ["07E8F7A838FDE12B", "59C0F8D1758CB99E", "383FA6A10D34D9C4"]
+			description: ["Venzan al Ferrous Wroughtnaut, o a la Naga y al Lich.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "mowziesmobs:wrought_axe"
+			id: "7CEE16E9325D833E"
+			min_required_dependencies: 1
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Obligatoria · Nivel I · Cimiento"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5F210ACE787E3B18"
+					stage: "ecos_m_0b"
+					type: "gamestage"
+				}
+			]
+			title: "★ El primer Portador"
+			x: 1.50d
+			y: 0.00d
+		}
+		{
+			description: ["Domen un raptor, un hipogrifo, un gorila, un elefante, un oso grizzly o un águila calva.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "minecraft:lead"
+			id: "053A12EC88F68F0E"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel I · Cimiento (basta con 2 de 4)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6CFE2C0B05516FF9"
+					stage: "ecos_m_0c"
+					type: "gamestage"
+				}
+			]
+			title: "Un compañero"
+			x: 3.00d
+			y: 0.00d
+		}
+		{
+			description: ["Encuentren 3 estructuras distintas de Dungeons Arise (fuertes, templos, campamentos...).", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "minecraft:filled_map"
+			id: "139A4C19D6F89AFB"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel I · Cimiento (basta con 2 de 4)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3BA02772F5D47A4E"
+					stage: "ecos_m_0d"
+					type: "gamestage"
+				}
+			]
+			title: "El mapa se llena"
+			x: 4.00d
+			y: 0.00d
+		}
+		{
+			description: ["Sirvan un banquete, o junten 6 especies de peces de Aquaculture.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "minecraft:fishing_rod"
+			id: "3B29C0F0F9DE9376"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel I · Cimiento (basta con 2 de 4)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7E02B6D631C2EAFF"
+					stage: "ecos_m_0e"
+					type: "gamestage"
+				}
+			]
+			title: "Mesa puesta, red echada"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			description: ["Derroten un Ejército de no-muertos, o abatan 12 asaltantes de incursiones de colonia.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "minecraft:bell"
+			id: "6DDE5DFFD140A960"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel I · Cimiento (basta con 2 de 4)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "73C761D9A2E8C433"
+					stage: "ecos_m_0f"
+					type: "gamestage"
+				}
+			]
+			title: "La primera noche larga"
+			x: 6.00d
+			y: 0.00d
+		}
+		{
+			description: ["Clic derecho al altar de la cima del Templo con la ofrenda en la mano principal: se consume 1.", "Cada quien lleva la suya. En el nicho de ese pilar queda flotando lo que entregaron."]
+			disable_toast: true
+			icon: "kubejs:nucleo_era1"
+			id: "31B4F16275DC36D4"
+			shape: "hexagon"
+			size: 1.25d
+			subtitle: "8 piezas, una por pilar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "021DD1BC2F3776E5"
+					icon: "twilightforest:naga_scale"
+					stage: "ecos_o_1_combate"
+					title: "Combate: Escama de Naga o Casco forjado"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "26E001B0348360BA"
+					icon: "minecraft:heart_of_the_sea"
+					stage: "ecos_o_1_exploracion"
+					title: "Exploración: Corazón del mar o Etiqueta de nombre"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "50673EAB9AF7A607"
+					icon: "create:andesite_alloy"
+					stage: "ecos_o_1_ingenieria"
+					title: "Ingeniería: Aleación de andesita"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "19D7AABE0971D944"
+					icon: "minecolonies:blockhuttownhall"
+					stage: "ecos_o_1_gente"
+					title: "Gente: Ayuntamiento (bloque)"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "6C95141BDDB1882D"
+					icon: "alexscaves:dinosaur_nugget"
+					stage: "ecos_o_1_criaturas"
+					title: "Criaturas: Nugget de dinosaurio"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "245F491146CE509B"
+					icon: "majruszsdifficulty:undead_army_treasure_bag"
+					stage: "ecos_o_1_catastrofe"
+					title: "Catástrofe: Saco del ejército no-muerto o Membrana de fantasma"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "5024F6DFDDC76941"
+					icon: "irons_spellbooks:common_ink"
+					stage: "ecos_o_1_arcano"
+					title: "Arcano: Tinta común"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "0C944C4466346412"
+					icon: "twilightforest:minoshroom_trophy"
+					stage: "ecos_o_1_puzle"
+					title: "Puzle: Trofeo del Minoshroom"
+					type: "gamestage"
+				}
+			]
+			title: "Ofrendas · Nivel I · Cimiento"
+			x: 7.50d
+			y: 0.00d
+		}
+		{
+			description: ["La Fractura es una noche sin final. Antes de contestarle hay que tener dónde encender una luz.", "", "Requiere: las 2 ★, 2 optativas y las 8 ofrendas.", "Luego, el 60 % de los conectados en el Templo y alguien toca el altar de la cima con la mano vacía.", "El nivel se enciende y la Era del mundo puede subir (también hacen falta sus Portadores).", "", "Se abre la ERA I: la mesa de armero y las pistolas."]
+			disable_toast: true
+			icon: "minecraft:campfire"
+			id: "546500972140DADC"
+			shape: "gear"
+			size: 1.50d
+			subtitle: "Abre la ERA I"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0739B0F55898B23F"
+					stage: "ecos_t_1r"
+					type: "gamestage"
+				}
+			]
+			title: "Ritual · Nivel I · Cimiento"
+			x: 9.25d
+			y: 0.00d
+		}
+		{
+			description: ["Una colonia con 10 habitantes y su herrería construida.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "minecolonies:blockhutblacksmith"
+			id: "69AFEE33914723C0"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Obligatoria · Nivel II · Taller"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1E116054CF3E3171"
+					stage: "ecos_m_1a"
+					type: "gamestage"
+				}
+			]
+			title: "★ El Taller crece"
+			x: 0.00d
+			y: 3.00d
+		}
+		{
+			description: ["Cuando cae, cuenta para todo el servidor.", "Pelear juntos también vale: basta con que caiga."]
+			disable_toast: true
+			icon: "twilightforest:hydra_trophy"
+			id: "74F7FE28A95C22A3"
+			shape: "square"
+			size: 0.70d
+			subtitle: "Portador del mundo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0585C362532C7608"
+					stage: "ecos_m_k_hydra"
+					type: "gamestage"
+				}
+			]
+			title: "Hydra"
+			x: 1.10d
+			y: 4.25d
+		}
+		{
+			description: ["Cuando cae, cuenta para todo el servidor.", "Pelear juntos también vale: basta con que caiga."]
+			disable_toast: true
+			icon: "cataclysm:monstrous_helm"
+			id: "2F8B88019CB7BDEC"
+			shape: "square"
+			size: 0.70d
+			subtitle: "Portador del mundo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "2DEF6AC7BDDB1186"
+					stage: "ecos_m_k_monstrosity"
+					type: "gamestage"
+				}
+			]
+			title: "Netherite Monstrosity"
+			x: 1.90d
+			y: 4.25d
+		}
+		{
+			dependencies: ["74F7FE28A95C22A3", "2F8B88019CB7BDEC"]
+			description: ["Venzan a la Hydra y al Netherite Monstrosity.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "twilightforest:hydra_trophy"
+			id: "3C3B84B7BA49EF76"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Obligatoria · Nivel II · Taller"
+			tasks: [
+				{
+					disable_toast: true
+					id: "541ABB94C084EE0D"
+					stage: "ecos_m_1b"
+					type: "gamestage"
+				}
+			]
+			title: "★ Dos Portadores"
+			x: 1.50d
+			y: 3.00d
+		}
+		{
+			description: ["4 logros distintos de Create: latón, prensa, mezcladora, desplegador, ensambladora, ventilador, molino o rueda de agua.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "create:brass_ingot"
+			id: "478405AE7EDAC713"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel II · Taller (basta con 2 de 4)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7E8512FB952BD034"
+					stage: "ecos_m_1c"
+					type: "gamestage"
+				}
+			]
+			title: "La fábrica mínima"
+			x: 3.00d
+			y: 3.00d
+		}
+		{
+			description: ["Descubran 3 biomas de Alex's Caves, o la Ciudad Antigua y el Otro Lado.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "minecraft:lantern"
+			id: "335501D0D1E374EF"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel II · Taller (basta con 2 de 4)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "55B866EBD426E5D9"
+					stage: "ecos_m_1d"
+					type: "gamestage"
+				}
+			]
+			title: "Bajo la tierra"
+			x: 4.00d
+			y: 3.00d
+		}
+		{
+			description: ["Domen un Tremorsaurus o un anfíptero.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "alexscaves:tremorsaurus_egg"
+			id: "40FAF440AA1ADD64"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel II · Taller (basta con 2 de 4)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7A8D291F22F28F9D"
+					stage: "ecos_m_1e"
+					type: "gamestage"
+				}
+			]
+			title: "Bestia con nombre"
+			x: 5.00d
+			y: 3.00d
+		}
+		{
+			description: ["Consigan el eco del cementerio de barcos, o junten 10 especies de peces de Aquaculture.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "minecraft:nautilus_shell"
+			id: "4A54C71B8031ACF3"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel II · Taller (basta con 2 de 4)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "10C3F9A8900B019A"
+					stage: "ecos_m_1f"
+					type: "gamestage"
+				}
+			]
+			title: "Mar abierto"
+			x: 6.00d
+			y: 3.00d
+		}
+		{
+			description: ["Clic derecho al altar de la cima del Templo con la ofrenda en la mano principal: se consume 1.", "Cada quien lleva la suya. En el nicho de ese pilar queda flotando lo que entregaron."]
+			disable_toast: true
+			icon: "kubejs:nucleo_era2"
+			id: "4C75712D3E1DDA1D"
+			shape: "hexagon"
+			size: 1.25d
+			subtitle: "8 piezas, una por pilar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6A204D606A957C34"
+					icon: "twilightforest:hydra_chop"
+					stage: "ecos_o_2_combate"
+					title: "Combate: Chuleta de Hydra o Cuerno monstruoso"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "70FB8E04CDF105CB"
+					icon: "minecraft:echo_shard"
+					stage: "ecos_o_2_exploracion"
+					title: "Exploración: Fragmento de eco"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "7534077C21817E86"
+					icon: "create:precision_mechanism"
+					stage: "ecos_o_2_ingenieria"
+					title: "Ingeniería: Mecanismo de precisión"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "09B00E481AFA44B1"
+					icon: "minecolonies:blockhutblacksmith"
+					stage: "ecos_o_2_gente"
+					title: "Gente: Herrería (bloque)"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "5CF556DB175D5280"
+					icon: "iceandfire:amphithere_feather"
+					stage: "ecos_o_2_criaturas"
+					title: "Criaturas: Pluma de anfíptero o Huevo de Tremorsaurus"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "63855721BAC1C6BC"
+					icon: "minecolonies:ancienttome"
+					stage: "ecos_o_2_catastrofe"
+					title: "Catástrofe: Tomo antiguo"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "27DCE0896BE6D9CB"
+					icon: "irons_spellbooks:rare_ink"
+					stage: "ecos_o_2_arcano"
+					title: "Arcano: Tinta rara"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "26DF34025C1434CB"
+					icon: "aquamirae:frozen_key"
+					stage: "ecos_o_2_puzle"
+					title: "Puzle: Llave congelada o Llave de bronce"
+					type: "gamestage"
+				}
+			]
+			title: "Ofrendas · Nivel II · Taller"
+			x: 7.50d
+			y: 3.00d
+		}
+		{
+			description: ["Un pueblo que fabrica deja de esconderse: los Ecos aprenden de los que no tienen astilla.", "", "Requiere: las 2 ★, 2 optativas y las 8 ofrendas.", "Luego, el 60 % de los conectados en el Templo y alguien toca el altar de la cima con la mano vacía.", "El nivel se enciende y la Era del mundo puede subir (también hacen falta sus Portadores).", "", "Se abre la ERA II: waystones, escopetas, fusiles y el cohete a la Luna."]
+			disable_toast: true
+			icon: "create:brass_casing"
+			id: "38FDCFF0507ACB10"
+			shape: "gear"
+			size: 1.50d
+			subtitle: "Abre la ERA II"
+			tasks: [
+				{
+					disable_toast: true
+					id: "27B3A40EC0774A59"
+					stage: "ecos_t_2r"
+					type: "gamestage"
+				}
+			]
+			title: "Ritual · Nivel II · Taller"
+			x: 9.25d
+			y: 3.00d
+		}
+		{
+			description: ["Cuando cae, cuenta para todo el servidor.", "Pelear juntos también vale: basta con que caiga."]
+			disable_toast: true
+			icon: "cataclysm:ignitium_helmet"
+			id: "2BB7CB58F2359810"
+			shape: "square"
+			size: 0.70d
+			subtitle: "Portador del mundo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "673E29E6D8C232E9"
+					stage: "ecos_m_k_ignis"
+					type: "gamestage"
+				}
+			]
+			title: "Ignis"
+			x: -0.40d
+			y: 7.25d
+		}
+		{
+			description: ["Cuando cae, cuenta para todo el servidor.", "Pelear juntos también vale: basta con que caiga."]
+			disable_toast: true
+			icon: "minecraft:dragon_head"
+			id: "45796E005F3BF48E"
+			shape: "square"
+			size: 0.70d
+			subtitle: "Portador del mundo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3928B821E50E9685"
+					stage: "ecos_m_k_dragon"
+					type: "gamestage"
+				}
+			]
+			title: "Dragón del End"
+			x: 0.40d
+			y: 7.25d
+		}
+		{
+			dependencies: ["2BB7CB58F2359810", "45796E005F3BF48E"]
+			description: ["Venzan a Ignis y al Dragón del End.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "cataclysm:ignitium_helmet"
+			id: "3D4C6F622B1757B5"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Obligatoria · Nivel III · Observatorio"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1AAFE6B6F1C4E002"
+					stage: "ecos_m_2a"
+					type: "gamestage"
+				}
+			]
+			title: "★ Dos Portadores del cielo"
+			x: 0.00d
+			y: 6.00d
+		}
+		{
+			description: ["Que alguien pise la Luna.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "ad_astra:tier_1_rocket"
+			id: "57D545A825FB2D71"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Obligatoria · Nivel III · Observatorio"
+			tasks: [
+				{
+					disable_toast: true
+					id: "770DE4D6871823E0"
+					stage: "ecos_m_2b"
+					type: "gamestage"
+				}
+			]
+			title: "★ El primer cohete"
+			x: 1.50d
+			y: 6.00d
+		}
+		{
+			description: ["Una colonia con 25 habitantes y 30 asaltantes abatidos en total.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "minecraft:shield"
+			id: "664246701002D72D"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel III · Observatorio (basta con 2 de 4)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7C643F49D035D71A"
+					stage: "ecos_m_2c"
+					type: "gamestage"
+				}
+			]
+			title: "La ciudad resiste"
+			x: 3.00d
+			y: 6.00d
+		}
+		{
+			description: ["Entreguen en el altar 12 platillos de pescado: guisados, salmón a la parrilla, rollos o filete asado.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "farmersdelight:fish_stew"
+			id: "54A3E37D44F98A5F"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel III · Observatorio (basta con 2 de 4)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3F9C55C86D35EA26"
+					stage: "ecos_m_2d"
+					type: "gamestage"
+				}
+			]
+			title: "Raciones del éxodo"
+			x: 4.00d
+			y: 6.00d
+		}
+		{
+			description: ["Venzan la mazmorra de bronce del Aether, entren a una mazmorra de Everbright o Everdawn, superen el Laberinto o entren a las Catacumbas.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "aether:bronze_dungeon_key"
+			id: "7D433BDD0030B646"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel III · Observatorio (basta con 2 de 4)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "49D86869107CC256"
+					stage: "ecos_m_2e"
+					type: "gamestage"
+				}
+			]
+			title: "Otro cielo"
+			x: 5.00d
+			y: 6.00d
+		}
+		{
+			description: ["Consigan un huevo de dragón, o domen un anfíptero.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "iceandfire:dragonegg_red"
+			id: "138A38BB2A35E1D0"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel III · Observatorio (basta con 2 de 4)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0BE8C8F66763AAD9"
+					stage: "ecos_m_2f"
+					type: "gamestage"
+				}
+			]
+			title: "Un huevo y un nido"
+			x: 6.00d
+			y: 6.00d
+		}
+		{
+			description: ["Clic derecho al altar de la cima del Templo con la ofrenda en la mano principal: se consume 1.", "Cada quien lleva la suya. En el nicho de ese pilar queda flotando lo que entregaron."]
+			disable_toast: true
+			icon: "kubejs:nucleo_era3"
+			id: "0D42F01A013C244C"
+			shape: "hexagon"
+			size: 1.25d
+			subtitle: "8 piezas, una por pilar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4708FB463DEBD2B7"
+					icon: "cataclysm:ignitium_ingot"
+					stage: "ecos_o_3_combate"
+					title: "Combate: Lingote de ignitio"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "25D94F1A21DD13AF"
+					icon: "ad_astra:moon_stone"
+					stage: "ecos_o_3_exploracion"
+					title: "Exploración: Piedra lunar"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3AD57CDCCE490795"
+					icon: "ad_astra:desh_ingot"
+					stage: "ecos_o_3_ingenieria"
+					title: "Ingeniería: Lingote de desh"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "7F4580F7AB2E97CD"
+					icon: "minecolonies:blockhutalchemist"
+					stage: "ecos_o_3_gente"
+					title: "Gente: Torre alquímica (bloque)"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "6FB302821C847889"
+					icon: "iceandfire:dragonbone"
+					stage: "ecos_o_3_criaturas"
+					title: "Criaturas: Hueso de dragón"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "0DAB1267786CEE4A"
+					icon: "cataclysm:essence_of_the_storm"
+					stage: "ecos_o_3_catastrofe"
+					title: "Catástrofe: Esencia de la tormenta"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "6C58C44D969942E7"
+					icon: "irons_spellbooks:epic_ink"
+					stage: "ecos_o_3_arcano"
+					title: "Arcano: Tinta épica"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1553339F40A19F9C"
+					icon: "apotheosis:sigil_of_rebirth"
+					stage: "ecos_o_3_puzle"
+					title: "Puzle: Sigilo del renacimiento o Fragmento de eco reforzado"
+					type: "gamestage"
+				}
+			]
+			title: "Ofrendas · Nivel III · Observatorio"
+			x: 7.50d
+			y: 6.00d
+		}
+		{
+			description: ["Los fragmentos que no hallaron cuerpo huyeron hacia arriba. Hay que alcanzarlos.", "", "Requiere: las 2 ★, 2 optativas y las 8 ofrendas.", "Luego, el 60 % de los conectados en el Templo y alguien toca el altar de la cima con la mano vacía.", "El nivel se enciende y la Era del mundo puede subir (también hacen falta sus Portadores).", "", "Se abre la ERA III: cohetes 2 y 3, sables de luz, bomba nuclear y el Cristal del Despertar."]
+			disable_toast: true
+			icon: "ad_astra:moon_stone"
+			id: "7248E8195049AAD0"
+			shape: "gear"
+			size: 1.50d
+			subtitle: "Abre la ERA III"
+			tasks: [
+				{
+					disable_toast: true
+					id: "782907AB48BE69AD"
+					stage: "ecos_t_3r"
+					type: "gamestage"
+				}
+			]
+			title: "Ritual · Nivel III · Observatorio"
+			x: 9.25d
+			y: 6.00d
+		}
+		{
+			description: ["Cuando cae, cuenta para todo el servidor.", "Pelear juntos también vale: basta con que caiga."]
+			disable_toast: true
+			icon: "cataclysm:mech_eye"
+			id: "5922E82121C61B91"
+			shape: "square"
+			size: 0.70d
+			subtitle: "Portador del mundo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7547E5BD25929E55"
+					stage: "ecos_m_k_harbinger"
+					type: "gamestage"
+				}
+			]
+			title: "The Harbinger"
+			x: -0.40d
+			y: 10.25d
+		}
+		{
+			description: ["Cuando cae, cuenta para todo el servidor.", "Pelear juntos también vale: basta con que caiga."]
+			disable_toast: true
+			icon: "cataclysm:tidal_claws"
+			id: "276599C52EA39E2B"
+			shape: "square"
+			size: 0.70d
+			subtitle: "Portador del mundo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "160040CF6F29680B"
+					stage: "ecos_m_k_leviathan"
+					type: "gamestage"
+				}
+			]
+			title: "The Leviathan"
+			x: 0.40d
+			y: 10.25d
+		}
+		{
+			dependencies: ["5922E82121C61B91", "276599C52EA39E2B"]
+			description: ["Venzan a The Harbinger y a The Leviathan.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "cataclysm:mech_eye"
+			id: "250F03E9D4A889D3"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Obligatoria · Nivel IV · Estrella de Hierro"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3966D56A6EB8D3D3"
+					stage: "ecos_m_3a"
+					type: "gamestage"
+				}
+			]
+			title: "★ Dos Portadores del abismo"
+			x: 0.00d
+			y: 9.00d
+		}
+		{
+			description: ["Pisen 2 de estos mundos: Marte, Venus o Mercurio.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "ad_astra:tier_3_rocket"
+			id: "3337D85643E47806"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Obligatoria · Nivel IV · Estrella de Hierro"
+			tasks: [
+				{
+					disable_toast: true
+					id: "35401CE2BB194AB0"
+					stage: "ecos_m_3b"
+					type: "gamestage"
+				}
+			]
+			title: "★ Dos mundos más"
+			x: 1.50d
+			y: 9.00d
+		}
+		{
+			description: ["Dos colonias de 25 habitantes con dueños distintos, o un ayuntamiento nivel 5.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "minecolonies:blockhutuniversity"
+			id: "5EC672C1E2B860CE"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel IV · Estrella de Hierro (basta con 2 de 4)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6345A638883663D4"
+					stage: "ecos_m_3c"
+					type: "gamestage"
+				}
+			]
+			title: "Dos ciudades"
+			x: 3.00d
+			y: 9.00d
+		}
+		{
+			description: ["Viajen a Hoth, Endor, Naboo o Tatooine, forjen un sable de luz, o lancen 10 hechizos con la voz.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "star_wars_expansion:holocron"
+			id: "12D1EB29A46BC58D"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel IV · Estrella de Hierro (basta con 2 de 4)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "620F90C90E67FC48"
+					stage: "ecos_m_3d"
+					type: "gamestage"
+				}
+			]
+			title: "Los Custodios"
+			x: 4.00d
+			y: 9.00d
+		}
+		{
+			description: ["Venzan al Warden, al Luxtructosaurus o al Caballero del Caos.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "minecraft:sculk_shrieker"
+			id: "5D3E0B314FDA2A4E"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel IV · Estrella de Hierro (basta con 2 de 4)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "62F92D05EF2AA0AF"
+					stage: "ecos_m_3e"
+					type: "gamestage"
+				}
+			]
+			title: "El silencio roto"
+			x: 5.00d
+			y: 9.00d
+		}
+		{
+			description: ["Consigan un huevo de Tremorzilla o un cetro de dragón.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "alexscaves:tremorzilla_egg"
+			id: "19EF5CCEF3973B4D"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel IV · Estrella de Hierro (basta con 2 de 4)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4BAD3B97BAA20FBD"
+					stage: "ecos_m_3f"
+					type: "gamestage"
+				}
+			]
+			title: "Cría mayor"
+			x: 6.00d
+			y: 9.00d
+		}
+		{
+			description: ["Clic derecho al altar de la cima del Templo con la ofrenda en la mano principal: se consume 1.", "Cada quien lleva la suya. En el nicho de ese pilar queda flotando lo que entregaron."]
+			disable_toast: true
+			icon: "kubejs:nucleo_era4"
+			id: "6B31A6CA2394EC88"
+			shape: "hexagon"
+			size: 1.25d
+			subtitle: "8 piezas, una por pilar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "40A441E7AF9E9EA1"
+					icon: "cataclysm:witherite_block"
+					stage: "ecos_o_4_combate"
+					title: "Combate: Bloque de witherita o Garras de marea"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "45B88913CE71F8E1"
+					icon: "star_wars_expansion:holocron"
+					stage: "ecos_o_4_exploracion"
+					title: "Exploración: Holocrón"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "42C2909E56C3D714"
+					icon: "ad_astra:calorite_ingot"
+					stage: "ecos_o_4_ingenieria"
+					title: "Ingeniería: Lingote de calorita"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "656BED6E629C4BF5"
+					icon: "minecolonies:blockhutuniversity"
+					stage: "ecos_o_4_gente"
+					title: "Gente: Universidad (bloque)"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "68357DFD16DF12B4"
+					icon: "iceandfire:dragon_skull_fire"
+					stage: "ecos_o_4_criaturas"
+					title: "Criaturas: Cráneo de dragón"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "46C62C90F1C2180C"
+					icon: "minecraft:dragon_breath"
+					stage: "ecos_o_4_catastrofe"
+					title: "Catástrofe: Aliento de dragón"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "149FBFB2E1165DD2"
+					icon: "irons_spellbooks:legendary_ink"
+					stage: "ecos_o_4_arcano"
+					title: "Arcano: Tinta legendaria"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "7B8AE9A22498CB56"
+					icon: "minecraft:nether_star"
+					stage: "ecos_o_4_puzle"
+					title: "Puzle: Estrella del Nether"
+					type: "gamestage"
+				}
+			]
+			title: "Ofrendas · Nivel IV · Estrella de Hierro"
+			x: 7.50d
+			y: 9.00d
+		}
+		{
+			description: ["Marte y Venus guardan lo que la Primera Mente soltó. Los Custodios llegaron antes.", "", "Requiere: las 2 ★, 2 optativas y las 8 ofrendas.", "Luego, el 60 % de los conectados en el Templo y alguien toca el altar de la cima con la mano vacía.", "El nivel se enciende y la Era del mundo puede subir (también hacen falta sus Portadores).", "", "Se abre la ERA IV: el cohete 4 y el Catalizador de Fusión."]
+			disable_toast: true
+			icon: "ad_astra:mars_stone"
+			id: "1B9B5442F5F9A8BA"
+			shape: "gear"
+			size: 1.50d
+			subtitle: "Abre la ERA IV"
+			tasks: [
+				{
+					disable_toast: true
+					id: "34058BA2CA9292E8"
+					stage: "ecos_t_4r"
+					type: "gamestage"
+				}
+			]
+			title: "Ritual · Nivel IV · Estrella de Hierro"
+			x: 9.25d
+			y: 9.00d
+		}
+		{
+			description: ["Que alguien llegue a Glacio.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "ad_astra:tier_4_rocket"
+			id: "7F37710B7AA5B181"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Obligatoria · Nivel V · Cumbre"
+			tasks: [
+				{
+					disable_toast: true
+					id: "635C2588E83F67A9"
+					stage: "ecos_m_4a"
+					type: "gamestage"
+				}
+			]
+			title: "★ Glacio"
+			x: 0.00d
+			y: 12.00d
+		}
+		{
+			description: ["Cuando cae, cuenta para todo el servidor.", "Pelear juntos también vale: basta con que caiga."]
+			disable_toast: true
+			icon: "cataclysm:cursed_eye"
+			id: "105C6720394DB849"
+			shape: "square"
+			size: 0.70d
+			subtitle: "Portador del mundo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7E8FD380C4DE4085"
+					stage: "ecos_m_k_maledictus"
+					type: "gamestage"
+				}
+			]
+			title: "Maledictus"
+			x: 1.50d
+			y: 13.25d
+		}
+		{
+			dependencies: ["105C6720394DB849"]
+			description: ["El Dios del Fin cae.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "minecraft:dragon_head"
+			id: "15FC6F193DCFC5DF"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Obligatoria · Nivel V · Cumbre"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6F8A63F93FCD2C9D"
+					stage: "ecos_m_4b"
+					type: "gamestage"
+				}
+			]
+			title: "★ Maledictus"
+			x: 1.50d
+			y: 12.00d
+		}
+		{
+			description: ["Eclosionen y domen un Tremorzilla.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "minecraft:green_dye"
+			id: "1E9BA242F4858624"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel V · Cumbre (basta con 1 de 3)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3BA6C59879DF46EA"
+					stage: "ecos_m_4c"
+					type: "gamestage"
+				}
+			]
+			title: "La bestia verde"
+			x: 3.00d
+			y: 12.00d
+		}
+		{
+			description: ["Que alguien venza a todos los jefes de Cataclysm.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "cataclysm:cursed_eye"
+			id: "068878F9BB9B61C0"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel V · Cumbre (basta con 1 de 3)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "57724FBF22AD5171"
+					stage: "ecos_m_4d"
+					type: "gamestage"
+				}
+			]
+			title: "Ningún Portador"
+			x: 4.00d
+			y: 12.00d
+		}
+		{
+			description: ["Una colonia con 75 habitantes.", "", "Cuenta lo que haga cualquiera del servidor.", "Escribe obras en el chat para ver los contadores."]
+			disable_toast: true
+			icon: "minecraft:emerald_block"
+			id: "31A667659DC11C6A"
+			shape: "circle"
+			size: 0.85d
+			subtitle: "Optativa · Nivel V · Cumbre (basta con 1 de 3)"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6A410F5E21221878"
+					stage: "ecos_m_4e"
+					type: "gamestage"
+				}
+			]
+			title: "Una ciudad completa"
+			x: 5.00d
+			y: 12.00d
+		}
+		{
+			description: ["El núcleo cayó en Glacio. Se le escucha, se le vence, y se le contesta desde casa.", "", "Requiere: las 2 ★, 1 optativa.", "Luego, el 60 % de los conectados en el Templo y alguien toca el altar de la cima con la mano vacía.", "El nivel se enciende y la Era del mundo puede subir (también hacen falta sus Portadores).", "", "Sella la Fractura: el final del mundo de ECOS."]
+			disable_toast: true
+			icon: "minecraft:beacon"
+			id: "6252B9D996AAA9C3"
+			shape: "gear"
+			size: 1.50d
+			subtitle: "Sella la Fractura"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3D711EF6ECB3D306"
+					stage: "ecos_t_5r"
+					type: "gamestage"
+				}
+			]
+			title: "Ritual · Nivel V · Cumbre"
+			x: 9.25d
+			y: 12.00d
+		}
+	]
+	title: "Las Obras"
+}

@@ -1,0 +1,361 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_11_noches"
+	group: "1649D3DB01DD3F2C"
+	icon: "minecraft:skeleton_skull"
+	id: "4DB863290F57D7F6"
+	order_index: 11
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oTu cuerpo es un clon hecho de prisa y se rompe. Cuando caes, el mundo levanta una tumba donde caíste y guarda ahí tu equipo. No es un castigo: es una promesa de que vuelves por él.", "", "&6Qué hacer:&r Cuando caigas, se levanta una tumba en ese lugar. Vuelve a ella y recupera tus cosas. La misión cuenta el logro Tu primera tumba de Tombstone.", "", "&6Premio:&r 2 cosas al azar: pan, antorchas, flechas o un polvo de desaparición.", "&5A veces (7 %):&r una llave de tumba, para abrir la tuya sin pelear."]
+			disable_toast: true
+			icon: "tombstone:grave_key"
+			id: "27235EAD78FDB52B"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6594F6C33EFB65B0"
+					icon: "tombstone:grave_key"
+					stage: "ecos_l_noches_tumba_primera"
+					title: "Se levanta tu primera tumba"
+					type: "gamestage"
+				}
+			]
+			title: "Lo que queda de ti"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["27235EAD78FDB52B"]
+			description: ["&#19E6E6Zykna:&r &oEn esta dificultad las heridas sangran y el cuerpo no se acuerda de cerrarlas. Una venda de tela y un poco de calma te devuelven el pulso. Un Eco que sabe vendarse llega más lejos.", "", "&6Qué hacer:&r Deja que algo te haga sangrar y detén el sangrado con una venda de Majrusz. Se hace con tela; si no la tienes, consíguela de las arañas.", "", "&6Premio:&r 2 cosas al azar: vendas, hilo, pan o manzanas.", "&5A veces (7 %):&r una venda dorada."]
+			disable_toast: true
+			icon: "majruszsdifficulty:bandage"
+			id: "498ADE0E0323DC98"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "29F2BA4B14BA1DFD"
+					icon: "minecraft:redstone"
+					stage: "ecos_l_noches_vendas_sangrar"
+					title: "Sangra por primera vez"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "25DCC8005DE645A8"
+					icon: "majruszsdifficulty:bandage"
+					stage: "ecos_l_noches_vendas_vendar"
+					title: "Detén el sangrado con una venda"
+					type: "gamestage"
+				}
+			]
+			title: "Un rasguño no es nada"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["498ADE0E0323DC98"]
+			description: ["&#19E6E6Zykna:&r &oLas criaturas oyen y los Ecos también duermen. Una puerta de madera no detiene a nada de lo que sale de la Fractura de noche. Con piedra reforzada y una clave, entra quien tú dejes.", "", "&6Qué hacer:&r Pon un bloque de piedra reforzada de SecurityCraft y una puerta de teclado. Pon tu clave en el teclado antes de usarla.", "", "&6Premio:&r 2 cosas al azar: piedra reforzada, barras de hierro reforzadas, hierro o antorchas.", "&5A veces (7 %):&r una puerta de teclado de repuesto."]
+			disable_toast: true
+			icon: "securitycraft:keypad_door_item"
+			id: "2FD96A51D0701A0A"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "61B70E69EC642876"
+					icon: "securitycraft:reinforced_stone"
+					stage: "ecos_l_noches_clave_piedra"
+					title: "Pon piedra reforzada"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "78D18262A52F7FD3"
+					icon: "securitycraft:keypad_door_item"
+					stage: "ecos_l_noches_clave_puerta"
+					title: "Pon una puerta de teclado"
+					type: "gamestage"
+				}
+			]
+			title: "Una puerta con clave"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["2FD96A51D0701A0A"]
+			description: ["&#19E6E6Zykna:&r &oLos muertos de la Fractura no se van del todo: se quedan en sus tumbas esperando que alguien los nombre. Un ankh de oración les da paz y a ti te da algo que la experiencia no enseña.", "", "&6Qué hacer:&r Haz un ankh de oración de Tombstone y úsalo sobre una tumba. Sirve la tuya o la de cualquier otro.", "", "&6Premio:&r 2 cosas al azar: polvo de tumba, polvo de desaparición, lingotes de hierro o pan.", "&5A veces (7 %):&r un muñeco vudú."]
+			disable_toast: true
+			icon: "tombstone:ankh_of_prayer"
+			id: "05D541D92F0694AD"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "44BA7B5B01E06A13"
+					icon: "tombstone:ankh_of_prayer"
+					stage: "ecos_l_noches_rezo_orar"
+					title: "Reza sobre una tumba con un ankh"
+					type: "gamestage"
+				}
+			]
+			title: "Una oración por los tuyos"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["05D541D92F0694AD"]
+			description: ["&#19E6E6Zykna:&r &oDefender es ver antes que el enemigo. Una cámara en la puerta y un monitor adentro te dejan mirar la noche sin salir a ella. Lo que no ves te sorprende; lo que ves ya lo estás esperando.", "", "&6Qué hacer:&r Consigue una cámara de seguridad y un monitor de cámaras de SecurityCraft. Pon la cámara en la entrada y enlázala con el monitor.", "", "&6Premio:&r 2 cosas al azar: hierro, redstone, vidrio o antorchas.", "&5A veces (7 %):&r un portatarjetas de SecurityCraft."]
+			disable_toast: true
+			icon: "securitycraft:security_camera"
+			id: "2E44C6D8958F54C1"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1D9B7AA4FC474029"
+					icon: "securitycraft:security_camera"
+					stage: "ecos_l_noches_camara_camara"
+					title: "Consigue una cámara de seguridad"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "51AA4493AECDBD00"
+					icon: "securitycraft:camera_monitor"
+					stage: "ecos_l_noches_camara_monitor"
+					title: "Consigue un monitor de cámaras"
+					type: "gamestage"
+				}
+			]
+			title: "Ojos en la entrada"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["2E44C6D8958F54C1"]
+			description: ["&#19E6E6Zykna:&r &oOtras eras se filtran por la Fractura y traen sus propios muertos. Los invocadores de huesos no pelean: mandan. Si cae el que manda, sus esqueletos se deshacen como si nunca hubieran estado.", "", "&6Qué hacer:&r Mata a un Bonescaller de Born in Chaos. Sale de noche y se reconoce porque levanta esqueletos pequeños a su alrededor.", "", "&6Premio:&r 2 cosas al azar: huesos, flechas, hierro o carne cocida.", "&5A veces (7 %):&r un arco encantado con Poder."]
+			disable_toast: true
+			icon: "minecraft:bone"
+			id: "7EE8B21346B4971F"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "511FE5CC68714EC5"
+					icon: "minecraft:bone"
+					stage: "ecos_l_noches_huesos_matar"
+					title: "Mata a un Bonescaller"
+					type: "gamestage"
+				}
+			]
+			title: "Los que levantan huesos"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["7EE8B21346B4971F"]
+			description: ["&#19E6E6Zykna:&r &oDesde que llegaste cuentas los días, y a veces el día cuenta de vuelta. Hay una figura que aparece lejos y no se acerca. No ataca. Eso es lo que más inquieta.", "", "&6Qué hacer:&r Sobrevive 3 días de juego y mira a Herobrine de lejos por primera vez. No lo persigas: míralo y regresa a tu refugio.", "", "&6Premio:&r 2 cosas al azar: antorchas, pan, linternas o carne cocida.", "&5A veces (7 %):&r una brújula de recuperación."]
+			disable_toast: true
+			icon: "minecraft:ender_eye"
+			id: "6DE347BA710B84F3"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4012F04B418F35A7"
+					icon: "minecraft:clock"
+					stage: "ecos_l_noches_mirada_tres"
+					title: "Sobrevive 3 días"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "2F5E01B4F89D41F9"
+					icon: "minecraft:ender_eye"
+					stage: "ecos_l_noches_mirada_verlo"
+					title: "Mira a Herobrine por primera vez"
+					type: "gamestage"
+				}
+			]
+			title: "Algo te sigue"
+			x: 2.50d
+			y: 4.20d
+		}
+		{
+			dependencies: ["6DE347BA710B84F3"]
+			description: ["&#19E6E6Zykna:&r &oAlgunas noches no llega una criatura: llega una marcha. Los muertos se levantan juntos, con armas y con orden. Aguantar una noche así separa un refugio de una fortaleza.", "", "&6Qué hacer:&r Derrota al ejército de los muertos vivientes de Majrusz. Aparece de noche en zonas abiertas; prepara una zona de combate con luz y salidas.", "", "&6Premio:&r 2 cosas al azar: esmeraldas, oro, flechas o una manzana dorada.", "&5A veces (7 %):&r una espada de diamante encantada con Filo."]
+			disable_toast: true
+			icon: "minecraft:zombie_head"
+			id: "3A97686583C73889"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7D6C858B1175C167"
+					icon: "minecraft:zombie_head"
+					stage: "ecos_l_noches_ejercito_derrotar"
+					title: "Derrota al ejército de muertos vivientes"
+					type: "gamestage"
+				}
+			]
+			title: "El ejército de los muertos"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["3A97686583C73889"]
+			description: ["&#19E6E6Zykna:&r &oEl Éter viaja por el sonido, y bajo la tierra el sonido nunca se acaba. Algo aprendió a vivir ahí: oye cada paso y sale cuando crees estar a salvo. No lo busques haciendo ruido.", "", "&6Qué hacer:&r Baja a una cueva con poca luz y mata a la criatura de las cuevas de Cave Dweller. Entra callado, con un arma buena y una salida cerca.", "", "&6Premio:&r 2 cosas al azar: esmeraldas, oro, carne cocida o antorchas.", "&5A veces (7 %):&r una pechera de hierro encantada con Protección."]
+			disable_toast: true
+			icon: "minecraft:sculk_sensor"
+			id: "6BDC4C9C4DE0BC81"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4440B63B5FB3E7B7"
+					icon: "minecraft:sculk_sensor"
+					stage: "ecos_l_noches_cueva_matar"
+					title: "Mata a la criatura de las cuevas"
+					type: "gamestage"
+				}
+			]
+			title: "El que vive en las cuevas"
+			x: 5.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["6BDC4C9C4DE0BC81"]
+			description: ["&#19E6E6Zykna:&r &oCuando la noche trae muchos, ya no basta una puerta. Una mina enterrada y un centinela con arma convierten tu refugio en una trampa que no duerme. Que lo que entre sin permiso lo lamente.", "", "&6Qué hacer:&r Pon una mina o un IMS de SecurityCraft frente a tu entrada y consigue un centinela. Pon la mina lejos de tu puerta para no pisarla tú.", "", "&6Premio:&r 2 cosas al azar: esmeraldas, oro, hierro o redstone.", "&5A veces (7 %):&r una tarjeta de acceso de nivel 2."]
+			disable_toast: true
+			icon: "securitycraft:mine"
+			id: "76241D897486F15D"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0723F558EC70B414"
+					icon: "securitycraft:mine"
+					stage: "ecos_l_noches_trampas_mina"
+					title: "Pon una mina o un IMS"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "19918D01E5BD0C2F"
+					icon: "securitycraft:sentry"
+					stage: "ecos_l_noches_trampas_centinela"
+					title: "Consigue un centinela"
+					type: "gamestage"
+				}
+			]
+			title: "Minas y centinelas"
+			x: 5.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["76241D897486F15D"]
+			description: ["&#19E6E6Zykna:&r &oLas Eras suben para todo el mundo, y con ellas la Fractura aprieta. Los viejos espíritus de la luz y la oscuridad ya no están encerrados. Lo que antes era una noche mala ahora es lo normal.", "", "&6Qué hacer:&r Haz que el mundo llegue al modo Experto de Majrusz. Es una dificultad del mundo, no personal: cuando se activa, todos lo notan.", "", "&6Premio:&r 2 cosas al azar: diamante, esmeraldas, oro o chatarra de netherita.", "&5A veces (7 %):&r un casco de diamante encantado con Protección."]
+			disable_toast: true
+			icon: "minecraft:wither_skeleton_skull"
+			id: "5F565FEE8E0AC655"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0D30A421B29B5252"
+					icon: "minecraft:wither_skeleton_skull"
+					stage: "ecos_l_noches_experto_modo"
+					title: "El mundo entra en modo Experto"
+					type: "gamestage"
+				}
+			]
+			title: "El mundo se endurece"
+			x: 7.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["5F565FEE8E0AC655"]
+			description: ["&#19E6E6Zykna:&r &oEntre las criaturas que cruzaron hay algunas que no vienen a matar, vienen a asustar. El acechador de pesadillas y el invocador supremo se alimentan del miedo de quien camina sin luz.", "", "&6Qué hacer:&r Mata al Nightmare Stalker y al Supreme Bonescaller de Born in Chaos. Llega con armadura buena, luz de sobra y comida.", "", "&6Premio:&r 2 cosas al azar: diamante, esmeraldas, chatarra de netherita o manzanas doradas.", "&5A veces (7 %):&r una espada de diamante encantada con Aspecto Ígneo."]
+			disable_toast: true
+			icon: "minecraft:soul_lantern"
+			id: "7680D5599FD2ABCF"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "01E617C332C9C836"
+					icon: "minecraft:soul_lantern"
+					stage: "ecos_l_noches_pesadilla_acechador"
+					title: "Mata al Nightmare Stalker"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "60CA2EEC3AAFBFB4"
+					icon: "minecraft:bone_block"
+					stage: "ecos_l_noches_pesadilla_supremo"
+					title: "Mata al Supreme Bonescaller"
+					type: "gamestage"
+				}
+			]
+			title: "Pesadillas con nombre"
+			x: 7.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["7680D5599FD2ABCF"]
+			description: ["&#19E6E6Zykna:&r &oHay Ecos que no duran una semana. Tú sigues aquí, con una Fractura que cada noche aprieta más. Cincuenta días no son un récord: son la prueba de que tu refugio y tu cabeza aguantan.", "", "&6Qué hacer:&r Sobrevive 50 días de juego en este mundo. Cuenta el logro Déjame en paz de From The Fog.", "", "&6Premio:&r 2 cosas al azar: diamante, esmeraldas, oro o comida buena.", "&5A veces (7 %):&r un tótem de la inmortalidad."]
+			disable_toast: true
+			icon: "minecraft:clock"
+			id: "7A31290BCDEAFAEE"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "38E95A1D5CD54CA9"
+					icon: "minecraft:clock"
+					stage: "ecos_l_noches_cincuenta_dias"
+					title: "Sobrevive 50 días"
+					type: "gamestage"
+				}
+			]
+			title: "Cincuenta días"
+			x: 7.50d
+			y: 2.80d
+		}
+	]
+	subtitle: ["La Fractura crece sola: cada noche es peor que la anterior.", "Tumbas, vendas, cerraduras, muertos que marchan y algo que te mira desde lejos."]
+	title: "Las noches de la Fractura"
+}

@@ -1,0 +1,416 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_12_vehiculos"
+	group: "56F3188FE75A98A8"
+	icon: "immersive_aircraft:airship"
+	id: "3BAE37C6CACF890B"
+	order_index: 12
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oLos barcos del Proyecto Éter no eran de madera noble: eran piezas que se armaban y se mandaban a donde hiciera falta. La coca es la más sencilla. Súbete, tómate del timón y aprende que el mar también obedece.", "", "&6Qué hacer:&r Consigue una coca de Small Ships, ponla en el agua y súbete. Con W avanzas, con A y D giras. Ya montado, la misión se cumple.", "", "&6Premio:&r 2 cosas al azar: tablones, cuerda, lana blanca o hierro.", "&5A veces (7 %):&r unas botas de hierro encantadas con Agilidad Acuática."]
+			disable_toast: true
+			icon: "smallships:sail"
+			id: "76AD38BBF0C26C9C"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4CA87A3B3C452739"
+					icon: "smallships:sail"
+					stage: "ecos_l_vehiculos_coca_montar"
+					title: "Navega en una coca"
+					type: "gamestage"
+				}
+			]
+			title: "La primera vela"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["76AD38BBF0C26C9C"]
+			description: ["&#19E6E6Zykna:&r &oLa carabela y el bergantín son ligeros y rápidos, hechos para rodear costas y volver con noticias. Quien los maneja bien llega a donde aún no llega ninguna colonia.", "", "&6Qué hacer:&r Navega en una carabela y en un bergantín de Small Ships. No tienen que ser tuyos: basta con subir y moverlos.", "", "&6Premio:&r 2 cosas al azar: cuerda, tablones, pescado cocido o hierro.", "&5A veces (7 %):&r un catalejo."]
+			disable_toast: true
+			icon: "minecraft:spyglass"
+			id: "4545CF4B3835B693"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "70F6A3746171B534"
+					icon: "smallships:sail"
+					stage: "ecos_l_vehiculos_carabela_carabela"
+					title: "Navega en una carabela"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "05F84D41BE19D0AE"
+					icon: "smallships:sail"
+					stage: "ecos_l_vehiculos_carabela_bergantin"
+					title: "Navega en un bergantín"
+					type: "gamestage"
+				}
+			]
+			title: "Más vela, más lejos"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["4545CF4B3835B693"]
+			description: ["&#19E6E6Zykna:&r &oEn las ruinas del Proyecto hay más cascos que sobrevivieron: el dhow, ligero y largo; el drakkar, de proa tallada. Todos saben flotar. Algunos también saben defenderse con cañones.", "", "&6Qué hacer:&r Navega en un dhow y en un drakkar de Small Ships. Si traes un cañón, ponlo a bordo y pruébalo lejos de tu costa.", "", "&6Premio:&r 2 cosas al azar: cuerda, tablones, balas de cañón o pólvora.", "&5A veces (7 %):&r un cañón de Small Ships."]
+			disable_toast: true
+			icon: "smallships:cannon"
+			id: "59C8D636C731E1B9"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0DB421CF9CBC1AD3"
+					icon: "smallships:sail"
+					stage: "ecos_l_vehiculos_costas_dhow"
+					title: "Navega en un dhow"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1DE57281675E01E0"
+					icon: "smallships:sail"
+					stage: "ecos_l_vehiculos_costas_drakkar"
+					title: "Navega en un drakkar"
+					type: "gamestage"
+				}
+			]
+			title: "Otras costas"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["59C8D636C731E1B9"]
+			description: ["&#19E6E6Zykna:&r &oLa galera se mueve a remos y el galeón carga de todo. Con uno de cada tienes la flota que el Proyecto nunca terminó. No hay excusa para dejar una isla sin visitar.", "", "&6Qué hacer:&r Navega en una galera y en un galeón de Small Ships. Guarda tu carga en cofres a bordo para que no se hunda contigo.", "", "&6Premio:&r 2 cosas al azar: barriles, tablones, cuerda o lana blanca.", "&5A veces (7 %):&r una vela de Small Ships."]
+			disable_toast: true
+			icon: "minecraft:barrel"
+			id: "3BFB9F9C7FCAE4A2"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "602243CFBE974044"
+					icon: "smallships:sail"
+					stage: "ecos_l_vehiculos_flota_galera"
+					title: "Navega en una galera"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1BD5FA909DA02F55"
+					icon: "smallships:sail"
+					stage: "ecos_l_vehiculos_flota_galeon"
+					title: "Navega en un galeón"
+					type: "gamestage"
+				}
+			]
+			title: "La flota completa"
+			x: 0.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["3BFB9F9C7FCAE4A2"]
+			description: ["&#19E6E6Zykna:&r &oAntes de los cohetes hubo alas. El Proyecto lo sabía: si el aire se puede montar, el mundo se achica. El biplano es lo más sencillo que vuela. Tómalo con respeto y con la nariz arriba.", "", "&6Qué hacer:&r Arma un biplano de Immersive Aircraft, ponlo en un lugar plano, súbete y despega. Sube con W y baja con S.", "", "&6Premio:&r 2 cosas al azar: hélices, madera, hilo o hierro.", "&5A veces (7 %):&r unas botas de hierro encantadas con Caída de Pluma."]
+			disable_toast: true
+			icon: "immersive_aircraft:biplane"
+			id: "45E1E97336F5E6C8"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4B124FCBA3E88EDC"
+					icon: "immersive_aircraft:biplane"
+					stage: "ecos_l_vehiculos_biplano_volar"
+					title: "Vuela en un biplano"
+					type: "gamestage"
+				}
+			]
+			title: "El primer vuelo"
+			x: 0.00d
+			y: 5.60d
+		}
+		{
+			dependencies: ["45E1E97336F5E6C8"]
+			description: ["&#19E6E6Zykna:&r &oEl dirigible no corre: flota. Su gran globo carga a varios Ecos y todo lo que quieran llevar. Es lento y silencioso, y eso lo hace perfecto para los que no quieren que la Fractura los oiga.", "", "&6Qué hacer:&r Arma un dirigible y un dirigible de carga de Immersive Aircraft. Súbete a cada uno y mantén altura sobre los árboles.", "", "&6Premio:&r 2 cosas al azar: lana, hilo, madera o hierro.", "&5A veces (7 %):&r un cofre de hierro de Sophisticated Storage."]
+			disable_toast: true
+			icon: "immersive_aircraft:airship"
+			id: "2DF3652C5CFCE259"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "28ACFDB178D9D57B"
+					icon: "immersive_aircraft:airship"
+					stage: "ecos_l_vehiculos_dirigible_dirigible"
+					title: "Vuela en un dirigible"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "56E3F62F3FAF12A8"
+					icon: "immersive_aircraft:cargo_airship"
+					stage: "ecos_l_vehiculos_dirigible_carga"
+					title: "Vuela en un dirigible de carga"
+					type: "gamestage"
+				}
+			]
+			title: "Un globo con casco"
+			x: 0.00d
+			y: 7.00d
+		}
+		{
+			dependencies: ["2DF3652C5CFCE259"]
+			description: ["&#19E6E6Zykna:&r &oNo todo vuelo es en línea recta. El gyrodyne sube y baja como un abejorro, el quadrocóptero se queda quieto en el aire y la tolva de bambú se arma con lo que haya. Cada uno para un trabajo distinto.", "", "&6Qué hacer:&r Vuela un gyrodyne, un quadrocóptero y una tolva de bambú de Immersive Aircraft. Los tres se arman en la mesa de trabajo con sus piezas.", "", "&6Premio:&r 2 cosas al azar: hierro, madera, bambú o hilo.", "&5A veces (7 %):&r una pechera de hierro encantada con Protección."]
+			disable_toast: true
+			icon: "immersive_aircraft:gyrodyne"
+			id: "26AA5E901978ED10"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "269035A4EB6D091D"
+					icon: "immersive_aircraft:gyrodyne"
+					stage: "ecos_l_vehiculos_rotores_gyro"
+					title: "Vuela un gyrodyne"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "33D35B62DF81881C"
+					icon: "immersive_aircraft:quadrocopter"
+					stage: "ecos_l_vehiculos_rotores_quad"
+					title: "Vuela un quadrocóptero"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "7E7F1DF23AD45D8B"
+					icon: "immersive_aircraft:bamboo_hopper"
+					stage: "ecos_l_vehiculos_rotores_tolva"
+					title: "Vuela una tolva de bambú"
+					type: "gamestage"
+				}
+			]
+			title: "Rotores y hélices"
+			x: 0.00d
+			y: 8.40d
+		}
+		{
+			dependencies: ["26AA5E901978ED10"]
+			description: ["&#19E6E6Zykna:&r &oLo más grande que el Proyecto puso en el aire fue un buque con cañones. Era para defender la colonia, no para atacarla. Si logras sostenerlo en el cielo, lo que ves desde arriba cambia.", "", "&6Qué hacer:&r Arma un buque de guerra de Immersive Aircraft, súbete y mantenlo en el aire. Pide motor y caldera buenos para que despegue con peso.", "", "&6Premio:&r 2 cosas al azar: hierro, madera, hilo o carbón.", "&5A veces (7 %):&r un yunque, para reparar lo que estrelles."]
+			disable_toast: true
+			icon: "immersive_aircraft:warship"
+			id: "6CD675BC7D010456"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7B355ACE5AEAB43B"
+					icon: "immersive_aircraft:warship"
+					stage: "ecos_l_vehiculos_buque_volar"
+					title: "Vuela en un buque de guerra"
+					type: "gamestage"
+				}
+			]
+			title: "El buque de guerra"
+			x: 0.00d
+			y: 9.80d
+		}
+		{
+			dependencies: ["6CD675BC7D010456"]
+			description: ["&#19E6E6Zykna:&r &oCada nave tiene ranuras de mejora, como cada Eco tiene su astilla. Un motor mejor sube más rápido, una caldera mayor aguanta más peso. Esa es la diferencia entre llegar y quedarte a medio camino.", "", "&6Qué hacer:&r Consigue un motor (motor normal, ecológico o de Nether) y una caldera (normal o de acero) de Immersive Aircraft, y colócalos en las ranuras de tu nave.", "", "&6Premio:&r 2 cosas al azar: hierro, carbón, redstone o lingotes de acero.", "&5A veces (7 %):&r un yunque, para ensamblar mejoras."]
+			disable_toast: true
+			icon: "immersive_aircraft:engine"
+			id: "7B8049B573EBA696"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "03142B5B9AB5A401"
+					icon: "immersive_aircraft:engine"
+					stage: "ecos_l_vehiculos_motores_motor"
+					title: "Consigue un motor"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "48CDBD09F7FF1417"
+					icon: "immersive_aircraft:boiler"
+					stage: "ecos_l_vehiculos_motores_caldera"
+					title: "Consigue una caldera"
+					type: "gamestage"
+				}
+			]
+			title: "Más fuerza al motor"
+			x: 0.00d
+			y: 11.20d
+		}
+		{
+			dependencies: ["7B8049B573EBA696"]
+			description: ["&#19E6E6Zykna:&r &oUna hélice mejor, un casco reforzado, un cañón rotatorio. Las naves del Proyecto se afinaban hasta el último tornillo. Lo que le pongas a la tuya dice qué tipo de Eco eres.", "", "&6Qué hacer:&r Consigue una hélice mejorada, un refuerzo de casco o un tren de aterrizaje mejorado, y un arma o telescopio para la nave. Todo de Immersive Aircraft.", "", "&6Premio:&r 2 cosas al azar: hierro, redstone, hilo o madera.", "&5A veces (7 %):&r un telescopio de Immersive Aircraft."]
+			disable_toast: true
+			icon: "immersive_aircraft:enhanced_propeller"
+			id: "11CD6C3610E620CE"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1CEF8B6C096E16A0"
+					icon: "immersive_aircraft:enhanced_propeller"
+					stage: "ecos_l_vehiculos_equipo_helice"
+					title: "Consigue una hélice mejorada"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "2F8B196564532C6E"
+					icon: "immersive_aircraft:hull_reinforcement"
+					stage: "ecos_l_vehiculos_equipo_casco"
+					title: "Consigue un refuerzo de casco o un tren mejorado"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "7EF4191E890C2DB6"
+					icon: "immersive_aircraft:telescope"
+					stage: "ecos_l_vehiculos_equipo_arma"
+					title: "Consigue un arma o un telescopio de a bordo"
+					type: "gamestage"
+				}
+			]
+			title: "Equipo de a bordo"
+			x: 0.00d
+			y: 12.60d
+		}
+		{
+			dependencies: ["11CD6C3610E620CE"]
+			description: ["&#19E6E6Zykna:&r &oEl Proyecto mandó robots a otros mundos antes de mandarse a sí mismo. El rover es de esos: seis ruedas, un asiento y la idea de que el suelo siempre ofrece camino. Funciona aquí igual que allá.", "", "&6Qué hacer:&r Arma un rover de Ad Astra, ponlo en tierra firme y súbete. Sirve para recorrer distancias largas y, más adelante, otros mundos.", "", "&6Premio:&r 2 cosas al azar: placas de hierro, varillas de hierro, acero o redstone.", "&5A veces (7 %):&r una pechera de hierro encantada con Protección."]
+			disable_toast: true
+			icon: "ad_astra:tier_1_rover"
+			id: "5D0C68C0AA7241A1"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "718E987DCC001533"
+					icon: "ad_astra:tier_1_rover"
+					stage: "ecos_l_vehiculos_rover_montar"
+					title: "Maneja un rover"
+					type: "gamestage"
+				}
+			]
+			title: "El rover"
+			x: 0.00d
+			y: 14.00d
+		}
+		{
+			dependencies: ["5D0C68C0AA7241A1"]
+			description: ["&#19E6E6Zykna:&r &oBajo el mar hay más historia que sobre él. El submarino te lleva a donde el aire no llega, con una luz propia y un casco que se aguanta la presión. Lo que ves ahí abajo es más viejo que la Fractura.", "", "&6Qué hacer:&r Arma un submarino de Alex's Caves, ponlo en el agua y sumérgete. Hazlo con luz, comida y no más profundo de lo que puedas volver.", "", "&6Premio:&r 2 cosas al azar: hierro, pescado cocido, lingotes de cobre o redstone.", "&5A veces (7 %):&r un casco de tortuga encantado con Respiración."]
+			disable_toast: true
+			icon: "alexscaves:submarine"
+			id: "24D7D1FAB654C61E"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7B6EA54B3CB24863"
+					icon: "alexscaves:submarine"
+					stage: "ecos_l_vehiculos_submarino_montar"
+					title: "Sumérgete en un submarino"
+					type: "gamestage"
+				}
+			]
+			title: "Bajo la superficie"
+			x: 0.00d
+			y: 15.40d
+		}
+		{
+			dependencies: ["24D7D1FAB654C61E"]
+			description: ["&#19E6E6Zykna:&r &oAntes de los cohetes, el Proyecto tenía su propia red: piedras de relevo que se hablaban entre sí y movían a quien las tocaba. Siguen vivas, pero cobran experiencia. El Éter no regala nada.", "", "&6Qué hacer:&r Pon un waystone en tu refugio, actívalo con clic derecho y pon otro lejos. Cada vez que viajes entre ellos te costará experiencia.", "", "&6Premio:&r 2 cosas al azar: polvo de salto, esmeraldas, oro o pan.", "&5A veces (7 %):&r una piedra de salto."]
+			disable_toast: true
+			icon: "waystones:waystone"
+			id: "67A53F86DFC7C6E1"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "2AFFAB1A1ED65723"
+					icon: "waystones:waystone"
+					stage: "ecos_l_vehiculos_waystone_poner"
+					title: "Pon un waystone"
+					type: "gamestage"
+				}
+			]
+			title: "La red de relevos"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["67A53F86DFC7C6E1"]
+			description: ["&#19E6E6Zykna:&r &oLos relevos no son solo piedras. Hay losas que te lanzan, pergaminos que te devuelven y piedras que te llevan a casa. Cada una cobra a su manera. Elige la que cuadre con tu bolsillo de experiencia.", "", "&6Qué hacer:&r Pon una losa de salto, o una piedra compartida, o una portstone. Consigue además un pergamino de waystones o una piedra de salto.", "", "&6Premio:&r 2 cosas al azar: polvo de salto, esmeraldas, oro o diamante.", "&5A veces (7 %):&r un pergamino de retorno."]
+			disable_toast: true
+			icon: "waystones:warp_scroll"
+			id: "4C5EDD769AAE95E3"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3459C49CA576710D"
+					icon: "waystones:warp_plate"
+					stage: "ecos_l_vehiculos_relevos_colocar"
+					title: "Pon una losa de salto o una piedra compartida"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "303DFB83D806A0C6"
+					icon: "waystones:warp_scroll"
+					stage: "ecos_l_vehiculos_relevos_objeto"
+					title: "Consigue un pergamino o una piedra de salto"
+					type: "gamestage"
+				}
+			]
+			title: "Viajar sin caminar"
+			x: 2.50d
+			y: 1.40d
+		}
+	]
+	subtitle: ["Barcos, aeronaves, un rover y un submarino: tecnología del Proyecto Éter reconstruida.", "Desde la Era II, los waystones: la vieja red de relevos."]
+	title: "Vehículos y relevos"
+}

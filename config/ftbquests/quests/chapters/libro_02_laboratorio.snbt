@@ -1,0 +1,290 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_02_laboratorio"
+	group: "39FD9A44732FCDBA"
+	icon: "minecraft:observer"
+	id: "5EB33749463F443E"
+	order_index: 0
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oDespertaste en un cuerpo que nunca habías usado. Antes de pelear o de salir, aprende a andar en él.", "", "&6Qué hacer:&r Camina con WASD, salta con espacio y corre con Ctrl.", "", "&6Premio:&r 1 cosa al salir del Búnker: pan, antorchas, carne, vendas, semillas o manzanas."]
+			disable_toast: true
+			icon: "minecraft:leather_boots"
+			id: "792A5EFCF0F6D6FB"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0CD2752FC49AB351"
+					icon: "minecraft:leather_boots"
+					stage: "ecos_l_laboratorio_mover_hecha"
+					title: "Muévete"
+					type: "gamestage"
+				}
+			]
+			title: "Muévete"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["792A5EFCF0F6D6FB"]
+			description: ["&#19E6E6Zykna:&r &oLa astilla que traes dentro no se queda quieta. En la sala de entrenamiento hay Ecos de práctica: ahí puedes equivocarte sin pagarlo.", "", "&6Qué hacer:&r Sala de entrenamiento (sótano): B para el modo batalla y derrota 3 Ecos de práctica con tus habilidades (1 a 5).", "", "&6Premio:&r 1 cosa al salir del Búnker: pan, antorchas, carne, vendas, semillas o manzanas."]
+			disable_toast: true
+			icon: "minecraft:blaze_powder"
+			id: "586A6A988969A5E0"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "751D8B362AB1FBF7"
+					icon: "minecraft:blaze_powder"
+					stage: "ecos_l_laboratorio_poderes_hecha"
+					title: "Derrota 3 Ecos de práctica"
+					type: "gamestage"
+				}
+			]
+			title: "Usa tus poderes"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["586A6A988969A5E0"]
+			description: ["&#19E6E6Zykna:&r &oEl Proyecto dejó un arsenal para quien despertara. Un arma no sustituye a tu don, pero te cubre mientras tus habilidades se recargan.", "", "&6Qué hacer:&r Arsenal: pide un arma en una consola (clic derecho al botón) y dispárale a algo.", "", "&6Premio:&r 1 cosa al salir del Búnker: pan, antorchas, carne, vendas, semillas o manzanas."]
+			disable_toast: true
+			icon: "minecraft:crossbow"
+			id: "3EE420055A30AEA1"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4A95081926656B11"
+					icon: "minecraft:crossbow"
+					stage: "ecos_l_laboratorio_arma_hecha"
+					title: "Dispara un arma del arsenal"
+					type: "gamestage"
+				}
+			]
+			title: "Prueba un arma"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["3EE420055A30AEA1"]
+			description: ["&#19E6E6Zykna:&r &oAfuera las distancias son largas y la noche llega rápido. En los simuladores aprendes a manejar sin estrellarte contra nada que importe.", "", "&6Qué hacer:&r Sala de los bolsillos: entra al simulador de Tierra, Mar o Cielo y súbete a un vehículo con clic derecho (Shift para bajar). Los del hangar son de exhibición.", "", "&6Premio:&r 1 cosa al salir del Búnker: pan, antorchas, carne, vendas, semillas o manzanas."]
+			disable_toast: true
+			icon: "minecraft:minecart"
+			id: "19D606C8E2FBB5B3"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "416E379AFD12807C"
+					icon: "minecraft:minecart"
+					stage: "ecos_l_laboratorio_vehiculo_hecha"
+					title: "Súbete a un vehículo"
+					type: "gamestage"
+				}
+			]
+			title: "Maneja un vehículo"
+			x: 0.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["19D606C8E2FBB5B3"]
+			description: ["&#19E6E6Zykna:&r &oLos simuladores son mundos de bolsillo que el Búnker guarda para practicar. Lo que pasa adentro no cuenta afuera.", "", "&6Qué hacer:&r Sala de los bolsillos: entra a un simulador de realidad con su botón; el botón donde llegas te regresa.", "", "&6Premio:&r 1 cosa al salir del Búnker: pan, antorchas, carne, vendas, semillas o manzanas."]
+			disable_toast: true
+			icon: "minecraft:ender_eye"
+			id: "19F77A3E5D004029"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "2F68FB698C02268D"
+					icon: "minecraft:ender_eye"
+					stage: "ecos_l_laboratorio_simulador_hecha"
+					title: "Entra a un simulador"
+					type: "gamestage"
+				}
+			]
+			title: "Entra a un simulador"
+			x: 0.00d
+			y: 5.60d
+		}
+		{
+			dependencies: ["19F77A3E5D004029"]
+			description: ["&#19E6E6Zykna:&r &oAquí cada herida tiene su lugar: un brazo roto no pelea igual que uno sano. Aprende a vendarte antes de necesitarlo.", "", "&6Qué hacer:&r Enfermería: usa una venda con clic derecho y elige la parte del cuerpo.", "", "&6Premio:&r 1 cosa al salir del Búnker: pan, antorchas, carne, vendas, semillas o manzanas."]
+			disable_toast: true
+			icon: "firstaid:bandage"
+			id: "6B2283537F67E9FD"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "786E23B514482C60"
+					icon: "firstaid:bandage"
+					stage: "ecos_l_laboratorio_curar_hecha"
+					title: "Usa una venda"
+					type: "gamestage"
+				}
+			]
+			title: "Cúrate"
+			x: 0.00d
+			y: 7.00d
+		}
+		{
+			dependencies: ["6B2283537F67E9FD"]
+			description: ["&#19E6E6Zykna:&r &oUn cuerpo nuevo también tiene hambre. Sin comida no corres ni sanas, y la cocina del Búnker todavía guarda algo para ti.", "", "&6Qué hacer:&r Cocina: mantén clic derecho con la comida en la mano.", "", "&6Premio:&r 1 cosa al salir del Búnker: pan, antorchas, carne, vendas, semillas o manzanas."]
+			disable_toast: true
+			icon: "farmersdelight:bacon_and_eggs"
+			id: "308F0284782E5FB0"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6F5F58D52FFFA69C"
+					icon: "farmersdelight:bacon_and_eggs"
+					stage: "ecos_l_laboratorio_comer_hecha"
+					title: "Come algo"
+					type: "gamestage"
+				}
+			]
+			title: "Come algo"
+			x: 0.00d
+			y: 8.40d
+		}
+		{
+			dependencies: ["308F0284782E5FB0"]
+			description: ["&#19E6E6Zykna:&r &oPor la Fractura también entraron monstruos marinos. Acostúmbrate al agua aquí, donde nada te persigue.", "", "&6Qué hacer:&r Acuario o Sala del Mar: métete bajo el agua.", "", "&6Premio:&r 1 cosa al salir del Búnker: pan, antorchas, carne, vendas, semillas o manzanas."]
+			disable_toast: true
+			icon: "minecraft:turtle_helmet"
+			id: "4E2F7101D81B532E"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3087425EC2EDE2A2"
+					icon: "minecraft:turtle_helmet"
+					stage: "ecos_l_laboratorio_bucear_hecha"
+					title: "Métete bajo el agua"
+					type: "gamestage"
+				}
+			]
+			title: "Bucea"
+			x: 0.00d
+			y: 9.80d
+		}
+		{
+			dependencies: ["4E2F7101D81B532E"]
+			description: ["&#19E6E6Zykna:&r &oEl Proyecto Éter escondía cosas detrás de las paredes. Si el Búnker tiene secretos, el mundo de afuera tiene más.", "", "&6Qué hacer:&r Archivo o Seguridad: pica el botón de la pared secreta.", "", "&6Premio:&r 1 cosa al salir del Búnker: pan, antorchas, carne, vendas, semillas o manzanas."]
+			disable_toast: true
+			icon: "minecraft:lever"
+			id: "1C5C5959ADD5027E"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "43C0A18A7D6D31EE"
+					icon: "minecraft:lever"
+					stage: "ecos_l_laboratorio_mecanismo_hecha"
+					title: "Abre la pared secreta"
+					type: "gamestage"
+				}
+			]
+			title: "Abre un mecanismo"
+			x: 0.00d
+			y: 11.20d
+		}
+		{
+			dependencies: ["1C5C5959ADD5027E"]
+			description: ["&#19E6E6Zykna:&r &oPescar es comida segura cuando cazar sale caro. En el acuario hay caña y peces de sobra para aprender.", "", "&6Qué hacer:&r Acuario o Sala del Mar: lanza la caña de Aquaculture al agua y saca un pez.", "", "&6Premio:&r 1 cosa al salir del Búnker: pan, antorchas, carne, vendas, semillas o manzanas."]
+			disable_toast: true
+			icon: "aquaculture:iron_fishing_rod"
+			id: "45441A9BFDD24983"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7909BEA52105C7D7"
+					icon: "aquaculture:iron_fishing_rod"
+					stage: "ecos_l_laboratorio_pescar_hecha"
+					title: "Saca un pez"
+					type: "gamestage"
+				}
+			]
+			title: "Pesca algo"
+			x: 0.00d
+			y: 12.60d
+		}
+		{
+			dependencies: ["45441A9BFDD24983"]
+			description: ["&#19E6E6Zykna:&r &oLo que siembras hoy te alimenta mañana. El invernadero del Búnker sigue vivo: aprende de él antes de sembrar afuera.", "", "&6Qué hacer:&r Invernadero: ara el pasto con la azada (clic derecho) y siembra repollo de Farmer's Delight; con polvo de hueso crece rápido.", "", "&6Premio:&r 1 cosa al salir del Búnker: pan, antorchas, carne, vendas, semillas o manzanas."]
+			disable_toast: true
+			icon: "minecraft:iron_hoe"
+			id: "7567E6887B88957F"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0E9BA13DFCED118A"
+					icon: "minecraft:iron_hoe"
+					stage: "ecos_l_laboratorio_cultivar_hecha"
+					title: "Siembra algo"
+					type: "gamestage"
+				}
+			]
+			title: "Cultiva"
+			x: 0.00d
+			y: 14.00d
+		}
+		{
+			dependencies: ["7567E6887B88957F"]
+			description: ["&#19E6E6Zykna:&r &oAlgún día vas a dejar el planeta. En el simulador del espacio aprendes a moverte sin peso y sin arriesgar el aire.", "", "&6Qué hacer:&r Simulador del espacio: entra y muévete sin gravedad. Solo cuenta si ese simulador ya está abierto.", "", "&6Premio:&r 1 cosa al salir del Búnker: pan, antorchas, carne, vendas, semillas o manzanas."]
+			disable_toast: true
+			icon: "minecraft:feather"
+			id: "31AC40427F7381C1"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1DB7C6582AF8A4F5"
+					icon: "minecraft:feather"
+					stage: "ecos_l_laboratorio_gravedad_hecha"
+					title: "Flota en el simulador del espacio"
+					type: "gamestage"
+				}
+			]
+			title: "Flota en gravedad cero"
+			x: 0.00d
+			y: 15.40d
+		}
+	]
+	subtitle: ["Doce pruebas para aprender a moverte, pelear y sobrevivir antes de cruzar la Fractura.", "Se marcan solas al hacerlas. Escribe pruebas en el chat para ver la lista."]
+	title: "Las pruebas del laboratorio"
+}

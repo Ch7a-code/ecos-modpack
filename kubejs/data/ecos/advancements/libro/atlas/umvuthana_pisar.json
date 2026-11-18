@@ -1,0 +1,19 @@
+{
+ "criteria": {
+  "lugar0": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "mowziesmobs:umvuthana_grove"
+     }
+    }
+   }
+  }
+ },
+ "requirements": [
+  [
+   "lugar0"
+  ]
+ ]
+}

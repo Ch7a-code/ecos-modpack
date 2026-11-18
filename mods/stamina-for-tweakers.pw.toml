@@ -1,0 +1,13 @@
+name = "Stamina For Tweakers"
+filename = "staminafortweakers-forge-1.20.1-1.12.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/AejtfAlC/versions/hmuMbJLI/staminafortweakers-forge-1.20.1-1.12.jar"
+hash-format = "sha512"
+hash = "a221bef1a425bbbc5fc191cd3983d9f3c1384cc3112c91981f6dfec53ee03ca326b96bd1ca1c7d1fce7f53628001e9215334947448bdf77d4203b360a3ace34a"
+
+[update]
+[update.modrinth]
+mod-id = "AejtfAlC"
+version = "hmuMbJLI"

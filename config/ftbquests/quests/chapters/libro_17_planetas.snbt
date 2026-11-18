@@ -1,0 +1,447 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_17_planetas"
+	group: "56F3188FE75A98A8"
+	icon: "ad_astra:tier_1_rocket"
+	id: "0E7F1F2596367914"
+	order_index: 17
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oEl Proyecto no llegó a las naves de un salto: llegó con un generador de carbón y mucha paciencia. Antes de pensar en cohetes, aprende a hacer tu propia luz.", "", "&6Qué hacer:&r Construye un Generador de carbón (Ad Astra) y enciéndelo con carbón.", "", "&6Premio:&r 2 cosas al azar: carbón, hierro, cobre, redstone o placas de hierro.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "ad_astra:coal_generator"
+			id: "76BDD26F61A50D1F"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "26EDD16EE4257141"
+					icon: "ad_astra:coal_generator"
+					stage: "ecos_l_planetas_carbono_gen"
+					title: "Construye un Generador de carbón"
+					type: "gamestage"
+				}
+			]
+			title: "Una chispa para empezar"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["76BDD26F61A50D1F"]
+			description: ["&#19E6E6Zykna:&r &oLas naves se hacen de placas, no de lingotes. El Compresor aplana el metal hasta que sirve de casco. Es lo primero que se reconstruye desde las ruinas.", "", "&6Qué hacer:&r Construye un Compresor (Ad Astra) y presiona lingotes para hacer placas.", "", "&6Premio:&r 2 cosas al azar: placas de hierro, hierro, carbón, cobre o redstone.", "&5A veces (7 %):&r un casco de hierro encantado con Protección."]
+			disable_toast: true
+			icon: "ad_astra:compressor"
+			id: "2A4EE14A1E05483A"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0CB90F0B5F237504"
+					icon: "ad_astra:compressor"
+					stage: "ecos_l_planetas_presion_comp"
+					title: "Construye un Compresor"
+					type: "gamestage"
+				}
+			]
+			title: "Todo se aplana"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["2A4EE14A1E05483A"]
+			description: ["&#19E6E6Zykna:&r &oEl hierro común no aguanta el vacío. Hace falta acero, y el acero pide un alto horno que coma energía. Aquí las ruinas dejan de ser ruinas y vuelven a ser fábrica.", "", "&6Qué hacer:&r Construye un Alto horno etriónico (Ad Astra) para fundir acero.", "", "&6Premio:&r 2 cosas al azar: carbón, hierro, cobre, redstone o lingotes de acero.", "&5A veces (7 %):&r un pico de hierro encantado con Irrompibilidad."]
+			disable_toast: true
+			icon: "ad_astra:etrionic_blast_furnace"
+			id: "0F134C5E21ECFCF4"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "25DF01DE70488E93"
+					icon: "ad_astra:etrionic_blast_furnace"
+					stage: "ecos_l_planetas_acero_horno"
+					title: "Construye un Alto horno etriónico"
+					type: "gamestage"
+				}
+			]
+			title: "Acero de nave"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["0F134C5E21ECFCF4"]
+			description: ["&#19E6E6Zykna:&r &oEl Proyecto copió el nombre de una agencia vieja, y la mesa de la NASA sigue siendo donde nace un cohete. Aún no vas a despegar, pero tener la mesa ya te pone en camino.", "", "&6Qué hacer:&r Construye una Mesa de la NASA (Ad Astra).", "", "&6Premio:&r 2 cosas al azar: acero, placas de acero, hierro, redstone o una esmeralda.", "&5A veces (7 %):&r una pechera de hierro encantada con Protección."]
+			disable_toast: true
+			icon: "ad_astra:nasa_workbench"
+			id: "190A9C7F4A5D1825"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5288F1F15DF099BF"
+					icon: "ad_astra:nasa_workbench"
+					stage: "ecos_l_planetas_nasa_mesa"
+					title: "Construye una Mesa de la NASA"
+					type: "gamestage"
+				}
+			]
+			title: "La mesa de la NASA"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["190A9C7F4A5D1825"]
+			description: ["&#19E6E6Zykna:&r &oUn cohete sin combustible es una escultura cara. La refinería convierte petróleo en lo que mueve la nave. Si ves petróleo en el mar o en el desierto, ya sabes para qué sirve.", "", "&6Qué hacer:&r Construye una Refinería de combustible (Ad Astra) y consigue una cubeta de combustible.", "", "&6Premio:&r 2 cosas al azar: acero, placas de acero, cubetas, hierro o redstone.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "ad_astra:fuel_refinery"
+			id: "615E0C2D2277BF8E"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3582308FC00D1756"
+					icon: "ad_astra:fuel_refinery"
+					stage: "ecos_l_planetas_refineria_ref"
+					title: "Consigue una Refinería de combustible"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3166728A2E4CEDE7"
+					icon: "ad_astra:fuel_bucket"
+					stage: "ecos_l_planetas_refineria_fuel"
+					title: "Consigue una cubeta de combustible"
+					type: "gamestage"
+				}
+			]
+			title: "Combustible"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["615E0C2D2277BF8E"]
+			description: ["&#19E6E6Zykna:&r &oUn cohete necesita un lugar donde apoyarse y de donde salir sin quemar el suelo. La plataforma de lanzamiento es el primer metro de pista del Proyecto, aunque ahora la armes tú.", "", "&6Qué hacer:&r Consigue una Plataforma de lanzamiento (Ad Astra).", "", "&6Premio:&r 2 cosas al azar: acero, placas de acero, hierro, redstone o una esmeralda.", "&5A veces (7 %):&r unas botas de hierro encantadas con Irrompibilidad."]
+			disable_toast: true
+			icon: "ad_astra:launch_pad"
+			id: "3FA8C4C96D75CC8E"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0D32D9A62115C6AE"
+					icon: "ad_astra:launch_pad"
+					stage: "ecos_l_planetas_plataforma_pista"
+					title: "Consigue una Plataforma de lanzamiento"
+					type: "gamestage"
+				}
+			]
+			title: "Una pista para despegar"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["3FA8C4C96D75CC8E"]
+			description: ["&#19E6E6Zykna:&r &oAllá arriba no hay aire, y tu cuerpo, hecho de prisa, no lo aguanta sin ayuda. Arma el traje espacial y un distribuidor de oxígeno: así hasta tu base podrá respirar.", "", "&6Qué hacer:&r Fabrica un traje espacial y construye un Distribuidor de oxígeno (Ad Astra).", "", "&6Premio:&r 2 cosas al azar: acero, placas de acero, hierro, cobre o una esmeralda.", "&5A veces (7 %):&r una pechera de hierro encantada con Protección."]
+			disable_toast: true
+			icon: "ad_astra:space_suit"
+			id: "31612766A3382131"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "71CBFC12C9BDE6ED"
+					icon: "ad_astra:space_suit"
+					stage: "ecos_l_planetas_traje_traje"
+					title: "Fabrica un traje espacial"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "05DC57E213601DB6"
+					icon: "ad_astra:oxygen_distributor"
+					stage: "ecos_l_planetas_traje_oxi"
+					title: "Construye un Distribuidor de oxígeno"
+					type: "gamestage"
+				}
+			]
+			title: "Aire para donde no hay"
+			x: 2.50d
+			y: 4.20d
+		}
+		{
+			dependencies: ["31612766A3382131"]
+			description: ["&#19E6E6Zykna:&r &oSeis naves se quedaron en su base cuando la Fractura abrió el cielo antes que la compuerta. La que tú armes será la primera en salir. Revisa dos veces antes de encender.", "", "&6Qué hacer:&r Construye un cohete de Nivel 1 en la mesa de la NASA (Ad Astra) y colócalo en la plataforma.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, un diamante, acero o placas de acero.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "ad_astra:tier_1_rocket"
+			id: "5D5F80E2B230987B"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "06707773403DA5B5"
+					icon: "ad_astra:tier_1_rocket"
+					stage: "ecos_l_planetas_cohete_cohete"
+					title: "Construye un cohete de Nivel 1"
+					type: "gamestage"
+				}
+			]
+			title: "El primer cohete"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["5D5F80E2B230987B"]
+			description: ["&#19E6E6Zykna:&r &oEl Proyecto mandó gente a la Luna antes de la Fractura. Ahora la Luna es de quien llegue. Pisa el polvo gris y mira hacia atrás: la Tierra se ve más chica y más frágil.", "", "&6Qué hacer:&r Despega en tu cohete y aterriza en la Luna.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, un diamante, acero o placas de acero.", "&5A veces (7 %):&r una espada de hierro encantada con Filo."]
+			disable_toast: true
+			icon: "ad_astra:moon_cheese_ore"
+			id: "20D975F45DFEF497"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4B85B5CC88852E3E"
+					icon: "ad_astra:moon_cheese_ore"
+					stage: "ecos_l_planetas_luna_alunizar"
+					title: "Aterriza en la Luna"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1733B1E9678CB8B2"
+					icon: "minecraft:echo_shard"
+					stage: "ecos_l_planetas_luna_dimluna"
+					title: "Pisa la Luna"
+					type: "gamestage"
+				}
+			]
+			title: "Un paso pequeño"
+			x: 5.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["20D975F45DFEF497"]
+			description: ["&#19E6E6Zykna:&r &oSeis naves esperaban despegar y ninguna lo hizo. Si ven luces en la Luna, alguien de la colonia sigue allá. Camina despacio por la superficie y mira lo que brilla en las rocas.", "", "&6Qué hacer:&r Recorre la superficie lunar y consigue queso lunar (Ad Astra).", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, un diamante, acero o pan.", "&5A veces (7 %):&r una pechera de hierro encantada con Protección."]
+			disable_toast: true
+			icon: "ad_astra:radio"
+			id: "5B91577DE2DDAE29"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6EEBDF0C4CD51670"
+					icon: "ad_astra:moon_cheese_ore"
+					stage: "ecos_l_planetas_colonia_queso"
+					title: "Consigue queso lunar"
+					type: "gamestage"
+				}
+			]
+			title: "Luces en la Luna"
+			x: 5.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["5B91577DE2DDAE29"]
+			description: ["&#19E6E6Zykna:&r &oMarte guarda lo que el Proyecto ya sabía que existía y nunca alcanzó a visitar. Pide un cohete de segundo nivel y un traje que no se queje del frío ni del polvo.", "", "&6Qué hacer:&r Construye un cohete de Nivel 2 y aterriza en Marte (Ad Astra).", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, placas de desh o de acero, o chatarra de netherita.", "&5A veces (7 %):&r un pico de diamante encantado con Eficiencia."]
+			disable_toast: true
+			icon: "ad_astra:desh_plate"
+			id: "14F57DD3D766B5A2"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "2436CF4499FA41B4"
+					icon: "ad_astra:tier_2_rocket"
+					stage: "ecos_l_planetas_marte_c2"
+					title: "Construye un cohete de Nivel 2"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "6E7B4630C7F9A500"
+					icon: "ad_astra:desh_plate"
+					stage: "ecos_l_planetas_marte_marte"
+					title: "Aterriza en Marte"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "0DDA4FC163A47356"
+					icon: "minecraft:echo_shard"
+					stage: "ecos_l_planetas_marte_dimmarte"
+					title: "Pisa Marte"
+					type: "gamestage"
+				}
+			]
+			title: "El planeta rojo"
+			x: 7.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["14F57DD3D766B5A2"]
+			description: ["&#19E6E6Zykna:&r &oA pie no vas a ver ni un cuarto de un planeta. El rover es otro vehículo del Proyecto reconstruido desde las ruinas: entra, enciende y deja que las ruedas hagan lo que tus botas no.", "", "&6Qué hacer:&r Construye un rover (Ad Astra) y súbete a él.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, placas de acero o de desh, o chatarra de netherita.", "&5A veces (7 %):&r una pechera de diamante encantada con Protección."]
+			disable_toast: true
+			icon: "ad_astra:tier_1_rover"
+			id: "057816D47C08A0E4"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7FA638D2AF0B07D9"
+					icon: "ad_astra:tier_1_rover"
+					stage: "ecos_l_planetas_rover_rover"
+					title: "Construye un rover"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "175528BEA20D1793"
+					icon: "ad_astra:tier_1_rover"
+					stage: "ecos_l_planetas_rover_monta"
+					title: "Súbete al rover"
+					type: "gamestage"
+				}
+			]
+			title: "Un vehículo para lo desconocido"
+			x: 7.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["057816D47C08A0E4"]
+			description: ["&#19E6E6Zykna:&r &oVenus y Mercurio no perdonan: calor de horno, lluvias de ácido y nada de aire. Tu traje común se derrite. Refuérzalo con netherita y deja que el cohete de tercer nivel haga el resto.", "", "&6Qué hacer:&r Construye un cohete de Nivel 3 y un traje espacial de netherita. Aterriza en Venus y en Mercurio (Ad Astra).", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, placas de desh u ostrum, o chatarra de netherita.", "&5A veces (7 %):&r una espada de diamante encantada con Filo."]
+			disable_toast: true
+			icon: "ad_astra:netherite_space_suit"
+			id: "2CEFA604CDAFC2C7"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "33DA6325DF0A830B"
+					icon: "ad_astra:tier_3_rocket"
+					stage: "ecos_l_planetas_venus_c3"
+					title: "Construye un cohete de Nivel 3"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1C0AADDEE8C386E7"
+					icon: "ad_astra:netherite_space_suit"
+					stage: "ecos_l_planetas_venus_traje2"
+					title: "Fabrica un traje espacial de netherita"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1C2B6F893201772C"
+					icon: "ad_astra:ostrum_plate"
+					stage: "ecos_l_planetas_venus_venus"
+					title: "Aterriza en Venus"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "24681217DC24CCE3"
+					icon: "ad_astra:calorite_plate"
+					stage: "ecos_l_planetas_venus_mercurio"
+					title: "Aterriza en Mercurio"
+					type: "gamestage"
+				}
+			]
+			title: "Calor que derrite"
+			x: 7.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["2CEFA604CDAFC2C7"]
+			description: ["&#19E6E6Zykna:&r &oEl último cohete no cruza un planeta: cruza a otro sistema. Se lo debes al Proyecto y a lo que cayó allá lejos. Lleva combustible criogénico y un buen motivo para volver.", "", "&6Qué hacer:&r Construye un cohete de Nivel 4 (Ad Astra) y aterriza en Glacio.", "", "&6Premio:&r 2 cosas al azar: diamantes, placas de calorita u ostrum, esmeraldas o chatarra de netherita.", "&5A veces (7 %):&r un pico de diamante encantado con Fortuna."]
+			disable_toast: true
+			icon: "ad_astra:tier_4_rocket"
+			id: "0C8F28C2C5006BEE"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "61158E9FE7DF5D49"
+					icon: "ad_astra:tier_4_rocket"
+					stage: "ecos_l_planetas_glacio_c4"
+					title: "Construye un cohete de Nivel 4"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "395A5107B6F920D3"
+					icon: "minecraft:blue_ice"
+					stage: "ecos_l_planetas_glacio_dimglacio"
+					title: "Pisa Glacio"
+					type: "gamestage"
+				}
+			]
+			title: "Más allá del Sol"
+			x: 10.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["0C8F28C2C5006BEE"]
+			description: ["&#19E6E6Zykna:&r &oEn Glacio cayó el núcleo de la Primera Mente. No sabes cuánto queda de lo que fue ni si algo te escucha. Camina despacio por el hielo: aquí hasta el silencio guarda registros.", "", "&6Qué hacer:&r Sube a los picos de hielo de Glacio y consigue combustible criogénico (Ad Astra).", "", "&6Premio:&r 2 cosas al azar: diamantes, placas de calorita, esmeraldas, oro o chatarra de netherita.", "&5A veces (7 %):&r un casco de diamante encantado con Protección."]
+			disable_toast: true
+			icon: "minecraft:echo_shard"
+			id: "3F15618FD20BEA6D"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "07D9AED1AB697450"
+					icon: "minecraft:packed_ice"
+					stage: "ecos_l_planetas_nucleo_picos"
+					title: "Llega a los picos de hielo de Glacio"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "06F3F483E3B40078"
+					icon: "ad_astra:cryo_fuel_bucket"
+					stage: "ecos_l_planetas_nucleo_cripto"
+					title: "Consigue combustible criogénico"
+					type: "gamestage"
+				}
+			]
+			title: "Donde cayó el núcleo"
+			x: 10.00d
+			y: 1.40d
+		}
+	]
+	subtitle: ["Del generador de carbón a Glacio: la línea de cohetes que el Proyecto Éter nunca terminó.", "Aquí reconstruyes lo que quedó en tierra y llegas a donde las naves no llegaron."]
+	title: "La colonia lunar y los planetas"
+}

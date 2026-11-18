@@ -1,0 +1,23 @@
+{
+  "display": {
+    "title": {
+      "text": "Sorcerer Killer"
+    },
+    "description": {
+      "text": "Become the legendary Sorcerer Killer"
+    },
+    "icon": {
+      "item": "eop:inverted_spear_of_heaven"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "player": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "eop:root"
+}

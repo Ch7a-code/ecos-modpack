@@ -1,0 +1,140 @@
+{
+ "criteria": {
+  "lugar0": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:ruinedskyscraper"
+     }
+    }
+   }
+  },
+  "lugar1": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:ruinedblackskyscraper"
+     }
+    }
+   }
+  },
+  "lugar2": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:ruindedredskyscraper"
+     }
+    }
+   }
+  },
+  "lugar3": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:blackskyscraper"
+     }
+    }
+   }
+  },
+  "lugar4": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:redskyscraper"
+     }
+    }
+   }
+  },
+  "lugar5": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:tallskyscraper"
+     }
+    }
+   }
+  },
+  "lugar6": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:powerplant"
+     }
+    }
+   }
+  },
+  "lugar7": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:warehouse"
+     }
+    }
+   }
+  },
+  "lugar8": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:ferriswheel"
+     }
+    }
+   }
+  },
+  "lugar9": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:store_1"
+     }
+    }
+   }
+  },
+  "lugar10": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:house_1"
+     }
+    }
+   }
+  },
+  "lugar11": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "big_lost_city:house_2"
+     }
+    }
+   }
+  }
+ },
+ "requirements": [
+  [
+   "lugar0",
+   "lugar1",
+   "lugar10",
+   "lugar11",
+   "lugar2",
+   "lugar3",
+   "lugar4",
+   "lugar5",
+   "lugar6",
+   "lugar7",
+   "lugar8",
+   "lugar9"
+  ]
+ ]
+}

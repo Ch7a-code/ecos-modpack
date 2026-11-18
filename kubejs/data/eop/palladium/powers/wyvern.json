@@ -1,0 +1,4492 @@
+{
+  "name": "Magalathropy",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/gore_magala.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "abilities": {
+    "Wyvern": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Wyvern",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "tag @s remove EOP.S.Magala",
+        "tag @s remove EOP.C.Magala",
+        "scale reset @s",
+        "effect clear @s",
+        "scoreboard objectives add ML.Score dummy",
+        "scoreboard objectives add EOP.Magala.Wings dummy",
+        "scoreboard players add @s EOP.Magala.Wings 0",
+        "scoreboard objectives add EOP.Magala.Wings.Fly dummy",
+        "scoreboard players add @s EOP.Magala.Wings.Fly 0"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Wyvern",
+        "tag @s remove EOP.Magala",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Magalathropy": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/gore_magala.png",
+      "title": "Magalathropy",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to transform into a Gore Magala as well as utilize it's power"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:wyvern @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{wyvern:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Magalathropy\",\"color\":\"#825b83\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "ML.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s ML.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "ML.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ML.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s ML.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "ML.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ML.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s ML.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "ML.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ML.Scoreboard.Gain4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s ML.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 21600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "ML.Score",
+            "min_score": 15,
+            "max_score": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ML.Scoreboard.Gain5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s ML.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 36000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "ML.Score",
+            "min_score": 18,
+            "max_score": 24
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Damage": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "539af9cf-acb9-480d-a381-a1fc9df72ed5",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Magalathropy"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "ML.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/gore_magala.png",
+            "description": {
+              "text": "Magalathropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "d3acaf9e-4eef-4015-8e19-a53162f56fbd",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "ML.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/gore_magala.png",
+            "description": {
+              "text": "Magalathropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "5f68bba2-d23e-47cc-bc19-83fa763b3e53",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "ML.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/gore_magala.png",
+            "description": {
+              "text": "Magalathropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "1b0b3047-2dcb-4fe4-becb-e964a667d9cf",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "ML.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/gore_magala.png",
+            "description": {
+              "text": "Magalathropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Bone.Healing": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "bodydamage @s heal ALL 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "Temp.Resistance": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "effect give @s legendarysurvivaloverhaul:cold_resistance 1 0 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Monster.Form"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Evolution": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "superpower add eop:effects/magala_evo"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.S.Magala"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.C.Magala"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_power",
+                "power": "eop:effects/magala_evo"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Magala.Can.Evolve"
+          }
+        ]
+      }
+    },
+    "Creative.Condition": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:gamemode_check",
+            "gamemode": "creative"
+          }
+        ]
+      }
+    },
+    "Evolution.Condition": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Monster.Form.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "eop:gamemode_check",
+                "gamemode": "creative"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Reduced.Fall.Damage": {
+      "type": "eop:reduce_fall",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "division_amount": 1.3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Monster.Form"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Reduced.Hunger": {
+      "type": "eop:slower_hunger",
+      "reduction_factor": 0.3,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Monster.Form"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Projectile.Immune": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "minecraft:is_projectile"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Monster.Form"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Fire.Damage": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "damage @s 8 minecraft:on_fire"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:is_on_fire"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 5
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "icon": "eop:textures/gui/gore_maga_claws.png",
+      "title": "Claw Swipe",
+      "description": "Use your razor sharp claws to slash anything. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Claw": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "start_value": 0,
+      "max_value": 25,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 72,
+            "max": 72
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 20,
+            "ticks": 25,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:wyvern"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Monster.Form"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Claw.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:wyvern/gore_magala",
+      "controller": "animations",
+      "animation_trigger": "claw",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Claw"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Claw",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Claw.Damage": {
+      "type": "eop:aoe_damage_once",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 3,
+      "damage": 22,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Claw",
+            "property": "value",
+            "min": 11,
+            "max": 11
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Claw"
+          }
+        ]
+      }
+    },
+    "Claw.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "particle minecraft:sweep_attack ^0.5 ^1.5 ^1 0.1 0.1 0.1 0 1",
+        "particle minecraft:sweep_attack ^-0.5 ^1.5 ^1 0.1 0.1 0.1 0 1",
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Claw",
+            "property": "value",
+            "min": 11,
+            "max": 11
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Claw"
+          }
+        ]
+      }
+    },
+    "Transform.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Gore Magala Half Form",
+      "description": "Transform into a Gore Magala humanoid creature",
+      "icon": "eop:textures/gui/gore_maga_half.png",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Magalathropy"
+          }
+        ]
+      }
+    },
+    "Transform": {
+      "type": "palladium:animation_timer",
+      "title": "Gore Magala Half Form",
+      "icon": "eop:textures/gui/gore_maga_half.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "start_value": 0,
+      "max_value": 20,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:wyvern"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_power",
+                "power": "eop:effects/magala_evo"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Monster.Form"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transform.Animal.Model": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 13,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Transform.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:wyvern/gore_magala",
+      "controller": "animations",
+      "animation_trigger": "transform",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Transform.Animal.Model",
+                    "property": "value",
+                    "min": 1,
+                    "max": 1
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform.Animal.Model"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:wyvern/gore_magala",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Monster.Form"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hide.Body": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head_overlay",
+        "chest_overlay",
+        "right_arm",
+        "left_arm",
+        "right_leg",
+        "left_leg",
+        "head",
+        "chest",
+        "cape"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 19,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Transform.Stats": {
+      "type": "eop:multi_attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attributes": [
+        "minecraft:generic.attack_damage",
+        "minecraft:generic.movement_speed",
+        "forge:nametag_distance",
+        "minecraft:generic.armor",
+        "minecraft:generic.armor_toughness"
+      ],
+      "amounts": [
+        9,
+        0.8,
+        -1000,
+        30,
+        10
+      ],
+      "operations": [
+        "addition",
+        "multiply_base",
+        "addition",
+        "addition",
+        "addition"
+      ],
+      "modifier_uuids": [
+        "36a91fa0-ce44-40a0-b24d-e86a9f03bda9",
+        "37887e87-b382-4bfb-8aac-5fdd1227c208",
+        "5106645a-4b6d-438d-9343-3d1521fee3c9",
+        "640f70af-ab3f-4db3-90c0-8cd6f5a39cd8",
+        "08c67933-5f36-4740-8d59-5e43961f28c6"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transform.Resistance": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "reduction": 0.4,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Monster.Form"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Store.Armor": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": true,
+      "hide_offhand": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Monster.Form"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Restrict.Slots": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs",
+        "head",
+        "mainhand",
+        "offhand"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Transform.No.Move.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 72,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "IFrame.Transform": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "eop:phase_immune"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "fcacadf3-8c44-4865-8669-6e5dcb5973d2",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 71
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "1ab94e4c-4eae-4c11-8116-ee8e03ff46d4",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 71
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Transform.Effects": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Magala",
+        "tag @s add EOP.Non.Humanoid.Model",
+        "scale set pehkui:hitbox_height 1.3",
+        "scale set pehkui:hitbox_width 1.3",
+        "scale set pehkui:eye_height 1.35",
+        "scale set pehkui:height 1.3",
+        "scale set pehkui:width 1.3",
+        "scale set pehkui:held_item 0",
+        "playsound minecraft:entity.wolf.growl master @a ~ ~ ~ 1 0.7"
+      ],
+      "last_tick_commands": [
+        "tag @s remove EOP.Magala",
+        "tag @s remove EOP.Has.BM",
+        "effect clear @s jump_boost",
+        "scale reset @s",
+        "playsound minecraft:entity.wolf.growl master @a ~ ~ ~ 1 0.7"
+      ],
+      "commands": [
+        "effect give @s minecraft:jump_boost 1 1 true",
+        "particle ash ~ ~ ~ 1 1 1 1 50 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Effect.Remove.Transformed": {
+      "type": "eop:effect_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "effects": [
+        "eop:frenzy",
+        "minecraft:blindness",
+        "minecraft:darkness"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Transform.Night.Vision": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s night_vision"
+      ],
+      "commands": [
+        "effect give @s minecraft:night_vision 20 1 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Night.Vision.On"
+          }
+        ]
+      }
+    },
+    "Transform.Roar": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:magala_roar master @a ~ ~ ~ 3 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.Animal.Model",
+            "property": "value",
+            "min": 9,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Animal.Model"
+          }
+        ]
+      }
+    },
+    "Creature.Name": {
+      "type": "palladium:name_change",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "name": {
+        "text": "Gore Magala"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Monster.Form"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Super.Jump": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s jump_boost"
+      ],
+      "commands": [
+        "effect give @s jump_boost 1 6 true"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Monster.Form"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform"
+              }
+            ]
+          },
+          {
+            "type": "eop:looking_direction",
+            "mode": "up"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Super.Jump.On"
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/frenzy_blast.png",
+      "title": "Frenzy Ball Breath",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Shoot a blast of the Frenzy Virus",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "ML.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/gore_magala.png",
+            "description": {
+              "text": "Magalathropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/frenzy_blast.png",
+      "title": "Frenzy Ball Breath",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "start_value": 0,
+      "max_value": 45,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Monster.Form",
+                "property": "value",
+                "min": 60,
+                "max": 60
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Transform.No.Move.Timer",
+                    "property": "value",
+                    "min": 72,
+                    "max": 72
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 20,
+            "ticks": 45,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:on_ground"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Frenzy.Ball"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Frenzy.Ball.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Rage"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Monster.Form"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.No.Knockback": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "d917c77c-0d11-46b2-a21f-5fabbf8f552d",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "6f63a53b-7d02-4e52-8a49-6ec6531cde22",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball"
+          }
+        ]
+      }
+    },
+    "No.Jumping2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "40e035bb-b918-4bf6-9891-c2d4b797dd8f",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball"
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:wyvern/gore_magala",
+      "controller": "animations",
+      "animation_trigger": "frenzy_ball",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Ball",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.ghast.shoot master @a ~ ~ ~ 1 0.7"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Ball",
+            "property": "value",
+            "min": 26,
+            "max": 26
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball"
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Ability": {
+      "type": "eop:projectile_with_offset",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 15,
+        "Size": 1,
+        "DamageType": "minecraft:explosion",
+        "SetEntityOnFireSeconds": 0,
+        "Gravity": 0,
+        "Lifetime": 80,
+        "CommandOnEntityHit": "function eop:powers/wyvern/frenzy_ball",
+        "DieOnEntityHit": true,
+        "DieOnBlockHit": true,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:squid_ink",
+            "Spread": 0.3,
+            "Amount": 20
+          },
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:dragon_breath",
+            "Spread": 0.3,
+            "Amount": 2
+          }
+        ]
+      },
+      "yaw_offset": 0,
+      "pitch_offset": 100,
+      "yaw_inaccuracy": 0,
+      "pitch_inaccuracy": 0,
+      "yaw_override": "null",
+      "pitch_override": "null",
+      "count": 1,
+      "speed": 2,
+      "align_velocity_with_calculated_rotation": false,
+      "ignore_pitch": true,
+      "spawn_height_offset": -1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Ball",
+            "property": "value",
+            "min": 26,
+            "max": 26
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball"
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Rage": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/frenzy_blast.png",
+      "title": "Frenzy Ball Breath",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "start_value": 0,
+      "max_value": 45,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Monster.Form",
+                "property": "value",
+                "min": 60,
+                "max": 60
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Transform.No.Move.Timer",
+                    "property": "value",
+                    "min": 72,
+                    "max": 72
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 20,
+            "ticks": 45,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rage"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Monster.Form"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Animation2": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:wyvern/gore_magala",
+      "controller": "animations",
+      "animation_trigger": "frenzy_ball_rage",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball.Rage"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Ball.Rage",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Rage.Proj": {
+      "type": "palladium:projectile",
+      "icon": "minecraft:fire_charge",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 15,
+        "DamageType": "eop:basic",
+        "SetEntityOnFireSeconds": 0,
+        "CommandOnBlockHit": "function eop:powers/wyvern/frenzy",
+        "CommandOnEntityHit": "function eop:powers/wyvern/frenzy",
+        "Gravity": 0.03,
+        "Lifetime": 80,
+        "DieOnEntityHit": true,
+        "DieOnBlockHit": true,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:squid_ink",
+            "Spread": 0.2,
+            "Amount": 20
+          },
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:dragon_breath",
+            "Spread": 0.2,
+            "Amount": 10
+          }
+        ]
+      },
+      "inaccuracy": 0,
+      "velocity": 5,
+      "swinging_arm": "none",
+      "damage_from_player": false,
+      "ignore_player_movement": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Ball.Rage",
+            "property": "value",
+            "min": 7,
+            "max": 36
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball.Rage"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 5
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Rage.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.ghast.shoot master @a ~ ~ ~ 1 0.7"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Ball.Rage",
+            "property": "value",
+            "min": 7,
+            "max": 36
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball.Rage"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 5
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Monster": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/frenzy_blast.png",
+      "title": "Frenzy Ball Breath",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "start_value": 0,
+      "max_value": 40,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 60,
+            "max": 60
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_hovering_or_flying"
+              }
+            ]
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 20,
+            "ticks": 40,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:on_ground"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Frenzy.Ball.Monster"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Rage.Monster"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Monster.No.Knockback": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "2e14680b-9200-4982-b49c-82d9c7e06df1",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball.Monster"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed3": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "b36b0c02-cb6b-479d-a3f5-ad84ecaf70f7",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball.Monster"
+          }
+        ]
+      }
+    },
+    "No.Jumping3": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "b85199ad-9320-47fb-9462-291b696e861f",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball.Monster"
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Monster.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:wyvern/gore_magala_full",
+      "controller": "animations",
+      "animation_trigger": "frenzy_blast",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball.Monster"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Ball.Monster",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Monster.Wings.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:wyvern/gore_magala_full_wings",
+      "controller": "animations",
+      "animation_trigger": "frenzy_blast",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball.Monster"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Ball.Monster",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Monster.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.ghast.shoot master @a ~ ~ ~ 1 0.7"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Ball.Monster",
+            "property": "value",
+            "min": 26,
+            "max": 26
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball.Monster"
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Monster.Ability": {
+      "type": "eop:projectile_with_offset",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 25,
+        "Size": 2,
+        "DamageType": "minecraft:explosion",
+        "SetEntityOnFireSeconds": 0,
+        "Gravity": 0,
+        "Lifetime": 80,
+        "CommandOnEntityHit": "function eop:powers/wyvern/frenzy_ball",
+        "DieOnEntityHit": true,
+        "DieOnBlockHit": true,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:squid_ink",
+            "Spread": 0.3,
+            "Amount": 20
+          },
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:dragon_breath",
+            "Spread": 0.3,
+            "Amount": 2
+          }
+        ]
+      },
+      "yaw_offset": 0,
+      "pitch_offset": 100,
+      "yaw_inaccuracy": 0,
+      "pitch_inaccuracy": 0,
+      "yaw_override": "null",
+      "pitch_override": "null",
+      "count": 1,
+      "speed": 2,
+      "align_velocity_with_calculated_rotation": false,
+      "ignore_pitch": true,
+      "spawn_height_offset": -3.5,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Ball.Monster",
+            "property": "value",
+            "min": 26,
+            "max": 26
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball.Monster"
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Monster.Rage": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/frenzy_blast.png",
+      "title": "Frenzy Ball Breath",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "start_value": 0,
+      "max_value": 40,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 60,
+            "max": 60
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_hovering_or_flying"
+              }
+            ]
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 20,
+            "ticks": 40,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rage.Monster"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Monster.Rage.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:wyvern/gore_magala_full",
+      "controller": "animations",
+      "animation_trigger": "frenzy_blast_rage",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball.Monster.Rage"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Ball.Monster.Rage",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Monster.Rage.Proj": {
+      "type": "palladium:projectile",
+      "icon": "minecraft:fire_charge",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 20,
+        "DamageType": "eop:basic",
+        "SetEntityOnFireSeconds": 0,
+        "CommandOnBlockHit": "function eop:powers/wyvern/frenzy",
+        "CommandOnEntityHit": "function eop:powers/wyvern/frenzy",
+        "Gravity": 0.03,
+        "Lifetime": 80,
+        "DieOnEntityHit": true,
+        "DieOnBlockHit": true,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:squid_ink",
+            "Spread": 0.2,
+            "Amount": 40
+          },
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:dragon_breath",
+            "Spread": 0.2,
+            "Amount": 20
+          }
+        ]
+      },
+      "inaccuracy": 0,
+      "velocity": 3,
+      "swinging_arm": "none",
+      "damage_from_player": false,
+      "ignore_player_movement": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Ball.Monster.Rage",
+            "property": "value",
+            "min": 7,
+            "max": 36
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball.Monster.Rage"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 5
+          }
+        ]
+      }
+    },
+    "Frenzy.Ball.Monster.Rage.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.ghast.shoot master @a ~ ~ ~ 2 0.7"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Ball.Monster.Rage",
+            "property": "value",
+            "min": 7,
+            "max": 36
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Ball.Monster.Rage"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 5
+          }
+        ]
+      }
+    },
+    "Rage.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/frenzy_state.png",
+      "title": "Frenzy State",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Enter an enhanced state, giving you a tremendous increase in strength",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Frenzy.Ball.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "ML.Score",
+            "score": 10,
+            "icon": "eop:textures/gui/gore_magala.png",
+            "description": {
+              "text": "Magalathropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Rage": {
+      "type": "palladium:command",
+      "title": "Frenzy State",
+      "icon": "eop:textures/gui/frenzy_state.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "first_tick_commands": [
+        "playsound minecraft:entity.wither.ambient master @a ~ ~ ~ 1 1.6",
+        "particle squid_ink ~ ~1 ~ 1 1 1 0.5 100 force",
+        "particle dragon_breath ~ ~1 ~ 1 1 1 0.5 100 force"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "particle squid_ink ~ ~1 ~ 1 1 1 0.5 1 force",
+        "particle dragon_breath ~ ~1 ~ 1 1 1 0.5 1 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Monster.Form",
+                "property": "value",
+                "min": 60,
+                "max": 60
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Transform.No.Move.Timer",
+                    "property": "value",
+                    "min": 72,
+                    "max": 72
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 1200,
+            "ticks": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Rage.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Monster.Form"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Rage.Stats": {
+      "type": "eop:multi_attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attributes": [
+        "minecraft:generic.attack_damage",
+        "minecraft:generic.movement_speed"
+      ],
+      "amounts": [
+        6,
+        1.8
+      ],
+      "operations": [
+        "addition",
+        "multiply_base"
+      ],
+      "modifier_uuids": [
+        "b965c3e4-61a2-4b5f-aca0-731fc5ebb555",
+        "331c54d6-9145-49b5-bc3b-05957cf796aa"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rage"
+          }
+        ]
+      }
+    },
+    "Horns.Animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Rage"
+          }
+        ]
+      }
+    },
+    "Rage.Monster": {
+      "type": "palladium:animation_timer",
+      "title": "Frenzy State",
+      "icon": "eop:textures/gui/frenzy_state.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "start_value": 0,
+      "max_value": 600,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 60,
+            "max": 60
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_hovering_or_flying"
+              }
+            ]
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 1200,
+            "ticks": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Rage.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Rage.Monster.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.wither.ambient master @a ~ ~ ~ 3 1.6",
+        "particle squid_ink ~ ~1 ~ 4 4 4 0.5 400 force",
+        "particle dragon_breath ~ ~1 ~ 4 4 4 0.5 400 force"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "particle squid_ink ~ ~1 ~ 4 4 4 0.5 30 force",
+        "particle dragon_breath ~ ~1 ~ 4 4 4 0.5 30 force"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Rage.Monster"
+          }
+        ]
+      }
+    },
+    "Rage.Monster.Stats": {
+      "type": "eop:multi_attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attributes": [
+        "minecraft:generic.attack_damage",
+        "minecraft:generic.movement_speed"
+      ],
+      "amounts": [
+        9,
+        0.4
+      ],
+      "operations": [
+        "addition",
+        "multiply_base"
+      ],
+      "modifier_uuids": [
+        "d9eec6e2-fc2d-4e45-acb8-60f49ab4d497",
+        "37acc975-711e-4bd9-957c-810404f65e9c"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rage.Monster"
+          }
+        ]
+      }
+    },
+    "Rage.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:wyvern/gore_magala_full_wings",
+      "controller": "animations",
+      "animation_trigger": "wings_open",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rage.Monster"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Rage.Monster",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Rage.Close.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:wyvern/gore_magala_full_wings",
+      "controller": "animations",
+      "animation_trigger": "wings_close",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rage.Monster"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Rage.Monster",
+            "property": "value",
+            "min": 585,
+            "max": 585
+          }
+        ]
+      }
+    },
+    "Horns.Monster.Animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Rage.Monster"
+          }
+        ]
+      }
+    },
+    "Frenzy.Coat.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/frenzy_explode.png",
+      "title": "Frenzy Explosion",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Release the Frenzy Virus in an explosion",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Rage.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "ML.Score",
+            "score": 15,
+            "icon": "eop:textures/gui/gore_magala.png",
+            "description": {
+              "text": "Magalathropy Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "Frenzy.Coat": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/frenzy_explode.png",
+      "title": "Frenzy Explosion",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "start_value": 0,
+      "max_value": 40,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Monster.Form",
+                "property": "value",
+                "min": 60,
+                "max": 60
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Transform.No.Move.Timer",
+                    "property": "value",
+                    "min": 72,
+                    "max": 72
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 200,
+            "ticks": 41,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Frenzy.Coat.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Monster.Form"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Explode.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "particle squid_ink ~ ~1 ~ 1 1 1 0.5 2 force",
+        "particle dragon_breath ~ ~1 ~ 1 1 1 0.5 2 force",
+        "playsound minecraft:block.fire.extinguish master @a ~ ~ ~ 1 1.5"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Coat",
+            "property": "value",
+            "min": 1,
+            "max": 40
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Coat"
+          }
+        ]
+      }
+    },
+    "Explode.Commands2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "particle squid_ink ~ ~1 ~ 1 1 1 0.9 200 force",
+        "particle dragon_breath ~ ~1 ~ 1 1 1 0.9 200 force",
+        "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 0.5"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Coat",
+            "property": "value",
+            "min": 40,
+            "max": 40
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Coat"
+          }
+        ]
+      }
+    },
+    "Explode.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 5,
+      "commands": [
+        "effect give @s[tag=!EOP.Magala,tag=!EOP.Phasing,tag=!Infinity] eop:frenzy 10 0 true"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Coat",
+            "property": "value",
+            "min": 40,
+            "max": 40
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Coat"
+          }
+        ]
+      }
+    },
+    "Explode.Damage": {
+      "type": "eop:aoe_damage",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 5,
+      "damage": 45,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Coat",
+            "property": "value",
+            "min": 40,
+            "max": 40
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Coat"
+          }
+        ]
+      }
+    },
+    "Explode.Knockback": {
+      "type": "eop:aoe_knockback",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 5,
+      "knockback": 50,
+      "invert": false,
+      "crush": true,
+      "cone": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Frenzy.Coat",
+            "property": "value",
+            "min": 40,
+            "max": 40
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Frenzy.Coat"
+          }
+        ]
+      }
+    },
+    "Smash": {
+      "type": "palladium:animation_timer",
+      "title": "Wing Smash",
+      "icon": "eop:textures/gui/gore_maga_claws.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "start_value": 0,
+      "max_value": 45,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 60,
+            "max": 60
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_hovering_or_flying"
+              }
+            ]
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 20,
+            "ticks": 45,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "No.Move.Speed4": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "7efe3486-8dbd-4329-a7f9-e335f7553d61",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Smash"
+          }
+        ]
+      }
+    },
+    "No.Jumping4": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "b634f19f-0614-43a7-8eab-40c02ee3ed89",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Smash"
+          }
+        ]
+      }
+    },
+    "Smash.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:wyvern/gore_magala_full",
+      "controller": "animations",
+      "animation_trigger": "wing_smash",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Smash"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Smash",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Smash.Animation.Wings": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:wyvern/gore_magala_full_wings",
+      "controller": "animations",
+      "animation_trigger": "wing_smash",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Smash"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Smash",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Rage.Monster"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Smash.Animation.Rage.Wings": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:wyvern/gore_magala_full_wings",
+      "controller": "animations",
+      "animation_trigger": "wing_smash_rage",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Smash"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Smash",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rage.Monster"
+          }
+        ]
+      }
+    },
+    "Smash.Damage": {
+      "type": "eop:aoe_damage_once",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 6,
+      "damage": 30,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Smash",
+            "property": "value",
+            "min": 21,
+            "max": 21
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Smash"
+          }
+        ]
+      }
+    },
+    "Smash.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "particle poof ~ ~ ~ 4 4 4 1 3000",
+        "particle campfire_cosy_smoke ~ ~ ~ 4 4 4 1 3000",
+        "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 3 1",
+        "particle squid_ink ~ ~1 ~ 4 4 4 1 6000 normal",
+        "particle dragon_breath ~ ~1 ~ 4 4 4 1 6000 normal"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Smash",
+            "property": "value",
+            "min": 21,
+            "max": 21
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Smash"
+          }
+        ]
+      }
+    },
+    "Smash.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 6,
+      "commands": [
+        "effect give @s[tag=!EOP.Magala,tag=!EOP.Phasing,tag=!Infinity] eop:frenzy 10 0 true"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Smash",
+            "property": "value",
+            "min": 21,
+            "max": 21
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Smash"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Rage.Monster"
+          }
+        ]
+      }
+    },
+    "Monster.Form.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/gore_magala_full.png",
+      "title": "Gore Magala Full Form",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 4,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Transform into your full Gore Magala form. §dAbilities only work while transformed",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Frenzy.Coat.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Damage4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "ML.Score",
+            "score": 25,
+            "icon": "eop:textures/gui/gore_magala.png",
+            "description": {
+              "text": "Magalathropy Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "Monster.Form": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/gore_magala_full.png",
+      "title": "Gore Magala Full Form",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "start_value": 0,
+      "max_value": 60,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 3600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Monster.Form.Unlock"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:wyvern"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Monster.Form.Knockback.Reduction": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 0.5,
+      "operation": 0,
+      "uuid": "ce34c38e-a788-44ee-ad81-7a3b5b61eea7",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "Monster.Form.Third.Person": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 59,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 1,
+            "max": 59
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "Monster.Form.Third.Person.Command": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scale set pehkui:third_person 1.5 @s"
+      ],
+      "last_tick_commands": [
+        "scale reset pehkui:third_person @s"
+      ],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 1,
+            "max": 59
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "Save.Health": {
+      "type": "eop:transform_stat_save",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Monster.Form"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Monster.Form.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Magala",
+        "tag @s add EOP.Non.Humanoid.Model",
+        "scale set pehkui:held_item 0 @s",
+        "scale set pehkui:eye_height 0.7 @s",
+        "scale set pehkui:height 5 @s",
+        "scale set pehkui:width 5 @s",
+        "scale set pehkui:step_height 4",
+        "scale set pehkui:hitbox_height 0.7 @s",
+        "scale set pehkui:hitbox_width 2.5 @s",
+        "scale set pehkui:reach 2.1 @s",
+        "particle block purple_terracotta ~ ~1 ~ 1 1 1 1 100 force",
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [
+        "tag @s remove EOP.Magala",
+        "tag @s remove EOP.Non.Humanoid.Model",
+        "scale reset @s",
+        "particle block purple_terracotta ~ ~1 ~ 1 1 1 1 100 force",
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2",
+        "effect clear @s minecraft:jump_boost"
+      ],
+      "commands": [
+        "effect give @s minecraft:jump_boost 1 5 true",
+        "particle ash ~ ~ ~ 4 3 4 1 100 force"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "Monster.Form.Effect.Immunity": {
+      "type": "eop:effect_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "effects": [
+        "minecraft:blindness",
+        "minecraft:darkness",
+        "eop:frenzy"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "Monster.Form.Stats": {
+      "type": "eop:multi_attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attributes": [
+        "minecraft:generic.attack_damage",
+        "minecraft:generic.movement_speed"
+      ],
+      "amounts": [
+        15,
+        1.4
+      ],
+      "operations": [
+        "addition",
+        "multiply_base"
+      ],
+      "modifier_uuids": [
+        "dbe45cc2-cdae-47c8-baf0-8aac9d513dab",
+        "59935162-b420-4d06-a952-6f286282de1b"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "Monster.Form.Resistance": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "reduction": 0.8,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "Transform.Night.Vision2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s night_vision"
+      ],
+      "commands": [
+        "effect give @s minecraft:night_vision 20 1 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Night.Vision.On"
+          }
+        ]
+      }
+    },
+    "Monster.Form.Size.Fix": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scale set pehkui:held_item 0 @s",
+        "scale set pehkui:eye_height 0.7 @s",
+        "scale set pehkui:height 5 @s",
+        "scale set pehkui:width 5 @s",
+        "scale set pehkui:step_height 4",
+        "scale set pehkui:hitbox_height 0.7 @s",
+        "scale set pehkui:hitbox_width 2.5 @s",
+        "scale set pehkui:reach 2.1 @s"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 0,
+            "max": 59
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 5
+          }
+        ]
+      }
+    },
+    "Monster.Form.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:magala_roar master @a ~ ~ ~ 5 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 20,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "Monster.Transform.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:wyvern/gore_magala_full",
+      "controller": "animations",
+      "animation_trigger": "transform",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Monster.Form",
+                    "property": "value",
+                    "min": 2,
+                    "max": 2
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Monster.Form"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Monster.Transform.Animation.Wings": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:wyvern/gore_magala_full_wings",
+      "controller": "animations",
+      "animation_trigger": "transform",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Monster.Form",
+                    "property": "value",
+                    "min": 2,
+                    "max": 2
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Monster.Form"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Full.Form.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:wyvern/gore_magala_full",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Full.Form.Wings.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:wyvern/gore_magala_full_wings",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hide.Body2": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head_overlay",
+        "chest_overlay",
+        "right_arm",
+        "left_arm",
+        "right_leg",
+        "left_leg",
+        "head",
+        "chest",
+        "cape"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed5": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "49ac0e64-116f-40d0-baff-c3d25f389c53",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 1,
+            "max": 59
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "No.Jumping5": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "2d752ecb-c284-4367-965b-9fbc87f64f60",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 1,
+            "max": 59
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "Magala.Full.Defense": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 30,
+      "operation": 0,
+      "uuid": "d427b9f6-0f42-464a-8387-fdfd625375d2",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "Magala.Full.Defense2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor_toughness",
+      "amount": 20,
+      "operation": 0,
+      "uuid": "126b5396-9e84-4090-b544-10081adf1ec4",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "Magala.Full.Damage": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 20,
+      "operation": 0,
+      "uuid": "33398102-6e76-4d1c-9c99-25bd58197750",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "Magala.Health": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 50,
+      "operation": 0,
+      "uuid": "89f0fc4b-0d6f-49f0-bf6a-595aec5b1121",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "Swim.Animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 15,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:is_swimming"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          }
+        ]
+      }
+    },
+    "Full.Roar": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/narga_roar.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "title": "Roar",
+      "start_value": 0,
+      "max_value": 4,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 60,
+            "max": 60
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_hovering_or_flying"
+              }
+            ]
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 400,
+            "ticks": 80,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_under_water"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Monster.Form"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Roar.AOE": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:wyvern/gore_magala_full",
+      "controller": "animations",
+      "animation_trigger": "roar",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Full.Roar",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Full.Roar"
+          }
+        ]
+      }
+    },
+    "Roar.AOE.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:magala_roar master @a ~ ~ ~ 5 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Full.Roar",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Full.Roar"
+          }
+        ]
+      }
+    },
+    "Roar.AOE.Commands2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "particle explosion ~ ~ ~ 15 10 15 0 50 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Full.Roar"
+          }
+        ]
+      }
+    },
+    "Roar.AOE.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 15,
+      "commands": [
+        "effect give @s[tag=!Infinity] slowness 5 2 true"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Full.Roar"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed6": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "c49afe4e-4b07-4855-9cfc-36d7cc2b29ea",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Full.Roar"
+          }
+        ]
+      }
+    },
+    "No.Jumping6": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "aef7fe1b-333b-4473-b281-630a723e9a4a",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Full.Roar"
+          }
+        ]
+      }
+    },
+    "Flight.Animation.Script": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "max_value": 3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:is_hovering_or_flying"
+          },
+          {
+            "type": "palladium:is_fast_flying"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "Flight.Animation.Script2": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "max_value": 3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:is_hovering_or_flying"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "Flight.Animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "max_value": 3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:is_hovering_or_flying"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "Flight.Animation2": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "start_value": 0,
+      "max_value": 15,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:is_hovering_or_flying"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "Flight.On": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:wyvern/gore_magala_full_wings",
+      "controller": "animations",
+      "animation_trigger": "wings_flap",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "ability": "Flight.Animation",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Flight.Animation"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "Flight.Off": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:wyvern/gore_magala_full_wings",
+      "controller": "animations",
+      "animation_trigger": "wings_flap_close",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "ability": "Flight.Animation",
+            "property": "value",
+            "min": 1,
+            "max": 1
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Flight.Animation"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "Flight.Transform": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:flight_speed",
+      "amount": 1.3,
+      "uuid": "339bf94e-bea9-4cf1-b7a2-7de4c4cc669b",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:attribute_check",
+            "attribute": "palladium:jump_power",
+            "comparison": ">",
+            "value": 0
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 60,
+            "max": 60
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Rage.Monster"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_bestias_g2"
+          }
+        ]
+      }
+    },
+    "Timer.Fly.Animation": {
+      "type": "palladium:animation_timer",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "start_value": 0,
+      "max_value": 7,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:is_hovering_or_flying"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "Fly.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound minecraft:entity.bat.takeoff master @a ~ ~ ~ 5 0.5"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Timer.Fly.Animation",
+            "property": "value",
+            "min": 7,
+            "max": 7
+          },
+          {
+            "type": "palladium:is_hovering_or_flying"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 25
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Monster.Form",
+            "property": "value",
+            "min": 60,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_bestias_g2"
+          }
+        ]
+      }
+    }
+  }
+}

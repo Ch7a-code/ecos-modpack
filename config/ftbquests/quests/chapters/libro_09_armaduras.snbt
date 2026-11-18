@@ -1,0 +1,539 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_09_armaduras"
+	group: "1649D3DB01DD3F2C"
+	icon: "minecraft:iron_chestplate"
+	id: "71399673D3AD7925"
+	order_index: 9
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oTu cuerpo de Eco se hizo de prisa y se nota: cualquier garra lo abre como papel. Una pieza de hierro no te vuelve intocable, pero entre el golpe y tú ya hay algo.", "", "&6Qué hacer:&r Fabrica una pieza de armadura de hierro (casco, peto, pantalones o botas) y póntela.", "", "&6Premio:&r 2 cosas al azar: lingotes de hierro, carbón, pan o cuero.", "&5A veces (7 %):&r una pechera de hierro encantada con Protección."]
+			disable_toast: true
+			icon: "minecraft:iron_chestplate"
+			id: "00BB543630E0BE9B"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "688CB47AD1F58CF7"
+					icon: "minecraft:iron_chestplate"
+					stage: "ecos_l_armaduras_hierro_pieza"
+					title: "Ponte una pieza de armadura de hierro"
+					type: "gamestage"
+				}
+			]
+			title: "Hierro sobre la piel"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["00BB543630E0BE9B"]
+			description: ["&#19E6E6Zykna:&r &oCon Shield Expansion hay escudos desde la madera hasta la netherita, y cada nivel aguanta más. Levántalo a tiempo y el golpe no te toca; el escudo es la armadura que decides cuándo usar.", "", "&6Qué hacer:&r Ten un escudo (de madera, hierro, oro o el de siempre) y desvía un proyectil con él: levántalo cuando la flecha ya viene hacia ti.", "", "&6Premio:&r 2 cosas al azar: flechas, hierro, tablas de roble o un escudo de madera.", "&5A veces (7 %):&r un escudo de hierro de Shield Expansion encantado con Irrompibilidad."]
+			disable_toast: true
+			icon: "minecraft:shield"
+			id: "19910FF2703E36B0"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6A2EF2DD16400544"
+					icon: "minecraft:shield"
+					stage: "ecos_l_armaduras_escudo_tener"
+					title: "Ten un escudo en el inventario"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "2DC9AD4D921EDA4A"
+					icon: "minecraft:arrow"
+					stage: "ecos_l_armaduras_escudo_desviar"
+					title: "Desvía un proyectil con el escudo"
+					type: "gamestage"
+				}
+			]
+			title: "Detrás del escudo"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["19910FF2703E36B0"]
+			description: ["&#19E6E6Zykna:&r &oEl diamante es lo más duro que da este mundo y casi nadie lo trae puesto. Bajar a buscarlo es un riesgo; que valga la pena depende de que luego lo uses.", "", "&6Qué hacer:&r Fabrica y ponte una pieza de armadura de diamante.", "", "&6Premio:&r 2 cosas al azar: lingotes de hierro, carbón, esmeraldas o carne cocida.", "&5A veces (7 %):&r una pechera de diamante encantada con Protección."]
+			disable_toast: true
+			icon: "minecraft:diamond_chestplate"
+			id: "28AB3E7C30333961"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "55F5CA8CDC6365BB"
+					icon: "minecraft:diamond_chestplate"
+					stage: "ecos_l_armaduras_diamante_pieza"
+					title: "Ponte una pieza de armadura de diamante"
+					type: "gamestage"
+				}
+			]
+			title: "Lo que cuesta caro"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["28AB3E7C30333961"]
+			description: ["&#19E6E6Zykna:&r &oCon First Aid cada parte del cuerpo se hiere por separado: un brazo roto no es una cabeza rota. Una venda a tiempo es la diferencia entre aguantar la noche y no.", "", "&6Qué hacer:&r Fabrica vendas y curitas de First Aid y ten al menos una de cada una en el inventario.", "", "&6Premio:&r 2 cosas al azar: vendas, curitas, lana o hilo.", "&5A veces (7 %):&r un montón de vendas."]
+			disable_toast: true
+			icon: "firstaid:bandage"
+			id: "44A14DFDC42FFFAC"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "18C004A4FEF85189"
+					icon: "firstaid:bandage"
+					stage: "ecos_l_armaduras_vendas_venda"
+					title: "Ten una venda"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "168C24E9D9946A52"
+					icon: "firstaid:plaster"
+					stage: "ecos_l_armaduras_vendas_curita"
+					title: "Ten una curita"
+					type: "gamestage"
+				}
+			]
+			title: "Primeros auxilios"
+			x: 0.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["44A14DFDC42FFFAC"]
+			description: ["&#19E6E6Zykna:&r &oEl clima de aquí no perdona a un cuerpo hecho de prisa: arde de día y se congela de noche. En la Mesa de costura le coses aislamiento a la armadura y el cuerpo deja de pelear contra el aire.", "", "&6Qué hacer:&r Pon una Mesa de costura de Cold Sweat y aísla una pieza de armadura con ella.", "", "&6Premio:&r 2 cosas al azar: lana, cuero, hilo o carbón.", "&5A veces (7 %):&r un casco de piel de cabra."]
+			disable_toast: true
+			icon: "cold_sweat:sewing_table"
+			id: "108D03AAC3389194"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0902959AC030F721"
+					icon: "cold_sweat:sewing_table"
+					stage: "ecos_l_armaduras_frio_mesa"
+					title: "Pon una Mesa de costura"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "15B11F72E524CD88"
+					icon: "minecraft:leather_chestplate"
+					stage: "ecos_l_armaduras_frio_aislar"
+					title: "Aísla una pieza de armadura"
+					type: "gamestage"
+				}
+			]
+			title: "Forrar la armadura"
+			x: 0.00d
+			y: 5.60d
+		}
+		{
+			dependencies: ["108D03AAC3389194"]
+			description: ["&#19E6E6Zykna:&r &oEl Bosque Crepuscular es un bolsillo de memoria: un mundo que un fragmento recordó. Lo que cae allí pesa igual que en cualquier otro lado. Las escamas de la Naga dan una armadura ligera y buena para aguantar.", "", "&6Qué hacer:&r Derrota a la Naga en el Bosque Crepuscular y fabrica el peto y los pantalones de escamas de Naga.", "", "&6Premio:&r 2 cosas al azar: lingotes de hierro, escamas de Naga, pan o esmeraldas.", "&5A veces (7 %):&r unos pantalones de Naga encantados con Protección."]
+			disable_toast: true
+			icon: "twilightforest:naga_chestplate"
+			id: "0B7919F0C5B62601"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "62E399B76FFF1E04"
+					icon: "twilightforest:naga_leggings"
+					stage: "ecos_l_armaduras_naga_armar"
+					title: "Fabrica la armadura de Naga"
+					type: "gamestage"
+				}
+			]
+			title: "Escamas de Naga"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["0B7919F0C5B62601"]
+			description: ["&#19E6E6Zykna:&r &oLa Enfermería del Búnker 7 ya tiene luz, y con ella la morfina: hay heridas que una venda no cierra. No es un juguete; guárdala para el momento en que de verdad se acabe la vida.", "", "&6Qué hacer:&r Ten una dosis de morfina de First Aid en el inventario, para las heridas que las vendas no alcanzan.", "", "&6Premio:&r 2 cosas al azar: vendas, morfina, curitas o hierro.", "&5A veces (7 %):&r dos dosis de morfina."]
+			disable_toast: true
+			icon: "firstaid:morphine"
+			id: "2A64871FD871BDFB"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "185EB94183FCC6FB"
+					icon: "firstaid:morphine"
+					stage: "ecos_l_armaduras_morfina_morfina"
+					title: "Ten una dosis de morfina"
+					type: "gamestage"
+				}
+			]
+			title: "Lo que una venda no cierra"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["2A64871FD871BDFB"]
+			description: ["&#19E6E6Zykna:&r &oEl Aether es otro bolsillo de memoria, un cielo que alguien recordó sin guerra. Sus metales no se funden como los de aquí: el Altar es la forja de ese lugar, y sus piezas se hacen a mano.", "", "&6Qué hacer:&r Fabrica un Altar del Aether y úsalo para conseguir gravitita encantada.", "", "&6Premio:&r 2 cosas al azar: lingotes de hierro, esmeraldas, pan o manzanas.", "&5A veces (7 %):&r una manzana dorada."]
+			disable_toast: true
+			icon: "aether:altar"
+			id: "78607A91700312D4"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4FE802AE5869AAFE"
+					icon: "aether:altar"
+					stage: "ecos_l_armaduras_altar_altar"
+					title: "Fabrica un Altar"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "291A7AA95F42B9E1"
+					icon: "aether:enchanted_gravitite"
+					stage: "ecos_l_armaduras_altar_gravitita"
+					title: "Consigue gravitita encantada"
+					type: "gamestage"
+				}
+			]
+			title: "La magia del Aether"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["78607A91700312D4"]
+			description: ["&#19E6E6Zykna:&r &oLa gravitita se siente ligera hasta que te cae encima el primer golpe. Un set completo es raro porque cuesta paciencia: cada pieza es una vuelta más por el Altar.", "", "&6Qué hacer:&r Ten el set completo de armadura de gravitita (casco, peto, pantalones y botas) en tu inventario.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, un diamante o lingotes de hierro.", "&5A veces (7 %):&r una manzana dorada encantada."]
+			disable_toast: true
+			icon: "aether:gravitite_chestplate"
+			id: "17CB76DCB4CCB433"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "2DEF08206865CC43"
+					icon: "aether:gravitite_chestplate"
+					stage: "ecos_l_armaduras_gravitita_set"
+					title: "Ten el set de gravitita"
+					type: "gamestage"
+				}
+			]
+			title: "Desafiando la gravedad"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["17CB76DCB4CCB433"]
+			description: ["&#19E6E6Zykna:&r &oBlue Skies es otro cielo que un fragmento no soltó: una isla que nunca amanece o nunca oscurece. Su metal más cálido se funde en una forja propia. Es otra manera de hacer armadura, no una peor.", "", "&6Qué hacer:&r Fabrica la Forja de Horizonita en el Everdawn y funde horizonita en bruto.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, lingotes de hierro o carbón.", "&5A veces (7 %):&r un lingote de horizonita."]
+			disable_toast: true
+			icon: "blue_skies:horizonite_forge"
+			id: "484E02E3326F4E7E"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7A228D878D9D933B"
+					icon: "blue_skies:horizonite_forge"
+					stage: "ecos_l_armaduras_horizonita_forja"
+					title: "Fabrica la Forja de Horizonita"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "264CCF23DF2CFD4F"
+					icon: "blue_skies:horizonite_ingot"
+					stage: "ecos_l_armaduras_horizonita_fundir"
+					title: "Funde horizonita en bruto"
+					type: "gamestage"
+				}
+			]
+			title: "Pre-calentado"
+			x: 5.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["484E02E3326F4E7E"]
+			description: ["&#19E6E6Zykna:&r &oLas naves y los cohetes son tecnología del Proyecto, reconstruida desde las ruinas. Allá arriba no hay aire ni abrigo: un traje espacial es lo único que separa tus pulmones del vacío.", "", "&6Qué hacer:&r Fabrica un traje espacial de Ad Astra (casco, traje, pantalones y botas).", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, lingotes de hierro o carbón.", "&5A veces (7 %):&r un diamante."]
+			disable_toast: true
+			icon: "ad_astra:space_suit"
+			id: "50FFD91CA220253D"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "296519BA6C1BE955"
+					icon: "ad_astra:space_suit"
+					stage: "ecos_l_armaduras_astronauta_traje"
+					title: "Fabrica un traje espacial"
+					type: "gamestage"
+				}
+			]
+			title: "Para donde no hay aire"
+			x: 5.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["50FFD91CA220253D"]
+			description: ["&#19E6E6Zykna:&r &oLa sangre de la Hidra no se queda quieta: arde y se vuelve metal. La armadura ardiente quema a quien te golpea; cada pieza se hace con lo que le quitaste al fuego.", "", "&6Qué hacer:&r Forja y ponte al menos una pieza de armadura ardiente del Bosque Crepuscular, y empuña una herramienta o arma ardiente.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, un diamante o carbón.", "&5A veces (7 %):&r dos lingotes ardientes."]
+			disable_toast: true
+			icon: "twilightforest:fiery_chestplate"
+			id: "09EA488135FA818E"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "35C262C376C26321"
+					icon: "twilightforest:fiery_ingot"
+					stage: "ecos_l_armaduras_ardiente_set"
+					title: "Ponte armadura ardiente y empuña algo ardiente"
+					type: "gamestage"
+				}
+			]
+			title: "Galones de sangre y lágrimas"
+			x: 5.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["09EA488135FA818E"]
+			description: ["&#19E6E6Zykna:&r &oAllá abajo todo oye. El Warden no ve, y la armadura que sale de su corazón te enseña a moverte con el mismo silencio. Cada paso cuenta; no pises donde no tengas que pisar.", "", "&6Qué hacer:&r Ponte el set completo de armadura de Warden de Deeper and Darker (casco, peto, pantalones y botas).", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, oro o trozos de netherita.", "&5A veces (7 %):&r un casco de resonarium."]
+			disable_toast: true
+			icon: "deeperdarker:warden_chestplate"
+			id: "19F99BDC44F0CC8D"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5E925E49965CA9D4"
+					icon: "deeperdarker:warden_chestplate"
+					stage: "ecos_l_armaduras_warden_set"
+					title: "Ponte el set completo de Warden"
+					type: "gamestage"
+				}
+			]
+			title: "Cúbreme de sculk"
+			x: 7.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["19F99BDC44F0CC8D"]
+			description: ["&#19E6E6Zykna:&r &oLos dragones son filtraciones de otras eras por la Fractura, y su armadura sale de la forja, no de la mesa. Un núcleo y ladrillos de dragón son un horno que solo ellos pueden encender.", "", "&6Qué hacer:&r Fabrica un ladrillo y un núcleo de Dragonforge de Ice and Fire, y obtén una armadura de dragón.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, oro o escamas de dragón roja.", "&5A veces (7 %):&r una escama de dragón de hielo o una eléctrica."]
+			disable_toast: true
+			icon: "iceandfire:dragonforge_fire_core"
+			id: "22EDC61AAAE57125"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "61A53B60B3A00C97"
+					icon: "iceandfire:dragonforge_fire_brick"
+					stage: "ecos_l_armaduras_forjadragon_ladrillo"
+					title: "Fabrica un ladrillo de Dragonforge"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "301917B4F9C62A21"
+					icon: "iceandfire:dragonforge_fire_core"
+					stage: "ecos_l_armaduras_forjadragon_nucleo"
+					title: "Fabrica un núcleo de Dragonforge"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "268EFA221E351CCE"
+					icon: "iceandfire:dragonscales_red"
+					stage: "ecos_l_armaduras_forjadragon_armadura"
+					title: "Obtén una armadura de dragón"
+					type: "gamestage"
+				}
+			]
+			title: "El corazón y la llama"
+			x: 7.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["22EDC61AAAE57125"]
+			description: ["&#19E6E6Zykna:&r &oLa sangre de dragón mezclada con hierro sobrevive a lo que rompe a cualquier otro metal. Cada color de dragón da su propia armadura; escoge la que mejor combine con tu manera de pelear.", "", "&6Qué hacer:&r Crea un lingote de acero de dragón con sangre de dragón y hierro, y consigue una pechera de acero de dragón.", "", "&6Premio:&r 2 cosas al azar: diamantes, hierro, esmeraldas o trozos de netherita.", "&5A veces (7 %):&r un lingote de acero de dragón de fuego."]
+			disable_toast: true
+			icon: "iceandfire:dragonsteel_fire_ingot"
+			id: "70502100ECECDA6C"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0AC6B3FBDA0306E3"
+					icon: "iceandfire:dragonsteel_fire_ingot"
+					stage: "ecos_l_armaduras_dragonsteel_lingote"
+					title: "Crea un lingote de acero de dragón"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "68480148B8650AB7"
+					icon: "iceandfire:dragonsteel_fire_chestplate"
+					stage: "ecos_l_armaduras_dragonsteel_pechera"
+					title: "Consigue una pechera de acero de dragón"
+					type: "gamestage"
+				}
+			]
+			title: "Forjado en llama"
+			x: 7.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["70502100ECECDA6C"]
+			description: ["&#19E6E6Zykna:&r &oIgnis cayó y dejó algo más que cenizas: un metal que recuerda el fuego. El Yunque de fusión mecánica lo une con lo demás; es una forja que solo se entiende golpeando.", "", "&6Qué hacer:&r Pon un Yunque de fusión mecánica y consigue una pechera de ignitio.", "", "&6Premio:&r 2 cosas al azar: diamantes, hierro, esmeraldas o trozos de netherita.", "&5A veces (7 %):&r un casco de ignitio."]
+			disable_toast: true
+			icon: "cataclysm:mechanical_fusion_anvil"
+			id: "102DD8938894F7F8"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "687AF7F6243C88A0"
+					icon: "cataclysm:mechanical_fusion_anvil"
+					stage: "ecos_l_armaduras_ignitium_yunque"
+					title: "Pon un Yunque de fusión mecánica"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "5A7CF4CD6AD418B1"
+					icon: "cataclysm:ignitium_chestplate"
+					stage: "ecos_l_armaduras_ignitium_pechera"
+					title: "Consigue una pechera de ignitio"
+					type: "gamestage"
+				}
+			]
+			title: "Fusión mecánica"
+			x: 7.50d
+			y: 4.20d
+		}
+		{
+			dependencies: ["102DD8938894F7F8"]
+			description: ["&#19E6E6Zykna:&r &oEl cursio es lo que queda cuando una pirámide maldita entierra su hambre. Pesa, protege y no perdona: una pieza basta para sentirlo, y el set completo cambia la manera de pelear.", "", "&6Qué hacer:&r Consigue una pechera de cursio, forjada en el Yunque de fusión mecánica.", "", "&6Premio:&r 2 cosas al azar: diamantes, trozos de netherita, esmeraldas o lingotes de oro.", "&5A veces (7 %):&r un casco de cursio."]
+			disable_toast: true
+			icon: "cataclysm:cursium_chestplate"
+			id: "5C7B346D353C1258"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "2132E748013EFE71"
+					icon: "cataclysm:cursium_chestplate"
+					stage: "ecos_l_armaduras_cursium_pechera"
+					title: "Consigue una pechera de cursio"
+					type: "gamestage"
+				}
+			]
+			title: "La maldición como armadura"
+			x: 10.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["5C7B346D353C1258"]
+			description: ["&#19E6E6Zykna:&r &oUn set de netherita completo ya es una promesa: aguanta lo que un Eco de los primeros días no. El escudo de netherita acompaña a la armadura; juntos resisten lo que rompe a los demás.", "", "&6Qué hacer:&r Ponte el set completo de armadura de netherita y fabrica un escudo de netherita de Shield Expansion.", "", "&6Premio:&r 2 cosas al azar: diamantes, trozos de netherita, esmeraldas o lingotes de oro.", "&5A veces (7 %):&r un lingote de netherita."]
+			disable_toast: true
+			icon: "minecraft:netherite_chestplate"
+			id: "316D9BA141A53342"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6BCC4C5D90674691"
+					icon: "minecraft:netherite_chestplate"
+					stage: "ecos_l_armaduras_netherita_set"
+					title: "Ponte el set completo de netherita"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "4CDDE571CCAAB9FD"
+					icon: "shieldexp:netherite_shield"
+					stage: "ecos_l_armaduras_netherita_escudo"
+					title: "Fabrica un escudo de netherita"
+					type: "gamestage"
+				}
+			]
+			title: "Cúbreme de escombros"
+			x: 10.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["316D9BA141A53342"]
+			description: ["&#19E6E6Zykna:&r &oHay mundos donde un traje común se derrite. El traje espacial de netherita aguanta el calor, y el traje a reacción hace lo que tu cuerpo no puede: moverte con el empuje de un cohete.", "", "&6Qué hacer:&r Fabrica un traje espacial de netherita y un traje a reacción de Ad Astra.", "", "&6Premio:&r 2 cosas al azar: diamantes, trozos de netherita, esmeraldas o lingotes de oro.", "&5A veces (7 %):&r un lingote de netherita."]
+			disable_toast: true
+			icon: "ad_astra:jet_suit"
+			id: "3FE0B4538E6DA34A"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "27D45A49B35E57B4"
+					icon: "ad_astra:netherite_space_suit"
+					stage: "ecos_l_armaduras_trajesalto_netherita"
+					title: "Fabrica un traje espacial de netherita"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "4560E6F405B9692B"
+					icon: "ad_astra:jet_suit"
+					stage: "ecos_l_armaduras_trajesalto_reaccion"
+					title: "Fabrica un traje a reacción"
+					type: "gamestage"
+				}
+			]
+			title: "Calor y propulsión"
+			x: 10.00d
+			y: 2.80d
+		}
+	]
+	subtitle: ["Del hierro a la netherita, con escudo y vendas: lo que un cuerpo hecho de prisa necesita para durar.", "Cada armadura viene de un mundo distinto: Twilight, el Aether, Blue Skies, las naves y los dragones."]
+	title: "Armaduras, escudos y cuerpo"
+}

@@ -1,0 +1,156 @@
+type = fancymenu_layout
+
+layout-meta {
+  identifier = drippy_loading_overlay
+  render_custom_elements_behind_vanilla = false
+  last_edited_time = 1794807550059
+  is_enabled = true
+  randommode = false
+  randomgroup = 1
+  randomonlyfirsttime = false
+  layout_index = 0
+}
+
+menu_background {
+  image_path = [source:local]/config/fancymenu/assets/ecos_loading_bg.png
+  slide = false
+  repeat_texture = false
+  background_type = image
+}
+
+customization {
+  action = backgroundoptions
+  keepaspectratio = true
+}
+
+scroll_list_customization {
+  preserve_scroll_list_header_footer_aspect_ratio = true
+  render_scroll_list_header_shadow = true
+  render_scroll_list_footer_shadow = true
+  show_scroll_list_header_footer_preview_in_editor = false
+  repeat_scroll_list_header_texture = false
+  repeat_scroll_list_footer_texture = false
+}
+
+element {
+  source = [source:local]/config/fancymenu/assets/ecos_logo.png
+  repeat_texture = false
+  nine_slice_texture = false
+  nine_slice_texture_border_x = 5
+  nine_slice_texture_border_y = 5
+  element_type = image
+  instance_identifier = b94555ca-024f-4442-a3c9-5d6c8c2bae6f-1794807550059
+  custom_element_layer_name = Logo ECOS
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  sticky_anchor = false
+  anchor_point = mid-centered
+  x = -125
+  y = -83
+  width = 250
+  height = 121
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 7e559737-7d6a-41b7-a342-0cb148361125-1794807550059
+  [loading_requirement_container_meta:7e559737-7d6a-41b7-a342-0cb148361125-1794807550059] = [groups:][instances:]
+}
+
+vanilla_button {
+  button_element_executable_block_identifier = 4245f5d0-15f8-4ce8-b365-84a1fb351a6c-1794807550059
+  [executable_block:4245f5d0-15f8-4ce8-b365-84a1fb351a6c-1794807550059][type:generic] = [executables:]
+  restartbackgroundanimations = true
+  nine_slice_custom_background = false
+  nine_slice_border_x = 5
+  nine_slice_border_y = 5
+  navigatable = true
+  element_type = vanilla_button
+  instance_identifier = mojang_logo
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  sticky_anchor = false
+  anchor_point = vanilla
+  x = 0
+  y = 0
+  width = 100
+  height = 20
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = dd73bf69-a1c7-4ede-8977-dbbac3cd11bb-1794807550059
+  [loading_requirement_container_meta:dd73bf69-a1c7-4ede-8977-dbbac3cd11bb-1794807550059] = [groups:][instances:]
+  is_hidden = true
+  automated_button_clicks = 0
+}
+
+vanilla_button {
+  button_element_executable_block_identifier = 4a0c8db2-0f31-45eb-85f3-f48d18e0f6b5-1794807550059
+  [executable_block:4a0c8db2-0f31-45eb-85f3-f48d18e0f6b5-1794807550059][type:generic] = [executables:]
+  restartbackgroundanimations = true
+  nine_slice_custom_background = false
+  nine_slice_border_x = 5
+  nine_slice_border_y = 5
+  navigatable = true
+  element_type = vanilla_button
+  instance_identifier = progress_bar
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  sticky_anchor = false
+  anchor_point = vanilla
+  x = 0
+  y = 0
+  width = 100
+  height = 20
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = e858334c-b2d5-4fab-b92f-16fc6fbad927-1794807550059
+  [loading_requirement_container_meta:e858334c-b2d5-4fab-b92f-16fc6fbad927-1794807550059] = [groups:][instances:]
+  is_hidden = true
+  automated_button_clicks = 0
+}
+
+element {
+  color = #19E6E6
+  element_type = drippy_vanilla_bar
+  instance_identifier = 3a3a5e2d-1161-4c8e-9f95-7cfd4a1f98d9-1794807550059
+  custom_element_layer_name = Barra de progreso
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  sticky_anchor = false
+  anchor_point = bottom-centered
+  x = -110
+  y = -42
+  width = 220
+  height = 10
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 5bd740a3-f30b-42ec-8499-cb20cd34619a-1794807550059
+  [loading_requirement_container_meta:5bd740a3-f30b-42ec-8499-cb20cd34619a-1794807550059] = [groups:][instances:]
+}
+

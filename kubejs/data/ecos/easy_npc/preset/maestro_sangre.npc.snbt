@@ -1,0 +1,29 @@
+{
+  PresetMetadata:{author:"ECOS",category:"ECOS",created:1763280000000L,description:"Maestro de la familia sangre (ECOS v12.1). Generado por tools/gen_maestros.py; no editar a mano.",entityTypeId:"easy_npc:humanoid_slim",modified:1763280000000L,name:"Yolotl, la Curandera de Hueso",variantType:"NOOR",version:"1.0.0"},
+  data:{
+    id:"easy_npc:humanoid_slim",
+    EasyNPCVersion:3,
+    VariantType:"NOOR",
+    CustomName:'{"text": "Yolotl, la Curandera de Hueso", "color": "#FF5A6E"}',
+    CustomNameVisible:1b,
+    Invulnerable:1b,
+    PersistenceRequired:1b,
+    CanPickUpLoot:0b,
+    Tags:["ecos_maestro_npc","ecos_maestro_npc_sangre"],
+    SkinData:{Type:"RESOURCE_LOCATION",Texture:"ecos:textures/entity/maestro/sangre.png"},
+    Attributes:[{Base:0.0d,Name:"minecraft:generic.movement_speed"},{Base:1.0d,Name:"minecraft:generic.knockback_resistance"}],
+    EntityAttribute:{IsInvulnerable:1b,IsAttackableByPlayers:0b,IsAttackableByMonsters:0b,IsKnockbackResistant:1b,IsExplosionResistant:1b,IsPushable:0b,PushEntities:0b,CanBeLeashed:0b},
+    ObjectiveData:{ObjectiveDataSet:[{Type:"LOOK_AT_RESET"},{Type:"LOOK_AT_PLAYER"},{Type:"LOOK_AT_MOB"}]},
+    ActionData:{ActionEventSet:{ON_INTERACTION:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro sangre hablar",PermLevel:2},{Type:"OPEN_DEFAULT_DIALOG"}]}},
+    DialogData:{Type:"CUSTOM",DialogDataSet:[
+      {Name:"Bendicion",Label:"bendicion",Priority:100,Texts:[{Text:"Llevas mi marca, @initiator. Cuida tu sangre; es la única que tienes.\\n\\nSi te rompes, ya sabes dónde estoy."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_sangre_g2"}],Buttons:[{Name:"Gracias",Label:"b_gracias",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Lista",Label:"lista",Priority:50,Texts:[{Text:"Ya sanaste lo que tenías que sanar, @initiator. Se nota.\\n\\nExtiende el brazo: aquí va mi marca."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_sangre_lista"}],Buttons:[{Name:"Recibir tu marca",Label:"b_marca",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro sangre marca",PermLevel:2},{Type:"CLOSE_DIALOG"}]},{Name:"Todavía no",Label:"b_luego",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Progreso",Label:"progreso",Priority:20,Texts:[{Text:"Déjame verte. Llevas @score(ecos_mpasos) de 5 pasos, @initiator.\\n\\nUna herida cierra por capas. Tú también."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_sangre_aceptada"}],Buttons:[{Name:"¿Qué me falta?",Label:"b_pasos",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro sangre pasos",PermLevel:2},{Type:"CLOSE_DIALOG"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Saludo",Label:"saludo",Priority:10,Texts:[{Text:"Pasa, @initiator, pero no toques los frascos. Soy Yolotl. Remendé cuerpos hechos de prisa, como el tuyo.\\n\\nTu sangre y la mía son de la misma astilla. Si quieres mi marca, demuéstrame que sabes cuidar una vida."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_fam_sangre"}],Buttons:[{Name:"Acepto tu prueba",Label:"b_acepto",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro sangre aceptar",PermLevel:2},{Type:"OPEN_NAMED_DIALOG",Cmd:"aceptada"}]},{Name:"¿Quién eres?",Label:"b_quien",Actions:[{Type:"OPEN_NAMED_DIALOG",Cmd:"quien"}]},{Name:"Ahora no",Label:"b_ahora_no",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Ajeno",Label:"ajeno",Priority:0,Texts:[{Text:"Tu sangre no late con la mía, @initiator. Mi marca te enfermaría.\\n\\nBusca a tu Maestro. Zykna conoce el rumor."}],Buttons:[{Name:"¿Quién eres?",Label:"b_quien",Actions:[{Type:"OPEN_NAMED_DIALOG",Cmd:"quien"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Quien",Label:"quien",Priority:-1,Texts:[{Text:"Mi nombre quiere decir corazón. Fui médica de campo del Proyecto: los clones salían frágiles y alguien tenía que coserlos.\\n\\nCuando el Éter estalló me quedé en este domo envenenado. El veneno también cura, si sabes la dosis."}],Buttons:[{Name:"Volver",Label:"b_volver",Actions:[{Type:"OPEN_DEFAULT_DIALOG"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Aceptada",Label:"aceptada",Priority:-1,Texts:[{Text:"Entonces escucha. Son cinco pasos. El primero es el camino hasta mi domo y vencer a su guardiana.\\n\\nZykna te los repite. Cuando acabes, vuelve y te pongo mi marca."}],Buttons:[{Name:"Entendido",Label:"b_entendido",Actions:[{Type:"CLOSE_DIALOG"}]}]}
+    ]},
+    Status:{finalized:1b}
+  }
+}

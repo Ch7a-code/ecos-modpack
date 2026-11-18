@@ -1,0 +1,345 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_13_crepusculo"
+	group: "56F3188FE75A98A8"
+	icon: "twilightforest:magic_map"
+	id: "0D9C21E92A924833"
+	order_index: 13
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oEl Bosque Crepuscular no es un lugar: es un recuerdo que un fragmento de la Primera Mente no quiso soltar. Por eso su portal parece una cicatriz y la luz nunca termina de caer. Entra con cuidado: aquí las cosas recuerdan.", "", "&6Qué hacer:&r Abre el portal del Bosque Crepuscular (un estanque rodeado de flores y un diamante lanzado al agua) y entra.", "", "&6Premio:&r 2 cosas al azar: antorchas, pan, bayas de antorcha o hierro.", "&5A veces (7 %):&r una espada de madera de hierro encantada con Filo."]
+			disable_toast: true
+			icon: "twilightforest:twilight_portal_miniature_structure"
+			id: "32B46B90B050EFDB"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "34811A7F95EA7309"
+					icon: "twilightforest:twilight_portal_miniature_structure"
+					stage: "ecos_l_crepusculo_entrar_entrar"
+					title: "Entra al Bosque Crepuscular"
+					type: "gamestage"
+				}
+			]
+			title: "Una cicatriz en el bosque"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["32B46B90B050EFDB"]
+			description: ["&#19E6E6Zykna:&r &oAquí las brújulas mienten y los caminos se doblan. Un mapa mágico se llena con lo que recorres, y uno de minerales te cuenta lo que hay bajo tus pies. Es la forma más amable de no perderte en un recuerdo ajeno.", "", "&6Qué hacer:&r Fabrica un mapa mágico y un mapa de minerales del Bosque Crepuscular.", "", "&6Premio:&r 2 cosas al azar: papel, una brújula, hierro o pan.", "&5A veces (7 %):&r un catalejo."]
+			disable_toast: true
+			icon: "twilightforest:magic_map"
+			id: "701E7ACC0D7303BC"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "121835B8E032160F"
+					icon: "twilightforest:magic_map"
+					stage: "ecos_l_crepusculo_mapa_magico"
+					title: "Fabrica un mapa mágico"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "370CFFA94178E307"
+					icon: "twilightforest:ore_map"
+					stage: "ecos_l_crepusculo_mapa_minerales"
+					title: "Fabrica un mapa de minerales"
+					type: "gamestage"
+				}
+			]
+			title: "El mapa que se dibuja solo"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["701E7ACC0D7303BC"]
+			description: ["&#19E6E6Zykna:&r &oLo que el bosque recuerda, lo recuerda por piezas. La mesa de desfabricar desarma un objeto en los materiales que lo formaron: tira lo que ya no sirve y recupera lo que vale.", "", "&6Qué hacer:&r Fabrica una mesa de desfabricar. Sirve para desarmar un objeto en sus materiales.", "", "&6Premio:&r 2 cosas al azar: hierro, cobre, redstone o pedernal.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "twilightforest:uncrafting_table"
+			id: "78ADCA294C7DADFD"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "04C69E500E1B5BF8"
+					icon: "twilightforest:uncrafting_table"
+					stage: "ecos_l_crepusculo_mesa_mesa"
+					title: "Ten una mesa de desfabricar"
+					type: "gamestage"
+				}
+			]
+			title: "Deshacer para rehacer"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["78ADCA294C7DADFD"]
+			description: ["&#19E6E6Zykna:&r &oLos fragmentos grandes de la Primera Mente se metieron en los cuerpos más fuertes. Aquí uno vive dentro de la Naga, que defiende su patio como quien defiende un recuerdo. Con ella y el Lich caídos, el mundo puede subir a la Era I.", "", "&6Qué hacer:&r Vence a la Naga en su patio, recoge su escama y fabrica la armadura de pecho y de piernas de Naga.", "", "&6Premio:&r 2 cosas al azar: escamas de Naga, carne cocida, hierro o una esmeralda.", "&5A veces (7 %):&r un peto de Naga encantado con Protección."]
+			disable_toast: true
+			icon: "twilightforest:naga_scale"
+			id: "5FD0B0F6B906AA36"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "304FE4E5541F6E15"
+					icon: "twilightforest:naga_scale"
+					stage: "ecos_l_crepusculo_naga_matar"
+					title: "Vence a la Naga"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "009FBA34C83ECCAE"
+					icon: "twilightforest:naga_chestplate"
+					stage: "ecos_l_crepusculo_naga_armadura"
+					title: "Fabrica la armadura de Naga"
+					type: "gamestage"
+				}
+			]
+			title: "La Naga del patio"
+			x: 0.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["5FD0B0F6B906AA36"]
+			description: ["&#19E6E6Zykna:&r &oEl Lich guarda en lo alto de su torre un fragmento que aún habla como mago. Junto a la Naga, es lo que el Templo pide para encender el Cimiento. Sube, véncelo y recupera un cetro.", "", "&6Qué hacer:&r Sube a la torre del Lich, véncelo y recupera un cetro. Con él y la Naga caídos, el mundo puede subir a la Era I tras el ritual del Cimiento.", "", "&6Premio:&r 2 cosas al azar: lingotes de madera de hierro, hierro, frascos de experiencia o esmeraldas.", "&5A veces (7 %):&r un pico de madera de hierro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "twilightforest:lich_trophy"
+			id: "4C324E5D0A28206F"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3B002148E441DB48"
+					icon: "twilightforest:lich_trophy"
+					stage: "ecos_l_crepusculo_lich_matar"
+					title: "Vence al Lich"
+					type: "gamestage"
+				}
+			]
+			title: "La torre del Lich"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["4C324E5D0A28206F"]
+			description: ["&#19E6E6Zykna:&r &oBajo tierra hay un laberinto que huele a hongos y a carne guisada. Su guardián, el Minoshroom, parece haber sido otra cosa antes de recordar únicamente esto. Dentro hay una bóveda con un pico que rompe paredes.", "", "&6Qué hacer:&r Entra al laberinto, vence al Minoshroom y encuentra el pico en la bóveda secreta.", "", "&6Premio:&r 2 cosas al azar: galletas del laberinto, estofado de Meef, carne cocida o hierro.", "&5A veces (7 %):&r un hacha de minotauro encantada con Filo."]
+			disable_toast: true
+			icon: "twilightforest:minoshroom_trophy"
+			id: "380EFDFB688E7399"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "47BA4B2C39351DF0"
+					icon: "twilightforest:minoshroom_trophy"
+					stage: "ecos_l_crepusculo_laberinto_matar"
+					title: "Vence al Minoshroom"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "06DB8E78446F4F2F"
+					icon: "twilightforest:mazebreaker_pickaxe"
+					stage: "ecos_l_crepusculo_laberinto_pico"
+					title: "Encuentra el pico del laberinto"
+					type: "gamestage"
+				}
+			]
+			title: "El laberinto del Minoshroom"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["380EFDFB688E7399"]
+			description: ["&#19E6E6Zykna:&r &oUn horno de ceniza no se parece a ninguno de los de allá afuera. Hazte uno y descubre para qué sirve: el bosque sabe cosas del fuego que el Búnker nunca anotó.", "", "&6Qué hacer:&r Fabrica un horno de ceniza y tenlo contigo.", "", "&6Premio:&r 2 cosas al azar: carbón, carbón vegetal, hierro o chuletas cocidas.", "&5A veces (7 %):&r polvo de blaze."]
+			disable_toast: true
+			icon: "twilightforest:cinder_furnace"
+			id: "4E108F4ED6C48B73"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "775B54A3DD587042"
+					icon: "twilightforest:cinder_furnace"
+					stage: "ecos_l_crepusculo_horno_horno"
+					title: "Ten un horno de ceniza"
+					type: "gamestage"
+				}
+			]
+			title: "Un horno de ceniza"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["4E108F4ED6C48B73"]
+			description: ["&#19E6E6Zykna:&r &oEn su guarida, la Hidra tiene muchas cabezas y una sola idea: no dejarte pasar. Cuando cae, el mundo se acerca a la Era II, junto al Netherite Monstrosity y el ritual del Taller.", "", "&6Qué hacer:&r Vence a la Hidra en su guarida. Es una de las dos pruebas que piden la Era II junto al Netherite Monstrosity.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, chuletas de Hidra o un diamante.", "&5A veces (7 %):&r lingotes ardientes."]
+			disable_toast: true
+			icon: "twilightforest:hydra_trophy"
+			id: "13B99E793AE2AE1C"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5117E0134B0C36AD"
+					icon: "twilightforest:hydra_trophy"
+					stage: "ecos_l_crepusculo_hidra_matar"
+					title: "Vence a la Hidra"
+					type: "gamestage"
+				}
+			]
+			title: "La Hidra de la guarida"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["13B99E793AE2AE1C"]
+			description: ["&#19E6E6Zykna:&r &oEn la fortaleza de los caballeros, el recuerdo quedó atrapado con la armadura puesta: los Caballeros Fantasma vigilan una tumba que nadie nombra. Acomódalos y llévate su metal.", "", "&6Qué hacer:&r Entra a la fortaleza de los caballeros, vence a los Caballeros Fantasma y deja su tumba en paz.", "", "&6Premio:&r 2 cosas al azar: lingotes de metal de caballero, oro, esmeraldas o un diamante.", "&5A veces (7 %):&r un pico de metal de caballero encantado con Eficiencia."]
+			disable_toast: true
+			icon: "twilightforest:knight_phantom_trophy"
+			id: "0A31E7D5B9EE0F42"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "72D46E0DDDCAE4FC"
+					icon: "twilightforest:knight_phantom_trophy"
+					stage: "ecos_l_crepusculo_caballeros_matar"
+					title: "Acomoda a los Caballeros Fantasma"
+					type: "gamestage"
+				}
+			]
+			title: "Fantasmas con armadura"
+			x: 5.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["0A31E7D5B9EE0F42"]
+			description: ["&#19E6E6Zykna:&r &oEn lo alto de su torre llora un Ur-Ghast enorme, y sus lágrimas queman. Es la memoria de un Ghast que se quedó atorado en un solo dolor. Cuando caiga, toca las lágrimas y llévate lo que quede.", "", "&6Qué hacer:&r Sube a la torre del Ur-Ghast, véncelo y toca sus lágrimas ardientes.", "", "&6Premio:&r 2 cosas al azar: diamantes, oro, carminita o lágrimas de Ghast.", "&5A veces (7 %):&r un trozo de chatarra de netherita."]
+			disable_toast: true
+			icon: "twilightforest:ur_ghast_trophy"
+			id: "451167EDB911EB8F"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "2AC005705BF37D85"
+					icon: "twilightforest:ur_ghast_trophy"
+					stage: "ecos_l_crepusculo_urghast_lagrimas"
+					title: "Toca las lágrimas del Ur-Ghast"
+					type: "gamestage"
+				}
+			]
+			title: "Las lágrimas del Ur-Ghast"
+			x: 7.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["451167EDB911EB8F"]
+			description: ["&#19E6E6Zykna:&r &oCada tormenta tiene su cueva. En la de los yetis manda el Alfa y el frío le obedece. Su pelaje es el abrigo que el Glaciar le debe a quien lo venza.", "", "&6Qué hacer:&r Vence al Yeti Alfa y cubre tus prendas árticas con su pelaje.", "", "&6Premio:&r 2 cosas al azar: pelaje ártico, pelaje de Yeti Alfa, diamantes o esmeraldas.", "&5A veces (7 %):&r un peto ártico encantado con Protección."]
+			disable_toast: true
+			icon: "twilightforest:alpha_yeti_trophy"
+			id: "38AC56B9B530FCF0"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "63544B88781C2A3A"
+					icon: "twilightforest:alpha_yeti_fur"
+					stage: "ecos_l_crepusculo_yeti_pelaje"
+					title: "Cubre tus prendas con pelaje de Yeti Alfa"
+					type: "gamestage"
+				}
+			]
+			title: "Pelaje alfa"
+			x: 7.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["38AC56B9B530FCF0"]
+			description: ["&#19E6E6Zykna:&r &oSobre el Glaciar reina un fragmento helado. A quien tenga a Citlali de Maestra, esta Reina le toca como la última prueba. Si cae, el cielo del bosque se despeja.", "", "&6Qué hacer:&r Sube al palacio de la aurora, en el Glaciar, y vence a la Reina de las Nieves.", "", "&6Premio:&r 2 cosas al azar: diamantes, frascos de experiencia, bombas de hielo o esmeraldas.", "&5A veces (7 %):&r una espada de hielo encantada con Filo."]
+			disable_toast: true
+			icon: "twilightforest:snow_queen_trophy"
+			id: "151F5706D10DC04F"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "2D72A336884F8F6B"
+					icon: "twilightforest:snow_queen_trophy"
+					stage: "ecos_l_crepusculo_reina_matar"
+					title: "Vence a la Reina de las Nieves"
+					type: "gamestage"
+				}
+			]
+			title: "La Reina de las Nieves"
+			x: 7.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["151F5706D10DC04F"]
+			description: ["&#19E6E6Zykna:&r &oMás allá de lo que el bosque se atrevió a recordar están las Tierras Altas: cuevas de trolls y gigantes que viven entre las nubes. Si tu Maestro es Tepoztli, el Gigante Acorazado de ahí guarda su hogar.", "", "&6Qué hacer:&r En las Tierras Altas, encuentra lo que piden las cuevas de los trolls. Luego mata a un gigante en las nubes, recupera su pico y vuelve a las cuevas.", "", "&6Premio:&r 2 cosas al azar: diamantes, hierro, oro o chatarra de netherita.", "&5A veces (7 %):&r dos trozos de chatarra de netherita."]
+			disable_toast: true
+			icon: "twilightforest:giant_pickaxe"
+			id: "15D954DDD28B6667"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "57D04D03F853B64B"
+					icon: "twilightforest:giant_sword"
+					stage: "ecos_l_crepusculo_altas_trolls"
+					title: "Cumple lo que piden las cuevas de trolls"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "759EB7C20A20C471"
+					icon: "twilightforest:giant_pickaxe"
+					stage: "ecos_l_crepusculo_altas_gigante"
+					title: "Vence a un gigante en las nubes"
+					type: "gamestage"
+				}
+			]
+			title: "Las Tierras Altas"
+			x: 7.50d
+			y: 4.20d
+		}
+	]
+	subtitle: ["Un bolsillo de memoria que un fragmento recordó. Sus portales son cicatrices.", "De la Naga a las Tierras Altas: un Portador por cada paso, cada uno con su premio."]
+	title: "El Bosque Crepuscular"
+}

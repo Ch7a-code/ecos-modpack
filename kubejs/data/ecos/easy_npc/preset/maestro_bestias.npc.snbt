@@ -1,0 +1,29 @@
+{
+  PresetMetadata:{author:"ECOS",category:"ECOS",created:1763280000000L,description:"Maestro de la familia bestias (ECOS v12.1). Generado por tools/gen_maestros.py; no editar a mano.",entityTypeId:"easy_npc:humanoid_slim",modified:1763280000000L,name:"Ocelotzin, la Última Domadora",variantType:"ZURI",version:"1.0.0"},
+  data:{
+    id:"easy_npc:humanoid_slim",
+    EasyNPCVersion:3,
+    VariantType:"ZURI",
+    CustomName:'{"text": "Ocelotzin, la Última Domadora", "color": "#A8D15A"}',
+    CustomNameVisible:1b,
+    Invulnerable:1b,
+    PersistenceRequired:1b,
+    CanPickUpLoot:0b,
+    Tags:["ecos_maestro_npc","ecos_maestro_npc_bestias"],
+    SkinData:{Type:"RESOURCE_LOCATION",Texture:"ecos:textures/entity/maestro/bestias.png"},
+    Attributes:[{Base:0.0d,Name:"minecraft:generic.movement_speed"},{Base:1.0d,Name:"minecraft:generic.knockback_resistance"}],
+    EntityAttribute:{IsInvulnerable:1b,IsAttackableByPlayers:0b,IsAttackableByMonsters:0b,IsKnockbackResistant:1b,IsExplosionResistant:1b,IsPushable:0b,PushEntities:0b,CanBeLeashed:0b},
+    ObjectiveData:{ObjectiveDataSet:[{Type:"LOOK_AT_RESET"},{Type:"LOOK_AT_PLAYER"},{Type:"LOOK_AT_MOB"}]},
+    ActionData:{ActionEventSet:{ON_INTERACTION:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro bestias hablar",PermLevel:2},{Type:"OPEN_DEFAULT_DIALOG"}]}},
+    DialogData:{Type:"CUSTOM",DialogDataSet:[
+      {Name:"Bendicion",Label:"bendicion",Priority:100,Texts:[{Text:"Llevas mi marca, @initiator. Que tu manada nunca duerma con hambre.\\n\\nSi la Fractura vuelve a rugir, aquí estaré, entre los huesos."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_bestias_g2"}],Buttons:[{Name:"Gracias",Label:"b_gracias",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Lista",Label:"lista",Priority:50,Texts:[{Text:"Ya está. Lo veo en cómo pisas, @initiator: la manada te reconoce.\\n\\nAcércate y recibe mi marca."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_bestias_lista"}],Buttons:[{Name:"Recibir tu marca",Label:"b_marca",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro bestias marca",PermLevel:2},{Type:"CLOSE_DIALOG"}]},{Name:"Todavía no",Label:"b_luego",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Progreso",Label:"progreso",Priority:20,Texts:[{Text:"Vuelves, @initiator. Llevas @score(ecos_mpasos) de 5 pasos.\\n\\nNo hay prisa. La bestia que corre sin rumbo termina en la trampa."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_maestro_bestias_aceptada"}],Buttons:[{Name:"¿Qué me falta?",Label:"b_pasos",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro bestias pasos",PermLevel:2},{Type:"CLOSE_DIALOG"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Saludo",Label:"saludo",Priority:10,Texts:[{Text:"Hueles a manada, @initiator. Soy Ocelotzin. Crucé la grieta antes que tú y domé lo que venía detrás.\\n\\nLo que enseño solo lo entiende tu astilla. Si quieres mi marca, demuéstrame que una bestia te sigue sin cadena."}],Conditions:[{Type:"PLAYER_TAG",Name:"ecos_fam_bestias"}],Buttons:[{Name:"Acepto tu prueba",Label:"b_acepto",Actions:[{Type:"COMMAND",Cmd:"/execute as @initiator run zykna maestro bestias aceptar",PermLevel:2},{Type:"OPEN_NAMED_DIALOG",Cmd:"aceptada"}]},{Name:"¿Quién eres?",Label:"b_quien",Actions:[{Type:"OPEN_NAMED_DIALOG",Cmd:"quien"}]},{Name:"Ahora no",Label:"b_ahora_no",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Ajeno",Label:"ajeno",Priority:0,Texts:[{Text:"Tu astilla no es de mi familia, @initiator. Lo que sé no cabe en ti.\\n\\nBusca a tu propio Maestro. Zykna conoce el rumor."}],Buttons:[{Name:"¿Quién eres?",Label:"b_quien",Actions:[{Type:"OPEN_NAMED_DIALOG",Cmd:"quien"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Quien",Label:"quien",Priority:-1,Texts:[{Text:"Mi nombre quiere decir ocelote. Fui de los primeros Ecos del Proyecto.\\n\\nCuando el Éter estalló me quedé en este cuenco de huesos, con lo que cruzó la grieta. No soy heroína: soy memoria. Recuerdo cómo se calma a un tirano sin romperlo."}],Buttons:[{Name:"Volver",Label:"b_volver",Actions:[{Type:"OPEN_DEFAULT_DIALOG"}]},{Name:"Me voy",Label:"b_adios",Actions:[{Type:"CLOSE_DIALOG"}]}]},
+      {Name:"Aceptada",Label:"aceptada",Priority:-1,Texts:[{Text:"Entonces escucha. Son cinco pasos. El primero es el camino: llegar hasta aquí y vencer a mi guardián.\\n\\nZykna te los repite. Cuando los cumplas, vuelve: la marca la pongo yo."}],Buttons:[{Name:"Entendido",Label:"b_entendido",Actions:[{Type:"CLOSE_DIALOG"}]}]}
+    ]},
+    Status:{finalized:1b}
+  }
+}

@@ -1,0 +1,323 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_18_custodios"
+	group: "56F3188FE75A98A8"
+	icon: "star_wars_expansion:holocron"
+	id: "1335C58D179A916E"
+	order_index: 18
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oLos Custodios llegaron a la Fractura antes que el Proyecto Éter. Al Éter lo llamaron la Fuerza. Lo que dejaron está regado por otros mundos: naves, sables, holocrones. Empieza por el primero.", "", "&6Qué hacer:&r Empieza la aventura de los Custodios (Star Wars Expansion): este logro se abre al comenzar.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, créditos galácticos o hierro.", "&5A veces (7 %):&r un pico de diamante encantado con Eficiencia."]
+			disable_toast: true
+			icon: "star_wars_expansion:holocron"
+			id: "5607F78F7B9D11F3"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4FF86C50695AD1BE"
+					icon: "star_wars_expansion:holocron"
+					stage: "ecos_l_custodios_llegada_inicio"
+					title: "Empieza la aventura"
+					type: "gamestage"
+				}
+			]
+			title: "Otros llegaron antes"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["5607F78F7B9D11F3"]
+			description: ["&#19E6E6Zykna:&r &oEn los mundos de los Custodios nadie acepta esmeraldas: allá se paga con créditos. Gánate los primeros comerciando o con lo que sueltan los saqueadores.", "", "&6Qué hacer:&r Gana créditos galácticos (Star Wars Expansion), comerciando con los habitantes o con lo que sueltan.", "", "&6Premio:&r 2 cosas al azar: créditos galácticos, esmeraldas, diamantes o hierro.", "&5A veces (7 %):&r un pico de diamante encantado con Fortuna."]
+			disable_toast: true
+			icon: "star_wars_expansion:galactic_credit"
+			id: "3B8314700CB99412"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "255D730373F4F861"
+					icon: "star_wars_expansion:galactic_credit"
+					stage: "ecos_l_custodios_creditos_credito"
+					title: "Gana créditos galácticos"
+					type: "gamestage"
+				}
+			]
+			title: "Créditos galácticos"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["3B8314700CB99412"]
+			description: ["&#19E6E6Zykna:&r &oUn Custodio no viaja a pie. Sus naves cruzan el espacio de un salto. Consigue una, colócala, súbete y abre el mapa galáctico con la tecla Z para elegir adónde ir.", "", "&6Qué hacer:&r Consigue un X-Wing o un TIE Fighter, colócalo y súbete. Con la tecla Z abres el mapa galáctico.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, créditos galácticos o hierro.", "&5A veces (7 %):&r una pechera de diamante encantada con Protección."]
+			disable_toast: true
+			icon: "star_wars_expansion:x_wing_item"
+			id: "240EB92CFD74ECE2"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1B86605D7404DC2B"
+					icon: "star_wars_expansion:x_wing_item"
+					stage: "ecos_l_custodios_nave_nave"
+					title: "Consigue una nave"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "76029866167505BB"
+					icon: "star_wars_expansion:tie_fighter_item"
+					stage: "ecos_l_custodios_nave_subir"
+					title: "Súbete a la nave"
+					type: "gamestage"
+				}
+			]
+			title: "Una nave de otra época"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["240EB92CFD74ECE2"]
+			description: ["&#19E6E6Zykna:&r &oTatooine es arena, viento y dos soles que no se ponen al mismo tiempo. Los Custodios la pisaron antes que tú, y los bantha ahora la recorren como si fuera suya. Lleva agua.", "", "&6Qué hacer:&r Viaja a Tatooine y prueba comida local (Star Wars Expansion). Elige el planeta en el mapa galáctico con la tecla Z.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, créditos galácticos, cuero o hierro.", "&5A veces (7 %):&r una espada de diamante encantada con Filo."]
+			disable_toast: true
+			icon: "minecraft:sandstone"
+			id: "294DE132BA0BDB54"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "131CC82945AFD342"
+					icon: "minecraft:sandstone"
+					stage: "ecos_l_custodios_tatooine_viaje"
+					title: "Viaja a Tatooine"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "00371BF4F30F0F04"
+					icon: "minecraft:cooked_mutton"
+					stage: "ecos_l_custodios_tatooine_bantha"
+					title: "Prueba comida de Tatooine"
+					type: "gamestage"
+				}
+			]
+			title: "Dos soles"
+			x: 0.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["294DE132BA0BDB54"]
+			description: ["&#19E6E6Zykna:&r &oHoth es lo contrario de Tatooine: hielo, viento y cuevas con garras. Para sobrevivir hace falta ropa de tauntaun, y alguien tuvo que averiguarlo por las malas antes que tú.", "", "&6Qué hacer:&r Viaja a Hoth y consigue el traje de nieve completo (Star Wars Expansion).", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, créditos galácticos, hierro o hielo azul.", "&5A veces (7 %):&r una pechera de diamante encantada con Protección."]
+			disable_toast: true
+			icon: "minecraft:snowball"
+			id: "52998E1DCCCFF983"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5D87242671E98EAE"
+					icon: "minecraft:snowball"
+					stage: "ecos_l_custodios_hoth_viaje"
+					title: "Viaja a Hoth"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1C96564007DAE1C4"
+					icon: "minecraft:packed_ice"
+					stage: "ecos_l_custodios_hoth_traje"
+					title: "Consigue el traje de nieve completo"
+					type: "gamestage"
+				}
+			]
+			title: "Ventisca sin fin"
+			x: 0.00d
+			y: 5.60d
+		}
+		{
+			dependencies: ["52998E1DCCCFF983"]
+			description: ["&#19E6E6Zykna:&r &oNaboo es verde, ancha y tranquila, con ciudades que parecen flotar sobre el agua. Los Custodios la dejaron para el final, quizá porque querían que los recordaran en paz.", "", "&6Qué hacer:&r Viaja a Naboo (Star Wars Expansion) desde el mapa galáctico.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, créditos galácticos, hierro o cobre.", "&5A veces (7 %):&r un casco de diamante encantado con Respiración."]
+			disable_toast: true
+			icon: "minecraft:conduit"
+			id: "7F83AA1A3CAB1F84"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "2A29B2A56FC668FD"
+					icon: "minecraft:conduit"
+					stage: "ecos_l_custodios_naboo_viaje"
+					title: "Viaja a Naboo"
+					type: "gamestage"
+				}
+			]
+			title: "Agua, plazas y silencio"
+			x: 0.00d
+			y: 7.00d
+		}
+		{
+			dependencies: ["7F83AA1A3CAB1F84"]
+			description: ["&#19E6E6Zykna:&r &oEndor es un bosque gigante donde los árboles esconden más de lo que enseñan. Entra con cuidado y no te separes del camino: aquí los que viven en lo alto saben quién eres antes de que llegues.", "", "&6Qué hacer:&r Viaja a Endor (Star Wars Expansion) desde el mapa galáctico.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, créditos galácticos, troncos o hierro.", "&5A veces (7 %):&r un pico de diamante encantado con Eficiencia."]
+			disable_toast: true
+			icon: "minecraft:spruce_log"
+			id: "4EEED1F8A95DE839"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "78CF5323F5F5D5FD"
+					icon: "minecraft:spruce_log"
+					stage: "ecos_l_custodios_endor_viaje"
+					title: "Viaja a Endor"
+					type: "gamestage"
+				}
+			]
+			title: "El bosque que escucha"
+			x: 0.00d
+			y: 8.40d
+		}
+		{
+			dependencies: ["4EEED1F8A95DE839"]
+			description: ["&#19E6E6Zykna:&r &oUn holocrón guarda lo que un Custodio quiso dejar dicho. Es chico, frío y no pide nada: solo abre su mensaje si estás en calma para oírlo. Es lo más cercano a una carta de ellos que tendrás.", "", "&6Qué hacer:&r Consigue un holocrón (Star Wars Expansion).", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, créditos galácticos, cuero o hierro.", "&5A veces (7 %):&r un casco de diamante encantado con Protección."]
+			disable_toast: true
+			icon: "star_wars_expansion:holocron"
+			id: "68226026FA4CF032"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1F0EA91DF67DEB9D"
+					icon: "star_wars_expansion:holocron"
+					stage: "ecos_l_custodios_holocron_holo"
+					title: "Consigue un holocrón"
+					type: "gamestage"
+				}
+			]
+			title: "Un mensaje en un cubo"
+			x: 0.00d
+			y: 9.80d
+		}
+		{
+			dependencies: ["68226026FA4CF032"]
+			description: ["&#19E6E6Zykna:&r &oLos sables de luz no se compran: se construyen alrededor de un cristal kyber. El cristal es el filo y quien lo sostiene es el resto. Cuídalo, no es un arma común.", "", "&6Qué hacer:&r Consigue un cristal kyber y un sable de luz (Star Wars Expansion).", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, créditos galácticos, hierro o redstone.", "&5A veces (7 %):&r una espada de diamante encantada con Filo."]
+			disable_toast: true
+			icon: "star_wars_expansion:kyber_crystal_blue"
+			id: "42FDC86A3DE6B16D"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6A7AC577E0789471"
+					icon: "star_wars_expansion:kyber_crystal_blue"
+					stage: "ecos_l_custodios_sable_kyber"
+					title: "Consigue un cristal kyber"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "49E99F928BA045D1"
+					icon: "star_wars_expansion:blue_lightsaber_closed"
+					stage: "ecos_l_custodios_sable_sable"
+					title: "Ten un sable de luz"
+					type: "gamestage"
+				}
+			]
+			title: "Luz que se enciende con la mente"
+			x: 0.00d
+			y: 11.20d
+		}
+		{
+			dependencies: ["42FDC86A3DE6B16D"]
+			description: ["&#19E6E6Zykna:&r &oEsta armadura no fue hecha para ti: es de soldados de otra guerra. Aun así protege, y se nota que alguien la usó de verdad. Póntela con respeto.", "", "&6Qué hacer:&r Consigue casco, pechera y pantalón de armadura de clon (Star Wars Expansion).", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, créditos galácticos, hierro o cuero.", "&5A veces (7 %):&r un casco de diamante encantado con Protección."]
+			disable_toast: true
+			icon: "star_wars_expansion:clone_armor_helmet"
+			id: "769837DF6045AB1C"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7E7F82D6BCC97DBD"
+					icon: "star_wars_expansion:clone_armor_helmet"
+					stage: "ecos_l_custodios_clones_casco"
+					title: "Consigue un casco de clon"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "6BCF86798CC67520"
+					icon: "star_wars_expansion:clone_armor_chestplate"
+					stage: "ecos_l_custodios_clones_peto"
+					title: "Consigue una pechera de clon"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3033BF0581CF2B61"
+					icon: "star_wars_expansion:clone_armor_leggings"
+					stage: "ecos_l_custodios_clones_pantalon"
+					title: "Consigue un pantalón de clon"
+					type: "gamestage"
+				}
+			]
+			title: "Armadura de otra guerra"
+			x: 0.00d
+			y: 12.60d
+		}
+		{
+			dependencies: ["769837DF6045AB1C"]
+			description: ["&#19E6E6Zykna:&r &oLo que los Custodios temían no llegó de fuera: nació de la misma Fuerza torcida, igual que Maledictus nació de la Primera Mente. Hay un Señor antiguo que aún camina. Vence lo que ellos no pudieron.", "", "&6Qué hacer:&r Vence a un Señor Sith antiguo (Star Wars Expansion). Lleva armadura buena, un sable y comida.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, créditos galácticos, oro o chatarra de netherita.", "&5A veces (7 %):&r una espada de diamante encantada con Filo."]
+			disable_toast: true
+			icon: "minecraft:echo_shard"
+			id: "3AAB7A9E14D1C3D8"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "2321FE240E928C74"
+					icon: "minecraft:echo_shard"
+					stage: "ecos_l_custodios_sith_matar"
+					title: "Vence a un Señor Sith antiguo"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "2598973B49A437AC"
+					icon: "minecraft:echo_shard"
+					stage: "ecos_l_custodios_sith_logro"
+					title: "Completa el logro del Señor Sith"
+					type: "gamestage"
+				}
+			]
+			title: "Siempre son dos"
+			x: 2.50d
+			y: 0.00d
+		}
+	]
+	subtitle: ["Una civilización antigua que llegó a la Fractura antes que el Proyecto y llamó Fuerza al Éter.", "Sus naves, sus sables y sus holocrones son lo que dejaron: encuéntralos."]
+	title: "Los Custodios"
+}

@@ -1,0 +1,1835 @@
+{
+  "name": "Blood Manipulation",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/blood.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "energy_bars": {
+    "blood_percent": {
+      "color": "#ff0000",
+      "max": 100,
+      "synced_value": {
+        "type": "score",
+        "objective": "Blood.Amount",
+        "fallback": 0
+      }
+    }
+  },
+  "abilities": {
+    "Bloodweaver": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Bloodweaver",
+        "tag @s add EOP.Has.Power",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.Can.Get.Blood",
+        "scoreboard objectives add Blood.Amount dummy",
+        "scoreboard players add @s Blood.Amount 0",
+        "scoreboard objectives add EOP.Blood.Orb.Number dummy",
+        "scoreboard players set @s EOP.Blood.Orb.Number 0",
+        "scoreboard objectives add EOP.Blood.Spike.Number dummy",
+        "scoreboard players set @s EOP.Blood.Spike.Number 0",
+        "scoreboard objectives add BLM.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Bloodweaver",
+        "tag @s remove EOP.Can.Get.Blood",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "clear @s eop:blood_scythe",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Blood.Manipulation": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/blood.png",
+      "title": "Blood Manipulation",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to manipulate your own blood"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:bloodweaver @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{bloodweaver:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Blood Manipulation\",\"color\":\"#ff0000\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "BLM.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s BLM.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "BLM.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BLM.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s BLM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "BLM.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BLM.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s BLM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "BLM.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BLM.Scoreboard.Gain4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s BLM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 21600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "BLM.Score",
+            "min_score": 15,
+            "max_score": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BLM.Scoreboard.Gain5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s BLM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 36000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "BLM.Score",
+            "min_score": 18,
+            "max_score": 19
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Health": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 2 additional hearts",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "c22d348f-3ed8-4fb0-8887-7c0f2e646f8b",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Blood.Manipulation"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "BLM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/blood.png",
+            "description": {
+              "text": "Blood Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 2 additional hearts",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "9974d2eb-0f61-4a6a-8f9d-894ee92dfcb8",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "BLM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/blood.png",
+            "description": {
+              "text": "Blood Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 2 additional hearts",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "9b4b2f6a-3f1c-4c73-9be1-d7f00d8c1ef0",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "BLM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/blood.png",
+            "description": {
+              "text": "Blood Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 2 additional hearts",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "22a171d3-0104-4040-812a-89e3c4e2b0bf",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "BLM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/blood.png",
+            "description": {
+              "text": "Blood Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Set.Scoreboard.Max": {
+      "type": "eop:set_scoreboard",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "scoreboard_objective": "Blood.Amount",
+      "scoreboard_value": 100
+    },
+    "Effect.Immunity": {
+      "type": "eop:effect_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "effects": [
+        "minecraft:poison"
+      ]
+    },
+    "Blood.Amount.Infinite": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players set @s Blood.Amount 100"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Blood.Amount",
+            "min_score": -1000,
+            "max_score": 99
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Inf.Energy"
+          }
+        ]
+      }
+    },
+    "Blood.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players add @s Blood.Amount 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "Ability.Being.Used"
+              }
+            ]
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Blood.Amount",
+            "min_score": -100,
+            "max_score": 99
+          }
+        ]
+      }
+    },
+    "Blood.Gain.Puddle": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "execute if entity @e[tag=Blood.Puddle,type=armor_stand,limit=1,sort=nearest,distance=..2] run scoreboard players add @s Blood.Amount 6",
+        "execute if entity @e[tag=Blood.Puddle,type=armor_stand,limit=1,sort=nearest,distance=..2] run playsound minecraft:entity.slime.attack master @s ~ ~ ~ 1 2",
+        "kill @e[tag=Blood.Puddle,type=armor_stand,limit=1,sort=nearest,distance=..2]",
+        "execute if score @s Blood.Amount matches 100.. run scoreboard players set @s Blood.Amount 100"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 10
+          }
+        ]
+      }
+    },
+    "Effects.Immune.Mods": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "effect clear @s alexsmobs:exsanguination"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "alexsmobs"
+          }
+        ]
+      }
+    },
+    "Wet": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 60,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:is_in_rain"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "Wet"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Wet.Effects": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "execute if score @s EOP.Blood.Orb.Number matches 1.. run particle block redstone_block ~ ~ ~ 1 1 1 0 100 force",
+        "execute if score @s EOP.Blood.Orb.Number matches 1.. run playsound eop:splash master @a ~ ~ ~ 1 2",
+        "execute if score @s EOP.Blood.Spike.Number matches 1.. run particle block redstone_block ~ ~ ~ 1 1 1 0 100 force",
+        "execute if score @s EOP.Blood.Spike.Number matches 1.. run playsound eop:splash master @a ~ ~ ~ 1 2",
+        "execute if entity @s[nbt={Inventory:[{id:\"eop:blood_scythe\"}]}] run particle block redstone_block ~ ~ ~ 1 1 1 0 100 force",
+        "execute if entity @s[nbt={Inventory:[{id:\"eop:blood_scythe\"}]}] run playsound eop:splash master @a ~ ~ ~ 1 2",
+        "scoreboard players set @s EOP.Blood.Orb.Number 0",
+        "scoreboard players set @s EOP.Blood.Spike.Number 0",
+        "clear @s eop:blood_scythe",
+        "tag @s add No.Blood.Use"
+      ],
+      "last_tick_commands": [
+        "tag @s remove No.Blood.Use"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Wet",
+                "property": "value",
+                "min": 60,
+                "max": 60
+              },
+              {
+                "type": "palladium:is_under_water"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "icon": "eop:textures/gui/blood_meteorite.png",
+      "title": "Blood Meteorite",
+      "description": "Create orbs made of compressed blood to use as dangerous projectiles. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Blood.Orb": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:item.bucket.empty master @a ~ ~ ~ 0.5 0.5",
+        "particle block redstone_block ~ ~1 ~ 0.5 0.1 0.5 0 50 force",
+        "scoreboard players remove @s Blood.Amount 6",
+        "scoreboard players set @s EOP.Blood.Orb.Number 3"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 100,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Blood.Amount",
+            "min_score": 3,
+            "max_score": 250
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Blood.Orb.Number",
+                "min_score": 1,
+                "max_score": 3
+              },
+              {
+                "type": "palladium:is_under_water"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "No.Blood.Use"
+              }
+            ]
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:bloodweaver"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Orb.Kill.Under.Water": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 3,
+      "first_tick_commands": [
+        "playsound minecraft:item.bucket.empty master @a ~ ~ ~ 0.5 0.5",
+        "particle block redstone_block ~ ~1 ~ 0.5 0.1 0.5 0 50 force",
+        "scoreboard players set @s EOP.Blood.Orb.Number 0"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:is_under_water"
+          }
+        ]
+      }
+    },
+    "Blood.Orb.Projectile": {
+      "type": "palladium:projectile",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "none",
+      "velocity": 1.5,
+      "inaccuracy": 0,
+      "damage_from_player": false,
+      "entity_data": {
+        "CommandOnEntityHit": "function eop:powers/bloodweaver/blood_orb",
+        "CommandOnBlockHit": "function eop:powers/bloodweaver/blood_orb_ground",
+        "Size": 1,
+        "Gravity": 0.01,
+        "Damage": 5,
+        "DamageType": "eop:basic_projectile",
+        "Lifetime": 40,
+        "Appearances": [
+          {
+            "Type": "renderLayer",
+            "RenderLayer": "eop:bloodweaver/blood_orb_shoot"
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 10,
+            "key_type": "right_click"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Blood.Orb.Number",
+            "min_score": 1,
+            "max_score": 3
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Orb.Shoot.Command": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 1 1.8",
+        "scoreboard players remove @s EOP.Blood.Orb.Number 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Blood.Orb.Projectile"
+          }
+        ]
+      }
+    },
+    "Orb.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:bloodweaver/blood_orb",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_power",
+                "power": "eop:effects/blood_supernova"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Scythe.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/blood_dagger.png",
+      "title": "Blood Edge",
+      "description": "Create a scythe made out of dense blood",
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 4,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Blood.Manipulation"
+          }
+        ]
+      }
+    },
+    "Blood.Scythe": {
+      "type": "eop:give_item",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "icon": "eop:textures/gui/blood_dagger.png",
+      "title": "Blood Edge",
+      "list_index": 0,
+      "enable_mainhand": true,
+      "mainhand_item": "eop:blood_scythe",
+      "enable_offhand": false,
+      "offhand_item": "minecraft:shield",
+      "sound": "eop:splash",
+      "give_particles": "eop:blood",
+      "remove_particles": "eop:blood",
+      "score_cost": 7,
+      "score_objective": "Blood.Amount",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Scythe.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Red.Scale.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/red_scale.png",
+      "title": "Flowing Red Scale",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Increase the rate that your blood flows throughout your body. This increases strength and speed",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Scythe.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "BLM.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/blood.png",
+            "description": {
+              "text": "Blood Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Red.Scale": {
+      "type": "palladium:command",
+      "title": "Flowing Red Scale",
+      "icon": "eop:textures/gui/red_scale.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "first_tick_commands": [
+        "tag @s add Ability.Being.Used",
+        "playsound minecraft:entity.evoker.prepare_attack master @s ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Ability.Being.Used",
+        "effect clear @s jump_boost"
+      ],
+      "commands": [
+        "tag @s add Ability.Being.Used",
+        "effect give @s jump_boost 1 1 true"
+      ],
+      "list_index": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Blood.Amount",
+            "min_score": 2,
+            "max_score": 250
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Red.Scale.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Scale.Damage": {
+      "type": "eop:multi_attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attributes": [
+        "minecraft:generic.attack_damage",
+        "minecraft:generic.movement_speed"
+      ],
+      "amounts": [
+        3,
+        0.6
+      ],
+      "operations": [
+        "addition",
+        "multiply_base"
+      ],
+      "modifier_uuids": [
+        "4ba2f87c-a73c-4c94-b8fb-e98391ce37ad",
+        "e4c6e4af-1662-43b8-adc6-cb6b8fba1edf"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Red.Scale"
+          }
+        ]
+      }
+    },
+    "Red.Scale.Usage": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Blood.Amount 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Red.Scale"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          }
+        ]
+      }
+    },
+    "Red.Scale.Regen": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 20,
+      "amount": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Red.Scale"
+          }
+        ]
+      }
+    },
+    "Bone.Healing": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "bodydamage @s heal ALL 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Red.Scale"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "Slicing.Exorcism.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/slicing_exorcism.png",
+      "title": "Slicing Exorcism",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Create sharp spikes of blood that deal significant damage",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Red.Scale.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "BLM.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/blood.png",
+            "description": {
+              "text": "Blood Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Slicing.Exorcism": {
+      "type": "palladium:command",
+      "title": "Slicing Exorcism",
+      "icon": "eop:textures/gui/slicing_exorcism.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "first_tick_commands": [
+        "scoreboard players remove @s Blood.Amount 20",
+        "playsound minecraft:item.bucket.empty master @a ~ ~ ~ 0.5 0.5",
+        "particle block redstone_block ~ ~1 ~ 0.5 0.1 0.5 0 150 force",
+        "scoreboard players set @s EOP.Blood.Spike.Number 6"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Blood.Amount",
+            "min_score": 30,
+            "max_score": 250
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_under_water"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "No.Blood.Use"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Slicing.Exorcism.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Blood.Spike.Number",
+                "min_score": 1,
+                "max_score": 6
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Slicing.Exorcism.Projectile": {
+      "type": "palladium:projectile",
+      "title": "Spike Shoot",
+      "icon": "eop:textures/gui/slicing_exorcism.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "none",
+      "velocity": 3,
+      "inaccuracy": 0,
+      "damage_from_player": false,
+      "entity_data": {
+        "CommandOnEntityHit": "function eop:powers/bloodweaver/blood_spike",
+        "CommandOnBlockHit": "function eop:powers/bloodweaver/blood_spike_ground",
+        "Size": 1,
+        "Gravity": 0.01,
+        "Damage": 20,
+        "DamageType": "eop:basic_projectile",
+        "Lifetime": 40,
+        "Appearances": [
+          {
+            "Type": "renderLayer",
+            "RenderLayer": "eop:bloodweaver/blood_spike_shoot"
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 10,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Blood.Spike.Number",
+            "min_score": 1,
+            "max_score": 6
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "Blood.Poisoned"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Slicing.Exorcism.Projectile2": {
+      "type": "palladium:projectile",
+      "title": "Spike Shoot",
+      "icon": "eop:textures/gui/slicing_exorcism.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "none",
+      "velocity": 3,
+      "inaccuracy": 0,
+      "damage_from_player": false,
+      "entity_data": {
+        "CommandOnEntityHit": "function eop:powers/bloodweaver/blood_spike_poison",
+        "CommandOnBlockHit": "function eop:powers/bloodweaver/blood_spike_ground",
+        "Size": 1,
+        "Gravity": 0.01,
+        "Damage": 20,
+        "DamageType": "eop:basic_projectile",
+        "Lifetime": 40,
+        "Appearances": [
+          {
+            "Type": "renderLayer",
+            "RenderLayer": "eop:bloodweaver/blood_spike_shoot"
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 10,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Blood.Spike.Number",
+            "min_score": 1,
+            "max_score": 6
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Blood.Poisoned"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Spike.Shoot.Command": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "scoreboard players remove @s EOP.Blood.Spike.Number 1",
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 1 1.8"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Slicing.Exorcism.Projectile"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Slicing.Exorcism.Projectile2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Spike.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:bloodweaver/blood_spike"
+    },
+    "Super.Nova.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/blood_super_nova.png",
+      "title": "Super Nova",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Form blood orbs around an entity that explode after a few seconds. §dTargets the entity you are looking at",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Slicing.Exorcism.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "BLM.Score",
+            "score": 10,
+            "icon": "eop:textures/gui/blood.png",
+            "description": {
+              "text": "Blood Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Super.Nova": {
+      "type": "eop:raycast_command",
+      "icon": "eop:textures/gui/blood_super_nova.png",
+      "title": "Super Nova",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "damage_type": "eop:blood",
+      "damage": 0,
+      "range": 20,
+      "ignore_same_team": true,
+      "set_on_fire_seconds": 0,
+      "commands_on_entity_hit": [
+        "tag @s add Ignore.Me",
+        "superpower add eop:effects/blood_supernova @e[distance=..1,limit=1,tag=!Ignore.Me,tag=!EOP.Phasing,tag=!Infinity,tag=!Bloodweaver]",
+        "tag @s remove Ignore.Me"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 300,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Blood.Amount",
+            "min_score": 50,
+            "max_score": 250
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_under_water"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Super.Nova.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Piercing.Blood.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/piercing_blood.png",
+      "title": "Piercing Blood",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 4,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Create a deadly compressed blood beam fired from your hands",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Super.Nova.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Health4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "BLM.Score",
+            "score": 20,
+            "icon": "eop:textures/gui/blood.png",
+            "description": {
+              "text": "Blood Manipulation Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "Piercing.Blood": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/piercing_blood.png",
+      "title": "Piercing Blood",
+      "first_tick_commands": [
+        "tag @s add Ability.Being.Used"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Ability.Being.Used"
+      ],
+      "commands": [
+        "tag @s add Ability.Being.Used"
+      ],
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 0,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Blood.Amount",
+            "min_score": 1,
+            "max_score": 250
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_under_water"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "No.Blood.Use"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Piercing.Blood.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Piercing.Blood.Animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Piercing.Blood"
+          }
+        ]
+      }
+    },
+    "Piercing.Blood.Shoot.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Piercing.Blood.Animation",
+            "property": "value",
+            "min": 10,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "b0e52b05-8516-4435-94b3-32c69c112a32",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Piercing.Blood"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "578a4bd4-3f15-4766-ad31-b4889fc0e3a9",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Piercing.Blood"
+          }
+        ]
+      }
+    },
+    "Piercing.Blood.Beam": {
+      "type": "palladium:energy_beam",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "energy_beam": "eop:blood",
+      "damage_type": "eop:blood",
+      "damage": 0,
+      "max_distance": 50,
+      "speed": 1,
+      "set_on_fire_seconds": 0,
+      "cause_fire": false,
+      "smelt_blocks": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Piercing.Blood"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Piercing.Blood.Shoot.Timer",
+            "property": "value",
+            "min": 10,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Piercing.Blood.Beam.Custom": {
+      "type": "eop:raycast_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_type": "eop:blood",
+      "damage": 20,
+      "range": 50,
+      "ignore_same_team": true,
+      "set_on_fire_seconds": 0,
+      "commands_on_entity_hit": [
+        "execute if entity @s[tag=Blood.Poisoned] run effect give @e[distance=..1,tag=!Bloodweaver,limit=1,tag=!EOP.Phasing,tag=!Infinity] poison 10 1 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Piercing.Blood.Beam"
+          }
+        ]
+      }
+    },
+    "Piercing.Blood.Usage": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Blood.Amount 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Piercing.Blood.Shoot.Timer",
+            "property": "value",
+            "min": 10,
+            "max": 50
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 2
+          }
+        ]
+      }
+    },
+    "Piercing.Blood.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.player.hurt master @a ~ ~ ~ 1 0.5"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Piercing.Blood.Animation",
+            "property": "value",
+            "min": 8,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Piercing.Blood.Sound2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound minecraft:entity.generic.eat master @a ~ ~ ~ 1 2"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Piercing.Blood.Shoot.Timer",
+            "property": "value",
+            "min": 10,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Show.Arms": {
+      "type": "palladium:show_both_arms",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Piercing.Blood"
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_sangre_g2"
+          }
+        ]
+      }
+    }
+  }
+}

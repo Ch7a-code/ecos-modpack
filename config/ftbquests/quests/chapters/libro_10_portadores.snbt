@@ -1,0 +1,539 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_10_portadores"
+	group: "1649D3DB01DD3F2C"
+	icon: "cataclysm:altar_of_fire"
+	id: "7C5ACB391F76B9EA"
+	order_index: 10
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oCuando la Primera Mente se rompió, los fragmentos más grandes se metieron en los cuerpos más fuertes: así nacieron los Portadores. El Caballero de Hierro Forjado es el primero que guarda un camino; cuando cae, cuenta para todo el mundo.", "", "&6Qué hacer:&r Derrota a un Ferrous Wroughtnaut (caballero de hierro forjado) de Mowzie. Pelea con espacio y esquiva su hacha: pega fuerte y despacio.", "", "&6Premio:&r 2 cosas al azar: lingotes de hierro, carne cocida, cobre o esmeraldas.", "&5A veces (7 %):&r una pechera de hierro encantada con Protección."]
+			disable_toast: true
+			icon: "mowziesmobs:wrought_axe"
+			id: "0B469C11450CF396"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "703F761914A45A17"
+					icon: "mowziesmobs:wrought_axe"
+					stage: "ecos_l_portadores_herrero_matar"
+					title: "Derrota al Ferrous Wroughtnaut"
+					type: "gamestage"
+				}
+			]
+			title: "El que forja sin descanso"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["0B469C11450CF396"]
+			description: ["&#19E6E6Zykna:&r &oEn el Bosque Crepuscular, un fragmento recordó una serpiente que guarda un patio y no deja pasar. Es otro Portador: más viejo que el hierro y con el mismo hambre. Cuando cae, las barreras mágicas del bosque ceden.", "", "&6Qué hacer:&r Derrota a la Naga en su patio del Bosque Crepuscular.", "", "&6Premio:&r 2 cosas al azar: lingotes de hierro, carne cocida, cobre o esmeraldas.", "&5A veces (7 %):&r una espada de hierro encantada con Filo."]
+			disable_toast: true
+			icon: "twilightforest:naga_trophy"
+			id: "3FA447EE0DCCA7AC"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0E9EA6B278895BEF"
+					icon: "twilightforest:naga_trophy"
+					stage: "ecos_l_portadores_naga_matar"
+					title: "Derrota a la Naga"
+					type: "gamestage"
+				}
+			]
+			title: "La serpiente del patio"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["3FA447EE0DCCA7AC"]
+			description: ["&#19E6E6Zykna:&r &oUn fragmento de la Primera Mente se quedó atrapado en una torre con un rey que ya no respira. El Lich guarda cuatro cetros; cada uno es una voz distinta de lo que quedó. Cuando la torre calla, el mundo sube una Era.", "", "&6Qué hacer:&r Mata al Lich en lo alto de su torre del Bosque Crepuscular y recupera uno de sus cetros.", "", "&6Premio:&r 2 cosas al azar: lingotes de hierro, carne cocida, cobre o esmeraldas.", "&5A veces (7 %):&r unas botas de hierro encantadas con Protección."]
+			disable_toast: true
+			icon: "twilightforest:lich_spawn_egg"
+			id: "070217160C73C1E8"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5FCBE271F3F2BAD0"
+					icon: "twilightforest:lich_spawn_egg"
+					stage: "ecos_l_portadores_lich_matar"
+					title: "Derrota al Lich y recupera un cetro"
+					type: "gamestage"
+				}
+			]
+			title: "El Lich de la torre"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["070217160C73C1E8"]
+			description: ["&#19E6E6Zykna:&r &oLa Hidra es un fragmento que aprendió a regenerarse: cada cabeza que le cortas nace de nuevo si no la aprovechas. Dos Portadores tienen que caer para que la Era II se abra, y ella es uno.", "", "&6Qué hacer:&r Derrota a la Hidra del Bosque Crepuscular. Evita que sus cabezas te muerdan en grupo y ataca la que se acaba de regenerar.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, un diamante o carne asada.", "&5A veces (7 %):&r una espada de diamante encantada con Filo."]
+			disable_toast: true
+			icon: "twilightforest:hydra_spawn_egg"
+			id: "07665748FEEAFAB5"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "52AB9D6178929EB1"
+					icon: "twilightforest:hydra_spawn_egg"
+					stage: "ecos_l_portadores_hidra_matar"
+					title: "Derrota a la Hidra"
+					type: "gamestage"
+				}
+			]
+			title: "Cabezas que vuelven"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["07665748FEEAFAB5"]
+			description: ["&#19E6E6Zykna:&r &oEn el Nether, un fragmento se metió en una armadura de máquina y se quedó dentro. La Monstruosidad de netherita es el segundo Portador de la Era II: lenta, pesada y con un puño que parte rocas.", "", "&6Qué hacer:&r Derrota a la Monstruosidad de netherita de Cataclysm. Guarda distancia para sus bombas y no te quedes quieto cuando alce el brazo.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, un diamante o lingotes de hierro.", "&5A veces (7 %):&r un trozo de netherita."]
+			disable_toast: true
+			icon: "cataclysm:netherite_monstrosity_spawn_egg"
+			id: "1920AB5355B21D3E"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4B928E960C1CB5E8"
+					icon: "cataclysm:monstrous_eye"
+					stage: "ecos_l_portadores_monstruosidad_matar"
+					title: "Derrota a la Monstruosidad de netherita"
+					type: "gamestage"
+				}
+			]
+			title: "La máquina rota del Nether"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["1920AB5355B21D3E"]
+			description: ["&#19E6E6Zykna:&r &oBajo la nieve duerme algo que no es un animal. Frostmaw es un fragmento que se volvió frío y paciente: cuando despierta, el aire mismo se rompe. Su cristal es lo que queda de la calma que tenía.", "", "&6Qué hacer:&r Mata a Frostmaw en la nieve y roba su cristal de hielo.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, un diamante o carne asada.", "&5A veces (7 %):&r un diamante."]
+			disable_toast: true
+			icon: "mowziesmobs:ice_crystal"
+			id: "2A3DDBE743D61ECB"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1EF31338FD566A50"
+					icon: "mowziesmobs:ice_crystal"
+					stage: "ecos_l_portadores_frostmaw_matar"
+					title: "Mata a Frostmaw"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "2AED0A914295697E"
+					icon: "mowziesmobs:ice_crystal"
+					stage: "ecos_l_portadores_frostmaw_cristal"
+					title: "Roba un cristal de hielo de Frostmaw"
+					type: "gamestage"
+				}
+			]
+			title: "El rugido bajo el hielo"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["2A3DDBE743D61ECB"]
+			description: ["&#19E6E6Zykna:&r &oLos umvuthana se cubren con máscaras de ave y guardan la memoria de su sol. Umvuthi es el que lo sostiene. Llega con respeto, disfrazado, o con las dos cosas.", "", "&6Qué hacer:&r Entra sigilosamente disfrazado en una arboleda de umvuthana y mata a Umvuthi, el ave solar.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, un diamante o carne asada.", "&5A veces (7 %):&r una manzana dorada."]
+			disable_toast: true
+			icon: "mowziesmobs:sol_visage"
+			id: "02526AF6C7D9D0E2"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4F971FB036EC7F77"
+					icon: "mowziesmobs:barako_mask"
+					stage: "ecos_l_portadores_umvuthi_arboleda"
+					title: "Entra disfrazado en una arboleda umvuthana"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "6B2B89B197740358"
+					icon: "mowziesmobs:sol_visage"
+					stage: "ecos_l_portadores_umvuthi_matar"
+					title: "Mata a Umvuthi"
+					type: "gamestage"
+				}
+			]
+			title: "El ave solar"
+			x: 2.50d
+			y: 4.20d
+		}
+		{
+			dependencies: ["02526AF6C7D9D0E2"]
+			description: ["&#19E6E6Zykna:&r &oEl Escultor no es un jefe: es una prueba. Mide si sabes caer sin morir y subir sin perder el aire. Los Portadores de verdad pegan; este solo observa, y es lo más cerca que está un fragmento de preguntar si ya puedes con lo que sigue.", "", "&6Qué hacer:&r Completa el desafío del Escultor de Mowzie sin caer ni morir.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, un diamante o carne asada.", "&5A veces (7 %):&r un diamante."]
+			disable_toast: true
+			icon: "mowziesmobs:sculptor_staff"
+			id: "6351EFB2E94F9129"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6A75C1A271724357"
+					icon: "mowziesmobs:sculptor_staff"
+					stage: "ecos_l_portadores_escultor_desafio"
+					title: "Completa el desafío del Escultor"
+					type: "gamestage"
+				}
+			]
+			title: "La prueba del Escultor"
+			x: 2.50d
+			y: 5.60d
+		}
+		{
+			dependencies: ["6351EFB2E94F9129"]
+			description: ["&#19E6E6Zykna:&r &oIgnis es un Portador hecho de brasas y de duelo: la parte de la Primera Mente que no soportó verse rota. Se invoca en su altar, y cuando se apaga, el mundo sube a la Era III.", "", "&6Qué hacer:&r Pon un Altar de Fuego de Cataclysm e invoca y derrota a Ignis. Lleva armadura contra fuego y mucho espacio para moverte.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, oro o ceniza ardiente.", "&5A veces (7 %):&r un trozo de netherita."]
+			disable_toast: true
+			icon: "cataclysm:altar_of_fire"
+			id: "753882B0F3D3174B"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "011AAA39F2E02D3A"
+					icon: "cataclysm:altar_of_fire"
+					stage: "ecos_l_portadores_ignis_altar"
+					title: "Pon un Altar de Fuego"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "30B8B5E9D057CD71"
+					icon: "cataclysm:ignitium_ingot"
+					stage: "ecos_l_portadores_ignis_matar"
+					title: "Invoca y derrota a Ignis"
+					type: "gamestage"
+				}
+			]
+			title: "El fuego extinguido"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["753882B0F3D3174B"]
+			description: ["&#19E6E6Zykna:&r &oEn el End vive un Portador que no pidió serlo: el Dragón. La Era III no sube sin él. Cuando cae, en el centro del vacío queda un huevo, y con él, lo que queda por decidir.", "", "&6Qué hacer:&r Derrota al Dragón del End.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, oro o perlas de Ender.", "&5A veces (7 %):&r dos o tres diamantes."]
+			disable_toast: true
+			icon: "minecraft:dragon_egg"
+			id: "01E9B14F91B23DA0"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0F4D1F2A2B914CF7"
+					icon: "minecraft:dragon_head"
+					stage: "ecos_l_portadores_dragonend_matar"
+					title: "Derrota al Dragón del End"
+					type: "gamestage"
+				}
+			]
+			title: "El Dragón del End"
+			x: 5.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["01E9B14F91B23DA0"]
+			description: ["&#19E6E6Zykna:&r &oLos fragmentos más fuertes del End tomaron forma de máquinas que custodian el vacío. Un golem de piedra y un guardián con alas de shulker: pelean distinto, pero los dos recuerdan algo que ya no tiene nombre.", "", "&6Qué hacer:&r Pon un Altar del Vacío de Cataclysm y derrota al Gólem de Ender y al Guardián de Ender.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, oro o perlas de Ender.", "&5A veces (7 %):&r una piedra del vacío."]
+			disable_toast: true
+			icon: "cataclysm:altar_of_void"
+			id: "580E1B6BAE9D6E9D"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "09C0E260663F5617"
+					icon: "cataclysm:altar_of_void"
+					stage: "ecos_l_portadores_golem_altar"
+					title: "Pon un Altar del Vacío"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3E4BB9A9DC183593"
+					icon: "cataclysm:void_stone"
+					stage: "ecos_l_portadores_golem_golem"
+					title: "Derrota al Gólem de Ender"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "7D76A0DCFD6DFEB8"
+					icon: "cataclysm:void_core"
+					stage: "ecos_l_portadores_golem_guardian"
+					title: "Derrota al Guardián de Ender"
+					type: "gamestage"
+				}
+			]
+			title: "Golem y Guardián del Ender"
+			x: 5.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["580E1B6BAE9D6E9D"]
+			description: ["&#19E6E6Zykna:&r &oBajo la arena de una pirámide maldita duerme un Portador que no es de aquí. El Remanente despierta cuando alguien excava donde no debe. No pidas permiso; escoge cuándo vas a pelear.", "", "&6Qué hacer:&r Excava en la arena sospechosa de la pirámide maldita y derrota al Remanente Ancestral. Si sale una Wadjet, también cuenta.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, oro o lingotes de hierro.", "&5A veces (7 %):&r uno o dos diamantes."]
+			disable_toast: true
+			icon: "cataclysm:cursed_eye"
+			id: "274820263EAB98FF"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "21F11E39EFCD64B6"
+					icon: "cataclysm:cursed_eye"
+					stage: "ecos_l_portadores_remanente_remanente"
+					title: "Derrota al Remanente Ancestral"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3640DA60B2C20CEB"
+					icon: "cataclysm:ancient_metal_ingot"
+					stage: "ecos_l_portadores_remanente_wadjet"
+					title: "Mata a una Wadjet"
+					type: "gamestage"
+				}
+			]
+			title: "La muerte despierta"
+			x: 5.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["274820263EAB98FF"]
+			description: ["&#19E6E6Zykna:&r &oNo todos los Portadores son de un solo mundo: otros se filtraron por la Fractura desde otro lado. Sir y Lord Pumpkinhead cabalgan con cabeza de calabaza; no son tan viejos como los demás, pero muerden igual.", "", "&6Qué hacer:&r Mata a Sir Pumpkinhead y a Lord Pumpkinhead de Born in Chaos, y al Supremo Invocador de huesos si lo encuentras.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, oro o huesos.", "&5A veces (7 %):&r un diamante."]
+			disable_toast: true
+			icon: "born_in_chaos_v1:lord_pumpkinhead_spawn_egg"
+			id: "781E5A5377CAA1A6"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4B4448CAAC327638"
+					icon: "minecraft:carved_pumpkin"
+					stage: "ecos_l_portadores_caos_sir"
+					title: "Mata a Sir Pumpkinhead"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1C2A445056E7E18B"
+					icon: "minecraft:jack_o_lantern"
+					stage: "ecos_l_portadores_caos_lord"
+					title: "Mata a Lord Pumpkinhead"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "7163C9F1C0AADF96"
+					icon: "minecraft:bone"
+					stage: "ecos_l_portadores_caos_invocador"
+					title: "Mata al Supremo Invocador de huesos"
+					type: "gamestage"
+				}
+			]
+			title: "Los fantasmas del Caos"
+			x: 5.00d
+			y: 5.60d
+		}
+		{
+			dependencies: ["781E5A5377CAA1A6"]
+			description: ["&#19E6E6Zykna:&r &oEn una fábrica sin tiempo, algo que no es de aquí se despertó sin que nadie lo llamara. El Harbinger es un Portador de máquina: sus pasos suenan a metal. La Era IV no se abre mientras él siga en pie.", "", "&6Qué hacer:&r Despierta y derrota al Harbinger de Cataclysm, en la fábrica antigua.", "", "&6Premio:&r 2 cosas al azar: diamantes, trozos de netherita, esmeraldas o lingotes de oro.", "&5A veces (7 %):&r dos diamantes."]
+			disable_toast: true
+			icon: "cataclysm:mech_eye"
+			id: "4872BBC5AAF0B5CB"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "43E7EB2482972F43"
+					icon: "cataclysm:mech_eye"
+					stage: "ecos_l_portadores_harbinger_matar"
+					title: "Derrota al Harbinger"
+					type: "gamestage"
+				}
+			]
+			title: "Lo que no pertenece"
+			x: 7.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["4872BBC5AAF0B5CB"]
+			description: ["&#19E6E6Zykna:&r &oBajo el agua, lejos de la luz, un fragmento se volvió tan grande que ya no cabe en un cuerpo. El Leviatán, junto con el Harbinger, cierra la Era IV; lo que ruge ahí abajo no es solo un animal.", "", "&6Qué hacer:&r Pon un Altar del Abismo de Cataclysm e invoca y derrota al Leviatán, lejos de la orilla.", "", "&6Premio:&r 2 cosas al azar: diamantes, trozos de netherita, esmeraldas o lingotes de oro.", "&5A veces (7 %):&r un trozo de netherita."]
+			disable_toast: true
+			icon: "cataclysm:altar_of_abyss"
+			id: "11D78457FB26E069"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "76B8DADD231436BB"
+					icon: "cataclysm:altar_of_abyss"
+					stage: "ecos_l_portadores_leviatan_altar"
+					title: "Pon un Altar del Abismo"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "54E6B49BE5E91761"
+					icon: "cataclysm:abyssal_egg"
+					stage: "ecos_l_portadores_leviatan_matar"
+					title: "Invoca y derrota al Leviatán"
+					type: "gamestage"
+				}
+			]
+			title: "El depredador del abismo"
+			x: 7.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["11D78457FB26E069"]
+			description: ["&#19E6E6Zykna:&r &oScylla es un fragmento que se quedó con el rayo y el mar. Su tormenta no se agota: llega con el trueno y se queda hasta que alguien la detiene.", "", "&6Qué hacer:&r Derrota a Scylla, la emperatriz de la tormenta, y al Pinzardián de Cataclysm.", "", "&6Premio:&r 2 cosas al azar: diamantes, trozos de netherita, esmeraldas o lingotes de oro.", "&5A veces (7 %):&r dos diamantes."]
+			disable_toast: true
+			icon: "cataclysm:tidal_claws"
+			id: "1D49BA26278F0891"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7B93D3677D3D091E"
+					icon: "cataclysm:tidal_claws"
+					stage: "ecos_l_portadores_scylla_scylla"
+					title: "Derrota a Scylla"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "71BF967AED0C1F9E"
+					icon: "minecraft:prismarine_shard"
+					stage: "ecos_l_portadores_scylla_clawdian"
+					title: "Derrota al Pinzardián"
+					type: "gamestage"
+				}
+			]
+			title: "La emperatriz de la tormenta"
+			x: 7.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["1D49BA26278F0891"]
+			description: ["&#19E6E6Zykna:&r &oAlgunos Portadores no tienen altar ni nombre que se invoque: el Prowler y el Aptrgangr aparecen cuando menos lo esperas. Es difícil decir si te cazan o si solo te recuerdan.", "", "&6Qué hacer:&r Mata a un Prowler y a un Aptrgangr de Cataclysm.", "", "&6Premio:&r 2 cosas al azar: diamantes, trozos de netherita, esmeraldas o lingotes de oro.", "&5A veces (7 %):&r un diamante."]
+			disable_toast: true
+			icon: "cataclysm:soul_render"
+			id: "2CCAA042D96B513F"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4359BD9CCC7A4301"
+					icon: "cataclysm:soul_render"
+					stage: "ecos_l_portadores_acechador_prowler"
+					title: "Mata a un Prowler"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1AC62CAEF34F49EC"
+					icon: "minecraft:iron_axe"
+					stage: "ecos_l_portadores_acechador_aptrgangr"
+					title: "Mata a un Aptrgangr"
+					type: "gamestage"
+				}
+			]
+			title: "Los que no duermen"
+			x: 7.50d
+			y: 4.20d
+		}
+		{
+			dependencies: ["2CCAA042D96B513F"]
+			description: ["&#19E6E6Zykna:&r &oMaledictus es lo que queda de la Primera Mente, corrompido: el último Portador y el que sabe cómo termina esto. Sellar la Fractura empieza donde él termina.", "", "&6Qué hacer:&r Invoca y derrota a Maledictus de Cataclysm.", "", "&6Premio:&r 2 cosas al azar: diamantes, trozos de netherita, esmeraldas o lingotes de oro.", "&5A veces (7 %):&r dos trozos de netherita."]
+			disable_toast: true
+			icon: "cataclysm:cursed_eye"
+			id: "4A8051B68D8B536C"
+			shape: "gear"
+			size: 1.30d
+			subtitle: "Era Final · Sellar la Fractura"
+			tasks: [
+				{
+					disable_toast: true
+					id: "2F459CFC9E9D4D9D"
+					icon: "cataclysm:cursed_eye"
+					stage: "ecos_l_portadores_maledictus_matar"
+					title: "Invoca y derrota a Maledictus"
+					type: "gamestage"
+				}
+			]
+			title: "Lo que queda de la Primera Mente"
+			x: 10.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["4A8051B68D8B536C"]
+			description: ["&#19E6E6Zykna:&r &oCada Portador de Cataclysm cayó una vez; cada uno dejó algo. Juntarlos todos es recordar que nunca fuiste un Eco solo: tu astilla pelea con la de todos los que cayeron antes.", "", "&6Qué hacer:&r Derrota a todos los jefes de Cataclysm y consigue el logro Un viaje cataclísmico.", "", "&6Premio:&r 2 cosas al azar: diamantes, trozos de netherita, esmeraldas o lingotes de oro.", "&5A veces (7 %):&r tres diamantes."]
+			disable_toast: true
+			icon: "cataclysm:witherite_ingot"
+			id: "3EDD9EA24C11F1F4"
+			shape: "gear"
+			size: 1.30d
+			subtitle: "Era Final · Sellar la Fractura"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7DB6003DA91E00BE"
+					icon: "cataclysm:witherite_ingot"
+					stage: "ecos_l_portadores_cumbre_todos"
+					title: "Cima de Cataclysm"
+					type: "gamestage"
+				}
+			]
+			title: "Un viaje cataclísmico"
+			x: 10.00d
+			y: 1.40d
+		}
+	]
+	subtitle: ["Los fragmentos más grandes de la Primera Mente se metieron en los cuerpos más fuertes. Esos son los Portadores.", "Cada uno que cae sube al mundo entero un peldaño: la Era es de todos."]
+	title: "Los Portadores"
+}

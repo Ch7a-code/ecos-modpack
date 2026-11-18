@@ -1,0 +1,284 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_08_armas"
+	group: "1649D3DB01DD3F2C"
+	icon: "tacz:gun_smith_table"
+	id: "3C58CCC5C1257B15"
+	order_index: 8
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oCon la Era I vuelven las armas de fuego, y con ellas la mesa donde se ensamblan. Cada arma es un plano que se llena con hierro, cobre y pólvora, y sale lista para usarse. Empieza por la mesa.", "", "&6Qué hacer:&r Fabrica una mesa de armero de TACZ y ponla en tu refugio. Ábrela con clic derecho para ver los planos de armas.", "", "&6Premio:&r 2 cosas al azar: hierro, cobre, pólvora o pedernal.", "&5A veces (7 %):&r un lingote de oro extra."]
+			disable_toast: true
+			icon: "tacz:gun_smith_table"
+			id: "0810EEFA79A1605C"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "10C63392BE1D7FA5"
+					icon: "tacz:gun_smith_table"
+					stage: "ecos_l_armas_mesa_poner"
+					title: "Pon una mesa de armero"
+					type: "gamestage"
+				}
+			]
+			title: "La mesa de armero"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["0810EEFA79A1605C"]
+			description: ["&#19E6E6Zykna:&r &oLa Era I solo abre las pistolas ligeras: poco alcance, poco peso y mucha práctica. No son un arma de ejército; son lo que el Proyecto dejaba a quien cuidaba un pasillo. Aprende a recargar sin pensar.", "", "&6Qué hacer:&r Arma una pistola ligera en la mesa de armero (Glock 17, M1911, CZ 75, P320 y similares) y empuñala. Recarga con R y apunta con clic derecho.", "", "&6Premio:&r 2 cosas al azar: hierro, pólvora, cobre o pedernal.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "tacz:modern_kinetic_gun"
+			id: "30831B4E6FBEED1C"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "427E6EECBBB157BF"
+					icon: "tacz:modern_kinetic_gun"
+					stage: "ecos_l_armas_pistola_empunar"
+					title: "Empuña una pistola"
+					type: "gamestage"
+				}
+			]
+			title: "Una pistola en la mano"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["30831B4E6FBEED1C"]
+			description: ["&#19E6E6Zykna:&r &oUn arma sin munición es un palo caro. La munición se fabrica en la mesa de armero y se guarda en cajas que la acomodan por tipo. Cuenta lo que gastas: la Fractura no recarga.", "", "&6Qué hacer:&r Fabrica munición en la mesa de armero y arma una caja de munición para guardarla ordenada.", "", "&6Premio:&r 2 cosas al azar: hierro, cobre, pólvora o pedernal.", "&5A veces (7 %):&r tres lingotes de hierro extra."]
+			disable_toast: true
+			icon: "tacz:ammo_box"
+			id: "67FA8E77F82FD95B"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "534EE0B62267BDDA"
+					icon: "tacz:ammo"
+					stage: "ecos_l_armas_municion_balas"
+					title: "Ten munición"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "38093C88526A08C9"
+					icon: "tacz:ammo_box"
+					stage: "ecos_l_armas_municion_caja"
+					title: "Ten una caja de munición"
+					type: "gamestage"
+				}
+			]
+			title: "Munición y caja"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["67FA8E77F82FD95B"]
+			description: ["&#19E6E6Zykna:&r &oUn arma tirada en un cofre se raya y se pierde. Una vitrina o un tablero de pared la deja a la vista y a la mano. Es orden, y también respeto por algo que cuesta fabricar.", "", "&6Qué hacer:&r Pon una vitrina o un tablero de armas de TACZ en tu refugio y guarda un arma.", "", "&6Premio:&r 2 cosas al azar: hierro, cobre, pólvora o pedernal.", "&5A veces (7 %):&r un cofre de hierro de Sophisticated Storage."]
+			disable_toast: true
+			icon: "tacz:gun_display_case"
+			id: "23B45CA774C842F3"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7F65095325C1FD20"
+					icon: "tacz:gun_display_case"
+					stage: "ecos_l_armas_exhibidor_poner"
+					title: "Pon una vitrina o un tablero"
+					type: "gamestage"
+				}
+			]
+			title: "Un lugar para cada arma"
+			x: 0.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["23B45CA774C842F3"]
+			description: ["&#19E6E6Zykna:&r &oLa Era II abre las armas que mandan cuando el enemigo está cerca. Las escopetas dispersan el daño y los subfusiles lo multiplican. Distinto alcance, distinto ruido, distinto momento.", "", "&6Qué hacer:&r Empuña una escopeta (M870, M1014, SPAS-12, AA-12 o de dos cañones) y un subfusil (MP5, MP7, P90, UMP45, Uzi o Vector).", "", "&6Premio:&r 2 cosas al azar: hierro, oro, pólvora o cobre.", "&5A veces (7 %):&r una manzana dorada."]
+			disable_toast: true
+			icon: "tacz:modern_kinetic_gun"
+			id: "7D92A8191B767183"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0F71ABF69BD9FA94"
+					icon: "tacz:modern_kinetic_gun"
+					stage: "ecos_l_armas_cercania_escopeta"
+					title: "Empuña una escopeta"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "20F92A2E6AD0E4C9"
+					icon: "tacz:modern_kinetic_gun"
+					stage: "ecos_l_armas_cercania_subfusil"
+					title: "Empuña un subfusil"
+					type: "gamestage"
+				}
+			]
+			title: "Pelear de cerca"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["7D92A8191B767183"]
+			description: ["&#19E6E6Zykna:&r &oCon un fusil el combate cambia de ritmo: más alcance, más control. Lo que de verdad lo hace tuyo son los accesorios: una mira, un cargador, un silenciador. Cada pieza cambia cómo suena y cómo pega.", "", "&6Qué hacer:&r Empuña un fusil de asalto (AK, M4, HK416, G36, SCAR, AUG y otros) y ten un accesorio de TACZ para montárselo.", "", "&6Premio:&r 2 cosas al azar: hierro, oro, cobre o pólvora.", "&5A veces (7 %):&r un lingote de oro extra."]
+			disable_toast: true
+			icon: "tacz:attachment"
+			id: "4FD03C647D63A681"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "67FD7827549B994B"
+					icon: "tacz:modern_kinetic_gun"
+					stage: "ecos_l_armas_fusil_fusil"
+					title: "Empuña un fusil de asalto"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "5F1639F7BE28E514"
+					icon: "tacz:attachment"
+					stage: "ecos_l_armas_fusil_accesorio"
+					title: "Ten un accesorio"
+					type: "gamestage"
+				}
+			]
+			title: "El fusil y sus accesorios"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["4FD03C647D63A681"]
+			description: ["&#19E6E6Zykna:&r &oEn la Era III las armas de precisión: tiradores, francotiradores, fusiles de cerrojo. Se mueven despacio, apuntan largo y dejan al enemigo sin respuesta. Mira lejos antes de disparar.", "", "&6Qué hacer:&r Empuña un tirador (SKS, MK14, SPR) y un francotirador (AWP, M700, Kar98, M107, M95 u otros).", "", "&6Premio:&r 2 cosas al azar: hierro, oro, diamante o pólvora.", "&5A veces (7 %):&r un diamante."]
+			disable_toast: true
+			icon: "tacz:modern_kinetic_gun"
+			id: "623BAE26FEFA7BA4"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5901769BB25D3E5C"
+					icon: "tacz:modern_kinetic_gun"
+					stage: "ecos_l_armas_punteria_tirador"
+					title: "Empuña un tirador"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3331AA5E2291099B"
+					icon: "tacz:modern_kinetic_gun"
+					stage: "ecos_l_armas_punteria_francotirador"
+					title: "Empuña un francotirador"
+					type: "gamestage"
+				}
+			]
+			title: "Un tiro, un acierto"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["623BAE26FEFA7BA4"]
+			description: ["&#19E6E6Zykna:&r &oAlgunas armas no se llevan, se plantan: ametralladoras que escupen sin parar y pistolas del tamaño de un martillo. Pesan, gastan y avisan a todo lo que oiga. Úsalas cuando valga la pena el ruido.", "", "&6Qué hacer:&r Empuña una ametralladora (M249, PKM, RPK o Minigun) y una pistola pesada (Desert Eagle, Rhino, Taurus 500 y otras).", "", "&6Premio:&r 2 cosas al azar: hierro, oro, diamante o pólvora.", "&5A veces (7 %):&r dos lingotes de oro extra."]
+			disable_toast: true
+			icon: "tacz:modern_kinetic_gun"
+			id: "53BC58B03EB02FA4"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "038CDB0EEA16669C"
+					icon: "tacz:modern_kinetic_gun"
+					stage: "ecos_l_armas_pesada_ametralladora"
+					title: "Empuña una ametralladora"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "59C9E1BBB96249DF"
+					icon: "tacz:modern_kinetic_gun"
+					stage: "ecos_l_armas_pesada_pistola"
+					title: "Empuña una pistola pesada"
+					type: "gamestage"
+				}
+			]
+			title: "Peso pesado"
+			x: 5.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["53BC58B03EB02FA4"]
+			description: ["&#19E6E6Zykna:&r &oEn la Era IV queda lo que el Proyecto no quiso soltar antes: lanzagranadas y lanzacohetes. Un solo disparo cambia el campo. Úsalos para lo que ningún fusil resuelve, no para lo que sí.", "", "&6Qué hacer:&r Empuña un lanzagranadas M320 o un lanzacohetes RPG-7.", "", "&6Premio:&r 2 cosas al azar: hierro, diamantes, pólvora o chatarra de netherita.", "&5A veces (7 %):&r dos diamantes."]
+			disable_toast: true
+			icon: "tacz:modern_kinetic_gun"
+			id: "7B4959CE1CA172F6"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "38726F8CADC2E9D8"
+					icon: "tacz:modern_kinetic_gun"
+					stage: "ecos_l_armas_lanzagranadas_lanza"
+					title: "Empuña un lanzagranadas o un RPG"
+					type: "gamestage"
+				}
+			]
+			title: "Lo último del arsenal"
+			x: 7.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["7B4959CE1CA172F6"]
+			description: ["&#19E6E6Zykna:&r &oUna granada es la decisión más corta del arsenal: sacas, lanzas y no hay segunda vuelta. Las del Proyecto son las últimas que se abren. Mide la distancia antes, que el ruido también cuenta.", "", "&6Qué hacer:&r Fabrica o consigue una granada M67 y tenla en el inventario.", "", "&6Premio:&r 2 cosas al azar: hierro, diamantes, pólvora o chatarra de netherita.", "&5A veces (7 %):&r tres diamantes."]
+			disable_toast: true
+			icon: "tacz:m67"
+			id: "76FD8312E06D3642"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "379D90D0A578BB3A"
+					icon: "tacz:m67"
+					stage: "ecos_l_armas_granada_granada"
+					title: "Ten una granada M67"
+					type: "gamestage"
+				}
+			]
+			title: "La granada M67"
+			x: 7.50d
+			y: 1.40d
+		}
+	]
+	subtitle: ["TACZ: de la mesa de armero a los lanzagranadas, una familia de armas por Era.", "Ninguna misión de este capítulo se abre antes de la Era I."]
+	title: "Armas de fuego"
+}

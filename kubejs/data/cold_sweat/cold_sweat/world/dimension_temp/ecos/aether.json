@@ -1,0 +1,7 @@
+{
+  "required_mods": ["aether"],
+  "dimensions": ["aether:the_aether"],
+  "temperature": -15,
+  "units": "f",
+  "is_offset": true
+}

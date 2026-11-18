@@ -1,0 +1,41 @@
+{
+ "criteria": {
+  "lugar0": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "ctov:large/village_mountain"
+     }
+    }
+   }
+  },
+  "lugar1": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "ctov:medium/village_mountain"
+     }
+    }
+   }
+  },
+  "lugar2": {
+   "trigger": "minecraft:location",
+   "conditions": {
+    "player": {
+     "location": {
+      "structure": "ctov:small/village_mountain"
+     }
+    }
+   }
+  }
+ },
+ "requirements": [
+  [
+   "lugar0",
+   "lugar1",
+   "lugar2"
+  ]
+ ]
+}

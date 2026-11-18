@@ -1,0 +1,407 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "inicio"
+	group: "39FD9A44732FCDBA"
+	icon: "minecraft:campfire"
+	id: "2D77C0F2363BAA89"
+	order_index: 1
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oCruzaste. El teletransportador del Búnker 7 ya no responde, y lo que el laboratorio te prestó se quedó allá: aquí solo traes tu astilla y lo que cargabas. Frente a ti está el Templo de la Conciencia. Aquí empieza lo tuyo.", "", "&6Qué hacer:&r Sal del Búnker 7 por la Fractura y llega al Templo de la Conciencia.", "", "&6Premio:&r 2 cosas al azar: antorchas, pan, manzanas o troncos.", "&5A veces (7 %):&r una espada de hierro encantada."]
+			disable_toast: true
+			icon: "minecraft:echo_shard"
+			id: "611CECE0EA414984"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Acto I · Sobrevivir"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7B5B83BB9AD06B20"
+					icon: "minecraft:echo_shard"
+					stage: "ecos_i_llegada_fractura"
+					title: "Cruza la Fractura"
+					type: "gamestage"
+				}
+			]
+			title: "Del otro lado de la Fractura"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["611CECE0EA414984"]
+			description: ["&#19E6E6Zykna:&r &oAquí afuera nadie apaga a las criaturas cuando cae el sol, y la Fractura crece sola: cada noche es un poco peor que la anterior. Antes de pensar en Portadores, piensa en cuatro paredes.", "", "&6Qué hacer:&r Fuera del Búnker, pon una mesa de trabajo, una puerta y una cama.", "", "&6Premio:&r 2 cofres para guardar tus cosas y el material de una mochila (4 cuero, 4 hilo y 1 cofre), más 1 cosa al azar: antorchas, linternas, vidrio o pan.", "&5A veces (7 %):&r un cofre de hierro de Sophisticated Storage, más grande."]
+			disable_toast: true
+			icon: "minecraft:oak_door"
+			id: "489A12B95F656239"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Acto I · Sobrevivir"
+			tasks: [
+				{
+					disable_toast: true
+					id: "567897050F5DABE1"
+					icon: "minecraft:crafting_table"
+					stage: "ecos_i_refugio_mesa"
+					title: "Pon una mesa de trabajo"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3FBF81156135CA5A"
+					icon: "minecraft:oak_door"
+					stage: "ecos_i_refugio_puerta"
+					title: "Pon una puerta"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1B340882C5D41B27"
+					icon: "minecraft:red_bed"
+					stage: "ecos_i_refugio_cama"
+					title: "Pon una cama"
+					type: "gamestage"
+				}
+			]
+			title: "Un techo antes de la noche"
+			x: 1.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["489A12B95F656239"]
+			description: ["&#19E6E6Zykna:&r &oUn Eco que explora lejos no puede volver al refugio por cada piedra. Con una mochila cargas más y regresas menos. Ármala con el cuero y el hilo que te dejé en el refugio.", "", "&6Qué hacer:&r Arma una mochila de Sophisticated Backpacks en la mesa de trabajo: hilo, cuero, hilo arriba; hilo, cofre, hilo en medio; cuero, cuero, cuero abajo. Ábrela con clic derecho. Cuenta cualquier mochila, también las de cobre, hierro, oro, diamante o netherita.", "", "&6Premio:&r 2 cosas al azar: una base de mejora, cobre para la mochila de cobre, cuero o hilo.", "&5A veces (7 %):&r una mochila de hierro."]
+			disable_toast: true
+			icon: "sophisticatedbackpacks:backpack"
+			id: "4725F677A94E1BB5"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Acto I · Sobrevivir"
+			tasks: [
+				{
+					disable_toast: true
+					id: "06F68BD3D1E956A9"
+					icon: "sophisticatedbackpacks:backpack"
+					stage: "ecos_i_mochila_armar"
+					title: "Arma una mochila"
+					type: "gamestage"
+				}
+			]
+			title: "Todo a la espalda"
+			x: 3.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["4725F677A94E1BB5"]
+			description: ["&#19E6E6Zykna:&r &oTu cuerpo es un clon: lo hicieron de prisa, y es frágil. Si caes, te rehaces donde dormiste por última vez, y parte de tu experiencia se queda en la tumba. Que tu refugio sea ese lugar.", "", "&6Qué hacer:&r Acuéstate en una cama. Desde ese momento, ahí reapareces si caes.", "", "&6Premio:&r 2 cosas al azar: escudo, flechas, carne cocida o vendas.", "&5A veces (7 %):&r un escudo encantado con Irrompibilidad."]
+			disable_toast: true
+			icon: "minecraft:red_bed"
+			id: "1D39A33A2BCAD030"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Acto I · Sobrevivir"
+			tasks: [
+				{
+					disable_toast: true
+					id: "44709D21E6B6B4A6"
+					icon: "minecraft:red_bed"
+					stage: "ecos_i_noche_dormir"
+					title: "Duerme en una cama"
+					type: "gamestage"
+				}
+			]
+			title: "La primera noche"
+			x: 4.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["1D39A33A2BCAD030"]
+			description: ["&#19E6E6Zykna:&r &oLas máquinas, las naves, los cohetes: todo eso es tecnología del Proyecto Éter, y se reconstruye desde las ruinas. Pero antes de un motor va un horno. Funde tu primer hierro.", "", "&6Qué hacer:&r Funde un lingote de hierro y consigue un pico de hierro.", "", "&6Premio:&r 2 cosas al azar: hierro, carbón, una cubeta o cobre.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "minecraft:iron_pickaxe"
+			id: "6FBF4ADAB3D26A91"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Acto I · Sobrevivir"
+			tasks: [
+				{
+					disable_toast: true
+					id: "383919580E94BBBC"
+					icon: "minecraft:iron_ingot"
+					stage: "ecos_i_hierro_fundir"
+					title: "Funde un lingote de hierro"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "7C003362F0235AEC"
+					icon: "minecraft:iron_pickaxe"
+					stage: "ecos_i_hierro_pico"
+					title: "Consigue un pico de hierro"
+					type: "gamestage"
+				}
+			]
+			title: "Fuego y hierro"
+			x: 6.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["6FBF4ADAB3D26A91"]
+			description: ["&#19E6E6Zykna:&r &oUn Eco con hambre pelea a medias y sana despacio. Una olla al fuego rinde más que diez manzanas: cocina algo que de verdad llene.", "", "&6Qué hacer:&r Pon una hoguera, ponle encima una olla (Farmer's Delight) y come un platillo servido que te deje Nutrido.", "", "&6Premio:&r 2 cosas al azar: un platillo listo, un guiso, tomates o cebollas.", "&5A veces (7 %):&r un cuchillo de hierro encantado con Botín."]
+			disable_toast: true
+			icon: "farmersdelight:cooking_pot"
+			id: "11A030C79C5001CE"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Acto I · Sobrevivir"
+			tasks: [
+				{
+					disable_toast: true
+					id: "022CE0D99F0643C0"
+					icon: "minecraft:campfire"
+					stage: "ecos_i_cocina_hoguera"
+					title: "Pon una hoguera"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "645C1FE804D99908"
+					icon: "farmersdelight:cooking_pot"
+					stage: "ecos_i_cocina_olla"
+					title: "Pon una olla"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "5158CDE8A105F428"
+					icon: "farmersdelight:steak_and_potatoes"
+					stage: "ecos_i_cocina_nutrido"
+					title: "Come un platillo que te deje Nutrido"
+					type: "gamestage"
+				}
+			]
+			title: "Algo caliente"
+			x: 6.00d
+			y: 2.00d
+		}
+		{
+			dependencies: ["11A030C79C5001CE"]
+			description: ["&#19E6E6Zykna:&r &oLas semillas del Invernadero del Búnker venían de los bolsillos de memoria: crecían como alguien las recordaba, no como eran. Las de aquí crecen como son, y con eso basta. Comer no puede depender de la suerte.", "", "&6Qué hacer:&r Siembra una semilla y cría dos animales.", "", "&6Premio:&r 2 cosas al azar: semillas, harina de hueso, zanahorias, papas, arroz o correas.", "&5A veces (7 %):&r una azada de hierro encantada con Fortuna."]
+			disable_toast: true
+			icon: "minecraft:wheat"
+			id: "7FC5C3AB5F27FB4C"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Acto II · Echar raíz"
+			tasks: [
+				{
+					disable_toast: true
+					id: "34BB5FB399D57DB1"
+					icon: "minecraft:wheat_seeds"
+					stage: "ecos_i_cosecha_sembrar"
+					title: "Siembra una semilla"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "46C7C6BF9CC0E0B4"
+					icon: "minecraft:wheat"
+					stage: "ecos_i_cosecha_criar"
+					title: "Cría dos animales"
+					type: "gamestage"
+				}
+			]
+			title: "La primera cosecha"
+			x: 4.50d
+			y: 2.00d
+		}
+		{
+			dependencies: ["7FC5C3AB5F27FB4C"]
+			description: ["&#19E6E6Zykna:&r &oNo todos los que sobrevivieron a la Fractura son Ecos. Hay gente sin astilla que sigue en pie: no pelea como ustedes, pero los necesita, y ustedes a ella. Solos no van a durar.", "", "&6Qué hacer:&r Comercia con un aldeano, o pon el Ayuntamiento de una colonia de MineColonies.", "", "&6Premio:&r 2 cosas al azar: esmeraldas, troncos, pan o libros.", "&5A veces (7 %):&r un bloque de esmeralda."]
+			disable_toast: true
+			icon: "minecolonies:blockhuttownhall"
+			id: "50D78D90ACE59864"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Acto II · Echar raíz"
+			tasks: [
+				{
+					disable_toast: true
+					id: "50F5DA0A7258F0FF"
+					icon: "minecolonies:blockhuttownhall"
+					stage: "ecos_i_gente_trato"
+					title: "Comercia o funda una colonia"
+					type: "gamestage"
+				}
+			]
+			title: "Los que no tienen astilla"
+			x: 3.00d
+			y: 2.00d
+		}
+		{
+			dependencies: ["50D78D90ACE59864"]
+			description: ["&#19E6E6Zykna:&r &oTu don todavía no te deja volar: eso llega con la marca de tu Maestro. Mientras, el mundo es grande y las piernas no alcanzan. Las naves también son tecnología del Proyecto: ármate una.", "", "&6Qué hacer:&r Arma y maneja fuera del Búnker un avión de Immersive Aircraft, un barco de Small Ships, el rover de Ad Astra o el submarino de Alex's Caves. Las lanchas de madera no cuentan.", "", "&6Premio:&r 3 puntos de habilidad y combustible al azar."]
+			disable_toast: true
+			icon: "immersive_aircraft:biplane"
+			id: "5C69F91D02C5D7EC"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Acto II · Echar raíz"
+			tasks: [
+				{
+					disable_toast: true
+					id: "334657A1B80157BA"
+					icon: "immersive_aircraft:biplane"
+					stage: "ecos_i_vehiculo_manejar"
+					title: "Maneja tu vehículo"
+					type: "gamestage"
+				}
+			]
+			title: "Algo con qué moverte"
+			x: 1.50d
+			y: 2.00d
+		}
+		{
+			dependencies: ["5C69F91D02C5D7EC"]
+			description: ["&#19E6E6Zykna:&r &oAl cruzar, tu astilla se quedó callada: lo que sabías hacer en el laboratorio era prestado. Cada nivel de Conciencia la despierta un poco y te da puntos para tu árbol. Todo cuenta: pelear, minar, fundir, pescar.", "", "&6Qué hacer:&r Llega a Conciencia 10. Escribe conciencia en el chat para ver cuánto te falta.", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, lapislázuli o amatista.", "&5A veces (7 %):&r un montón de frascos de experiencia."]
+			disable_toast: true
+			icon: "minecraft:amethyst_shard"
+			id: "119FE285F1B2736A"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Acto II · Echar raíz"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1EE06FCECFFB5BA4"
+					icon: "minecraft:amethyst_shard"
+					stage: "ecos_i_astilla_diez"
+					title: "Llega a Conciencia 10"
+					type: "gamestage"
+				}
+			]
+			title: "La astilla despierta"
+			x: 0.00d
+			y: 2.00d
+		}
+		{
+			dependencies: ["119FE285F1B2736A"]
+			description: ["&#19E6E6Zykna:&r &oEl Templo de la Conciencia es la única forma de volver a coser a la Primera Mente. Se enciende nivel por nivel, y cada nivel antes de la Cumbre pide ocho ofrendas, una por pilar. Sube a la cima: que una de esas voces sea la tuya.", "", "&6Qué hacer:&r Entrega una ofrenda en el altar de la cima del Templo: clic derecho con ella en la mano. Escribe obras para ver qué pide el nivel.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, frascos de experiencia o velas.", "&5A veces (7 %):&r dos manzanas doradas."]
+			disable_toast: true
+			icon: "minecraft:crying_obsidian"
+			id: "41A425EA72C21293"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Acto II · Echar raíz"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4FD66D17901F498B"
+					icon: "minecraft:crying_obsidian"
+					stage: "ecos_i_templo_ofrenda"
+					title: "Entrega una ofrenda en el altar"
+					type: "gamestage"
+				}
+			]
+			title: "La primera ofrenda"
+			x: 0.00d
+			y: 4.00d
+		}
+		{
+			dependencies: ["41A425EA72C21293"]
+			description: ["&#19E6E6Zykna:&r &oLos fragmentos más grandes de la Primera Mente se metieron en los cuerpos más fuertes: así nacieron los Portadores. Cuando cae el primero y se enciende el Cimiento del Templo, el mundo entero sube a la Era I. Ya no se trata solo de sobrevivir.", "", "&6Qué hacer:&r Entre todos: venzan al Ferrous Wroughtnaut, o a la Naga y al Lich, y enciendan el Cimiento del Templo. Escribe obras para ver qué falta.", "", "&6Premio:&r 2 cosas al azar: hierro, pólvora o frascos de experiencia.", "&5A veces (7 %):&r un peto de hierro encantado con Protección."]
+			disable_toast: true
+			icon: "mowziesmobs:wrought_axe"
+			id: "021D2E878FA32987"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Acto III · El llamado"
+			tasks: [
+				{
+					disable_toast: true
+					id: "0527DC14C8C51D10"
+					icon: "mowziesmobs:wrought_axe"
+					stage: "ecos_i_resistencia_era1"
+					title: "El mundo llega a la Era I"
+					type: "gamestage"
+				}
+			]
+			title: "La Resistencia"
+			x: 1.50d
+			y: 4.00d
+		}
+		{
+			dependencies: ["021D2E878FA32987"]
+			description: ["&#19E6E6Zykna:&r &oEl Búnker 7 no está muerto, está herido. Seis salas esperan materiales para volver a funcionar, y cada una que se enciende me devuelve un registro del Proyecto Éter. Hay verdades que solo están ahí.", "", "&6Qué hacer:&r Vuelve al Búnker 7 y entrega material en la terminal de una sala: la lámpara junto a su puerta. La Enfermería y el Taller abren en la Era I. Escribe búnker para ver qué piden.", "", "&6Premio:&r 2 cosas al azar: hierro, cobre o redstone.", "&5A veces (7 %):&r un mecanismo de precisión de Create."]
+			disable_toast: true
+			icon: "minecraft:redstone_lamp"
+			id: "7002E57824CBD582"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Acto III · El llamado"
+			tasks: [
+				{
+					disable_toast: true
+					id: "551BB484D1107151"
+					icon: "minecraft:redstone_lamp"
+					stage: "ecos_i_bunker_aporte"
+					title: "Aporta a una terminal del Búnker"
+					type: "gamestage"
+				}
+			]
+			title: "El Búnker respira"
+			x: 3.00d
+			y: 4.00d
+		}
+		{
+			dependencies: ["7002E57824CBD582"]
+			description: ["&#19E6E6Zykna:&r &oSiete Maestros siguen vivos, uno por familia de dones, cada uno donde pocos llegan. Tu Maestro despierta cuando cae el guardián de su hogar. Llega hasta ahí y acepta su Prueba: lo que sigue ya no te lo enseño yo.", "", "&6Qué hacer:&r Escribe mision para saber quién es tu Maestro y dónde vive. Vence al guardián de su hogar, habla con tu Maestro y acepta su Prueba.", "", "&6Los siete Maestros:", "&7· Bestias: Ocelotzin, la Última Domadora, en el Cuenco de los Huesos (cuevas primordiales de Alex's Caves: hay que excavar hondo).", "&7· Elementales: Citlali, la Tejedora de Tormentas, en las islas altas del Aether.", "&7· Sangre y cuerpo: Yolotl, la Curandera de Hueso, en el Domo Envenenado de Everdawn (Blue Skies).", "&7· Mente y espacio: Mixtli, el Archivista del Silencio, en la Otra Orilla (Otherside de Deeper and Darker).", "&7· Materia: Tepoztli, el Herrero de la Roca, en las Cuevas de los Gigantes (Tierras Altas del Bosque Crepuscular).", "&7· Espíritu y sombra: Yohualli, el Custodio de la Vela, en la Torre Oscura (Born in Chaos: taiga, bosque o llanura).", "&7· Impulso y adaptación: Cuauhtli, la Corredora de Cielos, en las Islas Altas de Everbright (Blue Skies).", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, una manzana dorada o esmeraldas.", "&5A veces (7 %):&r una espada de diamante encantada con Filo."]
+			disable_toast: true
+			icon: "minecraft:compass"
+			id: "2F05CBDA56653977"
+			shape: "diamond"
+			size: 1.25d
+			subtitle: "Acto III · El llamado"
+			tasks: [
+				{
+					disable_toast: true
+					id: "69689BC95277E7A4"
+					icon: "minecraft:compass"
+					stage: "ecos_i_maestro_prueba"
+					title: "Acepta la Prueba de tu Maestro"
+					type: "gamestage"
+				}
+			]
+			title: "La Prueba del Maestro"
+			x: 4.50d
+			y: 4.00d
+		}
+		{
+			dependencies: ["2F05CBDA56653977"]
+			description: ["&#19E6E6Zykna:&r &oLos waystones son la vieja red de relevos del Proyecto Éter. Desde la Era II vuelven a responder: tocas uno y el mundo se hace más chico. Funcionan, pero cobran: cada viaje largo te cuesta niveles de experiencia.", "", "&6Qué hacer:&r Cuando el mundo llegue a la Era II, activa un waystone con clic derecho. Se fabrican, o se encuentran por el mundo.", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, pergaminos de regreso, polvo de teletransporte o perlas de Ender.", "&5A veces (7 %):&r una piedra de teletransporte que se recarga sola."]
+			disable_toast: true
+			icon: "waystones:waystone"
+			id: "2A9970283770804E"
+			shape: "gear"
+			size: 1.40d
+			subtitle: "Acto III · El llamado"
+			tasks: [
+				{
+					disable_toast: true
+					id: "49760B11632BAD9E"
+					icon: "waystones:waystone"
+					stage: "ecos_i_relevos_waystone"
+					title: "Activa un waystone"
+					type: "gamestage"
+				}
+			]
+			title: "La vieja red de relevos"
+			x: 6.00d
+			y: 4.00d
+		}
+	]
+	subtitle: ["Del Búnker 7 al Templo: lo que hace un Eco en sus primeros días.", "Zykna te dice qué sigue. Nada se traba: lo que hagas fuera de orden también cuenta."]
+	title: "Los primeros días del Eco"
+}

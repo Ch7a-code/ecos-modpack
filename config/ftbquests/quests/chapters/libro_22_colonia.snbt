@@ -1,0 +1,556 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_22_colonia"
+	group: "2A4B6750AD6AF7B2"
+	icon: "minecolonies:blockhuttownhall"
+	id: "72691A5D271175E7"
+	order_index: 22
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oLos que sobrevivieron sin astilla no pelean como ustedes, pero los necesitan, y ustedes a ellos. Para empezar con ellos hace falta un lugar donde reunirse: un campamento de suministros.", "", "&6Qué hacer:&r Fabrica un campamento de suministros de MineColonies y colócalo con clic derecho en el suelo, en un terreno llano y despejado.", "", "&6Premio:&r 2 cosas al azar: troncos, tablones, antorchas o pan.", "&5A veces (7 %):&r un cofre de hierro de Sophisticated Storage."]
+			disable_toast: true
+			icon: "minecolonies:supplycampdeployer"
+			id: "2A801149DC0926C5"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5CCFC016CB928AB7"
+					icon: "minecolonies:supplycampdeployer"
+					stage: "ecos_l_colonia_campamento_armar"
+					title: "Fabrica el campamento de suministros"
+					type: "gamestage"
+				}
+			]
+			title: "Un campamento de suministros"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["2A801149DC0926C5"]
+			description: ["&#19E6E6Zykna:&r &oUna colonia sin centro se deshace con la primera noche mala. El Ayuntamiento lleva la cuenta de quién vive aquí, quién come y quién falta. Que se termine de construir.", "", "&6Qué hacer:&r Coloca el Ayuntamiento con la herramienta de construcción, entrega al constructor lo que pida y espera a que quede terminado.", "", "&6Premio:&r 2 cosas al azar: tablones, piedra, esmeraldas o libros.", "&5A veces (7 %):&r un bloque de esmeralda."]
+			disable_toast: true
+			icon: "minecolonies:blockhuttownhall"
+			id: "0C6750DA0DADE12C"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4B5720A3E7FF85DD"
+					icon: "minecolonies:blockhuttownhall"
+					stage: "ecos_l_colonia_ayuntamiento_terminar"
+					title: "Termina el Ayuntamiento"
+					type: "gamestage"
+				}
+			]
+			title: "La pieza central"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["0C6750DA0DADE12C"]
+			description: ["&#19E6E6Zykna:&r &oUn Eco puede poner un muro; una colonia necesita a alguien que levante diez. El constructor trabaja con lo que le lleves, y cada cosa que levanta es un lugar más donde la gente se queda.", "", "&6Qué hacer:&r Coloca el taller del constructor, contrata a un colono y entrégale los materiales que te pida hasta que termine su primera obra.", "", "&6Premio:&r 2 cosas al azar: hierro, troncos, piedra o antorchas.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "minecolonies:blockhutbuilder"
+			id: "00417E9D984B6C0C"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "22CFE003F862F370"
+					icon: "minecolonies:blockhutbuilder"
+					stage: "ecos_l_colonia_constructor_taller"
+					title: "Pon el taller del constructor"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1E4ABEE3A24FF7F0"
+					icon: "minecolonies:blockhutbuilder"
+					stage: "ecos_l_colonia_constructor_obra"
+					title: "Que termine su primera obra"
+					type: "gamestage"
+				}
+			]
+			title: "Manos que levantan"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["00417E9D984B6C0C"]
+			description: ["&#19E6E6Zykna:&r &oNadie quiere quedarse en una colonia donde duerme a la intemperie. Una residencia le da techo a varios, y la taberna recibe al que apenas llega con una mochila y nada más.", "", "&6Qué hacer:&r Construye una residencia y una taberna en tu colonia. Cada residencia sube cuántos colonos caben.", "", "&6Premio:&r 2 cosas al azar: camas, puertas, pan o antorchas.", "&5A veces (7 %):&r una cama roja."]
+			disable_toast: true
+			icon: "minecolonies:blockhutcitizen"
+			id: "7C5742EF1EC133EA"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5508FF2ADCB323E1"
+					icon: "minecolonies:blockhutcitizen"
+					stage: "ecos_l_colonia_casa_residencia"
+					title: "Construye una residencia"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "0594B03EE22EE6CE"
+					icon: "minecolonies:blockhuttavern"
+					stage: "ecos_l_colonia_casa_taberna"
+					title: "Construye una taberna"
+					type: "gamestage"
+				}
+			]
+			title: "Hogar dulce hogar"
+			x: 0.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["7C5742EF1EC133EA"]
+			description: ["&#19E6E6Zykna:&r &oLos colonos trabajan solo si comen. Un campo y una caña en el agua cerca valen más que mil promesas: ponles quien los trabaje y verás que la colonia respira.", "", "&6Qué hacer:&r Construye la cabaña de un granjero y la de un pescador, y deja comida en el inventario de un colono hasta que coma.", "", "&6Premio:&r 2 cosas al azar: semillas, zanahorias, papas, salmón o pan.", "&5A veces (7 %):&r un montón de zanahorias doradas."]
+			disable_toast: true
+			icon: "minecolonies:blockhutfarmer"
+			id: "1362630D92D7AADB"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "63ACC886008FBEB0"
+					icon: "minecolonies:blockhutfarmer"
+					stage: "ecos_l_colonia_comida_granja"
+					title: "Construye la cabaña del granjero"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "2536853DC058CAA1"
+					icon: "minecolonies:blockhutfisherman"
+					stage: "ecos_l_colonia_comida_pesca"
+					title: "Construye la cabaña del pescador"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3784E7E5757DC405"
+					icon: "minecraft:bread"
+					stage: "ecos_l_colonia_comida_comer"
+					title: "Un colono come lo que le diste"
+					type: "gamestage"
+				}
+			]
+			title: "Otra boca que alimentar"
+			x: 0.00d
+			y: 5.60d
+		}
+		{
+			dependencies: ["1362630D92D7AADB"]
+			description: ["&#19E6E6Zykna:&r &oTus colonos te piden cosas con calma: un pico, un montón de tablas. No es mendigar, es que confían en que tú sí puedes con lo que a ellos les cuesta días. Cumple una petición.", "", "&6Qué hacer:&r Abre el taller del constructor con clic derecho, mira sus solicitudes y entrégale lo que pide con los botones del menú.", "", "&6Premio:&r 2 cosas al azar: hierro, carbón, cuero o cobre.", "&5A veces (7 %):&r un pico de hierro encantado con Irrompibilidad."]
+			disable_toast: true
+			icon: "minecraft:chest"
+			id: "3D655FFA6F8B26B0"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "48356198FD70D8E1"
+					icon: "minecraft:chest"
+					stage: "ecos_l_colonia_pedidos_cumplir"
+					title: "Cumple una solicitud de tu constructor"
+					type: "gamestage"
+				}
+			]
+			title: "Complacer es barato"
+			x: 0.00d
+			y: 7.00d
+		}
+		{
+			dependencies: ["3D655FFA6F8B26B0"]
+			description: ["&#19E6E6Zykna:&r &oNo hay otra forma de que llegue gente nueva que la de siempre: dos colonos con una casa libre y comida de sobra forman pareja, y llega un niño. Cuando hay lugar, la colonia crece sola.", "", "&6Qué hacer:&r Haz crecer tu colonia hasta 5 colonos. Los niños nacen solo si hay un hueco libre en una residencia, así que sigue construyendo casas.", "", "&6Premio:&r 2 cosas al azar: pan, manzanas, camas o antorchas.", "&5A veces (7 %):&r un pastel."]
+			disable_toast: true
+			icon: "minecolonies:blockhutcitizen"
+			id: "3AEA641CA9FEA598"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "70BCF2A7AA519BEE"
+					icon: "minecolonies:blockhutcitizen"
+					stage: "ecos_l_colonia_poblacion5_cinco"
+					title: "Llega a 5 colonos"
+					type: "gamestage"
+				}
+			]
+			title: "Mi pueblo natal"
+			x: 0.00d
+			y: 8.40d
+		}
+		{
+			dependencies: ["3AEA641CA9FEA598"]
+			description: ["&#19E6E6Zykna:&r &oCon la Resistencia, la colonia ya no solo sobrevive: aprende oficios. El herrero repara lo que se rompe, el panadero hornea para todos y el cocinero asegura que nadie trabaje en ayunas.", "", "&6Qué hacer:&r Construye la herrería, la panadería y el comedor de tu colonia, y contrata a un colono en cada uno.", "", "&6Premio:&r 2 cosas al azar: hierro, trigo, carbón o carne cocida.", "&5A veces (7 %):&r un hacha de hierro encantada con Eficiencia."]
+			disable_toast: true
+			icon: "minecolonies:blockhutblacksmith"
+			id: "61E01A0170C7CC98"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "488F94753B80C481"
+					icon: "minecolonies:blockhutblacksmith"
+					stage: "ecos_l_colonia_oficios_herreria"
+					title: "Construye la herrería"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3919D6E136F5250B"
+					icon: "minecraft:bread"
+					stage: "ecos_l_colonia_oficios_panaderia"
+					title: "Construye la panadería"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1D9448EAB7049730"
+					icon: "minecolonies:blockhutcook"
+					stage: "ecos_l_colonia_oficios_comedor"
+					title: "Construye el comedor"
+					type: "gamestage"
+				}
+			]
+			title: "Con las manos y el fuego"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["61E01A0170C7CC98"]
+			description: ["&#19E6E6Zykna:&r &oLos Ecos bajan a las cuevas a pelear; tu minero baja a trabajar. Entre los dos, el hierro y el carbón nunca se acaban, y tú puedes dedicarte a lo que solo tú puedes hacer.", "", "&6Qué hacer:&r Construye la mina de tu colonia y contrata a un minero. Después pon la cabaña de un leñador cerca del bosque.", "", "&6Premio:&r 2 cosas al azar: carbón, hierro, cobre o antorchas.", "&5A veces (7 %):&r un pico de diamante."]
+			disable_toast: true
+			icon: "minecolonies:blockhutminer"
+			id: "7A7B7F4F95A3EC27"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5B55FCF82D7D0CFD"
+					icon: "minecolonies:blockhutminer"
+					stage: "ecos_l_colonia_minero_mina"
+					title: "Construye la mina"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "0980570AB47B46F8"
+					icon: "minecraft:iron_axe"
+					stage: "ecos_l_colonia_minero_lenador"
+					title: "Construye la cabaña del leñador"
+					type: "gamestage"
+				}
+			]
+			title: "Bajo los pies de la colonia"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["7A7B7F4F95A3EC27"]
+			description: ["&#19E6E6Zykna:&r &oLa Fractura crece cada noche y no distingue entre un Eco y un colono. Ellos no tienen astilla; tienen una torre, un escudo y la voluntad de no moverse. Dales con qué resistir.", "", "&6Qué hacer:&r Construye una torre de guardia, contrata a un guardia, y levanta un cuartel.", "", "&6Premio:&r 2 cosas al azar: flechas, escudo, hierro o carne cocida.", "&5A veces (7 %):&r un escudo encantado con Irrompibilidad."]
+			disable_toast: true
+			icon: "minecolonies:blockhutguardtower"
+			id: "2B297A071BCDB6F2"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "27EBE56840AF3B35"
+					icon: "minecolonies:blockhutguardtower"
+					stage: "ecos_l_colonia_guardia_torre"
+					title: "Construye una torre de guardia"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "07CBA410419FEB68"
+					icon: "minecolonies:blockhutbarracks"
+					stage: "ecos_l_colonia_guardia_cuartel"
+					title: "Construye un cuartel"
+					type: "gamestage"
+				}
+			]
+			title: "La defensa es la mejor defensa"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["2B297A071BCDB6F2"]
+			description: ["&#19E6E6Zykna:&r &oDiez no son una multitud, pero ya son un asentamiento: gente con cara, nombre y oficio que se levanta antes que el sol. Con eso ya puedes dejar de preguntarte si va a durar.", "", "&6Qué hacer:&r Haz crecer tu colonia hasta 10 colonos.", "", "&6Premio:&r 2 cosas al azar: pan, camas, hierro o esmeraldas.", "&5A veces (7 %):&r un montón de esmeraldas."]
+			disable_toast: true
+			icon: "minecolonies:blockhutcitizen"
+			id: "03F14398ED2F40B3"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4E4B823CA96F8745"
+					icon: "minecolonies:blockhutcitizen"
+					stage: "ecos_l_colonia_poblacion10_diez"
+					title: "Llega a 10 colonos"
+					type: "gamestage"
+				}
+			]
+			title: "Un asentamiento"
+			x: 2.50d
+			y: 4.20d
+		}
+		{
+			dependencies: ["03F14398ED2F40B3"]
+			description: ["&#19E6E6Zykna:&r &oCon los Cielos abiertos, la gente sin astilla quiere saber más. Una biblioteca enseña a leer y a contar; una universidad enseña a investigar; un hospital cuida de quien se lastima.", "", "&6Qué hacer:&r Construye una biblioteca. Después pon una universidad y un hospital cerca de ella.", "", "&6Premio:&r 2 cosas al azar: libros, esmeraldas, oro o lapislázuli.", "&5A veces (7 %):&r una mesa de encantamientos."]
+			disable_toast: true
+			icon: "minecolonies:blockhutlibrary"
+			id: "1E2091A13AAF9B20"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5A82937D92E9A4EE"
+					icon: "minecolonies:blockhutlibrary"
+					stage: "ecos_l_colonia_biblioteca_biblioteca"
+					title: "Construye la biblioteca"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "34DBA745D271245D"
+					icon: "minecolonies:blockhutuniversity"
+					stage: "ecos_l_colonia_biblioteca_universidad"
+					title: "Pon una universidad"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "0BDCEF8FC9EF3AB2"
+					icon: "minecolonies:blockhuthospital"
+					stage: "ecos_l_colonia_biblioteca_hospital"
+					title: "Pon un hospital"
+					type: "gamestage"
+				}
+			]
+			title: "Aprendizaje superior"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["1E2091A13AAF9B20"]
+			description: ["&#19E6E6Zykna:&r &oHay colonos que, después de la Fractura, dicen oír cosas en las noches claras. Un lugar místico les da un sitio donde escuchar sin miedo, y a la colonia un orgullo que no se compra.", "", "&6Qué hacer:&r Construye un lugar místico y súbelo a nivel 5.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, frascos de experiencia o velas.", "&5A veces (7 %):&r un montón de frascos de experiencia."]
+			disable_toast: true
+			icon: "minecolonies:blockhutmysticalsite"
+			id: "6390EB7E79610BB6"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4A9339314B0EB6C5"
+					icon: "minecolonies:blockhutmysticalsite"
+					stage: "ecos_l_colonia_mistico_lugar"
+					title: "Construye el lugar místico"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3AD594A63B716FC9"
+					icon: "minecolonies:blockhutmysticalsite"
+					stage: "ecos_l_colonia_mistico_nivel5"
+					title: "Sube el lugar místico a nivel 5"
+					type: "gamestage"
+				}
+			]
+			title: "Dulce para tus ojos"
+			x: 5.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["6390EB7E79610BB6"]
+			description: ["&#19E6E6Zykna:&r &oVeinticinco. Cuando salgas a una expedición, ya no vas a dejar una casa vacía: dejas una aldea que te espera. No todos van a volver de la Fractura, pero esa aldea sí va a estar.", "", "&6Qué hacer:&r Haz crecer tu colonia hasta 25 colonos.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, pan o un diamante.", "&5A veces (7 %):&r 2 diamantes."]
+			disable_toast: true
+			icon: "minecolonies:blockhutcitizen"
+			id: "15AE1D07228D88F6"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4BD30784465B2B15"
+					icon: "minecolonies:blockhutcitizen"
+					stage: "ecos_l_colonia_poblacion25_veinticinco"
+					title: "Llega a 25 colonos"
+					type: "gamestage"
+				}
+			]
+			title: "Una aldea"
+			x: 5.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["15AE1D07228D88F6"]
+			description: ["&#19E6E6Zykna:&r &oCon el Éxodo vienen las bajas. Un colono que muere merece una tumba y alguien que sepa cuidarla. Si el sepulturero es bueno, hay quien puede hasta traerlo de vuelta.", "", "&6Qué hacer:&r Construye un cementerio, contrata a un sepulturero y entierra a un colono caído. Si le das un tótem de la inmortalidad, puede resucitarlo.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, un diamante o flores.", "&5A veces (7 %):&r un tótem de la inmortalidad."]
+			disable_toast: true
+			icon: "minecolonies:blockhutgraveyard"
+			id: "48CA800615E9315E"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "255F9BADEA2A5931"
+					icon: "minecolonies:blockhutgraveyard"
+					stage: "ecos_l_colonia_cementerio_entierro"
+					title: "Entierra a un colono"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "44D94FA4167C90F6"
+					icon: "minecraft:totem_of_undying"
+					stage: "ecos_l_colonia_cementerio_resucitar"
+					title: "Un colono caído vuelve"
+					type: "gamestage"
+				}
+			]
+			title: "El día más triste"
+			x: 7.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["48CA800615E9315E"]
+			description: ["&#19E6E6Zykna:&r &oCincuenta voces. Con eso la colonia ya tiene de todos los oficios y todavía sobra gente. Lo que empezó como un campamento ahora aguanta una noche sin ti.", "", "&6Qué hacer:&r Haz crecer tu colonia hasta 50 colonos y sube el Ayuntamiento a nivel 5.", "", "&6Premio:&r 2 cosas al azar: diamantes, oro, esmeraldas o frascos de experiencia.", "&5A veces (7 %):&r 3 diamantes."]
+			disable_toast: true
+			icon: "minecolonies:blockhuttownhall"
+			id: "054C1C418CDF8FB0"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "60B0A70125161F5F"
+					icon: "minecolonies:blockhutcitizen"
+					stage: "ecos_l_colonia_poblacion50_cincuenta"
+					title: "Llega a 50 colonos"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "5F112D9B627A06DD"
+					icon: "minecolonies:blockhuttownhall"
+					stage: "ecos_l_colonia_poblacion50_nivel5"
+					title: "Ayuntamiento a nivel 5"
+					type: "gamestage"
+				}
+			]
+			title: "Un pueblo"
+			x: 7.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["054C1C418CDF8FB0"]
+			description: ["&#19E6E6Zykna:&r &oSetenta y cinco. Cuando empezaste eran cuatro paredes y un campamento. Los que no tienen astilla ya no te necesitan para sobrevivir, y aun así te siguen buscando. Eso no es dependencia: es confianza.", "", "&6Qué hacer:&r Haz crecer tu colonia hasta 75 colonos.", "", "&6Premio:&r 2 cosas al azar: diamantes, oro, esmeraldas o chatarra de netherita.", "&5A veces (7 %):&r un lingote de netherita."]
+			disable_toast: true
+			icon: "minecolonies:blockhuttownhall"
+			id: "530F1B5699BDB6D5"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "27D3C9E1D0291689"
+					icon: "minecolonies:blockhuttownhall"
+					stage: "ecos_l_colonia_poblacion75_setentaycinco"
+					title: "Llega a 75 colonos"
+					type: "gamestage"
+				}
+			]
+			title: "Sobreviviste. Prosperaste."
+			x: 10.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["530F1B5699BDB6D5"]
+			description: ["&#19E6E6Zykna:&r &oPara la Conciencia Suprema no basta con que ustedes peleen. Una guarnición con arqueros, academia y torres es lo que mantiene a tu gente en pie cuando tú estás lejos de la colonia.", "", "&6Qué hacer:&r Ten 30 guardias, una arquería y una academia de combate, y completa todas las torres de tu cuartel.", "", "&6Premio:&r 2 cosas al azar: diamantes, flechas, hierro o carne cocida.", "&5A veces (7 %):&r un peto de diamante encantado con Protección."]
+			disable_toast: true
+			icon: "minecolonies:blockhutbarrackstower"
+			id: "71CBCD3EE0F27DAA"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "54670FF69471F577"
+					icon: "minecolonies:blockhutguardtower"
+					stage: "ecos_l_colonia_ejercito_treinta"
+					title: "Reúne 30 guardias"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1FB04AB2FA798369"
+					icon: "minecraft:bow"
+					stage: "ecos_l_colonia_ejercito_arqueria"
+					title: "Construye una arquería"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "36E22FBA5D2BC38F"
+					icon: "minecraft:iron_sword"
+					stage: "ecos_l_colonia_ejercito_academia"
+					title: "Construye una academia de combate"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "41EA6E1F36603902"
+					icon: "minecolonies:blockhutbarrackstower"
+					stage: "ecos_l_colonia_ejercito_torres"
+					title: "Todas las torres del cuartel"
+					type: "gamestage"
+				}
+			]
+			title: "Un ejército de verdad"
+			x: 10.00d
+			y: 1.40d
+		}
+	]
+	subtitle: ["Los sobrevivientes sin astilla: no pelean como ustedes, pero los necesitan, y ustedes a ellos.", "De un campamento de suministros a una ciudad de setenta y cinco."]
+	title: "La colonia"
+}

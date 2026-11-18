@@ -1,0 +1,2493 @@
+{
+  "name": "Geokinesis",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/mountain.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "abilities": {
+    "Rock": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Rock",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.Has.Power",
+        "tag @s add EOP.NGP",
+        "scoreboard objectives add GK.Score dummy",
+        "scoreboard objectives add EOP.Orbit.Number dummy",
+        "scoreboard players set @s EOP.Orbit.Number 0",
+        "scoreboard objectives add EOP.Orbit.Type dummy",
+        "scoreboard players set @s EOP.Orbit.Type 0",
+        "scoreboard objectives add EOP.Armor.Type dummy",
+        "scoreboard players set @s EOP.Armor.Type 0"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Rock",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "scale reset @s"
+      ],
+      "commands": [
+        "execute at @e[distance=0.1..30,tag=EOP.Landmine] run particle minecraft:end_rod ~ ~ ~ 0.2 0.7 0.2 0 3 force @s"
+      ]
+    },
+    "Geokinesis": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/mountain.png",
+      "title": "Geokinesis",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to manipulate the very earth"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:rock @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{rock:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Geokinesis\",\"color\":\"#786748\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "GK.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s GK.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "GK.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "GK.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s GK.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "GK.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "GK.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s GK.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "GK.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "GK.Scoreboard.Gain4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s GK.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 21600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "GK.Score",
+            "min_score": 15,
+            "max_score": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "GK.Scoreboard.Gain5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s GK.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 36000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "GK.Score",
+            "min_score": 18,
+            "max_score": 19
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Armor": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Armor",
+      "description": "Grants 2 armor",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "7a276759-f23e-4053-bc2e-af07f40e66f9",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Geokinesis"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "GK.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/mountain.png",
+            "description": {
+              "text": "Geokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Armor2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Armor",
+      "description": "Grants 2 armor",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "7d0d463f-8f2d-4c94-89c1-3cfbe1d4c1ec",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Armor"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "GK.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/mountain.png",
+            "description": {
+              "text": "Geokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Armor3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Armor",
+      "description": "Grants 2 armor",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "81366de5-3ec1-4488-9d9b-c6f1d3fd7c0f",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Armor2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "GK.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/mountain.png",
+            "description": {
+              "text": "Geokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Armor4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Armor",
+      "description": "Grants 2 armor",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "c2e6dc90-aafb-4cb4-8a87-872f10b437fa",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Armor3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "GK.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/mountain.png",
+            "description": {
+              "text": "Geokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Tool.Hands": {
+      "type": "palladium:tool_hands",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "drop_block_tags": [
+        "minecraft:mineable/pickaxe",
+        "minecraft:needs_diamond_tool"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hand.Mine": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:destroy_speed",
+      "amount": 3,
+      "operation": 0,
+      "uuid": "aaddb182-00f7-4b0e-ba88-51a00589a5ba",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Item.Repair": {
+      "type": "eop:repair",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "tag": "eop:stone_tools"
+            },
+            "slot": "mainhand"
+          }
+        ]
+      }
+    },
+    "Entity.Sense": {
+      "type": "palladium:entity_glow",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "mode": "others",
+      "color": "#825A2F",
+      "distance": 60,
+      "property_key": "EOP.onGround",
+      "property_value": "true",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Entity.Sense.On"
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Boulder Form",
+      "description": "Form boulders that orbit around you. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/rock_throw.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Boulders": {
+      "type": "eop:stone_detect_orbs",
+      "title": "Boulder Form",
+      "icon": "eop:textures/gui/rock_throw.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "score": "EOP.Orbit.Type",
+      "needs": 3,
+      "return_block": false,
+      "hand_needs": 3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 100,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:rock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Orbit.Number",
+                "min_score": 1,
+                "max_score": 3
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Boulder.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:rock/boulder"
+    },
+    "Boulders.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "execute unless score @s EOP.Orbit.Type matches -1 run playsound eop:diamond_transform master @a ~ ~ ~ 1 1.5",
+        "execute unless score @s EOP.Orbit.Type matches -1 run scoreboard players set @s EOP.Orbit.Number 3",
+        "execute if score @s EOP.Orbit.Type matches -1 run playsound minecraft:block.note_block.didgeridoo master @s ~ ~ ~ 1 0.5",
+        "execute if score @s EOP.Orbit.Type matches -1 run title @s actionbar [\"\",{\"text\":\"Not enough material to create boulders!\",\"color\":\"red\",\"bold\":true}]"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Boulders"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Thornmail.Damage": {
+      "type": "eop:aoe_damage",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 2,
+      "damage": 6,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Orbit.Number",
+            "min_score": 1,
+            "max_score": 3
+          },
+          {
+            "type": "palladium:crouching"
+          }
+        ]
+      }
+    },
+    "Boulder.Projectile": {
+      "type": "palladium:projectile",
+      "title": "Boulder Shoot",
+      "icon": "eop:textures/gui/rock_throw.png",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "none",
+      "velocity": 1.5,
+      "inaccuracy": 0,
+      "damage_from_player": false,
+      "entity_data": {
+        "CommandOnEntityHit": "function eop:powers/rock/boulder",
+        "CommandOnBlockHit": "function eop:powers/rock/boulder",
+        "Size": 1,
+        "Gravity": 0.01,
+        "Damage": 15,
+        "DamageType": "eop:basic_projectile",
+        "Lifetime": 40,
+        "Appearances": [
+          {
+            "Type": "renderLayer",
+            "RenderLayer": "eop:rock/boulder_shoot"
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 10,
+            "key_type": "right_click"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:crouching"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Orbit.Number",
+            "min_score": 1,
+            "max_score": 3
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Orbit.Type",
+                "min_score": 0,
+                "max_score": 53
+              },
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Orbit.Type",
+                "min_score": 58,
+                "max_score": 61
+              },
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Orbit.Type",
+                "min_score": 63,
+                "max_score": 64
+              },
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Orbit.Type",
+                "min_score": 67,
+                "max_score": 67
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Boulder.Projectile.Fire": {
+      "type": "palladium:projectile",
+      "title": "Boulder Shoot",
+      "icon": "eop:textures/gui/rock_throw.png",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "none",
+      "velocity": 1.5,
+      "inaccuracy": 0,
+      "damage_from_player": false,
+      "entity_data": {
+        "CommandOnEntityHit": "function eop:powers/rock/boulder",
+        "CommandOnBlockHit": "function eop:powers/rock/boulder",
+        "SetEntityOnFireSeconds": 1,
+        "Size": 1,
+        "Gravity": 0.01,
+        "Damage": 15,
+        "DamageType": "minecraft:on_fire",
+        "Lifetime": 40,
+        "Appearances": [
+          {
+            "Type": "renderLayer",
+            "RenderLayer": "eop:rock/boulder_shoot"
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 10,
+            "key_type": "right_click"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:crouching"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Orbit.Number",
+            "min_score": 1,
+            "max_score": 3
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Orbit.Type",
+                "min_score": 62,
+                "max_score": 62
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Boulder.Projectile2": {
+      "type": "palladium:projectile",
+      "title": "Boulder Shoot",
+      "icon": "eop:textures/gui/rock_throw.png",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "none",
+      "velocity": 1.5,
+      "inaccuracy": 0,
+      "damage_from_player": false,
+      "entity_data": {
+        "CommandOnEntityHit": "function eop:powers/rock/boulder",
+        "CommandOnBlockHit": "function eop:powers/rock/boulder",
+        "Size": 1,
+        "Gravity": 0.01,
+        "Damage": 20,
+        "DamageType": "eop:basic_projectile",
+        "Lifetime": 40,
+        "Appearances": [
+          {
+            "Type": "renderLayer",
+            "RenderLayer": "eop:rock/boulder_shoot"
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 10,
+            "key_type": "right_click"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:crouching"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Orbit.Number",
+            "min_score": 1,
+            "max_score": 3
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Orbit.Type",
+                "min_score": 54,
+                "max_score": 57
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Boulder.Projectile3": {
+      "type": "palladium:projectile",
+      "title": "Boulder Shoot",
+      "icon": "eop:textures/gui/rock_throw.png",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "none",
+      "velocity": 1.5,
+      "inaccuracy": 0,
+      "damage_from_player": false,
+      "entity_data": {
+        "CommandOnEntityHit": "function eop:powers/rock/boulder",
+        "CommandOnBlockHit": "function eop:powers/rock/boulder",
+        "Size": 1,
+        "Gravity": 0.01,
+        "Damage": 25,
+        "DamageType": "eop:basic_projectile",
+        "Lifetime": 40,
+        "Appearances": [
+          {
+            "Type": "renderLayer",
+            "RenderLayer": "eop:rock/boulder_shoot"
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 10,
+            "key_type": "right_click"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:crouching"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Orbit.Number",
+            "min_score": 1,
+            "max_score": 3
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Orbit.Type",
+                "min_score": 65,
+                "max_score": 66
+              },
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Orbit.Type",
+                "min_score": 68,
+                "max_score": 68
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Boulder.Shoot.Command": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "scoreboard players remove @s EOP.Orbit.Number 1",
+        "scoreboard players operation @e[type=palladium:custom_projectile] EOP.Orbit.Type = @s EOP.Orbit.Type"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Boulder.Projectile"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Boulder.Projectile.Fire"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Boulder.Projectile2"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Boulder.Projectile3"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Landmine.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/landmine.png",
+      "title": "Landmine",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "description": "Create a landmine in any natural surface",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Geokinesis"
+          }
+        ]
+      }
+    },
+    "Landmine": {
+      "type": "eop:landmine",
+      "icon": "eop:textures/gui/landmine.png",
+      "title": "Landmine",
+      "list_index": 0,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "trigger_radius": 1,
+      "damage": 20,
+      "damage_radius": 3,
+      "damage_type": "minecraft:explosion",
+      "create_explosion": true,
+      "explosion_radius": 3,
+      "destroy_blocks": true,
+      "explosion_drop_items": false,
+      "landmine_superpower": "null",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 200,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Landmine.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.Destroy"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Landmine2": {
+      "type": "eop:landmine",
+      "icon": "eop:textures/gui/landmine.png",
+      "title": "Landmine",
+      "list_index": 0,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "trigger_radius": 3,
+      "damage": 20,
+      "damage_radius": 3,
+      "damage_type": "minecraft:explosion",
+      "create_explosion": true,
+      "explosion_radius": 3,
+      "destroy_blocks": false,
+      "explosion_drop_items": false,
+      "landmine_superpower": "null",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 200,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Landmine.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.No.Destroy"
+          }
+        ]
+      }
+    },
+    "Armor.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/geo_wall.png",
+      "title": "Geokinetic Armor",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Create armor of the material you are standing on",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Landmine.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "GK.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/mountain.png",
+            "description": {
+              "text": "Geokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Transform": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/geo_wall.png",
+      "title": "Geokinetic Armor",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "start_value": 0,
+      "max_value": 29,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:rock"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Armor.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Rock.Skin.Type": {
+      "type": "eop:stone_detect",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "score": "EOP.Armor.Type",
+      "needs": 6,
+      "hand_needs": 3,
+      "return_block": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Rock.Skin.Render": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:rock/armor",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Rock.Skin.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:diamond_transform master @a ~ ~ ~ 1 1.6"
+      ],
+      "last_tick_commands": [
+        "playsound eop:diamond_transform master @a ~ ~ ~ 1 1.6"
+      ],
+      "commands": [
+        "effect clear @s eop:shock",
+        "effect clear @s eop:shock_stronger"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Armor.Fire.Aspect": {
+      "type": "palladium:fire_aspect",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "time": 1,
+      "should_stack_time": false,
+      "max_time": 5,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 62,
+                "max_score": 62
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Armor.Fire.Immune": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "damage_sources": [
+        "minecraft:is_fire"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 62,
+                "max_score": 62
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Armor.Armor": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 14,
+      "operation": 0,
+      "uuid": "9aa5ae9a-a52f-4303-9998-aed94b736b76",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 0,
+                "max_score": 53
+              },
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 58,
+                "max_score": 64
+              },
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 67,
+                "max_score": 67
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Armor.Armor2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 20,
+      "operation": 0,
+      "uuid": "7a9415b5-2559-4fcc-a5e6-32a1ad96710d",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 54,
+                "max_score": 57
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Armor.Armor3": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 30,
+      "operation": 0,
+      "uuid": "8d945201-cc62-4eec-a98d-c357f66cd4eb",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 65,
+                "max_score": 66
+              },
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 68,
+                "max_score": 68
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Armor.Armor3.1": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor_toughness",
+      "amount": 30,
+      "operation": 0,
+      "uuid": "3becf10b-64e5-4e82-8d1c-194e70ad62cb",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 65,
+                "max_score": 66
+              },
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 68,
+                "max_score": 68
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Armor.Armor2.Resistance": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "reduction": 0.4,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 54,
+                "max_score": 57
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Armor.Armor3.Resistance": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "reduction": 0.6,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 65,
+                "max_score": 66
+              },
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 68,
+                "max_score": 68
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Armor.Damage": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 5,
+      "operation": 0,
+      "uuid": "ef5839d0-a0b7-49d5-b463-b4525b1795cb",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 0,
+                "max_score": 53
+              },
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 58,
+                "max_score": 64
+              },
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 67,
+                "max_score": 67
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Armor.Damage2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 8,
+      "operation": 0,
+      "uuid": "752f5bdd-4fc4-469e-9f6c-31e6a26e78e8",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 54,
+                "max_score": 57
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Armor.Damage3": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 12,
+      "operation": 0,
+      "uuid": "9b7f148c-a6fe-47e0-ac74-7a8302dfc8b5",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 65,
+                "max_score": 66
+              },
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Armor.Type",
+                "min_score": 68,
+                "max_score": 68
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Store.Armor": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": false,
+      "hide_offhand": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Restrict.Slots": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs",
+        "head"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Fly": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "palladium:flight_speed",
+      "hidden": true,
+      "amount": 0.7,
+      "operation": 0,
+      "uuid": "11091128-9ba8-4f07-aa62-bb1e0fb5ee87",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:attribute_check",
+            "attribute": "palladium:jump_power",
+            "comparison": ">",
+            "value": 0
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_materia_g2"
+          }
+        ]
+      }
+    },
+    "Damage.Immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "damage_sources": [
+        "eop:diamond_immune",
+        "eop:tacz_guns",
+        "eop:scorched_guns"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Reduced.Fall.Damage": {
+      "type": "eop:reduce_fall",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "division_amount": 1.3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Portal.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/geo_tp.png",
+      "title": "Earthen Gateway",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Create an earthen gateway that you can travel back to at will. §dSneak §fto set or remove waypoint",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Armor.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "GK.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/mountain.png",
+            "description": {
+              "text": "Geokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Portal": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/geo_tp.png",
+      "title": "Earthen Gateway",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "first_tick_commands": [
+        "execute if predicate eop:is_sneaking run playsound minecraft:block.note_block.bell master @s ~ ~ ~ 1 1",
+        "execute if predicate eop:is_sneaking run title @s actionbar [\"\",{\"text\":\"Location marked!\",\"color\":\"green\",\"bold\":true}]",
+        "execute if predicate eop:is_sneaking run tag @s add EOP.Portal.Saved"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 40,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:on_ground"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Portal.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Portal.Saved"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Portal.Save": {
+      "type": "eop:waypoint_travel",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 3,
+      "particle1": "minecraft:explosion",
+      "particle2": "block dirt",
+      "sound1": "eop:diamond_transform",
+      "sound2": "minecraft:entity.generic.explode",
+      "one_way": true,
+      "carry_entities": true,
+      "allow_interdim": false,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Portal"
+          },
+          {
+            "type": "palladium:crouching"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_materia_g2"
+          }
+        ]
+      }
+    },
+    "Portal.Switch.Begin": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/geo_tp.png",
+      "title": "Earthen Gateway",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "gui_position": "null",
+      "first_tick_commands": [
+        "execute unless predicate eop:is_sneaking run playsound minecraft:entity.evoker.prepare_attack master @a ~ ~ ~ 1 2",
+        "execute unless predicate eop:is_sneaking run tag @s add Rock.Begin.Teleport",
+        "execute if predicate eop:is_sneaking run title @s actionbar [\"\",{\"text\":\"Location removed!\",\"color\":\"red\",\"bold\":true}]",
+        "execute if predicate eop:is_sneaking run playsound minecraft:block.note_block.snare master @s ~ ~ ~ 1 1",
+        "execute if predicate eop:is_sneaking run tag @s remove EOP.Portal.Saved"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:on_ground"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Portal.Unlock"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Portal.Saved"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Lightning"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Portal.Switch.Animation": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/fast_travel.png",
+      "title": "Fast Travel",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "start_value": 0,
+      "max_value": 20,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Rock.Begin.Teleport"
+          }
+        ]
+      }
+    },
+    "Portal.Switch.Hunger": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "gui_position": "null",
+      "first_tick_commands": [
+        "effect give @s minecraft:hunger 1 150 true",
+        "tag @s remove Rock.Begin.Teleport"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Portal.Switch.Animation",
+            "property": "value",
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Portal.Switch": {
+      "type": "eop:waypoint_travel",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "particle1": "minecraft:explosion",
+      "particle2": "block dirt",
+      "sound1": "eop:diamond_transform",
+      "sound2": "minecraft:entity.generic.explode",
+      "one_way": true,
+      "carry_entities": true,
+      "allow_interdim": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Portal.Switch.Animation",
+            "property": "value",
+            "min": 20,
+            "max": 20
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_materia_g2"
+          }
+        ]
+      }
+    },
+    "Portal.Tag.Remove.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "start_value": 0,
+      "max_value": 30,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Rock.Begin.Teleport"
+          }
+        ]
+      }
+    },
+    "Portal.No.Move.Timer": {
+      "type": "palladium:animation_timer",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "start_value": 0,
+      "max_value": 42,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Rock.Begin.Teleport"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "5fed19a6-0ce2-4831-9c98-3bcb60288f1f",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Portal.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 41
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Portal.No.Move.Timer"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "74c74de3-4c1d-4d88-9f7f-dd86d9a55ea2",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Portal.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 41
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Portal.No.Move.Timer"
+          }
+        ]
+      }
+    },
+    "Terraformer.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/terraformer.png",
+      "title": "Terraformer",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Effortlessly destroy bits of land to suit your needs",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Portal.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "GK.Score",
+            "score": 10,
+            "icon": "eop:textures/gui/mountain.png",
+            "description": {
+              "text": "Geokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Terraformer": {
+      "type": "palladium:energy_beam",
+      "icon": "eop:textures/gui/terraformer.png",
+      "title": "Terraformer",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "energy_beam": "eop:nobeam",
+      "damage_type": "null",
+      "damage": 0,
+      "max_distance": 50,
+      "speed": 100,
+      "set_on_fire_seconds": 0,
+      "cause_fire": false,
+      "smelt_blocks": false,
+      "commands_on_block_hit": [
+        "function eop:powers/rock/terraformer"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 100,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Terraformer.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Terraformer.Aim": {
+      "type": "palladium:aim",
+      "icon": "eop:textures/gui/terraformer.png",
+      "title": "Terraformer",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "time": 10,
+      "arm": "main_arm",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Terraformer"
+          }
+        ]
+      }
+    },
+    "Tremor.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/geo_smash.png",
+      "title": "Tremor",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Cause an intense tremor around you",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Terraformer.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Armor4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "GK.Score",
+            "score": 20,
+            "icon": "eop:textures/gui/mountain.png",
+            "description": {
+              "text": "Geokinesis Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "Tremor": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/geo_smash.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "title": "Tremor",
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "superpower remove eop:effects/tremor_shake"
+      ],
+      "commands": [
+        "particle minecraft:explosion ~ ~ ~ 20 1 20 0.2 50 normal",
+        "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 0.5",
+        "superpower add eop:effects/tremor_shake @e[distance=..96]"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 200,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:on_ground"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Tremor.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Tremor.Sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "sound": "eop:burrow",
+      "volume": 6,
+      "pitch": 1,
+      "looping": true,
+      "play_self": false,
+      "play_others": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Tremor"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "63afbda2-a35d-4fb7-932a-5ec591e99d8c",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Tremor"
+          }
+        ]
+      }
+    },
+    "No.Jumping2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "08cf1073-f26b-4647-9773-7b5cf534edef",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Tremor"
+          }
+        ]
+      }
+    },
+    "Tremor.Animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Tremor"
+          }
+        ]
+      }
+    },
+    "Tremor.Damage": {
+      "type": "eop:aoe_damage",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 96,
+      "damage": 15,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:tremor",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Tremor"
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_materia_g2"
+          }
+        ]
+      }
+    }
+  }
+}

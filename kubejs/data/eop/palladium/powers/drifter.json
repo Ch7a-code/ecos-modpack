@@ -1,0 +1,1910 @@
+{
+  "name": "Plane Manipulation",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/void.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "energy_bars": {
+    "void_percent": {
+      "color": "#deecd7",
+      "max": 100,
+      "synced_value": {
+        "type": "score",
+        "objective": "Void.Energy",
+        "fallback": 0
+      }
+    }
+  },
+  "abilities": {
+    "Drifter": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Drifter",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "scoreboard objectives add Pocket.Amount dummy",
+        "execute unless entity @s[tag=No.New.ID.PA] run scoreboard players add ID.Number Pocket.Amount 1",
+        "execute unless entity @s[tag=No.New.ID.PA] run scoreboard players operation @s Pocket.Amount = ID.Number Pocket.Amount",
+        "tag @s add No.New.ID.PA",
+        "scoreboard objectives add Void.Energy dummy",
+        "scoreboard players add @s Void.Energy 0",
+        "scoreboard objectives add PM.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Drifter",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Plane.Manipulation": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/void.png",
+      "title": "Plane Manipulation",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to tap into the Rift Plane, enabling you to disrupt the space-time continuum to some extent"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:drifter @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{drifter:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Plane Manipulation\",\"color\":\"#ccffcc\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "PM.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s PM.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "PM.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "PM.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s PM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "PM.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "PM.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s PM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "PM.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "PM.Scoreboard.Gain4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s PM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 21600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "PM.Score",
+            "min_score": 15,
+            "max_score": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "PM.Scoreboard.Gain5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s PM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 36000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "PM.Score",
+            "min_score": 18,
+            "max_score": 24
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Speed": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 5% more movement speed",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.05,
+      "operation": 1,
+      "uuid": "b2fb0061-baa3-4b06-b7e8-f63f65da5922",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Plane.Manipulation"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "PM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/void.png",
+            "description": {
+              "text": "Plane Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Speed2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 5% more movement speed",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.05,
+      "operation": 1,
+      "uuid": "2f4c56cb-0e80-4fad-a027-7b015cd620d1",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "PM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/void.png",
+            "description": {
+              "text": "Plane Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Speed3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 5% more movement speed",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.05,
+      "operation": 1,
+      "uuid": "ee9d766d-6454-42ad-9255-82f5b1779c95",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "PM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/void.png",
+            "description": {
+              "text": "Plane Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Speed4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 5% more movement speed",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.05,
+      "operation": 1,
+      "uuid": "1c7d7235-76d5-4332-b419-32aa10f92edc",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "PM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/void.png",
+            "description": {
+              "text": "Plane Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Set.Scoreboard.Max": {
+      "type": "eop:set_scoreboard",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "scoreboard_objective": "Void.Energy",
+      "scoreboard_value": 100
+    },
+    "AOE.Slow.Fall.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 15,
+      "commands": [
+        "effect give @s slow_falling 2 3 true"
+      ],
+      "ignore_same_team": false,
+      "ignore_pets": false,
+      "only_same_team": true,
+      "include_caster": true,
+      "execution_mode": "as",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Slow.Fall.On"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 18
+          }
+        ]
+      }
+    },
+    "Night.Vision": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s night_vision"
+      ],
+      "commands": [
+        "effect give @s minecraft:night_vision 20 1 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Night.Vision.On"
+          }
+        ]
+      }
+    },
+    "Entity.Sense": {
+      "type": "palladium:entity_glow",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "mode": "others",
+      "color": "null",
+      "distance": 50,
+      "property_key": "EOP.LivingEntities",
+      "property_value": "true",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Entity.Sense.On"
+          }
+        ]
+      }
+    },
+    "Void.Amount.Infinite": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players set @s Void.Energy 100"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Void.Energy",
+            "min_score": -1000,
+            "max_score": 99
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Inf.Energy"
+          }
+        ]
+      }
+    },
+    "Void.Energy.Regen": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "scoreboard players add @s Void.Energy 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 70
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Void.Energy",
+            "min_score": -100,
+            "max_score": 99
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "Ability.Being.Used"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Void.Energy.Regen.Dimension": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "scoreboard players add @s Void.Energy 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 2
+          },
+          {
+            "type": "palladium:dimension",
+            "dimension": "eop:pocket_dimension"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Void.Energy",
+            "min_score": -100,
+            "max_score": 99
+          }
+        ]
+      }
+    },
+    "Dimension.Regen": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 10,
+      "amount": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:dimension",
+            "dimension": "eop:pocket_dimension"
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Rift Plane",
+      "description": "Enter the Rift Plane, existing in both realities simultaneously, becoming intangible and preventing entities from interacting with you. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/rift_phasing.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Rift": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/rift_phasing.png",
+      "title": "Rift Plane",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        0,
+        0
+      ],
+      "first_tick_commands": [
+        "tag @s add Ability.Being.Used",
+        "tag @s add EOP.Phasing",
+        "scale set pehkui:projectiles -1",
+        "particle eop:void_energy ~ ~1 ~ 0.1 0.5 0.1 0.4 20 force",
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Ability.Being.Used",
+        "tag @s remove EOP.Phasing",
+        "scale set pehkui:projectiles 1",
+        "particle eop:void_energy ~ ~1 ~ 0.1 0.5 0.1 0.4 20 force",
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2"
+      ],
+      "commands": [
+        "tag @s add Ability.Being.Used"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "right_click"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Void.Energy",
+            "min_score": 1,
+            "max_score": 2110
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:drifter"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Temp.Resistance": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "effect give @s legendarysurvivaloverhaul:temperature_immunity 1 0 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rift"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "Temp.Resistance2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "effect give @s toughasnails:climate_clemency 1 0 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rift"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "toughasnails"
+          }
+        ]
+      }
+    },
+    "No.Break": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "title": "Ghostly Dash",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:destroy_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "41c82764-5a54-40b1-b1a7-1df5612f4acd",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rift"
+          }
+        ]
+      }
+    },
+    "No.Damage": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "19405d31-efe9-40de-9b8e-f2de86596c22",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rift"
+          }
+        ]
+      }
+    },
+    "Effects.Immune.Mods": {
+      "type": "eop:effect_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "effects": [
+        "alexscaves:irradiated",
+        "alexscaves:bubbled",
+        "alexsmobs:ender_flu",
+        "alexsmobs:debilitating_sting",
+        "alexsmobs:earthquake",
+        "alexsmobs:exsanguination"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rift"
+          }
+        ]
+      }
+    },
+    "Rift.Shader": {
+      "type": "palladium:shader_effect",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "shader": "minecraft:shaders/post/deconverge.json",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rift"
+          }
+        ]
+      }
+    },
+    "Rift.Trail": {
+      "type": "palladium:trail",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "trail": "eop:rift",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rift"
+          }
+        ]
+      }
+    },
+    "Rift.Intangibility": {
+      "type": "palladium:intangibility",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "blacklist": "eop:prevents_intangibility_stronger",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rift"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_mente_g2"
+          }
+        ]
+      }
+    },
+    "Phase.Down": {
+      "type": "palladium:intangibility",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "vertical": true,
+      "blacklist": "eop:prevents_intangibility_stronger",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Rift"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Phase.Down"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_mente_g2"
+          }
+        ]
+      }
+    },
+    "Skulk": {
+      "type": "palladium:sculk_immunity",
+      "icon": "minecraft:sculk",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rift"
+          }
+        ]
+      }
+    },
+    "Rift.Damage.Immunity": {
+      "type": "palladium:damage_immunity",
+      "icon": "minecraft:potion",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "damage_sources": [
+        "eop:phase_immune",
+        "eop:phase_immune_alexscaves",
+        "eop:phase_immune_alexsmobs",
+        "eop:tacz_guns",
+        "eop:scorched_guns"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rift"
+          }
+        ]
+      }
+    },
+    "Rift.Usage": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Void.Energy 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Rift"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 40
+          }
+        ]
+      }
+    },
+    "Pocket.Dimension.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/pocket.png",
+      "title": "Pocket Dimension",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "description": "Access your own pocket dimension",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Plane.Manipulation"
+          }
+        ]
+      }
+    },
+    "Pocket.Dimension.Animation": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/pocket.png",
+      "title": "Pocket Dimension",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "description": "Access your own pocket dimension",
+      "start_value": 0,
+      "max_value": 40,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 50,
+            "ticks": 40,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Pocket.Dimension.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Pocket.Dimension.Part": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.portal.trigger master @a ~ ~ ~ 1 1.5"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "particle eop:void_energy ~ ~1 ~ 0.5 0.5 0.5 0.02 2 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Pocket.Dimension.Animation"
+          }
+        ]
+      }
+    },
+    "Pocket.Dimension.Part2": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "particle eop:void_energy ~ ~1 ~ 0.5 0.7 0.5 0.02 200 force"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "ability": "Pocket.Dimension.Animation",
+            "property": "value",
+            "min": 39,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "Pocket.Dimension": {
+      "type": "eop:pocket_travel",
+      "icon": "eop:textures/gui/pocket.png",
+      "title": "Pocket Dimension",
+      "bar_color": "light_blue",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "id_scoreboard": "Pocket.Amount",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "ability": "Pocket.Dimension.Animation",
+            "property": "value",
+            "min": 40,
+            "max": 40
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_mente_g2"
+          }
+        ]
+      }
+    },
+    "Dimension.Flight": {
+      "type": "palladium:attribute_modifier",
+      "title": "Flight",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "icon": "eop:textures/gui/flight.png",
+      "description": "You are able to fly.",
+      "attribute": "palladium:flight_speed",
+      "list_index": 0,
+      "amount": 1,
+      "uuid": "f9f1b5a1-5b3a-42dc-8d91-ea374f29a006",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:dimension",
+            "dimension": "eop:pocket_dimension"
+          }
+        ]
+      }
+    },
+    "Dimension.Damage.Immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "damage_sources": [
+        "eop:wraith_immune",
+        "eop:tacz_guns",
+        "eop:scorched_guns"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:dimension",
+            "dimension": "eop:pocket_dimension"
+          }
+        ]
+      }
+    },
+    "Switch.Teleport.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/banish.png",
+      "title": "Location Distortion",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Switch locations with the entity you are looking at",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Pocket.Dimension.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "PM.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/void.png",
+            "description": {
+              "text": "Plane Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Switch.Teleport": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/banish.png",
+      "title": "Location Distortion",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 2,
+            "cooldown": 100,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Void.Energy",
+            "min_score": 7,
+            "max_score": 2000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Switch.Teleport.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Switch.Teleport.Commands": {
+      "type": "palladium:energy_beam",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "energy_beam": "eop:noenergybeam",
+      "damage_type": "eop:basic",
+      "damage": 0,
+      "max_distance": 30,
+      "speed": 100,
+      "set_on_fire_seconds": 0,
+      "cause_fire": false,
+      "smelt_blocks": false,
+      "commands_on_block_hit": [],
+      "commands_on_entity_hit": [
+        "scoreboard players remove @s Void.Energy 7",
+        "execute at @s run playsound minecraft:entity.illusioner.cast_spell master @a ~ ~ ~ 2 2",
+        "playsound minecraft:entity.illusioner.cast_spell master @a ~ ~ ~ 2 2",
+        "particle eop:void_energy ~ ~ ~ 0.5 1 0.5 0.1 100 force",
+        "execute at @s run particle eop:void_energy ~ ~ ~ 0.5 1 0.5 0.1 100 force",
+        "execute at @s run summon minecraft:armor_stand ~ ~ ~ {Invisible:1,DisabledSlots:63,Invulnerable:1,Tags:[\"EOP.Swap.Target\"]}",
+        "tp @s @e[distance=..2,limit=1,sort=nearest]",
+        "tp @e[distance=0.1..2,limit=1,sort=nearest] @e[type=armor_stand,limit=1,sort=nearest,tag=EOP.Swap.Target]",
+        "kill @e[type=armor_stand,limit=1,sort=nearest,tag=EOP.Swap.Target]"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Switch.Teleport"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Switch.Teleport",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Switch.Teleport.Custom": {
+      "type": "eop:raycast_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "range": 30,
+      "commands_on_entity_hit": [
+        "tag @s add Ignore.Me",
+        "effect give @e[distance=..1,sort=nearest,limit=1,tag=!Ignore.Me] slowness 10 1 true",
+        "effect give @e[distance=..1,sort=nearest,limit=1,tag=!Ignore.Me] darkness 3 1 true",
+        "tag @s remove Ignore.Me"
+      ],
+      "commands_on_block_hit": [],
+      "damage": 0,
+      "damage_type": "minecraft:player_attack",
+      "set_on_fire_seconds": 0,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Switch.Teleport"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Switch.Teleport",
+            "property": "value",
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "Distortion.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Spatial Distortion",
+      "icon": "eop:textures/gui/black_hole.png",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Distort time and space to slow down targets or speed up allies by §dsneaking",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Switch.Teleport.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "PM.Score",
+            "score": 10,
+            "icon": "eop:textures/gui/void.png",
+            "description": {
+              "text": "Plane Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Distortion.Animation": {
+      "type": "palladium:command",
+      "title": "Spatial Distortion",
+      "icon": "eop:textures/gui/black_hole.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "first_tick_commands": [
+        "scoreboard players remove @s Void.Energy 20",
+        "particle eop:void_energy ^ ^1 ^1 0.1 0.1 0.1 1 50 force",
+        "playsound minecraft:entity.wither.ambient master @a ~ ~ ~ 2 0.5"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 400,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Void.Energy",
+            "min_score": 20,
+            "max_score": 201
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Distortion.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Distortion.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 30,
+      "commands": [
+        "tag @s add Distort.Slow",
+        "superpower add eop:effects/distorted @s[type=!armor_stand,tag=!Warper,tag=!Drifter]"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Distortion.Animation"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:crouching"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Distortion.Custom2": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 30,
+      "commands": [
+        "tag @s add Distort.Fast",
+        "superpower add eop:effects/distorted @s[type=!armor_stand,tag=!Warper]"
+      ],
+      "include_caster": true,
+      "ignore_same_team": false,
+      "ignore_pets": false,
+      "only_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Distortion.Animation"
+          },
+          {
+            "type": "palladium:crouching"
+          }
+        ]
+      }
+    },
+    "Fracture.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Void Fracture",
+      "icon": "eop:textures/gui/teleport.png",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 4,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Create jagged dimensional cracks that deal damage to entities around you",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Distortion.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "PM.Score",
+            "score": 15,
+            "icon": "eop:textures/gui/void.png",
+            "description": {
+              "text": "Plane Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Fracture": {
+      "type": "palladium:command",
+      "title": "Void Fracture",
+      "icon": "eop:textures/gui/teleport.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "first_tick_commands": [
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2",
+        "tag @s remove Ability.Being.Used"
+      ],
+      "commands": [
+        "tag @s add Ability.Being.Used"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Void.Energy",
+            "min_score": 3,
+            "max_score": 403
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Fracture.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Fracture.Damage": {
+      "type": "eop:aoe_damage",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 20,
+      "damage": 5,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Fracture"
+          }
+        ]
+      }
+    },
+    "Fracture.Particles": {
+      "type": "eop:aoe_command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 20,
+      "commands": [
+        "execute at @s[type=!#eop:not_alive] run particle squid_ink ~ ~1 ~ 1 1 1 0 2 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Fracture"
+          }
+        ]
+      }
+    },
+    "Fracture.Usage": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Void.Energy 3"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Fracture"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          }
+        ]
+      }
+    },
+    "Collapse.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Spatial Collapse",
+      "icon": "eop:textures/gui/collapse.png",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 4,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Break existence itself in a small range around you, causing entities to slip in and out of reality",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Fracture.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "PM.Score",
+            "score": 25,
+            "icon": "eop:textures/gui/void.png",
+            "description": {
+              "text": "Plane Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Collapse.NEE": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/collapse.png",
+      "title": "Spatial Collapse",
+      "list_index": 4,
+      "first_tick_commands": [
+        "playsound minecraft:block.note_block.didgeridoo master @s ~ ~ ~ 1 0.5",
+        "title @s actionbar [\"\",{\"text\":\"Not enough energy!\",\"color\":\"red\",\"bold\":true}]"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 20,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Collapse.Unlock"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Void.Energy",
+            "min_score": 0,
+            "max_score": 69
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Collapse": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/collapse.png",
+      "title": "Spatial Collapse",
+      "list_index": 4,
+      "start_value": 0,
+      "max_value": 20,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 1200,
+            "ticks": 25,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Collapse.Unlock"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Void.Energy",
+            "min_score": 70,
+            "max_score": 1000
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Collapse.Float": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "effect give @s minecraft:levitation 1 1 true",
+        "effect give @s minecraft:slow_falling 3 1 true"
+      ],
+      "last_tick_commands": [
+        "scoreboard players remove @s Void.Energy 70"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Collapse"
+          }
+        ]
+      }
+    },
+    "Collapse.Commands": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "particle eop:void_energy ~ ~1 ~ 10 4 10 0 300 force",
+        "playsound minecraft:entity.allay.hurt master @a ~ ~ ~ 1 0.5"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Collapse",
+            "property": "value",
+            "min": 20,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Collapse.Commands2": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "particle eop:void_energy ~ ~1 ~ 10 4 10 0.1 120 force",
+        "particle dust 0.4 0.4 1 1 ~ ~1 ~ 10 4 10 0.03 120 force",
+        "particle dust 0 0 0 1 ~ ~1 ~ 10 4 10 0.03 120 force"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Collapse",
+            "property": "value",
+            "min": 20,
+            "max": 50
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Collapse.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 10,
+      "commands": [
+        "superpower add eop:effects/collapse @s[type=!armor_stand,tag=!Warper,tag=!Drifter]"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Collapse"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Collapse",
+            "property": "value",
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    }
+  }
+}

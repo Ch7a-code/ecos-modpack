@@ -1,0 +1,13 @@
+name = "Video Player"
+filename = "VideoPlayer-3.0.5-FORGE-1.20.X.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/sSAANV7f/versions/FAPyG7dB/VideoPlayer-3.0.5-FORGE-1.20.X.jar"
+hash-format = "sha512"
+hash = "ae4e8fa6fcc9ed7156222fefff9331a0eb72a6e1e1555b0412062e6e0d329b22a7347d1c2e7b50aa6d14c03557e8ce7b4c2bc16b75e847aae9b5afcb01fa863c"
+
+[update]
+[update.modrinth]
+mod-id = "sSAANV7f"
+version = "FAPyG7dB"

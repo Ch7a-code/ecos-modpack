@@ -1,0 +1,2251 @@
+{
+  "name": "Cryokinesis",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/ice.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "energy_bars": {
+    "ice_percent": {
+      "color": "#00FBFF",
+      "max": 100,
+      "synced_value": {
+        "type": "score",
+        "objective": "Ice.Amount",
+        "fallback": 0
+      }
+    }
+  },
+  "abilities": {
+    "Icicle": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Icicle",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "scoreboard objectives add Ice.Amount dummy",
+        "scoreboard players add @s Ice.Amount 0",
+        "scoreboard objectives add CK.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Icicle",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Cryokinesis": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/ice.png",
+      "title": "Cryokinesis",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to control ice"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:icicle @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{icicle:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Cryokinesis\",\"color\":\"aqua\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "CK.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s CK.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "CK.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "CK.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s CK.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "CK.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "CK.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s CK.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "CK.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "CK.Scoreboard.Gain4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s CK.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 21600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "CK.Score",
+            "min_score": 15,
+            "max_score": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "CK.Scoreboard.Gain5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s CK.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 36000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "CK.Score",
+            "min_score": 18,
+            "max_score": 24
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Damage": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 1 more damage point",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "d766e6fa-84f7-4b66-895c-f27499f22f9d",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Cryokinesis"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "CK.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/ice.png",
+            "description": {
+              "text": "Cryokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 1 more damage point",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "411f75b5-cec1-4582-86a5-c85046272032",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "CK.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/ice.png",
+            "description": {
+              "text": "Cryokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 1 more damage point",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "fd01a131-df99-47b1-93af-9913ecad6031",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "CK.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/ice.png",
+            "description": {
+              "text": "Cryokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 1 more damage point",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "1e9c7a49-0621-4458-9f20-b2f9294bee57",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "CK.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/ice.png",
+            "description": {
+              "text": "Cryokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Set.Scoreboard.Max": {
+      "type": "eop:set_scoreboard",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "scoreboard_objective": "Ice.Amount",
+      "scoreboard_value": 100
+    },
+    "Effect.Immunity": {
+      "type": "eop:effect_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "effects": [
+        "eop:freeze",
+        "eop:freeze_stronger"
+      ]
+    },
+    "Ice.Amount.Infinite": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players set @s Ice.Amount 100"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Ice.Amount",
+            "min_score": -1000,
+            "max_score": 99
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Inf.Energy"
+          }
+        ]
+      }
+    },
+    "Ice.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players add @s Ice.Amount 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 6
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Ice.Amount",
+            "min_score": -1000,
+            "max_score": 99
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "Ability.Being.Used"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Freeze.Effect.Immune": {
+      "type": "eop:freeze_immune",
+      "hidden": true,
+      "hidden_in_bar": true
+    },
+    "Ice.Immune": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "damage_sources": [
+        "minecraft:is_freezing"
+      ]
+    },
+    "Effects.Immune.Mods": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s toughasnails:ice_resistance"
+      ],
+      "commands": [
+        "effect give @s toughasnails:ice_resistance 1 200 true"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "toughasnails"
+          }
+        ]
+      }
+    },
+    "Effects.Immune.Mods2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s legendarysurvivaloverhaul:cold_immunity"
+      ],
+      "commands": [
+        "effect give @s legendarysurvivaloverhaul:cold_immunity 1 200 true"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "Fire.Hit.Particles": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "particle poof ~ ~1 ~ 0.3 1 0.3 0.1 10 force",
+        "playsound minecraft:block.fire.extinguish master @a ~ ~ ~ 1 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:is_on_fire"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 10
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Ice blast",
+      "description": "Shoot out an ice blast, freezing the ground as well. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/ice_blast.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Iceblast.Ability": {
+      "type": "palladium:command",
+      "first_tick_commands": [
+        "playsound eop:ice_blast master @a ~ ~ ~ 1 1",
+        "scoreboard players remove @s Ice.Amount 1"
+      ],
+      "commands": [],
+      "title": "Ice Blast",
+      "icon": "eop:textures/gui/ice_blast.png",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -1.2,
+        -0.75
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 20,
+            "key_type": "right_click"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Ice.Amount",
+            "min_score": 1,
+            "max_score": 150
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Shards.Hand"
+              }
+            ]
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:icicle"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Iceblast": {
+      "type": "palladium:projectile",
+      "icon": "minecraft:fire_charge",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 8,
+        "DamageType": "minecraft:freeze",
+        "Gravity": 0.03,
+        "Lifetime": 80,
+        "CommandOnEntityHit": "function eop:powers/icicle/ice_blast",
+        "CommandOnBlockHit": "function eop:powers/icicle/ice_blast",
+        "DieOnEntityHit": false,
+        "DieOnBlockHit": false,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:snowflake",
+            "Spread": 0.3,
+            "Amount": 20
+          }
+        ]
+      },
+      "inaccuracy": 0,
+      "velocity": 1.5,
+      "swinging_arm": "main_arm",
+      "damage_from_player": false,
+      "ignore_player_movement": false,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Iceblast.Ability"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_on_fire"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Iceblast2": {
+      "type": "palladium:projectile",
+      "icon": "minecraft:fire_charge",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 3,
+        "DamageType": "minecraft:freeze",
+        "Gravity": 0.03,
+        "Lifetime": 80,
+        "CommandOnEntityHit": "function eop:powers/icicle/ice_blast",
+        "CommandOnBlockHit": "function eop:powers/icicle/ice_blast",
+        "DieOnEntityHit": false,
+        "DieOnBlockHit": false,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:snowflake",
+            "Spread": 0.3,
+            "Amount": 20
+          }
+        ]
+      },
+      "inaccuracy": 0,
+      "velocity": 1.5,
+      "swinging_arm": "main_arm",
+      "damage_from_player": false,
+      "ignore_player_movement": false,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Iceblast.Ability"
+          },
+          {
+            "type": "palladium:is_on_fire"
+          }
+        ]
+      }
+    },
+    "Transform.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/ice_body.png",
+      "title": "Ice Body",
+      "description": "Coat your body in ice",
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 4,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Cryokinesis"
+          }
+        ]
+      }
+    },
+    "Transform": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/ice_body.png",
+      "title": "Ice Body",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "start_value": 0,
+      "max_value": 16,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "eop:power_selected",
+                "power": "eop:icicle"
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:or",
+                    "conditions": [
+                      {
+                        "type": "eop:power_selected",
+                        "power": "eop:flame"
+                      },
+                      {
+                        "type": "eop:power_selected",
+                        "power": "eop:icicle"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "palladium:accessory_selected",
+                    "accessory_slot": "eop:easter_egg",
+                    "accessory": "eop:todoroki"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transform.Shoto": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 7,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:accessory_selected",
+            "accessory_slot": "eop:easter_egg",
+            "accessory": "eop:todoroki"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Ice.Skin.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:icicle/ice_body",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Ice.Skin.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:ice_blast master @a ~ ~ ~ 1 0.7"
+      ],
+      "last_tick_commands": [
+        "playsound eop:ice_blast master @a ~ ~ ~ 1 0.7"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Armor": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 20,
+      "operation": 0,
+      "uuid": "ec446474-b123-4e09-b93e-dea060f70887",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Punch.Damage": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "hidden": true,
+      "amount": 3,
+      "uuid": "648e5bf6-4e70-4d19-aa76-5d50764bf44f",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:and",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transform.Regen": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 20,
+      "amount": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_on_fire"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Water.Walk": {
+      "type": "eop:frost_walk",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:crouching"
+              },
+              {
+                "type": "palladium:in_water"
+              },
+              {
+                "type": "palladium:is_under_water"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Frostwalk.On"
+          }
+        ]
+      }
+    },
+    "Hide.Layers": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "chest_overlay",
+        "head_overlay",
+        "left_leg_overlay",
+        "right_leg_overlay"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:accessory_selected",
+                "accessory_slot": "eop:easter_egg",
+                "accessory": "eop:todoroki"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hide.Layers2": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm_overlay",
+        "chest_overlay"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:accessory_selected",
+            "accessory_slot": "eop:easter_egg",
+            "accessory": "eop:todoroki"
+          }
+        ]
+      }
+    },
+    "Fly": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "palladium:levitation_speed",
+      "hidden": true,
+      "amount": 0.4,
+      "operation": 0,
+      "uuid": "a38d9214-f5a1-49bc-82c8-9f6009da4e98",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:attribute_check",
+            "attribute": "palladium:jump_power",
+            "comparison": ">",
+            "value": 0
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:accessory_selected",
+                "accessory_slot": "eop:easter_egg",
+                "accessory": "eop:todoroki"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_elementales_g2"
+          }
+        ]
+      }
+    },
+    "Fly.Particles": {
+      "type": "palladium:particles",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "emitter": [
+        "eop:right_hand_fly",
+        "eop:left_hand_fly"
+      ],
+      "particle_type": "minecraft:snowflake",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:is_hovering_or_flying"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_power",
+                "power": "eop:flame"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_power",
+                "power": "eop:dna_change/flame_mimic"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_power",
+                "power": "eop:soul_flame"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_power",
+                "power": "eop:dna_change/soul_flame_mimic"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Ice.Wave.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/ice_wave.png",
+      "title": "Ice Wave",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Shoot out a wave of icy spikes forward",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "CK.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/ice.png",
+            "description": {
+              "text": "Cryokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Spikes": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/ice_wave.png",
+      "title": "Ice Wave",
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "first_tick_commands": [
+        "playsound eop:ice_blast master @a ~ ~ ~ 1 1",
+        "scoreboard players remove @s Ice.Amount 20"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 200,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Ice.Amount",
+            "min_score": 20,
+            "max_score": 150
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Ice.Wave.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Spikes.Ability": {
+      "type": "eop:spike_wave",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "spacing": 1.7,
+      "count": 5,
+      "cone_width": 4,
+      "line_spacing": 0.5,
+      "cone_radius": 2.5,
+      "rise_height": 1.5,
+      "rise_speed": 0.3,
+      "spawn_depth": 1.9,
+      "lifetime": 4800,
+      "damage": 4,
+      "damage_radius": 2.6,
+      "damage_type": "eop:basic",
+      "spike_superpower": "eop:models/ice_wave",
+      "ignore_same_team": false,
+      "ignore_pets": false,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Spikes"
+          }
+        ]
+      }
+    },
+    "Icebeam.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/ice_beam.png",
+      "title": "Ice Beam",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Shoot an ice beam, freezing anything caught in it",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Ice.Wave.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "CK.Score",
+            "score": 10,
+            "icon": "eop:textures/gui/ice.png",
+            "description": {
+              "text": "Cryokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Icebeam.Hand": {
+      "type": "palladium:aim",
+      "bar_color": "light_gray",
+      "title": "Ice Beam",
+      "icon": "eop:textures/gui/ice_beam.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "time": 10,
+      "arm": "main_arm",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Ice.Amount",
+            "min_score": 2,
+            "max_score": 150
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Icebeam.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Icebeam": {
+      "type": "palladium:energy_beam",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "energy_beam": "eop:icebeam",
+      "damage_type": "minecraft:freeze",
+      "damage": 0,
+      "max_distance": 20,
+      "speed": 0.5,
+      "set_on_fire_seconds": 0,
+      "cause_fire": false,
+      "smelt_blocks": false,
+      "commands_on_block_hit": [
+        "function eop:powers/icicle/stack_ice"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Icebeam.Hand"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Icebeam.Timer",
+            "property": "value",
+            "min": 8,
+            "max": 50
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_on_fire"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Icebeam.Custom": {
+      "type": "eop:raycast_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_type": "minecraft:freeze",
+      "damage": 10,
+      "range": 20,
+      "ignore_same_team": true,
+      "set_on_fire_seconds": 0,
+      "commands_on_entity_hit": [
+        "function eop:powers/icicle/ice_beam_freeze",
+        "effect give @e[tag=!Icicle,tag=!Tempest,tag=!EOP.Phasing,tag=!Infinity,distance=..1] eop:freeze 5 0 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Icebeam"
+          }
+        ]
+      }
+    },
+    "Icebeam2": {
+      "type": "palladium:energy_beam",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "energy_beam": "eop:no_beam",
+      "damage_type": "minecraft:freeze",
+      "damage": 0,
+      "max_distance": 20,
+      "speed": 0.5,
+      "set_on_fire_seconds": 0,
+      "cause_fire": false,
+      "smelt_blocks": false,
+      "commands_on_block_hit": [
+        "function eop:powers/icicle/stack_ice"
+      ],
+      "commands_on_entity_hit": [
+        "function eop:powers/icicle/freeze"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Icebeam.Hand"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Icebeam.Timer",
+            "property": "value",
+            "min": 8,
+            "max": 50
+          },
+          {
+            "type": "palladium:is_on_fire"
+          }
+        ]
+      }
+    },
+    "Icebeam.Custom2": {
+      "type": "eop:raycast_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_type": "minecraft:freeze",
+      "damage": 2,
+      "range": 20,
+      "ignore_same_team": true,
+      "set_on_fire_seconds": 0,
+      "commands_on_entity_hit": [
+        "function eop:powers/icicle/ice_beam_freeze"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Icebeam2"
+          }
+        ]
+      }
+    },
+    "Icebeam.Timer": {
+      "type": "palladium:animation_timer",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "start_value": 0,
+      "max_value": 8,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Icebeam.Hand"
+          }
+        ]
+      }
+    },
+    "Icebeam.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Ability.Being.Used"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Ability.Being.Used"
+      ],
+      "commands": [
+        "tag @s add Ability.Being.Used"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Icebeam.Hand"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Icebeam.Timer",
+            "property": "value",
+            "min": 8,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Sound.Icebeam": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "sound": "eop:icebeam",
+      "volume": 1,
+      "pitch": 1,
+      "looping": true,
+      "play_self": false,
+      "play_others": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Icebeam.Hand"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Icebeam.Timer",
+            "property": "value",
+            "min": 8,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Icebeam.Usage": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Ice.Amount 2"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Icebeam.Hand"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Icebeam.Timer",
+            "property": "value",
+            "min": 8,
+            "max": 50
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 5
+          }
+        ]
+      }
+    },
+    "Ice.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/ice_boulder.png",
+      "title": "Freeze",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Create ice boulders around you, creating a protective barrier",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Icebeam.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "CK.Score",
+            "score": 15,
+            "icon": "eop:textures/gui/ice.png",
+            "description": {
+              "text": "Cryokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Ice": {
+      "type": "palladium:aim",
+      "bar_color": "light_gray",
+      "title": "Freeze",
+      "icon": "eop:textures/gui/ice_boulder.png",
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "time": 10,
+      "arm": "main_arm",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Ice.Amount",
+            "min_score": 1,
+            "max_score": 150
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Ice.Unlock"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "eop:looking_direction",
+                    "mode": "down"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Ice"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Ice.Boulders": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "tag @s remove Ability.Being.Used"
+      ],
+      "commands": [
+        "tag @s add Ability.Being.Used",
+        "execute positioned ^ ^1 ^4 run fill ~1 ~ ~1 ~-1 ~-1 ~-1 eop:ice_block16 replace #eop:air",
+        "playsound minecraft:block.glass.break master @a ~ ~ ~ 1 1",
+        "execute positioned ^ ^1 ^4 run particle snowflake ~ ~ ~ 1 2 1 0 20 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Ice"
+          }
+        ]
+      }
+    },
+    "Ice.Boulders.Usage": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Ice.Amount 3"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Ice"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 10
+          }
+        ]
+      }
+    },
+    "Ice.Pillar": {
+      "type": "palladium:animation_timer",
+      "bar_color": "light_gray",
+      "title": "Freeze",
+      "icon": "eop:textures/gui/ice_boulder.png",
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Ice.Amount",
+            "min_score": 2,
+            "max_score": 150
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:on_ground"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Ice.Pillar"
+              }
+            ]
+          },
+          {
+            "type": "palladium:held",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Ice.Unlock"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Ice.Pillar"
+              },
+              {
+                "type": "eop:looking_direction",
+                "mode": "down"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Ice.Pillar.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "tag @s remove Ability.Being.Used"
+      ],
+      "commands": [
+        "tag @s add Ability.Being.Used",
+        "playsound minecraft:block.glass.break master @a ~ ~ ~ 1 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Ice.Pillar"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Ice.Pillar",
+            "property": "value",
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Ice.Pillar.Pillar": {
+      "type": "eop:pillar",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "block": "eop:ice_block16",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Ice.Pillar"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Ice.Pillar",
+            "property": "value",
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Ice.Pillar.Usage": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Ice.Amount 3"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Ice.Pillar"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 10
+          }
+        ]
+      }
+    },
+    "Ice.Age.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/ice_age.png",
+      "title": "Ice Age",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Freeze the molecules in the air with such intensity, it creates an ice age",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Ice.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Damage4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "CK.Score",
+            "score": 25,
+            "icon": "eop:textures/gui/ice.png",
+            "description": {
+              "text": "Cryokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Ice.Age.NEE": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/ice_age.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "title": "Ice Age",
+      "first_tick_commands": [
+        "playsound minecraft:block.note_block.didgeridoo master @s ~ ~ ~ 1 0.5",
+        "title @s actionbar [\"\",{\"text\":\"Not enough energy!\",\"color\":\"red\",\"bold\":true}]"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 20,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Ice.Age.Unlock"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Ice.Amount",
+            "min_score": 0,
+            "max_score": 59
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Ice.Age": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/ice_age.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "title": "Ice Age",
+      "first_tick_commands": [
+        "tag @s add Using.Ice.Age",
+        "playsound eop:ice_age master @a ~ ~ ~ 2 1"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Using.Ice.Age"
+      ],
+      "commands": [
+        "particle minecraft:snowflake ~ ~ ~ 20 5 20 0.2 200 normal"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 2400,
+            "ticks": 200,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Ice.Age.Unlock"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:icicle"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Ice.Amount",
+            "min_score": 60,
+            "max_score": 150
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Ice.Age.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 20,
+      "commands": [
+        "effect give @s[tag=!Icicle,tag=!Tempest,tag=!EOP.Phasing,tag=!Infinity] eop:freeze_stronger 20 0 true"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Ice.Age"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "dd78da6d-c613-441b-a91e-5e2747d7946a",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Ice.Age"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "9b7fa70a-020e-4588-996b-2138a61fed16",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Ice.Age"
+          }
+        ]
+      }
+    },
+    "Ice.Age.Animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Ice.Age"
+          }
+        ]
+      }
+    },
+    "Ice.Age.Snow": {
+      "type": "eop:power_stand",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "lifetime": 10000,
+      "damage": 0,
+      "damage_radius": 0,
+      "damage_type": "minecraft:player_attack",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "stand_power": "eop:models/ice_age",
+      "orbit_enabled": false,
+      "orbit_radius": 3,
+      "first_tick_commands": [],
+      "commands": [],
+      "last_tick_commands": [],
+      "execution_mode": "as",
+      "include_caster": false,
+      "only_same_team": false,
+      "stand_first_tick_commands": [],
+      "stand_commands": [],
+      "stand_last_tick_commands": [],
+      "destroy_blocks": false,
+      "block_break_radius": 3,
+      "block_break_interval": 10,
+      "no_gravity": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Ice.Age"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Ice.Age.Animation",
+            "property": "value",
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "Ice.Age.Usage": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players remove @s Ice.Amount 60"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_on_cooldown",
+            "power": "null",
+            "ability": "Ice.Age"
+          }
+        ]
+      }
+    }
+  }
+}

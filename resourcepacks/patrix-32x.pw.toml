@@ -1,0 +1,13 @@
+name = "Patrix 32x"
+filename = "Patrix_1.20_32x_basic.zip"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/olO1TaXd/versions/8RHgulEr/Patrix_1.20_32x_basic.zip"
+hash-format = "sha512"
+hash = "083835e7306f314a425493170e341e11f02e77b7547430d135f9ae641482f3493a115bcc42331985532d12d2231882a55f389564a65dea6883d9e56da0f88eb0"
+
+[update]
+[update.modrinth]
+mod-id = "olO1TaXd"
+version = "8RHgulEr"

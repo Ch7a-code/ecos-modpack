@@ -1,0 +1,28 @@
+{
+	chapter_groups: [
+		{
+			id: "39FD9A44732FCDBA"
+			title: "El camino"
+		}
+		{
+			id: "67CD27250AE1CA8F"
+			title: "Tu don"
+		}
+		{
+			id: "1649D3DB01DD3F2C"
+			title: "Combate"
+		}
+		{
+			id: "56F3188FE75A98A8"
+			title: "Mundos"
+		}
+		{
+			id: "359A020D22896725"
+			title: "Oficios"
+		}
+		{
+			id: "2A4B6750AD6AF7B2"
+			title: "Gente y bestias"
+		}
+	]
+}

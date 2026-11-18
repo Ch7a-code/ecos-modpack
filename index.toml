@@ -1,0 +1,3605 @@
+hash-format = "sha256"
+
+[[files]]
+file = "GUIA-TECLAS.png"
+hash = "3fbedf46636cb67aaa05850b8ddd70fdee556e486df14502f3616acc21f99c78"
+
+[[files]]
+file = "config/DistantHorizons.toml"
+hash = "657994f9280985b11f955577fddbc08e4e32f69cf402ddc3b00d56c4b481ec01"
+
+[[files]]
+file = "config/Obscuria/aquamirae-early.json"
+hash = "95a6ce1a5c2bfdfc3c2842a171b34ddbbd69536c54521edce3086db3b4b4134c"
+
+[[files]]
+file = "config/Obscuria/obscure-api-client.toml"
+hash = "92ffe9a562bcaa3802242200b91d402813a2add045e4f6bcc8cbf53f0a2cbd61"
+
+[[files]]
+file = "config/Weather2/Debug.toml"
+hash = "0c456214161e2f212f3363fa35b04734a96c2e916e519b0b3720ab7c4d4c8f4f"
+
+[[files]]
+file = "config/Weather2/Misc.toml"
+hash = "fc1ef9adc35216cef94f1833b881d7b6213e558938de4784d1b4b4fbe5fdd682"
+
+[[files]]
+file = "config/Weather2/Particle.toml"
+hash = "0636251fc5298d00ab499d6b4970d44cb4510ba8141007cc57eed74a1862fd13"
+
+[[files]]
+file = "config/Weather2/Sand.toml"
+hash = "6ae36a1071ba35d08a88c00ff26e7ce38b121fc3cd1511f26743e2b085c5780c"
+
+[[files]]
+file = "config/Weather2/Snow.toml"
+hash = "a3758d6b3c817563c300cb1b2181777ae5a06598b4f6f30348dc6e2f53458848"
+
+[[files]]
+file = "config/Weather2/Sound.toml"
+hash = "554523c76b63c6535a5f9ff7da71def6d35ad6b0f430a1d11c20e4ee8d940fce"
+
+[[files]]
+file = "config/Weather2/Storm.toml"
+hash = "c9e8dc54d1f7ef7a3e3b9d9c081c0ad6b622272577d14ab49406c9161aa2985b"
+
+[[files]]
+file = "config/Weather2/Tornado.toml"
+hash = "5081e9c3a3e03075ab980dea473478c430f33868ada92e18ab94d2dac6030439"
+
+[[files]]
+file = "config/Weather2/Wind.toml"
+hash = "fcf642ba7de5937fc4583d99f51f99d11b9577c237e4bccbccf7f945b3365353"
+
+[[files]]
+file = "config/ad_astra.jsonc"
+hash = "81c916ab31664def9e291800a53a5d535e86dfde3b71ae1e5fab0c54806ebd44"
+
+[[files]]
+file = "config/aether-client.toml"
+hash = "02245b02c6f6a64032e144abedcf66347094ca77bc94e73fed414424bbe3ddf3"
+
+[[files]]
+file = "config/alexscaves-general.toml"
+hash = "c2ed69f67b9974f7953ba4c4187329392aeefd8e4c5cb716ae1576fe5bf14fef"
+
+[[files]]
+file = "config/alexsmobs.toml"
+hash = "8c94dc654ac89e15d65d3123bc9d7eccf48807c9dd4f6f2b3623ee3332dfbe54"
+
+[[files]]
+file = "config/apotheosis/adventure.cfg"
+hash = "68c413340cdfd74c0b2eeddc9f30d810cfa87108410dd892d82d9750060d3585"
+
+[[files]]
+file = "config/apotheosis/apotheosis.cfg"
+hash = "5e9f9f1022e1707ed6b1930508384572fe42c659e331bfa8fe2e84f6aa2fb246"
+
+[[files]]
+file = "config/artifacts/common.json5"
+hash = "731b3caf93e59764bb85dc1e9b69ede7e964ce3e408935603d4e91fa10734b91"
+
+[[files]]
+file = "config/blue_skies-client.toml"
+hash = "7d73571698274e746d34de9c091d60e88e5d0e2ab979fd424c16393d3f701170"
+
+[[files]]
+file = "config/canary.properties"
+hash = "c544b025e7c37a8c24a5ba7abca3fac8e2f1a40df4b6661ffc15e6a88ff46a34"
+
+[[files]]
+file = "config/coldsweat/main.toml"
+hash = "2d014fbcbb3f79e05df00547096f8ff74aad65acab68b7fa654f2c6cb2f22219"
+
+[[files]]
+file = "config/combatroll/server.json5"
+hash = "756e0cac49364362b4751a33333d7ffd16348857d7a7fdb1680d03d918683497"
+
+[[files]]
+file = "config/corgilib/announcement_config.json5"
+hash = "5746e713a32d7a0c7fc3b1f48ffce4c3173b094108bbc7f4ebb5449ef7139e99"
+
+[[files]]
+file = "config/create-client.toml"
+hash = "3db171b4dfa1c84976a0c915d3f5979dfe208899548f5b65bf71dfd6f8b30f3e"
+
+[[files]]
+file = "config/dynamic_fps.json"
+hash = "144f114bfe29ddde8ea84b6c93d4607808b6189ade20df6defb17510afbf4e7e"
+
+[[files]]
+file = "config/fancymenu/assets/ecos_btn_hover.png"
+hash = "8f99ef01d6b48123ae21ca6a765eea8e297e03ddc9783f321b6e8956ed4309c6"
+
+[[files]]
+file = "config/fancymenu/assets/ecos_btn_inactive.png"
+hash = "0b569cfc6c8db2637b5b27171f2c6027cdd5bd3e47de1fdce9431450088ac7a5"
+
+[[files]]
+file = "config/fancymenu/assets/ecos_btn_normal.png"
+hash = "1808e2512296aa2e55d53fe85f1c7cd4a27ad9c7ed27a365881e488627475605"
+
+[[files]]
+file = "config/fancymenu/assets/ecos_loading_bg.png"
+hash = "b429de06c66708e94adf21d76ab277913ada8fa4fd7b87e36d909a3bdada1902"
+
+[[files]]
+file = "config/fancymenu/assets/ecos_logo.png"
+hash = "0e8b9080a321e3a5ab6b1a51e2fbde72e3a53194339a720d86e7ef5a19434bf7"
+
+[[files]]
+file = "config/fancymenu/assets/ecos_menu_bg.png"
+hash = "f1a0e93a77858f097aada058f03703533fc7a25305faf5d5fe6f3ac602edffb9"
+
+[[files]]
+file = "config/fancymenu/customizablemenus.txt"
+hash = "8e15b8fdd11e054e25d49c37ce6a448807a7e6e34f9c3b46dc4d222aa0aca44b"
+
+[[files]]
+file = "config/fancymenu/customization/ecos_loading_screen.txt"
+hash = "69be293370cec73e60727b6bf2048525d8cd40547b16ba61eba3c76c8086119a"
+
+[[files]]
+file = "config/fancymenu/customization/ecos_title_screen.txt"
+hash = "6c0100999bacb04490000d1e4b3779ee42c2a633c7a651e0d93ce3bb5938f8d2"
+
+[[files]]
+file = "config/fancymenu/options.txt"
+hash = "3ff1d46e14d624a8d7a7fae3d98625c43036afd0e811271e9100f00199f520b7"
+
+[[files]]
+file = "config/firstaid-client.toml"
+hash = "c67df99bbb41a2f8c0f38f12105523e880fcbf4b5a5fb2b88d03a5c65ee5d97e"
+
+[[files]]
+file = "config/ftbquests/quests/chapter_groups.snbt"
+hash = "acaa4620fb9aa8dbaf257aeea901ad790f2f9035953ec21e236356cda6026116"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/inicio.snbt"
+hash = "9dc8f214adb7d43211192b5d7438dc5a4593122b61bc45eea869368c455ebb8a"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_02_laboratorio.snbt"
+hash = "14db30b045de4ae95b7bc25c19ff823b12f5373b018431424def609dd7ded20d"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_03_bunker.snbt"
+hash = "6a318be2c460a8655a80eb9e73a5ffb098b09d5dd4952b122358622d278d895c"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_04_atlas.snbt"
+hash = "007137a63d29e16f3403ed6a2e2d261554a68e014bfbf4531f44baf42ecd4335"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_05_don.snbt"
+hash = "19d81072ce4cd281028ba6640e9e2570e27a87410bba1dc6e5302db9ce6d8844"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_06_grimorio.snbt"
+hash = "9d9fb66350b1f15dd7c688ca5f0e8b4457c77772a866c36e94ae1e8cbc8695ac"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_07_reliquias.snbt"
+hash = "cda0d92cf41a5c40fce3e0b7ffb3ef8b0cc7b5131103fe5922996e1e97bdab0d"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_08_armas.snbt"
+hash = "52835d8a1ff48b2b9f91e9c78f83e2a282d251843d54722ecda5f815ac755d62"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_09_armaduras.snbt"
+hash = "c5b99327d80b24fb908b46299ffeb8659d58aa2392e1c319596b022c4ec1faa9"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_10_portadores.snbt"
+hash = "eb61b5ac34c769b42c7006c39c34aad1ca1e785030b0a1d2de47b660ae9b20e6"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_11_noches.snbt"
+hash = "3c2bc04aebf38b5ac5922d5c9a88189c2bd774df3a8c5996bf70ea4f8fbcbd9b"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_12_vehiculos.snbt"
+hash = "e8f8172a5821522bdcff6a6d619687c6d43095db07ec8d641bead911db815ab3"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_13_crepusculo.snbt"
+hash = "044971ee362fa28c78d8f7f809b16b6c1ae586f9b2d6349cbccaeb36dda82f49"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_14_cielos.snbt"
+hash = "ec76ba1848448fd05a2b8d2beb62518cff6f035105202612ade670f84657d8c3"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_15_subsuelo.snbt"
+hash = "3c8fa3fb9eff1d07855304eda792d2bc5089a5f9a5463913f54e5b866ee99dd6"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_16_ruinas.snbt"
+hash = "b360d331b0006de476aafc228ac4c517b888d0381cef245cd5678fdefae43814"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_17_planetas.snbt"
+hash = "0a5b17c286eb8f1a36f774c6452b5ed3514b43e3111a981dd6578045c527d12b"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_18_custodios.snbt"
+hash = "297bca109b9602e6716f66d00bd589feb34b536f106e093263590549bdc2e4f0"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_19_cocina.snbt"
+hash = "0f64a04ed4f774ee8cc63fd10cdb902dc67ac422497d6cd3fd03157a51b5dab2"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_20_ingenieria.snbt"
+hash = "349e054926d36c7e379204f142fb67bb9b1e447abf2ea9fd93dde852096cc175"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_21_almacen.snbt"
+hash = "0990cdccb3b3752e375f514938c40223c09920a4d7d3c0b99a0707c0eb7b6dff"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_22_colonia.snbt"
+hash = "26504bbf923e7f5e1f79a87448f375c2af9136791d947203ce6f6d52aaa8cc89"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_23_bestias.snbt"
+hash = "7a3050f99e07cb9a6ac0892a67f9317ec7bcd3ce4460782095bf88c79ec916df"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/obras.snbt"
+hash = "b1a6dca237854deb7e09bcdb3f2a6cde6f2f175429a311da9f6e42e462faa3f1"
+
+[[files]]
+file = "config/iceandfire-client.toml"
+hash = "2951cb48c8ceb7c4ab70652af11efc6f7fdfa65237a718697c4282026cd5fa1e"
+
+[[files]]
+file = "config/iceandfire-common.toml"
+hash = "2de6d64660aba8793748b02a3951e21c9e12a3e706cef5b2b8a7f68b3189066a"
+
+[[files]]
+file = "config/majruszsdifficulty.json"
+hash = "db5fb167f8d7efc956ca1a41f5e6b149fdcf6db4ebb042c8d5e60e497990a5a9"
+
+[[files]]
+file = "config/modernfix-mixins.properties"
+hash = "9a24d76480d65f673f03c28faab6504b0dd00184cbfdedd169b42828cdc731fe"
+
+[[files]]
+file = "config/oculus.properties"
+hash = "2bf3dd52ad551cf9d4697a7473d23df52034aa57a337ac8b4d48de51c32e6679"
+preserve = true
+
+[[files]]
+file = "config/palladium-client.toml"
+hash = "2f2f9a0495353d6f4696a89b23217b196a5cc5eb6580addef2b7df6d70f0f01e"
+
+[[files]]
+file = "config/quark-common.toml"
+hash = "083ffe03202ff0d5abbf70f7176a3de46ff30fdeeec72f5bb0abe7369e02b6af"
+
+[[files]]
+file = "config/securitycraft-client.toml"
+hash = "ddeeeb4bd6a01136808a62543fad87da1ee84d3a386c29781b7f04781b3c226a"
+
+[[files]]
+file = "config/sereneseasons/fertility.toml"
+hash = "1b7a6dcd1970ebe7a8f26f8d4fd6f4f7944035e26ca33e73b5539c518b534731"
+
+[[files]]
+file = "config/sereneseasons/seasons.toml"
+hash = "61d3fea888cb8b82e99a32c807ab4dca2a12b452ff9e11c4ad9c99c5ab32544c"
+
+[[files]]
+file = "config/staminafortweakers.json5"
+hash = "4029902b4f93d5bd3b6fa72ac9d4492a95fd78e652f9c651959ccffa31dc5276"
+
+[[files]]
+file = "config/supplementaries-client.toml"
+hash = "3d3a398ecd113215267dbdd000a7d556b9bf7da1af3ed1b676e15b70928fb182"
+
+[[files]]
+file = "config/tombstone-client.toml"
+hash = "210538deb74a0205212212692260eba3975bf905bfa09975e24f0e32654b301e"
+
+[[files]]
+file = "config/voicechat/voicechat-client.properties"
+hash = "5535b0094a733be53f46e378a26a2a53a398706aa1cfcf6393e67ead0bf8ee5d"
+
+[[files]]
+file = "config/voicespells-client.toml"
+hash = "4c824243e057a355d88a5effc88afc46d573e62d5b13a3be23ee4de111f11dc5"
+
+[[files]]
+file = "config/waystones-common.toml"
+hash = "ea13b5f00eb2d746f10c0c981abc1da2561c07c070a26a4520e8430b3b17849e"
+
+[[files]]
+file = "config/xaerohud.txt"
+hash = "58c9270f258d0b224bb7d0f7c927544d5fbe5f1b8027c820e1e14ecbf48fb88c"
+
+[[files]]
+file = "defaultconfigs/minecolonies-server.toml"
+hash = "610a32fe368adc209a5a9faf00ae0c4ca8dbc7a4704c30b65772797b28dcb599"
+
+[[files]]
+file = "defaultconfigs/tombstone-server.toml"
+hash = "b4bb07109bcc63c884bee185f5230c5ab50c71b567616712643eee7c2758f2f9"
+
+[[files]]
+file = "kubejs/assets/ad_astra/lang/es_es.json"
+hash = "175979f7bebebd38fa945ea23f3a34d0a32f6f93b93f1996d06f529514eee2a3"
+
+[[files]]
+file = "kubejs/assets/born_in_chaos_v1/lang/es_es.json"
+hash = "908ca29537e6db6c4ffdbeb8dc8acaaee2e75d334018eb9a126e5ddcef54b930"
+
+[[files]]
+file = "kubejs/assets/deeperdarker/lang/es_es.json"
+hash = "5e32ae5679abc3fe6ee956d3692112607e8af89d9682030719d5b38101953610"
+
+[[files]]
+file = "kubejs/assets/dialog/textures/portraits/zykna.png"
+hash = "f5881b7851228dbd1f4511eacc8a1d9b0a553114716051682ead76dc4e83b8dd"
+
+[[files]]
+file = "kubejs/assets/dialog/textures/portraits/zykna_cara.png"
+hash = "4b0e25547986c595acfae89e206e02135a3534d9e0bdd45893c7be585a67634d"
+
+[[files]]
+file = "kubejs/assets/ecos/sounds.json"
+hash = "cd573ce3790d0ec5f6364ca7a94dd0b7ef4e56e6c1a42f4fdf55107b72499e9f"
+
+[[files]]
+file = "kubejs/assets/ecos/sounds/intro.ogg"
+hash = "d600f70d63549d208e22e21e744fb9a10c0bcfa527bc0de1749406293216ff59"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/entity/maestro/bestias.png"
+hash = "e400dfa0b35c63255af3bcd3b3deccd7744ba046b6d400a4f79a796a51c3812f"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/entity/maestro/elementales.png"
+hash = "eed3fa7d7ecc52b3935497e0aba935f3bd162dd6312222deb8c573f3760e56b7"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/entity/maestro/espiritu.png"
+hash = "4e112302d2a14e2cc65f03c30456005f53f80b7745589d809f41f0a6853ccd34"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/entity/maestro/impulso.png"
+hash = "a0edaae22c25679111e81ff95f28e467ea3a7ad1b59df6c8d4753d76a7b0d28a"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/entity/maestro/materia.png"
+hash = "f47ce6c2e6d583d62d2a3fe42a67fc05db5b29fa403c45173d71d4110f32b498"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/entity/maestro/mente.png"
+hash = "1a9fac876f35a333c2da61ad83b52672df497ff08820695aedb12e63977faa28"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/entity/maestro/sangre.png"
+hash = "a641cb6af6c21b4cd7ad0a0f5a9fd7b8931790d8d1e8692ccb575fe700c0fd78"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/gui/sistema/glifo.png"
+hash = "6c480bcd04e5d0b4c8d8afcfaaafa3c14ff9153897052eaa99c49975b54f5509"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/gui/sistema/marco.png"
+hash = "66f32356f4b0e4148db97f3d92dd958fc25380591dd25a7ca3da049415e08219"
+
+[[files]]
+file = "kubejs/assets/enhancedcelestials/lang/es_es.json"
+hash = "ed4a2371719072a518b0ec0f596d4d4814da3b2ed8b20614aee23ca180f09b17"
+
+[[files]]
+file = "kubejs/assets/eop/lang/es_es.json"
+hash = "b8ff07b3e7b94b1d1cced490e9c8cef1d493a04247125c30004b82e3f38d6de2"
+
+[[files]]
+file = "kubejs/assets/firstaid/lang/es_es.json"
+hash = "a62797cd2069013667bf5baa7dcd398d2475b8fb19366382b1e2483ac125705e"
+
+[[files]]
+file = "kubejs/assets/ftblibrary/lang/es_es.json"
+hash = "3c0eeb9a21e1a7b2f8dda612f3a6a41501fced2d3037c3555ca473d8e5731aed"
+
+[[files]]
+file = "kubejs/assets/jade/lang/es_es.json"
+hash = "0ee95b14c7f06ffab34084cd9da06025537124ec59b4ce78bea6a223cb16685f"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/title/background/panorama_0.png"
+hash = "5bab1741ec3a8e07499f3297449fc00729dd9b2c582d22f1402aa076a83873ba"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/title/background/panorama_1.png"
+hash = "1d63c2704ab843ee40be1b776a9b50f70f3c5cf1766cca27005c12d3cb5e4171"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/title/background/panorama_2.png"
+hash = "8cfcff8e72b3525001d8767c4cb6a3fe4a9b600f8119c30af1bf33271031a349"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/title/background/panorama_3.png"
+hash = "1be3e0d5170a16dc8c3e27b917dc5f077b48ea92fea8cc8629b1595e098e46ba"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/title/background/panorama_4.png"
+hash = "2f631fcd7e8faeedb15205959c89f6195ee20870f1bde710a506603a4809f6d7"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/title/background/panorama_5.png"
+hash = "188261f5dca08fd339546ac20217d6a9d1885528772d3b989edc5fd3a0b126f2"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/toasts.png"
+hash = "8456c7f4be9c898c5c6b631e0647e6753ca1ef806a36a386e9f70e63eb44d12b"
+
+[[files]]
+file = "kubejs/assets/openpartiesandclaims/lang/es_es.json"
+hash = "34014d4ea05aecb8e9c1aefabd31694f36c9633661259f42be8c165e5284f9dc"
+
+[[files]]
+file = "kubejs/assets/palladium/lang/es_es.json"
+hash = "98d2cb63f45630bf18482e55358cef9526c2352963076d5921e9f6f8b6ee75f1"
+
+[[files]]
+file = "kubejs/assets/star_wars_expansion/lang/es_es.json"
+hash = "0bd3e687d96f8b0de7a760ef09280aedf7c2da60699e9c2596600fc05a3ab092"
+
+[[files]]
+file = "kubejs/assets/voicespells/lang/es_es.json"
+hash = "c2dd98f6a33e504d8a66ddd479c3baf0b8f2c90cf964bd0caaed0aca1947ff3a"
+
+[[files]]
+file = "kubejs/assets/xaerobetterpvp/lang/es_es.json"
+hash = "ae0a5aeb252a8eb553cbed33232355732d4c9933791a2f7b18fb6d9c4ddd2442"
+
+[[files]]
+file = "kubejs/assets/xaerominimap/lang/es_es.json"
+hash = "0ba1f83c4c23c735659fbaa21269266eeeb1fd01eb21f23a9cfa96db5fb5b22f"
+
+[[files]]
+file = "kubejs/assets/xaeroworldmap/lang/es_es.json"
+hash = "7b9a96ed46ef09c5c676ced10b30bf0db82e183f819991f1a25c7522fa36cbb4"
+
+[[files]]
+file = "kubejs/client_scripts/ecos_ui_cliente.js"
+hash = "c051d499d1d77f6d722093da0d1df75399c714b46b14ea4c521534bf7fc07d6e"
+
+[[files]]
+file = "kubejs/data/cold_sweat/cold_sweat/world/dimension_temp/ecos/aether.json"
+hash = "ac2da62e0888af50a09bcd6ae8358a83d195305cf36f0eae5495b977d5fa16c4"
+
+[[files]]
+file = "kubejs/data/cold_sweat/cold_sweat/world/dimension_temp/ecos/blue_skies.json"
+hash = "3d147c7626f64aebcefd26361dc71a47cfff7dbcef2aa34836f29d3015a92d5f"
+
+[[files]]
+file = "kubejs/data/cold_sweat/cold_sweat/world/dimension_temp/ecos/end.json"
+hash = "d2c848ad30b628f061f19fdd1f21deecd710423c6510c397784f6f8933664c26"
+
+[[files]]
+file = "kubejs/data/cold_sweat/cold_sweat/world/dimension_temp/ecos/nether.json"
+hash = "ae50cc8a2cdeaed457938228c2561388b0088b6792ad6f62c213b759a4d9e73c"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/ecos_mv_elegir.json"
+hash = "1b6cc8623a8afd0bbdeb9af09a9e1243c69f61e60f341aaae9604618d1ecd8eb"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/ecos_mv_menu.json"
+hash = "4c232f5f215eca22e03741c5df050b30dacff7614cf7e36981d4fc316a489472"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/ecos_mv_mision.json"
+hash = "893951172273af1830b0937a674ef2d109e06f12d56f9899b8c1fbdd70221fda"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/ecos_mv_mundo.json"
+hash = "bada6d9fb5bf7920bed6edfea9c1c5f7ddc149ad075657861c2ecb4a38f7848b"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/ecos_stats_cuerpo.json"
+hash = "75897793f5dfbd3e0d3491ef666b21f8ff5b1aeb28bf19bdec5d580bfcec6580"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/ecos_stats_mente.json"
+hash = "f701c2fb7d21c9b2be9d08194d5b3f77bf1bb0894777f149c2b67206f73cda9a"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/guia_zykna.json"
+hash = "f456f6c2621da2dec4f3cf3f67471db3668b5781c0bfbdd8ad0d46c75f2ccdcf"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/intro_opcion.json"
+hash = "e5f3475e71b48332b4f9db8e6fab357223bea05385cb13492565e07aee74f8d3"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/salida_lab.json"
+hash = "2d6a8f384b63df36f2fdb4a0aa9306b6b0c79ba51f3ccfb6583734a689d2b4e4"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_aberrant.json"
+hash = "68c2c74268dd76cb0d3c0bcbc32ab0754df0f82bd01f37ecece680e66f71f0dc"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_beast.json"
+hash = "7147d7c8ff0ec1ded74fd11d0afb68c5039d102fc97c978c851749cf9044bcda"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_beyonder.json"
+hash = "e9d3ac58f144aae09e99f8c8eedea72a00fa1044ebfb551725a4760ce8721ead"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_bloodsucker.json"
+hash = "7c9c5849a2033fe5130b99226843b4866185ef0cae851fe0c45ff651880430b5"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_bloodweaver.json"
+hash = "285c5a675ed04d40b5eb1c96525c1125256d78b0295c8b649a9e3e264eefe5da"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_bull.json"
+hash = "90e2fedd8ab03feefbbb4afd2aba6b885e9b2655bf1071005ac90281f6c4291c"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_canine.json"
+hash = "f057d0b7a13a3346347b8d583990361610d5fe2b69e589d58fac461c4fc73be1"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_cannibal.json"
+hash = "30f7f926ce20719f2ab66fd4a8ac2095dc7fad6c47e68cd94a753c78843a9127"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_champion.json"
+hash = "e9aaa569b1179a4aa4ca7172b4a690dcdfc4e556dc8d968d094ba32ffd59c0ca"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_combate.json"
+hash = "952e75fdaf77f7c83dc7e6e6778224f68f0dd95c89be2f5cacd6e8cea69db80f"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_contortionist.json"
+hash = "dc4bdbbb34c505b7101623f4a88c19ef382d66db04014e1f96982a445ee1079c"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_drifter.json"
+hash = "08a0abf017494e4dafa503cdc1b927e8a0bd54b4201604dd16286da68034a7d2"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_experiment.json"
+hash = "91fd8a42b1f7f2700bc916346b22ac2b73c0a4edcd2f44c88528884c5da2ea19"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_fortress.json"
+hash = "0347f5f18a206663c38f34634351c3f0887b5b0e54c50f8f88b48b2f83c81e5f"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_icicle.json"
+hash = "07db3ae78a7adfb0f66c1d01c505c55d1ca24248581070982c02fb2ceaeb7513"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_magma.json"
+hash = "f1ec6ca5a545645c629eedc205bd2e9c0f3fa5e1c62d5e9cb069be683e4dc752"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_marine.json"
+hash = "a6042f1338d598d97458ab8fbaf93e90128aa808a3489f69fd84b863f576a825"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_marrow.json"
+hash = "72f5afc2717dc03ea358daab372f86ec915c7e56235fad74426d89a5094323be"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_mender.json"
+hash = "1fcae8d8b7cdfa6ae7ea8d09111d815fa0572399db1253024cb0e3ac9b10cb18"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_mimic.json"
+hash = "0a9c528c1159559f9820a8699afff87c8b412c116d2750d3898b90c1d2e45a66"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_monster.json"
+hash = "6447e839fcd9f645e6c7a9dacc022b8a6f80b62527a159eccd5dbfeb07f04242"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_parasite.json"
+hash = "e55b0bd5c18801608329069ba85f9b17ac49f1f3cce04fe16983cba0bb757bd5"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_phobia.json"
+hash = "741eca60176644e0f18b22ab81d18ade20c284104acd0e1c282ad534bbd6a48e"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_phoenix.json"
+hash = "bfdc71c66b9c6ddf0db8e7f638ff50b454d12ab695b682112b8d8babe32b687c"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_photon.json"
+hash = "6100ccf54466e882b2b4fe67838d73a294749da8c06025bf18e39ab4503dc029"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_pitch.json"
+hash = "784ff5540cda114d56022a43cdacf87795c2e5620ba57b08b50110338a81e246"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_predator.json"
+hash = "aaf8422fa8dfdf1bd7b049ebe5557d106ba00ef24c632cd4bd1866960a0f369e"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_reptile.json"
+hash = "129a8d33c2b46256a63b0d78c3160fe9b954ea4cd57e31aa8fa1d7fe910ddb70"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_rock.json"
+hash = "cdbd2e189c3e2161ee228442996ec017ccde0dbc3f00d25e076dadbc0a419f15"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_smith.json"
+hash = "ce70d501a731b9ea69dc02eb810843e0de7a586902b7a64a15c6447869d20b30"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_spark.json"
+hash = "1e0e8c08dc69e1c091ca1d65b7d270bb2f176a4524bd7132bf39fa34415508ab"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_speedster.json"
+hash = "70f975914fbab99f184b54133e1c191eedc0d76ff2e390723e6000d9345bbec2"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_tempest.json"
+hash = "0984556e7137b156f8c396a27cfea6f85bbf2bf4e9bed1375984fd4da4c8d18b"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_thing.json"
+hash = "3aed1432a6e083991921efa402a14f8f5af58b2685483781dcde2a50f3fd9e06"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_threshold.json"
+hash = "96041d464181743760701c32af237b2486405949d2d939677c4013cd8e267275"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_toxin.json"
+hash = "599211153370be0c5c03c078e26a356fe517c82027d70a977a13e67f1119d8e0"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_veilbinder.json"
+hash = "ff640511f14380d568ae013ab68222185d0e091b409cefe5947e12a8b99f5fbd"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_vitrum.json"
+hash = "2d7dab48da48f47a72fc0bd8b24660cd5a87981e3e6a6152091ae38460d9f744"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/tutorial_wyvern.json"
+hash = "816f2c6042228979f413b310ddf36a30085adbc48753ac529afa4ee06b0eab36"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/zykna_despertar.json"
+hash = "ea10413ae0bef79490bc985782a0fa9d494cffa040c26d5c713c76a65da28a5b"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/aether_pisar.json"
+hash = "4d7bb7b701d2bd892b27b5020ad5338d02676b510742c65e3f96800c3a237122"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/alpina_pisar.json"
+hash = "b8ff0a4809dfc1de1047ee48778ac178d2d7af049f91f99d5bd1b13cfff95799"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/barco_pisar.json"
+hash = "470d42b1ce60873604d7a545283a495c3849da9375e28a35541985c0fde5fbc7"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/ciudad_pisar.json"
+hash = "a43a1e43e54c34224d156e63334dd408bf4162a71e7f9637e5a6ced734b98a8a"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/crepusculo_pisar.json"
+hash = "24aff596a7b79a9bba613d72ef7b6168fe67524a6d1641a161f5ac2c571bdaf5"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/cuevas_pisar.json"
+hash = "7be6f9c1ca699118f87a55516976091a283d748ba3fcf52bdb7a5f02c019ccab"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/end_pisar.json"
+hash = "7945fee0e3f7d59e1db10501cf045e31299f7624d526086529d9b4490de982cd"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/everbright_pisar.json"
+hash = "9792b8effbbaff97fb3b32dc0eba76aa97de5499f3f8e87830635e00f4a0bb76"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/fortaleza_pisar.json"
+hash = "0b334d4d3b1b4bce1ff84262d0c36194e5fddba6ab6c00db68f9453043ff5759"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/glacio_pisar.json"
+hash = "5c5eb57bf0774a825375785d3a46f859b3f7d82158e909d4350617292056579b"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/luna_pisar.json"
+hash = "6d552aca210c24300c46b9e769ac23816da2184d408311522f2d53a8390dc76c"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/marte_pisar.json"
+hash = "21f2ed4521eadb79c31480d058b4924f417cadcef26dd42d99d2112a9411e42c"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/mercurio_pisar.json"
+hash = "e3730c413561c8bfe0e40afb78db930b36abf6f4ff70285e0c46f88ef6919617"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/nether_pisar.json"
+hash = "431f0794a4ecb81c253c66912700e494e75ac80ecd6e375aa5483d968d50341f"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/nido_pisar.json"
+hash = "8de24822bf04711ff0006455bef6de31da2e9a8b940b3c0aea198152c5241e6c"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/otraorilla_pisar.json"
+hash = "6c36136dbaae23df426606e29c5d070286fa9f1bd3e1d95521be25fea6922140"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/tatooine_pisar.json"
+hash = "7f7c25692a1523791d5a0c5a39b738948ef0c99db04a5552fd68cc07cd4800ba"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/umvuthana_pisar.json"
+hash = "44c81a5a50032caa54e88a7da5c86e20df874d63db1d5601643574e411d2a23a"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/atlas/venus_pisar.json"
+hash = "9f9b3146a57b918fa27db2efe06a3f176f13904bb464175ed4e4945fe69409d9"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/planetas/glacio_dimglacio.json"
+hash = "5c5eb57bf0774a825375785d3a46f859b3f7d82158e909d4350617292056579b"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/planetas/luna_dimluna.json"
+hash = "6d552aca210c24300c46b9e769ac23816da2184d408311522f2d53a8390dc76c"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/planetas/marte_dimmarte.json"
+hash = "21f2ed4521eadb79c31480d058b4924f417cadcef26dd42d99d2112a9411e42c"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/planetas/nucleo_picos.json"
+hash = "8eaf9d47e89868bbd7494c5f45b7e96a73689c625130f7f2344ca2edd6a49858"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/ruinas/aldea_aldea.json"
+hash = "dcc8d8a6813fe44d9ad9887b7e9c2dfa8d416e1bb4d30d8411155a3e13d51b5c"
+
+[[files]]
+file = "kubejs/data/ecos/advancements/libro/ruinas/ciudad_central.json"
+hash = "4666ba8dcca3fe0b9e0c5cb6c7474e6a9c3b34e0579f69c7382062f489472035"
+
+[[files]]
+file = "kubejs/data/ecos/dialogs/zykna_despertar.json"
+hash = "78347f7bdfd40089b7a1031aaa93c2516fd3ceef5199c8a2b1bc0a696a225b51"
+
+[[files]]
+file = "kubejs/data/ecos/dimension/lab.json"
+hash = "fa51ca696c957f7f3070a0510640c89793624462e91c418a0aa0e871c4e1793c"
+
+[[files]]
+file = "kubejs/data/ecos/dimension/lab_espacio.json"
+hash = "b7346ef262d1799b61cc8cb598260362f6b4b46a8f8a1db0616d7cfd419a1eaf"
+
+[[files]]
+file = "kubejs/data/ecos/dimension_type/lab.json"
+hash = "6cb158d83351357eecf6f8b0a994a9c3f11fd298b092d5bb84d18559abe931ac"
+
+[[files]]
+file = "kubejs/data/ecos/dimension_type/lab_espacio.json"
+hash = "e5dfd4b93b8467180833745787018d5275c2684b51a6544f063a7a2a8c9fef9a"
+
+[[files]]
+file = "kubejs/data/ecos/easy_npc/preset/maestro_bestias.npc.snbt"
+hash = "c0dccb5fb5ecd21c2269d218eaf43d0aa91c7b5ecb3b312326d3b67407957269"
+
+[[files]]
+file = "kubejs/data/ecos/easy_npc/preset/maestro_elementales.npc.snbt"
+hash = "79c7fe3014f4baeb8a44327652b3b1a8182101817997be63863f3e9db511ebd6"
+
+[[files]]
+file = "kubejs/data/ecos/easy_npc/preset/maestro_espiritu.npc.snbt"
+hash = "d77294621ed02cf45968b6be2e452ee1e80cac085a245eb7434d4265424045f4"
+
+[[files]]
+file = "kubejs/data/ecos/easy_npc/preset/maestro_impulso.npc.snbt"
+hash = "2cfb214eb6817421ece6deb5f28e535d3a3366d539cc87bfddf1e1d087bcfcbc"
+
+[[files]]
+file = "kubejs/data/ecos/easy_npc/preset/maestro_materia.npc.snbt"
+hash = "00f284106048ac0b710519618f5d5aae4648687bff2caa97dc8c7eaa8694d4d9"
+
+[[files]]
+file = "kubejs/data/ecos/easy_npc/preset/maestro_mente.npc.snbt"
+hash = "4440c02a4a0d16e5ae6498b0cd507796515902ca66bdf110b8c8a6a363df3551"
+
+[[files]]
+file = "kubejs/data/ecos/easy_npc/preset/maestro_sangre.npc.snbt"
+hash = "23bc874323a0c6157cff3b911881140466bd4010b2f1ba397344c51ada242a8f"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_0.mcfunction"
+hash = "4c5b30483c2c025426db0ac226680bb42c8db84800c44d9a71e0e9ac87cc82df"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_1.mcfunction"
+hash = "a8ff3511f2930c531445a7c7ade84d1816c9b4ab07d2311a7cd5481ead8ae876"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_10.mcfunction"
+hash = "2b839806b4db08be671d463f2d5617249b3dbbe889c64240b7ac4616599e8ac6"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_100.mcfunction"
+hash = "ccf7462c0b572bbd92a64475f6c3b65b2b7adaf3796b6677a3fa3df44b0675c5"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_101.mcfunction"
+hash = "a8513088b04f336ec11f3159d0d4e264ae1b520b136bccf52ade5054efbaf4e2"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_102.mcfunction"
+hash = "b878d04d9e56a2528cc11b20e5ecec0af5124a6b0549474f69f13d8e6ac9c1d2"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_103.mcfunction"
+hash = "9376c6b37243df6a70b097a57e8e3ff208d0917d0e6c172e6fd6d317fb29ac61"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_104.mcfunction"
+hash = "5d62db727080995484dd4e8f149fba11f5cca21134f98a4d4acc8d9304147670"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_105.mcfunction"
+hash = "cec27b7bf1f54f61e2333b4430061d3fe0b68cad7a835a9144495f9bb51992b5"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_106.mcfunction"
+hash = "b2efb0fb886f26554cf77715d0fa14fbff1dd87d79dce109240fe869574c9d72"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_107.mcfunction"
+hash = "4bbd4a357d19819046b3f7c670fa33f009a774f7c8fda2918f8f8a47eaf562df"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_108.mcfunction"
+hash = "028f2f446841cf08a39eb81ea0f406304ee74275d05d6689939930f129cd5117"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_109.mcfunction"
+hash = "934d7c462b205711048c72e1cb6f1e80cd83d2e307aab3bd73bc943a2f80d26a"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_11.mcfunction"
+hash = "ff61a28e4f37be42963348829c3f9d8139f57ae7d5e9a75609f51dba7ebd948f"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_110.mcfunction"
+hash = "57f7bce335c8b71f9f6c78e25d72c3d4e98fd5284b5a7db0ef9b0055768acb22"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_111.mcfunction"
+hash = "710b7b3c0c5dbc2022b3a741e9ee86c133dc55c677dcc525521edd6ec6c81ae3"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_112.mcfunction"
+hash = "c8f1407bd8da64bb1570ac61df80b58c45bc37f520fa869e6d46813f0193e37f"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_113.mcfunction"
+hash = "61cd10c33db822e92e950b5632418a140ada1df6be3bb10078fdeaede1aaf773"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_114.mcfunction"
+hash = "fbcacef357f9fdb15751c3277019028c575e740ca72ab3051ca538d95b170229"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_115.mcfunction"
+hash = "f0ddc7808c312073b11fffe29b7fcb8266a311f45c38e0dde0000ce56b55edeb"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_116.mcfunction"
+hash = "c98e868a4833258330daeb82389508673614a2338c232b08b1e435d256a41891"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_117.mcfunction"
+hash = "99df1a3859c9d3ca97be8c07ebed39bc12da09911c0efb914505ae0cf3ffc076"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_118.mcfunction"
+hash = "7058a1fd0789877b2c8b62eeb44ce61e7ad6318b7faef09101da5cc21da25518"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_119.mcfunction"
+hash = "612dbf26135a48a22936351d0bd862df30417acc0b3e0016ad1ba555868b15a1"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_12.mcfunction"
+hash = "3a6f35323f640e850d8d63aefe093aee159023270103406573f0c3c714f9b163"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_120.mcfunction"
+hash = "52949bb3af2ae73f05315207f8e84f0d4f1bd9ee18173267d2437907e4f7f0f7"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_121.mcfunction"
+hash = "214b3b4c4e987523368198ebdd4995c83b2bf67c1af17d436f86e16b819bccbd"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_122.mcfunction"
+hash = "63dbad9fcd3775cc329d80937284836dd59f33cdfa41efc034c589929c51d670"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_123.mcfunction"
+hash = "ef2e2adacfea0406ff84bbdcd6cc1651390c64bd5ed22a1f2f3cea4e10dd954d"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_124.mcfunction"
+hash = "5f01574aa2bedeebd21468af3086d7a7faff3aac92266c23f8c0408ba19fcb6a"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_125.mcfunction"
+hash = "551dd63f6600ae2d8a47617777fb04a077534f63f2259ebd56cb369c1ed946b7"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_126.mcfunction"
+hash = "92da0afabadd430078e82b66dc89ffa13506e51d217643864802a9fa0b9287b9"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_127.mcfunction"
+hash = "1533796036476541a89096bbf332878c64c868f33512264196ac8419c75dcb35"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_128.mcfunction"
+hash = "2187a1e7fb75a4bb2c06c1372c901db97a0efab0de4806d598bfa478993157b6"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_129.mcfunction"
+hash = "6f1dac16d6021c03b3760e0035852cf5590fa1e1c7208482a6585579e6007c06"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_13.mcfunction"
+hash = "f76a6cd4fb5f08297935cb128c1ae88655477256e3b7cf0d28100fa025ec2de2"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_130.mcfunction"
+hash = "5f814239ee61764f5a790c03de7d1eec135642d8983845762a7d4b0ed3ae62fb"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_131.mcfunction"
+hash = "beaf547e55277749c03898b731a22eceab8ba3c65158e93a422eed7853ffdbce"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_132.mcfunction"
+hash = "7bca46c4583a7189aa12f31fc0eb640b3d661fcab32a392c3c5babfbab074fa4"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_133.mcfunction"
+hash = "9a6127dbcf9cd41d4db230c39dec97d5665984aa1ab94cded0b70366f6d1a04d"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_134.mcfunction"
+hash = "0ec9099b60a64c45617f72b96fe8f771b3feb7c1bc282f8ab39f27771027ed9a"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_135.mcfunction"
+hash = "51602bacb685dafd46b9ade75010d2b82ca3195a7454868a2a2b2f8ae9eff80d"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_136.mcfunction"
+hash = "fdd787d51e813e2484d4c6545cf98fd1c88d0917ddd06144d9bd0837326180cb"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_137.mcfunction"
+hash = "eb32d041f7e9bd8666a0e4c2e7ebef5c24e79adbdd961136425a7cc27d23fbc7"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_138.mcfunction"
+hash = "74b34480db21b295ebe516b08834b71aeb65287b8fcd80d2ca3ca871d15ff733"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_139.mcfunction"
+hash = "6da0e1b4712148385f2f4ae5e2a95ceff4f557e13674443070e272a762ce8885"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_14.mcfunction"
+hash = "afd828c2f4fde1490d9437151b5b80dc13773c3a47292052847644a6131a7607"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_140.mcfunction"
+hash = "42bcd5ffe1e32829aadeb22b1e7889be02144e8bd53010f8dcd4c3ac93e7214d"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_141.mcfunction"
+hash = "8d0e223212fd02df193597bc23842d6a3eeb080c527f069faa7b875d7e94c2bf"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_142.mcfunction"
+hash = "c1e9d9a94cd8ba4a9f6b09366036ea7cb9ff298760b5ea7cf27a4c39d0dd3f27"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_143.mcfunction"
+hash = "afbdbf028eeff203ad9810a9c95a5ce17bc67ef0988aaa0458c64cadad1de1f8"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_144.mcfunction"
+hash = "32bcbeff3e4d7f0e7387d68c9dd08f24cad5477242d6121a5de33c23fe8770da"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_145.mcfunction"
+hash = "e32d1bf5f292f5455e589c0221e121c8476b6012c00f011655b33cd0226a0e24"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_146.mcfunction"
+hash = "ee5852067ac0049f7ba7d7d14fb15174ef57a52f4c54a2d52ecb3a83d74b3659"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_147.mcfunction"
+hash = "101d694b8dda75105a05ffefb7508e249ac67020e913c8f06c2974730661ef12"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_148.mcfunction"
+hash = "e352ddd76c47a1e6a2a23da3bc541c479c593252fe1cc7ae32447f68d811742e"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_149.mcfunction"
+hash = "f31b0e5133a2a06014509eca41e45714cc2164ab2c651ab80fe3bbd61db92913"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_15.mcfunction"
+hash = "4d16a0bb7a4e7663da7fd0b317c161d288a80d434f429d91983a3e3345557274"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_150.mcfunction"
+hash = "e1d3da80a245815204ea88132be72c5ac406d9eaa07e8880ce5193f84e445dee"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_151.mcfunction"
+hash = "573c64027e863cc11b078e4236b74491f4b8ee37f8710ab7792336738f0a37d9"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_152.mcfunction"
+hash = "35ed9d9a5f12395c057194ab1bf64978ac6fbf2db77c081179653e5af79750cd"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_153.mcfunction"
+hash = "a282befc347a88b0382f4f429491cb2e1c1fe789f867c397a30d139306fc6de1"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_154.mcfunction"
+hash = "daad1c5dc69f3781dea27d41b1aaa207b3101132f3289752714db0fd1003d57f"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_155.mcfunction"
+hash = "14db6ab237a851fc8cdebdccf9d08c11f50b7ba2999b3291e4bc30c92dd88657"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_156.mcfunction"
+hash = "582cf52a2a8be0d57d14b804816fe076f1de3cc28c6c1b8eb58d3a599ad04cae"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_157.mcfunction"
+hash = "751f60595e44d601f75a9a8a4c336bc3d5e9b690326472d4fb2f0eaa9b0c0b42"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_158.mcfunction"
+hash = "6e1867e09b53015b64b4a0bc17579e6566b6631944f34b0177cd8eec6d6e8e8b"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_159.mcfunction"
+hash = "234d73007824d7705da90fb0e3bd82a378fee50af8c9829e4988b47b0b5a4cbe"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_16.mcfunction"
+hash = "2cb24029e88203e1fdd729aca53ffbee1227ea8cc948d0b32c9eaa60785d882b"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_160.mcfunction"
+hash = "f5f79486572f6bcd692b187051b12d206386adce271ca4f89b09b319d5a88978"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_161.mcfunction"
+hash = "c9a7eb7f53c32fbf83f0db846d60afeda8f9d213ef6952bbf0a353ec96a378ee"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_162.mcfunction"
+hash = "e23610bfc104ee1070b83c0f2d4fe3ea167651f4d500cb283aecfedc0e67f07b"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_163.mcfunction"
+hash = "eb88adc973873a73f4a584ee01536908dd16a2c9d7882f9f50994d1f8a5129d5"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_164.mcfunction"
+hash = "b039409b2ecbfd22df311cd82beebcca33190745a7300bab1bbbaa3d23220cba"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_165.mcfunction"
+hash = "29c67a006822a0651cce6503947b53d50c854cb411d903c1bfe8a0ac255d1aca"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_166.mcfunction"
+hash = "9f13fedc0a67bd3697234657c71232a3c2e72afbd674311a31aad1039ef91e11"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_167.mcfunction"
+hash = "87d8295c3429471062efcd77895b5513d4d6d571d26d710e83cce08083f9846e"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_168.mcfunction"
+hash = "894057a557a6983285f9eee66cefd1f23b764669456d2fb5349da7fb99162a42"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_169.mcfunction"
+hash = "2cd54652f501c2a35961264961122b7db08935b079bd50cdd76d42df7ee5288d"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_17.mcfunction"
+hash = "30cecb8b556d7f9a9c60021b29b0afd99e7075e916cd1e61c7669444ed4c2212"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_18.mcfunction"
+hash = "78681fc079354d28c942de604200269f9a9b7b789719726db03eaea0ea2e222e"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_19.mcfunction"
+hash = "589f021741a0a1d44c8a567aebcb503118675ef7ca94a19c7a57869d2e6d2873"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_2.mcfunction"
+hash = "3d4a4b8ca1b162d8a3cfc56e310606156ef2a556dbaf051b0483d5315f746d45"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_20.mcfunction"
+hash = "9dc8b01a8d2da66803322121aece5fe0c2cd3c6278961c331b965e6fffe9f27a"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_21.mcfunction"
+hash = "2b061cc013c88c226ad8e02a55970c812e88062f8d34a4ec5926349d5e02d6a4"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_22.mcfunction"
+hash = "278ec5c9ff02093a2e0d099013f44cb60913b83364215a948d1d68656de14cd5"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_23.mcfunction"
+hash = "a441492c40fd0d4ce22bd570d7385a106f04f94624e5b2ef0d85634d35c03031"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_24.mcfunction"
+hash = "6206242b4732c844168c298872bda76fbc75923b254bd0668d430235d109b243"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_25.mcfunction"
+hash = "ae41fa706af0cddd3f4135ce49bfecb72b60cf3eac048000098f090bb0723216"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_26.mcfunction"
+hash = "534a7ee1b3337bfc876a29694651870d0118863eb2f8bbc540be2399a7cd9e38"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_27.mcfunction"
+hash = "aa86b0cf9054bebb66204272539ded1de48cceca1ec8a274d71213768932f6c4"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_28.mcfunction"
+hash = "8327fd5ed3131127fc7f986f0a86a8bb7b760a220f2f298e64aecb41824889a2"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_29.mcfunction"
+hash = "af0eaf9252c9999557ddb55ba209c1e97c3dbdbd8a71076a8abc2bd3c262f14b"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_3.mcfunction"
+hash = "86792439989109a15eb87c6e704bdc63fc37dbf79688262e7b4771b4e2314a34"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_30.mcfunction"
+hash = "b232c3b237bc1428dfca818faeeecd32684d1a78cf3282f4ed898d83c5d69a53"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_31.mcfunction"
+hash = "fa5770e6f9b1c71e648c79694f44b3053f8308dc0e3e801eddf854aacbe0502b"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_32.mcfunction"
+hash = "163b37375679bcdb4e1704e357fc526298004a504cf942bad1061dab90dc7501"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_33.mcfunction"
+hash = "dcba099655dc70c8424a19d33ef5e6fa0cd17553d46a28e6b74219e94e1a27f8"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_34.mcfunction"
+hash = "a946e43d4bf1bb6b71299ed6d6060c9bbd0de69d127a2be39907f347a13d31e3"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_35.mcfunction"
+hash = "6497b5c1a8347435351d0deb3cbf46b9e68164ad1392ae8783f89d3555152ef9"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_36.mcfunction"
+hash = "41d0fbd934d429a23dd00f24e1c701aa375b3681ead865fa92050e97ea15b7de"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_37.mcfunction"
+hash = "8cdcf5e631f40d13cdb01c7bc13d04ab9b50ba999e9b3540c130c911ab024fe8"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_38.mcfunction"
+hash = "7efbe28eddb665b901d02b887908cc638b477fc4a6a434c21ad3d3d8de3299a1"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_39.mcfunction"
+hash = "e387b93d258eabdd439382534a727e5cb15c71d09a638f2dcac21bfa82d8e77c"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_4.mcfunction"
+hash = "198aa4f9d2fba00be2a2781c470d84e64f4b77a8191302e3435cb7d437de94f1"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_40.mcfunction"
+hash = "b257e32255aee07555f6098a67c6cfcb56164b77695f5f5344e23317cc361d66"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_41.mcfunction"
+hash = "2f6f085ae2636569b3781ce7d09a5900525824c53b74f38d3e1d4b92d19ed732"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_42.mcfunction"
+hash = "f94d208ec3319b50a0e34a228ef012e0a2631018d92b9651dd8f1853f791736e"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_43.mcfunction"
+hash = "98f54d69728c8a9b187f7aaa88819e12831fbdf273253826dbb369dd882871c4"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_44.mcfunction"
+hash = "2836dca93b63b570d21b3e9ea3dac6e2e3faac05d3f3335759ae48692e5167a2"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_45.mcfunction"
+hash = "eb5ee9e2909b776bfeb3dbbc56aef88a5e9cd511f79c3519375e1cd7d76af878"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_46.mcfunction"
+hash = "6a1efbfcefe10567121648386ed085fd05ef1354871288389d54f0cb773ce486"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_47.mcfunction"
+hash = "90c7eb966fb13935aa903a61225e4e4c4e6fc90d0e3a5bcf2669bc834580bcd6"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_48.mcfunction"
+hash = "9efc090d508640ecbd0b35bdb4fc56b2bdbe5be02757c4735a34112e8d8e319a"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_49.mcfunction"
+hash = "c163a05b17537aad0c86bc3f63b75949d0ebdc9166b506feec83056d823e3551"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_5.mcfunction"
+hash = "6a426b43da24021c0ef244e8cdbbb641d764f8165f38b9ec928dfa0726803cab"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_50.mcfunction"
+hash = "8c230779b0e13f9acfe6ab59ba4644812c2d5e80cec92cf725b4a3a0aa91ea42"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_51.mcfunction"
+hash = "ab2af6f5547e6f129e245a0e4993a830d2500eb13258ad2b34162bc3d6f1d555"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_52.mcfunction"
+hash = "03807530903310327fa12c50b17319c42b57a5a8d45f3046cefedcf352889710"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_53.mcfunction"
+hash = "1d31f307caa01106ec24cee57bca2b2c35d20fc5c935a3b9930dec97cb973aa9"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_54.mcfunction"
+hash = "2641ac0ee3cea62d44d56e488b9b7a7834c24dc237ff85aa87b24d7b5dd9bda6"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_55.mcfunction"
+hash = "9e22cfdf929bf8ac0932fd803514185e6edd86c93e028b11af2e71d4bf6ab79b"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_56.mcfunction"
+hash = "b803138980b8596c410ed6c7c7582c7309469a4f87275b83af7874458ec37090"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_57.mcfunction"
+hash = "1f2704d174bcecd74b3113a6b6f52e305f12f2033937c6ea308eeca366c374bd"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_58.mcfunction"
+hash = "c06f01ca73180a0e9fbc5f75832f79b81517071270c900ea4b87b59d46c6fa6d"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_59.mcfunction"
+hash = "b858fe263f261eadd1369a0678b8dcc057d583b670163a6c3aedb1b60cd45531"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_6.mcfunction"
+hash = "9203fe4be89d00a0ed39e4473f3948c87e3db4e921a4afdda03efa1c9df93ae8"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_60.mcfunction"
+hash = "0a2be399d2be7908505ec99d3a7fe67d6528dcf52cf1f4efee1bb9519daab1ea"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_61.mcfunction"
+hash = "76c7371ca8b8123e02c6ec412f939ec889800d5223c4c1a863b661cef18ede93"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_62.mcfunction"
+hash = "a9f37c0571d6c11fbd28d726a05aaead72a717819286fa775f33e942e0bfd980"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_63.mcfunction"
+hash = "52aaa1454aee267528bf96b18c1d4d7afa67df390d41b53a9c1c7880d0b797ba"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_64.mcfunction"
+hash = "8852b0394b84cf4ecd794e7bc16fd2ed40bf91879bc70495be117a1b13f9cce7"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_65.mcfunction"
+hash = "3e8a29ebb2c0ea25dda619001186718cbdfc753094de59a3f9e2102a6135bbc0"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_66.mcfunction"
+hash = "3c54c0c7ba1a59fd1450ccbe299f2e6d07f0c3282c39f95bff46b2453a6f8238"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_67.mcfunction"
+hash = "0f7dbd187b06b192864c9d2d8cd57eb074724ace0d06b1908507d133c0672ad9"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_68.mcfunction"
+hash = "b0173d608fdad2efa340308250fbf9209187157a7b7c3174bf53f10cf5b58827"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_69.mcfunction"
+hash = "cc69d1501be8e1cbf1d918ac392a2eb9d4a8f14f7c933d241e99f75b658011b5"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_7.mcfunction"
+hash = "bf0ad5d0e4b271963ed1364425445dab281cfc7035aa1fb5d8726087ea2a8726"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_70.mcfunction"
+hash = "479baf77dfd85cea49175231e4db43c6641b57e2612abfa3bc1fa10cdae6c838"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_71.mcfunction"
+hash = "265e55b8d408ac9f2695513d7dbca072631693abe402bd9eb8f71ce0d581da1e"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_72.mcfunction"
+hash = "1dceeb6ee8acaf6544e2fdbac1c797b033b6d7b993f1abf37ca7deaec445b373"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_73.mcfunction"
+hash = "1c9d17cbaf6f36f116a439d745106a930f894e4a78e388de2124c2ca94f2e3b3"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_74.mcfunction"
+hash = "467faa2b7b50ecbf61316db651ae2f299abffee52c73b0dbcdaeafd6ddd959ba"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_75.mcfunction"
+hash = "2eab94498c769db52a7f00e52f51eeca190de30cb9445a629cf1d920eebcacd4"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_76.mcfunction"
+hash = "069af93b4eaf98b9e835573358125495dc852db44bae3a5df15beb76cbdd26d9"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_77.mcfunction"
+hash = "875fb29a47ac7ba854124954bb705d8af5c5df60c35a59e979f1a76555ee4457"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_78.mcfunction"
+hash = "ed8dc6ba1d0eb58fc073161662f240f5f85979c34cf74521336c0c8e7a9fb7e1"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_79.mcfunction"
+hash = "6c5c50b1c621cf591be061798b38ceb44ba3a795920be167b00e74b083e87949"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_8.mcfunction"
+hash = "dbb85851257b61523a82039ea389a6f9bf7d207e998b89c6a482c5a7af332489"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_80.mcfunction"
+hash = "5e1fc0fada1e0280c49f175adaa42e95d53e46268773324b99c13c9fd930dc6a"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_81.mcfunction"
+hash = "dd904009be9472a5f0858b5a8bdcc9e24a76a35b8bb9fbd69a90e6bcde752428"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_82.mcfunction"
+hash = "59c2f038b5f16b9ad4addf1a8094b6ed0a0a067c5e7a94850cb07d1666da1691"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_83.mcfunction"
+hash = "14e0f4e52f84ed046f788171d67ff5a7482067ad40f17dfc8bb17d8018cd5706"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_84.mcfunction"
+hash = "aa902e077f0b7315e1431cc5a6e2a6634f99b52cbffda9b9160f28c38b15faa0"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_85.mcfunction"
+hash = "0d2feff03b761345e9240d3f795d15a3a9d2f5022e45680075275f79e8121527"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_86.mcfunction"
+hash = "5b433122605ed0807e17b59a0586af83530d0722d843ba68724fd85315a38d27"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_87.mcfunction"
+hash = "5c00b1555f7516804595b7657382e1d85019069f3cedfa7cf6005d72fef0c90f"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_88.mcfunction"
+hash = "e3506d1b34b9f26ed46ae8099e0611272ed844778eb941bc302a2c495104bac1"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_89.mcfunction"
+hash = "cd8783282c57a6648e8c3e66e5551731c396d0bf821166913a67078be2529f26"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_9.mcfunction"
+hash = "c4802c23fbb75224f44c8a634e1a08027453c3474c79fc06ce3088a3cfdb72fd"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_90.mcfunction"
+hash = "49f509f7387591da4420d81bc5730137ec6e3c2242e4adad85c4243726ff9ad9"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_91.mcfunction"
+hash = "ea2818859f88b3db5130939b5bbfa4ec5ee77fccdb310c096f47456ac1353e92"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_92.mcfunction"
+hash = "430c129726abf04788aa0e03e15af6196f303d18c5daf6facdbe99c1abedc2bc"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_93.mcfunction"
+hash = "066f137e29f337f224865fb4b787458d43c29a5a9603a2b0b4069f2538409de1"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_94.mcfunction"
+hash = "b858f5468370728db6e977bd55af732b09b32d6a3719c0c5c90b7ebaa348ceb9"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_95.mcfunction"
+hash = "19b8dcfbf8d9bc21d306693e7412d85169ca5def0c5eb44f82e7bc8fd030197f"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_96.mcfunction"
+hash = "51756421c66bc441338b90b4ebc642e3245495946e667effc11f93519b367bb7"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_97.mcfunction"
+hash = "0ca10539dc5e47bf4838a940f96936b77f51ff11601e9fdd86c8d1ffa7d3f751"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_98.mcfunction"
+hash = "0f8ba91b6df4fe0629d7c5e04ecf0d1d6767168ed37cbc76049e751305dfe8b7"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/lab_99.mcfunction"
+hash = "35bc1cf01cc641e4f71ee868ec7976f52e8cde4c48bce665e56d67bd7f93f1cc"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_0.mcfunction"
+hash = "a3036a46378b0b6b29e66d791c2247e949da473ebbdb5f193b5b490fd5636a53"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_1.mcfunction"
+hash = "463597cee94fa4898269b01dff3e229c94bd737752a910601cd6288741ea3284"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_10.mcfunction"
+hash = "4da6c243f25062787449c2a947bc37e767de1b648ed4309dac1dd21025f946af"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_11.mcfunction"
+hash = "1c95783403ee0a7404948a6e853a6cdb87084c09bb4e2ac8e5e099018e3fb6a1"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_12.mcfunction"
+hash = "8fa7d31b32a45182eb4357c325154afd415ad7e322ff1b277a7530ea79ad9bb6"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_13.mcfunction"
+hash = "9a0880b6985ab89607160ccbc728e2edaebb05d1be1d4bab87d2099db564098c"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_14.mcfunction"
+hash = "9c42e637d15a60e2428970e039b3abe04c8aae130e200d605d9ef6ce0a9f37cd"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_15.mcfunction"
+hash = "5f18dce92eb86d51a3e152d8238978946ada8527d8949d33c3cb47461d7ac601"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_16.mcfunction"
+hash = "9d3318bd97176b95e1a0437f41a4264b49e0aae206852ccd0f6004e0e7b0ab0f"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_17.mcfunction"
+hash = "4d07be06130254a28ad1f5375d8eb2e856bdf8f6104a62525910cf53ca93159f"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_2.mcfunction"
+hash = "c7e9c2b2f81d0ec7679694cbbbb5a05c0396ed8406680b228f97c118e1928454"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_3.mcfunction"
+hash = "062075ae553552e18eb313798ee9beaca819b06e1453e3fc7e356a01be6298ad"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_4.mcfunction"
+hash = "560b2e2da60a14b62ada1dde940fd7fcb1fa368303d14194ce86e02766219c37"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_5.mcfunction"
+hash = "26034a54cc49ed1cefb63e3e21b70f6ea50ad2d6d206679f84fb1d9b9c33ae3d"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_6.mcfunction"
+hash = "1169bf13fed4516477c10c74288b10b1d88bbbea987e1c18e9d4e7fe66b7b0c0"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_7.mcfunction"
+hash = "06cc397ea2d720f7b2ae2cbf6992c2e6156937dd4f335fa7753c41320708da2c"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_8.mcfunction"
+hash = "18528a83fd185ed30aab39826bb172ca8cf6b4e95b1874fe7eb9136f1dea277b"
+
+[[files]]
+file = "kubejs/data/ecos/functions/carga/templo_9.mcfunction"
+hash = "443b65fe6bd9f182eaab31f7be0c54f7d7ecc38f7de74e820af37fc2a66227f8"
+
+[[files]]
+file = "kubejs/data/ecos/loot_tables/chests/lab_equipo.json"
+hash = "1ec11a5dae3da4801ca524c4312e40531fdb218f590a0420428a64f240889459"
+
+[[files]]
+file = "kubejs/data/ecos/loot_tables/chests/lab_suministros.json"
+hash = "1ecba1292f784ce7295e385dad0252f84e3a1b0daf5df07b1b549acbb0bee694"
+
+[[files]]
+file = "kubejs/data/ecos/loot_tables/chests/templo_ofrenda.json"
+hash = "ba65c026374fbdc5798c5a3b53dab2ce5a81872468e8e484a285b72d0ea21798"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/book.json"
+hash = "e64fbafbdcb9ea4fd56e2e2996e4f3b284133e6d6c329b10448859f571a717fb"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/categories/diarios.json"
+hash = "918ff9ac9fe128a25d21eb923a848b8d3be4ea3ca87330f5f41b1fa4202cad8c"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/categories/eras.json"
+hash = "6434f32f3c64342c0ad037432a07539dd17f72d3c97afe441ecfd692b524a13b"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/categories/guia.json"
+hash = "71a6fbf00b5255509c958c54e375c5db11008d0aa06e387cb6878ff063a61064"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/categories/mundo.json"
+hash = "621e9096605a328fccdfd5b580ea16dc3329194ca3306f9660ba563b0ffed5ac"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/categories/portadores.json"
+hash = "83f177817873511cefe474923daae8e3d2fa31726faf06c0941a19435aae7515"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/diarios_0.json"
+hash = "dde5df3ada8738d493b97ad8cba7e188727244b501f2ae56aa672015c97d9009"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/diarios_1.json"
+hash = "da007313af8f4acbca4ade4724613df828bc9f15b76ed70b6078b6088175aab3"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/diarios_2.json"
+hash = "979006db8170ae436ac4bc8cd3a9dc23c0f3636317197bf184906d1051f0754d"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/eras_0.json"
+hash = "442f6651f5d43af43829219a7ebd75484b1471669d2da91a3ecdeef5da8e8e68"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/eras_1.json"
+hash = "b8c707a8308077f073d62787b534080e662ef8f8f190518621927deeb2baf213"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/eras_2.json"
+hash = "5cc702f5fbebf7a6261c3bd9247001952441fd036f65fef8872a2bad448be2c3"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/eras_3.json"
+hash = "41c867327efaf90535cb43af2347d42fad15d8fdfd516db6ad749d4a48c6951d"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/eras_4.json"
+hash = "1c3d276798dec963d17fc1601caed5cdb5ae21397d4a2fcbc7e34b79d0557441"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/guia_0.json"
+hash = "c60cd49362b9f9d19d2e190dc66e29d98ccf97b4ee821b8b9f5fa20d94540622"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/guia_1.json"
+hash = "76b1055cd002809f13a92817ff158aa2fbec7c9be2437027e8a25924ac6abdbb"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/guia_2.json"
+hash = "6430f3c48b067b50a489257157737aa1ab48c0349666c172225b51e59a07206c"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/mundo_0.json"
+hash = "ba0cbe4ec2497c74c65b90f0579adf87d6d67746718076e4a992b05c2034fc50"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/mundo_1.json"
+hash = "3c444799ca11cd88c740e1144e9e09b123af1007f5023012b18ee0af69bab95f"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/mundo_2.json"
+hash = "5da1477985ac38d44fff189098d2b1e9d2b87d6efa3c46881b83487e0496b4ce"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/portadores_0.json"
+hash = "c4b56d9f662b1ccc4f19d6f1cd1429cbd763f83fbed2ed5b5e74aa999ceac89a"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/portadores_1.json"
+hash = "9e7d5a481fce3f95c3ae70fe6567ee663dc3a86e5e62f9f2d964f507a2aacdbc"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/portadores_2.json"
+hash = "52f3fb39e8bd3c839ee1f6a52a275930f243a1477d1fb489fc67becc67c7cdc8"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/portadores_3.json"
+hash = "76459c5b15718d392bf10d15dfef9b5114af1a0eeaed9ad7700b13dfd05257b3"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/portadores_4.json"
+hash = "3483d6f5725a9998f552ccac5014e6df755e9ff12d3278711efbd7ea03900464"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/portadores_5.json"
+hash = "1a818a7158a497149e286ab807ef50bde38527c28a60c21695ad2db502240567"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/portadores_6.json"
+hash = "e1158a6fce5d780289be7b7c1ddbebf313de5c7fdcc336665704b4dee3c827fb"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/portadores_7.json"
+hash = "a1874343547e0e9121253951d1f18a6c9eaf56da853da1bda1f6e7645a7708bd"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/en_us/entries/portadores_8.json"
+hash = "465329d9944bc39416efa71b6fb8c9c2b3a987950fd3d2540364673405f00244"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/categories/diarios.json"
+hash = "918ff9ac9fe128a25d21eb923a848b8d3be4ea3ca87330f5f41b1fa4202cad8c"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/categories/eras.json"
+hash = "6434f32f3c64342c0ad037432a07539dd17f72d3c97afe441ecfd692b524a13b"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/categories/guia.json"
+hash = "71a6fbf00b5255509c958c54e375c5db11008d0aa06e387cb6878ff063a61064"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/categories/mundo.json"
+hash = "621e9096605a328fccdfd5b580ea16dc3329194ca3306f9660ba563b0ffed5ac"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/categories/portadores.json"
+hash = "83f177817873511cefe474923daae8e3d2fa31726faf06c0941a19435aae7515"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/diarios_0.json"
+hash = "dde5df3ada8738d493b97ad8cba7e188727244b501f2ae56aa672015c97d9009"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/diarios_1.json"
+hash = "da007313af8f4acbca4ade4724613df828bc9f15b76ed70b6078b6088175aab3"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/diarios_2.json"
+hash = "979006db8170ae436ac4bc8cd3a9dc23c0f3636317197bf184906d1051f0754d"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/eras_0.json"
+hash = "442f6651f5d43af43829219a7ebd75484b1471669d2da91a3ecdeef5da8e8e68"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/eras_1.json"
+hash = "b8c707a8308077f073d62787b534080e662ef8f8f190518621927deeb2baf213"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/eras_2.json"
+hash = "5cc702f5fbebf7a6261c3bd9247001952441fd036f65fef8872a2bad448be2c3"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/eras_3.json"
+hash = "41c867327efaf90535cb43af2347d42fad15d8fdfd516db6ad749d4a48c6951d"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/eras_4.json"
+hash = "1c3d276798dec963d17fc1601caed5cdb5ae21397d4a2fcbc7e34b79d0557441"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/guia_0.json"
+hash = "c60cd49362b9f9d19d2e190dc66e29d98ccf97b4ee821b8b9f5fa20d94540622"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/guia_1.json"
+hash = "76b1055cd002809f13a92817ff158aa2fbec7c9be2437027e8a25924ac6abdbb"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/guia_2.json"
+hash = "6430f3c48b067b50a489257157737aa1ab48c0349666c172225b51e59a07206c"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/mundo_0.json"
+hash = "ba0cbe4ec2497c74c65b90f0579adf87d6d67746718076e4a992b05c2034fc50"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/mundo_1.json"
+hash = "3c444799ca11cd88c740e1144e9e09b123af1007f5023012b18ee0af69bab95f"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/mundo_2.json"
+hash = "5da1477985ac38d44fff189098d2b1e9d2b87d6efa3c46881b83487e0496b4ce"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/portadores_0.json"
+hash = "c4b56d9f662b1ccc4f19d6f1cd1429cbd763f83fbed2ed5b5e74aa999ceac89a"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/portadores_1.json"
+hash = "9e7d5a481fce3f95c3ae70fe6567ee663dc3a86e5e62f9f2d964f507a2aacdbc"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/portadores_2.json"
+hash = "52f3fb39e8bd3c839ee1f6a52a275930f243a1477d1fb489fc67becc67c7cdc8"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/portadores_3.json"
+hash = "76459c5b15718d392bf10d15dfef9b5114af1a0eeaed9ad7700b13dfd05257b3"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/portadores_4.json"
+hash = "3483d6f5725a9998f552ccac5014e6df755e9ff12d3278711efbd7ea03900464"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/portadores_5.json"
+hash = "1a818a7158a497149e286ab807ef50bde38527c28a60c21695ad2db502240567"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/portadores_6.json"
+hash = "e1158a6fce5d780289be7b7c1ddbebf313de5c7fdcc336665704b4dee3c827fb"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/portadores_7.json"
+hash = "a1874343547e0e9121253951d1f18a6c9eaf56da853da1bda1f6e7645a7708bd"
+
+[[files]]
+file = "kubejs/data/ecos/patchouli_books/codice/es_es/entries/portadores_8.json"
+hash = "465329d9944bc39416efa71b6fb8c9c2b3a987950fd3d2540364673405f00244"
+
+[[files]]
+file = "kubejs/data/ecos/planets/lab_espacio.json"
+hash = "1dacff06039bd56eb40707bbe2a7b02b18327e3f7f683bf15c2087a492aa082a"
+
+[[files]]
+file = "kubejs/data/ecos/predicates/zona_peligrosa.json"
+hash = "4d38e2aebf7a276ea9145729f909bced813de8fc041a0ee4e678eca1b8668d87"
+
+[[files]]
+file = "kubejs/data/ecos/structures/lab_v12.nbt"
+hash = "4ffb18ba68d877bdcdea007ce3d2c697f252265e5b3010d54b4506463a4324e5"
+
+[[files]]
+file = "kubejs/data/ecos/structures/lab_v12_inferior.nbt"
+hash = "09b94c40ccb4dd3c30f671c95540ee076033568e8dfad28fb8d556cc39ffd393"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_0_0.nbt"
+hash = "58b590c4ac90a938cdb499053bb728781eb8f2559976ed0f8d4f732bffe5b75b"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_0_1.nbt"
+hash = "3b4e7905b5b345dc590bfcbf425eace0bbd34fc82b790121f431cb7ccb6d91cb"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_0_2.nbt"
+hash = "1a8ae7fa8563113a9c275207294f759abd7eebce76eebf8436a48d869e7ce2d3"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_0_3.nbt"
+hash = "167dc2bf1deaaaf06df916d6dc24b100c824d78a30553db108e3b0eeec28b761"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_0_4.nbt"
+hash = "73a870de41c764abb3558926db4b88deccf93664ba39491098b1cd7eeb5799a9"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_1_0.nbt"
+hash = "00e22faf2e4b2032658f4a9f5c65e5ac71d2a28a22e25058739e61871e439922"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_1_1.nbt"
+hash = "f450051f73a906d10411aa9c7c182674ee36884af2e7201c3ac7b4da869bc711"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_1_2.nbt"
+hash = "d62e555b93bdf42e4260eccb5e47322dfa2fae8850f64219694672a60b34d1a8"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_1_3.nbt"
+hash = "9cbc49b2ea0cf66cf1630fecc21d2d262603211f4b4504878a4310ccaf4a94e8"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_1_4.nbt"
+hash = "7d1f79bbb4de6265c90ef4f8e83ab3b33e3760464a9a98b744fc145f31c34d61"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_2_0.nbt"
+hash = "21f55ce2ec1da0529db76546e7a5dd9ab6bc67d2425b4bc3aa05c87cc033e215"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_2_1.nbt"
+hash = "cecbf62005ec5953c1928ad7955b299a7da6f2ae2c042b796747f2923a6bd38c"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_2_2.nbt"
+hash = "5eb9259e3642c81d0a7591217ad0c1bee20d641720467b1434fb5d92ae700eae"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_2_3.nbt"
+hash = "ff2332da9a98406ec35735cccecbc28b49b2c64beb126724acefdda13121fa41"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_2_4.nbt"
+hash = "7c918342a8adeddc0fb89e5f5bbfd0a42643fbf078b162e074db1fca2cf95137"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_3_0.nbt"
+hash = "e1b9edb48398fa8e502e30f2f86cfcea842f24cc87e9dc6ae2533fbf0b8a385d"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_3_1.nbt"
+hash = "3a9212d337c1fc7a5f3d173e126c450b0da3b726c961830045b5a0fb86f83f94"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_3_2.nbt"
+hash = "38da5b8d7faafb569f13711c4bedd7f9f129341f5be7e9e75726bbfb592c0821"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_3_3.nbt"
+hash = "921b361ef5af4832b065eae647f58b57813fdb8ee9ef3266fb1030edb547bd5e"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labc_3_4.nbt"
+hash = "912397151d811115ef81ef77eaae20911fa6806b74da11a6c25bd1ec065e600a"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labz_0_0.nbt"
+hash = "3dd388a58e06a840c01648b9104425749c5d6851445cc9ad04c5e149fc459605"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labz_0_1.nbt"
+hash = "d927abec4b074095a33b3d206b0e0787dfce3d0c6ed42bb70f466334a01dd462"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labz_0_2.nbt"
+hash = "03b848ad356a20b08cbaffd113201982e700c041813863dfef341c13ca352f5e"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labz_0_3.nbt"
+hash = "676c46a552b8d8a112bb5ef4159a384aa83f2f7db889ec3a3346e9210587283e"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labz_1_0.nbt"
+hash = "bfb440e4e5f3c87db37febb3a4ba9c8417e5a48d7978ef8a61dbab2746899bcd"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labz_1_1.nbt"
+hash = "cf7e7430e45cfdb39396beb1095264830c94923a477db8f8b11e2298216fed04"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labz_1_2.nbt"
+hash = "a89de941355bc3e24778a417ed6c18e0381f2d8f2bbe1513744f29aa2dcd7471"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labz_1_3.nbt"
+hash = "9ea4948d74b57618080dcfa2bbfd4dd02afc12ea8df52bc4118d2a99ba341c6a"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labz_2_0.nbt"
+hash = "50a2babee03fb35327d3b2a5eb61ee3309ab6d48e6248d6fbc0e738850a76f5d"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labz_2_1.nbt"
+hash = "e2436d4ee014465e7dfe69d3202450ac4dcbda4a63fb68d0cab83129b3e4bd46"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labz_2_2.nbt"
+hash = "79fbf5a8a97e424925c309b673237b86f34f11e81923235c270a5e292f0dee00"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labz_2_3.nbt"
+hash = "7305dfbe07f7780d6b5becf2cf3aa7c9a7831653f48234ef297b40cf9eb45da2"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labz_3_0.nbt"
+hash = "f60db69ccea63987ceda7830f4f46724c90a71d52ce8ce4e60fad28847cb86c7"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labz_3_1.nbt"
+hash = "431d4f1ce6377fb9f90b360d604c65397d2756044871fc1ff4fc34ffe7a8f7ae"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labz_3_2.nbt"
+hash = "894419c7033870249a18687624c29669a0b31d1dadac8ce0c8d4a18edbb3dbc1"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labz_3_3.nbt"
+hash = "dd354c133c759552ea9fcc3442f95c7e1362c1cf30d8cc6e6b9ed354412043ea"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzcie_0_0.nbt"
+hash = "507ddfc1f9fa5a3fdbe2abadcf817b502750effe710e77f0d477a491ef078b59"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzcie_0_1.nbt"
+hash = "e97d32d15a00148bfc39b9aab1131400e0004651f067edef22f158109a28d2be"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzcie_0_2.nbt"
+hash = "6c16c2fbc68ba30886ca90ab2f9d7ba5000607d57fc0fd9040ac584ce3222acd"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzcie_0_3.nbt"
+hash = "42461661cb1dccfa92b612ff03557853be95129e8d3883cb6a0aef6777117e81"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzcie_1_0.nbt"
+hash = "095f193e38aa94ac5db06329664f5af9c6d1b971ecd13a81a343213a2e2d87f4"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzcie_1_1.nbt"
+hash = "541928c3276a3e1917698f83dce1c910e088ab456955c4f91e19faa4baef4bdc"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzcie_1_2.nbt"
+hash = "4a98a6dd6decba9da73eb9152e5c2eea53f491702b8cb4c091a22bd5c0f61814"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzcie_1_3.nbt"
+hash = "828c6ff55c4bdc2a9b80c244067dabb36d1bdb10dc896b1065689e8809db00d1"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzcie_2_0.nbt"
+hash = "52b56674d11b791682b53636e32075953dfdcbf2135dd8a531122aff7768d86e"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzcie_2_1.nbt"
+hash = "da712f36b5af17318b59b3f77d904996f9693e3cbcf3ebbad6683733a8011818"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzcie_2_2.nbt"
+hash = "6c5f02b1f60ca39e2ebc6f40ca51ee7f621fbeadd45406180e583b2351ae7f27"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzcie_2_3.nbt"
+hash = "1a62c8bca1b271dbac764d41c4274b43d07889624f318a61a0d1cf584637041e"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzcie_3_0.nbt"
+hash = "a4d488e1e62ebb9f72c9b86bea8cbf003186110ab7c0aa51438879788c9aa8bb"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzcie_3_1.nbt"
+hash = "322ec0e57bc745b4debdd1894974af6b9097a0399247894579f54029bcb9050f"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzcie_3_2.nbt"
+hash = "bae0bbf07bdd7d3d2da843ce2486ec0f25e1bcafce85a8fe338f196306f9b28e"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzcie_3_3.nbt"
+hash = "cae958be16c1059b29df52923f7ded3865761ecff1adfc315071a7c9550ff554"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzmar_0_0.nbt"
+hash = "3bc40a12b46f4ecc8a98130a994aeb8ab737a7deee8718209a5bc92ecc913ba8"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzmar_0_1.nbt"
+hash = "989bbad5984a2dbfadb40a6931ad9ce7a249546860babbc47fc918892c613588"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzmar_0_2.nbt"
+hash = "aaa01c79722331bcbb3fd2b3787261ad1aba4401aed4311f71fca0ac51e1a396"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzmar_0_3.nbt"
+hash = "75ed296a5d5539c17b2c4eed0d836bc6922bc6178f13476300a080547b8f5a00"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzmar_1_0.nbt"
+hash = "5891fb4070d4dfb33c0a97761118e88c057659314912dbfeef13ceefaee3100a"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzmar_1_1.nbt"
+hash = "70198c383bd0796c31051b3ff8562dedb5dcba74a8ece14e64f3c70ec8da8a94"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzmar_1_2.nbt"
+hash = "3c73072d2b982709d5930d2f4becfe420c991f58769120aba7200f17efa83274"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzmar_1_3.nbt"
+hash = "3e706926325775e294c2cbb9285eb071453ed5428d5297e01516be2b454a7308"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzmar_2_0.nbt"
+hash = "f839bd71ab325a4397a7ad13671b0652af3a4fb970b458903de2e54d7c33a8a5"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzmar_2_1.nbt"
+hash = "fdc72ed592efde74f014a0c55ca663c46ba1cf520ed7f7fb68bf23a7977b379e"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzmar_2_2.nbt"
+hash = "f6df19399dabad4fc19e46570db4c7b9727511f560a3064e60122c83ce8e0d8b"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzmar_2_3.nbt"
+hash = "c867372bba0cb0dbc863e778109a0ba0901b8eeae4661b88d68aa01819cd9c49"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzmar_3_0.nbt"
+hash = "780b1652ac64a9113defc03ff44ed8bf51e149f096d7887d50d67cd9c0068e96"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzmar_3_1.nbt"
+hash = "26bab583953773ed3cfc02c92a171d122f4d82e3f6c0a4e9a19413d931174542"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzmar_3_2.nbt"
+hash = "a9674c41b1a6fa10c0615ca3c8545b916efd1bf558c46fb924f123469be84990"
+
+[[files]]
+file = "kubejs/data/ecos/structures/labzmar_3_3.nbt"
+hash = "f166150b2f189cae2089f5b8cf6f19a48e370d26dd1547459ccd52dbd1e45e3a"
+
+[[files]]
+file = "kubejs/data/ecos/structures/maestro_bestias.nbt"
+hash = "39c6d633e67f709ef556f2a4038a38674ddccd148c26a967e8f6faa0571b8d21"
+
+[[files]]
+file = "kubejs/data/ecos/structures/maestro_elementales.nbt"
+hash = "2cdd6658036200282e2cd42416d92886306dcd028b0c3e1f4bc27659b8f54eff"
+
+[[files]]
+file = "kubejs/data/ecos/structures/maestro_espiritu.nbt"
+hash = "b956504df64fec251b045f61af7cf901e8cf0cf1671cae25284c197901eb3830"
+
+[[files]]
+file = "kubejs/data/ecos/structures/maestro_impulso.nbt"
+hash = "2e536ceb7be8751ec8b3bdc149b9d419fffed3f5486b348e66a3b80a3fce31c5"
+
+[[files]]
+file = "kubejs/data/ecos/structures/maestro_materia.nbt"
+hash = "b25c9926803a9c6b58e2483e23710923bef141963bb57a8507a39f2519e9f432"
+
+[[files]]
+file = "kubejs/data/ecos/structures/maestro_mente.nbt"
+hash = "f8a06543b6ce6fcba37d85ff7c33d2fccc90f553844034fd17c34db14605165a"
+
+[[files]]
+file = "kubejs/data/ecos/structures/maestro_sangre.nbt"
+hash = "5aaae57c8d2a3646c30c256e8b37e262dd759c5eea0ded10ec4b236bedf56be3"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_cielo_0_0.nbt"
+hash = "00f68018fa344b04b365202e1ee8664ca16ba508c43f4adf11b92fa77ff7a7dd"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_cielo_0_1.nbt"
+hash = "5c7cb2d3ee7d8985ff7e2e5d2cbdd7fb64577718322435243623368e7e09b65f"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_cielo_0_2.nbt"
+hash = "fbee00dcdfc4ed90f8c21bbd29152f1824845130e23320a27df6d5a6bc9a213d"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_cielo_0_3.nbt"
+hash = "faaa6e7626a7a0a95094ae3de7215be114ea756885d4a73544583bacfd86c8f0"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_cielo_1_0.nbt"
+hash = "006bfd87acec37a8b0c4bbd4337b5a5b265e247fd19784ab2a7164f6f89c4e76"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_cielo_1_1.nbt"
+hash = "7e32091355b16cb44937d4798146f9f78bb5c7999be6255b0fb4bf538c8f824e"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_cielo_1_2.nbt"
+hash = "e0ef44b1d9e55a98f49f12a9b86e06e246057e74c90e7dda6cd2a87fd2edf2cf"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_cielo_1_3.nbt"
+hash = "0c2956b32aeaf9b87314aa35e9ef44bdf2cc77b38ffbb18d4eb3006b3cc01994"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_cielo_2_0.nbt"
+hash = "7a875cd6c5085c2075fce0ecdb8c2a180047f6ec7d8e163e8b0c30bde37dcdf0"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_cielo_2_1.nbt"
+hash = "bd0e4a00262f79fc325ffd9cce8b5b30e14417eee5e782bcc3828ecf57369e6d"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_cielo_2_2.nbt"
+hash = "612d8067522a32997e45f3a919e8c5ce1603bab3b24860f9ea35f29f633ac989"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_cielo_2_3.nbt"
+hash = "eb2b32041e9dbc79096a73b9e7ddd07db4aefa71032fe37d6cb523526d879cdb"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_cielo_3_0.nbt"
+hash = "2dc0a2e2a35fdc3daf1706648287c6bd9342c420e9fe8507c5f6728844c13686"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_cielo_3_1.nbt"
+hash = "10b3d6679727bcf90fe686b8658a95ce9037fbb5dcdf49871c80181ae623ddda"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_cielo_3_2.nbt"
+hash = "c9e8da6bc4324b618545d5f445814bda1d338f227c75991e7f3e87a29d6607ff"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_cielo_3_3.nbt"
+hash = "6d417ceb541a3f30964eba462534dc266d58e839399e2f4d71220e1e57d9e839"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_espacio_0_0.nbt"
+hash = "4f54229dee93ab4373d645b0e0ef642323f55710d671ba994ba783bca6744e3d"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_espacio_0_1.nbt"
+hash = "2f83e92c97fcfff94ce81bf15522532fc7ca6476fad46dbce7611c38271d353a"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_espacio_0_2.nbt"
+hash = "d4ce79202c07ef01692bac0f46701fb0373ec22228b90032b104bffe3150590b"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_espacio_1_0.nbt"
+hash = "07eb81acde18babf9f910c4df488d7ff02a29b334e089c00f41a37dfbcc69064"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_espacio_1_1.nbt"
+hash = "e0b0da947ee54694ca1ff34c2b1753cd4863a9faec71ebf66871ca70c17eadeb"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_espacio_1_2.nbt"
+hash = "a818587d41828ea67e6e4b12216f92eb43c2d8fd1e48b0970600e4abe3fe72fd"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_espacio_2_0.nbt"
+hash = "85c2b85a94ad0d669a346de0eb957862bad32dcf8a23003ac07d4099e685fee7"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_espacio_2_1.nbt"
+hash = "20c3307c50ffc47352827b41992d145b8cbeaee02db81243b78e67188e8a2d3f"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_mar_0_0.nbt"
+hash = "846ca5ff87190d16590f5ac3e5673b3c6bedc9eeb12d5e9539a7e7b0ec4d1be3"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_mar_0_1.nbt"
+hash = "ae55a11733d968d3ee071d7bab927553407e1777d03895a2dd1c6bf6bda7f32e"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_mar_0_2.nbt"
+hash = "f317b2c8260010dd058c7db09ec9ccf10b0802069b5648d90caddb5741344003"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_mar_0_3.nbt"
+hash = "11dffa5f53953de6439f1040ff49591408d10d2a92bf4b0173f931b3aa3ab089"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_mar_1_0.nbt"
+hash = "5e1257abf9e3689b870b73b6ffc528af1fcf38015d2ffaf8157747e83967bc9f"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_mar_1_1.nbt"
+hash = "a61e113d036db39e5a4d7557fa2fe19b1402f84a63b854c879e3fe3f8a1d69c5"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_mar_1_2.nbt"
+hash = "ddb26f1f9de11eac74c40f71e7af142c96e22bed9a1630eb2ae3c3bcb76c6e8a"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_mar_1_3.nbt"
+hash = "21a56f1e93295ee4404439f9692e4eb8e149957b8b41dd65e9af009f75ed8f96"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_mar_2_0.nbt"
+hash = "dc6251edc4e6da632c4972b9eca11173d5a722f80d1fc91b4b5883717988bbb9"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_mar_2_1.nbt"
+hash = "02cfe1e0acbfa4dc9c503c2430befe1ac6c6e3c5324ed67762ee585485e52a52"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_mar_2_2.nbt"
+hash = "8e6ce7e38784336a9ded2fef5abcf1e07ba72b11372cddd3cefb438a7da15101"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_mar_2_3.nbt"
+hash = "6c5dae62f084692e98b7c4473a2b225206c880786026ab4f1a6846e8e9ef7503"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_mar_3_0.nbt"
+hash = "da10fe3905fb14eb6fc2a48168bd0c5d39b7c0521c2063aa995d64378652bffd"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_mar_3_1.nbt"
+hash = "47d80a71eda5c022ba92873127b22bf2a51da1ed96a43f9dccee32328176140e"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_mar_3_2.nbt"
+hash = "2d9754de2a74222cb1f860844efd9a1c4d3baa0616de97a359983d175b7d894d"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_mar_3_3.nbt"
+hash = "b0fe84ac3694898b465322a11d70bf7616ce550ba318ae2b35be4657e69c550f"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_tierra_0_0.nbt"
+hash = "e4077991833b21cb5aa947b54504ede44b8b7326bf966c766db0f856141f2cdc"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_tierra_0_1.nbt"
+hash = "0b64060170430e3e4a517fb4a02e1f08674c2cea8a12805eac31d4ee3d92181b"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_tierra_0_2.nbt"
+hash = "50e53a1ff106d995290c795faa2ff73d643e4dc331fb8449f81df2523831ed58"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_tierra_0_3.nbt"
+hash = "dba6ca0ec9beaca67e487c01d744605b398e3241da510d6bf57a127b4cf10edb"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_tierra_1_0.nbt"
+hash = "14b8bec800a28e5192046c44a881ee359fcb4523ee637fc108194f37da76803c"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_tierra_1_1.nbt"
+hash = "09795d70affcd9915ce870ea7af73033add104f9aee4b9b4e688675f17a3b962"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_tierra_1_2.nbt"
+hash = "15db26b051e572d937b1bf33f827965418af55516a59635886598b290192906b"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_tierra_1_3.nbt"
+hash = "26d18035dfb7107bf3e11801f1fa628232e096d85406a92c100a9ce09e851cca"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_tierra_2_0.nbt"
+hash = "05b51174079f4227ba8d1196cc7a487548d446a6ada2fe691748b49e3f7731c3"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_tierra_2_1.nbt"
+hash = "ea76812014241a849789de36d9ab2d417e69611b9096f4bba2f3e202d9ca4748"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_tierra_2_2.nbt"
+hash = "74e67ad963e46c4753932afa0f30cf7e323c284af293246e575b730546792607"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_tierra_2_3.nbt"
+hash = "9877384f89b31c47621507955fd96436031818aa398c0231902872b587fc8895"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_tierra_3_0.nbt"
+hash = "08ce039fce0ee6dfa0ef955638bd071804e4b78f6f0ce3bd3eef33b26bb27651"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_tierra_3_1.nbt"
+hash = "b957d24dc0db4daac3959601e7e39e3bb054b0a617962d41ed2ae2bd4cec6844"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_tierra_3_2.nbt"
+hash = "b2e87714dbe046cf79db15e917cfc022fd190e957f4fe02bba77e12cae1fc3eb"
+
+[[files]]
+file = "kubejs/data/ecos/structures/sim_tierra_3_3.nbt"
+hash = "a601c6dfaa8070184eb81cc5aa5b47da7824e2c12590019f814e742ff9f6ff15"
+
+[[files]]
+file = "kubejs/data/ecos/structures/templo2_0_0.nbt"
+hash = "cef59f0b3f773186559b8eed27b2d8bcfbe06464b1215b5b3b541ac7ee57aac6"
+
+[[files]]
+file = "kubejs/data/ecos/structures/templo2_0_1.nbt"
+hash = "8074497a04ee97f94de0a22c5598ca3d07cf1c981b6e87758ff249a3209a3999"
+
+[[files]]
+file = "kubejs/data/ecos/structures/templo2_1_0.nbt"
+hash = "cf6d9d6bed89b22e911f2312c3550c01b2bc4047ef2beb8fdbd27015003a9801"
+
+[[files]]
+file = "kubejs/data/ecos/structures/templo2_1_1.nbt"
+hash = "8c2277780a567532139a898a980df2bb30e507f062de9b4e81aac7e814c1082f"
+
+[[files]]
+file = "kubejs/data/ecos/structures/templo_completo.nbt"
+hash = "dc21b5796fb19bcb9150f5c2c3e87ff4a26ca2dc630051746bd441bcc2d7a094"
+
+[[files]]
+file = "kubejs/data/ecos/structures/templo_n1.nbt"
+hash = "a889ad3a3da81e209a6ba525f05bfb400f7b9e596cd1d1435b7eb3dd57ab1dbd"
+
+[[files]]
+file = "kubejs/data/ecos/structures/templo_n2.nbt"
+hash = "9ed5629dc0c9e199f41af8d3af772d10ba47bd12bbbc111f44a6cdcf270cb663"
+
+[[files]]
+file = "kubejs/data/ecos/structures/templo_n3.nbt"
+hash = "6e474f35380b64016b6979db589e148bb106745a47b827bde0d18b4489b98c00"
+
+[[files]]
+file = "kubejs/data/ecos/structures/templo_n4.nbt"
+hash = "7de947121e62c076485ecb3be6822cf9b2b4fc15fbacbb79cbe79937716481fb"
+
+[[files]]
+file = "kubejs/data/ecos/structures/templo_n5.nbt"
+hash = "beec71738302e97130728994fad261f70c9199b2f595ee463351284c79567f1c"
+
+[[files]]
+file = "kubejs/data/ecos/tags/entity_types/acechadores.json"
+hash = "27f896fc2a567cf90f278486c963f56a2d79f1a7e1465e447aeb3bc6bcd9bea1"
+
+[[files]]
+file = "kubejs/data/eop/advancements/bloody_mary.json"
+hash = "0349e51d7bed6c388601b7b18ed4ffeaaa2b08b0f747f83cb259f5b8ecdca782"
+
+[[files]]
+file = "kubejs/data/eop/advancements/fantastic_4.json"
+hash = "a36535b15fa32b0ac3dd65acc0d9b3f5f635253c93dedf55c73ded13a8721220"
+
+[[files]]
+file = "kubejs/data/eop/advancements/objectvforce.json"
+hash = "f1343214e6f2631ab45c48795aa3b682b7d3f3e037f4215ee60e62a1f579886c"
+
+[[files]]
+file = "kubejs/data/eop/advancements/roll.json"
+hash = "7a6dbaa46927415c9358daede437dc99639d69dc2d72381afe650ce954c079b0"
+
+[[files]]
+file = "kubejs/data/eop/advancements/toji.json"
+hash = "0f315d383d88818ed36116e31b22d25f079519796095df0c37b9af3f778990ce"
+
+[[files]]
+file = "kubejs/data/eop/advancements/unlimited_void.json"
+hash = "dc5e05f3007c17197673a3be649055f6e229cc8d0f5a48cbd0be286fa64edb8a"
+
+[[files]]
+file = "kubejs/data/eop/functions/power_obtain/give_null.mcfunction"
+hash = "96d58c5ef97ae513cda9af974cf00e57a83956c6ea7765dab7652835b477aa55"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/aberrant.json"
+hash = "e5860d94eb02337f0b255eef40048202fbc64001ed9bbd46886d99d1085d3d37"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/beyonder.json"
+hash = "adfb9ea039525a315fb2d31de54042a53ad4d4638ff7301dd41e770c41d3bbc9"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/bloodsucker.json"
+hash = "f4faa46b4ecc92ee1ea37b80ea081481ddbf3e95878306a233a56db213bff670"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/bloodweaver.json"
+hash = "03aa4db48aede3efb101909b75f26b270a0d6c13d2b3c5aa26ed7106b8f26bb6"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/drifter.json"
+hash = "87a766b506e88deb45dfb6eae39d878e4c2faf5bb139ec12f0bb240af68627f4"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/fortress.json"
+hash = "b9432b0f2f5cd0daf7072d3a443abf7af2f25a707e026b5e877ff01505ae5894"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/icicle.json"
+hash = "6b0d95302e1c7a7de52d099abfa87872d19a283049eba66e9f4fbd986a4e57ad"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/monster.json"
+hash = "707d6cc9ac1f628635e2a87e7c3a2a92fc6a0797798324790c4b57091c2a1ca4"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/parasite.json"
+hash = "0a2d4e14356db2d89f6a88d5d1f55f4cadc78bb27171c3597d01009797b303a3"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/phoenix.json"
+hash = "8abc2f09ef3636b598108d55f0df9c57bdc9784617a2cbd71f39cc0a7affde78"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/photon.json"
+hash = "855e960b66906793c567af5fefe6a1fc0d0aac85d785ec22bc1b09b0f5252ac6"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/pitch.json"
+hash = "5c9e2c66b1215e96b93f20c41efd18115411b97aee0e6bac12a2df191992a7e5"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/rock.json"
+hash = "50494ea33d00746a2f2ee9949bd9bae84484da98f301f7d373cc18c2a893bd65"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/spark.json"
+hash = "d9ea67c26c30e60eab76d73dd7344331564209b404d50d372fd46022a5946e29"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/speedster.json"
+hash = "7f24f16c8016c6616c76bec50fe905e9e83a02e1db2484d7d70cdf65a54bbaba"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/tempest.json"
+hash = "8af9175cd738c68fb519b1ad5a9d1f855fe748678fd1b34afe709f842f67b650"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/threshold.json"
+hash = "9a6c9cd1f219c8db477a9862195239185cd0d7467b80991b3000552a03a24abb"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/toxin.json"
+hash = "1fdaefee6f34bf5b2a27da8daa06ff3e4b5c1b859cea20f3568447d9c0e851b4"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/veilbinder.json"
+hash = "e91fec1b0fd2653a25fb2b3bf4f7471bb59bada28115f470629e8d3da6bc98c3"
+
+[[files]]
+file = "kubejs/data/eop/palladium/powers/wyvern.json"
+hash = "4590949738f2b550178070c874082409d2080a61722dae581b517af61d445fba"
+
+[[files]]
+file = "kubejs/data/idas/loot_tables/chests/archmages_tower/archmages_tower.json"
+hash = "9b7a5e4ded092a9808d89ab6490754522e5368e48e32c6e1223b8137051f9fb7"
+
+[[files]]
+file = "kubejs/data/idas/loot_tables/chests/archmages_tower/archmages_tower_library.json"
+hash = "a13326d12c903ce4a05e1818c2f1956a46dbe0e817a5e452644d39ff88fedda7"
+
+[[files]]
+file = "kubejs/data/idas/loot_tables/chests/archmages_tower/archmages_tower_treasure.json"
+hash = "23320a0d9498102b3d964cadd49094b76a34e25cc580b5e2eed3e1a64499177a"
+
+[[files]]
+file = "kubejs/data/idas/loot_tables/chests/enchantingtower/enchantingtower_basic_ars.json"
+hash = "9da782ee4da1e2ead0a2e3e1d4f2a8041a6b71044b3660d1c87da3cab8754f72"
+
+[[files]]
+file = "kubejs/data/idas/loot_tables/chests/enchantingtower/enchantingtower_top_ars.json"
+hash = "a53c1596b7e5022ee631319108e245ec6e66ae748d9f59d50e6db31937e38bf1"
+
+[[files]]
+file = "kubejs/data/irons_spellbooks/loot_tables/chests/catacombs/crypt_loot.json"
+hash = "f3d3777bb2156dca12e6c905705661db964f9501008a8316dced1acc1d7df8f5"
+
+[[files]]
+file = "kubejs/data/irons_spellbooks/loot_tables/chests/citadel/citadel_tomes.json"
+hash = "e892edc7b6204bf0b570dc4f8e77a5411adfaf463c82e43cc0eade2bd68aad38"
+
+[[files]]
+file = "kubejs/data/sereneseasons/tags/blocks/autumn_crops.json"
+hash = "39f822292fa7ecb42b1821ce8c8fcc17b6cecba525ea90cf326ddabd4392bcd3"
+
+[[files]]
+file = "kubejs/data/sereneseasons/tags/blocks/spring_crops.json"
+hash = "ad7d00775ac107a4fca5c80acb211dca6cf2851f01c5ef3063175867b74cb2fd"
+
+[[files]]
+file = "kubejs/data/sereneseasons/tags/blocks/summer_crops.json"
+hash = "691bde6fb21bb4c9880574bdaf3ae9b76a4856cd03a1c4e4b0754fb20163d21a"
+
+[[files]]
+file = "kubejs/data/sereneseasons/tags/blocks/winter_crops.json"
+hash = "fe06859c7d142394dbb4ba1ececfe040f4c2c3461c22d73e0fb8fd2e61782c64"
+
+[[files]]
+file = "kubejs/data/sereneseasons/tags/items/autumn_crops.json"
+hash = "284b5cd57e5c49c9d5a1b404afb9f85423368eabd70817f871d5ebe011ce1532"
+
+[[files]]
+file = "kubejs/data/sereneseasons/tags/items/spring_crops.json"
+hash = "3ef12d1b639db8599d2a7474527cbfc3980f5febe9b8f8207fbe69065063c0cd"
+
+[[files]]
+file = "kubejs/data/sereneseasons/tags/items/summer_crops.json"
+hash = "9f5161b9b4bfe0961a91fef5ba560a42e0007a9c405a13e2f774bf4b0de73d22"
+
+[[files]]
+file = "kubejs/data/sereneseasons/tags/items/winter_crops.json"
+hash = "b40c943163ed1c71e3a733ea7d7334adf3189b3e77ada580afd0e86fb1d618ed"
+
+[[files]]
+file = "kubejs/museo/aether_cascadas.json"
+hash = "f8bfc0259573424d4e2ac0eea89c9bd3091ba58cd0a3a48e3e417796b6151c86"
+
+[[files]]
+file = "kubejs/museo/aether_islas.json"
+hash = "6b685ac4d04b6fddb544acfa077289f678e616d54dfd5d95050ef9909f163125"
+
+[[files]]
+file = "kubejs/museo/aldea_alpina.json"
+hash = "5de62f79b1d755df869213c157bee4fdc54f31fd2d1c0039c10b040bcda8435c"
+
+[[files]]
+file = "kubejs/museo/aldea_invierno.json"
+hash = "54c1eda15af51f6747ea33b939fb6bd59e80dbeb561755f8bbac25d080707a2e"
+
+[[files]]
+file = "kubejs/museo/anfitero.json"
+hash = "4cfd95fe8308d86af140c220050c2f9eb8617bea4664ad89269ece65668dfe4e"
+
+[[files]]
+file = "kubejs/museo/ave_solar.json"
+hash = "f77edbe505f76928bf1bbc9333e07148c6fc86c0e8f17511f4b8f84cf54525b8"
+
+[[files]]
+file = "kubejs/museo/avion_mar.json"
+hash = "e8deb912048432d66bce61f8752978c9096632d6e4456e2830ec672fdd760cda"
+
+[[files]]
+file = "kubejs/museo/barco_congelado.json"
+hash = "6e19124717a2b362e60ef61c7355aa23c8460b9a1f2a42950c061aeb19700db6"
+
+[[files]]
+file = "kubejs/museo/barcos.json"
+hash = "41d1f3dbde02209a3ec0db545c7206c8361a6302aadcbf64bb4689d513da6d06"
+
+[[files]]
+file = "kubejs/museo/base_lunar.json"
+hash = "3d203920b8aee083f23e8bce0e417c0757514a4330b23d335eba0b45a25450b4"
+
+[[files]]
+file = "kubejs/museo/biblioteca.json"
+hash = "f60c8eed246c66066ce38e09698a55cc840383468698ccb796ded0a376b2842b"
+
+[[files]]
+file = "kubejs/museo/cavidad_dulce.json"
+hash = "1533abf7e7a4a9dd335a9517d866ac35b063c45b0925065c81b59a4fd4490d87"
+
+[[files]]
+file = "kubejs/museo/ciudad_perdida.json"
+hash = "da848cb00008fa85392087216a25873be87314252ad995c1b79f9c9bcee7402e"
+
+[[files]]
+file = "kubejs/museo/cocina_acogedora.json"
+hash = "3c839351b443545e1f79280f376da53672012afad6d70b0d7ccdeb95698d04bd"
+
+[[files]]
+file = "kubejs/museo/cohetes.json"
+hash = "bc6dc20be0045c6344112542155af889636cded2486e4adad4f4fac66ad6b4fc"
+
+[[files]]
+file = "kubejs/museo/criocinesis.json"
+hash = "a159a796ba7b21e580443d9dcafe462c41a245c77065755b01b01c5ce6ef40a0"
+
+[[files]]
+file = "kubejs/museo/cuevas_magneticas.json"
+hash = "3ab92d8f04942a51e6ee18f2468b9425707be2802c7dc9ec7eb80a082b4d088c"
+
+[[files]]
+file = "kubejs/museo/cuevas_primordiales.json"
+hash = "75af9e3bbbbba6a22b9fa1fb98bfbddf2defbd82c0c8e2f46ea078b0bbc24844"
+
+[[files]]
+file = "kubejs/museo/cuevas_toxicas.json"
+hash = "28b42a7f9f215e337921ef1990149f7c01ce01df2e8996d332dd55bd880caa42"
+
+[[files]]
+file = "kubejs/museo/cultivos.json"
+hash = "7a96c5069b051fac3816306442b1887df8ec438904a313143dcde81839d69cbb"
+
+[[files]]
+file = "kubejs/museo/dirigible.json"
+hash = "0c7222fddece4974d352eba9b83c27de67a2c46eaf6520e12d3ef96522814eb7"
+
+[[files]]
+file = "kubejs/museo/dominio.json"
+hash = "6f21cfb8617aa3fbf1e4243cdf629e050c491b3b4636234f65fbc79be4a1ed9e"
+
+[[files]]
+file = "kubejs/museo/domos_lunares.json"
+hash = "324e5ad40c60823ede921afc1f440f92f8592090cfaa41b804fa4da36be0c3de"
+
+[[files]]
+file = "kubejs/museo/dragones_domados.json"
+hash = "3e022a0e8d27903c48a48417d25fe42721d8460d59ce439072e40564fc66ad51"
+
+[[files]]
+file = "kubejs/museo/ecos_asedio.json"
+hash = "16c38999eda69097bdd77dc17aebc692890e51e1a93caca539a337aea0822532"
+
+[[files]]
+file = "kubejs/museo/ecos_calabozos.json"
+hash = "931d0c6cb016e42ad0448757f0e7d63bf647bddffe40a74c317f4f5f48d527b4"
+
+[[files]]
+file = "kubejs/museo/ecos_colonia.json"
+hash = "56c9848e8492cab0f7ebc985c6fed0e78341d477182e3833b1e21173ed2df953"
+
+[[files]]
+file = "kubejs/museo/ecos_dioses.json"
+hash = "1d9993ec3399f8dfdd77a70274bc5b8782e44faff5982323588fa0b5f0a4f42d"
+
+[[files]]
+file = "kubejs/museo/ecos_espacio.json"
+hash = "40dc435aa9b82e899f74ff95bfd8a4d333638125ed701be218a38f2c9b5ffd88"
+
+[[files]]
+file = "kubejs/museo/ecos_glacio.json"
+hash = "569800577564c3dc4d81fc4bec6c603e91fb44eaa95527e48592816fd254a02b"
+
+[[files]]
+file = "kubejs/museo/ecos_mar.json"
+hash = "d03b1ab841ae3167e4ee961f68c104d104baa8845c7de506d94004a0f5ef2d2a"
+
+[[files]]
+file = "kubejs/museo/ecos_mundo.json"
+hash = "acd7cee29d9388132f0693ad2f3d8c19bd9de4cbba83d2e04a21f4a8707474e5"
+
+[[files]]
+file = "kubejs/museo/elefante.json"
+hash = "3540147c66a886549d3a5604ed31d7757a79cd2e5f33c05aa5aefa78a7cf31a8"
+
+[[files]]
+file = "kubejs/museo/frostmaw.json"
+hash = "3e524555f1dbf43ba95ecaba5165efd1dafea4f4c47b8f3d90aa5cb6723c2f7e"
+
+[[files]]
+file = "kubejs/museo/fuego_dragon.json"
+hash = "547e635ca32741c9c25a9b31e16aa7545c8b1844a79754ee05a01b12530668bd"
+
+[[files]]
+file = "kubejs/museo/galeon.json"
+hash = "2732868109ed9fe5f4f59acab3c47b083aaf4602a32d92cf802b5c51c6620131"
+
+[[files]]
+file = "kubejs/museo/gorila.json"
+hash = "b322538362f5c13f1ddddb573245c8ee5a395604152de68038147c5151e6b45a"
+
+[[files]]
+file = "kubejs/museo/ignis.json"
+hash = "f0edf0f7be0d2d7ebd39fe8d3646c91e021bbbc1a94e3753aeec7b27f7aa4bdf"
+
+[[files]]
+file = "kubejs/museo/laberinto_hielo.json"
+hash = "5f900808348f122059bc473734a07c2582fa2e50191f06fef34b3d4b3e48f2fc"
+
+[[files]]
+file = "kubejs/museo/m4a1.json"
+hash = "458dede93f080bad4ac21819222b7db942ff828165fca40ee98853f8a9ed2ee6"
+
+[[files]]
+file = "kubejs/museo/mazmorra_nether.json"
+hash = "1633121b8d806a050ec508aa8f1f9317157ddcaa1f4634bb78e52083ae2bba01"
+
+[[files]]
+file = "kubejs/museo/mercurio.json"
+hash = "fbcc0a057d3e01b27b40b53c8fc0a4a2a3c81b68b702c0aa25f29967696f83b8"
+
+[[files]]
+file = "kubejs/museo/naga.json"
+hash = "c029a0e919015c163811ddf44f0dea0322c69d9efe9dbfe7b6ae85ff4eb3019b"
+
+[[files]]
+file = "kubejs/museo/nido_mecanico.json"
+hash = "fd7ee98d4f9b70dd57f95fc7a28b693a0f9785b4fa6c0a3511942ab0751f04cf"
+
+[[files]]
+file = "kubejs/museo/oasis.json"
+hash = "84df5eb4034cbe15ed2f31276df744da7e718beaaa8b858a66d998751600caec"
+
+[[files]]
+file = "kubejs/museo/pantalla_dragones.json"
+hash = "7e3da1dbce44d39ce40d9c7920507e0021d1a583cd0b90c8aff1216d64e46316"
+
+[[files]]
+file = "kubejs/museo/pantalla_kaiju.json"
+hash = "3d486696e12dafe0998be5d3a8f33d171d7a041d846c87fe0404fff44afb9432"
+
+[[files]]
+file = "kubejs/museo/pez_abisal.json"
+hash = "5a44b19e4a64c4f89ba1c3ab19852e3b24707966f885755ced409ad3bdcf6126"
+
+[[files]]
+file = "kubejs/museo/sangre.json"
+hash = "2ab19270f3fc0a27350f6d7101e496744f4112e07718c0a99c1e1929c34a931a"
+
+[[files]]
+file = "kubejs/museo/serpiente_osea.json"
+hash = "903ee45629c71ebd18166c0cd8601be9bca05133e8724162baca3ee03ca40068"
+
+[[files]]
+file = "kubejs/museo/sirena.json"
+hash = "5fd7f6816928685619474973e1a3bb8f38e0e938073672adb1e5e145c365611d"
+
+[[files]]
+file = "kubejs/museo/trajes_espaciales.json"
+hash = "9ef507f3cc0bd97c2694b4fb1b653e75a9890a7cbf8dc901b1a2a77a686d3563"
+
+[[files]]
+file = "kubejs/museo/umvuthana.json"
+hash = "a4981bfeeaca75b4b4a56c305b9d00597f883046d2f1d3e27014219a324ab022"
+
+[[files]]
+file = "kubejs/museo/umvuthi.json"
+hash = "3446f0bfb42ce2bef339c64de1f9e3bea5946e24435ccf86a06fe051cd203cc1"
+
+[[files]]
+file = "kubejs/museo/utensilios.json"
+hash = "05ea10608dc28c528bc3a57e1b5f9d681aff3617070fb883e40daa1d6b64733d"
+
+[[files]]
+file = "kubejs/museo/velocista.json"
+hash = "f89d6f7a7d9c9a55ec7d20db144fc37ef440feead1e644db9a0f20796e1c3d8e"
+
+[[files]]
+file = "kubejs/museo/volcan.json"
+hash = "846281890760b00cb7d092e7f9d27155421cc2c4641c91c4875e7ebdf80ef7e7"
+
+[[files]]
+file = "kubejs/museo/wroughtnaut.json"
+hash = "7b5bdda452cc5b476c210521079b9ad794b3c7d2fd30e051b963f0fd9e57042b"
+
+[[files]]
+file = "kubejs/museo/zykna_retrato.json"
+hash = "3c96e8ffe119b137e5c6bfb2844b1eaa9438d004235c0d37a32d093bb513b173"
+
+[[files]]
+file = "kubejs/startup_scripts/ecos_forge.js"
+hash = "531561c45093ca3fd09db31a6bce81be8ccc5957b47c98acb9aa7b0bd84d1426"
+
+[[files]]
+file = "kubejs/startup_scripts/ecos_items.js"
+hash = "7d3c41cbb03bb2c65a96ae51afa93c4de12acf730ae5e99800bafebf7d0b608a"
+
+[[files]]
+file = "mods/ad-astra.pw.toml"
+hash = "16b7ba68b0de49eea2511bdb20d85ef694644e5e58d27865250d89c4c11e51f3"
+metafile = true
+
+[[files]]
+file = "mods/aether.pw.toml"
+hash = "1aaba088a650cc1499e1871cfa92f97e3d10a9d8c612fbd784b36c12382196de"
+metafile = true
+
+[[files]]
+file = "mods/alexs-caves.pw.toml"
+hash = "6f864eef65f9a38f57eb0cc6fc71469b36ea70444a10c3e27502d617c5eaf917"
+metafile = true
+
+[[files]]
+file = "mods/alexs-mobs.pw.toml"
+hash = "5e1239fd67c97c042d09cf38664698c9d1a3cfbc50d779fc550c461cf6aeb565"
+metafile = true
+
+[[files]]
+file = "mods/apotheosis.pw.toml"
+hash = "c281ef574be46e4df3f7ed04b0a4b5f6d1b2a836b7d1d94c4a30be9c85d3adcb"
+metafile = true
+
+[[files]]
+file = "mods/apothic-attributes.pw.toml"
+hash = "5f3996f32795f87086cd2e34ac1d7cc281411fe0c8799cb589706680107171ee"
+metafile = true
+
+[[files]]
+file = "mods/appleskin.pw.toml"
+hash = "8d0321177fed4a0b48554c40158b43db62f6cdaa768f584ef6a11575dfaa6223"
+metafile = true
+
+[[files]]
+file = "mods/aquaculture.pw.toml"
+hash = "04aae524d364de0ec8ac66db6eaff094b9c9b9d69e5de89f11acb2a00ce35261"
+metafile = true
+
+[[files]]
+file = "mods/aquamirae.pw.toml"
+hash = "bdb0ac814a3a80afc2bb8a52485def63115b9017a67b3811c887c6d4e08feae2"
+metafile = true
+
+[[files]]
+file = "mods/architectury-api.pw.toml"
+hash = "4e81241ba2da06f425efc5e09fb6b38470125c1581c39e1310c5843a0b96ec76"
+metafile = true
+
+[[files]]
+file = "mods/artifacts.pw.toml"
+hash = "9224b29b7fc388a0a030f8a6e87b26b24ec73dbc853bcdd531a144ed8e59ccea"
+metafile = true
+
+[[files]]
+file = "mods/async-locator.pw.toml"
+hash = "50e84c4b402d1772d2fea803812074b2946dac2a6b85944bfb5af37fd0db082c"
+metafile = true
+
+[[files]]
+file = "mods/athena.pw.toml"
+hash = "9638d8a308563842fd989970919a51f37ed1bcc82372bff47fc5a5c2e6de738e"
+metafile = true
+
+[[files]]
+file = "mods/balm.pw.toml"
+hash = "92eef137f9ea740673053ec3604ddf3ed197f22fdf5e5da35c8364f88ad31650"
+metafile = true
+
+[[files]]
+file = "mods/better-combat.pw.toml"
+hash = "52b4f29eb4a4392ef085617292842dc9fc84d86c318da5ce470b24eab77f6bdc"
+metafile = true
+
+[[files]]
+file = "mods/big-lost-city.pw.toml"
+hash = "c8cc06dc745ca19068f369bafc3822dbf174ec07f25ecd0e55885f0fd1694ea2"
+metafile = true
+
+[[files]]
+file = "mods/blockui.pw.toml"
+hash = "2195b22648787aac875b1ea60c51cca57c1c0a4db4241ec52cd3ea2abfeaebf4"
+metafile = true
+
+[[files]]
+file = "mods/blue-skies.pw.toml"
+hash = "e0b611005c8d2142ca889e850c9f1450f45b1d30086aa8743579dde6ab1bd9af"
+metafile = true
+
+[[files]]
+file = "mods/born-in-chaos.pw.toml"
+hash = "d61aee2e0abf58c9a923bfebd86b9b1e88e8001164c2ebf2ac4c96842acc7423"
+metafile = true
+
+[[files]]
+file = "mods/botarium.pw.toml"
+hash = "008c942efc2e2ec221dd1a760b4a50e2f24ede37747731ba794f5e845554adcb"
+metafile = true
+
+[[files]]
+file = "mods/canary.pw.toml"
+hash = "14481081a9e233f4ba57df8a77ce028184818143eae1c73b60749ea482c912e9"
+metafile = true
+
+[[files]]
+file = "mods/cave-dweller-reimagined.pw.toml"
+hash = "8b38c7c647bcfd170764ef08603578451839edd2318726b951aa592eda299ca7"
+metafile = true
+
+[[files]]
+file = "mods/chipped.pw.toml"
+hash = "71a33fe41bead909b3e95643351ef8015def70d3cb083916469f492f66434b45"
+metafile = true
+
+[[files]]
+file = "mods/chunky.pw.toml"
+hash = "0e17f9758f6f67ef87aa6f8d5afc47901521a05904cd8470ef65063b48e69d73"
+metafile = true
+
+[[files]]
+file = "mods/citadel.pw.toml"
+hash = "5a4b03567f23fe0aac7806bd7cc9734138bf5fc098e98c1bb552d5b288bef258"
+metafile = true
+
+[[files]]
+file = "mods/cloth-config.pw.toml"
+hash = "e3dd03e7fec88831974857e2cdded54dd5c5bdcaa3f6d6248c2800e82db4dd41"
+metafile = true
+
+[[files]]
+file = "mods/clumps.pw.toml"
+hash = "e3173aaa4e9078ad7ace2b9ef43ce15ce9919c0b566d8830cea87264f92b3a6a"
+metafile = true
+
+[[files]]
+file = "mods/cold-sweat.pw.toml"
+hash = "1e9ee7fda06b20e7c7fdbc676b8877696d2f830b187b92beacfd61b0c0231a6e"
+metafile = true
+
+[[files]]
+file = "mods/combat-roll.pw.toml"
+hash = "d6a121d9d5077c45622f94bcf146e1bc5a2e06dd9ab3f6cdebfd0778e0c0c45c"
+metafile = true
+
+[[files]]
+file = "mods/compact-machines.pw.toml"
+hash = "d811d8a03eb5599c316bed7c06632f7431f268aa4bc68cae81dba7fd9e951a88"
+metafile = true
+
+[[files]]
+file = "mods/configured.pw.toml"
+hash = "c1bdeff356cd2ac164e2c0e6d0ceeda234db9774c2df44fb9f0e71d3960cc3f1"
+metafile = true
+
+[[files]]
+file = "mods/controlling.pw.toml"
+hash = "cf8c5f2a139a2571d0d4b8be2b7463255cca721ae4a5741ec71595b7ab530e71"
+metafile = true
+
+[[files]]
+file = "mods/corail-tombstone.pw.toml"
+hash = "e82f9886f1d2ae2315477eb420867cf0449200c5a70b85904a3067cb2230798d"
+metafile = true
+
+[[files]]
+file = "mods/corgilib.pw.toml"
+hash = "aee69b2371df6a915ddf731db3a84065f05c754b66a18416f55522067103244d"
+metafile = true
+
+[[files]]
+file = "mods/coroutil.pw.toml"
+hash = "b2c7739b56ef71f50a86658cfa67375796beafd391c4dbe26a5de8cd92b9b685"
+metafile = true
+
+[[files]]
+file = "mods/create.pw.toml"
+hash = "9d7971a7af2ff4a96a0e5aede76f9cf8dc978da601e2754f79d6ec8631125bb9"
+metafile = true
+
+[[files]]
+file = "mods/ct-overhaul-village.pw.toml"
+hash = "ddffdb4dd442977115656e4378bc1a38290c9299fb316ae24ba54ee229f30c13"
+metafile = true
+
+[[files]]
+file = "mods/curios.pw.toml"
+hash = "9eefd607e0d54ec444e798ccdeede1a09a3939440bd1e11c11b84c07a5134be2"
+metafile = true
+
+[[files]]
+file = "mods/data-anchor.pw.toml"
+hash = "fe9176ee4372ed6ed2e4f1b80a20efcd444689de438eca4b29831a15daf9b7dd"
+metafile = true
+
+[[files]]
+file = "mods/deeperdarker.pw.toml"
+hash = "eb60f70cc84efa111a51c35311a44ae352b3b9c98ec7ba4e64595ae627e33006"
+metafile = true
+
+[[files]]
+file = "mods/distanthorizons.pw.toml"
+hash = "084a056c8eca61bdfcb53d7a9ae05693e27ea856256d783cd7757612df125ee5"
+metafile = true
+
+[[files]]
+file = "mods/domestication-innovation.pw.toml"
+hash = "2aa8e99103e73af719667f2c03ab4380b1febed92cce4724aff8a5ec0e3cafea"
+metafile = true
+
+[[files]]
+file = "mods/domum-ornamentum.pw.toml"
+hash = "09d1ec8d202d90e6146086e107aefcd892f17fc3a4d98311c8b5e54845da4ef7"
+metafile = true
+
+[[files]]
+file = "mods/dynamic-fps.pw.toml"
+hash = "b67251b53eb4685d349bda68fde30b021e99900fe4d445e6c0f3e9fa0a908580"
+metafile = true
+
+[[files]]
+file = "mods/e4mc.pw.toml"
+hash = "e7f4f64ac84d839b087508fcdf12f75c7be8d5e238d02f3e0289fde70f2af1dc"
+metafile = true
+
+[[files]]
+file = "mods/easy-npc-config-ui.pw.toml"
+hash = "38b465018f596dc9690e81936b2e0a95f4002d183ab8b9cd1f0e7c691d4705fc"
+metafile = true
+
+[[files]]
+file = "mods/easy-npc-core.pw.toml"
+hash = "b888b616a34315a88bdc59a26ca7ab97effa14fc20d32ee74f7dd680266dbb73"
+metafile = true
+
+[[files]]
+file = "mods/easy-npc.pw.toml"
+hash = "c8ae8ea784e1eba3638cd3d2a781980fb1519855029b54500bcdc41f5756870c"
+metafile = true
+
+[[files]]
+file = "mods/echoes-of-power.pw.toml"
+hash = "8ffa1e48d635fde0fa6880f6ff98a53071bcb3d6a7d5983c0b565ebf40408d57"
+metafile = true
+
+[[files]]
+file = "mods/embeddium.pw.toml"
+hash = "a74b2d65c286896335b454f61f18be630d0f13767626ebb118584907d1d37112"
+metafile = true
+
+[[files]]
+file = "mods/enhanced-celestials.pw.toml"
+hash = "966f55caeff6cf21db6cf8a9d9e233802fc91a0d738e022095718909e8b787cc"
+metafile = true
+
+[[files]]
+file = "mods/entityculling.pw.toml"
+hash = "f27d83c5464f9c55bc281b1b3a9aba3e4dca0cdf928ea801839c52cb8ed61245"
+metafile = true
+
+[[files]]
+file = "mods/fancymenu.pw.toml"
+hash = "c1ea4a31e567c80457c6a8982807c069d2a09ac0e016654d62b3d3bdbacdd953"
+metafile = true
+
+[[files]]
+file = "mods/farmers-delight.pw.toml"
+hash = "349c06c50fa315e9eb618d115f7d1391062706021c645e14f86afae3109d4662"
+metafile = true
+
+[[files]]
+file = "mods/ferrite-core.pw.toml"
+hash = "902bac905b93271f02bd0951a22bac06a3da24f5c237fcaeb469e14a7679e508"
+metafile = true
+
+[[files]]
+file = "mods/first-aid.pw.toml"
+hash = "23b34b1ede5d26a29cbe0226d71b4de26c9b7f837e47914630f7da00961f3be7"
+metafile = true
+
+[[files]]
+file = "mods/fragmentum.pw.toml"
+hash = "e8ee199f62745156daafa42fdb3fd73be9b29c0ea1bf51953256ab9be99af208"
+metafile = true
+
+[[files]]
+file = "mods/from-the-fog.pw.toml"
+hash = "f88eceacf4eb7696d520f90122ed04de3011491de33662ffb3d3789d06e20e0b"
+metafile = true
+
+[[files]]
+file = "mods/ftb-library-forge.pw.toml"
+hash = "efa75ee4aae90dea11316b6e61aecaf9433eeb3d0821f78b4eca41acbbd73e8f"
+metafile = true
+
+[[files]]
+file = "mods/ftb-quests-forge.pw.toml"
+hash = "7b2cc450f553b82439ae9422b8c2b4406dae1af3c48f7ce791a3576acff1d122"
+metafile = true
+
+[[files]]
+file = "mods/ftb-teams-forge.pw.toml"
+hash = "efda76423b21f9bfab4ad8d0411f0b06a199ab7e3e12ca16dc0586c1828b8f07"
+metafile = true
+
+[[files]]
+file = "mods/fusion-connected-textures.pw.toml"
+hash = "8f1af185eaf7a3451f710eeb9a762857b12ecbb3bff77043fa96c3c310a27621"
+metafile = true
+
+[[files]]
+file = "mods/geckolib.pw.toml"
+hash = "898fd2704dd260ae8f3dc20b4416439751f0a9e76367c4f0bbdac886b6987802"
+metafile = true
+
+[[files]]
+file = "mods/glitchcore.pw.toml"
+hash = "71f185e62d546881244d4b5a213ebc3d2d6df14b0218c0e5dd6426fcb22cb55f"
+metafile = true
+
+[[files]]
+file = "mods/ice-and-fire-dragons.pw.toml"
+hash = "94c7c45a70d0cea86695ecd467f8e5c22510442c53c44291a570986e234428e5"
+metafile = true
+
+[[files]]
+file = "mods/idas.pw.toml"
+hash = "d1d2f471ef09edfebf48ee7e52f4586152b5960ed585b87c0fe73a4a6f1bdf3a"
+metafile = true
+
+[[files]]
+file = "mods/immediatelyfast.pw.toml"
+hash = "e339ce21a2fcda8c6bdd7183edc37bb1c6e85a1c5a59eca26cbfb7a1b37dd548"
+metafile = true
+
+[[files]]
+file = "mods/immersive-aircraft.pw.toml"
+hash = "e410d61a7906f69a6d617ec8c05b92bf0139a537a44d6664a6516c8a19ad6e77"
+metafile = true
+
+[[files]]
+file = "mods/integrated-api.pw.toml"
+hash = "b01a982d49738437a5a23081d0f69b6f61e88c7d6579c757332f4d0075497c2b"
+metafile = true
+
+[[files]]
+file = "mods/inventory-profiles-next.pw.toml"
+hash = "5900123bd3234db14a14722f3a70b4cb89a9405b93820a402a74f8264919a466"
+metafile = true
+
+[[files]]
+file = "mods/irons-lib.pw.toml"
+hash = "13fa100328bda217164ab36d53de5a73fe28fcf542eefd0e0a0becb44736ff64"
+metafile = true
+
+[[files]]
+file = "mods/irons-spells-incantation.pw.toml"
+hash = "817252ff861713a047583af5a011c622799fba887b5c3a42992524697a364f83"
+metafile = true
+
+[[files]]
+file = "mods/irons-spells-n-spellbooks.pw.toml"
+hash = "e2337a3930d3dfb07c051ff0000b2ebd8d4638e17f091b7ad2c786bf0b25d095"
+metafile = true
+
+[[files]]
+file = "mods/jade.pw.toml"
+hash = "a2277a000bcab08a8e0939dae7c8ef3b1db5327e2fa7bd37919e4e2f1b3c174d"
+metafile = true
+
+[[files]]
+file = "mods/jei.pw.toml"
+hash = "b38d43feb83d6b23059e2eab0d0fc04378564c538817d1e73339d32e5937bca9"
+metafile = true
+
+[[files]]
+file = "mods/konkrete.pw.toml"
+hash = "90a70141bcec839b6a1aa647c91f97bb7b33b6b9e6ce6b3b18a4113aa7dff636"
+metafile = true
+
+[[files]]
+file = "mods/kotlin-for-forge.pw.toml"
+hash = "1678327ac50408273c1828b631929128d3fdfd54cda7b2e823ce9352495a68ff"
+metafile = true
+
+[[files]]
+file = "mods/kubejs.pw.toml"
+hash = "9ec37ad87c0c174bdafe7d52fc98f96b83aaef0ad42ae59e196655d3d784f31f"
+metafile = true
+
+[[files]]
+file = "mods/l_enders-cataclysm.pw.toml"
+hash = "dfdd246954f9bcfbff66668558b17ba5b3e75a12ba6031c441750a472670fbd8"
+metafile = true
+
+[[files]]
+file = "mods/libipn.pw.toml"
+hash = "ee79f551b7aede4b923fc6df137c4ebbb1dd21eb80a3aaba6da8be93ac5010e7"
+metafile = true
+
+[[files]]
+file = "mods/lionfish-api.pw.toml"
+hash = "f3b6b7cd660a91a34a4e18010c9eaacaeb7ff306cadfee14431fa25a15b041ec"
+metafile = true
+
+[[files]]
+file = "mods/lithostitched.pw.toml"
+hash = "9d5803fdca0759e3b94133ae7cfb6cd5f766aa5780935a6607a7a4d165041245"
+metafile = true
+
+[[files]]
+file = "mods/lootr.pw.toml"
+hash = "e8b4876d403b4f4daab64bad9704a5b271a33031d1ff8d19d23ebd1e3b8dd39a"
+metafile = true
+
+[[files]]
+file = "mods/majrusz-library.pw.toml"
+hash = "bc6a2458b8337e76c0636142242ef36f75ff13e65f977fdd81bb5cc823e5b360"
+metafile = true
+
+[[files]]
+file = "mods/majruszs-progressive-difficulty.pw.toml"
+hash = "dfd3ca238414939a4a9054bc933d4b5d9dfd5a306b86b898e1706cd6d66602f1"
+metafile = true
+
+[[files]]
+file = "mods/melody.pw.toml"
+hash = "8def80b33354bc9525033d543925d45cddf54c1ad8b5b943e567cc2b1749d337"
+metafile = true
+
+[[files]]
+file = "mods/memoryleakfix.pw.toml"
+hash = "ade41e4315735aa9116a0222b332e03d3f8df6eea301764d40d0bdc40f5e8689"
+metafile = true
+
+[[files]]
+file = "mods/mezzconfig.pw.toml"
+hash = "97a0aa0bfbad2bc5ae3e3454033df72c54b0e3ad45b95ecde451804a77a9eb0b"
+metafile = true
+
+[[files]]
+file = "mods/minecolonies.pw.toml"
+hash = "5c05dc6338ed6c0356acf12c02c11893fe50977f05a41d9995088dc927fef678"
+metafile = true
+
+[[files]]
+file = "mods/modernfix.pw.toml"
+hash = "acc876b088c1e1208ac1a7494794060534ff4647411eae7139295a68fd0a48cd"
+metafile = true
+
+[[files]]
+file = "mods/moonlight.pw.toml"
+hash = "0b3e34715f20c9f0d6d19aa043c3a53c5d3bc70a977da2fdf1651bf5c9b72fb3"
+metafile = true
+
+[[files]]
+file = "mods/mouse-tweaks.pw.toml"
+hash = "c17b9de2050b52f12368cea16836e8c6ac43be9683b2fc4755a9b3d4a60fa67b"
+metafile = true
+
+[[files]]
+file = "mods/mowzies-mobs.pw.toml"
+hash = "69c100deb9011e828b3f11a0df754316829b751833ac30bc4726710c082f9808"
+metafile = true
+
+[[files]]
+file = "mods/multi-piston.pw.toml"
+hash = "9895bf13e14fbb0b5284f7ad800b1fb3c7d4c373306231d5c6f95a282079fcbe"
+metafile = true
+
+[[files]]
+file = "mods/neruina.pw.toml"
+hash = "687981a02a4e47cec78413b0f9411df90c501dca33d5e46c37ca08496a6d4dc8"
+metafile = true
+
+[[files]]
+file = "mods/noisium.pw.toml"
+hash = "2448ee89974f5934aa9114270f3e6666cbe203bffe5be6c2905231bb5dc1af81"
+metafile = true
+
+[[files]]
+file = "mods/nvdialog.pw.toml"
+hash = "d6508de4e282f4f804a3c938a77ddf95bec360c808d906573e3f76d7b9873abe"
+metafile = true
+
+[[files]]
+file = "mods/obscure-api.pw.toml"
+hash = "70d4e3ec754f6fffc5bd03814ed7e7a137b83311a43c817eef2fb2ac9c417d27"
+metafile = true
+
+[[files]]
+file = "mods/oculus.pw.toml"
+hash = "200f79b635a087841698c85ac7028f0a1fac2cc4ffae1d59ff3f07a94abfe70e"
+metafile = true
+
+[[files]]
+file = "mods/open-parties-and-claims.pw.toml"
+hash = "ad0334be3c94aae3a168922673577bebcf1bac48c585f1c0c66a4362979f34fb"
+metafile = true
+
+[[files]]
+file = "mods/packet-fixer.pw.toml"
+hash = "ef0c8813eef47e8ffdce023dfee08152a5099817960dce86623b9a21e8b14be2"
+metafile = true
+
+[[files]]
+file = "mods/patchouli.pw.toml"
+hash = "b2cb681aaf3e6085148392a06d40899239dc299aaf5ce0adf168fc225d922c97"
+metafile = true
+
+[[files]]
+file = "mods/pehkui.pw.toml"
+hash = "1f92dd360908c1801848dcd4d14aca5640199545e7e22e76bfdb981b06fa9399"
+metafile = true
+
+[[files]]
+file = "mods/placebo.pw.toml"
+hash = "045d582e2c534c5bb96d7336b4ae2cd12692c6de29b19ae5f1dbfd8759c03b03"
+metafile = true
+
+[[files]]
+file = "mods/playeranimator.pw.toml"
+hash = "765987a78e5d8c782d0da2de99998b43b5907d6c41347d3804045ad109e4a586"
+metafile = true
+
+[[files]]
+file = "mods/polymorph.pw.toml"
+hash = "d9986c3798db028db0e1ab30851f7fab87ce12094448685ef7c4ba64374cbfa0"
+metafile = true
+
+[[files]]
+file = "mods/quark.pw.toml"
+hash = "8df897c0f7831e919aa528c3c1e5239f39439c123d99761230ab2357132bad98"
+metafile = true
+
+[[files]]
+file = "mods/rechiseled.pw.toml"
+hash = "8575c870f0ac69dd32c179478a9760cc2a8ff734aa3a84343e177d856da9ad31"
+metafile = true
+
+[[files]]
+file = "mods/resourceful-config.pw.toml"
+hash = "e242387207a2538b5ccb55697174c65e549e1eb2fef9da37e1ad3734e0372b65"
+metafile = true
+
+[[files]]
+file = "mods/resourceful-lib.pw.toml"
+hash = "ef0264b7d819848f72ab2f34643306187e712965a8246e1f733e1bd39d8fd681"
+metafile = true
+
+[[files]]
+file = "mods/rhino.pw.toml"
+hash = "5b92406160d9ea8a61ddf111caaecb7f6283678e2c40b08b72dce3eeaf20dc96"
+metafile = true
+
+[[files]]
+file = "mods/searchables.pw.toml"
+hash = "2cb8dd9a3944a6430b49916a4fe1b6cf0bd7efd907054f8e679a02717149404f"
+metafile = true
+
+[[files]]
+file = "mods/security-craft.pw.toml"
+hash = "e0d0d32c780841642264e3cdb5b3b9fb23a21a97f55f0cd30c250638b4ab8c43"
+metafile = true
+
+[[files]]
+file = "mods/serene-seasons.pw.toml"
+hash = "23ef0c67ed600fb75d47161cdbe43b860837afe9d1f3012c44f3e7eb13bdd1e5"
+metafile = true
+
+[[files]]
+file = "mods/shield-expansion.pw.toml"
+hash = "fe9c92d1e6ab3deab0dbea685043c79ed11e4586525894e254bdb068b19dd435"
+metafile = true
+
+[[files]]
+file = "mods/simple-voice-chat.pw.toml"
+hash = "d60416f1a6142500481b322d3376c1f9661ab276d47bbef799e3920b9411c1a0"
+metafile = true
+
+[[files]]
+file = "mods/small-ships.pw.toml"
+hash = "94496c76ed94dd7170681e9fafc4125c7f8405318fbadbbb1a0044e5bec7423d"
+metafile = true
+
+[[files]]
+file = "mods/sophisticated-backpacks.pw.toml"
+hash = "456f8121c6c4d5fe5936b5e5cfc903a30dffcfe9bf7dc75fb02daf3b9e3b6eab"
+metafile = true
+
+[[files]]
+file = "mods/sophisticated-core.pw.toml"
+hash = "4369c86babd62461df8771753d0a2ea9edfcd03a0bf5dac0e1649caf375e2c58"
+metafile = true
+
+[[files]]
+file = "mods/sophisticated-storage.pw.toml"
+hash = "d3bddfd16cf8c462a3d135c8327176e5136d16e1e13b18e8011a0d57278a2e58"
+metafile = true
+
+[[files]]
+file = "mods/sound-physics-remastered.pw.toml"
+hash = "01d628d71fd20a235492879b37853c2301066aee4234df0acd62c6990b319d26"
+metafile = true
+
+[[files]]
+file = "mods/spark.pw.toml"
+hash = "d0e1a79dbcda8499e0f12f4adaa5503f9bbc84a6274ce07b3a3839476622e8e5"
+metafile = true
+
+[[files]]
+file = "mods/stamina-for-tweakers.pw.toml"
+hash = "1ee23f85d52711dfff9c2379c73a517bc229c8f38ac83dfeea0a29d4f88a552c"
+metafile = true
+
+[[files]]
+file = "mods/star-wars-expansion.pw.toml"
+hash = "99bb40ec4771a9b22285473a35cfd5d850cfa94555c982e7ec2e7dc94768feff"
+metafile = true
+
+[[files]]
+file = "mods/structure-gel-api.pw.toml"
+hash = "0a1893b4abfd0e7243095240b329552c082dd3fa7874b43e9b43c94812875472"
+metafile = true
+
+[[files]]
+file = "mods/structure-layout-optimizer.pw.toml"
+hash = "c883fbd7c5269b232737d5b20061651138c60eddcb4cead64bfd56e750f470e8"
+metafile = true
+
+[[files]]
+file = "mods/structurize.pw.toml"
+hash = "2a7156e02685cfeaf3ba1f23c8db82b8e5bc26975c234e5c4058a3a10f85c99e"
+metafile = true
+
+[[files]]
+file = "mods/supermartijn642s-config-lib.pw.toml"
+hash = "3eede8a7ebafb69840153ff51dbc879b0232799e90a834ab6d71274b1316179f"
+metafile = true
+
+[[files]]
+file = "mods/supermartijn642s-core-lib.pw.toml"
+hash = "f18e9e5df1ee9ed7ed6dd6ba9eb2df1417b2c40fb30820a2576616b1014f1d83"
+metafile = true
+
+[[files]]
+file = "mods/supplementaries.pw.toml"
+hash = "b3c68ce85c6cbdf37a00e39d18ea0f30ef7f69ee414151615adc2aa793661b81"
+metafile = true
+
+[[files]]
+file = "mods/terralith.pw.toml"
+hash = "b0978cb7ae7b79c5be89b323ca1bd038f693ff6d11c43dfcbd63953964149af2"
+metafile = true
+
+[[files]]
+file = "mods/the-twilight-forest.pw.toml"
+hash = "d1f859de9867b7433305aef1631aa22a436a4c3924474a21c0a22ab5f2093c04"
+metafile = true
+
+[[files]]
+file = "mods/threetag-palladium.pw.toml"
+hash = "f2a46cb5016bfb9dc3af6a62184f8e4fc6573eabbc5b3221a779d4cb95c4ae75"
+metafile = true
+
+[[files]]
+file = "mods/timeless-and-classics-zero.pw.toml"
+hash = "b74f14e83cf5f07242e0fcc2d768cf28d2cf1caac09c0036fd4e47c00fd9d076"
+metafile = true
+
+[[files]]
+file = "mods/toms-storage.pw.toml"
+hash = "131c818cca79586fdca0535062a63581e7c438efd108be4403ab8faea92e6368"
+metafile = true
+
+[[files]]
+file = "mods/towntalk.pw.toml"
+hash = "32e0f6bce7adc5b09ba3350110ac4be7ee04e556db35ba1db97bacfabd31e4dc"
+metafile = true
+
+[[files]]
+file = "mods/trashslot.pw.toml"
+hash = "a48361969396ded8ebb503e086266ff89dba9cf94424092f7ae00f3fd5b844b6"
+metafile = true
+
+[[files]]
+file = "mods/video-player.pw.toml"
+hash = "45301aac74d53bf48cdf11dcd22fba1d0603319efba20177854486069d27ceea"
+metafile = true
+
+[[files]]
+file = "mods/watermedia.pw.toml"
+hash = "0958a6eb10043f71babfe26120b0ff4f378795c4897ee7aeb463dfada0ab5ac2"
+metafile = true
+
+[[files]]
+file = "mods/waystones.pw.toml"
+hash = "4bbb339934e6c74bc6129359abe75464f4652defffa6ae28624fbc3d1916c614"
+metafile = true
+
+[[files]]
+file = "mods/weather-storms-tornadoes.pw.toml"
+hash = "8669708ff6478c72e7c5aa8c25c66e8178bbb316a684b86505fc986631eae6a3"
+metafile = true
+
+[[files]]
+file = "mods/when-dungeons-arise.pw.toml"
+hash = "0cb70caa22009a495a64a4332480b5ae80cb7fc7ba34c0a48ab8aff7df20b4f7"
+metafile = true
+
+[[files]]
+file = "mods/xaeros-minimap.pw.toml"
+hash = "14115d67f8c88a4eb12d6746f7b4bab5834b785582689f59766abcae8cb4a5b7"
+metafile = true
+
+[[files]]
+file = "mods/xaeros-world-map.pw.toml"
+hash = "b03046c3457090d684ec32cf766b066f309c88e7ed558318acef4d6915e315fe"
+metafile = true
+
+[[files]]
+file = "mods/yungs-api.pw.toml"
+hash = "152c6732da180e958fb29f492bae2e468d4dfd423ce4d3d0d31ef31c2eec6c61"
+metafile = true
+
+[[files]]
+file = "mods/yungs-better-dungeons.pw.toml"
+hash = "31fca121c5b55c624ed203937c8f9b4d13cfe32f80bb85405aa4c65238378b15"
+metafile = true
+
+[[files]]
+file = "mods/yungs-better-mineshafts.pw.toml"
+hash = "4ce517d9069d08501f48e928692dc2f4617980683a2c4521f22c1ec538f34dcc"
+metafile = true
+
+[[files]]
+file = "mods/yungs-better-strongholds.pw.toml"
+hash = "32d07d192caa9459521c3b3bc21199ebe72d7f6cad9b3461e0b231180f46bb30"
+metafile = true
+
+[[files]]
+file = "mods/zeta.pw.toml"
+hash = "a9421a7a29ac8ee6e0598ea20025ad2c30e6198b796324184600621743437c91"
+metafile = true
+
+[[files]]
+file = "options.txt"
+hash = "91841a4367d307f86b8805679dcc1ddab04f7c551665c8fd270c9b393ab6b5f3"
+preserve = true
+
+[[files]]
+file = "resourcepacks/better-leaves.pw.toml"
+hash = "eb0b5f269171cd5b891d9bdf2c5da89698e21a71ffec1172ead75bc19411cbdc"
+metafile = true
+
+[[files]]
+file = "resourcepacks/patrix-32x.pw.toml"
+hash = "651fc4b215955ce32aa57014d8b30769eb1547e866996c1ad39511047f544008"
+metafile = true
+
+[[files]]
+file = "resourcepacks/patrix-ctm-override.pw.toml"
+hash = "38e4b242d8e2b4caf3e2406bb6ae13c8a4f050fe9305371db4f87f45ec844e69"
+metafile = true
+
+[[files]]
+file = "shaderpacks/ComplementaryUnbound_r5.8.1 + EuphoriaPatches_1.9.3.txt"
+hash = "d84a328dd0f11c92b3a5a6f7d296e110b23f73428b90c2b58f45b68579fa0712"
+
+[[files]]
+file = "shaderpacks/complementary-unbound.pw.toml"
+hash = "608b87f75b2387a9fbd340cb18a8238bbbe5a0afc54202634b34f3000246b6e7"
+metafile = true
+
+[[files]]
+file = "shaderpacks/photon.pw.toml"
+hash = "8fcf53499d82780ab4434dc5323be4e7f8e12a51115f3238297597418ffee48d"
+metafile = true
+
+[[files]]
+file = "shaderpacks/photon_v1.3b.zip.txt"
+hash = "11916dcc8c9288ae39515c11dcdc4f568476626c65bc569537d6b5169d15dd38"

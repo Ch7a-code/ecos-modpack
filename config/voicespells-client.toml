@@ -1,0 +1,268 @@
+
+[hud]
+	#Position of the HUD chip on screen. offsetX/Y are pixels from the
+	#chosen corner to the nearest corner of the chip.
+	#Allowed Values: TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT
+	corner = "BOTTOM_LEFT"
+	#Range: 0 ~ 1000
+	offsetX = 5
+	#Range: 0 ~ 1000
+	offsetY = 28
+	#Multiplier 0..1 applied to every colour's alpha channel.
+	#Set to 0.2 for a barely-there chip, 0 to hide the background entirely.
+	#Range: 0.0 ~ 1.0
+	opacity = 1.0
+
+[colors]
+	#ARGB hex strings. 8 chars include alpha ("CC0A0A0A"); 6 chars are
+	#treated as fully opaque. The leading '#' is optional.
+	#
+	#background and border default to fully transparent, so the HUD is just
+	#shadowed text over the world - the way vanilla draws the action bar and
+	#the way Simple Voice Chat draws its mic indicator. Set background to
+	#something like CC0A0A0A if you would rather have a solid chip behind it.
+	#Existing configs keep whatever you already had.
+	#
+	#textMuted colours the secondary chips - history strip, miss toast, heard
+	#chip. toast colours the queued-cast chip only; the cast toast itself takes
+	#its colour from the spell's school.
+	background = "00000000"
+	border = "00000000"
+	textMuted = "FF8A8A8A"
+	toast = "FFFFD75A"
+
+[recognition]
+	#Log every recognition at INFO instead of DEBUG, for support logs. The Live Monitor is a separate screen (More... > Live Monitor) and is not gated by this.
+	debugMonitor = false
+	#Fuzzy fallback edit distance. 0 exact only, 1 lenient, 2 most lenient.
+	#Range: 0 ~ 2
+	fuzzyMaxDistance = 1
+	#Match a spell phrase found as a whole word inside the heard text.
+	substringMatch = true
+	#Ignore the same spell again within this many milliseconds.
+	#Range: 0 ~ 5000
+	dedupMillis = 800
+	#Echo lockout window (ms) — hard absolute window where a same-spell repeat
+	#is dropped regardless of inter-event gap. Catches slow Vosk emissions
+	#where partial -> final spans longer than dedupMillis AND the tail-audio
+	#case where trailing audio after the word gets grammar-forced into the
+	#just-cast spell. Set to 0 to disable. Lower this to ~600 if rapid-fire
+	#incantation chants feel laggy; raise if same-spell double-casts still
+	#slip through.
+	#Range: 0 ~ 10000
+	echoLockoutMillis = 1500
+	#Max number of voice-recognized spells that can stack in the cast queue
+	#while you're already casting. FIFO — oldest queued fires first.
+	#Range: 1 ~ 5
+	castQueueSize = 3
+	#Client-side preflight: check mana + cooldown via ClientMagicData before
+	#sending the cast packet, so impossible casts don't round-trip the server.
+	clientPreflight = true
+	#Minimum average word confidence (0..1) for a final result to cast.
+	#Raise to reject mumbled/garbled audio, lower if good speech is ignored.
+	#Partial results are not confidence-gated; see minMsPerLetter and
+	#perSpellMinConfidence.
+	#Range: 0.0 ~ 1.0
+	minConfidence = 0.55
+	#Acoustic completeness: a matched spell must have been SPOKEN for at
+	#least this many milliseconds per letter of its phrase before it casts.
+	#At the default 25, "heal" (4 letters) needs 100 ms, "shield" (6) needs
+	#150 ms and "invisibility" (12) needs 300 ms. Real spell names measure
+	#roughly 50-120 ms per letter; short one-syllable names like shield are
+	#the tightest, around 40. What this stops is the recogniser force-fitting
+	#a cough or a stray word onto a long spell name - which is how
+	#Invisibility got cast from speech that was nothing like it. A running
+	#guess that is too short is not cast; the final answer decides, and a
+	#final that is too short is rejected and shows as (too short) in the
+	#Live Monitor. Measured from the recogniser's own word timings. Set to 0
+	#to disable.
+	#Range: 0 ~ 200
+	minMsPerLetter = 25
+	#Download the model named by modelId if no model is installed yet.
+	#Default is vosk-model-small-en-us-0.15 (~40 MB), not the larger one.
+	#Off = install a model into config/voicespells/model/ yourself.
+	autoDownloadModel = true
+	#Override the Vosk model directory. Leave empty to use the default
+	#(config/voicespells/model). Set to an absolute path to point at a
+	#shared model on disk — useful for trying different precision/speed models.
+	modelPath = ""
+	#Which speech model to use, by id. Downloaded on demand into
+	#config/voicespells/models/<id>/ when autoDownloadModel is on.
+	#Known ids: vosk-model-small-en-us-0.15 (default, ~40 MB),
+	#vosk-model-en-us-0.22-lgraph (~128 MB, more accurate English),
+	#vosk-model-small-es-0.42, vosk-model-small-ru-0.22,
+	#vosk-model-small-fr-0.22, vosk-model-small-de-0.15.
+	#A model only recognises words in its own language: to play in another
+	#language you need both the matching model here AND translated phrases in
+	#config/voicespells/phrasebook.json. modelPath overrides this entirely.
+	modelId = "vosk-model-small-en-us-0.15"
+	#Only voice-cast while sneaking. Off = always (hands-free).
+	requireSneak = false
+	#If set, the spell must be preceded by this word to cast.
+	#Example: triggerWord cast means say cast fireball.
+	#Kills false casts during voice chat. Empty = no trigger word.
+	triggerWord = ""
+	#Multiple trigger words — any one of these in the heard phrase counts.
+	#Combines with the single triggerWord above (both are accepted).
+	#Example: triggerWords = ["cast", "invoke", "summon"]
+	triggerWords = []
+	#Per-spell confidence thresholds, and the knob for a spell the
+	#recogniser keeps force-fitting onto unrelated speech. A spell listed
+	#here never casts from a running guess: it waits for the complete
+	#utterance and is then judged at ITS OWN threshold instead of
+	#minConfidence - higher or lower. That costs the listed spell a wait of
+	#about half a second after you stop speaking - and it waits for you to
+	#stop, so say it on its own rather than in the middle of a sentence.
+	#Raise it for a magnet spell (irons_spellbooks:invisibility=0.7); lower
+	#it for a stubborn one the model hears at low confidence
+	#(irons_spellbooks:fire_bolt=0.35). Spells not listed keep instant
+	#partial casting and are still judged at minConfidence on their final.
+	#Format: namespace:spell_id=0.35
+	perSpellMinConfidence = []
+	#Briefly show on-screen what was heard when it matched no spell, so you
+	#can learn which phrasings the model produces. Off by default.
+	showMisses = false
+	#Play a brief mystical chime when a phrase is recognized. Off if noisy.
+	enableEchoSfx = true
+	#Streamer mode - obscure spell names in the HUD so screen viewers can't
+	#read what you cast. The Live Monitor in the config screen still shows
+	#actual text since only you see that.
+	streamerMode = false
+	#Sass mode - occasional snarky 'was that even a spell?' toast on miss.
+	sassMode = false
+	#Show the cooldown chip under the crosshair after a voice cast.
+	#It names the spell and fills as the cooldown runs down. Turn it off if
+	#you would rather keep the centre of the screen clear.
+	castCooldownChip = true
+	#Nudge that chip up or down, in pixels. It sits just above the hotbar
+	#by default, clear of the crosshair and of vanilla's item-name popup.
+	#Negative moves it up the screen, positive moves it down.
+	#Range: -400 ~ 200
+	castCooldownChipY = 0
+	#Cinematic accent bars top and bottom of the screen, plus corner
+	#glows, while you are casting a long spell. Drawn in white.
+	#Off by default: the code existed since early builds but never ran,
+	#because the reflection behind it named a class that does not exist.
+	#Fixing that name switched it on for the first time, so leaving it
+	#enabled would push a visual change on people who never had it.
+	castVignette = false
+	#Combat-only mode - recognition only fires when the player took damage
+	#from a mob in the last ~10 seconds. Damage you deal does not count.
+	combatOnly = false
+	#Pause recognition when AFK (no movement for afkSeconds).
+	pauseWhenAfk = false
+	#Seconds of no movement before AFK kicks in.
+	#Range: 5 ~ 3600
+	afkSeconds = 60
+	#Persistently show the last heard phrase on the HUD (separate from the
+	#miss toast). Useful while tuning recognition. Off by default.
+	alwaysShowHeard = false
+	#Hands-free queue confirmation: when on, say 'no' to clear the cast
+	#queue, or 'yes' to acknowledge. Injects those two words into the Vosk
+	#grammar so they're listened for.
+	handsFreeConfirm = false
+	#Noise gate: skip mic frames quieter than this RMS (0..32767) before
+	#feeding them to Vosk. Stops the grammar-restricted recogniser from
+	#hallucinating spells out of silence or breath.
+	#The gate is sticky: once a loud frame arrives it stays open for ~450ms,
+	#so phoneme dips inside a word don't cut the utterance.
+	#Raise this if you see phantom casts on background noise; lower if
+	#soft speech is being missed. Set to 0 to disable the gate entirely.
+	#Range: 0.0 ~ 6000.0
+	noiseGateRms = 350.0
+	#How loud you normally speak: the level 'Calibrate mic' heard the last time
+	#you ran it, as a microphone frame RMS. Calibration cuts its five seconds
+	#into the words you actually said - each run of loud frames is one word -
+	#takes the loudest frame of each, and stores the median of those. A cast is
+	#measured the same way, as the loudest frame of what you just said, which is
+	#what makes the comparison mean anything.
+	#Voice casts are judged against it when the server has voiceVolumeScaling
+	#on - speaking at this level earns about half the voice level bonus, a
+	#quarter of it (a whisper) none of it, and 1.5x (a raised voice) all of it.
+	#Measured relative to your own voice on purpose: the same raised voice is a
+	#different RMS on every microphone and at every gain setting.
+	#The bonus itself is whole levels, so with voiceLevelBonus = 1 there is no
+	#gradient to hear - your normal speaking voice already earns it, and only
+	#dropping clearly below it (a whisper) loses it.
+	#0 = never calibrated. Nothing is assumed in that case: every cast is scored
+	#as a normal speaking voice, so you earn the middle of the bonus rather than
+	#none of it. A guessed level used to be assumed here, and on a microphone
+	#quieter than the guess it silently scored every cast at zero.
+	#Set by Config -> More... -> Calibrate mic; there is no reason to type a
+	#number here by hand.
+	#Range: 0.0 ~ 32767.0
+	speechPeakRms = 0.0
+	#When the microphone is allowed to listen.
+	#ALWAYS_ON         - live whenever you are in a world.
+	#HOLD_KEY          - only while the push-to-talk keybind is held.
+	#HOLD_ITEM         - only while a spellbook, staff or imbued weapon is in your
+	#                    hands or your Curios slot.
+	#HOLD_KEY_AND_ITEM - both of the above at once.
+	#Unlike combatOnly and pauseWhenAfk, which filter after recognition, this
+	#gates capture itself: in every mode but ALWAYS_ON the recognizer never
+	#receives the audio at all.
+	#HOLD_ITEM is the default: it needs no keybind, and stowing your spellbook is
+	#enough to stop the mic listening. Note it counts the Curios slot too --
+	#the default castMode is CURIO_SPELLBOOK, so hands-only would never open
+	#the mic for the loadout this mod expects. If you keep a book in Curios
+	#permanently, that makes this close to ALWAYS_ON in practice.
+	#If you talk to friends over a voice-chat mod WHILE armed, use
+	#HOLD_KEY_AND_ITEM -- holding a staff is not on its own evidence you meant to
+	#cast, and that mode requires the key as well so speech never reaches the
+	#recognizer unless you asked for it. ALWAYS_ON is fully hands-free.
+	#Allowed Values: ALWAYS_ON, HOLD_KEY, HOLD_ITEM, HOLD_KEY_AND_ITEM
+	gatingMode = "HOLD_ITEM"
+	#Close the microphone device entirely while the game window is unfocused or
+	#paused. Leave this on unless you specifically want to cast while tabbed out;
+	#it means the mic is not held open while you are doing something else.
+	suspendWhenUnfocused = true
+	#Minimum number of spell phrases in the speech grammar.
+	#The grammar is narrowed to spells you can actually cast, which is what makes
+	#recognition accurate. But a very small grammar is dangerous: the recognizer
+	#picks the closest match rather than rejecting, so with only one or two
+	#phrases almost any sound becomes a spell. Below this number the grammar is
+	#padded with names of spells you do NOT have, which act as decoys - if one
+	#wins, nothing casts. Raise it if you get false casts, lower it if a spell
+	#you own is being misheard as one you do not.
+	#Range: 1 ~ 512
+	grammarFloor = 16
+	#Capture device name, or blank for the system default.
+	#Run /voicespells devices in game to list the exact names.
+	captureDevice = ""
+	#Prefix chat messages with your voice-cast rank, e.g. '[Adept] hello'.
+	#Cosmetic only — opt-in.
+	chatRankTag = false
+	#Restrict recognition to spells the player currently has. Scans the
+	#Curios spellbook slot, both hands, and the hotbar for spellbooks and
+	#imbued weapons; the Vosk grammar is rebuilt to only include those.
+	#Stops Vosk from forcing background noise into the closest unowned
+	#spell name. Off = listen for every registered spell.
+	restrictToOwned = true
+	#Custom phrase to spell mappings for spells the recognizer cannot say.
+	#One entry per line, format: phrase=namespace:spell_id
+	#Example: abyss blast=traveloptics:abyssal_blast
+	customPhrases = []
+	#Flavor incantations - longer mystical phrases that cast a spell.
+	#Same mechanism as customPhrases, kept separate so technical aliases
+	#and theatrical phrases don't get tangled in the toml.
+	#Format: incantation=namespace:spell_id
+	#Example: by the power of fire=irons_spellbooks:fireball
+	incantations = []
+	#Spell ids the voice mod must never cast (e.g. addon spells that crash
+	#with your other mods). Format: namespace:spell_id, one per entry.
+	#Example: traveloptics:sword_of_the_ancients
+	blockedSpells = []
+	#Spell categories / loadouts. Say the name to cast the first castable
+	#spell from the list (skips ones on cooldown or out of mana).
+	#Format: name=namespace:spell_id,namespace:spell_id,...
+	#Example: offense=irons_spellbooks:fireball,irons_spellbooks:lightning_lance
+	loadouts = []
+
+[internal]
+	#Whether the welcome wizard has been shown yet.
+	#Setting this back to true is NOT enough to see the wizard again: finishing
+	#it also latches a flag in stats.dat, and the wizard only pops when both
+	#agree it has not been seen. To re-open it, use Config -> More... ->
+	#"Open Welcome Wizard".
+	firstRun = false
+

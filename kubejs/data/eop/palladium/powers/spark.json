@@ -1,0 +1,2401 @@
+{
+  "name": "Electrokinesis",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "#eop:icons/spark/electricity_icon",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "energy_bars": {
+    "elec_percent": {
+      "color": "#00d1ff",
+      "max": 100,
+      "synced_value": {
+        "type": "score",
+        "objective": "Electricity.Amount",
+        "fallback": 0
+      }
+    }
+  },
+  "abilities": {
+    "Spark": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Spark",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "scoreboard objectives add Electricity.Amount dummy",
+        "scoreboard players add @s Electricity.Amount 0",
+        "scoreboard objectives add EK.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Spark",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Electrokinesis": {
+      "type": "palladium:dummy",
+      "icon": "#eop:icons/spark/electricity_icon",
+      "title": "Electrokinesis",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to control electricity"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:spark @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{spark:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Electrokinesis\",\"color\":\"blue\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "EK.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s EK.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EK.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "EK.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s EK.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EK.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "EK.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s EK.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EK.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "EK.Scoreboard.Gain4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s EK.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 21600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EK.Score",
+            "min_score": 15,
+            "max_score": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "EK.Scoreboard.Gain5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s EK.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 36000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EK.Score",
+            "min_score": 18,
+            "max_score": 19
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Speed": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 10% more movement speed",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.1,
+      "operation": 1,
+      "uuid": "aa1f54ec-2773-4cdf-950d-ece24fafc519",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Electrokinesis"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "EK.Score",
+            "score": 2,
+            "icon": "#eop:icons/spark/electricity_icon",
+            "description": {
+              "text": "Electrokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Speed2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 10% more movement speed",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.1,
+      "operation": 1,
+      "uuid": "d7558d16-1053-4e75-9494-3680964f61de",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "EK.Score",
+            "score": 2,
+            "icon": "#eop:icons/spark/electricity_icon",
+            "description": {
+              "text": "Electrokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Speed3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 10% more movement speed",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.1,
+      "operation": 1,
+      "uuid": "e9b7c02e-5855-491a-8f0b-1e7a079136e6",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "EK.Score",
+            "score": 2,
+            "icon": "#eop:icons/spark/electricity_icon",
+            "description": {
+              "text": "Electrokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Speed4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 10% more movement speed",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.1,
+      "operation": 1,
+      "uuid": "77c505d4-8012-4688-b9e4-a37481bd3ff9",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "EK.Score",
+            "score": 2,
+            "icon": "#eop:icons/spark/electricity_icon",
+            "description": {
+              "text": "Electrokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Set.Scoreboard.Max": {
+      "type": "eop:set_scoreboard",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "scoreboard_objective": "Electricity.Amount",
+      "scoreboard_value": 100
+    },
+    "Customization.Condition": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Can.Customize"
+          }
+        ]
+      }
+    },
+    "Elec.Amount.Infinite": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players set @s Electricity.Amount 100"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Electricity.Amount",
+            "min_score": -1000,
+            "max_score": 99
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Inf.Energy"
+          }
+        ]
+      }
+    },
+    "Elec.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players add @s Electricity.Amount 2"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 10
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Electricity.Amount",
+            "min_score": -1000,
+            "max_score": 99
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "Ability.Being.Used"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Elec.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players add @s Electricity.Amount 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:is_in_rain"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 10
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Electricity.Amount",
+            "min_score": -1000,
+            "max_score": 99
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Electric Bolt",
+      "description": "Shoot out an electric bolt. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "#eop:icons/spark/electric_bolt",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Electric.Bolt.Ability": {
+      "type": "palladium:command",
+      "first_tick_commands": [
+        "scoreboard players remove @s Electricity.Amount 2",
+        "playsound eop:electric_bolt master @a ~ ~ ~ 1 1"
+      ],
+      "commands": [],
+      "bar_color": "orange",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "title": "Electric Bolt",
+      "icon": "eop:textures/gui/electric_bolt.png",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 20,
+            "key_type": "right_click"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Electricity.Amount",
+            "min_score": 2,
+            "max_score": 150
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:spark"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Electricity.Mode"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Electric.Bolt": {
+      "type": "eop:projectile_with_offset",
+      "icon": "minecraft:fire_charge",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 3,
+        "DamageType": "eop:shock",
+        "SetEntityOnFireSeconds": 0,
+        "Gravity": 0.01,
+        "Lifetime": 80,
+        "CommandOnBlockHit": "effect give @e[tag=!Spark,tag=!Tempest,tag=!EOP.Phasing,tag=!Infinity,distance=..4] eop:shock 10 0 true",
+        "CommandOnEntityHit": "effect give @e[tag=!Spark,tag=!Tempest,tag=!EOP.Phasing,tag=!Infinity,distance=..4] eop:shock 10 0 true",
+        "DieOnEntityHit": true,
+        "DieOnBlockHit": true,
+        "Appearances": [
+          {
+            "Type": "trail",
+            "Trail": "eop:elec_bolt"
+          }
+        ]
+      },
+      "speed": 2,
+      "source_property": "EOP.Spark.Lightning.Color",
+      "projectile_property": "EOP.Spark.Lightning.Color",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electric.Bolt.Ability"
+          }
+        ]
+      }
+    },
+    "Electric.Bolt.Swing": {
+      "type": "palladium:projectile",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "entity_type": "palladium:custom_projectile",
+      "inaccuracy": 0,
+      "velocity": 0,
+      "swinging_arm": "main_arm",
+      "damage_from_player": false,
+      "ignore_player_movement": false,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electric.Bolt.Ability"
+          }
+        ]
+      }
+    },
+    "Electricity.Mode.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "#eop:icons/spark/electric",
+      "title": "Pure Lightning",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "description": "Turn into electricity",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Electrokinesis"
+          }
+        ]
+      }
+    },
+    "Electricity.Mode": {
+      "type": "palladium:command",
+      "title": "Pure Lightning",
+      "icon": "#eop:icons/spark/electric",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "first_tick_commands": [
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2",
+        "scale delay set pehkui:held_item 0",
+        "scale set pehkui:projectiles -1",
+        "scale set pehkui:held_item 0"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Ability.Being.Used",
+        "scale set pehkui:projectiles 1",
+        "scale set pehkui:held_item 1",
+        "scale delay set pehkui:held_item 20",
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2"
+      ],
+      "commands": [
+        "tag @s add Ability.Being.Used"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Living.Energy"
+              }
+            ]
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Electricity.Amount",
+            "min_score": 2,
+            "max_score": 150
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:spark"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Electricity.Mode.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Water.Breathing.Lightning": {
+      "type": "eop:respiration",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "level": 200,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electricity.Mode"
+          }
+        ]
+      }
+    },
+    "Elec.Mode.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 2.2,
+      "operation": 1,
+      "uuid": "b119e03b-4089-4881-9c83-3fa1f95d6390",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electricity.Mode"
+          }
+        ]
+      }
+    },
+    "Electricity.Mode.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 3,
+      "commands": [
+        "effect give @s[tag=!Spark,tag=!FlameSpark,tag=!Tempest,tag=!EOP.Phasing,tag=!Infinity] eop:shock 10 0 true"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electricity.Mode"
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electricity.Mode"
+          }
+        ]
+      }
+    },
+    "Store.Armor": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": true,
+      "hide_offhand": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electricity.Mode"
+          }
+        ]
+      }
+    },
+    "Restrict.Slots": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs",
+        "head",
+        "mainhand",
+        "offhand"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Elec.Mode.Usage": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Electricity.Amount 2"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electricity.Mode"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 10
+          }
+        ]
+      }
+    },
+    "Elec.Mode.Sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "eop:electricity",
+      "volume": 1,
+      "pitch": 1,
+      "looping": true,
+      "play_self": false,
+      "play_others": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electricity.Mode"
+          }
+        ]
+      }
+    },
+    "Elec.Damage.Immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "eop:rift_immune",
+        "eop:rift_immune_alexscaves",
+        "eop:rift_immune_alexsmobs",
+        "eop:tacz_guns",
+        "eop:scorched_guns",
+        "eop:space_oxygen"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electricity.Mode"
+          }
+        ]
+      }
+    },
+    "Change.Others.Spark.Color": {
+      "type": "eop:aoe_property",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 1,
+      "source_property": "EOP.Spark.Lightning.Color",
+      "target_property": "EOP.Shock.Lightning.Color",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electricity.Mode"
+          }
+        ]
+      }
+    },
+    "Elec.No.Break": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "title": "Ghostly Dash",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:destroy_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "18cff289-3105-4aee-9195-4d4f1eec914e",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electricity.Mode"
+          }
+        ]
+      }
+    },
+    "Elec.No.Damage": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "121d765f-34f9-4920-8768-88eca13e8ccf",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electricity.Mode"
+          }
+        ]
+      }
+    },
+    "Fall.Immune": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "minecraft:is_fall",
+        "minecraft:is_fire",
+        "eop:tough_fire"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Electricity.Mode"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Living.Energy"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Fire.Extinguish": {
+      "type": "eop:extinguish_silent",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:is_on_fire"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Electricity.Mode"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Living.Energy"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Effects.Immune.Mods": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s toughasnails:climate_clemency"
+      ],
+      "commands": [
+        "effect give @s toughasnails:climate_clemency 1 200 true"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "toughasnails"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Electricity.Mode"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Living.Energy"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Effects.Immune.Mods2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s legendarysurvivaloverhaul:temperature_immunity"
+      ],
+      "commands": [
+        "effect give @s legendarysurvivaloverhaul:temperature_immunity 1 200 true"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Electricity.Mode"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Living.Energy"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Lightning.Damage.Immunity2": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "minecraft:is_lightning",
+        "eop:space_oxygen"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Living.Energy"
+          }
+        ]
+      }
+    },
+    "Lightning.Pass.Faster": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "execute if block ~ ~ ~ water run execute at @e[distance=0.1..40] run execute if block ~ ~ ~ water run effect give @e[sort=nearest,limit=1] eop:shock 2 0 true",
+        "execute if block ~ ~ ~ minecraft:iron_block run effect give @s speed 2 5 true",
+        "execute if block ~ ~ ~ minecraft:iron_bars run effect give @s speed 2 5 true",
+        "execute if block ~ ~ ~ minecraft:gold_block run effect give @s speed 2 20 true",
+        "execute if block ~ ~ ~ #eop:conductive run effect give @s speed 2 50 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electricity.Mode"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 30
+          }
+        ]
+      }
+    },
+    "Swim.Speed.Forge": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "forge:swim_speed",
+      "amount": 5,
+      "operation": 1,
+      "uuid": "d34a4b02-650c-4f12-a7ef-f39cbf27fe56",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:in_water"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electricity.Mode"
+          }
+        ]
+      }
+    },
+    "Lightning.Phase": {
+      "type": "palladium:intangibility",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "blacklist": "eop:electric_flow",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Electricity.Mode"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_elementales_g2"
+          }
+        ]
+      }
+    },
+    "Phase.Down": {
+      "type": "palladium:intangibility",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "vertical": true,
+      "blacklist": "eop:electric_flow",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Electricity.Mode"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Phase.Down"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_elementales_g2"
+          }
+        ]
+      }
+    },
+    "Sparks.Elec": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:spark/sparks",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electricity.Mode"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Trail": {
+      "type": "palladium:trail",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "trail": "eop:elec_trail",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Electricity.Mode"
+          }
+        ]
+      }
+    },
+    "Remove.Layers": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head_overlay",
+        "chest_overlay",
+        "right_arm",
+        "left_arm",
+        "right_leg",
+        "left_leg",
+        "head",
+        "chest",
+        "cape"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Electricity.Mode"
+              },
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transformation.Animation",
+                "property": "value",
+                "min": 16,
+                "max": 17
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Flight.Elec": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:flight_speed",
+      "amount": 1,
+      "uuid": "e9f95397-2ddb-46c7-8719-7b4a49300d1f",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:attribute_check",
+            "attribute": "palladium:jump_power",
+            "comparison": ">",
+            "value": 0
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electricity.Mode"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_elementales_g2"
+          }
+        ]
+      }
+    },
+    "Electrify.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "#eop:icons/spark/electrify",
+      "title": "Electrify",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Electrify the air around you, damaging and stunning targets",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Electricity.Mode.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "EK.Score",
+            "score": 5,
+            "icon": "#eop:icons/spark/electricity_icon",
+            "description": {
+              "text": "Electrokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Electrify.Animation": {
+      "type": "palladium:command",
+      "icon": "#eop:icons/spark/electrify",
+      "title": "Electrify",
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "first_tick_commands": [
+        "tag @s add Ability.Being.Used",
+        "summon armor_stand ~ ~ ~ {Palladium:{Properties:{superpowers:[\"eop:models/area_shock\"]}},Tags:[\"Electrify\"],DisabledSlots:63,Invulnerable:1,Invisible:1}",
+        "tag @s add EOP.Electrifying"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Ability.Being.Used",
+        "tag @s remove EOP.Electrifying",
+        "kill @e[type=armor_stand,tag=Electrify,limit=1,sort=nearest]"
+      ],
+      "commands": [
+        "tag @s add Ability.Being.Used"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Electricity.Amount",
+            "min_score": 20,
+            "max_score": 150
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Electrify.Unlock"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:spark"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Electricity.Mode"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Electrify.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 10,
+      "commands": [
+        "effect give @s[tag=!FlameSpark,tag=!Spark,tag=!Tempest,tag=!EOP.Phasing,tag=!Infinity,type=!armor_stand] eop:shock_stronger 10 0 true"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electrify.Animation"
+          }
+        ]
+      }
+    },
+    "Change.Others.Spark.Color2": {
+      "type": "eop:aoe_property",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 10,
+      "source_property": "EOP.Spark.Lightning.Color",
+      "target_property": "EOP.Shock.Lightning.Color",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electrify.Animation"
+          }
+        ]
+      }
+    },
+    "Electrify.Sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "eop:electricity",
+      "volume": 1,
+      "pitch": 1,
+      "looping": true,
+      "play_self": false,
+      "play_others": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Electrify.Animation"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "02a46f43-79bf-494b-83b3-8cedd1e33f37",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Electrify.Animation"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "72781336-dc00-481e-91cc-68f26d196ad8",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Electrify.Animation"
+          }
+        ]
+      }
+    },
+    "Electrify.Usage": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Electricity.Amount 2"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Electrify.Animation"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 5
+          }
+        ]
+      }
+    },
+    "Lightning.Beam.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "#eop:icons/spark/electric_flow",
+      "title": "Electric Flow",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Shoot beams of electricity from your hands",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Electrify.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "EK.Score",
+            "score": 7,
+            "icon": "#eop:icons/spark/electricity_icon",
+            "description": {
+              "text": "Electrokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Lightning.Beam.Hand": {
+      "type": "palladium:aim",
+      "icon": "#eop:icons/spark/electric_flow",
+      "title": "Electric Flow",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "time": 10,
+      "arm": "main_arm",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Electricity.Amount",
+            "min_score": 20,
+            "max_score": 150
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Electricity.Mode"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Lightning.Beam.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Lightning.Beam.Hand2": {
+      "type": "palladium:aim",
+      "bar_color": "light_gray",
+      "title": "Solar Rays",
+      "icon": "eop:textures/gui/energy_beam.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "time": 10,
+      "arm": "off_arm",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lightning.Beam.Hand"
+          }
+        ]
+      }
+    },
+    "Lightning.Beam": {
+      "type": "palladium:energy_beam",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "energy_beam": "eop:electricity",
+      "damage_type": "eop:shock",
+      "damage": 0,
+      "max_distance": 30,
+      "speed": 0.5,
+      "set_on_fire_seconds": 0,
+      "cause_fire": false,
+      "smelt_blocks": false,
+      "commands_on_block_hit": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lightning.Beam.Hand"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lightning.Beam.Timer",
+            "property": "value",
+            "min": 8,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Lightning.Beam.Custom": {
+      "type": "eop:raycast_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_type": "eop:shock",
+      "damage": 1,
+      "range": 30,
+      "ignore_same_team": true,
+      "set_on_fire_seconds": 0,
+      "commands_on_entity_hit": [
+        "function eop:powers/spark/electrify"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lightning.Beam.Hand"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lightning.Beam.Timer",
+            "property": "value",
+            "min": 8,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Change.Others.Spark.Color.Ray": {
+      "type": "eop:raycast_property",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "range": 30,
+      "source_property": "EOP.Spark.Lightning.Color",
+      "target_property": "EOP.Shock.Lightning.Color",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lightning.Beam.Hand"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lightning.Beam.Timer",
+            "property": "value",
+            "min": 8,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Lightning.Beam.Usage": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Electricity.Amount 4"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lightning.Beam.Hand"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lightning.Beam.Timer",
+            "property": "value",
+            "min": 8,
+            "max": 50
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 10
+          }
+        ]
+      }
+    },
+    "Lightning.Beam.Timer": {
+      "type": "palladium:animation_timer",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "start_value": 0,
+      "max_value": 8,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lightning.Beam.Hand"
+          }
+        ]
+      }
+    },
+    "Beam.Offhand": {
+      "type": "palladium:show_both_arms",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Lightning.Beam.Hand"
+          }
+        ]
+      }
+    },
+    "Beam.Sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "eop:electricity",
+      "volume": 1,
+      "pitch": 1,
+      "looping": true,
+      "play_self": false,
+      "play_others": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Lightning.Beam.Hand"
+          }
+        ]
+      }
+    },
+    "Beam.Electrify.Effect2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "tag @s remove Ability.Being.Used"
+      ],
+      "commands": [
+        "tag @s add Ability.Being.Used"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lightning.Beam.Hand"
+          }
+        ]
+      }
+    },
+    "Teleport.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "#eop:icons/spark/bolt",
+      "title": "Static Jump",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Teleport to where you are looking",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Lightning.Beam.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "EK.Score",
+            "score": 10,
+            "icon": "#eop:icons/spark/electricity_icon",
+            "description": {
+              "text": "Electrokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Teleport.Ability": {
+      "type": "eop:raycast_teleport",
+      "icon": "#eop:icons/spark/bolt",
+      "title": "Static Jump",
+      "list_index": 3,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "range": 150,
+      "particle": "minecraft:end_rod",
+      "particle_count": 40,
+      "sound": "eop:electric_bolt",
+      "sound_volume": 1,
+      "sound_pitch": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 20,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Electricity.Amount",
+            "min_score": 10,
+            "max_score": 150
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Teleport.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_elementales_g2"
+          }
+        ]
+      }
+    },
+    "Living.Energy.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "#eop:icons/spark/electric_being",
+      "title": "Living Energy",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Energize your body, becoming living electrical energy",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Teleport.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Speed4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "EK.Score",
+            "score": 20,
+            "icon": "#eop:icons/spark/electricity_icon",
+            "description": {
+              "text": "Electrokinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Living.Energy": {
+      "type": "palladium:command",
+      "icon": "#eop:icons/spark/electric_being",
+      "title": "Pure Lightning",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "first_tick_commands": [
+        "playsound minecraft:entity.illusioner.prepare_blindness master @a ~ ~ ~ 1 1.6"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Ability.Being.Used",
+        "playsound minecraft:entity.illusioner.prepare_blindness master @a ~ ~ ~ 1 1.6"
+      ],
+      "commands": [
+        "tag @s add Ability.Being.Used",
+        "superpower remove eop:effects/banished",
+        "superpower remove eop:effects/crush",
+        "superpower remove eop:effects/distorted",
+        "superpower remove eop:effects/phero_cloud",
+        "superpower remove eop:effects/poison",
+        "superpower remove eop:effects/rain",
+        "superpower remove eop:effects/sink",
+        "superpower remove eop:effects/spores_damage"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Living.Energy.Unlock"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:spark"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Water.Breathing.Ult": {
+      "type": "eop:respiration",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "level": 200,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Living.Energy"
+          }
+        ]
+      }
+    },
+    "Effect.Immunity.Ult": {
+      "type": "eop:effect_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "effects": [
+        "eop:shock",
+        "eop:shock_stronger",
+        "eop:freeze",
+        "eop:freeze_stronger",
+        "eop:boil",
+        "eop:boil_strong",
+        "eop:brain_overload",
+        "eop:auditory_deception",
+        "eop:sensory_deception",
+        "eop:auditory_deception_herobrine",
+        "eop:pain_intolerance",
+        "eop:power_erasure",
+        "eop:flash_blindness",
+        "eop:optic_blindness",
+        "eop:werewolf_infection",
+        "eop:vampire_infection",
+        "minecraft:instant_damage",
+        "minecraft:nausea",
+        "minecraft:blindness",
+        "minecraft:hunger",
+        "minecraft:poison",
+        "minecraft:wither",
+        "minecraft:slowness",
+        "minecraft:darkness",
+        "minecraft:levitation",
+        "minecraft:weakness"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Living.Energy"
+          }
+        ]
+      }
+    },
+    "Hide.Layers": {
+      "type": "palladium:hide_body_part",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head_overlay",
+        "chest_overlay"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Living.Energy"
+          }
+        ]
+      }
+    },
+    "Pure.Lightning": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:spark/electric_body",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transformation.Animation": {
+      "type": "palladium:animation_timer",
+      "start_value": 0,
+      "max_value": 17,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Living.Energy"
+          }
+        ]
+      }
+    },
+    "Armor": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 20,
+      "operation": 0,
+      "uuid": "c763cef7-fabe-4d3a-a9b6-527cf82e1e7b",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Living.Energy"
+          }
+        ]
+      }
+    },
+    "Punch.Damage": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "hidden": true,
+      "amount": 3,
+      "uuid": "5c5bc3a8-38b5-48b9-99e7-d485dbd42de4",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Living.Energy"
+          }
+        ]
+      }
+    },
+    "Elec.Light": {
+      "type": "eop:light_aura",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "light_level": 15,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Living.Energy"
+          }
+        ]
+      }
+    },
+    "Sparks": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:spark/sparks",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Living.Energy"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Flight": {
+      "type": "palladium:attribute_modifier",
+      "title": "Flight",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "icon": "eop:textures/gui/flight.png",
+      "description": "You are able to fly.",
+      "attribute": "palladium:flight_speed",
+      "list_index": 0,
+      "amount": 1.5,
+      "uuid": "afc08366-dbff-401b-a9f1-f2e16b174a45",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:attribute_check",
+            "attribute": "palladium:jump_power",
+            "comparison": ">",
+            "value": 0
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Living.Energy"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_elementales_g2"
+          }
+        ]
+      }
+    },
+    "Movement.Speed": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.1,
+      "operation": 0,
+      "uuid": "bd563fbc-9ede-476e-89b5-5410cc3c70e3",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Living.Energy"
+          }
+        ]
+      }
+    },
+    "Ult.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players add @s Electricity.Amount 2"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Living.Energy"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 10
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Electricity.Amount",
+            "min_score": -100,
+            "max_score": 99
+          }
+        ]
+      }
+    }
+  }
+}

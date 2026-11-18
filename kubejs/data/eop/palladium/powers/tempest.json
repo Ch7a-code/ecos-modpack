@@ -1,0 +1,2832 @@
+{
+  "name": "Weather Manipulation",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/cloud.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "abilities": {
+    "Tempest": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Tempest",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "scoreboard objectives add EOP.Tempest.Weather dummy",
+        "scoreboard players set @s EOP.Tempest.Weather 0",
+        "scoreboard objectives add WM.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Tempest",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "effect clear @s eop:charge",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Weather.Manipulation": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/cloud.png",
+      "title": "Weather Manipulation",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to manipulate and command the weather"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:tempest @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{tempest:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Weather Manipulation\",\"color\":\"#91b6cf\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "WM.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s WM.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "WM.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "WM.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s WM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "WM.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "WM.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s WM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "WM.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "WM.Scoreboard.Gain4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s WM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 21600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "WM.Score",
+            "min_score": 15,
+            "max_score": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "WM.Scoreboard.Gain5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s WM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 36000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "WM.Score",
+            "min_score": 18,
+            "max_score": 24
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Damage": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 1 more damage point",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "8b39081c-4177-43a1-ad3b-beede545d483",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Weather.Manipulation"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "WM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/cloud.png",
+            "description": {
+              "text": "Weather Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 1 more damage point",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "d7ba8cfc-9bdc-4ac1-9df0-efb646e20cac",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "WM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/cloud.png",
+            "description": {
+              "text": "Weather Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 1 more damage point",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "bfd3a786-ae47-4770-9257-474c933c7ba7",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "WM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/cloud.png",
+            "description": {
+              "text": "Weather Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 1 more damage point",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "ca99329c-409b-48fe-82a0-dc7075754d6b",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "WM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/cloud.png",
+            "description": {
+              "text": "Weather Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Lightning.Immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "damage_sources": [
+        "minecraft:is_lightning"
+      ]
+    },
+    "AOE.Slow.Fall.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 15,
+      "commands": [
+        "effect give @s slow_falling 2 3 true"
+      ],
+      "ignore_same_team": false,
+      "ignore_pets": false,
+      "only_same_team": true,
+      "include_caster": true,
+      "execution_mode": "as",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Slow.Fall.On"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 18
+          }
+        ]
+      }
+    },
+    "Effects.Immune.Mods": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s toughasnails:climate_clemency"
+      ],
+      "commands": [
+        "effect give @s toughasnails:climate_clemency 1 200 true"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "toughasnails"
+          }
+        ]
+      }
+    },
+    "Effects.Immune.Mods2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s legendarysurvivaloverhaul:temperature_immunity"
+      ],
+      "commands": [
+        "effect give @s legendarysurvivaloverhaul:temperature_immunity 1 200 true"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "Effect.Immunity": {
+      "type": "eop:effect_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "effects": [
+        "eop:shock",
+        "eop:shock_stronger",
+        "eop:freeze",
+        "eop:freeze_stronger"
+      ]
+    },
+    "Flight": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:flight_speed",
+      "list_index": 0,
+      "amount": 1,
+      "uuid": "75cc9778-10c4-446b-8a19-a5d0d4fa27c5",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:attribute_check",
+            "attribute": "palladium:jump_power",
+            "comparison": ">",
+            "value": 0
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_elementales_g2"
+          }
+        ]
+      }
+    },
+    "Fly.Particles": {
+      "type": "palladium:particles",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "emitter": [
+        "eop:general_body"
+      ],
+      "particle_type": "minecraft:poof",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:is_hovering_or_flying"
+          }
+        ]
+      }
+    },
+    "Charged": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "effect give @s eop:charge 60 0 true"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "eop:lightning_check",
+            "radius": 2,
+            "min_count": 1
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Tornado"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Lightning",
+      "description": "Summon lightning in the direction you are looking. If it is raining this attack becomes more powerful. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/lightning.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Thunder": {
+      "type": "palladium:energy_beam",
+      "icon": "eop:textures/gui/lightning.png",
+      "title": "Thunder",
+      "list_index": 3,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "energy_beam": "eop:noenergybeam",
+      "damage_type": "eop:basic",
+      "damage": 0,
+      "max_distance": 150,
+      "speed": 100,
+      "set_on_fire_seconds": 0,
+      "cause_fire": false,
+      "smelt_blocks": false,
+      "commands_on_block_hit": [
+        "execute if predicate eop:weather_clear_check run summon lightning_bolt ~ ~ ~",
+        "execute if predicate eop:rain_check run summon lightning_bolt ~ ~ ~",
+        "execute if predicate eop:rain_check run summon lightning_bolt ~ ~ ~1",
+        "execute if predicate eop:rain_check run summon lightning_bolt ~1 ~ ~",
+        "execute if predicate eop:rain_check run summon lightning_bolt ~ ~ ~-1",
+        "execute if predicate eop:rain_check run summon lightning_bolt ~-1 ~ ~",
+        "execute if predicate eop:thunder_check run summon lightning_bolt ~ ~ ~",
+        "execute if predicate eop:thunder_check run summon lightning_bolt ~ ~ ~1",
+        "execute if predicate eop:thunder_check run summon lightning_bolt ~1 ~ ~",
+        "execute if predicate eop:thunder_check run summon lightning_bolt ~ ~ ~-1",
+        "execute if predicate eop:thunder_check run summon lightning_bolt ~-1 ~ ~"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 20,
+            "key_type": "right_click",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:tempest"
+          },
+          {
+            "type": "eop:can_see_sky"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:dimension",
+                "dimension": "minecraft:the_nether"
+              },
+              {
+                "type": "palladium:dimension",
+                "dimension": "minecraft:the_end"
+              },
+              {
+                "type": "palladium:dimension",
+                "dimension": "eop:pocket_dimension"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:mod_loaded",
+                "mod_id": "weather2"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Thunder2": {
+      "type": "palladium:energy_beam",
+      "icon": "eop:textures/gui/lightning.png",
+      "title": "Thunder",
+      "list_index": 3,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "energy_beam": "eop:noenergybeam",
+      "damage_type": "eop:basic",
+      "damage": 0,
+      "max_distance": 150,
+      "speed": 100,
+      "set_on_fire_seconds": 0,
+      "cause_fire": false,
+      "smelt_blocks": false,
+      "commands_on_block_hit": [
+        "summon lightning_bolt ~ ~ ~",
+        "summon lightning_bolt ~ ~ ~1",
+        "summon lightning_bolt ~1 ~ ~",
+        "summon lightning_bolt ~ ~ ~-1",
+        "summon lightning_bolt ~-1 ~ ~"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 20,
+            "key_type": "right_click",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:tempest"
+          },
+          {
+            "type": "eop:can_see_sky"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:dimension",
+                "dimension": "minecraft:the_nether"
+              },
+              {
+                "type": "palladium:dimension",
+                "dimension": "minecraft:the_end"
+              },
+              {
+                "type": "palladium:dimension",
+                "dimension": "eop:pocket_dimension"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "weather2"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Thunder.Custom": {
+      "type": "eop:raycast_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_type": "eop:shock",
+      "damage": 0,
+      "range": 150,
+      "ignore_same_team": true,
+      "set_on_fire_seconds": 0,
+      "commands_on_entity_hit": [
+        "execute if predicate eop:weather_clear_check run summon lightning_bolt ~ ~ ~",
+        "execute if predicate eop:rain_check run summon lightning_bolt ~ ~ ~",
+        "execute if predicate eop:rain_check run summon lightning_bolt ~ ~ ~1",
+        "execute if predicate eop:rain_check run summon lightning_bolt ~1 ~ ~",
+        "execute if predicate eop:rain_check run summon lightning_bolt ~ ~ ~-1",
+        "execute if predicate eop:rain_check run summon lightning_bolt ~-1 ~ ~",
+        "execute if predicate eop:thunder_check run summon lightning_bolt ~ ~ ~",
+        "execute if predicate eop:thunder_check run summon lightning_bolt ~ ~ ~1",
+        "execute if predicate eop:thunder_check run summon lightning_bolt ~1 ~ ~",
+        "execute if predicate eop:thunder_check run summon lightning_bolt ~ ~ ~-1",
+        "execute if predicate eop:thunder_check run summon lightning_bolt ~-1 ~ ~"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Thunder"
+          }
+        ]
+      }
+    },
+    "Thunder.Custom2": {
+      "type": "eop:raycast_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_type": "eop:shock",
+      "damage": 0,
+      "range": 150,
+      "ignore_same_team": true,
+      "set_on_fire_seconds": 0,
+      "commands_on_entity_hit": [
+        "summon lightning_bolt ~ ~ ~",
+        "summon lightning_bolt ~ ~ ~1",
+        "summon lightning_bolt ~1 ~ ~",
+        "summon lightning_bolt ~ ~ ~-1",
+        "summon lightning_bolt ~-1 ~ ~"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Thunder2"
+          }
+        ]
+      }
+    },
+    "Push.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/wind_flight.png",
+      "title": "Wind Barrier",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "description": "Creates a barrier of wind pushing entities out",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Weather.Manipulation"
+          }
+        ]
+      }
+    },
+    "Push": {
+      "type": "eop:aoe_knockback",
+      "icon": "eop:textures/gui/wind_flight.png",
+      "title": "Wind Barrier",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "radius": 6,
+      "knockback": 7,
+      "invert": false,
+      "crush": false,
+      "cone": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Push.Unlock"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "palladium:crouching"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Push"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Tornado"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Push.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "particle poof ~ ~ ~ 5 3 5 0.3 10 force",
+        "fill ~-4 ~-1 ~-4 ~4 ~4 ~4 air replace fire"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Push"
+          }
+        ]
+      }
+    },
+    "Push.Sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "sound": "eop:wind",
+      "volume": 1,
+      "pitch": 0.5,
+      "looping": true,
+      "play_self": false,
+      "play_others": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Push"
+          }
+        ]
+      }
+    },
+    "Lightning.Beam.Hand": {
+      "type": "palladium:aim",
+      "icon": "eop:textures/gui/electric_flow.png",
+      "title": "Electric Shock",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "time": 10,
+      "arm": "main_arm",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 200,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Push.Unlock"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:crouching"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Lightning.Beam.Hand"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Tornado"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Lightning.Beam.Hand2": {
+      "type": "palladium:aim",
+      "bar_color": "light_gray",
+      "title": "Solar Rays",
+      "icon": "eop:textures/gui/energy_beam.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "time": 10,
+      "arm": "off_arm",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lightning.Beam.Hand"
+          }
+        ]
+      }
+    },
+    "Lightning.Beam": {
+      "type": "palladium:energy_beam",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "energy_beam": "eop:electricity_tempest",
+      "damage_type": "eop:shock",
+      "damage": 0,
+      "max_distance": 30,
+      "speed": 0.5,
+      "set_on_fire_seconds": 0,
+      "cause_fire": false,
+      "smelt_blocks": false,
+      "commands_on_block_hit": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lightning.Beam.Hand"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lightning.Beam.Timer",
+            "property": "value",
+            "min": 8,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Lightning.Beam.Custom": {
+      "type": "eop:raycast_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_type": "eop:shock",
+      "damage": 5,
+      "range": 30,
+      "ignore_same_team": true,
+      "set_on_fire_seconds": 0,
+      "commands_on_entity_hit": [
+        "function eop:powers/spark/electrify"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lightning.Beam.Hand"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lightning.Beam.Timer",
+            "property": "value",
+            "min": 8,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Lightning.Beam.Timer": {
+      "type": "palladium:animation_timer",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "start_value": 0,
+      "max_value": 8,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lightning.Beam.Hand"
+          }
+        ]
+      }
+    },
+    "Beam.Offhand": {
+      "type": "palladium:show_both_arms",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Lightning.Beam.Hand"
+          }
+        ]
+      }
+    },
+    "Beam.Sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "sound": "eop:electricity",
+      "volume": 1,
+      "pitch": 1,
+      "looping": true,
+      "play_self": false,
+      "play_others": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Lightning.Beam.Hand"
+          }
+        ]
+      }
+    },
+    "Weather.Change.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/weather_change.png",
+      "title": "Weather Change",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Command the weather to change how you want. §dSneak §fto cycle between weather options",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Push.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "WM.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/cloud.png",
+            "description": {
+              "text": "Weather Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Weather.Change": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/weather_change.png",
+      "title": "Weather Change",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "first_tick_commands": [
+        "execute if score @s EOP.Tempest.Weather matches 0 run weather clear",
+        "execute if score @s EOP.Tempest.Weather matches 1 run weather rain",
+        "execute if score @s EOP.Tempest.Weather matches 2 run weather thunder"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Weather.Change.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:mod_loaded",
+                "mod_id": "weather2"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:crouching"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Weather.Change2": {
+      "type": "eop:weather",
+      "icon": "eop:textures/gui/weather_change.png",
+      "title": "Weather Change",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:dimension",
+                "dimension": "minecraft:the_nether"
+              },
+              {
+                "type": "palladium:dimension",
+                "dimension": "minecraft:the_end"
+              },
+              {
+                "type": "palladium:dimension",
+                "dimension": "eop:pocket_dimension"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Weather.Change.Unlock"
+          },
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "weather2"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:crouching"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Weather.Change.Switch": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/weather_change.png",
+      "title": "Weather Change",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "first_tick_commands": [
+        "execute if score @s EOP.Tempest.Weather matches ..2 run scoreboard players add @s EOP.Tempest.Weather 1",
+        "execute if score @s EOP.Tempest.Weather matches 3 run scoreboard players set @s EOP.Tempest.Weather 0",
+        "execute if score @s EOP.Tempest.Weather matches 0 run title @s actionbar [\"\",{\"text\":\"Clear Weather\",\"color\":\"white\"}]",
+        "execute if score @s EOP.Tempest.Weather matches 1 run title @s actionbar [\"\",{\"text\":\"Rain\",\"color\":\"blue\"}]",
+        "execute if score @s EOP.Tempest.Weather matches 2 run title @s actionbar [\"\",{\"text\":\"Thunder\",\"color\":\"dark_blue\"}]"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Weather.Change.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:mod_loaded",
+                "mod_id": "weather2"
+              }
+            ]
+          },
+          {
+            "type": "palladium:crouching"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Weather.Change.Switch2": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/weather_change.png",
+      "title": "Weather Change",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "first_tick_commands": [
+        "execute if score @s EOP.Tempest.Weather matches ..5 run scoreboard players add @s EOP.Tempest.Weather 1",
+        "execute if score @s EOP.Tempest.Weather matches 6 run scoreboard players set @s EOP.Tempest.Weather 0",
+        "execute if score @s EOP.Tempest.Weather matches 0 run title @s actionbar [\"\",{\"text\":\"Clear Weather\",\"color\":\"white\"}]",
+        "execute if score @s EOP.Tempest.Weather matches 1 run title @s actionbar [\"\",{\"text\":\"Rain\",\"color\":\"blue\"}]",
+        "execute if score @s EOP.Tempest.Weather matches 2 run title @s actionbar [\"\",{\"text\":\"Thunder\",\"color\":\"dark_blue\"}]",
+        "execute if score @s EOP.Tempest.Weather matches 3 run title @s actionbar [\"\",{\"text\":\"Hail\",\"color\":\"#d6fffd\"}]",
+        "execute if score @s EOP.Tempest.Weather matches 4 run title @s actionbar [\"\",{\"text\":\"Sandstorm\",\"color\":\"#fadf91\"}]",
+        "execute if score @s EOP.Tempest.Weather matches 5 run title @s actionbar [\"\",{\"text\":\"Snowstorm\",\"color\":\"white\"}]"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Weather.Change.Unlock"
+          },
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "weather2"
+          },
+          {
+            "type": "palladium:crouching"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Thundering.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/thundering.png",
+      "title": "Temporal Destruction",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Create a destructive temporal force depending on what region you are in",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Weather.Change.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "WM.Score",
+            "score": 10,
+            "icon": "eop:textures/gui/cloud.png",
+            "description": {
+              "text": "Weather Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Thundering.Sounds": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "sound": "eop:ice_age",
+      "volume": 1,
+      "pitch": 1,
+      "looping": true,
+      "play_self": true,
+      "play_others": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Thundering.Hot"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Thundering.Cold"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Thundering.Sounds2": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "sound": "eop:sun_ult_fire",
+      "volume": 1,
+      "pitch": 1,
+      "looping": true,
+      "play_self": true,
+      "play_others": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Thundering.Nether"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Thundering.End"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Thundering": {
+      "type": "eop:aoe_lightning",
+      "icon": "eop:textures/gui/thundering.png",
+      "title": "Temporal Destruction",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "radius": 30,
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:can_see_sky"
+          },
+          {
+            "type": "palladium:activation",
+            "ticks": 200,
+            "cooldown": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Thundering.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Tornado"
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "eop:biome_temperature_check",
+                    "comparison": ">",
+                    "value": 0.5,
+                    "use_feels_like": false
+                  },
+                  {
+                    "type": "eop:biome_temperature_check",
+                    "comparison": "<",
+                    "value": 2,
+                    "use_feels_like": false
+                  }
+                ]
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Thundering"
+              }
+            ]
+          },
+          {
+            "type": "palladium:dimension",
+            "dimension": "minecraft:overworld"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Thundering.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 30,
+      "commands": [
+        "tag @s add EOP.Immune.To.Lightning"
+      ],
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "ignore_same_team": false,
+      "ignore_pets": false,
+      "only_same_team": true,
+      "execution_mode": "as",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Thundering"
+          }
+        ]
+      }
+    },
+    "Thundering.Hot": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/thundering.png",
+      "title": "Temporal Destruction",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "particle block sand ~ ~ ~ 20 10 20 0 400 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 200,
+            "cooldown": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Thundering.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Tornado"
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "eop:biome_temperature_check",
+                "comparison": ">=",
+                "value": 2,
+                "use_feels_like": false
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Thundering.Hot"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:dimension",
+                "dimension": "minecraft:the_nether"
+              },
+              {
+                "type": "palladium:dimension",
+                "dimension": "minecraft:the_end"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Thundering.Hot.Custom": {
+      "type": "eop:aoe_command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 30,
+      "commands": [
+        "effect give @s[tag=!Tempest,tag=!Infinity,tag=!EOP.Phasing] slowness 1 2 true",
+        "damage @s[tag=!Tempest,tag=!Infinity,tag=!EOP.Phasing] 2 eop:sandstorm"
+      ],
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "only_same_team": false,
+      "execution_mode": "as",
+      "include_caster": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Thundering.Hot"
+          }
+        ]
+      }
+    },
+    "Thundering.Cold": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/thundering.png",
+      "title": "Temporal Destruction",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "particle snowflake ~ ~ ~ 20 10 20 0 200 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 200,
+            "cooldown": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Thundering.Unlock"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "eop:biome_temperature_check",
+                "comparison": "<=",
+                "value": 0.5,
+                "use_feels_like": false
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Thundering.Cold"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Tornado"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:dimension",
+                "dimension": "minecraft:the_nether"
+              },
+              {
+                "type": "palladium:dimension",
+                "dimension": "minecraft:the_end"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Thundering.Cold.Custom": {
+      "type": "eop:aoe_command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 30,
+      "commands": [
+        "effect give @s[tag=!Tempest,tag=!Infinity,tag=!EOP.Phasing] eop:freeze_stronger 1 0 true"
+      ],
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "only_same_team": false,
+      "execution_mode": "as",
+      "include_caster": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Thundering.Cold"
+          }
+        ]
+      }
+    },
+    "Thundering.Nether": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/thundering.png",
+      "title": "Temporal Destruction",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "particle flame ~ ~ ~ 20 10 20 0 200 force",
+        "particle lava ~ ~ ~ 20 10 20 0 100 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 200,
+            "cooldown": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Thundering.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Tornado"
+              }
+            ]
+          },
+          {
+            "type": "palladium:dimension",
+            "dimension": "minecraft:the_nether"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Thundering.Nether.Custom": {
+      "type": "eop:aoe_command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 30,
+      "commands": [
+        "damage @s[tag=!EOP.Phasing,tag=!Infinity,tag=!Tempest] 2 minecraft:on_fire"
+      ],
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "only_same_team": false,
+      "execution_mode": "as",
+      "include_caster": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Thundering.Nether"
+          }
+        ]
+      }
+    },
+    "Thundering.End": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/thundering.png",
+      "title": "Temporal Destruction",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "particle block end_portal ~ ~ ~ 20 10 20 0 200 force",
+        "particle portal ~ ~ ~ 20 10 20 0 100 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 200,
+            "cooldown": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Thundering.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Tornado"
+              }
+            ]
+          },
+          {
+            "type": "palladium:dimension",
+            "dimension": "minecraft:the_end"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Thundering.End.Custom": {
+      "type": "eop:aoe_command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 30,
+      "commands": [
+        "damage @s[tag=!EOP.Phasing,tag=!Infinity,tag=!Tempest] 2 minecraft:generic",
+        "effect give @s[tag=!EOP.Phasing,tag=!Infinity,tag=!Tempest] slowness 1 1 true"
+      ],
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "only_same_team": false,
+      "execution_mode": "as",
+      "include_caster": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Thundering.End"
+          }
+        ]
+      }
+    },
+    "Tornado.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/tornado.png",
+      "title": "Wind Elemental",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Manipulate the wind around you to form a wind elemental",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Thundering.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "WM.Score",
+            "score": 15,
+            "icon": "eop:textures/gui/cloud.png",
+            "description": {
+              "text": "Weather Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Tornado": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/tornado.png",
+      "title": "Wind Elemental",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "first_tick_commands": [
+        "particle poof ~ ~ ~ 1 1 1 1 3000 force",
+        "tag @s add EOP.Non.Humanoid.Model",
+        "scale set pehkui:eye_height 1.5",
+        "scale set pehkui:step_height 2",
+        "scale set pehkui:reach 3",
+        "scale set pehkui:width 4",
+        "scale set pehkui:held_item 0",
+        "scale set pehkui:height 4",
+        "scale set pehkui:hitbox_width 0.1",
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2",
+        "effect clear @s eop:charge"
+      ],
+      "last_tick_commands": [
+        "particle poof ~ ~ ~ 1 1 1 1 3000 force",
+        "tag @s remove EOP.Non.Humanoid.Model",
+        "scale set pehkui:eye_height 1",
+        "scale set pehkui:step_height 1",
+        "scale set pehkui:reach 1",
+        "scale set pehkui:width 1",
+        "scale set pehkui:held_item 1",
+        "scale set pehkui:height 1",
+        "scale set pehkui:hitbox_width 1",
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2"
+      ],
+      "commands": [
+        "particle poof ~ ~ ~ 10 10 10 0.6 20 force",
+        "particle campfire_cosy_smoke ~ ~ ~ 10 10 10 0.6 20 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 2400,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Tornado.Unlock"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:tempest"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Tornado.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "execute unless entity @s[tag=EOP.No.Destroy] run fill ~8 ~4 ~8 ~-8 ~-3 ~-8 air replace fire",
+        "execute unless entity @s[tag=EOP.No.Destroy] run fill ~8 ~4 ~8 ~-8 ~-3 ~-8 air replace torch",
+        "execute unless entity @s[tag=EOP.No.Destroy] run fill ~8 ~4 ~8 ~-8 ~-3 ~-8 air replace soul_fire"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Tornado"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Slowfall": {
+      "type": "palladium:slowfall",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Tornado"
+          }
+        ]
+      }
+    },
+    "Tornado.Strength": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 12,
+      "operation": 0,
+      "uuid": "050bbe0e-cb81-4efc-8aaf-139196d5c78b",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Tornado"
+          }
+        ]
+      }
+    },
+    "Tornado.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 10,
+      "commands": [
+        "effect give @s[tag=!Tornado,tag=!EOP.Phasing,tag=!Infinity,tag=!Tempest] levitation 1 3 true",
+        "effect give @s[tag=!Tornado,tag=!EOP.Phasing,tag=!Infinity,tag=!Tempest] darkness 1 3 true",
+        "damage @s[tag=!Tornado,tag=!EOP.Phasing,tag=!Infinity,tag=!Tempest,type=!#eop:undead] 2 eop:suffocation"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "execution_mode": "as",
+      "entity_types": [],
+      "entity_types_mode": "all",
+      "tags": [],
+      "tags_mode": "all",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Tornado"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Elemental.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:tempest/wind_elemental",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Elemental.Sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "sound": "eop:tornado",
+      "volume": 5,
+      "pitch": 1,
+      "looping": true,
+      "play_self": false,
+      "play_others": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Tornado"
+          }
+        ]
+      }
+    },
+    "Tornado.Hide.Body": {
+      "type": "palladium:hide_body_part",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head_overlay",
+        "chest_overlay",
+        "right_arm",
+        "left_arm",
+        "right_leg",
+        "left_leg",
+        "head",
+        "chest",
+        "cape"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Tornado"
+          }
+        ]
+      }
+    },
+    "Water.Walk": {
+      "type": "palladium:water_walk",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:crouching"
+              },
+              {
+                "type": "palladium:in_water"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Tornado"
+          }
+        ]
+      }
+    },
+    "Lava.Walk": {
+      "type": "palladium:fluid_walking",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "fluid_tag": "minecraft:lava",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:crouching"
+              },
+              {
+                "type": "palladium:in_lava"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Tornado"
+          }
+        ]
+      }
+    },
+    "Phase": {
+      "type": "palladium:intangibility",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "vertical": false,
+      "whitelist": "eop:tornado",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Tornado"
+          }
+        ]
+      }
+    },
+    "Tornado.Damage.Immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "eop:wraith_immune",
+        "eop:tacz_guns",
+        "eop:scorched_guns"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Tornado"
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Tornado"
+          }
+        ]
+      }
+    },
+    "Store.Armor": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": true,
+      "hide_offhand": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Tornado"
+          }
+        ]
+      }
+    },
+    "Restrict.Slots": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs",
+        "head",
+        "mainhand",
+        "offhand"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Giant.Tornado.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/big_tornado.png",
+      "title": "Ultimate Destruction",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Release a giant overwhelming tornado that destroys everything",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Tornado.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Damage4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "WM.Score",
+            "score": 25,
+            "icon": "eop:textures/gui/cloud.png",
+            "description": {
+              "text": "Weather Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Giant.Tornado.Animation": {
+      "type": "palladium:animation_timer",
+      "title": "Ultimate Destruction",
+      "icon": "eop:textures/gui/big_tornado.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "start_value": 0,
+      "max_value": 40,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 6000,
+            "ticks": 47,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Giant.Tornado.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Tornado"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Sparks": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:tempest/sparks",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Giant.Tornado.Animation"
+          }
+        ]
+      }
+    },
+    "Sparks.Sound": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/big_tornado.png",
+      "title": "Temporal Destruction",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound eop:speed_start master @a ~ ~ ~ 1 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Giant.Tornado.Animation"
+          }
+        ]
+      }
+    },
+    "Tornado.Sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "sound": "eop:tornado",
+      "volume": 5,
+      "pitch": 1,
+      "looping": true,
+      "play_self": false,
+      "play_others": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:entity_check",
+            "radius": 20,
+            "min_count": 1,
+            "entity": "minecraft:armor_stand",
+            "tags": [
+              "EOP.Giant.Tornado"
+            ],
+            "tags_mode": "whitelist",
+            "exclude_self": true
+          }
+        ]
+      }
+    },
+    "Giant.Tornado": {
+      "type": "eop:power_stand",
+      "icon": "eop:textures/gui/big_tornado.png",
+      "title": "Temporal Destruction",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "lifetime": 30000,
+      "damage": 2,
+      "damage_radius": 7.5,
+      "damage_type": "eop:suffocation",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "stand_power": "eop:models/giant_tornado",
+      "orbit_enabled": true,
+      "orbit_radius": 11.5,
+      "first_tick_commands": [],
+      "commands": [
+        "effect give @s[tag=!Tornado,tag=!EOP.Phasing,tag=!Infinity,tag=!Tempest] levitation 1 3 true",
+        "effect give @s[tag=!Tornado,tag=!EOP.Phasing,tag=!Infinity,tag=!Tempest] darkness 5 3 true",
+        "effect give @s[tag=!Tornado,tag=!EOP.Phasing,tag=!Infinity,tag=!Tempest] slowness 5 1 true"
+      ],
+      "last_tick_commands": [],
+      "execution_mode": "as",
+      "include_caster": false,
+      "only_same_team": false,
+      "stand_first_tick_commands": [
+        "weather thunder"
+      ],
+      "stand_commands": [],
+      "stand_last_tick_commands": [
+        "weather clear",
+        "particle poof ~ ~ ~ 4 10 4 0.6 2000 force",
+        "particle campfire_cosy_smoke ~ ~ ~ 4 10 4 0.6 2000 force",
+        "stopsound @a[distance=..80] * eop:tornado"
+      ],
+      "destroy_blocks": true,
+      "block_break_radius": 3,
+      "block_break_interval": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Giant.Tornado.Animation",
+            "property": "value",
+            "min": 40,
+            "max": 40
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:mod_loaded",
+                "mod_id": "weather2"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Giant.Tornado.Animation"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.Destroy"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Giant.Tornado2": {
+      "type": "eop:power_stand",
+      "icon": "eop:textures/gui/big_tornado.png",
+      "title": "Temporal Destruction",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "lifetime": 30000,
+      "damage": 2,
+      "damage_radius": 7.5,
+      "damage_type": "eop:suffocation",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "stand_power": "eop:models/giant_tornado",
+      "orbit_enabled": true,
+      "orbit_radius": 11.5,
+      "first_tick_commands": [],
+      "commands": [
+        "effect give @s[tag=!Tornado,tag=!EOP.Phasing,tag=!Infinity,tag=!Tempest] levitation 1 3 true",
+        "effect give @s[tag=!Tornado,tag=!EOP.Phasing,tag=!Infinity,tag=!Tempest] darkness 5 3 true",
+        "effect give @s[tag=!Tornado,tag=!EOP.Phasing,tag=!Infinity,tag=!Tempest] slowness 5 1 true"
+      ],
+      "last_tick_commands": [],
+      "execution_mode": "as",
+      "include_caster": false,
+      "only_same_team": false,
+      "stand_first_tick_commands": [
+        "weather thunder"
+      ],
+      "stand_commands": [],
+      "stand_last_tick_commands": [
+        "weather clear",
+        "particle poof ~ ~ ~ 4 10 4 0.6 2000 force",
+        "particle campfire_cosy_smoke ~ ~ ~ 4 10 4 0.6 2000 force",
+        "stopsound @a[distance=..80] * eop:tornado"
+      ],
+      "destroy_blocks": false,
+      "block_break_radius": 3,
+      "block_break_interval": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Giant.Tornado.Animation",
+            "property": "value",
+            "min": 40,
+            "max": 40
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:mod_loaded",
+                "mod_id": "weather2"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Giant.Tornado.Animation"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.No.Destroy"
+          }
+        ]
+      }
+    },
+    "Giant.Tornado.Mod": {
+      "type": "eop:tornado",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Giant.Tornado.Animation",
+            "property": "value",
+            "min": 40,
+            "max": 40
+          },
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "weather2"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:dimension",
+                "dimension": "minecraft:the_nether"
+              },
+              {
+                "type": "palladium:dimension",
+                "dimension": "minecraft:the_end"
+              },
+              {
+                "type": "palladium:dimension",
+                "dimension": "eop:pocket_dimension"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Giant.Tornado.Animation"
+          }
+        ]
+      }
+    }
+  }
+}

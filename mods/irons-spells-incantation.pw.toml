@@ -1,0 +1,13 @@
+name = "Iron's Spells: Incantation"
+filename = "incantation-0.10.6+1.20.1-forge.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/BNABZrPW/versions/N61sMcJ8/incantation-0.10.6%2B1.20.1-forge.jar"
+hash-format = "sha512"
+hash = "af769df86f93c2877e9f7a399163a5bb110037e1b646cf120ee7c47efa3d88264a5f9a03026e7d03dc538e8c7932cc5ab83029d0da0f4967ed600e4101de11d9"
+
+[update]
+[update.modrinth]
+mod-id = "BNABZrPW"
+version = "N61sMcJ8"

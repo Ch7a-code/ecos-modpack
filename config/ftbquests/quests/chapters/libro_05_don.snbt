@@ -1,0 +1,321 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_05_don"
+	group: "67CD27250AE1CA8F"
+	icon: "minecraft:amethyst_shard"
+	id: "18EF3B442FB9FDDE"
+	order_index: 5
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oLos dones de los Ecos se visten: trajes, telas y mecanismos hechos para la astilla. La Tailoring Bench de Palladium es donde se cose todo eso. Conseguirla es aprender el oficio.", "", "&6Qué hacer:&r Consigue una Tailoring Bench (mesa de sastrería de Palladium) y tenla contigo.", "", "&6Premio:&r 2 cosas al azar: telas de colores, hilo, cuero o lana.", "&5A veces (7 %):&r un cofre de hierro de Sophisticated Storage."]
+			disable_toast: true
+			icon: "palladium:tailoring_bench"
+			id: "3DE2BDB2BD91DB52"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4F516B7BA92AD676"
+					icon: "palladium:tailoring_bench"
+					stage: "ecos_l_don_mesa_mesa"
+					title: "Consigue una Tailoring Bench"
+					type: "gamestage"
+				}
+			]
+			title: "La mesa de costura"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["3DE2BDB2BD91DB52"]
+			description: ["&#19E6E6Zykna:&r &oTu astilla es tu don: un pedazo de la Primera Mente que ahora vive en tu pecho. Lo que haga con él lo decides tú, pero primero hay que mirarlo.", "", "&6Qué hacer:&r Revisa tu poder: abre la pestaña de logros de Echoes of Power y mira lo que tu astilla ya despertó.", "", "&6Premio:&r 2 cosas al azar: amatista, lapislázuli, frascos de experiencia o cobre.", "&5A veces (7 %):&r un montón de frascos de experiencia."]
+			disable_toast: true
+			icon: "minecraft:amethyst_shard"
+			id: "625B0679CF3146BA"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3ADEE6C5871A1849"
+					icon: "minecraft:amethyst_shard"
+					stage: "ecos_l_don_poder_raiz"
+					title: "Abre tu pestaña de Echoes of Power"
+					type: "gamestage"
+				}
+			]
+			title: "Un poder en la sangre"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["625B0679CF3146BA"]
+			description: ["&#19E6E6Zykna:&r &oCada nivel de Conciencia despierta tu astilla un poco más y te da puntos para tu árbol. A Conciencia 20 ya no eres el clon frágil que cruzó la Fractura.", "", "&6Qué hacer:&r Llega a Conciencia 20. Escribe conciencia en el chat para ver cuánto te falta.", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, lapislázuli, oro o esmeraldas.", "&5A veces (7 %):&r una manzana dorada."]
+			disable_toast: true
+			icon: "minecraft:experience_bottle"
+			id: "75A92DD0025A2016"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "215A7CFF4D2ACF23"
+					icon: "minecraft:experience_bottle"
+					stage: "ecos_l_don_veinte_veinte"
+					title: "Llega a Conciencia 20"
+					type: "gamestage"
+				}
+			]
+			title: "Conciencia 20"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["75A92DD0025A2016"]
+			description: ["&#19E6E6Zykna:&r &oLos siete Maestros siguen vivos, uno por familia de dones, y despiertan cuando cae el guardián de su hogar. El primer paso de su Prueba es llegar hasta allá.", "", "&6Qué hacer:&r Llega al hogar de tu Maestro y vence a su guardián. Escribe mision para saber dónde vive y quién lo cuida.", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, esmeraldas, hierro o comida.", "&5A veces (7 %):&r una espada de hierro encantada con Filo."]
+			disable_toast: true
+			icon: "minecraft:compass"
+			id: "6929E1642D1C0CFC"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "397F1EE356D8E9A0"
+					icon: "minecraft:compass"
+					stage: "ecos_l_don_camino_camino"
+					title: "Vence al guardián del hogar"
+					type: "gamestage"
+				}
+			]
+			title: "El camino del Maestro"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["6929E1642D1C0CFC"]
+			description: ["&#19E6E6Zykna:&r &oCada familia tiene su manera de probar a quien quiere su marca. La primera tarea es de oficio: algo que toda la familia debe saber hacer antes de pedir más.", "", "&6Qué hacer:&r Cumple la primera tarea de la Prueba de tu Maestro. Escribe mision para ver cuál es la de tu familia.", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, esmeraldas, oro o pan.", "&5A veces (7 %):&r una manzana dorada."]
+			disable_toast: true
+			icon: "minecraft:writable_book"
+			id: "6B91396AA9CF2A54"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "452EC2B1BE082C75"
+					icon: "minecraft:writable_book"
+					stage: "ecos_l_don_primera_t1"
+					title: "Cumple la primera tarea de la Prueba"
+					type: "gamestage"
+				}
+			]
+			title: "La primera tarea"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["6B91396AA9CF2A54"]
+			description: ["&#19E6E6Zykna:&r &oHay oficios de la astilla que se hacen con vidrio y paciencia. Un crisol de vidrio sirve para guardar lo que el don deja caer, y los Ecos antiguos ya sabían hacerlo.", "", "&6Qué hacer:&r Fabrica un crisol de vidrio (Echoes of Power) en tu mesa de trabajo.", "", "&6Premio:&r 2 cosas al azar: vidrio, cuarzo, polvo de redstone o amatista.", "&5A veces (7 %):&r un montón de frascos de experiencia."]
+			disable_toast: true
+			icon: "eop:glass_crucible"
+			id: "7E29D647F2AD156C"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "704A90BB0A3A7915"
+					icon: "eop:glass_crucible"
+					stage: "ecos_l_don_crisol_crisol"
+					title: "Fabrica un crisol de vidrio"
+					type: "gamestage"
+				}
+			]
+			title: "Susurros en el vidrio"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["7E29D647F2AD156C"]
+			description: ["&#19E6E6Zykna:&r &oLa segunda tarea ya no es de oficio: es de carácter. Cada familia le pide algo difícil de conseguir, y por eso casi nadie la termina sin ayuda.", "", "&6Qué hacer:&r Cumple la segunda tarea de la Prueba de tu Maestro. Escribe mision para ver cuál es la de tu familia.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, frascos de experiencia o un diamante.", "&5A veces (7 %):&r un diamante."]
+			disable_toast: true
+			icon: "minecraft:book"
+			id: "62C98CEE6E298E48"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "565949016B839EF4"
+					icon: "minecraft:book"
+					stage: "ecos_l_don_segunda_t2"
+					title: "Cumple la segunda tarea de la Prueba"
+					type: "gamestage"
+				}
+			]
+			title: "La segunda tarea"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["62C98CEE6E298E48"]
+			description: ["&#19E6E6Zykna:&r &oLa tercera tarea es solo tuya: depende de qué poder lleva tu astilla. Dos Ecos de la misma familia reciben pruebas distintas, porque sus dones tampoco son iguales.", "", "&6Qué hacer:&r Cumple la tarea propia de tu poder en la Prueba del Maestro. Escribe mision para saber cuál es.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, frascos de experiencia o un diamante.", "&5A veces (7 %):&r un diamante."]
+			disable_toast: true
+			icon: "minecraft:enchanted_book"
+			id: "1E71F4530BC68C85"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5A47C02204B936B6"
+					icon: "minecraft:enchanted_book"
+					stage: "ecos_l_don_tuya_t3"
+					title: "Cumple la tarea de tu poder"
+					type: "gamestage"
+				}
+			]
+			title: "La tarea de tu don"
+			x: 5.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["1E71F4530BC68C85"]
+			description: ["&#19E6E6Zykna:&r &oLa última tarea es un enfrentamiento: un Portador de otra familia, elegido por tu Maestro. Los Portadores cargan fragmentos de la Primera Mente; vencerlos es una manera de tomarlos en serio.", "", "&6Qué hacer:&r Vence al jefe que te pide tu Maestro. Escribe mision para saber cuál es. Puede ser una pelea para varias personas.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, frascos de experiencia o un diamante.", "&5A veces (7 %):&r dos diamantes."]
+			disable_toast: true
+			icon: "minecraft:iron_sword"
+			id: "2CAE177D4B15EF53"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "78EC15C52EA2D404"
+					icon: "minecraft:iron_sword"
+					stage: "ecos_l_don_jefe_jefe"
+					title: "Vence al jefe de la Prueba"
+					type: "gamestage"
+				}
+			]
+			title: "El jefe de la Prueba"
+			x: 5.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["2CAE177D4B15EF53"]
+			description: ["&#19E6E6Zykna:&r &oLa marca abre lo que el don no te dejaba hacer: volar, teletransportarte lejos, atravesar paredes, golpear con toda la fuerza. Pide la Era II y Conciencia 30, y los cinco pasos cumplidos.", "", "&6Qué hacer:&r Termina los cinco pasos de la Prueba, llega a Conciencia 30 con el mundo en la Era II y recibe la marca de tu Maestro.", "", "&6Premio:&r 2 cosas al azar: diamantes, esmeraldas, frascos de experiencia o una manzana dorada.", "&5A veces (7 %):&r dos diamantes."]
+			disable_toast: true
+			icon: "minecraft:nether_star"
+			id: "2ACBAA0FC759DCCD"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5552FEA80AB6BB3C"
+					icon: "minecraft:experience_bottle"
+					stage: "ecos_l_don_marca_treinta"
+					title: "Llega a Conciencia 30"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "0E20C105CD802F7C"
+					icon: "minecraft:nether_star"
+					stage: "ecos_l_don_marca_marca"
+					title: "Recibe la marca de tu Maestro"
+					type: "gamestage"
+				}
+			]
+			title: "La marca del Maestro"
+			x: 5.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["2ACBAA0FC759DCCD"]
+			description: ["&#19E6E6Zykna:&r &oCon Conciencia 50 tu astilla ya no es un secreto del pecho: se oye cuando hablas. Lo que sigue depende menos de la experiencia y más de lo que decidas hacer con ella.", "", "&6Qué hacer:&r Llega a Conciencia 50. Escribe conciencia en el chat para ver cuánto te falta.", "", "&6Premio:&r 2 cosas al azar: diamantes, frascos de experiencia, esmeraldas o chatarra de netherita.", "&5A veces (7 %):&r tres diamantes."]
+			disable_toast: true
+			icon: "minecraft:experience_bottle"
+			id: "16209E95DA2E14B0"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1EC4199A4B116FC5"
+					icon: "minecraft:experience_bottle"
+					stage: "ecos_l_don_cincuenta_cincuenta"
+					title: "Llega a Conciencia 50"
+					type: "gamestage"
+				}
+			]
+			title: "Conciencia 50"
+			x: 7.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["16209E95DA2E14B0"]
+			description: ["&#19E6E6Zykna:&r &oDesde la Era III existen los cristales del despertar: uno por cada manera en que una astilla puede crecer. Despiertan lo que tu don todavía guarda, así que escoge con cuidado.", "", "&6Qué hacer:&r Consigue un cristal del despertar (Echoes of Power) y tenlo contigo.", "", "&6Premio:&r 2 cosas al azar: diamantes, frascos de experiencia, amatista o chatarra de netherita.", "&5A veces (7 %):&r tres diamantes."]
+			disable_toast: true
+			icon: "eop:awakening_crystal_a"
+			id: "4B7B9F9E0D9833CA"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "710669EFBD629485"
+					icon: "eop:awakening_crystal_a"
+					stage: "ecos_l_don_cristal_cristal"
+					title: "Consigue un cristal del despertar"
+					type: "gamestage"
+				}
+			]
+			title: "El Cristal del Despertar"
+			x: 7.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["4B7B9F9E0D9833CA"]
+			description: ["&#19E6E6Zykna:&r &oEn la Era IV la astilla puede fundirse con otra y dar un don que ninguna tenía sola. El Catalizador de Fusión es lo que lo permite. Es poder serio; úsalo después de pensarlo.", "", "&6Qué hacer:&r Consigue un Catalizador de Fusión (Echoes of Power) y tenlo contigo.", "", "&6Premio:&r 2 cosas al azar: diamantes, chatarra de netherita, frascos de experiencia o esmeraldas.", "&5A veces (7 %):&r tres diamantes y chatarra de netherita."]
+			disable_toast: true
+			icon: "eop:fusion_catalyst"
+			id: "1D09EBA7BC0747A0"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3EEB0DA1379B6018"
+					icon: "eop:fusion_catalyst"
+					stage: "ecos_l_don_fusion_catalizador"
+					title: "Consigue un Catalizador de Fusión"
+					type: "gamestage"
+				}
+			]
+			title: "El Catalizador de Fusión"
+			x: 10.00d
+			y: 0.00d
+		}
+	]
+	subtitle: ["Tu astilla, tu árbol de poderes y la Prueba de tu Maestro, paso por paso.", "Escribe conciencia o mision en el chat para ver cómo vas."]
+	title: "Tu don y los Maestros"
+}

@@ -1,0 +1,10 @@
+{"condition":"minecraft:any_of","terms":[
+ {"condition":"minecraft:location_check","predicate":{"structure":"minecraft:ancient_city"}},
+ {"condition":"minecraft:location_check","predicate":{"structure":"minecraft:stronghold"}},
+ {"condition":"minecraft:location_check","predicate":{"structure":"minecraft:fortress"}},
+ {"condition":"minecraft:location_check","predicate":{"structure":"minecraft:end_city"}},
+ {"condition":"minecraft:location_check","predicate":{"structure":"minecraft:mansion"}},
+ {"condition":"minecraft:location_check","predicate":{"structure":"twilightforest:hydra_lair"}},
+ {"condition":"minecraft:location_check","predicate":{"structure":"twilightforest:lich_tower"}},
+ {"condition":"minecraft:location_check","predicate":{"structure":"twilightforest:naga_courtyard"}}
+]}

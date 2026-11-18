@@ -1,0 +1,13 @@
+name = "Cold Sweat"
+filename = "ColdSweat-2.4.5.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/uXhSmPjd/versions/z3qJDJxm/ColdSweat-2.4.5.jar"
+hash-format = "sha512"
+hash = "cc04a1f483decb84f11e27766c3a3b6ce73040b63997d1497fa70579e17da4dc8534e084804e5545e7c0ac9514e8913795cdaf11ab8e3b156ec7c49a1faf8ddd"
+
+[update]
+[update.modrinth]
+mod-id = "uXhSmPjd"
+version = "z3qJDJxm"

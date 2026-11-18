@@ -1,0 +1,416 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_15_subsuelo"
+	group: "56F3188FE75A98A8"
+	icon: "alexscaves:spelunkery_table"
+	id: "6F6C8FCBCC777852"
+	order_index: 15
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oDebajo de la tierra no hay cielo prestado: la tierra misma recuerda. Una tablilla de las cuevas guarda esa memoria, y la mesa de espeología te enseña a leerla.", "", "&6Qué hacer:&r Encuentra una tablilla en una cabina subterránea y tradúcela en una mesa de espeología.", "", "&6Premio:&r 2 cosas al azar: hierro, antorchas, papel o carbón.", "&5A veces (7 %):&r un compendio de las cuevas."]
+			disable_toast: true
+			icon: "alexscaves:spelunkery_table"
+			id: "1113181DD6845089"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3CCB41327E3937C8"
+					icon: "alexscaves:cave_tablet"
+					stage: "ecos_l_subsuelo_espeologia_tablilla"
+					title: "Obtén una tablilla de las cuevas"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "360B03244D64B8B4"
+					icon: "alexscaves:spelunkery_table"
+					stage: "ecos_l_subsuelo_espeologia_traducir"
+					title: "Traduce una tablilla"
+					type: "gamestage"
+				}
+			]
+			title: "Tablillas y espeología"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["1113181DD6845089"]
+			description: ["&#19E6E6Zykna:&r &oAntes de bajar hondo, aprende a leer un cuarto cerrado con una criatura dentro. Hay salas de monstruos y mazmorras enteras, y todas cobran peaje. Entra con comida y flechas.", "", "&6Qué hacer:&r Encuentra una sala de monstruos mejorada y entra a una mazmorra grande: catacumba, fortaleza de no muertos o cueva de arañas.", "", "&6Premio:&r 2 cosas al azar: carne cocida, flechas, hierro o una esmeralda.", "&5A veces (7 %):&r una espada de hierro encantada con Filo."]
+			disable_toast: true
+			icon: "minecraft:spawner"
+			id: "2895E8C699FDB7D1"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3852E31A24F822F0"
+					icon: "minecraft:spawner"
+					stage: "ecos_l_subsuelo_mazmorras_sala"
+					title: "Encuentra una sala de monstruos"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "2419B768EE642617"
+					icon: "minecraft:bone"
+					stage: "ecos_l_subsuelo_mazmorras_mazmorra"
+					title: "Entra a una mazmorra grande"
+					type: "gamestage"
+				}
+			]
+			title: "Salas con dueño"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["2895E8C699FDB7D1"]
+			description: ["&#19E6E6Zykna:&r &oBajo la superficie hay una cueva donde el tiempo se detuvo: huesos, helechos y criaturas que no deberían existir. Son filtraciones de otra era. Ocelotzin vive en el fondo, y hay que excavar hondo.", "", "&6Qué hacer:&r Entra a las cuevas primordiales y encuentra un dinosaurio.", "", "&6Premio:&r 2 cosas al azar: chuletas de dinosaurio, estrellas arbóreas, huesos o brotes de helecho.", "&5A veces (7 %):&r una cachiporra primitiva."]
+			disable_toast: true
+			icon: "alexscaves:dinosaur_chop"
+			id: "52755E14E0213308"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "6745A6A498E61971"
+					icon: "alexscaves:dinosaur_chop"
+					stage: "ecos_l_subsuelo_primordiales_entrar"
+					title: "Entra a la cueva primordial"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "4F2F7F776AA6772E"
+					icon: "alexscaves:tree_star"
+					stage: "ecos_l_subsuelo_primordiales_dino"
+					title: "Encuentra un dinosaurio"
+					type: "gamestage"
+				}
+			]
+			title: "La cueva olvidada por el tiempo"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["52755E14E0213308"]
+			description: ["&#19E6E6Zykna:&r &oLas cuevas magnéticas zumban: el metal obedece al imán y los muros se mueven. Aquí el hierro tiene dueño, y conviene saber quién es. Fabrica un imán antes de pelearte con una pared.", "", "&6Qué hacer:&r Entra a la cueva magnética y fabrica un imán.", "", "&6Premio:&r 2 cosas al azar: chatarra, hierro, cobre o lingotes de neodimio azul.", "&5A veces (7 %):&r lingotes de neodimio escarlata."]
+			disable_toast: true
+			icon: "alexscaves:azure_magnet"
+			id: "5280A6B10C25A0A0"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "668BE8F98B147A9A"
+					icon: "alexscaves:azure_magnet"
+					stage: "ecos_l_subsuelo_magneticas_entrar"
+					title: "Entra a la cueva magnética"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "5C10BFE282E71D4C"
+					icon: "alexscaves:azure_magnet"
+					stage: "ecos_l_subsuelo_magneticas_iman"
+					title: "Fabrica un imán"
+					type: "gamestage"
+				}
+			]
+			title: "Los opuestos se atraen"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["5280A6B10C25A0A0"]
+			description: ["&#19E6E6Zykna:&r &oEn las cuevas tóxicas el agua brilla y el aire pica. Quien baja sin traje se arrepiente rápido. Fabrícate el traje completo antes de que la cueva te lo cobre en vida.", "", "&6Qué hacer:&r Entra a la cueva tóxica y fabrica el traje MP completo.", "", "&6Premio:&r 2 cosas al azar: polvo de azufre, hierro, placas de polímero o cobre.", "&5A veces (7 %):&r botellas de radón."]
+			disable_toast: true
+			icon: "alexscaves:sulfur_dust"
+			id: "157BA6965527F30A"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "42479A97D1AD6CD6"
+					icon: "alexscaves:sulfur_dust"
+					stage: "ecos_l_subsuelo_toxicas_entrar"
+					title: "Entra a la cueva tóxica"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "7FC2F49BDCFF231D"
+					icon: "alexscaves:hazmat_chestplate"
+					stage: "ecos_l_subsuelo_toxicas_traje"
+					title: "Fabrica el traje MP completo"
+					type: "gamestage"
+				}
+			]
+			title: "Vibra radiactiva"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["157BA6965527F30A"]
+			description: ["&#19E6E6Zykna:&r &oUn compendio de las cuevas lleva la cuenta de lo que descubres, y un mapa de bioma te dice dónde sigue lo raro. Escribir lo que ves es la mejor forma de no perderlo.", "", "&6Qué hacer:&r Fabrica un compendio de las cuevas y un mapa de bioma de las cuevas.", "", "&6Premio:&r 2 cosas al azar: papel, libros, hierro o una esmeralda.", "&5A veces (7 %):&r una brújula."]
+			disable_toast: true
+			icon: "alexscaves:cave_book"
+			id: "65DB2D8D40850362"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4A7FDCFF716577A5"
+					icon: "alexscaves:cave_book"
+					stage: "ecos_l_subsuelo_compendio_libro"
+					title: "Fabrica un compendio de las cuevas"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "2FA246F68F4F033E"
+					icon: "alexscaves:cave_map"
+					stage: "ecos_l_subsuelo_compendio_mapa"
+					title: "Fabrica un mapa de bioma de cuevas"
+					type: "gamestage"
+				}
+			]
+			title: "Érase una cueva"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["65DB2D8D40850362"]
+			description: ["&#19E6E6Zykna:&r &oAl fondo del mar hay una fosa que ningún mapa nombró. Para bajar necesitas un submarino, que es tecnología del Proyecto reconstruida desde las ruinas. Abajo hay conchas, ruinas y cosas que miran.", "", "&6Qué hacer:&r Entra a la fosa abisal en submarino.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, perlas o un diamante.", "&5A veces (7 %):&r un casco de buzo."]
+			disable_toast: true
+			icon: "alexscaves:submarine"
+			id: "11ADB78AD2176ECF"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "15D8631EE71D0545"
+					icon: "alexscaves:submarine"
+					stage: "ecos_l_subsuelo_abisal_fosa"
+					title: "Entra a la fosa abisal"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3C121CDA5DF78B66"
+					icon: "alexscaves:submarine"
+					stage: "ecos_l_subsuelo_abisal_submarino"
+					title: "Súbete a un submarino"
+					type: "gamestage"
+				}
+			]
+			title: "Más allá del mar"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["11ADB78AD2176ECF"]
+			description: ["&#19E6E6Zykna:&r &oEn la depresión desolada la oscuridad se pega a la ropa. Los infrazelotas sacrifican criaturas a un dios que nadie recuerda. Camina con luz y no te quedes quieto.", "", "&6Qué hacer:&r Entra a la depresión desolada y encuentra a un infrazelota.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, bolsas de tinta luminosa o un diamante.", "&5A veces (7 %):&r una daga desolada."]
+			disable_toast: true
+			icon: "minecraft:glow_ink_sac"
+			id: "1F5469E6E251E3E7"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4C729CF8FB1962E6"
+					icon: "minecraft:glow_ink_sac"
+					stage: "ecos_l_subsuelo_desolada_entrar"
+					title: "Entra a la depresión desolada"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "72A759EA5EAC509C"
+					icon: "alexscaves:desolate_dagger"
+					stage: "ecos_l_subsuelo_desolada_infra"
+					title: "Encuentra a un infrazelota"
+					type: "gamestage"
+				}
+			]
+			title: "La depresión desolada"
+			x: 5.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["1F5469E6E251E3E7"]
+			description: ["&#19E6E6Zykna:&r &oOcelotzin, la Última Domadora, vive en el Cuenco de los Huesos, y un Tremorsaurus guarda su hogar. Si tu don es de Bestias, doma uno: aturdido y con ensaladas serenas, deja de ser un guardián y pasa a ser un aliado.", "", "&6Qué hacer:&r Aturde a un Tremorsaurus y dale ensaladas serenas hasta domarlo.", "", "&6Premio:&r 2 cosas al azar: ensaladas serenas, chuletas de dinosaurio, oro o un diamante.", "&5A veces (7 %):&r un casco primordial."]
+			disable_toast: true
+			icon: "alexscaves:serene_salad"
+			id: "02134B0CEF50E098"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3AD27E7583A65F42"
+					icon: "alexscaves:serene_salad"
+					stage: "ecos_l_subsuelo_tremorsaurus_domar"
+					title: "Doma un Tremorsaurus"
+					type: "gamestage"
+				}
+			]
+			title: "El rey tirano"
+			x: 5.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["02134B0CEF50E098"]
+			description: ["&#19E6E6Zykna:&r &oBajo la roca madre hay otra orilla: un bolsillo de memoria oscuro, hecho de eco. Ahí vive Mixtli, el Archivista del Silencio, y un Acechador guarda su hogar. No hagas ruido.", "", "&6Qué hacer:&r Baja hasta la Otra Orilla y encuentra una Ciudad Ancestral.", "", "&6Premio:&r 2 cosas al azar: fragmentos de eco, oro, esmeraldas o bayas de floración.", "&5A veces (7 %):&r una brújula de recuperación."]
+			disable_toast: true
+			icon: "minecraft:echo_shard"
+			id: "38704E588ABBC7B0"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5FE2DF577367940E"
+					icon: "minecraft:echo_shard"
+					stage: "ecos_l_subsuelo_otraorilla_entrar"
+					title: "Entra a la Otra Orilla"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "5CC552A3A34EADD6"
+					icon: "minecraft:sculk_shrieker"
+					stage: "ecos_l_subsuelo_otraorilla_ciudad"
+					title: "Encuentra una Ciudad Ancestral"
+					type: "gamestage"
+				}
+			]
+			title: "La Otra Orilla"
+			x: 5.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["38704E588ABBC7B0"]
+			description: ["&#19E6E6Zykna:&r &oEl Warden no ve: oye. Y como el Éter viaja por el sonido, oye todo lo que eres. Vencerlo no es pelear sino entender el silencio. Su corazón vale lo que cuesta.", "", "&6Qué hacer:&r Mata a un Warden y toma su corazón.", "", "&6Premio:&r 2 cosas al azar: diamantes, fragmentos de eco, frascos de experiencia o chatarra de netherita.", "&5A veces (7 %):&r cristales de alma."]
+			disable_toast: true
+			icon: "deeperdarker:heart_of_the_deep"
+			id: "0618AD52C5A7726D"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "28F218D7E3A22491"
+					icon: "deeperdarker:heart_of_the_deep"
+					stage: "ecos_l_subsuelo_warden_matar"
+					title: "Mata a un Warden y toma su corazón"
+					type: "gamestage"
+				}
+			]
+			title: "El que oye todo"
+			x: 7.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["0618AD52C5A7726D"]
+			description: ["&#19E6E6Zykna:&r &oCon el corazón y lo que deja el Warden se forja una armadura que escucha por ti. No es abrigo: es oído. Los resonarios del silencio la reconocen.", "", "&6Qué hacer:&r Fabrica la armadura completa del Warden.", "", "&6Premio:&r 2 cosas al azar: diamantes, huesos de sculk, fragmentos de eco o chatarra de netherita.", "&5A veces (7 %):&r un transmisor de sculk."]
+			disable_toast: true
+			icon: "deeperdarker:warden_chestplate"
+			id: "7FEFE3CE827A40BA"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "61E84851718A9D42"
+					icon: "deeperdarker:warden_chestplate"
+					stage: "ecos_l_subsuelo_armadura_armadura"
+					title: "Fabrica la armadura del Warden"
+					type: "gamestage"
+				}
+			]
+			title: "Un oído por armadura"
+			x: 7.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["7FEFE3CE827A40BA"]
+			description: ["&#19E6E6Zykna:&r &oCada rincón de la Otra Orilla tiene un eco distinto. Recorrerla entera es aprender a escuchar con el cuerpo. Los bosques, las cuevas y las columnas se te quedan.", "", "&6Qué hacer:&r Explora todos los biomas de la Otra Orilla.", "", "&6Premio:&r 2 cosas al azar: diamantes, fragmentos de eco, esmeraldas o bayas de floración.", "&5A veces (7 %):&r dos trozos de chatarra de netherita."]
+			disable_toast: true
+			icon: "deeperdarker:sonorous_staff"
+			id: "7847765DE9AB9036"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "115DF4DB81E932F0"
+					icon: "deeperdarker:sonorous_staff"
+					stage: "ecos_l_subsuelo_explorar_biomas"
+					title: "Explora todos los biomas de la Otra Orilla"
+					type: "gamestage"
+				}
+			]
+			title: "Ecolocalización"
+			x: 7.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["7847765DE9AB9036"]
+			description: ["&#19E6E6Zykna:&r &oHay un horno que se alimenta de uranio y no perdona los descuidos. Si entra en estado crítico, hay que devolverlo a la normalidad a tiempo. Aprende a armarlo antes de tocarlo.", "", "&6Qué hacer:&r Fabrica una vara de uranio y 8 componentes de horno nuclear. Ármalos con cuidado, lejos de tu base.", "", "&6Premio:&r 2 cosas al azar: uranio, chatarra, diamantes o chatarra de netherita.", "&5A veces (7 %):&r un peto del traje MP."]
+			disable_toast: true
+			icon: "alexscaves:nuclear_furnace_component"
+			id: "1888A48B810B0565"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1BEC9AD295909E68"
+					icon: "alexscaves:uranium_rod"
+					stage: "ecos_l_subsuelo_nuclear_vara"
+					title: "Fabrica una vara de uranio"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "5AFABF1EFE2C1875"
+					icon: "alexscaves:nuclear_furnace_component"
+					stage: "ecos_l_subsuelo_nuclear_componentes"
+					title: "Fabrica 8 componentes de horno nuclear"
+					type: "gamestage"
+				}
+			]
+			title: "Un horno que no perdona"
+			x: 7.50d
+			y: 4.20d
+		}
+	]
+	subtitle: ["Cuevas con memoria, mazmorras y la Otra Orilla, donde el silencio tiene oído.", "De la mesa de espeología al Warden: cada capa pide más luz y más cuidado."]
+	title: "Bajo la tierra"
+}

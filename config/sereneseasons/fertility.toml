@@ -1,0 +1,7 @@
+[general]
+	seasonal_crops = true
+	crop_tooltips = true
+	# 0 = crece lento fuera de temporada, 1 = no crece, 2 = se rompe. ECOS: 0
+	out_of_season_crop_behavior = 0
+	# Bajo este nivel Y, sin cielo, los cultivos son fertiles todo el anio.
+	underground_fertility_level = 48

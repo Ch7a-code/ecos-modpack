@@ -1,0 +1,13 @@
+name = "Patrix CTM Compatibility Override"
+filename = "Patrix_32x_CTMOverride_multi.zip"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/ClH1Flyi/versions/b71uYAp9/Patrix_32x_CTMOverride_multi.zip"
+hash-format = "sha512"
+hash = "423424d68f865d01d24e1d8dbdb5b6d4ba87c295f911e34204bb3d715c39039256bfbdbc921ab1cbc47d92d5c05f04db0c767d836effcc6d65b051f1d9a4415e"
+
+[update]
+[update.modrinth]
+mod-id = "ClH1Flyi"
+version = "b71uYAp9"

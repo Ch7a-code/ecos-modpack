@@ -1,0 +1,470 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_06_grimorio"
+	group: "67CD27250AE1CA8F"
+	icon: "irons_spellbooks:iron_spell_book"
+	id: "7C8A159435748278"
+	order_index: 6
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oLos hechizos obedecen a la voz, pero antes hay que escribirlos. La mesa de inscripción es donde un pergamino en blanco empieza a ser hechizo. Aprende a usarla y el Éter te escucha mejor.", "", "&6Qué hacer:&r Fabrica una Mesa de Inscripción de Iron's Spells y ponla en tu refugio.", "", "&6Premio:&r 2 cosas al azar: papel, lapislázuli, amatista o libros.", "&5A veces (7 %):&r tinta poco común para tus primeros pergaminos."]
+			disable_toast: true
+			icon: "irons_spellbooks:inscription_table"
+			id: "0F00F0F5B84260C5"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "34172D90B045E153"
+					icon: "irons_spellbooks:inscription_table"
+					stage: "ecos_l_grimorio_mesa_crear"
+					title: "Crea una mesa de inscripción"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "33DB0F966E7241D8"
+					icon: "irons_spellbooks:inscription_table"
+					stage: "ecos_l_grimorio_mesa_poner"
+					title: "Ponla en tu refugio"
+					type: "gamestage"
+				}
+			]
+			title: "Escribano pintoresco"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["0F00F0F5B84260C5"]
+			description: ["&#19E6E6Zykna:&r &oUn pergamino de hechizo no se escribe a mano: se forja. La Forja de Pergaminos junta papel, tinta y un poco de Éter hasta que la página queda cargada. Es la primera magia que se puede guardar en el bolsillo.", "", "&6Qué hacer:&r Fabrica una Forja de Pergaminos y forja un pergamino de hechizo. Tenlo en tu inventario.", "", "&6Premio:&r 2 cosas al azar: tinta común, papel, frascos de experiencia o frascos de vidrio.", "&5A veces (7 %):&r tinta poco común, varias."]
+			disable_toast: true
+			icon: "irons_spellbooks:scroll_forge"
+			id: "5E942FC908923B0F"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "29C4B21CEDF3643E"
+					icon: "irons_spellbooks:scroll_forge"
+					stage: "ecos_l_grimorio_forja_forja"
+					title: "Crea una Forja de Pergaminos"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "458707BA5E1C915F"
+					icon: "irons_spellbooks:scroll"
+					stage: "ecos_l_grimorio_forja_pergamino"
+					title: "Ten un pergamino de hechizo"
+					type: "gamestage"
+				}
+			]
+			title: "Papel que se forja"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["5E942FC908923B0F"]
+			description: ["&#19E6E6Zykna:&r &oUn pergamino se gasta al usarlo. Un grimorio guarda los hechizos para siempre y los pone al alcance de tu mano. Cada libro tiene espacios: úsalos con cabeza, que no caben todos.", "", "&6Qué hacer:&r Consigue un libro de hechizos y equípalo en tu espacio de libro. Ábrelo y guarda en él un hechizo.", "", "&6Premio:&r 2 cosas al azar: libros, lapislázuli, cuero o frascos de experiencia.", "&5A veces (7 %):&r un libro de hechizos de cobre."]
+			disable_toast: true
+			icon: "irons_spellbooks:copper_spell_book"
+			id: "3CF07D71B9C91ECE"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "42CC6DB1ADBBFD9A"
+					icon: "irons_spellbooks:copper_spell_book"
+					stage: "ecos_l_grimorio_libro_equipar"
+					title: "Equipa un libro de hechizos"
+					type: "gamestage"
+				}
+			]
+			title: "Tu primer grimorio"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["3CF07D71B9C91ECE"]
+			description: ["&#19E6E6Zykna:&r &oEl Éter viaja por el sonido. Los monstruos te oyen, y los hechizos también: con Incantation no aprietas una tecla, dices el nombre del hechizo en voz alta y se cumple.", "", "&6Qué hacer:&r Con un hechizo en tu libro, di su nombre en voz alta frente al micrófono. Necesitas micrófono activo en el juego.", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, amatista, lapislázuli o papel.", "&5A veces (7 %):&r un montón de frascos de experiencia."]
+			disable_toast: true
+			icon: "minecraft:note_block"
+			id: "767812D97395FFCE"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "2BF4F604AFF4C9FA"
+					icon: "minecraft:note_block"
+					stage: "ecos_l_grimorio_voz_primera"
+					title: "Lanza tu primer hechizo con la voz"
+					type: "gamestage"
+				}
+			]
+			title: "Di la palabra"
+			x: 0.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["767812D97395FFCE"]
+			description: ["&#19E6E6Zykna:&r &oPara mejorar un objeto con Éter hace falta un yunque que lo entienda. El yunque arcano funde, mejora y repara lo que la magia toca. Es tu primer taller de verdad.", "", "&6Qué hacer:&r Fabrica un Yunque Arcano y ponlo en tu refugio.", "", "&6Premio:&r 2 cosas al azar: hierro, lapislázuli, esencia arcana o amatista.", "&5A veces (7 %):&r esencia arcana extra."]
+			disable_toast: true
+			icon: "irons_spellbooks:arcane_anvil"
+			id: "4C4C89830DE577F7"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "370909E4A5C11C4E"
+					icon: "irons_spellbooks:arcane_anvil"
+					stage: "ecos_l_grimorio_yunque_crear"
+					title: "Crea un yunque arcano"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "3D4DCC2E1C9EFA38"
+					icon: "irons_spellbooks:arcane_anvil"
+					stage: "ecos_l_grimorio_yunque_poner"
+					title: "Ponlo en tu refugio"
+					type: "gamestage"
+				}
+			]
+			title: "Yunque de púrpura"
+			x: 0.00d
+			y: 5.60d
+		}
+		{
+			dependencies: ["4C4C89830DE577F7"]
+			description: ["&#19E6E6Zykna:&r &oLa tinta decide qué tan fuerte es un pergamino: común, poco común, rara. Más rara la tinta, más poderoso el hechizo que aguanta. Empieza por conseguirla y llega a la rara.", "", "&6Qué hacer:&r Consigue cualquier tinta y reúne una tinta rara. Se obtiene al combinar tintas menores, en cofres o con mercaderes.", "", "&6Premio:&r 2 cosas al azar: tinta poco común, lapislázuli, papel o frascos de experiencia.", "&5A veces (7 %):&r tinta rara."]
+			disable_toast: true
+			icon: "irons_spellbooks:rare_ink"
+			id: "5C34DA09EF7B1DE2"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "64AAF60A31D3D334"
+					icon: "irons_spellbooks:common_ink"
+					stage: "ecos_l_grimorio_tinta_tinta"
+					title: "Consigue tinta"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "6F3C8A45EEE63A74"
+					icon: "irons_spellbooks:rare_ink"
+					stage: "ecos_l_grimorio_tinta_rara"
+					title: "Ten una tinta rara"
+					type: "gamestage"
+				}
+			]
+			title: "Gajes del oficio"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["5C34DA09EF7B1DE2"]
+			description: ["&#19E6E6Zykna:&r &oNo todos los hechizos caben en un libro: algunos se lanzan mejor con un báculo. Pesa más que una varita, pero concentra el Éter en un solo punto y lo suelta donde apuntas.", "", "&6Qué hacer:&r Construye un báculo (el de hielo, el de relámpago o el de Pyrium) y úsalo con clic derecho.", "", "&6Premio:&r 2 cosas al azar: palos, hierro, lapislázuli o amatista.", "&5A veces (7 %):&r un báculo de hielo."]
+			disable_toast: true
+			icon: "irons_spellbooks:ice_staff"
+			id: "1E3684678634707D"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "36E7EDCF7041BD37"
+					icon: "irons_spellbooks:ice_staff"
+					stage: "ecos_l_grimorio_baston_baston"
+					title: "Consigue un báculo"
+					type: "gamestage"
+				}
+			]
+			title: "Un báculo en la mano"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["1E3684678634707D"]
+			description: ["&#19E6E6Zykna:&r &oEl taller del mago no es un solo bloque. El caldero del alquimista hierve lo que no se puede forjar, y el pedestal sostiene lo que vale la pena mirar. Cada pieza de tu rincón cuenta.", "", "&6Qué hacer:&r Pon en tu refugio un Caldero del Alquimista y un Pedestal de Iron's Spells.", "", "&6Premio:&r 2 cosas al azar: hierro, oro, frascos de vidrio o esencia arcana.", "&5A veces (7 %):&r un yunque arcano extra."]
+			disable_toast: true
+			icon: "irons_spellbooks:alchemist_cauldron"
+			id: "342A8FE73E055C41"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4B5FD0EFEE95691E"
+					icon: "irons_spellbooks:alchemist_cauldron"
+					stage: "ecos_l_grimorio_taller_caldero"
+					title: "Pon un Caldero del Alquimista"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "71AA69C8697DEE7E"
+					icon: "irons_spellbooks:pedestal"
+					stage: "ecos_l_grimorio_taller_pedestal"
+					title: "Pon un Pedestal"
+					type: "gamestage"
+				}
+			]
+			title: "Caldero y pedestal"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["342A8FE73E055C41"]
+			description: ["&#19E6E6Zykna:&r &oBajo las ruinas hay un lugar donde los hechizos se acumularon como polvo. Las Catacumbas guardan libros podridos, cofres de magos y cosas que no volvieron a subir. Entra con la cabeza fría.", "", "&6Qué hacer:&r Encuentra y entra a unas Catacumbas de Iron's Spells. Lleva comida, luz y un hechizo que no dependa de la suerte.", "", "&6Premio:&r 2 cosas al azar: huesos, oro, frascos de experiencia o velas.", "&5A veces (7 %):&r una manzana dorada."]
+			disable_toast: true
+			icon: "minecraft:bone_block"
+			id: "4929EEE049EA5B0E"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "19261B4DAE2C5D8E"
+					icon: "minecraft:bone_block"
+					stage: "ecos_l_grimorio_catacumbas_entrar"
+					title: "Entra a las Catacumbas"
+					type: "gamestage"
+				}
+			]
+			title: "Las Catacumbas"
+			x: 2.50d
+			y: 4.20d
+		}
+		{
+			dependencies: ["4929EEE049EA5B0E"]
+			description: ["&#19E6E6Zykna:&r &oCon la Era II se desbloquea la escuela Sagrada: curación, bendición, luz. El Proyecto la guardó para cuando hiciera falta curar de verdad. Un libro sagrado de aldeano es la forma más fácil de empezar.", "", "&6Qué hacer:&r Cuando el mundo llegue a la Era II, consigue el Libro Sagrado del Aldeano, que se encuentra con aldeanos o en aldeas.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, frascos de experiencia o zanahorias doradas.", "&5A veces (7 %):&r un diamante."]
+			disable_toast: true
+			icon: "irons_spellbooks:villager_spell_book"
+			id: "5D6F91F929B2A14C"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1D66C2472E912CC5"
+					icon: "irons_spellbooks:villager_spell_book"
+					stage: "ecos_l_grimorio_sagrado_era"
+					title: "El mundo llega a la Era II"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "5D011CAC8FCDC67E"
+					icon: "irons_spellbooks:villager_spell_book"
+					stage: "ecos_l_grimorio_sagrado_libro"
+					title: "Consigue el Libro Sagrado del Aldeano"
+					type: "gamestage"
+				}
+			]
+			title: "La escuela Sagrada"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["5D6F91F929B2A14C"]
+			description: ["&#19E6E6Zykna:&r &oEn la Era II el Éter aprende a doblar el camino: teletransporte, recall, portal. Un paso aquí y otro allá, sin cruzar lo de en medio. No es gratis: cada salto cuesta maná y atención.", "", "&6Qué hacer:&r En la Era II, forja un pergamino de teletransporte, recall o portal y tenlo en tu inventario. Se lanza igual que cualquier hechizo.", "", "&6Premio:&r 2 cosas al azar: perlas de Ender, frascos de experiencia, lapislázuli o amatista.", "&5A veces (7 %):&r varias perlas de Ender."]
+			disable_toast: true
+			icon: "minecraft:ender_pearl"
+			id: "7BB0B91F4F959F72"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7C4206DBC0B6FA4F"
+					icon: "minecraft:ender_pearl"
+					stage: "ecos_l_grimorio_salto_era"
+					title: "El mundo llega a la Era II"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "29CCE1DF3D83B497"
+					icon: "irons_spellbooks:scroll"
+					stage: "ecos_l_grimorio_salto_pergamino"
+					title: "Ten un pergamino de hechizo"
+					type: "gamestage"
+				}
+			]
+			title: "El Éter te lleva"
+			x: 5.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["7BB0B91F4F959F72"]
+			description: ["&#19E6E6Zykna:&r &oUna palabra suelta es un truco. Cinco seguidas son una frase, y diez, un conjuro. Con la práctica tu voz deja de pedir y empieza a mandar: eso me dice cuánto has aprendido.", "", "&6Qué hacer:&r Lanza 50 hechizos con la voz y encadena 5 seguidos sin pausa. Cada conjuro cuenta.", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, esmeraldas, oro o lapislázuli.", "&5A veces (7 %):&r muchos frascos de experiencia."]
+			disable_toast: true
+			icon: "minecraft:jukebox"
+			id: "058D56EF8FE6CF1E"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1F29E5B5AC2BB306"
+					icon: "minecraft:jukebox"
+					stage: "ecos_l_grimorio_adepto_cincuenta"
+					title: "Lanza 50 hechizos con la voz"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "398FA8FE3A7F33F4"
+					icon: "minecraft:note_block"
+					stage: "ecos_l_grimorio_adepto_combo"
+					title: "Encadena 5 hechizos sin pausa"
+					type: "gamestage"
+				}
+			]
+			title: "Voz de adepto"
+			x: 5.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["058D56EF8FE6CF1E"]
+			description: ["&#19E6E6Zykna:&r &oEn la Era III los hechizos épicos dejan de ser rumor. Una tinta épica aguanta lo que una común no soportaría ni una vez: una página puede cambiar una batalla. Escríbelos con respeto.", "", "&6Qué hacer:&r Cuando el mundo llegue a la Era III, reúne una tinta épica para escribir hechizos épicos.", "", "&6Premio:&r 2 cosas al azar: diamantes, oro, frascos de experiencia o tinta rara.", "&5A veces (7 %):&r chatarra de netherita."]
+			disable_toast: true
+			icon: "irons_spellbooks:epic_ink"
+			id: "703BD4998C97309C"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "51393D2CAA764D54"
+					icon: "irons_spellbooks:epic_ink"
+					stage: "ecos_l_grimorio_epica_era"
+					title: "El mundo llega a la Era III"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "0D436EFA629790E1"
+					icon: "irons_spellbooks:epic_ink"
+					stage: "ecos_l_grimorio_epica_tinta"
+					title: "Ten una tinta épica"
+					type: "gamestage"
+				}
+			]
+			title: "Tinta épica"
+			x: 7.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["703BD4998C97309C"]
+			description: ["&#19E6E6Zykna:&r &oHay un códice antiguo que llegó roto: un libro con tantas páginas como hechizos épicos y ninguna que sirviera sola. Restaurarlo exige paciencia. Cuando lo abras, tu voz ya tiene que ser de maga o mago.", "", "&6Qué hacer:&r Restaura el Códice Antiguo para obtener el libro de hechizos de netherita y lanza 200 hechizos con la voz.", "", "&6Premio:&r 2 cosas al azar: diamantes, chatarra de netherita, frascos de experiencia o amatista.", "&5A veces (7 %):&r tres diamantes."]
+			disable_toast: true
+			icon: "irons_spellbooks:netherite_spell_book"
+			id: "6E8528E12DB9140C"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7895E8CCE29FD5AE"
+					icon: "irons_spellbooks:netherite_spell_book"
+					stage: "ecos_l_grimorio_codice_codice"
+					title: "Restaura el Códice Antiguo"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1256C9B8E091469B"
+					icon: "minecraft:jukebox"
+					stage: "ecos_l_grimorio_codice_voz"
+					title: "Lanza 200 hechizos con la voz"
+					type: "gamestage"
+				}
+			]
+			title: "Conocimiento antiguo"
+			x: 7.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["6E8528E12DB9140C"]
+			description: ["&#19E6E6Zykna:&r &oLa tinta legendaria es lo último que el Proyecto pudo escribir con un Éter entero. Un solo pergamino con ella pesa más que una biblioteca. Con la Era IV, los hechizos legendarios por fin se pueden escribir.", "", "&6Qué hacer:&r En la Era IV, reúne una tinta legendaria. Es rara: se consigue en lugares que pocos pisan.", "", "&6Premio:&r 2 cosas al azar: diamantes, chatarra de netherita, frascos de experiencia o esencia arcana.", "&5A veces (7 %):&r dos chatarras de netherita."]
+			disable_toast: true
+			icon: "irons_spellbooks:legendary_ink"
+			id: "56ADBCE5943CB70B"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "44DB86DB4CD52EFD"
+					icon: "irons_spellbooks:legendary_ink"
+					stage: "ecos_l_grimorio_legendaria_era"
+					title: "El mundo llega a la Era IV"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "2A8666967C0A56CB"
+					icon: "irons_spellbooks:legendary_ink"
+					stage: "ecos_l_grimorio_legendaria_tinta"
+					title: "Consigue tinta legendaria"
+					type: "gamestage"
+				}
+			]
+			title: "Tinta legendaria"
+			x: 10.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["56ADBCE5943CB70B"]
+			description: ["&#19E6E6Zykna:&r &oMil hechizos dichos en voz alta. Para entonces ya no hablas con el Éter, hablas desde dentro de él. Lo que quedó de la Primera Mente te escucha, y por un instante, responde con tu mismo tono.", "", "&6Qué hacer:&r Lanza 1000 hechizos con la voz. Cuenta cada uno de los que lances en el mundo.", "", "&6Premio:&r 2 cosas al azar: diamantes, frascos de experiencia, chatarra de netherita o esencia arcana.", "&5A veces (7 %):&r cinco diamantes."]
+			disable_toast: true
+			icon: "irons_spellbooks:legendary_ink"
+			id: "65DC317069D040C9"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7C5C7D15C1A70E0C"
+					icon: "minecraft:jukebox"
+					stage: "ecos_l_grimorio_archimago_mil"
+					title: "Lanza 1000 hechizos con la voz"
+					type: "gamestage"
+				}
+			]
+			title: "Voz del Éter"
+			x: 10.00d
+			y: 1.40d
+		}
+	]
+	subtitle: ["Iron's Spells 'n Spellbooks e Incantation: escribir hechizos, guardarlos en un libro y gritarlos.", "El Éter viaja por el sonido: lo que dices en voz alta, el mundo lo obedece."]
+	title: "El grimorio"
+}

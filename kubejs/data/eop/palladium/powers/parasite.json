@@ -1,0 +1,1512 @@
+{
+  "name": "Mycological Mastery",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/fungus.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "abilities": {
+    "Parasite": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Parasite",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "scoreboard objectives add EOP.Minion dummy",
+        "execute unless entity @s[tag=EOP.NoNewMinion] run scoreboard players add ID.Number EOP.Minion 1",
+        "execute unless entity @s[tag=EOP.NoNewMinion] run scoreboard players operation @s EOP.Minion = ID.Number EOP.Minion",
+        "tag @s add EOP.NoNewMinion",
+        "scoreboard objectives add MM.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Parasite",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove Using.Spores",
+        "tag @s remove EOP.Has.Power",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mycological.Mastery": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/fungus.png",
+      "title": "Mycological Mastery",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to control and manipulate fungi"
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:parasite @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{parasite:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Mycological Mastery\",\"color\":\"#cf8e2a\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "MM.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s MM.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "MM.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "MM.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s MM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "MM.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "MM.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s MM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "MM.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Armor": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Armor",
+      "description": "Grants 2 more armor points",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "f8e0c0a5-a474-4901-a073-0559e46e66c6",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Mycological.Mastery"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/fungus.png",
+            "description": {
+              "text": "Mycological Mastery Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Armor2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Armor",
+      "description": "Grants 2 more armor points",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "7e640fd9-4db0-465d-a301-40e6b4f5b4a0",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Armor"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/fungus.png",
+            "description": {
+              "text": "Mycological Mastery Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Armor3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Armor",
+      "description": "Grants 2 more armor points",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "d133e443-4c47-473a-b691-56d6a41b1051",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Armor2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/fungus.png",
+            "description": {
+              "text": "Mycological Mastery Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Armor4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Armor",
+      "description": "Grants 2 more armor points",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "22f05979-b34e-4830-8162-b5e3dc15a75b",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Armor3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/fungus.png",
+            "description": {
+              "text": "Mycological Mastery Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Spores.Immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "eop:spores"
+      ]
+    },
+    "Mycelium.Buffs": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "commands": [
+        "effect give @s saturation 6 1 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:block_below",
+            "block": "eop:fungal_resin",
+            "offset": 1
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 50
+          }
+        ]
+      }
+    },
+    "Mycelium.Buffs2": {
+      "type": "eop:multi_attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attributes": [
+        "minecraft:generic.attack_damage",
+        "minecraft:generic.movement_speed"
+      ],
+      "amounts": [
+        6,
+        0.4
+      ],
+      "operations": [
+        "addition",
+        "multiply_base"
+      ],
+      "modifier_uuids": [
+        "2fec5ddf-c093-408c-a369-e46579d8d44d",
+        "9a8c2a00-1e98-437f-9a28-03df0e1839eb"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:block_below",
+            "block": "eop:fungal_resin",
+            "offset": 1
+          }
+        ]
+      }
+    },
+    "MyceliumBuffs3": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "reduction": 0.4,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:block_below",
+            "block": "eop:fungal_resin",
+            "offset": 1
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Fungal Resin",
+      "description": "Turn stone or dirt into Fungal Resin. This resin gives you a buff. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/resin.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Mycelium": {
+      "type": "palladium:energy_beam",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "icon": "eop:textures/gui/resin.png",
+      "title": "Resin",
+      "list_index": 0,
+      "energy_beam": "eop:nobeam",
+      "damage_type": "null",
+      "damage": 0,
+      "max_distance": 4,
+      "speed": 100,
+      "set_on_fire_seconds": 0,
+      "cause_fire": false,
+      "smelt_blocks": false,
+      "commands_on_block_hit": [
+        "function eop:powers/parasite/mycelium"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 3,
+            "key_type": "right_click"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Sink"
+              }
+            ]
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:parasite"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Spores.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/spores.png",
+      "title": "Spores",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "description": "Expel dangerous spores that slow and weaken anything that gets caught in them",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Mycological.Mastery"
+          }
+        ]
+      }
+    },
+    "Spores": {
+      "type": "palladium:command",
+      "title": "Spores",
+      "icon": "eop:textures/gui/spores.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "effect give @s minecraft:hunger 5 1 true",
+        "playsound minecraft:entity.wither.shoot master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "particle eop:spores ~ ~ ~ 10 2 10 0.05 15 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 200,
+            "cooldown": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Spores.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Sink"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Spores.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 10,
+      "commands": [
+        "effect give @s[tag=!Parasite,tag=!EOP.Phasing,tag=!Infinity] minecraft:slowness 4 1 true",
+        "effect give @s[tag=!Parasite,tag=!EOP.Phasing,tag=!Infinity] minecraft:mining_fatigue 4 0 true",
+        "superpower add eop:effects/spores_damage @s[type=!#eop:undead,tag=!Parasite,name=!Spores,tag=!Fungi.Minion,tag=!EOP.Phasing,tag=!Infinity]"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "execution_mode": "as",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Spores"
+          }
+        ]
+      }
+    },
+    "Spores.Custom2": {
+      "type": "eop:aoe_damage",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 10,
+      "damage": 1,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:spores",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Spores"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          }
+        ]
+      }
+    },
+    "Sink.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/ground_sink.png",
+      "title": "Ground Sink",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Sink into fungal resin for fast travel",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Spores.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MM.Score",
+            "score": 3,
+            "icon": "eop:textures/gui/fungus.png",
+            "description": {
+              "text": "Mycological Mastery Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Sink": {
+      "type": "palladium:animation_timer",
+      "title": "Ground Sink",
+      "icon": "eop:textures/gui/ground_sink.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "start_value": 0,
+      "max_value": 20,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 300,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:command_result",
+                "command": "execute if block ~ ~-0.2 ~ eop:fungal_resin",
+                "comparison": "==",
+                "compare_to": 1,
+                "log": false
+              },
+              {
+                "type": "palladium:command_result",
+                "command": "execute if block ~ ~0.2 ~ eop:fungal_resin",
+                "comparison": "==",
+                "compare_to": 1,
+                "log": false
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Sink.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Sink.Damage.Immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "eop:rift_immune",
+        "eop:rift_immune_alexscaves",
+        "eop:rift_immune_alexsmobs",
+        "eop:tacz_guns",
+        "eop:scorched_guns"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Sink"
+          }
+        ]
+      }
+    },
+    "Sink.Phase": {
+      "type": "palladium:intangibility",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "blacklist": "eop:prevents_intangibility_stronger",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Sink"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_sangre_g2"
+          }
+        ]
+      }
+    },
+    "No.Damage.Sink": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "a83a382d-a36b-4cf0-83d4-9279464a6162",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Sink"
+          }
+        ]
+      }
+    },
+    "No.Break.Sink": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:destroy_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "185d443e-f5be-48ac-8868-e5502047a6ee",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Sink"
+          }
+        ]
+      }
+    },
+    "Sink.Effects": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Parasite.Sinking",
+        "playsound eop:burrow master @a ~ ~ ~ 1 1",
+        "playsound eop:diamond_transform master @s ~ ~ ~ 1 2",
+        "particle block eop:fungal_resin ~ ~ ~ 0.3 0.3 0.3 0 200 force",
+        "scale set pehkui:hitbox_height 0.01",
+        "scale set pehkui:eye_height 0.1"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Parasite.Sinking",
+        "stopsound @a[distance=..30] * eop:burrow",
+        "playsound eop:diamond_transform master @s ~ ~ ~ 1 2",
+        "particle block eop:fungal_resin ~ ~ ~ 0.3 0.3 0.3 0 200 force",
+        "scale reset pehkui:hitbox_height",
+        "scale reset pehkui:eye_height"
+      ],
+      "commands": [
+        "effect give @s minecraft:hunger 1 1 true",
+        "particle block eop:fungal_resin ~ ~ ~ 0.3 0.3 0.3 0 10 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Sink"
+          }
+        ]
+      }
+    },
+    "Sink.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 1.4,
+      "operation": 1,
+      "uuid": "c6df4dbf-0686-402f-910d-81a3160f93be",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Sink"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "3bf290a2-d8bc-49af-9ebf-8bccaefb6286",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Sink"
+          }
+        ]
+      }
+    },
+    "Sink.No.Move.Timer": {
+      "type": "palladium:animation_timer",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "start_value": 0,
+      "max_value": 22,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Parasite.Sinking"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "02a995ce-f9d9-4862-b815-91c196d5cc6b",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Sink.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 21
+          }
+        ]
+      }
+    },
+    "Sink.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound eop:burrow master @a ~ ~ ~ 1 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Sink"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 160
+          }
+        ]
+      }
+    },
+    "Sink.Invis": {
+      "type": "palladium:invisibility",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Sink"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Sink",
+            "property": "value",
+            "min": 15,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Mucus.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/mucus.png",
+      "title": "Mucus Shot",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Spit a mucus projectile that blinds targets",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Sink.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MM.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/fungus.png",
+            "description": {
+              "text": "Mycological Mastery Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Mucus": {
+      "type": "palladium:projectile",
+      "icon": "eop:textures/gui/mucus.png",
+      "title": "Mucus Shot",
+      "list_index": 2,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 2,
+        "DamageType": "eop:basic_projectile",
+        "SetEntityOnFireSeconds": 0,
+        "CommandOnBlockHit": "execute if predicate eop:mucus run function eop:powers/parasite/mucus",
+        "CommandOnEntityHit": "execute if predicate eop:mucus run function eop:powers/parasite/mucus",
+        "Gravity": 0.03,
+        "Lifetime": 80,
+        "DieOnEntityHit": true,
+        "DieOnBlockHit": true,
+        "Appearances": [
+          {
+            "Type": "item",
+            "Item": "minecraft:slime_ball"
+          },
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:item_slime",
+            "Spread": 0.2,
+            "Amount": 20
+          }
+        ]
+      },
+      "inaccuracy": 0,
+      "velocity": 5,
+      "swinging_arm": "none",
+      "damage_from_player": false,
+      "ignore_player_movement": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 20,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Mucus.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Sink"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mucus.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "effect give @s minecraft:hunger 5 2 true",
+        "playsound minecraft:entity.llama.spit master @a ~ ~ ~ 1 0.5"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Mucus"
+          }
+        ]
+      }
+    },
+    "EOP.Minions.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/fungi.png",
+      "title": "Fungi Minions",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Summon 3 Fungi minions that will fight with you",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Mucus.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MM.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/fungus.png",
+            "description": {
+              "text": "Mycological Mastery Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "EOP.Minion": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/fungi.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": "Fungi Minions",
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "effect give @s minecraft:hunger 5 3 true",
+        "playsound minecraft:entity.warden.emerge master @a ~ ~ ~ 1 2"
+      ],
+      "list_index": 3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 2400,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "EOP.Minions.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Sink"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Summon.Minion": {
+      "type": "eop:summon_minions",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "wolf_superpower": "eop:models/fungi_minion_base",
+      "piglin_superpower": "eop:models/fungi_minion",
+      "minion_count": 3,
+      "lifetime": 60000,
+      "despawn_particle": "block mycelium",
+      "despawn_particle_count": 60,
+      "despawn_sound": "eop:slime",
+      "despawn_sound_pitch": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "EOP.Minion"
+          }
+        ]
+      }
+    },
+    "Infestation.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/infestation.png",
+      "title": "Infestation",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Transform the environment directly around you to fungal resin",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "EOP.Minions.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Armor4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MM.Score",
+            "score": 15,
+            "icon": "eop:textures/gui/fungus.png",
+            "description": {
+              "text": "Mycological Mastery Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Infestation": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/infestation.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "title": "Infestation",
+      "first_tick_commands": [
+        "tag @s add Using.Infestation",
+        "effect give @s minecraft:hunger 5 5 true",
+        "playsound minecraft:entity.warden.emerge master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [
+        "particle eop:deadly_spores ~ ~ ~ 10 5 10 1 400 force",
+        "fill ~7 ~5 ~7 ~-7 ~-2 ~-7 eop:fungal_resin replace #eop:mycelium_can",
+        "fill ~8 ~5 ~6 ~-8 ~-2 ~-6 eop:fungal_resin replace #eop:mycelium_can",
+        "fill ~9 ~5 ~5 ~-9 ~-2 ~-5 eop:fungal_resin replace #eop:mycelium_can",
+        "fill ~10 ~5 ~4 ~-10 ~-2 ~-4 eop:fungal_resin replace #eop:mycelium_can",
+        "fill ~11 ~5 ~3 ~-11 ~-2 ~-3 eop:fungal_resin replace #eop:mycelium_can",
+        "fill ~12 ~5 ~2 ~-12 ~-2 ~-2 eop:fungal_resin replace #eop:mycelium_can",
+        "fill ~13 ~5 ~1 ~-13 ~-2 ~-1 eop:fungal_resin replace #eop:mycelium_can",
+        "fill ~6 ~5 ~8 ~-6 ~-2 ~-8 eop:fungal_resin replace #eop:mycelium_can",
+        "fill ~5 ~5 ~9 ~-5 ~-2 ~-9 eop:fungal_resin replace #eop:mycelium_can",
+        "fill ~4 ~5 ~10 ~-4 ~-2 ~-10 eop:fungal_resin replace #eop:mycelium_can",
+        "fill ~3 ~5 ~11 ~-3 ~-2 ~-11 eop:fungal_resin replace #eop:mycelium_can",
+        "fill ~2 ~5 ~12 ~-2 ~-2 ~-12 eop:fungal_resin replace #eop:mycelium_can",
+        "fill ~1 ~5 ~13 ~-1 ~-2 ~-13 eop:fungal_resin replace #eop:mycelium_can",
+        "playsound minecraft:entity.warden.tendril_clicks master @a ~ ~ ~ 1 1.5"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:on_ground"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Infestation"
+              }
+            ]
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 1200,
+            "ticks": 20,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Infestation.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Sink"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Infestation.Custom": {
+      "type": "eop:power_stand",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 4,
+      "lifetime": 30000,
+      "damage": 1,
+      "damage_radius": 10,
+      "damage_type": "eop:spores",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "stand_power": "eop:effects/deadly_spores",
+      "orbit_enabled": false,
+      "orbit_radius": 0,
+      "first_tick_commands": [],
+      "commands": [
+        "effect give @s[type=!#eop:undead,tag=!Parasite,name=!Spores,tag=!EOP.Fungi.Minion,tag=!EOP.Phasing,tag=!Infinity] minecraft:slowness 4 2 true",
+        "effect give @s[type=!#eop:undead,tag=!Parasite,name=!Spores,tag=!EOP.Fungi.Minion,tag=!EOP.Phasing,tag=!Infinity] minecraft:mining_fatigue 4 2 true",
+        "effect give @s[type=!#eop:undead,tag=!Parasite,name=!Spores,tag=!EOP.Fungi.Minion,tag=!EOP.Phasing,tag=!Infinity] minecraft:weakness 4 2 true",
+        "superpower add eop:effects/deadly_spores_damage @s[type=!#eop:undead,tag=!Parasite,name=!Spores,tag=!EOP.Fungi.Minion,tag=!EOP.Phasing,tag=!Infinity]"
+      ],
+      "last_tick_commands": [],
+      "execution_mode": "as",
+      "include_caster": false,
+      "only_same_team": false,
+      "stand_first_tick_commands": [],
+      "stand_commands": [],
+      "stand_last_tick_commands": [],
+      "destroy_blocks": false,
+      "block_break_radius": 3,
+      "block_break_interval": 20,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Infestation"
+          }
+        ]
+      }
+    },
+    "Infestation.Custom2": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 10,
+      "commands": [
+        "effect give @s[tag=!Parasite,tag=!EOP.Phasing,tag=!Infinity,tag=!EOP.Fungi.Minion] nausea 10 200 true",
+        "effect give @s[tag=!Parasite,tag=!EOP.Phasing,tag=!Infinity,tag=!EOP.Fungi.Minion] blindness 10 200 true"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "execution_mode": "as",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Infestation"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "c081febf-4ac2-46e5-b962-596c37123896",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Infestation"
+          }
+        ]
+      }
+    },
+    "No.Jumping2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "7fe39d06-e879-46fc-bef1-5228b915b8fc",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Infestation"
+          }
+        ]
+      }
+    },
+    "Infestation.Animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Infestation"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,330 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_03_bunker"
+	group: "39FD9A44732FCDBA"
+	icon: "minecraft:redstone_lamp"
+	id: "6ED068F25AEB57F2"
+	order_index: 3
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oEl Búnker 7 guarda mundos de práctica. El de Tierra tiene una aldea y un castillo que nunca existieron: sirve para probar con calma lo que afuera te cuesta caro.", "", "&6Qué hacer:&r Regresa al Búnker 7 y entra al Simulador de Tierra.", "", "&6Premio:&r 2 cosas al azar: pan, hierro, esmeraldas o troncos.", "&5A veces (7 %):&r una espada de hierro encantada con Filo."]
+			disable_toast: true
+			icon: "minecraft:oak_door"
+			id: "0FC2460A9136E904"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "1B44B4A19CE0B294"
+					icon: "minecraft:oak_door"
+					stage: "ecos_l_bunker_simtierra_entrar"
+					title: "Entra al Simulador de Tierra"
+					type: "gamestage"
+				}
+			]
+			title: "El simulador de Tierra"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["0FC2460A9136E904"]
+			description: ["&#19E6E6Zykna:&r &oUn mar entero dentro de una sala, con su fondo y sus criaturas. Aquí nadie se ahoga de verdad: es el mejor lugar para aprender a respirar bajo el agua antes de que cuente.", "", "&6Qué hacer:&r Entra al Simulador del Mar, en el Búnker 7.", "", "&6Premio:&r 2 cosas al azar: bacalao cocido, algas, prismarina o una concha.", "&5A veces (7 %):&r un casco de tortuga encantado con Respiración."]
+			disable_toast: true
+			icon: "minecraft:kelp"
+			id: "2E474E1BD5FFA631"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4E1BA04A3C543EB8"
+					icon: "minecraft:kelp"
+					stage: "ecos_l_bunker_simmar_entrar"
+					title: "Entra al Simulador del Mar"
+					type: "gamestage"
+				}
+			]
+			title: "El simulador del Mar"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["2E474E1BD5FFA631"]
+			description: ["&#19E6E6Zykna:&r &oEl cielo del simulador no se acaba y no tiene suelo que te espere. Las naves del Proyecto se probaron en lugares así, antes de que alguien las subiera de verdad.", "", "&6Qué hacer:&r Entra al Simulador del Cielo, en el Búnker 7.", "", "&6Premio:&r 2 cosas al azar: plumas, papel, flechas o cohetes de fuegos artificiales.", "&5A veces (7 %):&r un arco encantado con Poder."]
+			disable_toast: true
+			icon: "minecraft:feather"
+			id: "44B3536BFFAB5C3A"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "236B93BB90478214"
+					icon: "minecraft:feather"
+					stage: "ecos_l_bunker_simcielo_entrar"
+					title: "Entra al Simulador del Cielo"
+					type: "gamestage"
+				}
+			]
+			title: "El simulador del Cielo"
+			x: 0.00d
+			y: 2.80d
+		}
+		{
+			dependencies: ["44B3536BFFAB5C3A"]
+			description: ["&#19E6E6Zykna:&r &oAquí no hay arriba ni abajo: gravedad cero, silencio y estrellas pintadas. Cuando el cohete exista, este será el primer lugar donde te hayas sentido ligero.", "", "&6Qué hacer:&r Entra al Simulador del Espacio, en el Búnker 7, y flota un rato.", "", "&6Premio:&r 2 cosas al azar: barras de luz, vidrio, cuarzo o redstone.", "&5A veces (7 %):&r unas botas de hierro encantadas con Caída de pluma."]
+			disable_toast: true
+			icon: "minecraft:end_rod"
+			id: "78B07ED7D4658404"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "02F813C65A15214C"
+					icon: "minecraft:end_rod"
+					stage: "ecos_l_bunker_simespacio_entrar"
+					title: "Entra al Simulador del Espacio"
+					type: "gamestage"
+				}
+			]
+			title: "El simulador del Espacio"
+			x: 0.00d
+			y: 4.20d
+		}
+		{
+			dependencies: ["78B07ED7D4658404"]
+			description: ["&#19E6E6Zykna:&r &oEl primer registro que devuelve la Enfermería dice que los respaldos despiertan sanos, sin recuerdos del Proyecto y con una astilla en el pecho. Sin ella, el respaldo se apaga.", "", "&6Qué hacer:&r Aporta lana blanca, frascos de miel y zanahorias doradas en la terminal de la Enfermería (la lámpara junto a su puerta) hasta que se encienda.", "", "&6Premio:&r 2 cosas al azar: vendas, parches, miel o zanahorias doradas.", "&5A veces (7 %):&r una manzana dorada."]
+			disable_toast: true
+			icon: "firstaid:bandage"
+			id: "7C3583DCA65505E2"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5B9DE18762859D8C"
+					icon: "minecraft:redstone_lamp"
+					stage: "ecos_l_bunker_enfermeria_aporte"
+					title: "Aporta material en la terminal"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "61CDBA1A4A597F62"
+					icon: "firstaid:bandage"
+					stage: "ecos_l_bunker_enfermeria_linea"
+					title: "La Enfermería queda en línea"
+					type: "gamestage"
+				}
+			]
+			title: "La Enfermería despierta"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["7C3583DCA65505E2"]
+			description: ["&#19E6E6Zykna:&r &oLa bitácora del Taller cuenta que el anillo del sótano no se hizo para que salieras: se hizo para mandar respaldos al planeta si la Primera Mente fallaba. Lo encendieron a mano y se quemó en el primer salto.", "", "&6Qué hacer:&r Aporta lingotes de hierro, aleación de andesita y lingotes de cobre en la terminal del Taller. Ya en línea, repara lo que traigas en la mano.", "", "&6Premio:&r 2 cosas al azar: hierro, cobre, aleación de andesita o engranes.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			disable_toast: true
+			icon: "create:andesite_alloy"
+			id: "6314D43BE29879F4"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3126364CE3AAA55A"
+					icon: "minecraft:redstone_lamp"
+					stage: "ecos_l_bunker_taller_aporte"
+					title: "Aporta material en la terminal"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "59D561D7AD741181"
+					icon: "create:andesite_alloy"
+					stage: "ecos_l_bunker_taller_linea"
+					title: "El Taller queda en línea"
+					type: "gamestage"
+				}
+			]
+			title: "El Taller vuelve a sonar"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["6314D43BE29879F4"]
+			description: ["&#19E6E6Zykna:&r &oCon una sala en línea, la Fractura puede reabrirse dentro del Búnker: sale una grieta con criaturas y la sala queda apagada. Se cierra limpiando lo que salió y entregando lo que pide el sello.", "", "&6Qué hacer:&r Cuando se abra una grieta, derrota a lo que salga y entrega en la terminal de esa sala lo que pide el sello. Cuenta que el mundo selle al menos una.", "", "&6Premio:&r 2 cosas al azar: amatista, obsidiana, hierro o frascos de experiencia.", "&5A veces (7 %):&r un montón de frascos de experiencia."]
+			disable_toast: true
+			icon: "minecraft:crying_obsidian"
+			id: "4AF59CDE3838DA39"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "3454E6B3966F208C"
+					icon: "minecraft:crying_obsidian"
+					stage: "ecos_l_bunker_grieta_sellar"
+					title: "El mundo sella una grieta"
+					type: "gamestage"
+				}
+			]
+			title: "Una grieta en la sala"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["4AF59CDE3838DA39"]
+			description: ["&#19E6E6Zykna:&r &oEl manifiesto de carga lista seis naves para la colonia lunar. Ninguna despegó: la Fractura abrió el cielo antes que la compuerta. Si ves luces en la Luna, alguien sigue allá.", "", "&6Qué hacer:&r Aporta lingotes de latón, bloques de hierro y bloques de carbón en la terminal del Hangar. En línea, te da una ración de combustible por día.", "", "&6Premio:&r 2 cosas al azar: carbón, varas de blaze, oro o esmeraldas.", "&5A veces (7 %):&r un diamante."]
+			disable_toast: true
+			icon: "create:brass_ingot"
+			id: "69446B6EA8632D84"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "4166F4D925504071"
+					icon: "minecraft:redstone_lamp"
+					stage: "ecos_l_bunker_hangar_aporte"
+					title: "Aporta material en la terminal"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "067D9B3925D0E62C"
+					icon: "create:brass_ingot"
+					stage: "ecos_l_bunker_hangar_linea"
+					title: "El Hangar queda en línea"
+					type: "gamestage"
+				}
+			]
+			title: "El Hangar abre sus puertas"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["69446B6EA8632D84"]
+			description: ["&#19E6E6Zykna:&r &oLa nota de campo del Invernadero avisa que sus semillas vienen de los bolsillos de memoria: allá las plantas crecen como alguien las recordaba, no como eran. Algunas no existen en ningún otro lado.", "", "&6Qué hacer:&r Aporta bloques de vidrio, harina de hueso y bloques de musgo en la terminal del Invernadero. En línea, te da una canasta de cosecha por día.", "", "&6Premio:&r 2 cosas al azar: zanahorias doradas, repollo, semillas de sandía o musgo.", "&5A veces (7 %):&r un bloque de esmeralda."]
+			disable_toast: true
+			icon: "minecraft:moss_block"
+			id: "35A11F66D9C99A00"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "134DDEF8917F9E30"
+					icon: "minecraft:redstone_lamp"
+					stage: "ecos_l_bunker_invernadero_aporte"
+					title: "Aporta material en la terminal"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "1928B4F95CADA9DC"
+					icon: "minecraft:moss_block"
+					stage: "ecos_l_bunker_invernadero_linea"
+					title: "El Invernadero queda en línea"
+					type: "gamestage"
+				}
+			]
+			title: "El Invernadero respira"
+			x: 5.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["35A11F66D9C99A00"]
+			description: ["&#19E6E6Zykna:&r &oEl acta de la Fractura dice que uno de los fragmentos de la Primera Mente guardó lo peor que aprendió de nosotros. No es un bolsillo de memoria: es una herida que piensa. Se llama Maledictus.", "", "&6Qué hacer:&r Aporta libros, fragmentos de amatista y perlas de Ender en la terminal del Archivo. En línea, te da el libro con los registros recuperados.", "", "&6Premio:&r 2 cosas al azar: diamantes, lapislázuli, libros o frascos de experiencia.", "&5A veces (7 %):&r dos o tres diamantes."]
+			disable_toast: true
+			icon: "minecraft:book"
+			id: "17090FC042215BA3"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era III · El Éxodo"
+			tasks: [
+				{
+					disable_toast: true
+					id: "21D8364276C05FEC"
+					icon: "minecraft:redstone_lamp"
+					stage: "ecos_l_bunker_archivo_aporte"
+					title: "Aporta material en la terminal"
+					type: "gamestage"
+				}
+				{
+					disable_toast: true
+					id: "127D81EFCC13FB60"
+					icon: "minecraft:book"
+					stage: "ecos_l_bunker_archivo_linea"
+					title: "El Archivo queda en línea"
+					type: "gamestage"
+				}
+			]
+			title: "El Archivo guarda una herida"
+			x: 7.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["17090FC042215BA3"]
+			description: ["&#19E6E6Zykna:&r &oEl Reactor es la última sala y la que más pide: netherita, una estrella del Nether y diamantes. Sin él, el Búnker respira a medias.", "", "&6Qué hacer:&r Aporta lingotes de netherita, una estrella del Nether y diamantes en la terminal del Reactor.", "", "&6Premio:&r 2 cosas al azar: diamantes, chatarra de netherita, bloques de redstone o frascos de experiencia.", "&5A veces (7 %):&r tres diamantes."]
+			disable_toast: true
+			icon: "minecraft:nether_star"
+			id: "33E9DBF83DD1F128"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "28C74DE6101F4181"
+					icon: "minecraft:redstone_lamp"
+					stage: "ecos_l_bunker_reactor_aporte"
+					title: "Aporta material en la terminal"
+					type: "gamestage"
+				}
+			]
+			title: "Combustible para el Reactor"
+			x: 10.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["33E9DBF83DD1F128"]
+			description: ["&#19E6E6Zykna:&r &oLa última orden del Proyecto es sencilla: si los Ecos llegan hasta aquí, que el anillo los lleve a la Cumbre. El Templo es la única forma de volver a coser la Primera Mente.", "", "&6Qué hacer:&r Entre todos, dejen el Reactor en línea. Después, el anillo del Búnker te lleva al Templo de la Conciencia.", "", "&6Premio:&r 2 cosas al azar: diamantes, chatarra de netherita, ojos de Ender o frascos de experiencia.", "&5A veces (7 %):&r un diamante y chatarra de netherita."]
+			disable_toast: true
+			icon: "minecraft:end_rod"
+			id: "75BDAB36C73B2CB7"
+			shape: "diamond"
+			size: 1.00d
+			subtitle: "Era IV · La Conciencia Suprema"
+			tasks: [
+				{
+					disable_toast: true
+					id: "091885CA9A29C481"
+					icon: "minecraft:nether_star"
+					stage: "ecos_l_bunker_anillo_linea"
+					title: "El Reactor queda en línea"
+					type: "gamestage"
+				}
+			]
+			title: "El anillo hacia la Cumbre"
+			x: 10.00d
+			y: 1.40d
+		}
+	]
+	subtitle: ["Los simuladores y las seis salas del laboratorio que te vio nacer.", "Cada sala que enciendes me devuelve un registro del Proyecto Éter."]
+	title: "El Búnker 7"
+}

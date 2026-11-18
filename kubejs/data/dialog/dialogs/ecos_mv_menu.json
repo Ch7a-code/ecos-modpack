@@ -1,0 +1,89 @@
+{
+ "id": "ecos_mv_menu",
+ "title": "Sistema de Zykna",
+ "description": "Ventana principal de Zykna (ecos_misiones_v2.js)",
+ "start": "menu",
+ "entries": [
+  {
+   "id": "menu",
+   "speaker": {
+    "text": "Zykna  ·  Sistema",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "",
+     "color": "#E8F3F3"
+    },
+    {
+     "nbt": "actual.cab",
+     "storage": "ecos:mv",
+     "interpret": true
+    },
+    {
+     "text": "\n"
+    },
+    {
+     "text": "\n"
+    },
+    {
+     "nbt": "actual.sigue",
+     "storage": "ecos:mv",
+     "interpret": true
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "options": [
+    {
+     "text": "▶  Continuar",
+     "target": "menu",
+     "command": [
+      "zykna mv continuar"
+     ]
+    },
+    {
+     "text": "☰  Elegir misión",
+     "target": "menu",
+     "command": [
+      "zykna mv elegir"
+     ]
+    },
+    {
+     "text": "◈  Mi Eco (stats)",
+     "target": "menu",
+     "command": [
+      "zykna stats"
+     ]
+    },
+    {
+     "text": "★  Ecos de Victoria (títulos)",
+     "target": "menu",
+     "command": [
+      "zykna titulo"
+     ]
+    },
+    {
+     "text": "◎  Estado del mundo",
+     "target": "menu",
+     "command": [
+      "zykna mv mundo"
+     ]
+    },
+    {
+     "text": "?  Guía y tutoriales",
+     "target": "menu",
+     "command": [
+      "zykna guia"
+     ]
+    }
+   ]
+  }
+ ]
+}

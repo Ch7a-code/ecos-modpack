@@ -1,0 +1,13 @@
+name = "Star Wars Expansion"
+filename = "StarWarsExpansionv4.1.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "5be3b4922698a880b4aeb20b1c3934d151680997"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9595298
+project-id = 1349915

@@ -1,0 +1,126 @@
+{
+ "id": "ecos_stats_mente",
+ "title": "STATUS",
+ "description": "Ventana de stats de ECOS (ecos_stats.js): botones [+1] por stat",
+ "start": "mente",
+ "entries": [
+  {
+   "id": "mente",
+   "speaker": {
+    "text": "STATUS  ·  Sistema de Zykna",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "",
+     "color": "white"
+    },
+    {
+     "nbt": "actual.cab",
+     "storage": "ecos:stats",
+     "interpret": true
+    },
+    {
+     "text": "\n"
+    },
+    {
+     "nbt": "actual.libres",
+     "storage": "ecos:stats",
+     "interpret": true
+    },
+    {
+     "text": "\n"
+    },
+    {
+     "nbt": "actual.inteligencia",
+     "storage": "ecos:stats",
+     "interpret": true
+    },
+    {
+     "text": "\n"
+    },
+    {
+     "nbt": "actual.mana",
+     "storage": "ecos:stats",
+     "interpret": true
+    },
+    {
+     "text": "\n"
+    },
+    {
+     "nbt": "actual.critico",
+     "storage": "ecos:stats",
+     "interpret": true
+    },
+    {
+     "text": "\n"
+    },
+    {
+     "nbt": "actual.arco",
+     "storage": "ecos:stats",
+     "interpret": true
+    },
+    {
+     "text": "\n"
+    },
+    {
+     "nbt": "actual.pie",
+     "storage": "ecos:stats",
+     "interpret": true
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "options": [
+    {
+     "text": "[+1] ✦ Inteligencia",
+     "target": "mente",
+     "command": [
+      "zykna stats subir inteligencia"
+     ]
+    },
+    {
+     "text": "[+1] ✧ Maná",
+     "target": "mente",
+     "command": [
+      "zykna stats subir mana"
+     ]
+    },
+    {
+     "text": "[+1] ✸ Crítico",
+     "target": "mente",
+     "command": [
+      "zykna stats subir critico"
+     ]
+    },
+    {
+     "text": "[+1] ➶ Puntería",
+     "target": "mente",
+     "command": [
+      "zykna stats subir arco"
+     ]
+    },
+    {
+     "text": "→ Cuerpo",
+     "target": "mente",
+     "command": [
+      "zykna stats ventana cuerpo"
+     ]
+    },
+    {
+     "text": "Reiniciar mis stats (1 vez por Era)",
+     "target": "mente",
+     "command": [
+      "zykna stats reiniciar"
+     ]
+    }
+   ]
+  }
+ ]
+}
