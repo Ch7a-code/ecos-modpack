@@ -377,7 +377,7 @@ hash = "a3ae43a2a8706cbe848a07e8676813666701745fd27de9ffe5bf6c78e1ab3bb9"
 
 [[files]]
 file = "kubejs/assets/ecos/sounds.json"
-hash = "3933cc2c0e0fcf40c2e4904ecdc52b3cef5712618317a81fb9abafa62f5329c6"
+hash = "12e73fa838c6c169afafdc631b9465ba747a3873c9825fa405079137ad219790"
 
 [[files]]
 file = "kubejs/assets/ecos/sounds/intro.ogg"
@@ -385,15 +385,15 @@ hash = "d600f70d63549d208e22e21e744fb9a10c0bcfa527bc0de1749406293216ff59"
 
 [[files]]
 file = "kubejs/assets/ecos/sounds/zykna/era.ogg"
-hash = "5d4fec04d53fa7a2215b3448e5865da015ff15bdd62ad1c092e0275d8ce39c0a"
+hash = "b7bee4d14f7ac7b04c98bcbc3fdffc3d2f5fad4a80956be6c9072d79cb4603b6"
 
 [[files]]
 file = "kubejs/assets/ecos/sounds/zykna/novedades.ogg"
-hash = "cda1e2c9ee74d7df76c14d1630a1a541e933d138fd1a472861dc6e6a088784aa"
+hash = "7a9d2b78485034c63511e5fd2b5505b1d9f4600734f64026aa9285204c023224"
 
 [[files]]
 file = "kubejs/assets/ecos/sounds/zykna/volviste.ogg"
-hash = "a9fecacabae5fd3c17932ded046957c2fa495a6ecf3c70c78014b83b5d8c9c12"
+hash = "f5c38e3ccedbb5fa2446819994708a7d4f2dc680abe467cda49a54092fff651e"
 
 [[files]]
 file = "kubejs/assets/ecos/textures/entity/maestro/bestias.png"
@@ -536,12 +536,16 @@ file = "kubejs/data/cold_sweat/cold_sweat/world/dimension_temp/ecos/nether.json"
 hash = "ae50cc8a2cdeaed457938228c2561388b0088b6792ad6f62c213b759a4d9e73c"
 
 [[files]]
+file = "kubejs/data/dialog/dialogs/ecos_cronica.json"
+hash = "af7a0983052faeacc05e00940a596cd7bd9409a71c5c9f41a95a4ee51e06f0aa"
+
+[[files]]
 file = "kubejs/data/dialog/dialogs/ecos_mv_elegir.json"
 hash = "1b6cc8623a8afd0bbdeb9af09a9e1243c69f61e60f341aaae9604618d1ecd8eb"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_mv_menu.json"
-hash = "4c232f5f215eca22e03741c5df050b30dacff7614cf7e36981d4fc316a489472"
+hash = "17b6a651fcd51527199d031a0990f95b95b8939eda19d2bae6a5a0fe70a64e52"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_mv_mision.json"
@@ -553,7 +557,7 @@ hash = "bada6d9fb5bf7920bed6edfea9c1c5f7ddc149ad075657861c2ecb4a38f7848b"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_novedades.json"
-hash = "f2669e9bba4d7e4a773fe365e741fce2786545f6919621155c9fd43d32f235c9"
+hash = "9dfd0afbb0cad43dbd5b0631b17120187e7bf41faa1b5490c49ff5a1069ea76e"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_stats_cuerpo.json"

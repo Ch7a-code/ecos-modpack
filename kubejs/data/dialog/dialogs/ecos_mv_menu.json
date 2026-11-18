@@ -70,6 +70,13 @@
      ]
     },
     {
+     "text": "▤  Crónica (progreso del grupo)",
+     "target": "menu",
+     "command": [
+      "zykna cronica"
+     ]
+    },
+    {
      "text": "◎  Estado del mundo",
      "target": "menu",
      "command": [

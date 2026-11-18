@@ -1,0 +1,229 @@
+{
+ "id": "ecos_cronica",
+ "title": "Crónica de ECOS",
+ "description": "Progreso tuyo, del mundo y del grupo (ecos_cronica.js)",
+ "start": "tu",
+ "entries": [
+  {
+   "id": "tu",
+   "speaker": {
+    "text": "Zykna  ·  Crónica de ECOS",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "",
+     "color": "#E8F3F3"
+    },
+    {
+     "nbt": "actual.tu",
+     "storage": "ecos:cron",
+     "interpret": true
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "options": [
+    {
+     "text": "▸ Tú",
+     "target": "tu"
+    },
+    {
+     "text": "   El mundo",
+     "target": "mundo"
+    },
+    {
+     "text": "   Grupo: trabajo",
+     "target": "trabajo"
+    },
+    {
+     "text": "   Grupo: combate",
+     "target": "combate"
+    },
+    {
+     "text": "✖  Cerrar",
+     "target": "fin"
+    }
+   ]
+  },
+  {
+   "id": "mundo",
+   "speaker": {
+    "text": "Zykna  ·  Crónica de ECOS",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "",
+     "color": "#E8F3F3"
+    },
+    {
+     "nbt": "actual.mundo",
+     "storage": "ecos:cron",
+     "interpret": true
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "options": [
+    {
+     "text": "   Tú",
+     "target": "tu"
+    },
+    {
+     "text": "▸ El mundo",
+     "target": "mundo"
+    },
+    {
+     "text": "   Grupo: trabajo",
+     "target": "trabajo"
+    },
+    {
+     "text": "   Grupo: combate",
+     "target": "combate"
+    },
+    {
+     "text": "✖  Cerrar",
+     "target": "fin"
+    }
+   ]
+  },
+  {
+   "id": "trabajo",
+   "speaker": {
+    "text": "Zykna  ·  Crónica de ECOS",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "",
+     "color": "#E8F3F3"
+    },
+    {
+     "nbt": "actual.trabajo",
+     "storage": "ecos:cron",
+     "interpret": true
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "options": [
+    {
+     "text": "   Tú",
+     "target": "tu"
+    },
+    {
+     "text": "   El mundo",
+     "target": "mundo"
+    },
+    {
+     "text": "▸ Grupo: trabajo",
+     "target": "trabajo"
+    },
+    {
+     "text": "   Grupo: combate",
+     "target": "combate"
+    },
+    {
+     "text": "✖  Cerrar",
+     "target": "fin"
+    }
+   ]
+  },
+  {
+   "id": "combate",
+   "speaker": {
+    "text": "Zykna  ·  Crónica de ECOS",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "",
+     "color": "#E8F3F3"
+    },
+    {
+     "nbt": "actual.combate",
+     "storage": "ecos:cron",
+     "interpret": true
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ],
+   "options": [
+    {
+     "text": "   Tú",
+     "target": "tu"
+    },
+    {
+     "text": "   El mundo",
+     "target": "mundo"
+    },
+    {
+     "text": "   Grupo: trabajo",
+     "target": "trabajo"
+    },
+    {
+     "text": "▸ Grupo: combate",
+     "target": "combate"
+    },
+    {
+     "text": "✖  Cerrar",
+     "target": "fin"
+    }
+   ]
+  },
+  {
+   "id": "fin",
+   "speaker": {
+    "text": "Zykna  ·  Crónica de ECOS",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "Escribe ",
+     "color": "#8FA2A8"
+    },
+    {
+     "text": "progreso",
+     "color": "#19E6E6"
+    },
+    {
+     "text": " cuando quieras volver a verla. Clic para cerrar.",
+     "color": "#8FA2A8"
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
+    }
+   ]
+  }
+ ]
+}

@@ -196,11 +196,41 @@
      "text": "✔  Entendido, ya lo leí",
      "command": [
       "zykna novedades ok"
-     ]
+     ],
+     "target": "fin"
     },
     {
      "text": "↺  Leer otra vez desde el principio",
      "target": "1"
+    }
+   ]
+  },
+  {
+   "id": "fin",
+   "speaker": {
+    "text": "Zykna  ·  Novedades",
+    "color": "#19E6E6",
+    "bold": true
+   },
+   "text": [
+    {
+     "text": "Listo. Si quieres volver a verlas, escribe ",
+     "color": "#E8F3F3"
+    },
+    {
+     "text": "novedades",
+     "color": "#19E6E6"
+    },
+    {
+     "text": ". Clic para cerrar.",
+     "color": "#8FA2A8"
+    }
+   ],
+   "portraits": [
+    {
+     "path": "zykna.png",
+     "position": "LEFT",
+     "brightness": 1.0
     }
    ]
   }

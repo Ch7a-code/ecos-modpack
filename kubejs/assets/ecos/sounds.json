@@ -13,7 +13,8 @@
   "sounds": [
    {
     "name": "ecos:zykna/volviste",
-    "stream": false
+    "stream": true,
+    "attenuation_distance": 1000
    }
   ]
  },
@@ -22,7 +23,8 @@
   "sounds": [
    {
     "name": "ecos:zykna/novedades",
-    "stream": false
+    "stream": true,
+    "attenuation_distance": 1000
    }
   ]
  },
@@ -31,7 +33,8 @@
   "sounds": [
    {
     "name": "ecos:zykna/era",
-    "stream": false
+    "stream": true,
+    "attenuation_distance": 1000
    }
   ]
  }
