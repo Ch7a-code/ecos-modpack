@@ -361,7 +361,7 @@ hash = "7f4c2df61260ec3599aa24f2aafbf062dc06413c7b928c2222114946134ff330"
 
 [[files]]
 file = "kubejs/assets/dialog/textures/dialog_background/background.png"
-hash = "b087ecd73285ba043091fe6845b744dec40daad8864a2e5a0b2bd753a11da99a"
+hash = "2a315ac68c4ef79ee7f7b6ff0aa9df0e6af1b02103aa36730a85fe1424a010ae"
 
 [[files]]
 file = "kubejs/assets/dialog/textures/portraits/zykna.png"
@@ -2124,6 +2124,10 @@ file = "kubejs/data/ecos/planets/lab_espacio.json"
 hash = "1dacff06039bd56eb40707bbe2a7b02b18327e3f7f683bf15c2087a492aa082a"
 
 [[files]]
+file = "kubejs/data/ecos/predicates/fantasma.json"
+hash = "2b6d28f8223d134208a2172d3e154e106d685835ddbe923428d146ad111916a3"
+
+[[files]]
 file = "kubejs/data/ecos/predicates/zona_peligrosa.json"
 hash = "4d38e2aebf7a276ea9145729f909bced813de8fc041a0ee4e678eca1b8668d87"
 
@@ -2812,6 +2816,22 @@ file = "kubejs/data/eop/palladium/powers/wyvern.json"
 hash = "4590949738f2b550178070c874082409d2080a61722dae581b517af61d445fba"
 
 [[files]]
+file = "kubejs/data/firstaid/firstaid/debuffs/blindness_head.json"
+hash = "cba71cc1c43c1d364400379f2c5140214fc1b9b12759c3ffdddec961b6466193"
+
+[[files]]
+file = "kubejs/data/firstaid/firstaid/debuffs/nausea_body.json"
+hash = "359daddf0fb204b6b25eddbdccbbf1b3cc99d8605638d9d6fab1b36d0b09fa2a"
+
+[[files]]
+file = "kubejs/data/firstaid/firstaid/debuffs/nausea_head.json"
+hash = "aed487bb0b92b0a567f404f035c757c376ca5b7f12b35cb519206ec0bd5ffd91"
+
+[[files]]
+file = "kubejs/data/firstaid/firstaid/debuffs/slowness_legs_and_feet.json"
+hash = "34bf5323c212cef2b568000403d430eea9ef8b989fae8d8f784f2889345a8dd1"
+
+[[files]]
 file = "kubejs/data/idas/loot_tables/chests/archmages_tower/archmages_tower.json"
 hash = "9b7a5e4ded092a9808d89ab6490754522e5368e48e32c6e1223b8137051f9fb7"
 
@@ -3122,6 +3142,10 @@ hash = "7d3c41cbb03bb2c65a96ae51afa93c4de12acf730ae5e99800bafebf7d0b608a"
 [[files]]
 file = "mods/Echoes-of-Power-3.3.0.jar"
 hash = "b0e89311794c9c624710b5e154bf3578d444f2412fba7300c747e103b570a4c1"
+
+[[files]]
+file = "mods/VNDialog-1.1.2-1.20.1-ecos.jar"
+hash = "8f583848aa2106b9e8a428f01c5bf0d1aafa28a57ac15242369427323cacc454"
 
 [[files]]
 file = "mods/a-good-place.pw.toml"
@@ -3596,11 +3620,6 @@ metafile = true
 [[files]]
 file = "mods/noisium.pw.toml"
 hash = "2448ee89974f5934aa9114270f3e6666cbe203bffe5be6c2905231bb5dc1af81"
-metafile = true
-
-[[files]]
-file = "mods/nvdialog.pw.toml"
-hash = "d6508de4e282f4f804a3c938a77ddf95bec360c808d906573e3f76d7b9873abe"
 metafile = true
 
 [[files]]

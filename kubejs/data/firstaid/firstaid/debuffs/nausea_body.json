@@ -1,0 +1,11 @@
+{
+ "type": "firstaid:on_hit",
+ "debuffSlot": "body",
+ "potionName": "nausea",
+ "timeBoundaries": [
+  {
+   "damageTakenThreshold": 9,
+   "effectDuration": 60
+  }
+ ]
+}

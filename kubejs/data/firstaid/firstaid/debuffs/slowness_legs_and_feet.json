@@ -1,0 +1,11 @@
+{
+ "type": "firstaid:constant",
+ "debuffSlot": "legs_and_feet",
+ "potionName": "slowness",
+ "amplifierBoundaries": [
+  {
+   "healthFractionThreshold": -1.0,
+   "effectAmplifier": 0
+  }
+ ]
+}
