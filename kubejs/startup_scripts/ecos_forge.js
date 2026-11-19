@@ -88,11 +88,24 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', fu
       if (mb > 1) e.setAmount(e.getAmount() * mb);
     }
   } catch (errB2) {}
-  // tope de jefes (x su escalado)
+  // d) puntos débiles (startup_scripts/ecos_puntos_debiles.js, Cha 18-nov 21:38): criatura normal en la cabeza = muerte (con casco
+  //    x2); jefe en su punto débil = x su multiplicador, y su tope de daño sube en la misma proporción.
+  var pdM = 1, pdBase = null;
+  try {
+    if (global.ecosPD && atq && ecosEsJugador(atq) && !ecosEsJugador(ent)) {
+      var pr = global.ecosPD.evaluar(ent, src, atq, tipo, e.getAmount(), !!ECOS_TOPE[ecosIdEntidad(ent)]);
+      if (pr && pr.letal > 0) { pdBase = e.getAmount(); e.setAmount(pr.letal); }
+      else if (pr && pr.mult > 1) { pdM = pr.mult; e.setAmount(e.getAmount() * pdM); }
+    } else if (global.ecosPD && global.ecosPD.prueba && !ecosEsJugador(atq) && !ecosEsJugador(ent)) {   // prueba: flecha sin dueño (su atacante es ella misma)
+      var pp = global.ecosPD.evaluar(ent, src, null, tipo, e.getAmount(), !!ECOS_TOPE[ecosIdEntidad(ent)]);
+      if (pp && pp.letal > 0) e.setAmount(pp.letal); else if (pp && pp.mult > 1) { pdM = pp.mult; e.setAmount(e.getAmount() * pdM); }
+    }
+  } catch (errD) { console.info('[ECOS-FORGE] puntos débiles: ' + errD); }
+  // tope de jefes (x su escalado, x su punto débil)
   var t = ECOS_TOPE[ecosIdEntidad(ent)];
   if (t) {
     try {
-      var mt = Math.max(1, ecosNum(ent.persistentData, 'ecos_esc_tope'));
+      var mt = Math.max(1, ecosNum(ent.persistentData, 'ecos_esc_tope')) * pdM;
       var v = Math.floor(Date.now() / 1000), b = _ecosVentana.get(ent);
       if (!b || b[0] != v) { b = [v, 0]; _ecosVentana.put(ent, b); }
       var antes = e.getAmount();
@@ -103,7 +116,7 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', fu
   }
   // c) estamina: que te peguen y pegar cuerpo a cuerpo
   try {
-    var dmg = e.getAmount();
+    var dmg = pdBase !== null ? pdBase : e.getAmount();   // el tiro letal no cuesta toda la estamina
     if (ecosEsJugador(ent) && atq && !ecosEsJugador(atq)) ecosCansar(ent, dmg * ECOS_EST.recibir);   // golpe de una criatura (caídas y fuego no)
     if (ecosEsJugador(atq) && tipo.split(':').pop() == 'player' && atq !== ent) {
       var tk = Number(atq.level.getGameTime()), g = _ecosGolpes.get(atq);

@@ -279,6 +279,10 @@ file = "config/majruszsdifficulty.json"
 hash = "db5fb167f8d7efc956ca1a41f5e6b149fdcf6db4ebb042c8d5e60e497990a5a9"
 
 [[files]]
+file = "config/mobdismemberment-client.toml"
+hash = "b0a789c6f9bc4a2fd318994deeb7b7f0e047af91918b7538e30ab9de8c081c53"
+
+[[files]]
 file = "config/modernfix-mixins.properties"
 hash = "9a24d76480d65f673f03c28faab6504b0dd00184cbfdedd169b42828cdc731fe"
 
@@ -3133,11 +3137,15 @@ hash = "425efe2c1ae0a1b4394eb88d00b6a8f9bb984a578c05698ad5d2871bde0d0c6b"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_forge.js"
-hash = "0bdc04b6a2367e265a7ad176d0bf0af6be2c4a184072b80e70150b0b997e33e5"
+hash = "89537fce8564d849700e9276c42e6a038905708448bc18b27c6a632c34e5d3a9"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_items.js"
 hash = "7d3c41cbb03bb2c65a96ae51afa93c4de12acf730ae5e99800bafebf7d0b608a"
+
+[[files]]
+file = "kubejs/startup_scripts/ecos_puntos_debiles.js"
+hash = "6562e8d170fa092106c14d5aaf9ca9cffd9d6c12adc372ad58b28d2ac48438da"
 
 [[files]]
 file = "mods/Echoes-of-Power-3.3.0.jar"
@@ -3585,6 +3593,11 @@ metafile = true
 [[files]]
 file = "mods/minecolonies.pw.toml"
 hash = "5c05dc6338ed6c0356acf12c02c11893fe50977f05a41d9995088dc927fef678"
+metafile = true
+
+[[files]]
+file = "mods/mob-dismemberment-unofficial-modern-port.pw.toml"
+hash = "d9d98495a6d5ea99ce98bb87124c3d09d884692106b3736f728feb399418c4a2"
 metafile = true
 
 [[files]]

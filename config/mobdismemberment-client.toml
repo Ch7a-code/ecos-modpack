@@ -1,0 +1,18 @@
+#Client-side configuration for Mob Dismemberment
+#ECOS 19-nov-2026: menos sangre y pedazos que duran menos (cuida FPS en asaltos de MineColonies); los pedazos no empujan
+[client]
+	#How long gibs last (in ticks). Default: 1000
+	#Range: > 0
+	gibTime = 600
+	#How long gibs last on the ground before fading (in ticks). Default: 100
+	#Range: > 0
+	gibGroundTime = 100
+	#Enable blood particles. Default: true
+	blood = true
+	#Number of blood particles to spawn. Default: 100
+	#Range: 1 ~ 1000
+	bloodCount = 40
+	#Use green blood instead of red. Default: false
+	greenBlood = false
+	#Allow gibs to push entities. Default: true
+	gibPushing = false
