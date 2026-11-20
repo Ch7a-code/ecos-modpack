@@ -1,0 +1,13 @@
+name = "Saint Seiya New Generation"
+filename = "saint_seiya_nouvelle_generation-3.1.9-forge-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/TUCXImI0/versions/SVhYMtDr/saint_seiya_nouvelle_generation-3.1.9-forge-1.20.1.jar"
+hash-format = "sha512"
+hash = "8c44a362473fe57a15eb94f770e9d58a2338f641ebac98e400fcbcc779bbb11c463ac22ed788ecde77db86528f8db6f8a7338c312200969164e53109abb61ca0"
+
+[update]
+[update.modrinth]
+mod-id = "TUCXImI0"
+version = "SVhYMtDr"

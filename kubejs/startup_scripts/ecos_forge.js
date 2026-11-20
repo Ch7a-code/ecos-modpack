@@ -334,6 +334,66 @@ ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellPreCastEvent', 
   } catch (err) { console.info('[ECOS-FORGE] hechizo: ' + err); }
 });
 
+// --- Mutant Monsters (Anexo 14, Cha 20-nov «todo como lo recomiendas», DECIDE 5): la Chemical X (convierte mobs en mutantes)
+// queda SOLO por comando, para los asedios. El mod la registra por código (PotionBrewingRegistry: poción base + cráneo de
+// esqueleto mutante; javap de fuzs/mutantmonsters/MutantMonsters), así que no hay receta de datapack que quitar. Si un
+// soporte de pociones la produce, se vuelve poción Rara (awkward) en el mismo momento: el cráneo se gasta y la Chemical X no sale.
+var ECOS_PU = null, ECOS_POTS = null, ECOS_FREG = null;
+ForgeEvents.onEvent('net.minecraftforge.event.brewing.PotionBrewEvent$Post', function (e) {
+  try {
+    if (!ECOS_PU) {
+      ECOS_PU = Java.loadClass('net.minecraft.world.item.alchemy.PotionUtils');
+      ECOS_POTS = Java.loadClass('net.minecraft.world.item.alchemy.Potions');
+      ECOS_FREG = Java.loadClass('net.minecraftforge.registries.ForgeRegistries');
+    }
+    for (var i = 0; i < e.getLength(); i++) {
+      var st = e.getItem(i);
+      if (!st || st.isEmpty()) continue;
+      var k = ECOS_FREG.POTIONS.getKey(ECOS_PU.getPotion(st));
+      if (k && String(k) == 'mutantmonsters:chemical_x') {
+        ECOS_PU.setPotion(st, ECOS_POTS.AWKWARD);
+        console.info('[ECOS-FORGE] Chemical X en soporte de pociones -> poción Rara (solo por comando)');
+      }
+    }
+  } catch (err) { console.info('[ECOS-FORGE] pociones: ' + err); }
+});
+
+// --- Book of Dragons (Anexo 14, DECIDE 3b): volar es una llave que se gana (regla de oro, ECOS-modpack-diseno.md:69-70).
+// 9 de las 10 especies vuelan (data/bookofdragons/fauna/species/*.json: movement.AIR con valor; el Speed Stinger no).
+// Sin la marca de su Maestro (etapa ecos_maestro_<familia>_g2, la misma que abre volar en los poderes) no se montan los que
+// vuelan. Domar (es con comida), alimentar y ordenarles no se toca; el Speed Stinger se monta libre.
+// Ajuste a la recomendación del Estudio (decía solo ecos_maestro_impulso_g2): esa marca SOLO la puede ganar quien es de la
+// familia Impulso (ecos_maestros.js:134-149), y así el resto nunca volaría. Vale la marca de CUALQUIER Maestro.
+var ECOS_DRAGON_VUELA = { 'bookofdragons:deadlynadder': 1, 'bookofdragons:gronckle': 1, 'bookofdragons:hideous_zippleback': 1,
+  'bookofdragons:hobgobbler': 1, 'bookofdragons:monstrousnightmare': 1, 'bookofdragons:nightfury': 1, 'bookofdragons:skrill': 1,
+  'bookofdragons:terrible_terror': 1, 'bookofdragons:whispering_death': 1 };
+var ECOS_FAMS_MARCA = ['bestias', 'elementales', 'sangre', 'mente', 'materia', 'espiritu', 'impulso'];
+function ecosTieneMarca(p) {
+  for (var i = 0; i < ECOS_FAMS_MARCA.length; i++) {
+    var et = 'ecos_maestro_' + ECOS_FAMS_MARCA[i] + '_g2';
+    try { if (p.stages.has(et)) return true; } catch (e1) {}
+    try { if (p.persistentData.getBoolean(et)) return true; } catch (e2) {}   // persistentData de KubeJS (la que escribe ecos_maestros.js)
+  }
+  return false;
+}
+var ECOS_CLS_JUG = null, ECOS_CLS_ET = null;
+ForgeEvents.onEvent('net.minecraftforge.event.entity.EntityMountEvent', function (e) {
+  try {
+    if (!e.isMounting()) return;
+    if (!ECOS_CLS_JUG) {
+      ECOS_CLS_JUG = Java.loadClass('net.minecraft.server.level.ServerPlayer');   // solo del lado del servidor
+      ECOS_CLS_ET = Java.loadClass('net.minecraft.world.entity.EntityType');
+    }
+    var p = e.getEntityMounting(), m = e.getEntityBeingMounted();
+    if (!p || !m || !(p instanceof ECOS_CLS_JUG)) return;   // (Rhino: Java.loadClass no trae isInstance; level es propiedad, no función)
+    var tipo = String(ECOS_CLS_ET.getKey(m.getType()));
+    if (!ECOS_DRAGON_VUELA[tipo] || ecosTieneMarca(p)) return;
+    e.setCanceled(true);
+    console.info('[ECOS-FORGE] dragón sin marca: ' + p.getGameProfile().getName() + ' no monta ' + tipo);
+    try { p.displayClientMessage(Text.gold('Este dragón vuela: para montarlo necesitas la marca de tu Maestro.'), true); } catch (m2) {}
+  } catch (err) { console.info('[ECOS-FORGE] dragón: ' + err); }
+});
+
 // --- Cliente: Enhanced Celestials abre "¡Ya llegó Enhanced Celestials 2!" en CADA inicio de sesión y no trae opción
 // para apagarlo (EC2AnnouncementTrigger.onLogin pone pending=true sin revisar config; javap 16-nov). Se cancela al abrirse.
 try {

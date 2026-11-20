@@ -463,6 +463,10 @@ file = "config/modernfix-mixins.properties"
 hash = "9a24d76480d65f673f03c28faab6504b0dd00184cbfdedd169b42828cdc731fe"
 
 [[files]]
+file = "config/mutantmonsters-common.toml"
+hash = "bfc8cfd7ddab19173dfcf3383f1b4cc87cd27c367c643b58c065a9a1985dd26c"
+
+[[files]]
 file = "config/oculus.properties"
 hash = "f664dcf357bf73c9e1f181b4126453503b38fe01fa448b80c5240619c5c11b4c"
 preserve = true
@@ -1001,7 +1005,7 @@ hash = "5e67648384f50f7156a821b277a1eaf892a035cd5c476d7c785a62ede5d31ce8"
 
 [[files]]
 file = "kubejs/client_scripts/ecos_teclas_ars.js"
-hash = "2bcc0d1da5c39083fcf7cb4473de03d1c4687912781e5e9c50c5c6dadaf3dca2"
+hash = "d7b3bd082191a78606530cd55f953685424b86fe10517fd34e655d0aa21a192a"
 
 [[files]]
 file = "kubejs/client_scripts/ecos_ui_cliente.js"
@@ -3885,7 +3889,7 @@ hash = "83c245f093d8ee9ab302e527dd59d8b2e81502f1debb9d20aed120d2e8b13154"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_forge.js"
-hash = "75f733a3f65e5390ca9dcfa2cc1488a4f038f7c96888b05c2454e61f481d8ee0"
+hash = "80253fa85a5078418717c34e2cb0288a83db413484b216e3a1310cf0014725dd"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_items.js"
@@ -4010,6 +4014,11 @@ metafile = true
 [[files]]
 file = "mods/blue-skies.pw.toml"
 hash = "e0b611005c8d2142ca889e850c9f1450f45b1d30086aa8743579dde6ab1bd9af"
+metafile = true
+
+[[files]]
+file = "mods/book-of-dragons.pw.toml"
+hash = "9c4df657089c0cb8c9c61675328b6fe080f845ac394f5f882c5b549493ca3ee2"
 metafile = true
 
 [[files]]
@@ -4180,6 +4189,11 @@ metafile = true
 [[files]]
 file = "mods/farmers-delight.pw.toml"
 hash = "349c06c50fa315e9eb618d115f7d1391062706021c645e14f86afae3109d4662"
+metafile = true
+
+[[files]]
+file = "mods/fauna-engine.pw.toml"
+hash = "3645e72cb018a13ce99e4f4eb8768c8c1af1a0009801b31909e445dce9706401"
 metafile = true
 
 [[files]]
@@ -4398,6 +4412,11 @@ hash = "9895bf13e14fbb0b5284f7ad800b1fb3c7d4c373306231d5c6f95a282079fcbe"
 metafile = true
 
 [[files]]
+file = "mods/mutant-monsters.pw.toml"
+hash = "205edab48e2fc220fe626580c3111728a1bd43b6e446d98c786c20c26dc0fe85"
+metafile = true
+
+[[files]]
 file = "mods/neruina.pw.toml"
 hash = "687981a02a4e47cec78413b0f9411df90c501dca33d5e46c37ca08496a6d4dc8"
 metafile = true
@@ -4485,6 +4504,11 @@ metafile = true
 [[files]]
 file = "mods/rhino.pw.toml"
 hash = "5b92406160d9ea8a61ddf111caaecb7f6283678e2c40b08b72dce3eeaf20dc96"
+metafile = true
+
+[[files]]
+file = "mods/saint-seiya-nouvelle-generation.pw.toml"
+hash = "f40295d0071a2758e5aefc64d3aecc0c9a1af3328e303f82b7baed1204d7ed04"
 metafile = true
 
 [[files]]
