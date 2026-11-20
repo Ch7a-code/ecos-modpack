@@ -9,6 +9,11 @@
 //    y arma): Teleport/Recall/Portal y la escuela Holy = Era II · épicos = Era III · legendarios = Era IV.
 //    La Era del jugador es la etiqueta ecos_eraN que pone ecos_misiones.js (la Era del mundo, para todos).
 
+// Anexo 16 §2 (camino B, aprobado por Cha 20-nov 14:37): modelo nuevo de topes, UN jefe primero (Hydra) para medir antes de
+// tocar los otros 12. id -> T_objetivo en segundos (Era I 60 · Maestro 75 · II 90 · III 120 · IV 150 · Final 180). El jefe que
+// está aquí deja de usar su fila de ECOS_TOPE: tope por golpe = 10 % de su vida vigente (duro) y tope por segundo blando.
+var ECOS_TOPE_V2 = { 'twilightforest:hydra': 90 };
+var ECOS_TOPE_GOLPE_FR = 0.10, ECOS_TOPE_F1 = 0.50, ECOS_TOPE_K2 = 2.0, ECOS_TOPE_F2 = 0.05;
 // [daño máximo por golpe, daño máximo por segundo]
 var ECOS_TOPE = {
   'mowziesmobs:ferrous_wroughtnaut': [12, 8],
@@ -83,7 +88,18 @@ var ECOS_REC = {
     // guardianes de Maestro (paso 1)
     'aether:valkyrie_queen': [15, 'Reina Valquiria'], 'blue_skies:arachnarch': [15, 'Arachnarch'], 'blue_skies:summoner': [15, 'El Invocador'],
     'twilightforest:armored_giant': [15, 'Gigante Acorazado'], 'born_in_chaos_v1:skeleton_thrasher_not_despawn': [15, 'Esqueleto Triturador'],
-    'deeperdarker:stalker': [15, 'El Acechador'], 'alexscaves:tremorsaurus': [15, 'Tremorsaurio']
+    'deeperdarker:stalker': [15, 'El Acechador'], 'alexscaves:tremorsaurus': [15, 'Tremorsaurio'],
+    // Anexo 16 §1 (aprobado por Cha 20-nov 14:37): jefes con tag oficial que no estaban registrados y morían de un tiro a la
+    // cabeza (no estaban en ECOS_TOPE ni en PD_JEFES y su vida es < 100 o la libraba por poco). Vida base VERIFICADA en vivo
+    // (server/v12, atributo generic.max_health) o en el jar con javap: Guardián Anciano 80 · Slider 400 · Espíritu del Sol 500 ·
+    // Caballero Fantasma 35 · Ur-Ghast 250 · Yeti Alfa 200 · Minoseta 120 · Alquimista 500 · Triturador Estelar 500 ·
+    // Luxtructosaurio 600 · Guardián del End 333 · Remanente Antiguo 450 · Escila 390. SIN tope de daño en este lote (§1.1 paso 3).
+    // twilightforest:plateau_boss queda fuera: es un marcador del mod, no se deja invocar ni trae vida.
+    'minecraft:elder_guardian': [15, 'Guardián Anciano'], 'aether:slider': [15, 'El Deslizador'], 'blue_skies:alchemist': [15, 'El Alquimista'],
+    'twilightforest:knight_phantom': [25, 'Caballero Fantasma'], 'twilightforest:alpha_yeti': [25, 'Yeti Alfa'], 'twilightforest:minoshroom': [25, 'Minoseta'],
+    'blue_skies:starlit_crusher': [25, 'Triturador Estelar'],
+    'aether:sun_spirit': [30, 'Espíritu del Sol'], 'twilightforest:ur_ghast': [30, 'Ur-Ghast'], 'alexscaves:luxtructosaurus': [30, 'Luxtructosaurio'],
+    'cataclysm:ender_guardian': [30, 'Guardián del End'], 'cataclysm:ancient_remnant': [30, 'Remanente Antiguo'], 'cataclysm:scylla': [30, 'Escila']
   }
 };
 try { global.ecosRec = ECOS_REC; } catch (eRec) {}
@@ -223,8 +239,29 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', fu
     }
   } catch (errF) { console.info('[ECOS-FORGE] únicos: ' + errF); }
   // tope de jefes (x su escalado, x su punto débil)
-  var t = ECOS_TOPE[ecosIdEntidad(ent)];
-  if (t) {
+  var idTope = ecosIdEntidad(ent), t = ECOS_TOPE[idTope], tV2 = ECOS_TOPE_V2[idTope];
+  if (tV2) {
+    // Anexo 16 §2.3 + Anexo 15 §3.1 (aprobado por Cha 20-nov 14:37, camino B), UN jefe primero: tope por golpe DURO = 10 % de la
+    // vida vigente (ya trae el escalado) x punto débil; tope por segundo BLANDO con umbral = vida vigente / (T_objetivo/2) y la
+    // curva de dos tramos (F1/K2/F2). b[1] acumula lo INTENTADO. Con F1 = F2 = 0 vuelve a ser un tope duro.
+    try {
+      var vv = Math.max(1, ent.getMaxHealth());
+      var v2 = Math.floor(Date.now() / 1000), b2 = _ecosVentana.get(ent);
+      if (!b2 || b2[0] != v2) { b2 = [v2, 0]; _ecosVentana.put(ent, b2); }
+      var antes2 = e.getAmount();
+      var porGolpe = Math.min(antes2, ECOS_TOPE_GOLPE_FR * vv * pdM);
+      var umbral = vv / (tV2 / 2) * pdM, raw = b2[1];
+      var curva = function (x) {
+        if (x <= umbral) return x;
+        var q2 = umbral * ECOS_TOPE_K2;
+        if (x <= q2) return umbral + (x - umbral) * ECOS_TOPE_F1;
+        return umbral + (q2 - umbral) * ECOS_TOPE_F1 + (x - q2) * ECOS_TOPE_F2;
+      };
+      var permitido = Math.max(0, curva(raw + porGolpe) - curva(raw));
+      b2[1] = raw + porGolpe;
+      if (permitido < antes2) e.setAmount(permitido);
+    } catch (errV2) { console.info('[ECOS-FORGE] tope v2: ' + errV2); }
+  } else if (t) {
     try {
       var mt = Math.max(1, ecosNum(ent.persistentData, 'ecos_esc_tope')) * pdM;
       var v = Math.floor(Date.now() / 1000), b = _ecosVentana.get(ent);

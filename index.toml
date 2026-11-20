@@ -86,6 +86,10 @@ file = "config/artifacts/common.json5"
 hash = "d6f3224542c706891f4427dce886cda0ed0070597838384bf192a7f91fe57b10"
 
 [[files]]
+file = "config/attributefix.json"
+hash = "936f8842215a4299222a9d2852ec66770f25f5e51401608d316889417e0dc6b9"
+
+[[files]]
 file = "config/blue_skies-client.toml"
 hash = "7d73571698274e746d34de9c091d60e88e5d0e2ab979fd424c16393d3f701170"
 
@@ -3889,7 +3893,7 @@ hash = "83c245f093d8ee9ab302e527dd59d8b2e81502f1debb9d20aed120d2e8b13154"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_forge.js"
-hash = "80253fa85a5078418717c34e2cb0288a83db413484b216e3a1310cf0014725dd"
+hash = "7befdc5baa128cbef6fa4b5f6c6535e583a20a46771a61ef292233e429b4a0bf"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_items.js"
@@ -3989,6 +3993,11 @@ metafile = true
 [[files]]
 file = "mods/athena.pw.toml"
 hash = "9638d8a308563842fd989970919a51f37ed1bcc82372bff47fc5a5c2e6de738e"
+metafile = true
+
+[[files]]
+file = "mods/attributefix.pw.toml"
+hash = "f05cd3b2e55cf713289cae44e12794f66bc899280f5542f8339401f52a52a34a"
 metafile = true
 
 [[files]]
