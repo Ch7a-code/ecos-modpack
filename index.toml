@@ -279,10 +279,6 @@ file = "config/majruszsdifficulty.json"
 hash = "db5fb167f8d7efc956ca1a41f5e6b149fdcf6db4ebb042c8d5e60e497990a5a9"
 
 [[files]]
-file = "config/mobdismemberment-client.toml"
-hash = "b0a789c6f9bc4a2fd318994deeb7b7f0e047af91918b7538e30ab9de8c081c53"
-
-[[files]]
 file = "config/modernfix-mixins.properties"
 hash = "9a24d76480d65f673f03c28faab6504b0dd00184cbfdedd169b42828cdc731fe"
 
@@ -3593,11 +3589,6 @@ metafile = true
 [[files]]
 file = "mods/minecolonies.pw.toml"
 hash = "5c05dc6338ed6c0356acf12c02c11893fe50977f05a41d9995088dc927fef678"
-metafile = true
-
-[[files]]
-file = "mods/mob-dismemberment-unofficial-modern-port.pw.toml"
-hash = "d9d98495a6d5ea99ce98bb87124c3d09d884692106b3736f728feb399418c4a2"
 metafile = true
 
 [[files]]
