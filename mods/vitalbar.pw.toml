@@ -1,0 +1,13 @@
+name = "VitalBar"
+filename = "vital-forge-1.1+mc1.20.1.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/K1uukLip/versions/gK6NB2pR/vital-forge-1.1%2Bmc1.20.1.jar"
+hash-format = "sha512"
+hash = "3edf1092dbcd1712ef71955214e89b413c8a05aacbd19574d0fe981276ae74343655d4eed5ed9e3fd81dc2a8bc9b653080b065cb3b0f3dada3fae3125cbf7a9d"
+
+[update]
+[update.modrinth]
+mod-id = "K1uukLip"
+version = "gK6NB2pR"

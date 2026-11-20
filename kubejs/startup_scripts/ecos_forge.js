@@ -97,6 +97,35 @@ function ecosCansar(p, x) {
   try { if (p.level.isClientSide()) return; p.depleteStamina(x); } catch (e) {}
 }
 
+// S10 + S10b (Estudio 20-nov): PASIVAS de los 10 únicos de jefe. Todo por evento (cero tick). Los números viven en
+// server_scripts/ecos_botin_estilo.js (global.ecosUnicos.num): se afinan con /kubejs reload; si faltan, ninguna pasiva actúa.
+// El objeto se lee en mano principal y secundaria: los 3 propios por ID, los 7 retag por NBT 'ecos_unico_jefe'.
+var ECOS_UJ_PROPIOS = { 'ecos:filo_primer_centinela': 'filo', 'ecos:puno_que_no_se_enfria': 'puno', 'ecos:garra_marea_honda': 'garra' };
+var _ecosWHM = Java.loadClass('java.util.WeakHashMap');
+var _ecosFilo = new _ecosWHM(), _ecosPuno = new _ecosWHM(), _ecosOjo = new _ecosWHM(), _ecosColmillo = new _ecosWHM(), _ecosCetro = new _ecosWHM();
+function ecosUnicoDe(st) {
+  try {
+    if (!st || st.isEmpty()) return '';
+    var id = String(st.id);
+    if (ECOS_UJ_PROPIOS[id]) return ECOS_UJ_PROPIOS[id];
+    var n = st.nbt;
+    return n ? String(n.getString('ecos_unico_jefe') || '') : '';
+  } catch (e) { return ''; }
+}
+function ecosUnicosEnMano(p) {
+  var r = {};
+  try { var a = ecosUnicoDe(p.mainHandItem), b = ecosUnicoDe(p.offHandItem); if (a) r[a] = true; if (b) r[b] = true; } catch (e) {}
+  return r;
+}
+function ecosUN() { try { return global.ecosUnicos && global.ecosUnicos.num ? global.ecosUnicos.num : null; } catch (e) { return null; } }
+// entidad directa del daño (la flecha/bala, no quien disparó): mismo orden de respaldos que ecos_puntos_debiles.js (KubeJS getImmediate)
+function ecosDirecta(s) {
+  if (!s) return null;
+  try { var d = s.getImmediate(); if (d) return d; } catch (e1) {}
+  try { var d2 = s.immediate; if (d2) return d2; } catch (e2) {}
+  return null;
+}
+
 ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', function (e) {
   var ent = e.getEntity(), src = null, atq = null;
   try { src = e.getSource(); atq = src ? src.getEntity() : null; } catch (e0) {}
@@ -153,6 +182,46 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', fu
       }
     }
   } catch (errE) { console.info('[ECOS-FORGE] nivel recomendado: ' + errE); }
+  // f) únicos de jefe (S10b §2): después de todos los multiplicadores y ANTES del tope -> ningún único puede romper el techo
+  try {
+    var UN = ecosUN();
+    if (UN && ecosEsJugador(atq) && atq !== ent) {
+      var U = ecosUnicosEnMano(atq), mu = 1, ahoraU = Date.now(), melee = tipo.split(':').pop() == 'player';
+      var directo = ecosDirecta(src);
+      if (U.filo && melee) {
+        var pos = _ecosFilo.get(atq), dq = 1e9, aliado = false;
+        if (pos) { var fx = atq.x - pos[0], fy = atq.y - pos[1], fz = atq.z - pos[2]; dq = fx * fx + fy * fy + fz * fz; }
+        _ecosFilo.put(atq, [atq.x, atq.y, atq.z]);
+        try {
+          atq.server.players.forEach(function (q) {
+            if (aliado || q === atq || String(q.level.dimension) != String(atq.level.dimension)) return;
+            var ax = q.x - atq.x, ay = q.y - atq.y, az = q.z - atq.z;
+            if (ax * ax + ay * ay + az * az <= UN.filoAliado * UN.filoAliado) aliado = true;
+          });
+        } catch (eA) {}
+        if ((pos && dq <= UN.filoQuieto * UN.filoQuieto) || aliado) mu *= UN.filoMult;
+      }
+      if (U.puno && melee) {
+        var ch = _ecosPuno.get(atq), cargas = (ch && ahoraU - ch[0] <= UN.punoVentanaMs) ? Math.min(UN.punoMax, ch[1] + 1) : 0;
+        _ecosPuno.put(atq, [ahoraU, cargas]);
+        mu *= 1 + UN.punoPorGolpe * cargas;
+      }
+      if (U.garra && melee) { try { if (atq.isInWater() || ent.isInWater()) mu *= UN.garraMult; } catch (eW) {} }
+      if (U.aliento && tipo.indexOf('tacz:') == 0) { try { ent.setSecondsOnFire(UN.alientoSeg); } catch (eF) {} }
+      var poderU = tipo.indexOf('eop:') == 0 || tipo.indexOf('palladium:') == 0;
+      if (poderU && U.nucleo) { try { if (global.ecosUnicos.familias(atq.server, atq).indexOf('elementales') >= 0) mu *= UN.nucleoMult; } catch (eN) {} }
+      if (poderU && U.pensar) mu *= UN.pensarMult;
+      if (U.ojo && tipo.indexOf('irons_spellbooks:') == 0) {
+        var mapa = _ecosOjo.get(ent);
+        if (!mapa) { mapa = {}; _ecosOjo.put(ent, mapa); }
+        var kj = String(atq.username), mk = mapa[kj] || 0;
+        mu *= 1 + UN.ojoPorMarca * mk;
+        mapa[kj] = Math.min(UN.ojoMax, mk + 1);
+      }
+      if (U.flecha && directo && directo !== atq) { try { ent.setAbsorptionAmount(0); } catch (eAb) {} }
+      if (mu > 1) e.setAmount(e.getAmount() * mu);
+    }
+  } catch (errF) { console.info('[ECOS-FORGE] únicos: ' + errF); }
   // tope de jefes (x su escalado, x su punto débil)
   var t = ECOS_TOPE[ecosIdEntidad(ent)];
   if (t) {
@@ -178,11 +247,39 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', fu
   } catch (errC) {}
 });
 ForgeEvents.onEvent('net.minecraftforge.event.entity.living.ShieldBlockEvent', function (e) {
+  // S10b: Flecha que Cruza el Vacío -> el escudo del blanco no bloquea el disparo (y entonces no cuesta estamina bloquear)
+  try {
+    var s = e.getDamageSource ? e.getDamageSource() : null, a = s ? s.getEntity() : null, d = ecosDirecta(s);
+    if (ecosEsJugador(a) && d && d !== a && ecosUN() && ecosUnicosEnMano(a).flecha) { e.setCanceled(true); return; }
+  } catch (errF) {}
   try { var p = e.getEntity(); if (ecosEsJugador(p)) ecosCansar(p, Number(e.getBlockedDamage()) * ECOS_EST.escudo); } catch (err) {}
 });
 // v12.2 (Cha, 18-nov 06:11: "un botón o una tecla, sin escribir en el chat"): Shift + F abre la ventana del Sistema
 // (ecos_misiones_v2.js). Solo servidor, sin zip: la F (cambiar de mano) ya manda su paquete al servidor y Forge dispara
 // LivingSwapItemsEvent$Hands (forge 47.4.28, verificado en el jar); con Shift se cancela el cambio de mano y se abre la ventana.
+// S10b: Flecha que Cruza el Vacío (el escudo no bloquea) · Colmillo que Vuelve (el disparo que falla devuelve 1 flecha, 1 cada 3 s)
+// · Cetro de los Siete Escudos (al lanzar un hechizo PERMITIDO: OnCast no llega si el PreCast de Era lo canceló)
+ForgeEvents.onEvent('net.minecraftforge.event.entity.ProjectileImpactEvent', function (e) {
+  try {
+    var pr = e.getProjectile(), o = pr ? pr.getOwner() : null;
+    if (!ecosEsJugador(o) || o.level.isClientSide()) return;
+    if (String(e.getRayTraceResult().getType()) != 'BLOCK' || !ecosUnicosEnMano(o).colmillo) return;
+    var UN = ecosUN(), ahora = Date.now(), t0 = _ecosColmillo.get(o);
+    if (!UN || (t0 && ahora - t0 < UN.colmilloCadaMs)) return;
+    _ecosColmillo.put(o, ahora);
+    o.server.runCommandSilent('give ' + o.username + ' minecraft:arrow 1');
+  } catch (err) {}
+});
+ForgeEvents.onEvent('io.redspace.ironsspellbooks.api.events.SpellOnCastEvent', function (e) {
+  try {
+    var p = e.getEntity();
+    if (!ecosEsJugador(p) || p.level.isClientSide() || !ecosUnicosEnMano(p).cetro) return;
+    var UN = ecosUN(), ahora = Date.now(), t0 = _ecosCetro.get(p);
+    if (!UN || (t0 && ahora - t0 < UN.cetroCadaMs)) return;
+    _ecosCetro.put(p, ahora);
+    p.potionEffects.add('minecraft:absorption', UN.cetroTicks, 0, false, true);
+  } catch (err) {}
+});
 ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingSwapItemsEvent$Hands', function (e) {
   try {
     var p = e.getEntity();

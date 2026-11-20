@@ -1,0 +1,10 @@
+{
+  "_ecos": "ECOS 20-nov (Anexo 10, fase L): paleta ECOS. Campos leídos de VitalConfigData (javap); lo que no está aquí queda en su valor por defecto.",
+  "colorTierRed": 16731490,
+  "colorTierBlue": 1697510,
+  "colorTierElite": 15053882,
+  "colorTierPurple": 16719795,
+  "colorAbsorption": 15979130,
+  "colorHeal": 4645004,
+  "overrideBossBarRendering": false
+}

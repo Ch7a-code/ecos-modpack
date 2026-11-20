@@ -500,6 +500,10 @@ file = "config/tombstone-client.toml"
 hash = "210538deb74a0205212212692260eba3975bf905bfa09975e24f0e32654b301e"
 
 [[files]]
+file = "config/vital.json"
+hash = "723ea9870e180fc7f7b138ce97662960ee19d028349c799343560b8fbab007ac"
+
+[[files]]
 file = "config/voicechat/voicechat-client.properties"
 hash = "5535b0094a733be53f46e378a26a2a53a398706aa1cfcf6393e67ead0bf8ee5d"
 
@@ -530,6 +534,10 @@ hash = "175979f7bebebd38fa945ea23f3a34d0a32f6f93b93f1996d06f529514eee2a3"
 [[files]]
 file = "kubejs/assets/born_in_chaos_v1/lang/es_es.json"
 hash = "908ca29537e6db6c4ffdbeb8dc8acaaee2e75d334018eb9a126e5ddcef54b930"
+
+[[files]]
+file = "kubejs/assets/cataclysm/lang/es_es.json"
+hash = "dd750220cfe88e81160bb655297e4c3c95a60d525a6ac72a20e68ca20d8b0345"
 
 [[files]]
 file = "kubejs/assets/deeperdarker/lang/es_es.json"
@@ -678,6 +686,18 @@ hash = "1d8b0905ac603a847f3c926c76679084368bcb58a6654b3147ef1c117b813c66"
 [[files]]
 file = "kubejs/assets/ecos/textures/item/capsula_eter_3_llena.png"
 hash = "d8e93d616613c056b0aaa76482792f34270e4fcb5ac6b9bb3aa3404e83c347a9"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/item/filo_primer_centinela.png"
+hash = "04e72d12c985b3b9860b3574e8ff8bb1252c78eca194dc00dfa353eac6a2613a"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/item/garra_marea_honda.png"
+hash = "854f7e64bb3e897188b4967be7012305293642f857e054821587c08c24f28fe7"
+
+[[files]]
+file = "kubejs/assets/ecos/textures/item/puno_que_no_se_enfria.png"
+hash = "2e4a16f1d9157bda4df9946142ee37b1fc25b42d44156386bcc339a87c081d72"
 
 [[files]]
 file = "kubejs/assets/enhancedcelestials/lang/es_es.json"
@@ -836,6 +856,26 @@ file = "kubejs/assets/jade/lang/es_es.json"
 hash = "0ee95b14c7f06ffab34084cd9da06025537124ec59b4ce78bea6a223cb16685f"
 
 [[files]]
+file = "kubejs/assets/legendarytooltips/frame_definitions.json"
+hash = "cb87817df8960cbc7cb5479752cc1c1c8d83ceaff86df7264d245626d027ada8"
+
+[[files]]
+file = "kubejs/assets/legendarytooltips/textures/gui/ecos_epica.png"
+hash = "473a5358af16df15dc6c46ca01020e17039caec054c4def06a368c2cb93bdb53"
+
+[[files]]
+file = "kubejs/assets/legendarytooltips/textures/gui/ecos_mitica.png"
+hash = "678a73b0364242c3137aab5fe38f1bbac89324137b9a62219ba3297b3e12daf7"
+
+[[files]]
+file = "kubejs/assets/legendarytooltips/textures/gui/ecos_rara.png"
+hash = "e8246e40bc0ba2d142f587cdbafa0cea913bd799925531dc2bba6f0d92ac098a"
+
+[[files]]
+file = "kubejs/assets/minecraft/lang/es_es.json"
+hash = "88791bcc3edf122d64ed8a20a2e823ffd77fd5a608eb71a3d0de48fd8399708d"
+
+[[files]]
 file = "kubejs/assets/minecraft/models/item/globe_banner_pattern.json"
 hash = "fbcb1335f27500b226361ebedb6f955a9d4c2ecdb766baf4d7ebd2c280f19437"
 
@@ -892,6 +932,10 @@ file = "kubejs/assets/minecraft/textures/gui/toasts.png"
 hash = "8456c7f4be9c898c5c6b631e0647e6753ca1ef806a36a386e9f70e63eb44d12b"
 
 [[files]]
+file = "kubejs/assets/mowziesmobs/lang/es_es.json"
+hash = "7e402b679fcbc907ecb9a6b18e0b8bcd8ae5ded3d07ff1467157a32369730d14"
+
+[[files]]
 file = "kubejs/assets/openpartiesandclaims/lang/es_es.json"
 hash = "34014d4ea05aecb8e9c1aefabd31694f36c9633661259f42be8c165e5284f9dc"
 
@@ -924,6 +968,10 @@ file = "kubejs/assets/star_wars_expansion/lang/es_es.json"
 hash = "0bd3e687d96f8b0de7a760ef09280aedf7c2da60699e9c2596600fc05a3ab092"
 
 [[files]]
+file = "kubejs/assets/twilightforest/lang/es_es.json"
+hash = "d2fde8b577e02574fac5ded7f68170bee31c81afafc170301c41228a24813059"
+
+[[files]]
 file = "kubejs/assets/voicespells/lang/es_es.json"
 hash = "c2dd98f6a33e504d8a66ddd479c3baf0b8f2c90cf964bd0caaed0aca1947ff3a"
 
@@ -950,6 +998,10 @@ hash = "1d952af66d40fae679ddf4c742e20ee4c36a56e16a895da5e4a719188b332669"
 [[files]]
 file = "kubejs/client_scripts/ecos_teclas.js"
 hash = "5e67648384f50f7156a821b277a1eaf892a035cd5c476d7c785a62ede5d31ce8"
+
+[[files]]
+file = "kubejs/client_scripts/ecos_teclas_ars.js"
+hash = "2bcc0d1da5c39083fcf7cb4473de03d1c4687912781e5e9c50c5c6dadaf3dca2"
 
 [[files]]
 file = "kubejs/client_scripts/ecos_ui_cliente.js"
@@ -3833,11 +3885,11 @@ hash = "83c245f093d8ee9ab302e527dd59d8b2e81502f1debb9d20aed120d2e8b13154"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_forge.js"
-hash = "307189d91c1973be97474d2cf1e47ea34419e2c7609a9d5877b574ed6981a6f8"
+hash = "75f733a3f65e5390ca9dcfa2cc1488a4f038f7c96888b05c2454e61f481d8ee0"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_items.js"
-hash = "7d3c41cbb03bb2c65a96ae51afa93c4de12acf730ae5e99800bafebf7d0b608a"
+hash = "575648e509603fbade02b217d752f391f573052ec5f357322145eb87584bbdd2"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_pack_arriba.js"
@@ -3849,7 +3901,7 @@ hash = "6562e8d170fa092106c14d5aaf9ca9cffd9d6c12adc372ad58b28d2ac48438da"
 
 [[files]]
 file = "mods/Echoes-of-Power-3.3.0.jar"
-hash = "b0e89311794c9c624710b5e154bf3578d444f2412fba7300c747e103b570a4c1"
+hash = "77eb1b348fe9abb45ce609cb9545ab5975790e9229a6f4f98a5ee14ad08aefca"
 
 [[files]]
 file = "mods/VNDialog-1.1.2-1.20.1-ecos.jar"
@@ -3908,6 +3960,16 @@ metafile = true
 [[files]]
 file = "mods/architectury-api.pw.toml"
 hash = "4e81241ba2da06f425efc5e09fb6b38470125c1581c39e1310c5843a0b96ec76"
+metafile = true
+
+[[files]]
+file = "mods/ars-n-spells.pw.toml"
+hash = "3f8765763c42d0f3cbb406e954760f9dc5655c326304499b5647780630d28f1a"
+metafile = true
+
+[[files]]
+file = "mods/ars-nouveau.pw.toml"
+hash = "4fa29dd91cecd7ef0ad16d389d6c066643040a7477fb0aab4cd84ecd337a5013"
 metafile = true
 
 [[files]]
@@ -4181,6 +4243,11 @@ hash = "94c7c45a70d0cea86695ecd467f8e5c22510442c53c44291a570986e234428e5"
 metafile = true
 
 [[files]]
+file = "mods/iceberg.pw.toml"
+hash = "c1d1a0476c58e3c011de6f750f48eb4f48493a1b9cef7bd59c008e87e0c0984c"
+metafile = true
+
+[[files]]
 file = "mods/idas.pw.toml"
 hash = "d1d2f471ef09edfebf48ee7e52f4586152b5960ed585b87c0fe73a4a6f1bdf3a"
 metafile = true
@@ -4248,6 +4315,11 @@ metafile = true
 [[files]]
 file = "mods/l_enders-cataclysm.pw.toml"
 hash = "dfdd246954f9bcfbff66668558b17ba5b3e75a12ba6031c441750a472670fbd8"
+metafile = true
+
+[[files]]
+file = "mods/legendary-tooltips.pw.toml"
+hash = "bc4c7d42fd94d57b020a43dbb3aa3caaa8395c77bd872f252a8302a39b2256a9"
 metafile = true
 
 [[files]]
@@ -4378,6 +4450,11 @@ metafile = true
 [[files]]
 file = "mods/polymorph.pw.toml"
 hash = "d9986c3798db028db0e1ab30851f7fab87ce12094448685ef7c4ba64374cbfa0"
+metafile = true
+
+[[files]]
+file = "mods/prism-lib.pw.toml"
+hash = "f79cb80b6ea599fe4ca9404465277ff7edf25118976170c28827590febfcee7a"
 metafile = true
 
 [[files]]
@@ -4543,6 +4620,11 @@ metafile = true
 [[files]]
 file = "mods/video-player.pw.toml"
 hash = "45301aac74d53bf48cdf11dcd22fba1d0603319efba20177854486069d27ceea"
+metafile = true
+
+[[files]]
+file = "mods/vitalbar.pw.toml"
+hash = "bb79a63f3c555d78c602ac26c016af18639e2c6c24da721484b117aef52cc3fb"
 metafile = true
 
 [[files]]

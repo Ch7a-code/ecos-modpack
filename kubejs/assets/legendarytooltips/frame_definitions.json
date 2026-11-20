@@ -1,0 +1,37 @@
+{
+  "definitions": [
+    {
+      "image": "legendarytooltips:textures/gui/ecos_mitica.png",
+      "index": 0,
+      "startColor": "#FFA97CFF",
+      "endColor": "#FF19E6E6",
+      "bgColor": "#F207070A",
+      "priority": 30,
+      "selectors": [
+        "#A97CFF"
+      ]
+    },
+    {
+      "image": "legendarytooltips:textures/gui/ecos_epica.png",
+      "index": 0,
+      "startColor": "#FFFF1FB3",
+      "endColor": "#FF8A1062",
+      "bgColor": "#F207070A",
+      "priority": 20,
+      "selectors": [
+        "#FF1FB3"
+      ]
+    },
+    {
+      "image": "legendarytooltips:textures/gui/ecos_rara.png",
+      "index": 0,
+      "startColor": "#FFE5B43A",
+      "endColor": "#FF7A5410",
+      "bgColor": "#F207070A",
+      "priority": 10,
+      "selectors": [
+        "#E5B43A"
+      ]
+    }
+  ]
+}
