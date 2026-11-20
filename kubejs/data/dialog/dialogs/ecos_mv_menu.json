@@ -1,144 +1,155 @@
 {
- "id": "ecos_mv_menu",
- "title": "Sistema de Zykna",
- "description": "Ventana principal de Zykna (ecos_misiones_v2.js)",
- "start": "menu",
- "entries": [
-  {
-   "id": "menu",
-   "speaker": {
-    "text": "Zykna  ·  Sistema",
-    "color": "#19E6E6",
-    "bold": true
-   },
-   "text": [
+  "id": "ecos_mv_menu",
+  "title": "Archivo Vivo",
+  "description": "Ventana principal de Zykna (ecos_misiones_v2.js)",
+  "start": "menu",
+  "entries": [
     {
-     "text": "",
-     "color": "#E8F3F3"
+      "id": "menu",
+      "speaker": {
+        "text": "Zykna  ·  Archivo Vivo",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "nbt": "actual.cab",
+          "storage": "ecos:mv",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.sigue",
+          "storage": "ecos:mv",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.eco",
+          "storage": "ecos:mv",
+          "interpret": true
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "▶  Continuar",
+          "target": "menu",
+          "command": [
+            "zykna mv continuar"
+          ]
+        },
+        {
+          "text": "☰  Misiones",
+          "target": "menu",
+          "command": [
+            "zykna mv elegir"
+          ]
+        },
+        {
+          "text": "◈  Mi Eco",
+          "target": "menu",
+          "command": [
+            "zykna mv eco"
+          ]
+        },
+        {
+          "text": "▤  Crónica",
+          "target": "menu",
+          "command": [
+            "zykna cronica"
+          ]
+        },
+        {
+          "text": "◎  Estado del mundo",
+          "target": "menu",
+          "command": [
+            "zykna mv mundo"
+          ]
+        },
+        {
+          "text": "★  Títulos (Ecos de Victoria)",
+          "target": "menu",
+          "command": [
+            "zykna titulo"
+          ]
+        },
+        {
+          "text": "✦  Preparación para tu don",
+          "target": "menu",
+          "command": [
+            "zykna prep"
+          ]
+        },
+        {
+          "text": "?  Guía y tutoriales",
+          "target": "menu",
+          "command": [
+            "zykna guia"
+          ]
+        },
+        {
+          "text": "✖  Cerrar",
+          "target": "fin"
+        }
+      ]
     },
     {
-     "nbt": "actual.cab",
-     "storage": "ecos:mv",
-     "interpret": true
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "nbt": "actual.sigue",
-     "storage": "ecos:mv",
-     "interpret": true
+      "id": "fin",
+      "speaker": {
+        "text": "Zykna",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "Listo. ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Shift + F",
+          "color": "#19E6E6"
+        },
+        {
+          "text": " o escribe ",
+          "color": "#8FA2A8"
+        },
+        {
+          "text": "sistema",
+          "color": "#19E6E6"
+        },
+        {
+          "text": " para volver. Clic para cerrar.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ]
     }
-   ],
-   "portraits": [
-    {
-     "path": "zykna.png",
-     "position": "LEFT",
-     "brightness": 1.0
-    }
-   ],
-   "options": [
-    {
-     "text": "▶  Continuar",
-     "target": "menu",
-     "command": [
-      "zykna mv continuar"
-     ]
-    },
-    {
-     "text": "☰  Elegir misión",
-     "target": "menu",
-     "command": [
-      "zykna mv elegir"
-     ]
-    },
-    {
-     "text": "◈  Mi Eco (stats)",
-     "target": "menu",
-     "command": [
-      "zykna stats"
-     ]
-    },
-    {
-     "text": "★  Ecos de Victoria (títulos)",
-     "target": "menu",
-     "command": [
-      "zykna titulo"
-     ]
-    },
-    {
-     "text": "▤  Crónica (progreso del grupo)",
-     "target": "menu",
-     "command": [
-      "zykna cronica"
-     ]
-    },
-    {
-     "text": "✦  Preparación para tu don",
-     "target": "menu",
-     "command": [
-      "zykna prep"
-     ]
-    },
-    {
-     "text": "◎  Estado del mundo",
-     "target": "menu",
-     "command": [
-      "zykna mv mundo"
-     ]
-    },
-    {
-     "text": "?  Guía y tutoriales",
-     "target": "menu",
-     "command": [
-      "zykna guia"
-     ]
-    },
-    {
-     "text": "✖  Cerrar",
-     "target": "fin"
-    }
-   ]
-  },
-  {
-   "id": "fin",
-   "speaker": {
-    "text": "Zykna",
-    "color": "#19E6E6",
-    "bold": true
-   },
-   "text": [
-    {
-     "text": "Listo. ",
-     "color": "#E8F3F3"
-    },
-    {
-     "text": "Shift + F",
-     "color": "#19E6E6"
-    },
-    {
-     "text": " o escribe ",
-     "color": "#8FA2A8"
-    },
-    {
-     "text": "sistema",
-     "color": "#19E6E6"
-    },
-    {
-     "text": " para volver. Clic para cerrar.",
-     "color": "#8FA2A8"
-    }
-   ],
-   "portraits": [
-    {
-     "path": "zykna.png",
-     "position": "LEFT",
-     "brightness": 1.0
-    }
-   ]
-  }
- ]
+  ]
 }

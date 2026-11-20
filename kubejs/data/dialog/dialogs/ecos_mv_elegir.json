@@ -1,175 +1,175 @@
 {
- "id": "ecos_mv_elegir",
- "title": "Sistema de Zykna",
- "description": "Lista de misiones disponibles (ecos_misiones_v2.js)",
- "start": "elegir",
- "entries": [
-  {
-   "id": "elegir",
-   "speaker": {
-    "text": "Zykna  ·  Sistema",
-    "color": "#19E6E6",
-    "bold": true
-   },
-   "text": [
+  "id": "ecos_mv_elegir",
+  "title": "Sistema de Zykna",
+  "description": "Lista de misiones disponibles (ecos_misiones_v2.js)",
+  "start": "elegir",
+  "entries": [
     {
-     "text": "",
-     "color": "#E8F3F3"
+      "id": "elegir",
+      "speaker": {
+        "text": "Zykna  ·  Misiones",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "nbt": "actual.cab",
+          "storage": "ecos:mv",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.lista",
+          "storage": "ecos:mv",
+          "interpret": true
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "Ver misión 1",
+          "target": "elegir",
+          "command": [
+            "zykna mv ver 1"
+          ],
+          "visibility_command": "execute if score @s ecos_mv_n matches 1.."
+        },
+        {
+          "text": "Ver misión 2",
+          "target": "elegir",
+          "command": [
+            "zykna mv ver 2"
+          ],
+          "visibility_command": "execute if score @s ecos_mv_n matches 2.."
+        },
+        {
+          "text": "Ver misión 3",
+          "target": "elegir",
+          "command": [
+            "zykna mv ver 3"
+          ],
+          "visibility_command": "execute if score @s ecos_mv_n matches 3.."
+        },
+        {
+          "text": "Ver misión 4",
+          "target": "elegir",
+          "command": [
+            "zykna mv ver 4"
+          ],
+          "visibility_command": "execute if score @s ecos_mv_n matches 4.."
+        },
+        {
+          "text": "Ver misión 5",
+          "target": "elegir",
+          "command": [
+            "zykna mv ver 5"
+          ],
+          "visibility_command": "execute if score @s ecos_mv_n matches 5.."
+        },
+        {
+          "text": "Ver misión 6",
+          "target": "elegir",
+          "command": [
+            "zykna mv ver 6"
+          ],
+          "visibility_command": "execute if score @s ecos_mv_n matches 6.."
+        },
+        {
+          "text": "Ver misión 7",
+          "target": "elegir",
+          "command": [
+            "zykna mv ver 7"
+          ],
+          "visibility_command": "execute if score @s ecos_mv_n matches 7.."
+        },
+        {
+          "text": "Ver misión 8",
+          "target": "elegir",
+          "command": [
+            "zykna mv ver 8"
+          ],
+          "visibility_command": "execute if score @s ecos_mv_n matches 8.."
+        },
+        {
+          "text": "Ver misión 9",
+          "target": "elegir",
+          "command": [
+            "zykna mv ver 9"
+          ],
+          "visibility_command": "execute if score @s ecos_mv_n matches 9.."
+        },
+        {
+          "text": "Ver misión 10",
+          "target": "elegir",
+          "command": [
+            "zykna mv ver 10"
+          ],
+          "visibility_command": "execute if score @s ecos_mv_n matches 10.."
+        },
+        {
+          "text": "◂  Archivo Vivo",
+          "target": "elegir",
+          "command": [
+            "zykna mv menu"
+          ]
+        },
+        {
+          "text": "✖  Cerrar",
+          "target": "fin"
+        }
+      ]
     },
     {
-     "nbt": "actual.cab",
-     "storage": "ecos:mv",
-     "interpret": true
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "nbt": "actual.lista",
-     "storage": "ecos:mv",
-     "interpret": true
+      "id": "fin",
+      "speaker": {
+        "text": "Zykna",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "Listo. ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Shift + F",
+          "color": "#19E6E6"
+        },
+        {
+          "text": " o escribe ",
+          "color": "#8FA2A8"
+        },
+        {
+          "text": "sistema",
+          "color": "#19E6E6"
+        },
+        {
+          "text": " para volver. Clic para cerrar.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ]
     }
-   ],
-   "portraits": [
-    {
-     "path": "zykna.png",
-     "position": "LEFT",
-     "brightness": 1.0
-    }
-   ],
-   "options": [
-    {
-     "text": "Ver misión 1",
-     "target": "elegir",
-     "command": [
-      "zykna mv ver 1"
-     ],
-     "visibility_command": "execute if score @s ecos_mv_n matches 1.."
-    },
-    {
-     "text": "Ver misión 2",
-     "target": "elegir",
-     "command": [
-      "zykna mv ver 2"
-     ],
-     "visibility_command": "execute if score @s ecos_mv_n matches 2.."
-    },
-    {
-     "text": "Ver misión 3",
-     "target": "elegir",
-     "command": [
-      "zykna mv ver 3"
-     ],
-     "visibility_command": "execute if score @s ecos_mv_n matches 3.."
-    },
-    {
-     "text": "Ver misión 4",
-     "target": "elegir",
-     "command": [
-      "zykna mv ver 4"
-     ],
-     "visibility_command": "execute if score @s ecos_mv_n matches 4.."
-    },
-    {
-     "text": "Ver misión 5",
-     "target": "elegir",
-     "command": [
-      "zykna mv ver 5"
-     ],
-     "visibility_command": "execute if score @s ecos_mv_n matches 5.."
-    },
-    {
-     "text": "Ver misión 6",
-     "target": "elegir",
-     "command": [
-      "zykna mv ver 6"
-     ],
-     "visibility_command": "execute if score @s ecos_mv_n matches 6.."
-    },
-    {
-     "text": "Ver misión 7",
-     "target": "elegir",
-     "command": [
-      "zykna mv ver 7"
-     ],
-     "visibility_command": "execute if score @s ecos_mv_n matches 7.."
-    },
-    {
-     "text": "Ver misión 8",
-     "target": "elegir",
-     "command": [
-      "zykna mv ver 8"
-     ],
-     "visibility_command": "execute if score @s ecos_mv_n matches 8.."
-    },
-    {
-     "text": "Ver misión 9",
-     "target": "elegir",
-     "command": [
-      "zykna mv ver 9"
-     ],
-     "visibility_command": "execute if score @s ecos_mv_n matches 9.."
-    },
-    {
-     "text": "Ver misión 10",
-     "target": "elegir",
-     "command": [
-      "zykna mv ver 10"
-     ],
-     "visibility_command": "execute if score @s ecos_mv_n matches 10.."
-    },
-    {
-     "text": "◂  Menú",
-     "target": "elegir",
-     "command": [
-      "zykna mv menu"
-     ]
-    },
-    {
-     "text": "✖  Cerrar",
-     "target": "fin"
-    }
-   ]
-  },
-  {
-   "id": "fin",
-   "speaker": {
-    "text": "Zykna",
-    "color": "#19E6E6",
-    "bold": true
-   },
-   "text": [
-    {
-     "text": "Listo. ",
-     "color": "#E8F3F3"
-    },
-    {
-     "text": "Shift + F",
-     "color": "#19E6E6"
-    },
-    {
-     "text": " o escribe ",
-     "color": "#8FA2A8"
-    },
-    {
-     "text": "sistema",
-     "color": "#19E6E6"
-    },
-    {
-     "text": " para volver. Clic para cerrar.",
-     "color": "#8FA2A8"
-    }
-   ],
-   "portraits": [
-    {
-     "path": "zykna.png",
-     "position": "LEFT",
-     "brightness": 1.0
-    }
-   ]
-  }
- ]
+  ]
 }

@@ -1,135 +1,143 @@
 {
- "id": "ecos_mv_mision",
- "title": "Sistema de Zykna",
- "description": "Una misión con sus pasos (ecos_misiones_v2.js)",
- "start": "mision",
- "entries": [
-  {
-   "id": "mision",
-   "speaker": {
-    "text": "Zykna  ·  Sistema",
-    "color": "#19E6E6",
-    "bold": true
-   },
-   "text": [
+  "id": "ecos_mv_mision",
+  "title": "Sistema de Zykna",
+  "description": "Una misión con sus pasos (ecos_misiones_v2.js)",
+  "start": "mision",
+  "entries": [
     {
-     "text": "",
-     "color": "#E8F3F3"
+      "id": "mision",
+      "speaker": {
+        "text": "Zykna  ·  Misiones",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "nbt": "actual.cab",
+          "storage": "ecos:mv",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.obj",
+          "storage": "ecos:mv",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.pasos",
+          "storage": "ecos:mv",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.premio",
+          "storage": "ecos:mv",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.estado",
+          "storage": "ecos:mv",
+          "interpret": true
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "◎  Seguir esta misión",
+          "target": "mision",
+          "command": [
+            "zykna mv seguir"
+          ]
+        },
+        {
+          "text": "✕  Dejar de seguir",
+          "target": "mision",
+          "command": [
+            "zykna mv soltar"
+          ]
+        },
+        {
+          "text": "☰  Otra misión",
+          "target": "mision",
+          "command": [
+            "zykna mv elegir"
+          ]
+        },
+        {
+          "text": "◂  Archivo Vivo",
+          "target": "mision",
+          "command": [
+            "zykna mv menu"
+          ]
+        },
+        {
+          "text": "✖  Cerrar",
+          "target": "fin"
+        }
+      ]
     },
     {
-     "nbt": "actual.cab",
-     "storage": "ecos:mv",
-     "interpret": true
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "nbt": "actual.pasos",
-     "storage": "ecos:mv",
-     "interpret": true
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "nbt": "actual.premio",
-     "storage": "ecos:mv",
-     "interpret": true
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "nbt": "actual.estado",
-     "storage": "ecos:mv",
-     "interpret": true
+      "id": "fin",
+      "speaker": {
+        "text": "Zykna",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "Listo. ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Shift + F",
+          "color": "#19E6E6"
+        },
+        {
+          "text": " o escribe ",
+          "color": "#8FA2A8"
+        },
+        {
+          "text": "sistema",
+          "color": "#19E6E6"
+        },
+        {
+          "text": " para volver. Clic para cerrar.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ]
     }
-   ],
-   "portraits": [
-    {
-     "path": "zykna.png",
-     "position": "LEFT",
-     "brightness": 1.0
-    }
-   ],
-   "options": [
-    {
-     "text": "◎  Seguir esta misión",
-     "target": "mision",
-     "command": [
-      "zykna mv seguir"
-     ]
-    },
-    {
-     "text": "✕  Dejar de seguir",
-     "target": "mision",
-     "command": [
-      "zykna mv soltar"
-     ]
-    },
-    {
-     "text": "☰  Otra misión",
-     "target": "mision",
-     "command": [
-      "zykna mv elegir"
-     ]
-    },
-    {
-     "text": "◂  Menú",
-     "target": "mision",
-     "command": [
-      "zykna mv menu"
-     ]
-    },
-    {
-     "text": "✖  Cerrar",
-     "target": "fin"
-    }
-   ]
-  },
-  {
-   "id": "fin",
-   "speaker": {
-    "text": "Zykna",
-    "color": "#19E6E6",
-    "bold": true
-   },
-   "text": [
-    {
-     "text": "Listo. ",
-     "color": "#E8F3F3"
-    },
-    {
-     "text": "Shift + F",
-     "color": "#19E6E6"
-    },
-    {
-     "text": " o escribe ",
-     "color": "#8FA2A8"
-    },
-    {
-     "text": "sistema",
-     "color": "#19E6E6"
-    },
-    {
-     "text": " para volver. Clic para cerrar.",
-     "color": "#8FA2A8"
-    }
-   ],
-   "portraits": [
-    {
-     "path": "zykna.png",
-     "position": "LEFT",
-     "brightness": 1.0
-    }
-   ]
-  }
- ]
+  ]
 }

@@ -1,0 +1,131 @@
+{
+  "id": "ecos_mi_eco",
+  "title": "Mi Eco",
+  "description": "Conciencia, puntos de árbol y puntos de stat (ecos_misiones_v2.js · mvVentanaEco)",
+  "start": "eco",
+  "entries": [
+    {
+      "id": "eco",
+      "speaker": {
+        "text": "Zykna  ·  Mi Eco",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "nbt": "actual.cab",
+          "storage": "ecos:mv",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.conc",
+          "storage": "ecos:mv",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.arbol",
+          "storage": "ecos:mv",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.stat",
+          "storage": "ecos:mv",
+          "interpret": true
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "◈  Repartir atributos",
+          "target": "eco",
+          "command": [
+            "zykna stats"
+          ]
+        },
+        {
+          "text": "✦  Preparación para tu don",
+          "target": "eco",
+          "command": [
+            "zykna prep"
+          ]
+        },
+        {
+          "text": "◂  Archivo Vivo",
+          "target": "eco",
+          "command": [
+            "zykna mv menu"
+          ]
+        },
+        {
+          "text": "✖  Cerrar",
+          "target": "fin"
+        }
+      ]
+    },
+    {
+      "id": "fin",
+      "speaker": {
+        "text": "Zykna",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "Listo. ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Shift + F",
+          "color": "#19E6E6"
+        },
+        {
+          "text": " o escribe ",
+          "color": "#8FA2A8"
+        },
+        {
+          "text": "sistema",
+          "color": "#19E6E6"
+        },
+        {
+          "text": " para volver. Clic para cerrar.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ]
+    }
+  ]
+}

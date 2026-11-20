@@ -106,6 +106,10 @@ file = "config/create-client.toml"
 hash = "3db171b4dfa1c84976a0c915d3f5979dfe208899548f5b65bf71dfd6f8b30f3e"
 
 [[files]]
+file = "config/dialog-client.toml"
+hash = "cfc15525588115a8b20110d586bc70cb54ee59b48b490208994dd3a3ac91a8a2"
+
+[[files]]
 file = "config/dynamic_fps.json"
 hash = "144f114bfe29ddde8ea84b6c93d4607808b6189ade20df6defb17510afbf4e7e"
 
@@ -776,20 +780,24 @@ file = "kubejs/data/dialog/dialogs/ecos_cronica.json"
 hash = "af7a0983052faeacc05e00940a596cd7bd9409a71c5c9f41a95a4ee51e06f0aa"
 
 [[files]]
+file = "kubejs/data/dialog/dialogs/ecos_mi_eco.json"
+hash = "c8a7397467816a31ba9caf4eb7d29348fb8649ae9c15bcf91274d9c0e0346f13"
+
+[[files]]
 file = "kubejs/data/dialog/dialogs/ecos_mv_elegir.json"
-hash = "c06685842f32aa21fa4a6039ab3478c2bff89dcc84296104d93a853e785a16c2"
+hash = "f8ddd44e224f5ee26dc1217ac99ef8888f8e813b7978e711dadb7d72c8de4967"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_mv_menu.json"
-hash = "e9c0597cc72c5123994b261c654aa5de1bc31e459c1a3655be89955da666867a"
+hash = "7e056e2bcfc188c985a8d994feb900e7c9e41c274cfca014439f2c7d43e9be5a"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_mv_mision.json"
-hash = "880888393c0ba131f489368fef913128b13eb09a0b489b24bba43c6dd3b55fec"
+hash = "778e0ccdda841d0a531b6d533d23d52b3fb7ba7d32adf4086ec4014c12723b8c"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_mv_mundo.json"
-hash = "7d2c9040972b1b9f153783da7cc8795e32fc5ff40ee5908b14b9cacccb8e190d"
+hash = "d74fa5b2e8931049888ec01b9e593094c20a1f5871f9df861085477b33b31836"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_novedades.json"
@@ -801,11 +809,11 @@ hash = "7a87b6e308f9e4b0e1e6fdd22dee00d95ea421fd21878bc0d0122ad44dc3f9ef"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_stats_cuerpo.json"
-hash = "4aea81483b52af00b409d2bba95c4b1cbfd5394da99aca4c8abb72dc0f298a97"
+hash = "4ea6815ae33bd1adf6cc1f2e53090e09855fb91c30f08c9df8341828ec99b4db"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_stats_mente.json"
-hash = "f349e8107530478505e65393529c8c77453862e7e71d4d38f100940e0e21f857"
+hash = "95c1215489dd314fb3a8f0ab907877bdbd21dc2e923ee00630f4a9f7c9c816ee"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/guia_zykna.json"

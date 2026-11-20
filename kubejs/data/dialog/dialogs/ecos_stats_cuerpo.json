@@ -1,205 +1,212 @@
 {
- "id": "ecos_stats_cuerpo",
- "title": "STATUS",
- "description": "Ventana de stats de ECOS (ecos_stats.js): botones [+1] por stat",
- "start": "cuerpo",
- "entries": [
-  {
-   "id": "cuerpo",
-   "speaker": {
-    "text": "STATUS  ·  Sistema de Zykna",
-    "color": "#19E6E6",
-    "bold": true
-   },
-   "text": [
+  "id": "ecos_stats_cuerpo",
+  "title": "STATUS",
+  "description": "Ventana de stats de ECOS (ecos_stats.js): botones [+1] por stat",
+  "start": "cuerpo",
+  "entries": [
     {
-     "text": "",
-     "color": "white"
+      "id": "cuerpo",
+      "speaker": {
+        "text": "Mi Eco  ·  Atributos",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "white"
+        },
+        {
+          "nbt": "actual.cab",
+          "storage": "ecos:stats",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.libres",
+          "storage": "ecos:stats",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.vida",
+          "storage": "ecos:stats",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.fuerza",
+          "storage": "ecos:stats",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.defensa",
+          "storage": "ecos:stats",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.estamina",
+          "storage": "ecos:stats",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.ataque",
+          "storage": "ecos:stats",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.velocidad",
+          "storage": "ecos:stats",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.pie",
+          "storage": "ecos:stats",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.prep",
+          "storage": "ecos:stats",
+          "interpret": true
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "[+1] ❤ Vida",
+          "target": "cuerpo",
+          "command": [
+            "zykna stats subir vida"
+          ]
+        },
+        {
+          "text": "[+1] ⚔ Fuerza",
+          "target": "cuerpo",
+          "command": [
+            "zykna stats subir fuerza"
+          ]
+        },
+        {
+          "text": "[+1] ⛨ Defensa",
+          "target": "cuerpo",
+          "command": [
+            "zykna stats subir defensa"
+          ]
+        },
+        {
+          "text": "[+1] ➹ Estamina",
+          "target": "cuerpo",
+          "command": [
+            "zykna stats subir estamina"
+          ]
+        },
+        {
+          "text": "[+1] ⚡ Vel. de ataque",
+          "target": "cuerpo",
+          "command": [
+            "zykna stats subir ataque"
+          ]
+        },
+        {
+          "text": "[+1] » Velocidad",
+          "target": "cuerpo",
+          "command": [
+            "zykna stats subir velocidad"
+          ]
+        },
+        {
+          "text": "→ Mente y precisión",
+          "target": "cuerpo",
+          "command": [
+            "zykna stats ventana mente"
+          ]
+        },
+        {
+          "text": "Reiniciar mis stats (1 vez por Era)",
+          "target": "cuerpo",
+          "command": [
+            "zykna stats reiniciar"
+          ]
+        },
+        {
+          "text": "◂  Mi Eco",
+          "target": "cuerpo",
+          "command": [
+            "zykna mv eco"
+          ]
+        },
+        {
+          "text": "✖  Cerrar",
+          "target": "fin"
+        }
+      ]
     },
     {
-     "nbt": "actual.cab",
-     "storage": "ecos:stats",
-     "interpret": true
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "nbt": "actual.libres",
-     "storage": "ecos:stats",
-     "interpret": true
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "nbt": "actual.vida",
-     "storage": "ecos:stats",
-     "interpret": true
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "nbt": "actual.fuerza",
-     "storage": "ecos:stats",
-     "interpret": true
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "nbt": "actual.defensa",
-     "storage": "ecos:stats",
-     "interpret": true
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "nbt": "actual.estamina",
-     "storage": "ecos:stats",
-     "interpret": true
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "nbt": "actual.ataque",
-     "storage": "ecos:stats",
-     "interpret": true
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "nbt": "actual.velocidad",
-     "storage": "ecos:stats",
-     "interpret": true
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "nbt": "actual.pie",
-     "storage": "ecos:stats",
-     "interpret": true
-    },
-    {
-     "text": "\n"
-    },
-    {
-     "nbt": "actual.prep",
-     "storage": "ecos:stats",
-     "interpret": true
+      "id": "fin",
+      "speaker": {
+        "text": "Zykna",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "Listo. ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Shift + F",
+          "color": "#19E6E6"
+        },
+        {
+          "text": " o escribe ",
+          "color": "#8FA2A8"
+        },
+        {
+          "text": "sistema",
+          "color": "#19E6E6"
+        },
+        {
+          "text": " para volver. Clic para cerrar.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ]
     }
-   ],
-   "portraits": [
-    {
-     "path": "zykna.png",
-     "position": "LEFT",
-     "brightness": 1.0
-    }
-   ],
-   "options": [
-    {
-     "text": "[+1] ❤ Vida",
-     "target": "cuerpo",
-     "command": [
-      "zykna stats subir vida"
-     ]
-    },
-    {
-     "text": "[+1] ⚔ Fuerza",
-     "target": "cuerpo",
-     "command": [
-      "zykna stats subir fuerza"
-     ]
-    },
-    {
-     "text": "[+1] ⛨ Defensa",
-     "target": "cuerpo",
-     "command": [
-      "zykna stats subir defensa"
-     ]
-    },
-    {
-     "text": "[+1] ➹ Estamina",
-     "target": "cuerpo",
-     "command": [
-      "zykna stats subir estamina"
-     ]
-    },
-    {
-     "text": "[+1] ⚡ Vel. de ataque",
-     "target": "cuerpo",
-     "command": [
-      "zykna stats subir ataque"
-     ]
-    },
-    {
-     "text": "[+1] » Velocidad",
-     "target": "cuerpo",
-     "command": [
-      "zykna stats subir velocidad"
-     ]
-    },
-    {
-     "text": "→ Magia y puntería",
-     "target": "cuerpo",
-     "command": [
-      "zykna stats ventana mente"
-     ]
-    },
-    {
-     "text": "Reiniciar mis stats (1 vez por Era)",
-     "target": "cuerpo",
-     "command": [
-      "zykna stats reiniciar"
-     ]
-    },
-    {
-     "text": "✖  Cerrar",
-     "target": "fin"
-    }
-   ]
-  },
-  {
-   "id": "fin",
-   "speaker": {
-    "text": "Zykna",
-    "color": "#19E6E6",
-    "bold": true
-   },
-   "text": [
-    {
-     "text": "Listo. ",
-     "color": "#E8F3F3"
-    },
-    {
-     "text": "Shift + F",
-     "color": "#19E6E6"
-    },
-    {
-     "text": " o escribe ",
-     "color": "#8FA2A8"
-    },
-    {
-     "text": "sistema",
-     "color": "#19E6E6"
-    },
-    {
-     "text": " para volver. Clic para cerrar.",
-     "color": "#8FA2A8"
-    }
-   ],
-   "portraits": [
-    {
-     "path": "zykna.png",
-     "position": "LEFT",
-     "brightness": 1.0
-    }
-   ]
-  }
- ]
+  ]
 }
