@@ -1,0 +1,16 @@
+{
+  "backgroundColor": "#07070A",
+  "borderColor": ["#19E6E6", "#19E6E6", "#0E6E76", "#0E6E76"],
+  "boxBorderColor": "#0E6E76",
+  "titleColor": "#E9ECF2",
+  "normalColor": "#CFD6DA",
+  "infoColor": "#19E6E6",
+  "successColor": "#46E08C",
+  "warningColor": "#E5B43A",
+  "dangerColor": "#FF4D62",
+  "failureColor": "#FF4D62",
+  "itemAmountColor": "#E9ECF2",
+  "bottomProgressNormalColor": "#19E6E6",
+  "bottomProgressFailureColor": "#FF4D62",
+  "squareBorder": false
+}

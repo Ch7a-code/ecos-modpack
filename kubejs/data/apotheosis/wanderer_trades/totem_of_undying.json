@@ -1,0 +1,4 @@
+{
+  "_ecos": "S7 (Estudio 20-nov): el errante ya no vende totem_of_undying (rompía la Era). forge:false = Apotheosis no carga este intercambio.",
+  "conditions": [{ "type": "forge:false" }]
+}

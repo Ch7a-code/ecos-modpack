@@ -10,7 +10,7 @@
 	quest_links: [ ]
 	quests: [
 		{
-			description: ["&#19E6E6Zykna:&r &oCon la Era I vuelven las armas de fuego, y con ellas la mesa donde se ensamblan. Cada arma es un plano que se llena con hierro, cobre y pólvora, y sale lista para usarse. Empieza por la mesa.", "", "&6Qué hacer:&r Fabrica una mesa de armero de TACZ y ponla en tu refugio. Ábrela con clic derecho para ver los planos de armas.", "", "&6Premio:&r 2 cosas al azar: hierro, cobre, pólvora o pedernal.", "&5A veces (7 %):&r un lingote de oro extra."]
+			description: ["&#19E6E6Zykna:&r &oCon la Era I vuelven las armas de fuego, y con ellas la mesa donde se ensamblan. Cada arma es un plano que se llena con hierro, cobre y pólvora, y sale lista para usarse. Empieza por la mesa.", "", "&6Qué hacer:&r Fabrica una mesa de armero de TACZ y ponla en tu refugio. Ábrela con clic derecho para ver los planos de armas.", "", "&6Premio:&r 2 cosas al azar: hierro, cobre, pólvora o balas de 9 mm.", "&5A veces (7 %):&r una caja de munición."]
 			disable_toast: true
 			icon: "tacz:gun_smith_table"
 			id: "0810EEFA79A1605C"
@@ -33,7 +33,7 @@
 		}
 		{
 			dependencies: ["0810EEFA79A1605C"]
-			description: ["&#19E6E6Zykna:&r &oLa Era I solo abre las pistolas ligeras: poco alcance, poco peso y mucha práctica. No son un arma de ejército; son lo que el Proyecto dejaba a quien cuidaba un pasillo. Aprende a recargar sin pensar.", "", "&6Qué hacer:&r Arma una pistola ligera en la mesa de armero (Glock 17, M1911, CZ 75, P320 y similares) y empuñala. Recarga con R y apunta con clic derecho.", "", "&6Premio:&r 2 cosas al azar: hierro, pólvora, cobre o pedernal.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			description: ["&#19E6E6Zykna:&r &oLa Era I solo abre las pistolas ligeras: poco alcance, poco peso y mucha práctica. No son un arma de ejército; son lo que el Proyecto dejaba a quien cuidaba un pasillo. Aprende a recargar sin pensar.", "", "&6Qué hacer:&r Arma una pistola ligera en la mesa de armero (Glock 17, M1911, CZ 75, P320 y similares) y empuñala. Recarga con R y apunta con clic derecho.", "", "&6Premio:&r 2 cosas al azar: hierro, pólvora, cobre o balas de 9 mm.", "&5A veces (7 %):&r un láser compacto para tu pistola."]
 			disable_toast: true
 			icon: "tacz:modern_kinetic_gun"
 			id: "30831B4E6FBEED1C"
@@ -56,7 +56,7 @@
 		}
 		{
 			dependencies: ["30831B4E6FBEED1C"]
-			description: ["&#19E6E6Zykna:&r &oUn arma sin munición es un palo caro. La munición se fabrica en la mesa de armero y se guarda en cajas que la acomodan por tipo. Cuenta lo que gastas: la Fractura no recarga.", "", "&6Qué hacer:&r Fabrica munición en la mesa de armero y arma una caja de munición para guardarla ordenada.", "", "&6Premio:&r 2 cosas al azar: hierro, cobre, pólvora o pedernal.", "&5A veces (7 %):&r tres lingotes de hierro extra."]
+			description: ["&#19E6E6Zykna:&r &oUn arma sin munición es un palo caro. La munición se fabrica en la mesa de armero y se guarda en cajas que la acomodan por tipo. Cuenta lo que gastas: la Fractura no recarga.", "", "&6Qué hacer:&r Fabrica munición en la mesa de armero y arma una caja de munición para guardarla ordenada.", "", "&6Premio:&r 2 cosas al azar: hierro, cobre, pólvora o balas .45.", "&5A veces (7 %):&r 64 balas de 9 mm."]
 			disable_toast: true
 			icon: "tacz:ammo_box"
 			id: "67FA8E77F82FD95B"
@@ -87,7 +87,7 @@
 		}
 		{
 			dependencies: ["67FA8E77F82FD95B"]
-			description: ["&#19E6E6Zykna:&r &oUn arma tirada en un cofre se raya y se pierde. Una vitrina o un tablero de pared la deja a la vista y a la mano. Es orden, y también respeto por algo que cuesta fabricar.", "", "&6Qué hacer:&r Pon una vitrina o un tablero de armas de TACZ en tu refugio y guarda un arma.", "", "&6Premio:&r 2 cosas al azar: hierro, cobre, pólvora o pedernal.", "&5A veces (7 %):&r un cofre de hierro de Sophisticated Storage."]
+			description: ["&#19E6E6Zykna:&r &oUn arma tirada en un cofre se raya y se pierde. Una vitrina o un tablero de pared la deja a la vista y a la mano. Es orden, y también respeto por algo que cuesta fabricar.", "", "&6Qué hacer:&r Pon una vitrina o un tablero de armas de TACZ en tu refugio y guarda un arma.", "", "&6Premio:&r 2 cosas al azar: hierro, cobre, pólvora o balas .45.", "&5A veces (7 %):&r un cargador extendido ligero."]
 			disable_toast: true
 			icon: "tacz:gun_display_case"
 			id: "23B45CA774C842F3"
@@ -110,7 +110,7 @@
 		}
 		{
 			dependencies: ["23B45CA774C842F3"]
-			description: ["&#19E6E6Zykna:&r &oLa Era II abre las armas que mandan cuando el enemigo está cerca. Las escopetas dispersan el daño y los subfusiles lo multiplican. Distinto alcance, distinto ruido, distinto momento.", "", "&6Qué hacer:&r Empuña una escopeta (M870, M1014, SPAS-12, AA-12 o de dos cañones) y un subfusil (MP5, MP7, P90, UMP45, Uzi o Vector).", "", "&6Premio:&r 2 cosas al azar: hierro, oro, pólvora o cobre.", "&5A veces (7 %):&r una manzana dorada."]
+			description: ["&#19E6E6Zykna:&r &oLa Era II abre las armas que mandan cuando el enemigo está cerca. Las escopetas dispersan el daño y los subfusiles lo multiplican. Distinto alcance, distinto ruido, distinto momento.", "", "&6Qué hacer:&r Empuña una escopeta (M870, M1014, SPAS-12, AA-12 o de dos cañones) y un subfusil (MP5, MP7, P90, UMP45, Uzi o Vector).", "", "&6Premio:&r 2 cosas al azar: hierro, oro, pólvora o cartuchos de escopeta.", "&5A veces (7 %):&r un estrangulador de escopeta."]
 			disable_toast: true
 			icon: "tacz:modern_kinetic_gun"
 			id: "7D92A8191B767183"
@@ -141,7 +141,7 @@
 		}
 		{
 			dependencies: ["7D92A8191B767183"]
-			description: ["&#19E6E6Zykna:&r &oCon un fusil el combate cambia de ritmo: más alcance, más control. Lo que de verdad lo hace tuyo son los accesorios: una mira, un cargador, un silenciador. Cada pieza cambia cómo suena y cómo pega.", "", "&6Qué hacer:&r Empuña un fusil de asalto (AK, M4, HK416, G36, SCAR, AUG y otros) y ten un accesorio de TACZ para montárselo.", "", "&6Premio:&r 2 cosas al azar: hierro, oro, cobre o pólvora.", "&5A veces (7 %):&r un lingote de oro extra."]
+			description: ["&#19E6E6Zykna:&r &oCon un fusil el combate cambia de ritmo: más alcance, más control. Lo que de verdad lo hace tuyo son los accesorios: una mira, un cargador, un silenciador. Cada pieza cambia cómo suena y cómo pega.", "", "&6Qué hacer:&r Empuña un fusil de asalto (AK, M4, HK416, G36, SCAR, AUG y otros) y ten un accesorio de TACZ para montárselo.", "", "&6Premio:&r 2 cosas al azar: hierro, oro, pólvora o balas 5.56.", "&5A veces (7 %):&r una mira ACOG."]
 			disable_toast: true
 			icon: "tacz:attachment"
 			id: "4FD03C647D63A681"
@@ -172,7 +172,7 @@
 		}
 		{
 			dependencies: ["4FD03C647D63A681"]
-			description: ["&#19E6E6Zykna:&r &oEn la Era III las armas de precisión: tiradores, francotiradores, fusiles de cerrojo. Se mueven despacio, apuntan largo y dejan al enemigo sin respuesta. Mira lejos antes de disparar.", "", "&6Qué hacer:&r Empuña un tirador (SKS, MK14, SPR) y un francotirador (AWP, M700, Kar98, M107, M95 u otros).", "", "&6Premio:&r 2 cosas al azar: hierro, oro, diamante o pólvora.", "&5A veces (7 %):&r un diamante."]
+			description: ["&#19E6E6Zykna:&r &oEn la Era III las armas de precisión: tiradores, francotiradores, fusiles de cerrojo. Se mueven despacio, apuntan largo y dejan al enemigo sin respuesta. Mira lejos antes de disparar.", "", "&6Qué hacer:&r Empuña un tirador (SKS, MK14, SPR) y un francotirador (AWP, M700, Kar98, M107, M95 u otros).", "", "&6Premio:&r 2 cosas al azar: balas .308, oro, diamante o pólvora.", "&5A veces (7 %):&r una mira de francotirador."]
 			disable_toast: true
 			icon: "tacz:modern_kinetic_gun"
 			id: "623BAE26FEFA7BA4"
@@ -203,7 +203,7 @@
 		}
 		{
 			dependencies: ["623BAE26FEFA7BA4"]
-			description: ["&#19E6E6Zykna:&r &oAlgunas armas no se llevan, se plantan: ametralladoras que escupen sin parar y pistolas del tamaño de un martillo. Pesan, gastan y avisan a todo lo que oiga. Úsalas cuando valga la pena el ruido.", "", "&6Qué hacer:&r Empuña una ametralladora (M249, PKM, RPK o Minigun) y una pistola pesada (Desert Eagle, Rhino, Taurus 500 y otras).", "", "&6Premio:&r 2 cosas al azar: hierro, oro, diamante o pólvora.", "&5A veces (7 %):&r dos lingotes de oro extra."]
+			description: ["&#19E6E6Zykna:&r &oAlgunas armas no se llevan, se plantan: ametralladoras que escupen sin parar y pistolas del tamaño de un martillo. Pesan, gastan y avisan a todo lo que oiga. Úsalas cuando valga la pena el ruido.", "", "&6Qué hacer:&r Empuña una ametralladora (M249, PKM, RPK o Minigun) y una pistola pesada (Desert Eagle, Rhino, Taurus 500 y otras).", "", "&6Premio:&r 2 cosas al azar: balas 7.62, oro, diamante o pólvora.", "&5A veces (7 %):&r un cargador extendido grande."]
 			disable_toast: true
 			icon: "tacz:modern_kinetic_gun"
 			id: "53BC58B03EB02FA4"
@@ -234,7 +234,7 @@
 		}
 		{
 			dependencies: ["53BC58B03EB02FA4"]
-			description: ["&#19E6E6Zykna:&r &oEn la Era IV queda lo que el Proyecto no quiso soltar antes: lanzagranadas y lanzacohetes. Un solo disparo cambia el campo. Úsalos para lo que ningún fusil resuelve, no para lo que sí.", "", "&6Qué hacer:&r Empuña un lanzagranadas M320 o un lanzacohetes RPG-7.", "", "&6Premio:&r 2 cosas al azar: hierro, diamantes, pólvora o chatarra de netherita.", "&5A veces (7 %):&r dos diamantes."]
+			description: ["&#19E6E6Zykna:&r &oEn la Era IV queda lo que el Proyecto no quiso soltar antes: lanzagranadas y lanzacohetes. Un solo disparo cambia el campo. Úsalos para lo que ningún fusil resuelve, no para lo que sí.", "", "&6Qué hacer:&r Empuña un lanzagranadas M320 o un lanzacohetes RPG-7.", "", "&6Premio:&r 2 cosas al azar: granadas de 40 mm, diamantes, pólvora o chatarra de netherita.", "&5A veces (7 %):&r tres cohetes de RPG."]
 			disable_toast: true
 			icon: "tacz:modern_kinetic_gun"
 			id: "7B4959CE1CA172F6"
@@ -257,7 +257,7 @@
 		}
 		{
 			dependencies: ["7B4959CE1CA172F6"]
-			description: ["&#19E6E6Zykna:&r &oUna granada es la decisión más corta del arsenal: sacas, lanzas y no hay segunda vuelta. Las del Proyecto son las últimas que se abren. Mide la distancia antes, que el ruido también cuenta.", "", "&6Qué hacer:&r Fabrica o consigue una granada M67 y tenla en el inventario.", "", "&6Premio:&r 2 cosas al azar: hierro, diamantes, pólvora o chatarra de netherita.", "&5A veces (7 %):&r tres diamantes."]
+			description: ["&#19E6E6Zykna:&r &oUna granada es la decisión más corta del arsenal: sacas, lanzas y no hay segunda vuelta. Las del Proyecto son las últimas que se abren. Mide la distancia antes, que el ruido también cuenta.", "", "&6Qué hacer:&r Fabrica o consigue una granada M67 y tenla en el inventario.", "", "&6Premio:&r 2 cosas al azar: granadas M67, diamantes, pólvora o chatarra de netherita.", "&5A veces (7 %):&r tres diamantes."]
 			disable_toast: true
 			icon: "tacz:m67"
 			id: "76FD8312E06D3642"

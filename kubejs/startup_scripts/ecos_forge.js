@@ -18,7 +18,15 @@ var ECOS_TOPE = {
   'minecraft:ender_dragon': [15, 12],
   'mowziesmobs:frostmaw': [15, 10],
   'mowziesmobs:sculptor': [15, 10],
-  'twilightforest:snow_queen': [15, 10]
+  'twilightforest:snow_queen': [15, 10],
+  // S4 (Estudio, aprobado por Cha 20-nov: «que el tope de daño crezca con el número de jugadores»): los 5 de Cataclysm traían un tope
+  // NATIVO fijo (cataclysm-common.toml) mientras su vida sí crece con la escuadra -> ir en grupo alargaba la pelea ~75 %. Ahora el
+  // tope nativo va en 999999 en el servidor y el de ECOS (mismos valores que el nativo) se multiplica por 'ecos_esc_tope'.
+  'cataclysm:netherite_monstrosity': [25, 20],
+  'cataclysm:ignis': [20, 14],
+  'cataclysm:the_harbinger': [22, 14],
+  'cataclysm:the_leviathan': [20, 15],
+  'cataclysm:maledictus': [20, 13]
 };
 // jefe (la entidad misma, llave débil: se libera al morir) -> [segundo real, daño acumulado en ese segundo]
 // (16-nov, cliente-prueba: ent.getUUID() NO existe para Rhino en este contexto; por eso no se usa UUID)

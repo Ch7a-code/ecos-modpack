@@ -72,7 +72,7 @@
 		}
 		{
 			dependencies: ["489A12B95F656239"]
-			description: ["&#19E6E6Zykna:&r &oUn Eco que explora lejos no puede volver al refugio por cada piedra. Con una mochila cargas más y regresas menos. Ármala con el cuero y el hilo que te dejé en el refugio.", "", "&6Qué hacer:&r Arma una mochila de Sophisticated Backpacks en la mesa de trabajo: hilo, cuero, hilo arriba; hilo, cofre, hilo en medio; cuero, cuero, cuero abajo. Ábrela con clic derecho. Cuenta cualquier mochila, también las de cobre, hierro, oro, diamante o netherita.", "", "&6Premio:&r 2 cosas al azar: una base de mejora, cobre para la mochila de cobre, cuero o hilo.", "&5A veces (7 %):&r una mochila de hierro."]
+			description: ["&#19E6E6Zykna:&r &oUn Eco que explora lejos no puede volver al refugio por cada piedra. Con una mochila cargas más y regresas menos. Ármala con el cuero y el hilo que te dejé en el refugio.", "", "&6Qué hacer:&r Arma una mochila de Sophisticated Backpacks en la mesa de trabajo: hilo, cuero, hilo arriba; hilo, cofre, hilo en medio; cuero, cuero, cuero abajo. Ábrela con clic derecho. Cuenta cualquier mochila, también las de cobre, hierro, oro, diamante o netherita.", "", "&6Premio:&r Un ala delta para explorar desde lo alto (clic derecho con ella en la mano para desplegarla y lánzate desde un lugar alto), más 2 cosas al azar: una base de mejora, cobre para la mochila de cobre, cuero o hilo.", "&5A veces (7 %):&r una mochila de hierro."]
 			disable_toast: true
 			icon: "sophisticatedbackpacks:backpack"
 			id: "4725F677A94E1BB5"

@@ -94,6 +94,10 @@ file = "config/canary.properties"
 hash = "c544b025e7c37a8c24a5ba7abca3fac8e2f1a40df4b6661ffc15e6a88ff46a34"
 
 [[files]]
+file = "config/coldsweat/client.toml"
+hash = "eb6bb4543905aa7d9485c3a1281e62d72598e54b59fffa9e277f34b4e26338bf"
+
+[[files]]
 file = "config/coldsweat/main.toml"
 hash = "2d014fbcbb3f79e05df00547096f8ff74aad65acab68b7fa654f2c6cb2f22219"
 
@@ -343,7 +347,7 @@ hash = "acaa4620fb9aa8dbaf257aeea901ad790f2f9035953ec21e236356cda6026116"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/inicio.snbt"
-hash = "9dc8f214adb7d43211192b5d7438dc5a4593122b61bc45eea869368c455ebb8a"
+hash = "450d514a8ed475a095b3a35a62f63e878d1068f423afc7d86def35caf29572f4"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/libro_02_laboratorio.snbt"
@@ -371,7 +375,7 @@ hash = "cda0d92cf41a5c40fce3e0b7ffb3ef8b0cc7b5131103fe5922996e1e97bdab0d"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/libro_08_armas.snbt"
-hash = "52835d8a1ff48b2b9f91e9c78f83e2a282d251843d54722ecda5f815ac755d62"
+hash = "bf9c9ebb9c901bc93a16f7f80298b92108c2fad5a619f9c8400105ac52dbfb3f"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/libro_09_armaduras.snbt"
@@ -688,6 +692,10 @@ file = "kubejs/assets/firstaid/lang/es_es.json"
 hash = "a62797cd2069013667bf5baa7dcd398d2475b8fb19366382b1e2483ac125705e"
 
 [[files]]
+file = "kubejs/assets/firstaid/textures/gui/simple_health.png"
+hash = "a0c59071016d78a03801cab3ea7e91031edf3acc28b42fec68fe7331e5b2eede"
+
+[[files]]
 file = "kubejs/assets/ftblibrary/lang/es_es.json"
 hash = "3c0eeb9a21e1a7b2f8dda612f3a6a41501fced2d3037c3555ca473d8e5731aed"
 
@@ -816,12 +824,24 @@ file = "kubejs/assets/ftbquests/textures/shapes/square/shape.png.mcmeta"
 hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
 
 [[files]]
+file = "kubejs/assets/irons_spellbooks/textures/gui/icons.png"
+hash = "8115c1639aaa738089421a4e5be823ab776d6af690d070bc90d5a479c26dd241"
+
+[[files]]
+file = "kubejs/assets/jade/jade_themes/dark.json"
+hash = "c3509a05de504546aece494f6eb0a23516dc51758f80ed0b7930b80fd7418637"
+
+[[files]]
 file = "kubejs/assets/jade/lang/es_es.json"
 hash = "0ee95b14c7f06ffab34084cd9da06025537124ec59b4ce78bea6a223cb16685f"
 
 [[files]]
 file = "kubejs/assets/minecraft/models/item/globe_banner_pattern.json"
 hash = "fbcb1335f27500b226361ebedb6f955a9d4c2ecdb766baf4d7ebd2c280f19437"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/bars.png"
+hash = "ac8d54bdfc75431c96e666d197e071ad19312bb9182bd41c546ec9871ce00558"
 
 [[files]]
 file = "kubejs/assets/minecraft/textures/gui/container/generic_54.png"
@@ -834,6 +854,10 @@ hash = "3570250e09a06eac40f390f580e18ba4ce501f3c0d849be3cf194e3594e13fae"
 [[files]]
 file = "kubejs/assets/minecraft/textures/gui/container/shulker_box.png"
 hash = "b2f8756994b52ead3ec1d1b8e0645d547ac2b4d0fef5e3bbee3d45bab259b5fe"
+
+[[files]]
+file = "kubejs/assets/minecraft/textures/gui/icons.png"
+hash = "46f4ed64464c43211fba110e0025ea4b4bfa029cba2f15d6af8b1f9a5e4da5d7"
 
 [[files]]
 file = "kubejs/assets/minecraft/textures/gui/recipe_button.png"
@@ -930,6 +954,42 @@ hash = "5e67648384f50f7156a821b277a1eaf892a035cd5c476d7c785a62ede5d31ce8"
 [[files]]
 file = "kubejs/client_scripts/ecos_ui_cliente.js"
 hash = "c051d499d1d77f6d722093da0d1df75399c714b46b14ea4c521534bf7fc07d6e"
+
+[[files]]
+file = "kubejs/data/apotheosis/rarities/ancient.json"
+hash = "513e8d99f8eeab91e92427dd90cea756c0c08cf1d11e60c2031ed65a60a68ade"
+
+[[files]]
+file = "kubejs/data/apotheosis/rarities/common.json"
+hash = "b807ef674208f55c2f50859ac49395383e075f3fdf66fb35d524222b4073ed15"
+
+[[files]]
+file = "kubejs/data/apotheosis/rarities/epic.json"
+hash = "1c49f97e9e53ccf06f7aa4fd598eb6e51802297934a7e9673bc8eda99c6e2a83"
+
+[[files]]
+file = "kubejs/data/apotheosis/rarities/mythic.json"
+hash = "68f4532cc07f5d6cc2651127238443462f1b1e48096c9f7a133aac490f595f00"
+
+[[files]]
+file = "kubejs/data/apotheosis/rarities/rare.json"
+hash = "493341682cf9a7a0f1a79ba4ee4964bfc7e1d31b15509cd018292063d30fc96b"
+
+[[files]]
+file = "kubejs/data/apotheosis/rarities/uncommon.json"
+hash = "6c331a5362a58915fe041f418edc184a807fe85123aa69aea7a0e023dab4ff21"
+
+[[files]]
+file = "kubejs/data/apotheosis/wanderer_trades/diamond.json"
+hash = "b4ef26f46e68fd4b9e4bd4655dcdf6e8c1e1f4b73f37efdd1c4da3f910d5a298"
+
+[[files]]
+file = "kubejs/data/apotheosis/wanderer_trades/enchanted_golden_apple.json"
+hash = "c573f732f99837a5fe73dc45ff292c0270f61ee15fd90abbc1b85d0194ac7700"
+
+[[files]]
+file = "kubejs/data/apotheosis/wanderer_trades/totem_of_undying.json"
+hash = "26e4e2ab7a9345ce6e1a0e080a653c3617995f795ea99b4e6bdf668cd47a61ef"
 
 [[files]]
 file = "kubejs/data/aquamirae/loot_tables/chests/frozen_chest.json"
@@ -3773,7 +3833,7 @@ hash = "83c245f093d8ee9ab302e527dd59d8b2e81502f1debb9d20aed120d2e8b13154"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_forge.js"
-hash = "fb1e6e50a2e2ebf4d9ac20b9a3611f7236aa1aa76ef044779df8fe1dc3db8405"
+hash = "307189d91c1973be97474d2cf1e47ea34419e2c7609a9d5877b574ed6981a6f8"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_items.js"
