@@ -62,6 +62,10 @@ file = "config/aether-client.toml"
 hash = "02245b02c6f6a64032e144abedcf66347094ca77bc94e73fed414424bbe3ddf3"
 
 [[files]]
+file = "config/alexscaves-client.toml"
+hash = "db5c9fddb7816fae75ecdb86e604c97408eca8626d785b9380a0b39d68b8bd58"
+
+[[files]]
 file = "config/alexscaves-general.toml"
 hash = "c2ed69f67b9974f7953ba4c4187329392aeefd8e4c5cb716ae1576fe5bf14fef"
 
