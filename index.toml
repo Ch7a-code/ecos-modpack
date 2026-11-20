@@ -115,7 +115,7 @@ hash = "62033834104179f7b83d06ce99974bdd9ac2d7d5bbd49d712c0772ab405e2947"
 
 [[files]]
 file = "config/ecos/obligatorias.txt"
-hash = "99cc451909f4c883f988f975fcdfa86e63765daaba5d4b0121078f9c1c67f5ca"
+hash = "744d7100072f8d59d34ff23d1f38faf401f26610595b1ea9d7583be06c028a30"
 
 [[files]]
 file = "config/fancymenu/assets/ecos_btn_hover.png"
