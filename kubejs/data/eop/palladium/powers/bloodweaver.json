@@ -1188,6 +1188,10 @@
             "description": {
               "text": "Blood Manipulation Skill Point"
             }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.B"
           }
         ]
       }
@@ -1448,6 +1452,10 @@
             "description": {
               "text": "Blood Manipulation Skill Point"
             }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.C"
           }
         ]
       }
@@ -1827,6 +1835,50 @@
           {
             "type": "palladium:has_tag",
             "tag": "ecos_maestro_sangre_g2"
+          }
+        ]
+      }
+    },
+    "ECOS.Maestro.B": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_sangre_aceptada"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_sangre_g2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Maestro.C": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_sangre_p3"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_sangre_g2"
+              }
+            ]
           }
         ]
       }

@@ -1,0 +1,2304 @@
+{
+  "name": "Magmakinesis",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/magma.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "energy_bars": {
+    "lava_percent": {
+      "color": "#b70b0b",
+      "max": 100,
+      "synced_value": {
+        "type": "score",
+        "objective": "Magma.Amount",
+        "fallback": 0
+      }
+    }
+  },
+  "abilities": {
+    "Magma": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Magma",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "tag @s remove EOP.Domain",
+        "tag @s remove Magma.Coffin",
+        "scoreboard players add @s Magma.Amount 0",
+        "scoreboard objectives add MK.Score dummy",
+        "scoreboard objectives add EOP.Domain.Timer dummy",
+        "scoreboard players set @s EOP.Domain.Timer 0"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Magma",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "tag @s remove Magma.Coffin",
+        "tag @s remove EOP.Domain",
+        "scoreboard players set EOP.Domain.Timer 0",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Magmakinesis": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/magma.png",
+      "title": "Magmakinesis",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to manipulate and control magma"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:magma @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{magma:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Magmakinesis\",\"color\":\"#610e00\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "MK.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s MK.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "MK.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "MK.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s MK.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "MK.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "MK.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s MK.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "MK.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "MK.Scoreboard.Gain4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s MK.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 21600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "MK.Score",
+            "min_score": 15,
+            "max_score": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "MK.Scoreboard.Gain5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s MK.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 36000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "MK.Score",
+            "min_score": 18,
+            "max_score": 24
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Damage": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "cc6410dc-16dc-4248-bd1c-c02b82416ecf",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Magmakinesis"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MK.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/magma.png",
+            "description": {
+              "text": "Magmakinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "9bc8671a-2410-4b95-b398-c7b31e04b398",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MK.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/magma.png",
+            "description": {
+              "text": "Magmakinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "89db7215-8be3-4709-97ae-719bdd06f9d5",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MK.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/magma.png",
+            "description": {
+              "text": "Magmakinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "e24b8276-9f6f-4d48-828a-30b71daf58c8",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MK.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/magma.png",
+            "description": {
+              "text": "Magmakinesis Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Set.Scoreboard.Max": {
+      "type": "eop:set_scoreboard",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "scoreboard_objective": "Magma.Amount",
+      "scoreboard_value": 100
+    },
+    "AOE.Fire.Resistance.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 15,
+      "commands": [
+        "effect give @s fire_resistance 2 3 true"
+      ],
+      "ignore_same_team": false,
+      "ignore_pets": false,
+      "only_same_team": true,
+      "include_caster": true,
+      "execution_mode": "as",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Fire.Resistance.On"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 18
+          }
+        ]
+      }
+    },
+    "Freeze.Effect.Immune": {
+      "type": "eop:freeze_immune",
+      "hidden": true,
+      "hidden_in_bar": true
+    },
+    "Natural.Resistance": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "reduction": 0.6
+    },
+    "Effect.Immunity": {
+      "type": "eop:effect_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "effects": [
+        "eop:freeze",
+        "eop:freeze_stronger"
+      ]
+    },
+    "Natural.Armor": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 30,
+      "operation": 0,
+      "uuid": "3c624f4c-0c43-4179-a223-dc1bcde022f3"
+    },
+    "Effects.Immune.Mods": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s alexsmobs:lava_vision"
+      ],
+      "commands": [
+        "effect give @s alexsmobs:lava_vision 1 0 true"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "alexsmobs"
+          }
+        ]
+      }
+    },
+    "Magma.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players add @s Magma.Amount 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 10
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "Ability.Being.Used"
+              }
+            ]
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Magma.Amount",
+            "min_score": -100,
+            "max_score": 99
+          }
+        ]
+      }
+    },
+    "Magma.Amount.Infinite": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players set @s Magma.Amount 100"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Magma.Amount",
+            "min_score": -1000,
+            "max_score": 99
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Inf.Energy"
+          }
+        ]
+      }
+    },
+    "Magma.Gain.Fix": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players set @s Magma.Amount 100"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Magma.Amount",
+            "min_score": 100,
+            "max_score": 10000
+          }
+        ]
+      }
+    },
+    "Phase.Magma": {
+      "type": "palladium:intangibility",
+      "whitelist": "eop:magma",
+      "hidden": true,
+      "hidden_in_bar": true
+    },
+    "Fire.Immune": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "damage_sources": [
+        "minecraft:is_fire",
+        "minecraft:is_explosion"
+      ]
+    },
+    "Effects.Immune.Mods2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s legendarysurvivaloverhaul:heat_immunity"
+      ],
+      "commands": [
+        "effect give @s legendarysurvivaloverhaul:heat_immunity 1 200 true"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "Fire.Extinguish": {
+      "type": "eop:extinguish_silent",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:is_on_fire"
+          }
+        ]
+      }
+    },
+    "Lava.Walk": {
+      "type": "palladium:fluid_walking",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "fluid_tag": "minecraft:lava",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:crouching"
+              },
+              {
+                "type": "palladium:in_lava"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hit.Burn.Damage": {
+      "type": "eop:aoe_damage_once",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 3,
+      "damage": 0.5,
+      "set_on_fire_seconds": 2,
+      "damage_type": "minecraft:on_fire",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "eop:damaged"
+          }
+        ]
+      }
+    },
+    "Regen": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 20,
+      "amount": 1
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Magmaball",
+      "description": "Shoot out a ball of magma. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/magma_blast.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Magmaball": {
+      "type": "palladium:command",
+      "first_tick_commands": [
+        "playsound minecraft:entity.ghast.shoot master @a ~ ~ ~ 1 0.5",
+        "scoreboard players remove @s Magma.Amount 1"
+      ],
+      "commands": [],
+      "title": "Magmaball",
+      "icon": "eop:textures/gui/magma_blast.png",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 100,
+            "key_type": "right_click"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Magma.Amount",
+            "min_score": 1,
+            "max_score": 200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:magma"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Magmaball.Projectile": {
+      "type": "palladium:projectile",
+      "icon": "minecraft:fire_charge",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 15,
+        "DamageType": "minecraft:on_fire",
+        "SetEntityOnFireSeconds": 6,
+        "Gravity": 0,
+        "Lifetime": 200,
+        "CommandOnBlockHit": "function eop:powers/magma/magmaball",
+        "CommandOnEntityHit": "function eop:powers/magma/magmaball",
+        "DieOnEntityHit": true,
+        "DieOnBlockHit": true,
+        "Appearances": [
+          {
+            "Type": "item",
+            "Item": "minecraft:fire_charge"
+          },
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:flame",
+            "Spread": 0.3,
+            "Amount": 20
+          },
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:smoke",
+            "Spread": 0.3,
+            "Amount": 2
+          }
+        ]
+      },
+      "inaccuracy": 0,
+      "velocity": 2.5,
+      "swinging_arm": "main_arm",
+      "damage_from_player": false,
+      "ignore_player_movement": false,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Magmaball"
+          }
+        ]
+      }
+    },
+    "Transform.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/magma_coating.png",
+      "title": "Magma Coating",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "description": "Coat your arms in magma, increasing damage and destructiveness",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Magmakinesis"
+          }
+        ]
+      }
+    },
+    "Transform": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/magma_coating.png",
+      "title": "Magma Coating",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "start_value": 0,
+      "max_value": 9,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:magma"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hide.Layers": {
+      "type": "palladium:hide_body_part",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "chest_overlay"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Magma.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:magma/magma_arms",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Magma.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:diamond_transform master @a ~ ~ ~ 1 1.6"
+      ],
+      "last_tick_commands": [
+        "playsound eop:diamond_transform master @a ~ ~ ~ 1 1.6"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Transform.Damage": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 6,
+      "operation": 0,
+      "uuid": "7193fe0d-e999-4a3e-b65d-0c49b1d667cc",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Magma.Light": {
+      "type": "eop:light_aura",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "light_level": 15,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Punch.Damage": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "hidden": true,
+      "amount": 5,
+      "uuid": "76a05e7b-744d-4826-b04c-85d71c290469",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Fire.Aspect": {
+      "type": "palladium:fire_aspect",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "time": 5,
+      "should_stack_time": false,
+      "max_time": 5,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:empty_slot",
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Lavabeam.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/lava_beam.png",
+      "title": "Lava Beam",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Shoot out a beam of lava",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MK.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/magma.png",
+            "description": {
+              "text": "Magmakinesis Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.B"
+          }
+        ]
+      }
+    },
+    "Lavabeam": {
+      "type": "palladium:aim",
+      "bar_color": "light_gray",
+      "title": "Lava Beam",
+      "icon": "eop:textures/gui/lava_beam.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "time": 10,
+      "arm": "off_arm",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Magma.Amount",
+            "min_score": 5,
+            "max_score": 150
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Lavabeam.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Lavabeam.Beam": {
+      "type": "palladium:energy_beam",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "energy_beam": "eop:lavabeam",
+      "damage": 0,
+      "max_distance": 25,
+      "speed": 0.5,
+      "set_on_fire_seconds": 0,
+      "cause_fire": true,
+      "smelt_blocks": true,
+      "commands_on_block_hit": [
+        "function eop:powers/magma/lavabeam"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lavabeam"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lavabeam.Timer",
+            "property": "value",
+            "min": 8,
+            "max": 50
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.Destroy"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Lavabeam.Beam.Custom": {
+      "type": "eop:raycast_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_type": "minecraft:on_fire",
+      "damage": 15,
+      "range": 25,
+      "ignore_same_team": true,
+      "set_on_fire_seconds": 3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lavabeam.Beam"
+          }
+        ]
+      }
+    },
+    "Lavabeam.Beam2": {
+      "type": "palladium:energy_beam",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "energy_beam": "eop:lavabeam",
+      "damage": 0,
+      "max_distance": 25,
+      "speed": 0.5,
+      "set_on_fire_seconds": 0,
+      "cause_fire": false,
+      "smelt_blocks": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lavabeam"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lavabeam.Timer",
+            "property": "value",
+            "min": 8,
+            "max": 50
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.No.Destroy"
+          }
+        ]
+      }
+    },
+    "Lavabeam.Beam.Custom2": {
+      "type": "eop:raycast_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_type": "minecraft:on_fire",
+      "damage": 15,
+      "range": 25,
+      "ignore_same_team": true,
+      "set_on_fire_seconds": 3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lavabeam.Beam2"
+          }
+        ]
+      }
+    },
+    "Lavabeam.Timer": {
+      "type": "palladium:animation_timer",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "start_value": 0,
+      "max_value": 8,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lavabeam"
+          }
+        ]
+      }
+    },
+    "Lavabeam.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Ability.Being.Used"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Ability.Being.Used"
+      ],
+      "commands": [
+        "tag @s add Ability.Being.Used"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lavabeam"
+          }
+        ]
+      }
+    },
+    "Lavabeam.Sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "sound": "eop:lava",
+      "volume": 1,
+      "pitch": 1,
+      "looping": true,
+      "play_self": false,
+      "play_others": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Lavabeam"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Lavabeam.Timer",
+            "property": "value",
+            "min": 8,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Lavabeam.Usage": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Magma.Amount 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Lavabeam"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 2
+          }
+        ]
+      }
+    },
+    "Molten.Absorb.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/lava_absorb.png",
+      "title": "Molten Absorption",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Absorb magma, lava and fire around you, fueling your power",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Lavabeam.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MK.Score",
+            "score": 10,
+            "icon": "eop:textures/gui/magma.png",
+            "description": {
+              "text": "Magmakinesis Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.C"
+          }
+        ]
+      }
+    },
+    "Molten.Absorb": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/lava_absorb.png",
+      "title": "Molten Absorption",
+      "list_index": 2,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 100,
+            "ticks": 10,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Molten.Absorb.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Absorb.Lava": {
+      "type": "eop:fire_absorb",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 7,
+      "score": "Magma.Amount",
+      "score_gain": 2,
+      "cleanse_lava": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Molten.Absorb",
+            "property": "value",
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Erupt.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/erupt.png",
+      "title": "Erupt",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Erupt lava in the direction you are facing",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Molten.Absorb.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MK.Score",
+            "score": 15,
+            "icon": "eop:textures/gui/magma.png",
+            "description": {
+              "text": "Magmakinesis Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "Erupt": {
+      "type": "palladium:energy_beam",
+      "icon": "eop:textures/gui/erupt.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": "Erupt",
+      "list_index": 3,
+      "energy_beam": "eop:nobeam",
+      "damage": 0,
+      "max_distance": 30,
+      "speed": 100,
+      "set_on_fire_seconds": 0,
+      "cause_fire": true,
+      "smelt_blocks": true,
+      "commands_on_block_hit": [
+        "particle lava ~ ~ ~ 0.3 0.3 0.3 0 5 force",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 0 run execute unless block ~ ~-0.6 ~ bedrock run fill ~1 ~1 ~1 ~-1 ~-1 ~-1 lava[level=15] replace #eop:air",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 0 run execute if block ~ ~-0.6 ~ bedrock run fill ~1 ~1 ~1 ~-1 ~ ~-1 lava[level=15] replace #eop:air",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 0 run summon tnt",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 1 run particle minecraft:explosion ~ ~ ~ 0 0 0 0 1",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 1 run playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 1",
+        "scoreboard players remove @s Magma.Amount 20"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 100,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Magma.Amount",
+            "min_score": 20,
+            "max_score": 150
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Erupt.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.Destroy"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Erupt.Custom": {
+      "type": "eop:raycast_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_type": "minecraft:on_fire",
+      "damage": 15,
+      "range": 30,
+      "ignore_same_team": true,
+      "set_on_fire_seconds": 3,
+      "commands_on_entity_hit": [
+        "particle lava ~ ~ ~ 0.3 0.3 0.3 0 5 force",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 0 run execute unless block ~ ~-0.6 ~ bedrock run fill ~1 ~1 ~1 ~-1 ~-1 ~-1 lava[level=15] replace #eop:air",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 0 run execute if block ~ ~-0.6 ~ bedrock run fill ~1 ~1 ~1 ~-1 ~ ~-1 lava[level=15] replace #eop:air",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 0 run summon tnt",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 1 run particle minecraft:explosion ~ ~ ~ 0 0 0 0 1",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 1 run playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 1",
+        "scoreboard players remove @s Magma.Amount 20"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Erupt"
+          }
+        ]
+      }
+    },
+    "Erupt2": {
+      "type": "palladium:energy_beam",
+      "icon": "eop:textures/gui/erupt.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": "Erupt",
+      "list_index": 3,
+      "energy_beam": "eop:nobeam",
+      "damage": 0,
+      "max_distance": 30,
+      "speed": 100,
+      "set_on_fire_seconds": 0,
+      "cause_fire": false,
+      "smelt_blocks": false,
+      "commands_on_block_hit": [
+        "particle lava ~ ~ ~ 0.3 0.3 0.3 0 5 force",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 0 run execute unless block ~ ~-0.6 ~ bedrock run fill ~1 ~1 ~1 ~-1 ~-1 ~-1 lava[level=15] replace #eop:air",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 0 run execute if block ~ ~-0.6 ~ bedrock run fill ~1 ~1 ~1 ~-1 ~ ~-1 lava[level=15] replace #eop:air",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 0 run summon tnt",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 1 run particle minecraft:explosion ~ ~ ~ 0 0 0 0 1",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 1 run playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 1",
+        "scoreboard players remove @s Magma.Amount 20"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 100,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Magma.Amount",
+            "min_score": 20,
+            "max_score": 150
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Erupt.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.No.Destroy"
+          }
+        ]
+      }
+    },
+    "Erupt.Custom2": {
+      "type": "eop:raycast_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_type": "minecraft:on_fire",
+      "damage": 15,
+      "range": 30,
+      "ignore_same_team": true,
+      "set_on_fire_seconds": 3,
+      "commands_on_entity_hit": [
+        "particle lava ~ ~ ~ 0.3 0.3 0.3 0 5 force",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 0 run execute unless block ~ ~-0.6 ~ bedrock run fill ~1 ~1 ~1 ~-1 ~-1 ~-1 lava[level=15] replace #eop:air",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 0 run execute if block ~ ~-0.6 ~ bedrock run fill ~1 ~1 ~1 ~-1 ~ ~-1 lava[level=15] replace #eop:air",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 0 run summon tnt",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 1 run particle minecraft:explosion ~ ~ ~ 0 0 0 0 1",
+        "execute if score Gamerule EOP.Non.Destructive.Mode matches 1 run playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 1",
+        "scoreboard players remove @s Magma.Amount 20"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Erupt2"
+          }
+        ]
+      }
+    },
+    "Coffin.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/magma_rain.png",
+      "title": "Coffin of the Iron Mountain",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Create a magmatic dome around you, trapping targets and burning them",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Erupt.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Damage4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MK.Score",
+            "score": 25,
+            "icon": "eop:textures/gui/magma.png",
+            "description": {
+              "text": "Magmakinesis Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "Magma.Coffin.NEE": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/magma_rain.png",
+      "title": "Coffin of the Iron Mountain",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "first_tick_commands": [
+        "playsound minecraft:block.note_block.didgeridoo master @s ~ ~ ~ 1 0.5",
+        "title @s actionbar [\"\",{\"text\":\"Not enough energy!\",\"color\":\"red\",\"bold\":true}]"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 20,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:magma"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Coffin.Unlock"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Magma.Amount",
+            "min_score": 0,
+            "max_score": 59
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Domain"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Magma.Coffin.Activate": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/magma_rain.png",
+      "title": "Coffin of the Iron Mountain",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "first_tick_commands": [
+        "tag @s add EOP.Domain"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 3600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:magma"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Coffin.Unlock"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Magma.Amount",
+            "min_score": 60,
+            "max_score": 150
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Domain"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Domain.Usage": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players remove @s Magma.Amount 60"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:magma"
+          }
+        ]
+      }
+    },
+    "Domain.Timer.Start": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:magma"
+          }
+        ]
+      }
+    },
+    "Domain": {
+      "type": "eop:domain",
+      "icon": "eop:textures/gui/magma_rain.png",
+      "title": "Coffin of the Iron Mountain",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 9,
+      "spawn_delay": 1000,
+      "lifetime": 60000,
+      "stand_power": "eop:models/magma_coffin",
+      "stand_first_tick_commands": [
+        "scoreboard players set @p EOP.Domain.Timer 1200"
+      ],
+      "stand_commands": [],
+      "stand_last_tick_commands": [],
+      "despawn_if_too_far": true,
+      "despawn_distance": 17,
+      "aoe_radius": 16,
+      "aoe_first_tick_commands": [],
+      "aoe_commands": [
+        "superpower add eop:effects/magma_coffin @s[tag=!EOP.Phasing,tag=!Infinity,type=!#eop:not_alive]"
+      ],
+      "aoe_last_tick_commands": [],
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "only_same_team": false,
+      "include_caster": false,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Domain.Timer.Start",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:magma"
+          }
+        ]
+      }
+    },
+    "Dome": {
+      "type": "eop:dome_creation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "replace_block": "eop:diff_magma_block",
+      "radius": 16,
+      "depth": 1,
+      "animation_speed": 0.5,
+      "dome": true,
+      "dome_height": 15,
+      "spawn_light": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Domain.Timer.Start",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:magma"
+          }
+        ]
+      }
+    },
+    "Domain.Lifetime": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s EOP.Domain.Timer 1"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:magma"
+          }
+        ]
+      }
+    },
+    "Domain.Remove.Naturally": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s remove EOP.Domain"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EOP.Domain.Timer",
+                "min_score": -100,
+                "max_score": 0
+              },
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "eop:power_selected",
+                    "power": "eop:magma"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Domain.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 105,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:magma"
+          }
+        ]
+      }
+    },
+    "Domain.Hands.Animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "ability": "Domain.Timer",
+            "property": "value",
+            "min": 0,
+            "max": 100
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:magma"
+          }
+        ]
+      }
+    },
+    "Domain.Effects": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:diamond_transform master @a ~ ~ ~ 3 0.5"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "particle flame ~ ~ ~ 20 10 20 0.5 400 force",
+        "particle smoke ~ ~ ~ 20 10 20 0.5 200 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "ability": "Domain.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:magma"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "065cc6bd-fe80-43bc-8987-b2967693feed",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "ability": "Domain.Timer",
+            "property": "value",
+            "min": 0,
+            "max": 100
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:magma"
+          }
+        ]
+      }
+    },
+    "No.Jumping2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "309e56a0-938a-42ba-8d68-98ba42cefa9b",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "ability": "Domain.Timer",
+            "property": "value",
+            "min": 0,
+            "max": 100
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:magma"
+          }
+        ]
+      }
+    },
+    "Magma.Coffin.Deactivate": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/magma_rain.png",
+      "title": "Remove Coffin of the Iron Mountain",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "first_tick_commands": [
+        "scoreboard players set @s EOP.Domain.Timer 0",
+        "tag @s remove EOP.Domain"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 10,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:magma"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Coffin.Unlock"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Domain"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Phase.Domain": {
+      "type": "palladium:intangibility",
+      "whitelist": "eop:diff_magma_block",
+      "hidden": true,
+      "hidden_in_bar": true
+    },
+    "ECOS.Maestro.B": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_elementales_aceptada"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_elementales_g2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Maestro.C": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_elementales_p3"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_elementales_g2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_elementales_g2"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,1376 @@
+{
+  "name": "Enhanced Physical Prowess",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/strong.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "abilities": {
+    "Champion": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Champion",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "scoreboard objectives add EOP.Dodge.Animation dummy",
+        "scoreboard players set @s EOP.Dodge.Animation 0",
+        "scoreboard objectives add EPP.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Champion",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "effect clear @s jump_boost",
+        "scale reset @s"
+      ],
+      "commands": [
+        "effect give @s minecraft:jump_boost 1 1 true"
+      ]
+    },
+    "Enhanced.Physical.Prowess": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/strong.png",
+      "title": "Enhanced Physical Prowess",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained immense physical prowess"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:champion @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{champion:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Enhanced Physical Prowess\",\"color\":\"white\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "EPP.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s EPP.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "EPP.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "EPP.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s EPP.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EPP.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "EPP.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s EPP.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EPP.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "EPP.Scoreboard.Gain4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s EPP.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 21600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EPP.Score",
+            "min_score": 15,
+            "max_score": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "EPP.Scoreboard.Gain5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s EPP.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 36000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EPP.Score",
+            "min_score": 18,
+            "max_score": 24
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Damage": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "9eb760a6-dc42-4cb2-a0ae-b707672169bf",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Enhanced.Physical.Prowess"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "EPP.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/strong.png",
+            "description": {
+              "text": "Enhanced Physical Prowess Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "c9c979ba-a317-443c-9245-cdfed25c5b00",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "EPP.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/strong.png",
+            "description": {
+              "text": "Enhanced Physical Prowess Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "df377e6d-ef0d-46a6-a28c-99f3f2bec7b8",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "EPP.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/strong.png",
+            "description": {
+              "text": "Enhanced Physical Prowess Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 2 more damage points",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "6735cf39-d048-4529-a727-cfe125a90231",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "EPP.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/strong.png",
+            "description": {
+              "text": "Enhanced Physical Prowess Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Item.Repair": {
+      "type": "eop:repair",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "repair_amount": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:inverted_spear_of_heaven"
+            },
+            "slot": "mainhand"
+          }
+        ]
+      }
+    },
+    "Bone.Healing": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "bodydamage @s heal ALL 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 40
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "Natural.Resistance": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "reduction": 0.5
+    },
+    "Reduced.Hunger": {
+      "type": "eop:slower_hunger",
+      "reduction_factor": 0.3,
+      "hidden": true,
+      "hidden_in_bar": false
+    },
+    "Wall.Climb": {
+      "type": "eop:wall_climb",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "climb_speed": 0.4,
+      "jump_force": 1.2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Climbing.On"
+          }
+        ]
+      }
+    },
+    "No.Fall.Damage": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "minecraft:is_fall"
+      ]
+    },
+    "Longer.Breathing": {
+      "type": "eop:respiration",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "level": 4
+    },
+    "Temp.Resistance": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "effect give @s legendarysurvivaloverhaul:cold_resistance 1 0 true",
+        "effect give @s legendarysurvivaloverhaul:heat_resistance 1 0 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "Natural.Stats": {
+      "type": "eop:multi_attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attributes": [
+        "forge:swim_speed",
+        "minecraft:generic.attack_damage",
+        "minecraft:generic.attack_speed",
+        "minecraft:generic.movement_speed",
+        "palladium:destroy_speed",
+        "minecraft:generic.armor"
+      ],
+      "amounts": [
+        1.5,
+        5,
+        1,
+        1,
+        5,
+        30
+      ],
+      "operations": [
+        "multiply_base",
+        "addition",
+        "multiply_base",
+        "multiply_base",
+        "addition",
+        "addition"
+      ],
+      "modifier_uuids": [
+        "d34a4b02-650c-4f10-a7ef-f39cbf27fe56",
+        "c8a0347c-11cf-47a1-a48b-73c21c17136b",
+        "d48eaea6-fb92-4ca2-a672-b4c045efa868",
+        "2b19d45b-27ef-43ac-9ef9-c9a38af24634",
+        "6c7c7212-3efc-4d68-b7a9-2fd637269ad6",
+        "ae22f595-4640-44a4-b767-f4c239212098"
+      ]
+    },
+    "Regen": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 50,
+      "amount": 1
+    },
+    "Skulk": {
+      "type": "palladium:sculk_immunity",
+      "icon": "minecraft:sculk",
+      "hidden": true,
+      "hidden_in_bar": true
+    },
+    "Entity.Sense": {
+      "type": "palladium:entity_glow",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "mode": "others",
+      "color": "null",
+      "distance": 30,
+      "property_key": "EOP.LivingEntities",
+      "property_value": "true",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Entity.Sense.On"
+          }
+        ]
+      }
+    },
+    "Super.Jump": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s jump_boost"
+      ],
+      "commands": [
+        "effect give @s jump_boost 1 6 true"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "eop:looking_direction",
+            "mode": "up"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Super.Jump.On"
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Dodge",
+      "description": "Dodge most attacks just before being hit. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/dodge.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Reflex.Dodge": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "icon": "eop:textures/gui/dodge.png",
+      "title": "Dodge",
+      "list_index": 0,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 20,
+            "ticks": 20,
+            "key_type": "right_click",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:champion"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Reflex.Dodge.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 0.5 1.5",
+        "scoreboard players add @s EOP.Dodge.Animation 1",
+        "execute if score @s EOP.Dodge.Animation matches 1 run tag @s add Dodge.Anim1",
+        "execute if score @s EOP.Dodge.Animation matches 2 run tag @s add Dodge.Anim2",
+        "execute if score @s EOP.Dodge.Animation matches 2.. run scoreboard players set @s EOP.Dodge.Animation 0"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Toji.Dodge"
+          }
+        ]
+      }
+    },
+    "Reflex.Dodge.Anim": {
+      "type": "palladium:animation_timer",
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Dodge.Anim1"
+          }
+        ]
+      }
+    },
+    "Reflex.Dodge.Anim2": {
+      "type": "palladium:animation_timer",
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Dodge.Anim2"
+          }
+        ]
+      }
+    },
+    "Reflex.Dodge.Anim.End": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "tag @s remove Toji.Dodge",
+        "tag @s remove Dodge.Anim1",
+        "tag @s remove Dodge.Anim2"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:animation_timer_ability",
+                "ability": "Reflex.Dodge.Anim",
+                "min": 2,
+                "max": 2
+              },
+              {
+                "type": "palladium:animation_timer_ability",
+                "ability": "Reflex.Dodge.Anim2",
+                "min": 2,
+                "max": 2
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Weak.Spot.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/weakspot.png",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "title": "Weak spot",
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "description": "Analyze an entity to find their weakness, lowering their defenses",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Enhanced.Physical.Prowess"
+          }
+        ]
+      }
+    },
+    "Weak.Spot": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/weakspot.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": "Weak spot",
+      "list_index": 0,
+      "first_tick_commands": [
+        "playsound minecraft:entity.evoker.prepare_attack master @s ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 300,
+            "cooldown": 900,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Weak.Spot.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Weakspot.Damage": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 6,
+      "operation": 0,
+      "uuid": "603a6b44-98b4-422e-b195-05178c6fcb1d",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Weak.Spot"
+          }
+        ]
+      }
+    },
+    "Dash.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/speed_punches.png",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "title": "Striking Dash",
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Dash forward at incredible speeds, damaging anything in your line of sight",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Weak.Spot.Unlock"
+          }
+        ]
+      }
+    },
+    "Dash": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/speed_punches.png",
+      "title": "Striking Dash",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 60,
+            "ticks": 10,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Dash.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Dash.Motion": {
+      "type": "eop:motion",
+      "title": "Dash",
+      "motion_scale": 3.4,
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Dash"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "Dash.Damage": {
+      "type": "eop:aoe_damage",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 3,
+      "damage": 20,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Dash.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Teleport.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/toji_tp.png",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "title": "Don't Blink",
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Instantly appear where you are looking at",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Dash.Unlock"
+          }
+        ]
+      }
+    },
+    "Teleport": {
+      "type": "eop:raycast_teleport",
+      "icon": "eop:textures/gui/toji_tp.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": "Don't Blink",
+      "list_index": 2,
+      "range": 15,
+      "particle": "minecraft:poof",
+      "particle_count": 3,
+      "sound": "minecraft:entity.player.attack.sweep",
+      "sound_volume": 1,
+      "sound_pitch": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 20,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Teleport.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Resolve.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/resolve.png",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "title": "Unbreakable Resolve",
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Temporarily become much more resistant to damage",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Teleport.Unlock"
+          }
+        ]
+      }
+    },
+    "Resolve": {
+      "type": "palladium:command",
+      "title": "Unbreakable Resolve",
+      "icon": "eop:textures/gui/resolve.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "first_tick_commands": [
+        "playsound minecraft:entity.evoker.cast_spell master @s ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "list_index": 3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 1200,
+            "ticks": 300,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Resolve.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Resolve.Resitance": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "reduction": 0.65,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Resolve"
+          }
+        ]
+      }
+    },
+    "Resolve.Knockback": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 5,
+      "operation": 0,
+      "uuid": "50dde22c-9780-43d2-83ec-5f7578343c1b",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Resolve"
+          }
+        ]
+      }
+    },
+    "Enhance.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/toji_enhance.png",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "title": "Absolute Destruction",
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Enhance your already powerful physical prowess by an immense amount",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Resolve.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Damage4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "EPP.Score",
+            "score": 25,
+            "icon": "eop:textures/gui/strong.png",
+            "description": {
+              "text": "Enhanced Physical Prowess Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "Enhance": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/toji_enhance.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": "Absolute Destruction",
+      "list_index": 4,
+      "first_tick_commands": [
+        "playsound minecraft:entity.evoker.prepare_attack master @s ~ ~ ~ 1 1.5",
+        "effect give @s minecraft:jump_boost 15 3 true"
+      ],
+      "last_tick_commands": [
+        "effect clear @s minecraft:jump_boost",
+        "playsound minecraft:entity.evoker.prepare_attack master @s ~ ~ ~ 1 1.5"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 300,
+            "cooldown": 2400,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Enhance.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Enhanced.Resistance": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "reduction": 0.85,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Enhance"
+          }
+        ]
+      }
+    },
+    "Enhanced.Stats": {
+      "type": "eop:multi_attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attributes": [
+        "minecraft:generic.attack_damage",
+        "minecraft:generic.attack_speed",
+        "minecraft:generic.movement_speed",
+        "palladium:destroy_speed"
+      ],
+      "amounts": [
+        1,
+        3,
+        3,
+        3
+      ],
+      "operations": [
+        "multiply_base",
+        "multiply_base",
+        "multiply_base",
+        "multiply_base"
+      ],
+      "modifier_uuids": [
+        "a7cfcf74-a8d5-410f-a2cd-2fa30a379028",
+        "d1b6e751-edf8-4196-a5d7-0ded04191b27",
+        "435047d4-e846-4e79-bfe8-82c6c1b99516",
+        "adfacf78-6bec-430c-8302-f7b2952dc3a0"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Enhance"
+          }
+        ]
+      }
+    },
+    "Enhanced.Regen": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 25,
+      "amount": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Enhance"
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_impulso_g2"
+          }
+        ]
+      }
+    }
+  }
+}

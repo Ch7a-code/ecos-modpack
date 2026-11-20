@@ -1,0 +1,2181 @@
+{
+  "name": "Polymorphic Cellular Control",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/goop.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "abilities": {
+    "Experiment": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "effect give @s saturation 1 200 true",
+        "tag @s add Experiment",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.Has.Power",
+        "tag @s add EOP.Allows.Metal.Bones",
+        "scoreboard objectives add EOP.Minion dummy",
+        "execute unless entity @s[tag=EOP.NoNewMinion] run scoreboard players add ID.Number EOP.Minion 1",
+        "execute unless entity @s[tag=EOP.NoNewMinion] run scoreboard players operation @s EOP.Minion = ID.Number EOP.Minion",
+        "tag @s add EOP.NoNewMinion",
+        "scoreboard objectives add PCC.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Experiment",
+        "tag @s remove EOP.Allows.Metal.Bones",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "tag @s remove EOP.Max.Size",
+        "tag @s remove EOP.Min.Size",
+        "effect clear @s resistance",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Polymorphic.Cellular.Control": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/goop.png",
+      "title": "Polymorphic Cellular Control",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have become a being made of pure slime"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:experiment @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{experiment:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Polymorphic Cellular Control\",\"color\":\"green\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "PCC.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s PCC.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "PCC.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "PCC.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s PCC.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "PCC.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "PCC.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s PCC.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "PCC.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "PCC.Scoreboard.Gain4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s PCC.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 21600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "PCC.Score",
+            "min_score": 15,
+            "max_score": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "PCC.Scoreboard.Gain5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s PCC.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 36000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "PCC.Score",
+            "min_score": 18,
+            "max_score": 19
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Armor": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Armor",
+      "description": "Grants 2 more armor points",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "11e5f1d3-88ab-43b5-93e6-177280f19300",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Polymorphic.Cellular.Control"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "PCC.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/goop.png",
+            "description": {
+              "text": "Polymorphic Cellular Control Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Armor2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Armor",
+      "description": "Grants 2 more armor points",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "3559567d-f94b-4d1d-97b4-ab6519d5c737",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Armor"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "PCC.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/goop.png",
+            "description": {
+              "text": "Polymorphic Cellular Control Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Armor3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Armor",
+      "description": "Grants 2 more armor points",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "3e0e7d47-2b4b-4f1c-a215-ecd444a17df1",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Armor2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "PCC.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/goop.png",
+            "description": {
+              "text": "Polymorphic Cellular Control Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Armor4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Armor",
+      "description": "Grants 2 more armor points",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "300c22a3-6f1c-4d98-acc6-d8df25206f44",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Armor3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "PCC.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/goop.png",
+            "description": {
+              "text": "Polymorphic Cellular Control Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Harden.Resistance": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "reduction": 0.4
+    },
+    "Effect.Immunity": {
+      "type": "eop:effect_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "effects": [
+        "minecraft:hunger",
+        "minecraft:nausea",
+        "minecraft:poison",
+        "minecraft:wither",
+        "minecraft:weakness",
+        "eop:shock",
+        "eop:shock_stronger",
+        "eop:brain_overload",
+        "eop:sensory_deception",
+        "eop:auditory_deception",
+        "eop:auditory_deception_herobrine",
+        "eop:pain_intolerance"
+      ]
+    },
+    "No.Fall.Damage": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "minecraft:is_fall",
+        "eop:tacz_guns",
+        "eop:scorched_guns"
+      ]
+    },
+    "No.Natural.Regen": {
+      "type": "eop:disable_food_regen",
+      "hidden": true,
+      "hidden_in_bar": true
+    },
+    "No.Hunger.Loss": {
+      "type": "eop:slower_hunger",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "reduction_factor": 0
+    },
+    "No.Thirst": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "effect give @s legendarysurvivaloverhaul:hydration_fill 2 200 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "Regen": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 20,
+      "amount": 1
+    },
+    "Slimeball.Make": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "give @s slime_ball"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 600
+          }
+        ]
+      }
+    },
+    "Health": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 20,
+      "operation": 0,
+      "uuid": "f512f8e5-f2c9-4a1a-b585-3c7b3596c395"
+    },
+    "Damage.Slime": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 3,
+      "operation": 0,
+      "uuid": "fef67342-99bc-4cee-aff2-1a64b050d19e"
+    },
+    "Super.Jump": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s jump_boost"
+      ],
+      "commands": [
+        "effect give @s jump_boost 1 6 true"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "eop:looking_direction",
+            "mode": "up"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Super.Jump.On"
+          }
+        ]
+      }
+    },
+    "Effects.Immune.Mods": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "bodydamage @s heal ALL 100"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          }
+        ]
+      }
+    },
+    "Extra.Fire.Damage": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "damage @s 8 minecraft:on_fire"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:is_on_fire"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 5
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Slime Form",
+      "description": "Cease concentration and turn into your slime form, buffing your stats and allowing you to use your abilities. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/slime_form.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Transform": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 12,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:experiment"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Transform.Coat": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 7,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:experiment/blob",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Puddle",
+            "property": "value",
+            "min": 0,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "Hide.Body": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head_overlay",
+        "chest_overlay",
+        "right_arm",
+        "left_arm",
+        "right_leg",
+        "left_leg",
+        "head",
+        "chest",
+        "cape"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Puddle"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Store.Armor": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": false,
+      "hide_offhand": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Restrict.Slots": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs",
+        "head"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Transform.Effects": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "particle minecraft:block slime_block ~ ~ ~ 0.3 1 0.3 0 150 force"
+      ],
+      "last_tick_commands": [
+        "particle minecraft:block slime_block ~ ~ ~ 0.3 1 0.3 0 150 force"
+      ],
+      "commands": [
+        "particle minecraft:block slime_block ~ ~ ~ 0.3 1 0.3 0 50 force",
+        "playsound minecraft:entity.slime.squish master @a ~ ~ ~ 1 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 5,
+            "max": 11
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Puddle"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transform.Effects2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "execute unless entity @s[tag=Slime.Puddle] run scale multiply pehkui:height 1.07 @s",
+        "execute unless entity @s[tag=Slime.Puddle] run scale multiply pehkui:eye_height 1.14 @s",
+        "execute unless entity @s[tag=Slime.Puddle] run scale multiply pehkui:hitbox_height 1.14 @s",
+        "execute if entity @s[tag=Slime.Puddle] run scale set pehkui:held_item 0",
+        "execute if entity @s[tag=Slime.Puddle] run scale set pehkui:eye_height 0.1",
+        "execute if entity @s[tag=Slime.Puddle] run scale set pehkui:hitbox_height 0.01",
+        "execute if entity @s[tag=Slime.Puddle] run scale set pehkui:step_height 2",
+        "tag @s add Slime.Form"
+      ],
+      "last_tick_commands": [
+        "execute unless entity @s[tag=Slime.Puddle] run scale divide pehkui:height 1.07 @s",
+        "execute unless entity @s[tag=Slime.Puddle] run scale divide pehkui:eye_height 1.14 @s",
+        "execute unless entity @s[tag=Slime.Puddle] run scale divide pehkui:hitbox_height 1.14 @s",
+        "tag @s remove Slime.Form"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Puddle.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/slimeball.png",
+      "title": "Puddle Form",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "description": "Shape your body and turn into a puddle",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Polymorphic.Cellular.Control"
+          }
+        ]
+      }
+    },
+    "Puddle": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/slimeball.png",
+      "title": "Puddle form",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "start_value": 0,
+      "max_value": 12,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:experiment"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Puddle.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Render.Puddle": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:experiment/puddle",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Puddle.Sneak": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Puddle"
+          }
+        ]
+      }
+    },
+    "Puddle.Animation": {
+      "type": "palladium:repeating_animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 11,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Puddle",
+            "property": "value",
+            "min": 8,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "Puddle.Size": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scale reset @s",
+        "tag @s remove EOP.Max.Size",
+        "tag @s remove EOP.Min.Size",
+        "scale set pehkui:held_item 0",
+        "scale set pehkui:eye_height 0.1",
+        "scale set pehkui:hitbox_height 0.01",
+        "scale set pehkui:step_height 2",
+        "tag @s add Slime.Puddle",
+        "particle minecraft:block slime_block ~ ~ ~ 0.3 0.3 0.3 0 50 force",
+        "playsound minecraft:entity.slime.squish master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [
+        "scale reset pehkui:held_item @s",
+        "execute unless entity @s[tag=Slime.Form] run scale reset pehkui:eye_height @s",
+        "execute unless entity @s[tag=Slime.Form] run scale reset pehkui:hitbox_height @s",
+        "scale reset pehkui:step_height @s",
+        "execute if entity @s[tag=Slime.Form] run scale set pehkui:eye_height 1.1 @s",
+        "execute if entity @s[tag=Slime.Form] run scale set pehkui:hitbox_height 1.1 @s",
+        "particle minecraft:block slime_block ~ ~ ~ 0.3 0.3 0.3 0 50 force",
+        "playsound minecraft:entity.slime.squish master @a ~ ~ ~ 1 1",
+        "tag @s remove Slime.Puddle"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Puddle"
+          }
+        ]
+      }
+    },
+    "Puddle.Phasing": {
+      "type": "palladium:intangibility",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "whitelist": "minecraft:doors",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Puddle"
+          }
+        ]
+      }
+    },
+    "Phase.Down": {
+      "type": "palladium:intangibility",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "vertical": true,
+      "whitelist": "minecraft:doors",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Puddle"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Phase.Down"
+          }
+        ]
+      }
+    },
+    "Puddle.Phasing2": {
+      "type": "palladium:intangibility",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "whitelist": "minecraft:trapdoors",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Puddle"
+          }
+        ]
+      }
+    },
+    "Phase.Down2": {
+      "type": "palladium:intangibility",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "vertical": true,
+      "whitelist": "minecraft:trapdoors",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Puddle"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Phase.Down"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "6265698e-0168-495e-98f5-a574e90b4e9e",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Puddle"
+          }
+        ]
+      }
+    },
+    "Puddle.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound eop:slime master @a ~ ~ ~ 0.5 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Puddle"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          }
+        ]
+      }
+    },
+    "Puddle.Particle.Effect": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:slime master @a ~ ~ ~ 0.5 1.5",
+        "particle item_slime ~ ~ ~ 0.3 0.3 0.3 0 150 force"
+      ],
+      "last_tick_commands": [
+        "playsound eop:slime master @a ~ ~ ~ 0.5 1.5",
+        "particle item_slime ~ ~ ~ 0.3 0.3 0.3 0 150 force"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Puddle",
+            "property": "value",
+            "min": 10,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "Remove.Body": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head_overlay",
+        "chest_overlay",
+        "right_arm",
+        "left_arm",
+        "right_leg",
+        "left_leg",
+        "head",
+        "chest",
+        "cape"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Puddle",
+            "property": "value",
+            "min": 10,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer2": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Puddle"
+          }
+        ]
+      }
+    },
+    "Store.Armor2": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": true,
+      "hide_offhand": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Puddle"
+          }
+        ]
+      }
+    },
+    "Restrict.Slots2": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "mainhand",
+        "offhand"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer2",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "No.Break": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "title": "Ghostly Dash",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:destroy_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "ae7720a9-809d-4017-8987-70c379e8fad8",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Puddle",
+            "property": "value",
+            "min": 10,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "No.Damage": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "ff05a7fa-40d9-402f-bc7f-3070cb11196f",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Puddle",
+            "property": "value",
+            "min": 10,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "Slime.Boom.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/slime_boom.png",
+      "title": "Unstable Matter",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Irregulate your cells to cause an explosion",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Puddle.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "PCC.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/goop.png",
+            "description": {
+              "text": "Polymorphic Cellular Control Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Slime.Boom.Animation": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/slime_boom.png",
+      "title": "Unstable Matter",
+      "bar_color": "gray",
+      "list_index": 1,
+      "start_value": 0,
+      "max_value": 20,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 35,
+            "ticks": 30,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Slime.Boom.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Puddle"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Slime.Boom": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "damage @s 5 eop:slime",
+        "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 2",
+        "particle item_slime ~ ~1 ~ 1 1 1 0 800 force"
+      ],
+      "last_tick_commands": [
+        "particle item_slime ~ ~1 ~ 1 1 1 0 800 force",
+        "playsound minecraft:entity.slime.death master @a ~ ~ ~ 1 2"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Slime.Boom.Animation",
+            "property": "value",
+            "min": 20,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "Slime.Boom.Sound": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound eop:slime master @a ~ ~ ~ 0.5 1",
+        "playsound eop:inflate master @a ~ ~ ~ 0.5 1"
+      ],
+      "last_tick_commands": [
+        "stopsound @a[distance=..30] * eop:inflate"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Slime.Boom.Animation",
+            "property": "value",
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "Remove.Body.Boom": {
+      "type": "palladium:remove_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "head_overlay",
+        "chest_overlay",
+        "right_arm",
+        "left_arm",
+        "head",
+        "chest",
+        "cape"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Slime.Boom.Animation",
+            "property": "value",
+            "min": 20,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "Boom.Damage": {
+      "type": "eop:aoe_damage_once",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 3,
+      "damage": 15,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Slime.Boom.Animation",
+            "property": "value",
+            "min": 20,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "Size.Change.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/slime_grow.png",
+      "title": "Size Alteration",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Alter your size to grow bigger or smaller. §dScroll up or down §fwhile holding this ability to change size",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Slime.Boom.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "PCC.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/goop.png",
+            "description": {
+              "text": "Polymorphic Cellular Control Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.B"
+          }
+        ]
+      }
+    },
+    "Size.Change": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/slime_grow.png",
+      "title": "Size Alteration",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Size.Change.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Puddle"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Size.Change.Scroll.Up": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "first_tick_commands": [
+        "scale multiply pehkui:height 2.5 @s",
+        "scale multiply pehkui:width 2.5 @s",
+        "scale multiply pehkui:reach 1.7 @s",
+        "execute unless entity @s[tag=EOP.Min.Size] run tag @s add EOP.Max.Size",
+        "tag @s remove EOP.Min.Size"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 30,
+            "key_type": "scroll_up",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Max.Size"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Size.Change"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Size.Change.Scroll.Down": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "first_tick_commands": [
+        "scale divide pehkui:height 2.5 @s",
+        "scale divide pehkui:width 2.5 @s",
+        "scale divide pehkui:reach 1.7 @s",
+        "execute unless entity @s[tag=EOP.Max.Size] run tag @s add EOP.Min.Size",
+        "tag @s remove EOP.Max.Size"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 30,
+            "key_type": "scroll_down",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Min.Size"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Size.Change"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Grow.Damage": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 6,
+      "operation": 0,
+      "uuid": "c1c5364e-7b87-4b3f-b8c8-05c392b90126",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Max.Size"
+          }
+        ]
+      }
+    },
+    "Shrink.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.6,
+      "operation": 1,
+      "uuid": "26803b52-4e5b-47e4-b5f4-147551c13448",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Min.Size"
+          }
+        ]
+      }
+    },
+    "Clone.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/slime_clone.png",
+      "title": "Slime Clone",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Split your body in 2, making a perfect copy of yourself",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Size.Change.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "PCC.Score",
+            "score": 10,
+            "icon": "eop:textures/gui/goop.png",
+            "description": {
+              "text": "Polymorphic Cellular Control Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.C"
+          }
+        ]
+      }
+    },
+    "Clone": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/slime_clone.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": "Slime Clone",
+      "first_tick_commands": [
+        "damage @s 10 eop:slime",
+        "playsound eop:slime master @a ~ ~ ~ 1 1",
+        "particle block slime_block ~ ~ ~ 0.3 0.3 0.3 0 200 force"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "list_index": 3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 1200,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Clone.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Puddle"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Summon.Minion": {
+      "type": "eop:summon_minions",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "wolf_superpower": "eop:models/slime_clone_base",
+      "piglin_superpower": "eop:models/slime_clone",
+      "minion_count": 1,
+      "lifetime": 60000,
+      "despawn_particle": "eop:slime",
+      "despawn_particle_count": 60,
+      "despawn_sound": "eop:slime",
+      "despawn_sound_pitch": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Clone"
+          }
+        ]
+      }
+    },
+    "Swarm.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/blobs.png",
+      "title": "Slime Mass",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Excrete a large mass of slime",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Clone.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Armor4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "PCC.Score",
+            "score": 20,
+            "icon": "eop:textures/gui/goop.png",
+            "description": {
+              "text": "Polymorphic Cellular Control Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "Swarm.Animation": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/blobs.png",
+      "title": "Slime Mass",
+      "bar_color": "gray",
+      "list_index": 4,
+      "start_value": 0,
+      "max_value": 10,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 1200,
+            "ticks": 100,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Swarm.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Puddle"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Swarm": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "damage @s 7 eop:slime"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound minecraft:entity.wither.shoot master @a ~ ~ ~ 1 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Swarm.Animation",
+            "property": "value",
+            "min": 10,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "Swarm.Beam": {
+      "type": "palladium:energy_beam",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "energy_beam": "eop:noenergybeam",
+      "damage": 0,
+      "damage_type": "eop:basic",
+      "max_distance": 10,
+      "speed": 20,
+      "set_on_fire_seconds": 0,
+      "cause_fire": false,
+      "smelt_blocks": false,
+      "commands_on_block_hit": [
+        "particle eop:slime_still ~ ~ ~ 1 0.3 1 0 50 force",
+        "function eop:powers/experiment/slime"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Swarm.Animation",
+            "property": "value",
+            "min": 10,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "Swarm.Beam.Custom": {
+      "type": "eop:raycast_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_type": "eop:basic",
+      "damage": 1,
+      "range": 10,
+      "ignore_same_team": true,
+      "set_on_fire_seconds": 0,
+      "commands_on_entity_hit": [
+        "particle eop:slime_still ~ ~ ~ 1 0.3 1 0 50 force",
+        "function eop:powers/experiment/slime",
+        "superpower add eop:effects/mucus @e[type=!armor_stand,type=!item,distance=..2,tag=!Experiment]"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Swarm.Beam"
+          }
+        ]
+      }
+    },
+    "Swarm.Particles": {
+      "type": "palladium:particles",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "emitter": "eop:flame_breath",
+      "particle_type": "eop:slime",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Swarm.Animation",
+            "property": "value",
+            "min": 10,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "ECOS.Maestro.B": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_impulso_aceptada"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_impulso_g2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Maestro.C": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_impulso_p3"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_impulso_g2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_impulso_g2"
+          }
+        ]
+      }
+    }
+  }
+}

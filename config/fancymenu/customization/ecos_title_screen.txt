@@ -11,6 +11,17 @@ layout-meta {
   layout_index = 0
 }
 
+menu_background {
+  image_path = [source:local]/config/fancymenu/assets/ecos_title_bg.png
+  slide = false
+  repeat_texture = false
+  parallax = true
+  parallax_intensity_x = 0.015
+  parallax_intensity_y = 0.015
+  invert_parallax = false
+  background_type = image
+}
+
 customization {
   action = backgroundoptions
   keepaspectratio = true
@@ -23,36 +34,6 @@ scroll_list_customization {
   show_scroll_list_header_footer_preview_in_editor = false
   repeat_scroll_list_header_texture = false
   repeat_scroll_list_footer_texture = false
-}
-
-element {
-  source = [source:local]/config/fancymenu/assets/ecos_logo.png
-  repeat_texture = false
-  nine_slice_texture = false
-  nine_slice_texture_border_x = 5
-  nine_slice_texture_border_y = 5
-  element_type = image
-  instance_identifier = 3a093787-9dd1-4f20-86f2-8d6216550526-1794807550059
-  custom_element_layer_name = Logo ECOS
-  appearance_delay = no_delay
-  appearance_delay_seconds = 1.0
-  fade_in_v2 = no_fading
-  fade_in_speed = 1.0
-  fade_out = no_fading
-  fade_out_speed = 1.0
-  base_opacity = 1.0
-  auto_sizing = false
-  sticky_anchor = false
-  anchor_point = top-left
-  x = 22
-  y = 12
-  width = 210
-  height = 102
-  stretch_x = false
-  stretch_y = false
-  stay_on_screen = true
-  element_loading_requirement_container_identifier = ffc4133b-7c73-4701-a651-3b80741044a7-1794807550059
-  [loading_requirement_container_meta:ffc4133b-7c73-4701-a651-3b80741044a7-1794807550059] = [groups:][instances:]
 }
 
 vanilla_button {
@@ -256,14 +237,16 @@ vanilla_button {
 vanilla_button {
   button_element_executable_block_identifier = 45a2020b-2bfd-4011-b6d2-1d8d8d4bb487-1794807550059
   [executable_block:45a2020b-2bfd-4011-b6d2-1d8d8d4bb487-1794807550059][type:generic] = [executables:]
-  backgroundnormal = [source:local]/config/fancymenu/assets/ecos_btn_normal.png
-  backgroundhovered = [source:local]/config/fancymenu/assets/ecos_btn_hover.png
+  backgroundnormal = [source:local]/config/fancymenu/assets/ecos_btn_un_jugador_normal.apng
+  backgroundhovered = [source:local]/config/fancymenu/assets/ecos_btn_un_jugador_hover.apng
   background_texture_inactive = [source:local]/config/fancymenu/assets/ecos_btn_inactive.png
   restartbackgroundanimations = true
   nine_slice_custom_background = false
   nine_slice_border_x = 5
   nine_slice_border_y = 5
   navigatable = true
+  label = §r
+  hoverlabel = §r
   element_type = vanilla_button
   instance_identifier = mc_titlescreen_singleplayer_button
   appearance_delay = no_delay
@@ -275,11 +258,11 @@ vanilla_button {
   base_opacity = 1.0
   auto_sizing = false
   sticky_anchor = false
-  anchor_point = mid-left
-  x = 24
-  y = 4
+  anchor_point = mid-centered
+  x = -200
+  y = -32
   width = 150
-  height = 18
+  height = 20
   stretch_x = false
   stretch_y = false
   stay_on_screen = true
@@ -292,14 +275,16 @@ vanilla_button {
 vanilla_button {
   button_element_executable_block_identifier = 0de12d1c-c630-4fdb-8fd1-055d13bea1d7-1794807550059
   [executable_block:0de12d1c-c630-4fdb-8fd1-055d13bea1d7-1794807550059][type:generic] = [executables:]
-  backgroundnormal = [source:local]/config/fancymenu/assets/ecos_btn_normal.png
-  backgroundhovered = [source:local]/config/fancymenu/assets/ecos_btn_hover.png
+  backgroundnormal = [source:local]/config/fancymenu/assets/ecos_btn_multijugador_normal.apng
+  backgroundhovered = [source:local]/config/fancymenu/assets/ecos_btn_multijugador_hover.apng
   background_texture_inactive = [source:local]/config/fancymenu/assets/ecos_btn_inactive.png
   restartbackgroundanimations = true
   nine_slice_custom_background = false
   nine_slice_border_x = 5
   nine_slice_border_y = 5
   navigatable = true
+  label = §r
+  hoverlabel = §r
   element_type = vanilla_button
   instance_identifier = mc_titlescreen_multiplayer_button
   appearance_delay = no_delay
@@ -311,11 +296,11 @@ vanilla_button {
   base_opacity = 1.0
   auto_sizing = false
   sticky_anchor = false
-  anchor_point = mid-left
-  x = 24
-  y = 25
+  anchor_point = mid-centered
+  x = -200
+  y = -8
   width = 150
-  height = 18
+  height = 20
   stretch_x = false
   stretch_y = false
   stay_on_screen = true
@@ -328,14 +313,16 @@ vanilla_button {
 vanilla_button {
   button_element_executable_block_identifier = ff0da3ef-27c0-4ceb-93ca-708a70558ef6-1794807550059
   [executable_block:ff0da3ef-27c0-4ceb-93ca-708a70558ef6-1794807550059][type:generic] = [executables:]
-  backgroundnormal = [source:local]/config/fancymenu/assets/ecos_btn_normal.png
-  backgroundhovered = [source:local]/config/fancymenu/assets/ecos_btn_hover.png
+  backgroundnormal = [source:local]/config/fancymenu/assets/ecos_btn_mods_normal.apng
+  backgroundhovered = [source:local]/config/fancymenu/assets/ecos_btn_mods_hover.apng
   background_texture_inactive = [source:local]/config/fancymenu/assets/ecos_btn_inactive.png
   restartbackgroundanimations = true
   nine_slice_custom_background = false
   nine_slice_border_x = 5
   nine_slice_border_y = 5
   navigatable = true
+  label = §r
+  hoverlabel = §r
   element_type = vanilla_button
   instance_identifier = forge_titlescreen_mods_button
   appearance_delay = no_delay
@@ -347,11 +334,11 @@ vanilla_button {
   base_opacity = 1.0
   auto_sizing = false
   sticky_anchor = false
-  anchor_point = mid-left
-  x = 24
-  y = 46
+  anchor_point = mid-centered
+  x = -200
+  y = 16
   width = 150
-  height = 18
+  height = 20
   stretch_x = false
   stretch_y = false
   stay_on_screen = true
@@ -364,14 +351,16 @@ vanilla_button {
 vanilla_button {
   button_element_executable_block_identifier = 1b86d1ec-4e9c-42cf-8a39-92981bef8d40-1794807550059
   [executable_block:1b86d1ec-4e9c-42cf-8a39-92981bef8d40-1794807550059][type:generic] = [executables:]
-  backgroundnormal = [source:local]/config/fancymenu/assets/ecos_btn_normal.png
-  backgroundhovered = [source:local]/config/fancymenu/assets/ecos_btn_hover.png
+  backgroundnormal = [source:local]/config/fancymenu/assets/ecos_btn_opciones_normal.apng
+  backgroundhovered = [source:local]/config/fancymenu/assets/ecos_btn_opciones_hover.apng
   background_texture_inactive = [source:local]/config/fancymenu/assets/ecos_btn_inactive.png
   restartbackgroundanimations = true
   nine_slice_custom_background = false
   nine_slice_border_x = 5
   nine_slice_border_y = 5
   navigatable = true
+  label = §r
+  hoverlabel = §r
   element_type = vanilla_button
   instance_identifier = mc_titlescreen_options_button
   appearance_delay = no_delay
@@ -383,11 +372,11 @@ vanilla_button {
   base_opacity = 1.0
   auto_sizing = false
   sticky_anchor = false
-  anchor_point = mid-left
-  x = 24
-  y = 67
+  anchor_point = mid-centered
+  x = -200
+  y = 40
   width = 150
-  height = 18
+  height = 20
   stretch_x = false
   stretch_y = false
   stay_on_screen = true
@@ -400,14 +389,16 @@ vanilla_button {
 vanilla_button {
   button_element_executable_block_identifier = c0b2bb24-2fd3-4652-bed0-d0f0cfa8c169-1794807550059
   [executable_block:c0b2bb24-2fd3-4652-bed0-d0f0cfa8c169-1794807550059][type:generic] = [executables:]
-  backgroundnormal = [source:local]/config/fancymenu/assets/ecos_btn_normal.png
-  backgroundhovered = [source:local]/config/fancymenu/assets/ecos_btn_hover.png
+  backgroundnormal = [source:local]/config/fancymenu/assets/ecos_btn_salir_normal.apng
+  backgroundhovered = [source:local]/config/fancymenu/assets/ecos_btn_salir_hover.apng
   background_texture_inactive = [source:local]/config/fancymenu/assets/ecos_btn_inactive.png
   restartbackgroundanimations = true
   nine_slice_custom_background = false
   nine_slice_border_x = 5
   nine_slice_border_y = 5
   navigatable = true
+  label = §r
+  hoverlabel = §r
   element_type = vanilla_button
   instance_identifier = mc_titlescreen_quit_button
   appearance_delay = no_delay
@@ -419,11 +410,11 @@ vanilla_button {
   base_opacity = 1.0
   auto_sizing = false
   sticky_anchor = false
-  anchor_point = mid-left
-  x = 24
-  y = 88
+  anchor_point = mid-centered
+  x = -200
+  y = 64
   width = 150
-  height = 18
+  height = 20
   stretch_x = false
   stretch_y = false
   stay_on_screen = true

@@ -6,3 +6,14 @@ net.minecraft.client.gui.screens.TitleScreen {
 de.keksuccino.drippyloadingscreen.customization.DrippyOverlayScreen {
 }
 
+archivo_continuar {
+}
+
+archivo_misiones {
+}
+
+archivo_eco {
+}
+
+archivo_cronica {
+}

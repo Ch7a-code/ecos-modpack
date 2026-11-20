@@ -1,0 +1,1425 @@
+{
+  "name": "Glass Manipulation",
+  "persistent_data": true,
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "icon": "eop:textures/gui/glass.png",
+  "abilities": {
+    "Vitrum": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Vitrum",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "tag @s add EOP.Has.BM",
+        "scoreboard objectives add GM.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Vitrum",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "tag @s remove Warp.Point.Can.Remove",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Glass.Manipulation": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/glass.png",
+      "title": "Glass Manipulation",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to control and manipulate glass"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:vitrum @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{vitrum:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Glass Manipulation\",\"color\":\"#D5F2FF\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "GM.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s GM.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "GM.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "GM.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s GM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "GM.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "GM.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s GM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "GM.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Speed": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 5% more movement speed",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.05,
+      "operation": 1,
+      "uuid": "2a8685bd-28aa-4f9c-88f4-8590c065e761",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Glass.Manipulation"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "GM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/glass.png",
+            "description": {
+              "text": "Glass Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Speed2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 5% more movement speed",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.05,
+      "operation": 1,
+      "uuid": "2a486cdd-d2d5-4f26-a875-8967bc25340c",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "GM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/glass.png",
+            "description": {
+              "text": "Glass Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Speed3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 5% more movement speed",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.05,
+      "operation": 1,
+      "uuid": "4b43c12b-efb3-4b6f-9e04-1c35f07d0d80",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "GM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/glass.png",
+            "description": {
+              "text": "Glass Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Speed4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/speed.png",
+      "title": "Enhanced Speed",
+      "description": "Grants 5% more movement speed",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.05,
+      "operation": 1,
+      "uuid": "ba1a6390-af7d-433d-aea1-143e5bc42117",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "GM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/glass.png",
+            "description": {
+              "text": "Glass Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Glass Creation",
+      "description": "Create glass under you, allowing you to walk on air. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/glass_create.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Glass.Create": {
+      "type": "palladium:command",
+      "bar_color": "light_gray",
+      "title": "Glass Creation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 3,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "execute positioned ~ ~-1 ~ run fill ~ ~ ~ ~-1 ~ ~-1 eop:glass replace #eop:air",
+        "playsound minecraft:block.glass.break master @a ~ ~ ~ 1 1",
+        "execute positioned ~ ~-1 ~ run particle block glass ~ ~ ~ 1 2 1 0 20 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 100,
+            "key_type": "right_click",
+            "needs_empty_hand": false
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:vitrum"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Shatter.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/shatter_punch.png",
+      "title": "Shatter Punch",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "description": "Create a powerful shockwave that sends glass shards flying outwards whenever you hit an enemy",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Glass.Manipulation"
+          }
+        ]
+      }
+    },
+    "Shatter": {
+      "type": "eop:pulse_hit",
+      "icon": "eop:textures/gui/shatter_punch.png",
+      "title": "Shatter Punch",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "radius": 4,
+      "damage": 5,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "max_hit_distance": 5,
+      "particle": "eop:glass",
+      "particle_count": 35,
+      "sound": "minecraft:block.glass.break",
+      "sound_volume": 1,
+      "sound_pitch": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 200,
+            "ticks": 200,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Shatter.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Damage.Shatter": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 6,
+      "operation": 0,
+      "uuid": "81e79bfa-6350-4102-bd5a-639ce20a3479",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Shatter"
+          }
+        ]
+      }
+    },
+    "Dash.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/shatter_dash.png",
+      "title": "Shatter Step",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Dash forward damaging targets while leaving behind a trail of glass shards that damage them",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Shatter.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "GM.Score",
+            "score": 3,
+            "icon": "eop:textures/gui/glass.png",
+            "description": {
+              "text": "Glass Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Dash": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/shatter_dash.png",
+      "title": "Shatter Step",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 100,
+            "ticks": 10,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Dash.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Dash.Damage": {
+      "type": "eop:aoe_damage",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 3,
+      "damage": 5,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Dash.Shards": {
+      "type": "eop:power_stand",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "lifetime": 5000,
+      "damage": 3,
+      "damage_radius": 3,
+      "damage_type": "eop:basic",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "stand_power": "eop:models/glass_shards",
+      "orbit_enabled": false,
+      "orbit_radius": 3,
+      "first_tick_commands": [],
+      "commands": [],
+      "last_tick_commands": [],
+      "execution_mode": "as",
+      "include_caster": false,
+      "only_same_team": false,
+      "stand_first_tick_commands": [],
+      "stand_commands": [],
+      "stand_last_tick_commands": [],
+      "destroy_blocks": false,
+      "block_break_radius": 3,
+      "block_break_interval": 10,
+      "no_gravity": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 3
+          }
+        ]
+      }
+    },
+    "Dash.Motion": {
+      "type": "eop:motion",
+      "title": "Dash",
+      "motion_scale": 2,
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Dash"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "Dash.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "particle eop:glass ~ ~1 ~ 1 1 1 0.35 25",
+        "playsound eop:slash master @a ~ ~ ~ 1 2"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Storm.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Shattered Glass",
+      "icon": "eop:textures/gui/shatter_glass.png",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Create a maelstrom of shattered glass around you",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Dash.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "GM.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/glass.png",
+            "description": {
+              "text": "Glass Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Storm": {
+      "type": "eop:aoe_damage",
+      "title": "Shattered Glass",
+      "icon": "eop:textures/gui/shatter_glass.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "radius": 5,
+      "damage": 1,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "create_explosion": false,
+      "explosion_radius": 3,
+      "destroy_blocks": true,
+      "explosion_drop_items": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 1200,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Storm.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Storm.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Storm"
+          }
+        ]
+      }
+    },
+    "Storm.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.2,
+      "operation": 1,
+      "uuid": "3d8e9a5e-c3aa-4638-a694-38b67c65e990",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Storm"
+          }
+        ]
+      }
+    },
+    "Storm.Commands2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "particle eop:glass ~ ~1 ~ 1 2 1 0.35 65 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 3
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Storm"
+          }
+        ]
+      }
+    },
+    "Spectorage.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Spectorage",
+      "icon": "eop:textures/gui/spectorage.png",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 4,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Create a carousel of mirrors in the direction you are looking. Causes debuffs to targets inside and explodes after a few seconds",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Storm.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "GM.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/glass.png",
+            "description": {
+              "text": "Glass Manipulation Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.B"
+          }
+        ]
+      }
+    },
+    "Spectorage": {
+      "type": "eop:raycast_power_stand",
+      "title": "Spectorage",
+      "icon": "eop:textures/gui/spectorage.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "lifetime": 10000,
+      "damage": 1,
+      "damage_radius": 2,
+      "damage_type": "eop:mirror",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "stand_power": "eop:models/mirrors",
+      "range": 20,
+      "first_tick_commands": [],
+      "commands": [
+        "superpower add eop:effects/slowed_weaker @s[palladium.power=!eop:effects/slowed_weaker,tag=!EOP.Phasing]"
+      ],
+      "last_tick_commands": [],
+      "execution_mode": "as",
+      "include_caster": false,
+      "only_same_team": false,
+      "stand_first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2"
+      ],
+      "stand_commands": [],
+      "stand_last_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Spectorage.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Vitrify.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Mass Vitrify",
+      "icon": "eop:textures/gui/vitrify.png",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 4,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Create an ring of molten glass that slowly crystallizes targets inside",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Spectorage.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Speed4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "GM.Score",
+            "score": 15,
+            "icon": "eop:textures/gui/glass.png",
+            "description": {
+              "text": "Glass Manipulation Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "Vitrify": {
+      "type": "palladium:animation_timer",
+      "title": "Mass Vitrify",
+      "icon": "eop:textures/gui/vitrify.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "start_value": 0,
+      "max_value": 17,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 400,
+            "cooldown": 2400,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Vitrify.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Vitrify.Pose": {
+      "type": "palladium:animation_timer",
+      "start_value": 0,
+      "max_value": 10,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Vitrify",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Vitrify"
+          }
+        ]
+      }
+    },
+    "Vitrify.Pose2": {
+      "type": "palladium:animation_timer",
+      "start_value": 0,
+      "max_value": 10,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Vitrify",
+            "property": "value",
+            "min": 10,
+            "max": 16
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Vitrify"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "1ea3f160-30d1-41c7-a09f-ad27b1143200",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Vitrify",
+            "property": "value",
+            "min": 0,
+            "max": 16
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Vitrify"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "04d5a468-10d0-48a4-a2cb-965495b0d858",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Vitrify",
+            "property": "value",
+            "min": 0,
+            "max": 16
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Vitrify"
+          }
+        ]
+      }
+    },
+    "Vitrify.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Vitrify"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Vitrify.Pose",
+            "property": "value",
+            "min": 10,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "Vitrify.Particles": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "first_tick_commands": [
+        "playsound eop:sun_ult master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "particle eop:glass ~ ~1 ~ 6 2 6 0.5 50 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Vitrify"
+          }
+        ]
+      }
+    },
+    "Vitrify.Sounds": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "first_tick_commands": [
+        "playsound minecraft:block.glass.break master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Vitrify"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Vitrify",
+            "property": "value",
+            "min": 15,
+            "max": 17
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 3
+          }
+        ]
+      }
+    },
+    "Vitrify.Heal": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 20,
+      "amount": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Vitrify"
+          }
+        ]
+      }
+    },
+    "Vitrify.Commands": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 5,
+      "include_caster": false,
+      "execution_mode": "as",
+      "entity_types": [],
+      "entity_types_mode": "all",
+      "tags": [],
+      "tags_mode": "all",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "only_same_team": false,
+      "commands": [
+        "effect give @s weakness 5 10 true",
+        "effect give @s mining_fatigue 5 10 true",
+        "superpower add eop:effects/slowed @s[palladium.power=!eop:effects/slowed,tag=!EOP.Phasing]",
+        "particle eop:glass ~ ~1 ~ 1 1 1 0.4 15 force"
+      ],
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "playsound minecraft:block.glass.break master @a ~ ~ ~ 1 0.6"
+      ],
+      "last_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "playsound minecraft:block.glass.break master @a ~ ~ ~ 1 0.6"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Vitrify"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Vitrify",
+            "property": "value",
+            "min": 17,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "Vitrify.Ring": {
+      "type": "eop:ring_knockback",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 6,
+      "ring_width": 1,
+      "knockback": 50,
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Vitrify"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Vitrify",
+            "property": "value",
+            "min": 17,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "Render.Ring": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:vitrum/mirror_ring",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Vitrify"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Vitrify",
+            "property": "value",
+            "min": 17,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "ECOS.Maestro.B": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_materia_aceptada"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_materia_g2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_materia_g2"
+          }
+        ]
+      }
+    }
+  }
+}

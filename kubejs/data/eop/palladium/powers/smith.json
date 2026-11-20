@@ -1,0 +1,1932 @@
+{
+  "name": "Metallurgic Infusion",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/fire_sword.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "abilities": {
+    "Smith": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Smith",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "tag @s add EOP.Allows.Metal.Bones",
+        "scoreboard objectives add Smelting.Time dummy",
+        "scoreboard players set @s Smelting.Time 20",
+        "scoreboard objectives add HeldItemCount dummy",
+        "scoreboard objectives add Diamond.Shards dummy",
+        "scoreboard players set @s Diamond.Shards 100",
+        "scoreboard objectives add MI.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Smith",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove EOP.Allows.Metal.Bones",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Metallurgic.Infusion": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/fire_sword.png",
+      "title": "Metallurgic Infusion",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to infuse various metals with certain properties as well as manipulate them"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:smith @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{smith:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Metallurgic Infusion\",\"color\":\"dark_green\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "MI.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s MI.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "MI.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "MI.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s MI.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "MI.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "MI.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s MI.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "MI.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Knockback.Resistance": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Knockback Resistance",
+      "description": "Grants 25% knockback resistance",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 0.25,
+      "operation": 0,
+      "uuid": "dab58db3-9572-4b08-89d7-3c062797f2b6",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Metallurgic.Infusion"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MI.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/fire_sword.png",
+            "description": {
+              "text": "Metallurgic Infusion Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Knockback.Resistance2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Knockback Resistance",
+      "description": "Grants 25% knockback resistance",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 0.25,
+      "operation": 0,
+      "uuid": "ae3f4cbe-11a4-41b3-bdea-ca994674e872",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Knockback.Resistance"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MI.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/fire_sword.png",
+            "description": {
+              "text": "Metallurgic Infusion Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Knockback.Resistance3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Knockback Resistance",
+      "description": "Grants 25% knockback resistance",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 0.25,
+      "operation": 0,
+      "uuid": "28bdd607-10ca-4ebe-a43d-08e75911e1c2",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Knockback.Resistance2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MI.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/fire_sword.png",
+            "description": {
+              "text": "Metallurgic Infusion Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Knockback.Resistance4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Knockback Resistance",
+      "description": "Grants 25% knockback resistance",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 0.25,
+      "operation": 0,
+      "uuid": "b3021697-47d8-4d13-af5d-1a8b075b619c",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Knockback.Resistance3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MI.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/fire_sword.png",
+            "description": {
+              "text": "Metallurgic Infusion Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Metal.Bones.Condition": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Bone.Type",
+            "min_score": 1,
+            "max_score": 1
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Smelt",
+      "description": "Smelt any metal. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/smelt_ingot.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Smelt": {
+      "type": "eop:autosmelt",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "ticks_per_item": 20,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "tag": "eop:metals"
+                },
+                "slot": "mainhand"
+              },
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "tag": "eop:metals_ad_astra"
+                },
+                "slot": "mainhand"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:smith"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Item.Repair.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/repair_item.png",
+      "title": "Metal Regeneration",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "description": "You are able to repair metal tools",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Metallurgic.Infusion"
+          }
+        ]
+      }
+    },
+    "Item.Repair": {
+      "type": "palladium:command",
+      "title": "Metal Regeneration",
+      "icon": "eop:textures/gui/repair_item.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "first_tick_commands": [
+        "execute if entity @s[nbt={SelectedItem:{id:\"heroes:rusted_kensei_blade\"}}] run item replace entity @s weapon.mainhand with heroes:kensei_blade"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "effect give @s minecraft:hunger 1 60 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 10,
+            "ticks": 10,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "tag": "eop:metal_items"
+                },
+                "slot": "mainhand"
+              },
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "tag": "eop:metal_items_ad_astra"
+                },
+                "slot": "mainhand"
+              },
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "tag": "eop:heroes_items"
+                },
+                "slot": "mainhand"
+              },
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "tag": "eop:spartan_weaponry"
+                },
+                "slot": "mainhand"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Item.Repair.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Repair.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:block.anvil.land master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Item.Repair"
+          }
+        ]
+      }
+    },
+    "Item.Repair.Custom": {
+      "type": "eop:repair",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Item.Repair"
+          }
+        ]
+      }
+    },
+    "Metal.Shield.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/mi_shield.png",
+      "title": "Metal Tools",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Manipulate a metal ingot to form a tool of your choosing",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Item.Repair.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MI.Score",
+            "score": 3,
+            "icon": "eop:textures/gui/fire_sword.png",
+            "description": {
+              "text": "Metallurgic Infusion Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Create.Items.Wheel": {
+      "type": "palladium:ability_wheel",
+      "title": "Metal Tools",
+      "icon": "eop:textures/gui/mi_shield.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "abilities": [
+        "Metal.Shield",
+        "Metal.Sword",
+        "Metal.Pickaxe",
+        "Metal.Axe",
+        "Metal.Hoe",
+        "Metal.Shovel"
+      ],
+      "texture": "#eop:ability_wheel_smith",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Metal.Shield.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Create.Items.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "effect give @s hunger 3 5 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Metal.Shield"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Metal.Sword"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Metal.Pickaxe"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Metal.Axe"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Metal.Shovel"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Metal.Hoe"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Metal.Shield": {
+      "type": "eop:replace_item",
+      "title": "Metal Shield",
+      "icon": "eop:textures/gui/mi_shield.png",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "from_items": [
+        "minecraft:iron_ingot",
+        "minecraft:copper_ingot",
+        "minecraft:gold_ingot",
+        "minecraft:netherite_ingot",
+        "palladium:lead_ingot",
+        "palladium:titanium_ingot",
+        "palladium:vibranium_ingot"
+      ],
+      "to_items": [
+        "eop:mi_shield_iron",
+        "eop:mi_shield_copper",
+        "eop:mi_shield_gold",
+        "eop:mi_shield_netherite",
+        "eop:mi_shield_lead",
+        "eop:mi_shield_titanium",
+        "eop:mi_shield_vibranium"
+      ],
+      "extra_items": [
+        "eop:mi_iron_tools",
+        "eop:mi_copper_tools",
+        "eop:mi_gold_tools",
+        "eop:mi_netherite_tools",
+        "eop:mi_lead_tools",
+        "eop:mi_titanium_tools",
+        "eop:mi_vibranium_tools"
+      ],
+      "sound": "minecraft:block.anvil.land",
+      "give_particles": "eop:metal_sparks",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "tag": "eop:metal_tools"
+                },
+                "slot": "mainhand"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Metal.Shield.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Metal.Sword": {
+      "type": "eop:replace_item",
+      "title": "Metal Sword",
+      "icon": "eop:textures/gui/mi_sword.png",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "from_items": [
+        "minecraft:iron_ingot",
+        "minecraft:copper_ingot",
+        "minecraft:gold_ingot",
+        "minecraft:netherite_ingot",
+        "palladium:lead_ingot",
+        "palladium:titanium_ingot",
+        "palladium:vibranium_ingot"
+      ],
+      "to_items": [
+        "eop:mi_sword_iron",
+        "eop:mi_sword_copper",
+        "eop:mi_sword_gold",
+        "eop:mi_sword_netherite",
+        "eop:mi_sword_lead",
+        "eop:mi_sword_titanium",
+        "eop:mi_sword_vibranium"
+      ],
+      "extra_items": [
+        "eop:mi_iron_tools",
+        "eop:mi_copper_tools",
+        "eop:mi_gold_tools",
+        "eop:mi_netherite_tools",
+        "eop:mi_lead_tools",
+        "eop:mi_titanium_tools",
+        "eop:mi_vibranium_tools"
+      ],
+      "sound": "minecraft:block.anvil.land",
+      "give_particles": "eop:metal_sparks",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "tag": "eop:metal_tools"
+                },
+                "slot": "mainhand"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Metal.Shield.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Metal.Pickaxe": {
+      "type": "eop:replace_item",
+      "title": "Metal Pickaxe",
+      "icon": "eop:textures/gui/mi_pickaxe.png",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "from_items": [
+        "minecraft:iron_ingot",
+        "minecraft:copper_ingot",
+        "minecraft:gold_ingot",
+        "minecraft:netherite_ingot",
+        "palladium:lead_ingot",
+        "palladium:titanium_ingot",
+        "palladium:vibranium_ingot"
+      ],
+      "to_items": [
+        "eop:mi_pickaxe_iron",
+        "eop:mi_pickaxe_copper",
+        "eop:mi_pickaxe_gold",
+        "eop:mi_pickaxe_netherite",
+        "eop:mi_pickaxe_lead",
+        "eop:mi_pickaxe_titanium",
+        "eop:mi_pickaxe_vibranium"
+      ],
+      "extra_items": [
+        "eop:mi_iron_tools",
+        "eop:mi_copper_tools",
+        "eop:mi_gold_tools",
+        "eop:mi_netherite_tools",
+        "eop:mi_lead_tools",
+        "eop:mi_titanium_tools",
+        "eop:mi_vibranium_tools"
+      ],
+      "sound": "minecraft:block.anvil.land",
+      "give_particles": "eop:metal_sparks",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "tag": "eop:metal_tools"
+                },
+                "slot": "mainhand"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Metal.Shield.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Metal.Axe": {
+      "type": "eop:replace_item",
+      "title": "Metal Axe",
+      "icon": "eop:textures/gui/mi_axe.png",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "from_items": [
+        "minecraft:iron_ingot",
+        "minecraft:copper_ingot",
+        "minecraft:gold_ingot",
+        "minecraft:netherite_ingot",
+        "palladium:lead_ingot",
+        "palladium:titanium_ingot",
+        "palladium:vibranium_ingot"
+      ],
+      "to_items": [
+        "eop:mi_axe_iron",
+        "eop:mi_axe_copper",
+        "eop:mi_axe_gold",
+        "eop:mi_axe_netherite",
+        "eop:mi_axe_lead",
+        "eop:mi_axe_titanium",
+        "eop:mi_axe_vibranium"
+      ],
+      "extra_items": [
+        "eop:mi_iron_tools",
+        "eop:mi_copper_tools",
+        "eop:mi_gold_tools",
+        "eop:mi_netherite_tools",
+        "eop:mi_lead_tools",
+        "eop:mi_titanium_tools",
+        "eop:mi_vibranium_tools"
+      ],
+      "sound": "minecraft:block.anvil.land",
+      "give_particles": "eop:metal_sparks",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "tag": "eop:metal_tools"
+                },
+                "slot": "mainhand"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Metal.Shield.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Metal.Shovel": {
+      "type": "eop:replace_item",
+      "title": "Metal Shovel",
+      "icon": "eop:textures/gui/mi_shovel.png",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "from_items": [
+        "minecraft:iron_ingot",
+        "minecraft:copper_ingot",
+        "minecraft:gold_ingot",
+        "minecraft:netherite_ingot",
+        "palladium:lead_ingot",
+        "palladium:titanium_ingot",
+        "palladium:vibranium_ingot"
+      ],
+      "to_items": [
+        "eop:mi_shovel_iron",
+        "eop:mi_shovel_copper",
+        "eop:mi_shovel_gold",
+        "eop:mi_shovel_netherite",
+        "eop:mi_shovel_lead",
+        "eop:mi_shovel_titanium",
+        "eop:mi_shovel_vibranium"
+      ],
+      "extra_items": [
+        "eop:mi_iron_tools",
+        "eop:mi_copper_tools",
+        "eop:mi_gold_tools",
+        "eop:mi_netherite_tools",
+        "eop:mi_lead_tools",
+        "eop:mi_titanium_tools",
+        "eop:mi_vibranium_tools"
+      ],
+      "sound": "minecraft:block.anvil.land",
+      "give_particles": "eop:metal_sparks",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "tag": "eop:metal_tools"
+                },
+                "slot": "mainhand"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Metal.Shield.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Metal.Hoe": {
+      "type": "eop:replace_item",
+      "title": "Metal Hoe",
+      "icon": "eop:textures/gui/mi_hoe.png",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "from_items": [
+        "minecraft:iron_ingot",
+        "minecraft:copper_ingot",
+        "minecraft:gold_ingot",
+        "minecraft:netherite_ingot",
+        "palladium:lead_ingot",
+        "palladium:titanium_ingot",
+        "palladium:vibranium_ingot"
+      ],
+      "to_items": [
+        "eop:mi_hoe_iron",
+        "eop:mi_hoe_copper",
+        "eop:mi_hoe_gold",
+        "eop:mi_hoe_netherite",
+        "eop:mi_hoe_lead",
+        "eop:mi_hoe_titanium",
+        "eop:mi_hoe_vibranium"
+      ],
+      "extra_items": [
+        "eop:mi_iron_tools",
+        "eop:mi_copper_tools",
+        "eop:mi_gold_tools",
+        "eop:mi_netherite_tools",
+        "eop:mi_lead_tools",
+        "eop:mi_titanium_tools",
+        "eop:mi_vibranium_tools"
+      ],
+      "sound": "minecraft:block.anvil.land",
+      "give_particles": "eop:metal_sparks",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "tag": "eop:metal_tools"
+                },
+                "slot": "mainhand"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Metal.Shield.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Molten.Shot.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/molten_shot.png",
+      "title": "Molten Shot",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Heat up a metal ingot and fling it forwards",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Metal.Shield.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MI.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/fire_sword.png",
+            "description": {
+              "text": "Metallurgic Infusion Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Molten.Shot": {
+      "type": "palladium:projectile",
+      "icon": "eop:textures/gui/molten_shot.png",
+      "title": "Molten Shot",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "main_arm",
+      "inaccuracy": 0,
+      "velocity": 4,
+      "damage_from_player": false,
+      "entity_data": {
+        "Size": 0.5,
+        "Gravity": 0.015,
+        "Damage": 6,
+        "DamageType": "minecraft:on_fire",
+        "SetEntityOnFireSeconds": 6,
+        "Lifetime": 100,
+        "CommandOnEntityHit": "playsound minecraft:block.anvil.land master @a ~ ~ ~ 1 1",
+        "CommandOnBlockHit": "playsound minecraft:block.anvil.land master @a ~ ~ ~ 1 1",
+        "DieOnEntityHit": true,
+        "DieOnBlockHit": true,
+        "Appearances": [
+          {
+            "Type": "item",
+            "Item": "minecraft:iron_nugget"
+          },
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:flame",
+            "Spread": 0.1,
+            "Amount": 2
+          },
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:smoke",
+            "Spread": 0.3,
+            "Amount": 2
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 10,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "tag": "eop:metal_ingots"
+                },
+                "slot": "mainhand"
+              },
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "tag": "eop:metal_ingots_ad_astra"
+                },
+                "slot": "mainhand"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Molten.Shot.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Molten.Shot.Vibranium": {
+      "type": "palladium:projectile",
+      "icon": "eop:textures/gui/molten_shot.png",
+      "title": "Molten Shot",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "main_arm",
+      "inaccuracy": 0,
+      "velocity": 4,
+      "damage_from_player": false,
+      "entity_data": {
+        "Size": 0.5,
+        "Gravity": 0.015,
+        "Damage": 13,
+        "DamageType": "minecraft:on_fire",
+        "SetEntityOnFireSeconds": 6,
+        "Lifetime": 100,
+        "CommandOnEntityHit": "function eop:powers/smith/vibranium_shot",
+        "CommandOnBlockHit": "function eop:powers/smith/vibranium_shot",
+        "DieOnEntityHit": true,
+        "DieOnBlockHit": true,
+        "Appearances": [
+          {
+            "Type": "item",
+            "Item": "minecraft:iron_nugget"
+          },
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:flame",
+            "Spread": 0.1,
+            "Amount": 2
+          },
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:smoke",
+            "Spread": 0.3,
+            "Amount": 2
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 10,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "item": "palladium:vibranium_ingot"
+                },
+                "slot": "mainhand"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Molten.Shot.Unlock"
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "palladium:vibranium_ingot"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Molten.Shot.Netherite": {
+      "type": "palladium:projectile",
+      "icon": "eop:textures/gui/molten_shot.png",
+      "title": "Molten Shot",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "main_arm",
+      "inaccuracy": 0,
+      "velocity": 4,
+      "damage_from_player": false,
+      "entity_data": {
+        "Size": 0.5,
+        "Gravity": 0.015,
+        "Damage": 13,
+        "DamageType": "minecraft:on_fire",
+        "SetEntityOnFireSeconds": 6,
+        "Lifetime": 100,
+        "CommandOnEntityHit": "function eop:powers/smith/netherite_shot",
+        "CommandOnBlockHit": "function eop:powers/smith/netherite_shot",
+        "DieOnEntityHit": true,
+        "DieOnBlockHit": true,
+        "Appearances": [
+          {
+            "Type": "item",
+            "Item": "minecraft:iron_nugget"
+          },
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:flame",
+            "Spread": 0.1,
+            "Amount": 2
+          },
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:smoke",
+            "Spread": 0.3,
+            "Amount": 2
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 10,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:item_in_slot",
+                "item": {
+                  "item": "minecraft:netherite_ingot"
+                },
+                "slot": "mainhand"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Molten.Shot.Unlock"
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "minecraft:netherite_ingot"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Molten.Shot.Consume": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "execute if entity @s[nbt={SelectedItem:{id:\"minecraft:iron_ingot\"}}] run clear @s iron_ingot 1",
+        "execute if entity @s[nbt={SelectedItem:{id:\"minecraft:gold_ingot\"}}] run clear @s gold_ingot 1",
+        "execute if entity @s[nbt={SelectedItem:{id:\"minecraft:copper_ingot\"}}] run clear @s copper_ingot 1",
+        "execute if entity @s[nbt={SelectedItem:{id:\"minecraft:netherite_ingot\"}}] run clear @s netherite_ingot 1",
+        "execute if entity @s[nbt={SelectedItem:{id:\"palladium:lead_ingot\"}}] run clear @s palladium:lead_ingot 1",
+        "execute if entity @s[nbt={SelectedItem:{id:\"palladium:vibranium_ingot\"}}] run clear @s palladium:vibranium_ingot 1",
+        "execute if entity @s[nbt={SelectedItem:{id:\"palladium:titanium_ingot\"}}] run clear @s palladium:titanium_ingot 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "execute if entity @s[nbt={SelectedItem:{id:\"minecraft:iron_ingot\"}}] run effect give @s hunger 2 2 true",
+        "execute if entity @s[nbt={SelectedItem:{id:\"minecraft:gold_ingot\"}}] run effect give @s hunger 2 2 true",
+        "execute if entity @s[nbt={SelectedItem:{id:\"minecraft:copper_ingot\"}}] run effect give @s hunger 2 2 true",
+        "execute if entity @s[nbt={SelectedItem:{id:\"minecraft:netherite_ingot\"}}] run effect give @s hunger 2 2 true",
+        "execute if entity @s[nbt={SelectedItem:{id:\"palladium:lead_ingot\"}}] run effect give @s hunger 2 2 true",
+        "execute if entity @s[nbt={SelectedItem:{id:\"palladium:vibranium_ingot\"}}] run effect give @s hunger 2 2 true",
+        "execute if entity @s[nbt={SelectedItem:{id:\"palladium:titanium_ingot\"}}] run effect give @s hunger 2 2 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Molten.Shot"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Molten.Shot.Vibranium"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Molten.Shot.Netherite"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Molten.Shot.Consume2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "execute if entity @s[nbt={SelectedItem:{id:\"ad_astra:ostrum_ingot\"}}] run clear @s ad_astra:ostrum_ingot 1",
+        "execute if entity @s[nbt={SelectedItem:{id:\"ad_astra:desh_ingot\"}}] run clear @s ad_astra:desh_ingot 1",
+        "execute if entity @s[nbt={SelectedItem:{id:\"ad_astra:calorite_ingot\"}}] run clear @s ad_astra:calorite_ingot 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "execute if entity @s[nbt={SelectedItem:{id:\"ad_astra:ostrum_ingot\"}}] run effect give @s hunger 2 2 true",
+        "execute if entity @s[nbt={SelectedItem:{id:\"ad_astra:desh_ingot\"}}] run effect give @s hunger 2 2 true",
+        "execute if entity @s[nbt={SelectedItem:{id:\"ad_astra:calorite_ingot\"}}] run effect give @s hunger 2 2 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Molten.Shot"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Molten.Shot.Vibranium"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Molten.Shot.Netherite"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "ad_astra"
+          }
+        ]
+      }
+    },
+    "Sound.Shoot.Shards": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.skeleton.shoot master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": {
+          "type": "palladium:or",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "Molten.Shot"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "Molten.Shot.Vibranium"
+            },
+            {
+              "type": "palladium:ability_enabled",
+              "ability": "Molten.Shot.Netherite"
+            }
+          ]
+        }
+      }
+    },
+    "Enchant.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/enchant_tool.png",
+      "title": "Enchanting",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "By holding the respective book in your offhand, you are able to enchant a tool",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Molten.Shot.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MI.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/fire_sword.png",
+            "description": {
+              "text": "Metallurgic Infusion Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.B"
+          }
+        ]
+      }
+    },
+    "Enchant": {
+      "type": "eop:enchant",
+      "icon": "eop:textures/gui/enchant_tool.png",
+      "title": "Enchanting",
+      "list_index": 3,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "sound": "minecraft:block.enchantment_table.use",
+      "particles": "minecraft:enchanted_hit",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 10,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Enchant.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Crush.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/crush.png",
+      "title": "Crushing Hold",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Manipulate the iron inside creatures to hold them down while continuously applying pressure",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Enchant.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Knockback.Resistance4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "MI.Score",
+            "score": 15,
+            "icon": "eop:textures/gui/fire_sword.png",
+            "description": {
+              "text": "Metallurgic Infusion Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "Show.Arms": {
+      "type": "palladium:show_both_arms",
+      "hidden": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Crush.Animation"
+          }
+        ]
+      }
+    },
+    "Crush.Animation": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/crush.png",
+      "title": "Crushing Hold",
+      "bar_color": "gray",
+      "list_index": 4,
+      "start_value": 0,
+      "max_value": 10,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 800,
+            "ticks": 200,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Crush.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Crush.Effect": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "effect give @s minecraft:hunger 1 60 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Crush.Animation"
+          }
+        ]
+      }
+    },
+    "Crush.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 15,
+      "commands": [
+        "superpower add eop:effects/crush @s[type=!armor_stand,tag=!EOP.Phasing,tag=!Infinity]"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Crush.Animation"
+          }
+        ]
+      }
+    },
+    "Ult.Hand.Particles": {
+      "type": "palladium:particles",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "emitter": [
+        "eop:offhand_basic"
+      ],
+      "particle_type": "minecraft:dust",
+      "options": "0.7 1 0.7 1",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Crush.Animation"
+          }
+        ]
+      }
+    },
+    "ECOS.Maestro.B": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_materia_aceptada"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_materia_g2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_materia_g2"
+          }
+        ]
+      }
+    }
+  }
+}

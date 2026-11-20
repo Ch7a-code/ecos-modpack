@@ -1,0 +1,2432 @@
+{
+  "name": "Wendigonism",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/wendigo.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "energy_bars": {
+    "hunger_percent": {
+      "color": "#ff0000",
+      "max": 100,
+      "synced_value": {
+        "type": "score",
+        "objective": "Blood.Amount",
+        "fallback": 0
+      }
+    }
+  },
+  "abilities": {
+    "Cannibal": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Cannibal",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "tag @s add EOP.Can.Get.Blood",
+        "scoreboard objectives add Blood.Amount dummy",
+        "scoreboard players add @s Blood.Amount 0",
+        "scale reset @s",
+        "effect clear @s",
+        "scoreboard objectives add W.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Cannibal",
+        "tag @s remove EOP.Can.Get.Blood",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Wendigonism": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/wendigo.png",
+      "title": "Wendigonism",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to turn into a terrifying wendigo"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:cannibal @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{cannibal:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Wendigonism\",\"color\":\"#904040\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "W.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s W.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "W.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "W.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s W.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "W.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "W.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s W.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "W.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "W.Scoreboard.Gain4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s W.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 21600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "W.Score",
+            "min_score": 15,
+            "max_score": 17
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "W.Scoreboard.Gain5": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s W.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 36000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "W.Score",
+            "min_score": 18,
+            "max_score": 19
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Health": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "3741740c-aedf-4ef7-8cfb-f8824f620cbe",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Wendigonism"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "W.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/wendigo.png",
+            "description": {
+              "text": "Wendigonism Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "2c7f2bfb-1788-4301-a887-ba11f6edd9fd",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "W.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/wendigo.png",
+            "description": {
+              "text": "Wendigonism Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "49b19be6-a38c-43f4-986b-e6cde1d55566",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "W.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/wendigo.png",
+            "description": {
+              "text": "Wendigonism Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "2d7de232-a95e-4daf-9ffb-0a68a0c079a7",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "W.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/wendigo.png",
+            "description": {
+              "text": "Wendigonism Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Set.Scoreboard.Max": {
+      "type": "eop:set_scoreboard",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "scoreboard_objective": "Blood.Amount",
+      "scoreboard_value": 100
+    },
+    "Bone.Healing": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "bodydamage @s heal ALL 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "No.Thirst": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "effect give @s legendarysurvivaloverhaul:hydration_fill 2 200 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "Temp.Resistance": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "effect give @s legendarysurvivaloverhaul:cold_immunity 1 0 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Wall.Climb": {
+      "type": "eop:wall_climb",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "climb_speed": 0.4,
+      "jump_force": 1.2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Climbing.On"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Reduced.Fall.Damage": {
+      "type": "eop:reduce_fall",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "division_amount": 1.3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 15,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Reduced.Hunger": {
+      "type": "eop:slower_hunger",
+      "reduction_factor": 0.3,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Effect.Immunity": {
+      "type": "eop:effect_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "effects": [
+        "minecraft:hunger",
+        "eop:wendigo_infection"
+      ]
+    },
+    "Blood.Amount.Infinite": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players set @s Blood.Amount 100"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Blood.Amount",
+            "min_score": -1000,
+            "max_score": 99
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Inf.Energy"
+          }
+        ]
+      }
+    },
+    "Blood.Lose": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Blood.Amount 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 120
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Blood.Amount",
+            "min_score": 1,
+            "max_score": 1000
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Wendigo"
+          }
+        ]
+      }
+    },
+    "Blood.Lose.Human": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Blood.Amount 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Blood.Amount",
+            "min_score": 1,
+            "max_score": 1000
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Wendigo"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Blood.Fix": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players set @s Blood.Amount 100"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Blood.Amount",
+            "min_score": 101,
+            "max_score": 10000
+          }
+        ]
+      }
+    },
+    "Wendigo.Debuffs": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 1,
+      "operation": 1,
+      "uuid": "c4e53ced-a8dc-418a-a1b3-347767b4d6e7",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Blood.Amount",
+            "min_score": 70,
+            "max_score": 1000
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Wendigo"
+          }
+        ]
+      }
+    },
+    "Wendigo.Debuffs2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.6,
+      "operation": 1,
+      "uuid": "f90665a6-a21a-400a-b72d-6aec01509e76",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Blood.Amount",
+            "min_score": 20,
+            "max_score": 69
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Wendigo"
+          }
+        ]
+      }
+    },
+    "Wendigo.Debuffs3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "effect give @s weakness 2 0 true",
+        "effect give @s mining_fatigue 2 0 true",
+        "effect give @s slowness 2 0 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Blood.Amount",
+            "min_score": 10,
+            "max_score": 19
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          }
+        ]
+      }
+    },
+    "Wendigo.Debuffs4": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "effect give @s weakness 2 1 true",
+        "effect give @s mining_fatigue 2 2 true",
+        "effect give @s slowness 2 2 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Blood.Amount",
+            "min_score": -100,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Reap",
+      "description": "Dash forward, shredding anything in front of you. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/chimera_dash.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Dash": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/chimera_dash.png",
+      "title": "Reap",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 100,
+            "ticks": 10,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:cannibal"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Dash.Motion": {
+      "type": "eop:motion",
+      "title": "Dash",
+      "motion_scale": 2,
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Dash"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "Bite.Damage": {
+      "type": "eop:aoe_damage_once",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 3,
+      "damage": 8,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Dash"
+          }
+        ]
+      }
+    },
+    "Dash.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Transform.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Wendigo form",
+      "description": "Transform into your wendigo form. §dAbilities only work while transformed",
+      "icon": "eop:textures/gui/wendigo_transform.png",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Wendigonism"
+          }
+        ]
+      }
+    },
+    "Transform": {
+      "type": "palladium:animation_timer",
+      "title": "Wendigo form",
+      "icon": "eop:textures/gui/wendigo_transform.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "start_value": 0,
+      "max_value": 20,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:cannibal"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transform.Animal.Model": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 13,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Transform.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:cannibal/wendigo",
+      "controller": "animations",
+      "animation_trigger": "transform",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Transform.Animal.Model",
+                    "property": "value",
+                    "min": 1,
+                    "max": 1
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform.Animal.Model"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:cannibal/wendigo",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hide.Body": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head_overlay",
+        "chest_overlay",
+        "right_arm",
+        "left_arm",
+        "right_leg",
+        "left_leg",
+        "head",
+        "chest",
+        "cape"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 19,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Name.Hide": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "forge:nametag_distance",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "2f556bcd-8849-4417-b933-01bce119b125",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Wendigo.Defense": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 20,
+      "operation": 0,
+      "uuid": "e9b2a89e-658a-4f43-a855-cc7898519684",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Wendigo.Strength": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 8,
+      "operation": 0,
+      "uuid": "f02e220d-100a-4aef-a378-4bb2278b8100",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Store.Armor": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": true,
+      "hide_offhand": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Restrict.Slots": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs",
+        "head",
+        "mainhand",
+        "offhand"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Transform.No.Move.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 52,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "IFrame.Transform": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "eop:phase_immune"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "fa44d22f-e3a2-4ff3-984f-12487aa05a9d",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "5624e6cc-4574-4d12-858c-e6e55f9c01f1",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Transform.Effects": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Wendigo",
+        "tag @s add EOP.Non.Humanoid.Model",
+        "scale set pehkui:hitbox_height 1.3",
+        "scale set pehkui:hitbox_width 1.3",
+        "scale set pehkui:eye_height 1.35",
+        "scale set pehkui:held_item 0",
+        "playsound minecraft:entity.wolf.growl master @a ~ ~ ~ 1 0.7"
+      ],
+      "last_tick_commands": [
+        "tag @s remove EOP.Wendigo",
+        "tag @s remove EOP.Non.Humanoid.Model",
+        "scale reset @s",
+        "effect clear @s jump_boost",
+        "playsound minecraft:entity.wolf.growl master @a ~ ~ ~ 1 0.7"
+      ],
+      "commands": [
+        "effect give @s minecraft:jump_boost 1 1 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Transform.Night.Vision": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s night_vision"
+      ],
+      "commands": [
+        "effect give @s minecraft:night_vision 20 1 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Night.Vision.On"
+          }
+        ]
+      }
+    },
+    "Transform.Roar": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:wendigo_ambient master @a ~ ~ ~ 3 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.Animal.Model",
+            "property": "value",
+            "min": 3,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Animal.Model"
+          }
+        ]
+      }
+    },
+    "Creature.Name": {
+      "type": "palladium:name_change",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "name": {
+        "text": "Wendigo"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Super.Jump": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s jump_boost"
+      ],
+      "commands": [
+        "effect give @s jump_boost 1 6 true"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          },
+          {
+            "type": "eop:looking_direction",
+            "mode": "up"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Super.Jump.On"
+          }
+        ]
+      }
+    },
+    "Sprint.Animation": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 6,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_hovering_or_levitating"
+              },
+              {
+                "type": "palladium:is_flying"
+              },
+              {
+                "type": "palladium:is_elytra_flying"
+              },
+              {
+                "type": "palladium:crouching"
+              }
+            ]
+          },
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Blind"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Curse"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Sprint.Animation.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scale divide pehkui:eye_height 2",
+        "scale divide pehkui:hitbox_height 2"
+      ],
+      "last_tick_commands": [
+        "scale divide pehkui:eye_height 0.5",
+        "scale divide pehkui:hitbox_height 0.5",
+        "scale set pehkui:step_height 1 @s"
+      ],
+      "commands": [
+        "scale delay set pehkui:eye_height 0",
+        "scale delay set pehkui:hitbox_height 0",
+        "scale set pehkui:step_height 2 @s"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_hovering_or_levitating"
+              },
+              {
+                "type": "palladium:is_flying"
+              },
+              {
+                "type": "palladium:is_elytra_flying"
+              },
+              {
+                "type": "palladium:crouching"
+              }
+            ]
+          },
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Blind"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Curse"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Eye.Height.Fix.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 4,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Eye.Height.Fix": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scale reset @s"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Eye.Height.Fix.Timer",
+            "property": "value",
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "Smell.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/feral_instinct.png",
+      "title": "Feral Instinct",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Effortlessly sense entities nearby. §dWorks without being transformed",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "W.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/wendigo.png",
+            "description": {
+              "text": "Wendigonism Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Sense": {
+      "type": "palladium:entity_glow",
+      "bar_color": "light_gray",
+      "title": "Feral Instinct",
+      "icon": "eop:textures/gui/feral_instinct.png",
+      "list_index": 1,
+      "mode": "others",
+      "color": "#f14946",
+      "distance": 20,
+      "property_key": "EOP.LivingEntities",
+      "property_value": "true",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Smell.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Sense.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:sniff master @a ~ ~ ~ 0.5 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Sense"
+          }
+        ]
+      }
+    },
+    "Invis.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/shadow_step.png",
+      "title": "Shadowstep",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Become invisible for a short period of time",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Smell.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "W.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/wendigo.png",
+            "description": {
+              "text": "Wendigonism Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.B"
+          }
+        ]
+      }
+    },
+    "Invis": {
+      "type": "palladium:command",
+      "title": "Shadowstep",
+      "icon": "eop:textures/gui/shadow_step.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "first_tick_commands": [
+        "scale set pehkui:visibility -1 @s",
+        "particle dust 0 0 0 4 ~ ~1 ~ 0.3 0.5 0.3 1 50 force",
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [
+        "scale set pehkui:visibility 1 @s",
+        "particle dust 0 0 0 4 ~ ~1 ~ 0.3 0.5 0.3 1 50 force",
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2",
+        "effect clear @s minecraft:invisibility"
+      ],
+      "commands": [
+        "effect give @s minecraft:invisibility 1 255 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:toggle",
+            "cooldown": 1200,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Invis.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Invis.Invis": {
+      "type": "palladium:invisibility",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Invis"
+          }
+        ]
+      }
+    },
+    "Blind.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/evil_presence.png",
+      "title": "Evil Presence",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Create an environment filled with evil, blinding targets close to you",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Invis.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "W.Score",
+            "score": 10,
+            "icon": "eop:textures/gui/wendigo.png",
+            "description": {
+              "text": "Wendigonism Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.C"
+          }
+        ]
+      }
+    },
+    "Blind": {
+      "type": "palladium:animation_timer",
+      "title": "Evil Presence",
+      "icon": "eop:textures/gui/evil_presence.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "start_value": 0,
+      "max_value": 30,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 1200,
+            "ticks": 30,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Blind.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Blind.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.wither.ambient master @a ~ ~ ~ 3 2",
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 0.5"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Blind"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Blind",
+            "property": "value",
+            "min": 18,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "Blind.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 15,
+      "commands": [
+        "effect give @s[tag=!Cannibal] minecraft:blindness 10 255 true"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Blind"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Blind",
+            "property": "value",
+            "min": 18,
+            "max": 18
+          }
+        ]
+      }
+    },
+    "Blind.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:cannibal/wendigo",
+      "controller": "animations",
+      "animation_trigger": "blind",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Blind"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Blind",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Curse.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/cursed.png",
+      "title": "Cursed",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Curse entities around you, giving them all manner of debuffs",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Blind.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Health4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "W.Score",
+            "score": 20,
+            "icon": "eop:textures/gui/wendigo.png",
+            "description": {
+              "text": "Wendigonism Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "Curse.Not.Work": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/cursed.png",
+      "title": "Cursed",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "first_tick_commands": [
+        "title @s actionbar [\"\",{\"text\":\"Must be transformed!\",\"color\":\"red\",\"bold\":true}]",
+        "playsound minecraft:block.note_block.didgeridoo master @s ~ ~ ~ 1 0.5"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 20,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Curse.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Curse": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/cursed.png",
+      "title": "Cursed",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "start_value": 0,
+      "max_value": 60,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 1200,
+            "ticks": 60,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Curse.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Curse.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.wither.death master @a ~ ~ ~ 3 2",
+        "particle squid_ink ~ ~1 ~ 0.3 0.5 0.3 0.4 50 force",
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [
+        "particle squid_ink ~ ~1 ~ 0.3 0.5 0.3 0.4 50 force"
+      ],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Curse"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Curse",
+            "property": "value",
+            "min": 42,
+            "max": 42
+          }
+        ]
+      }
+    },
+    "Curse.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 15,
+      "commands": [
+        "superpower add eop:effects/wendigo_cursed @s[tag=!Cannibal]"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Curse"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Curse",
+            "property": "value",
+            "min": 42,
+            "max": 42
+          }
+        ]
+      }
+    },
+    "Curse.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:cannibal/wendigo",
+      "controller": "animations",
+      "animation_trigger": "curse",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Curse"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Curse",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "No.Move.Speed2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "90cf670e-7d14-4317-b6e9-e6b3fe50aad1",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Curse"
+          }
+        ]
+      }
+    },
+    "No.Jumping2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "a399e23d-4dfa-47e0-97e3-69c5c016491d",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Curse"
+          }
+        ]
+      }
+    },
+    "ECOS.Maestro.B": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_bestias_aceptada"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_bestias_g2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Maestro.C": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_bestias_p3"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_bestias_g2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_bestias_g2"
+          }
+        ]
+      }
+    }
+  }
+}

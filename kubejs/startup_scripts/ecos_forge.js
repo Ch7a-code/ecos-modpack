@@ -54,6 +54,35 @@ function ecosTipoDano(src) {
   return '';
 }
 function ecosEsJugador(x) { try { return !!x && x.isPlayer(); } catch (e) { return false; } }
+// e) Nivel recomendado por jefe: [Conciencia recomendada, nombre]. Fuente única: lo lee también server_scripts/ecos_jefes_preparacion.js
+//    (aviso de Zykna) y la ventana de misiones, vía global.ecosRec. Valores de arranque 19-nov; se afinan con ESC_PELEAS del log.
+var ECOS_REC = {
+  dadoPorNivel: 0.08, pisoDado: 0.15, recibidoPorNivel: 0.12, topeRecibido: 3.0,
+  jefes: {
+    // Era I
+    'mowziesmobs:ferrous_wroughtnaut': [25, 'Wroughtnaut'], 'twilightforest:naga': [25, 'Naga'], 'twilightforest:lich': [25, 'Lich'],
+    // Era II
+    'twilightforest:hydra': [40, 'Hidra'], 'cataclysm:netherite_monstrosity': [40, 'Monstruosidad de Netherita'],
+    // Era III
+    'cataclysm:ignis': [55, 'Ignis'], 'minecraft:ender_dragon': [55, 'Dragón del End'],
+    // Era IV y final (19-nov: 70/85 -> 65/75 con el ritmo MEDIDO en el host, ~200 XP/h conectado + bonos de jefe: así cada Era cae
+    // en su hora del diseño —I ~6 h, II ~18 h, III ~35 h, IV ~55 h, final ~75 h—; con 85 nadie llegaba en 80 h)
+    'cataclysm:the_harbinger': [65, 'El Heraldo'], 'cataclysm:the_leviathan': [65, 'El Leviatán'], 'cataclysm:maledictus': [75, 'Maledictus'],
+    // jefes de Maestro (paso 5)
+    'mowziesmobs:frostmaw': [30, 'Frostmaw'], 'twilightforest:snow_queen': [30, 'Reina de las Nieves'], 'cataclysm:aptrgangr': [30, 'Aptrgangr'],
+    'cataclysm:ender_golem': [30, 'Gólem del End'], 'mowziesmobs:sculptor': [30, 'El Escultor'], 'cataclysm:wadjet': [30, 'Wadjet'],
+    'cataclysm:the_prowler': [30, 'El Merodeador'],
+    // guardianes de Maestro (paso 1)
+    'aether:valkyrie_queen': [15, 'Reina Valquiria'], 'blue_skies:arachnarch': [15, 'Arachnarch'], 'blue_skies:summoner': [15, 'El Invocador'],
+    'twilightforest:armored_giant': [15, 'Gigante Acorazado'], 'born_in_chaos_v1:skeleton_thrasher_not_despawn': [15, 'Esqueleto Triturador'],
+    'deeperdarker:stalker': [15, 'El Acechador'], 'alexscaves:tremorsaurus': [15, 'Tremorsaurio']
+  }
+};
+try { global.ecosRec = ECOS_REC; } catch (eRec) {}
+function ecosConciencia(p) { try { return Number(p.persistentData.getInt('ecos_nc')) || 0; } catch (e) { return 0; } }
+// "Es jefe" para los puntos débiles = tiene tope de daño O nivel recomendado (revisión 19-nov: 3 guardianes de Maestro sin
+// tope ni lista de zonas caían en la rama de criatura normal y morían de un tiro a la cabeza).
+function ecosEsJefeId(id) { return !!ECOS_TOPE[id] || !!ECOS_REC.jefes[id]; }
 function ecosNum(pd, k) { try { var v = Number(pd.getDouble(k)); return v > 0 ? v : 0; } catch (e) { return 0; } }
 function ecosCansar(p, x) {
   if (!(x > 0)) return;
@@ -93,14 +122,29 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', fu
   var pdM = 1, pdBase = null;
   try {
     if (global.ecosPD && atq && ecosEsJugador(atq) && !ecosEsJugador(ent)) {
-      var pr = global.ecosPD.evaluar(ent, src, atq, tipo, e.getAmount(), !!ECOS_TOPE[ecosIdEntidad(ent)]);
+      var pr = global.ecosPD.evaluar(ent, src, atq, tipo, e.getAmount(), ecosEsJefeId(ecosIdEntidad(ent)));
       if (pr && pr.letal > 0) { pdBase = e.getAmount(); e.setAmount(pr.letal); }
       else if (pr && pr.mult > 1) { pdM = pr.mult; e.setAmount(e.getAmount() * pdM); }
     } else if (global.ecosPD && global.ecosPD.prueba && !ecosEsJugador(atq) && !ecosEsJugador(ent)) {   // prueba: flecha sin dueño (su atacante es ella misma)
-      var pp = global.ecosPD.evaluar(ent, src, null, tipo, e.getAmount(), !!ECOS_TOPE[ecosIdEntidad(ent)]);
+      var pp = global.ecosPD.evaluar(ent, src, null, tipo, e.getAmount(), ecosEsJefeId(ecosIdEntidad(ent)));
       if (pp && pp.letal > 0) e.setAmount(pp.letal); else if (pp && pp.mult > 1) { pdM = pp.mult; e.setAmount(e.getAmount() * pdM); }
     }
   } catch (errD) { console.info('[ECOS-FORGE] puntos débiles: ' + errD); }
+  // e) nivel recomendado (Cha 19-nov 22:0x: «el jefe debería ser difícil para que no lo pueda matar y tiene que ir preparado»).
+  //    Patrón WoW (brecha de nivel) + Scadutree de Elden Ring (número visible). Si tu Conciencia está debajo de la del jefe:
+  //    haces -8 % de daño por nivel que te falte (piso 15 %) y recibes +12 % por nivel (tope x3). Arriba o igual: nada cambia.
+  try {
+    var rj = null, rp = null;
+    if (ecosEsJugador(atq) && !ecosEsJugador(ent)) { rj = ECOS_REC.jefes[ecosIdEntidad(ent)]; rp = atq; }
+    else if (ecosEsJugador(ent) && atq && !ecosEsJugador(atq)) { rj = ECOS_REC.jefes[ecosIdEntidad(atq)]; rp = ent; }
+    if (rj && rp) {
+      var gap = rj[0] - ecosConciencia(rp);
+      if (gap > 0) {
+        if (rp === atq) e.setAmount(e.getAmount() * Math.max(ECOS_REC.pisoDado, 1 - ECOS_REC.dadoPorNivel * gap));
+        else e.setAmount(e.getAmount() * Math.min(ECOS_REC.topeRecibido, 1 + ECOS_REC.recibidoPorNivel * gap));
+      }
+    }
+  } catch (errE) { console.info('[ECOS-FORGE] nivel recomendado: ' + errE); }
   // tope de jefes (x su escalado, x su punto débil)
   var t = ECOS_TOPE[ecosIdEntidad(ent)];
   if (t) {

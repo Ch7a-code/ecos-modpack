@@ -1,0 +1,1982 @@
+{
+  "name": "Leonanthropy",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/lion.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "abilities": {
+    "Beast": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Beast",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "tag @s add EOP.Has.BM",
+        "scale reset @s",
+        "effect clear @s",
+        "scoreboard objectives add LE.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Beast",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Leonanthropy": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/lion.png",
+      "title": "Leonanthropy",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to turn into a lion"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:beast @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{beast:\"eop_true\",display:{Name:'[\"\",{\"text\":\":Leonanthropy\",\"color\":\"#eeab36\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "LE.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s LE.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "LE.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "LE.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s LE.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "LE.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "LE.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s LE.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "LE.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Health": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "0de8346a-1326-4e06-b56e-0b756d0d57ed",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Leonanthropy"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "LE.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/lion.png",
+            "description": {
+              "text": "Leonanthropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "599d1c06-ba2c-4381-bd44-8b841d5fae58",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "LE.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/lion.png",
+            "description": {
+              "text": "Leonanthropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "962b81ae-949f-41b4-b3d9-635d91b9bc2d",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "LE.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/lion.png",
+            "description": {
+              "text": "Leonanthropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "63262ab6-ffe6-47c6-b9a9-cba0b4ab4670",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "LE.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/lion.png",
+            "description": {
+              "text": "Leonanthropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Reduced.Fall.Damage": {
+      "type": "eop:reduce_fall",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "division_amount": 1.3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Reduced.Hunger": {
+      "type": "eop:slower_hunger",
+      "reduction_factor": 0.3,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Bone.Healing": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "bodydamage @s heal ALL 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "Temp.Resistance": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "effect give @s legendarysurvivaloverhaul:cold_resistance 1 0 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Effect.Immunity": {
+      "type": "eop:effect_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "effects": [
+        "minecraft:hunger"
+      ]
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Powerful Bite",
+      "description": "Sink your powerful jaws into your prey. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/bite.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Bite": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/bite.png",
+      "title": "Powerful Bite",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "start_value": 0,
+      "max_value": 25,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 20,
+            "ticks": 25,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:beast"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Bite.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:beast/lion",
+      "controller": "animations",
+      "animation_trigger": "bite",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Bite"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Bite",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Bite.Damage": {
+      "type": "eop:aoe_damage_once",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 3,
+      "damage": 10,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Bite",
+            "property": "value",
+            "min": 11,
+            "max": 11
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Bite"
+          }
+        ]
+      }
+    },
+    "Bite.Motion": {
+      "type": "eop:motion",
+      "title": "Powerful Bite",
+      "motion_scale": 1,
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Bite"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Bite",
+            "property": "value",
+            "min": 11,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "Bite.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.evoker_fangs.attack master @a ~ ~ ~ 1 0.7"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Bite",
+            "property": "value",
+            "min": 1,
+            "max": 25
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Bite"
+          }
+        ]
+      }
+    },
+    "Transform.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Lion form",
+      "description": "Transform into your lion form. §dAbilities only work while transformed",
+      "icon": "eop:textures/gui/lion_transform.png",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Leonanthropy"
+          }
+        ]
+      }
+    },
+    "Transform": {
+      "type": "palladium:animation_timer",
+      "title": "Lion form",
+      "description": "Transform into your lion form",
+      "icon": "eop:textures/gui/lion_transform.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "start_value": 0,
+      "max_value": 20,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:beast"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transform.Animal.Model": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 13,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Transform.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:beast/lion",
+      "controller": "animations",
+      "animation_trigger": "transform",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Transform.Animal.Model",
+                    "property": "value",
+                    "min": 1,
+                    "max": 1
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform.Animal.Model"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:beast/lion",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hide.Body": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head_overlay",
+        "chest_overlay",
+        "right_arm",
+        "left_arm",
+        "right_leg",
+        "left_leg",
+        "head",
+        "chest",
+        "cape"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 19,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Transform.Stats": {
+      "type": "eop:multi_attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attributes": [
+        "minecraft:generic.attack_damage",
+        "minecraft:generic.movement_speed",
+        "forge:nametag_distance",
+        "minecraft:generic.armor"
+      ],
+      "amounts": [
+        6,
+        0.6,
+        -1000,
+        20,
+        5
+      ],
+      "operations": [
+        "addition",
+        "multiply_base",
+        "addition",
+        "addition"
+      ],
+      "modifier_uuids": [
+        "3f418e0e-a55b-4fa9-855e-72e6ef0a4ae3",
+        "26120800-5cf9-4299-8006-db63c60450f7",
+        "b94b5611-310d-4b6b-b967-5a9b105e05c1",
+        "74ce33e1-8f50-4fda-af22-49728f6071d7"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Store.Armor": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": true,
+      "hide_offhand": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Restrict.Slots": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs",
+        "head",
+        "mainhand",
+        "offhand"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Transform.No.Move.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 52,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "IFrame.Transform": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "eop:phase_immune"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "cad8fd36-ef8f-436d-9b82-1525c14a0ed6",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "5246e058-4f2a-4cc4-80fc-d5be450e5c19",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Transform.Effects": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Lion",
+        "tag @s add EOP.Non.Humanoid.Model",
+        "scale set pehkui:hitbox_height 1.3",
+        "scale set pehkui:hitbox_width 1.3",
+        "scale set pehkui:eye_height 1.35",
+        "scale set pehkui:held_item 0",
+        "playsound minecraft:entity.wolf.growl master @a ~ ~ ~ 1 0.5"
+      ],
+      "last_tick_commands": [
+        "tag @s remove EOP.Lion",
+        "tag @s remove EOP.Non.Humanoid.Model",
+        "effect clear @s jump_boost",
+        "scale reset @s",
+        "playsound minecraft:entity.wolf.growl master @a ~ ~ ~ 1 0.5"
+      ],
+      "commands": [
+        "effect give @s minecraft:jump_boost 1 1 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Transform.Night.Vision": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s night_vision"
+      ],
+      "commands": [
+        "effect give @s minecraft:night_vision 20 1 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Night.Vision.On"
+          }
+        ]
+      }
+    },
+    "Transform.Roar": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:werewolf master @a ~ ~ ~ 3 0.8"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.Animal.Model",
+            "property": "value",
+            "min": 3,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Animal.Model"
+          }
+        ]
+      }
+    },
+    "Creature.Name": {
+      "type": "palladium:name_change",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "name": {
+        "text": "Werelion"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Super.Jump": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s jump_boost"
+      ],
+      "commands": [
+        "effect give @s jump_boost 1 6 true"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          },
+          {
+            "type": "eop:looking_direction",
+            "mode": "up"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Super.Jump.On"
+          }
+        ]
+      }
+    },
+    "Pounce.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/pounce.png",
+      "title": "Pounce",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Pounce towards prey to close distance",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "LE.Score",
+            "score": 3,
+            "icon": "eop:textures/gui/lion.png",
+            "description": {
+              "text": "Leonanthropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Pounce": {
+      "type": "eop:motion",
+      "title": "Pounce",
+      "icon": "eop:textures/gui/pounce.png",
+      "motion_scale": 2.5,
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:action",
+            "cooldown": 100,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Pounce.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Pounce.Sound": {
+      "type": "palladium:command",
+      "icon": "minecraft:command_block",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "particle minecraft:explosion ~ ~ ~ 0.5 0.5 0.5 0 3",
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 1 0.8"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Pounce"
+          }
+        ]
+      }
+    },
+    "Speed.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/endorphins.png",
+      "title": "Predatory Speed",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Gain a powerful boost in speed as your predatory instincts kick in",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Pounce.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "LE.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/lion.png",
+            "description": {
+              "text": "Leonanthropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Speed": {
+      "type": "palladium:command",
+      "title": "Predatory Speed",
+      "icon": "eop:textures/gui/endorphins.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 0.7"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:toggle",
+            "cooldown": 300,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Speed.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Speed.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 1.6,
+      "operation": 1,
+      "uuid": "2d20a3d0-7f36-4209-9688-6ab049f7b601",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Speed"
+          }
+        ]
+      }
+    },
+    "Roar.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/diamond_smash.png",
+      "title": "Roar",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Let out a king's roar, staggering targets around you",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Speed.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "LE.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/lion.png",
+            "description": {
+              "text": "Leonanthropy Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.B"
+          }
+        ]
+      }
+    },
+    "Roar": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/diamond_smash.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "title": "Roar",
+      "start_value": 0,
+      "max_value": 50,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 300,
+            "ticks": 50,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_under_water"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Roar.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Roar.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:beast/lion",
+      "controller": "animations",
+      "animation_trigger": "roar",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Roar"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Roar",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Roar.AOE.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:werewolf master @a ~ ~ ~ 3 0.5"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Roar",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Roar"
+          }
+        ]
+      }
+    },
+    "Roar.AOE.Commands2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "particle explosion ~ ~ ~ 15 10 15 0 50 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Roar"
+          }
+        ]
+      }
+    },
+    "Roar.AOE.Commands.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 10,
+      "include_caster": false,
+      "ignore_same_team": true,
+      "commands": [
+        "effect give @s[tag=!Infinity] slowness 5 2 true",
+        "effect give @s[tag=!Infinity] weakness 5 2 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Roar"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "1520030b-ad57-4f79-a293-a56c0678bb37",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Roar"
+          }
+        ]
+      }
+    },
+    "No.Jumping2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "acdebe88-710d-4045-9104-325549eccf2c",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Roar"
+          }
+        ]
+      }
+    },
+    "King.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/king.png",
+      "title": "King of the Jungle",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Become the true King of the Jungle, increasing your overall power",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Roar.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Health4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "LE.Score",
+            "score": 15,
+            "icon": "eop:textures/gui/lion.png",
+            "description": {
+              "text": "Leonanthropy Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "King.Not.Work": {
+      "type": "palladium:command",
+      "title": "King of the Jungle",
+      "icon": "eop:textures/gui/king.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "first_tick_commands": [
+        "title @s actionbar [\"\",{\"text\":\"Must be transformed!\",\"color\":\"red\",\"bold\":true}]",
+        "playsound minecraft:block.note_block.didgeridoo master @s ~ ~ ~ 1 0.5"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 20,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "King.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "King": {
+      "type": "palladium:animation_timer",
+      "title": "King of the Jungle",
+      "icon": "eop:textures/gui/king.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "start_value": 0,
+      "max_value": 55,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 1200,
+            "ticks": 300,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "King.Unlock"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "King.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:beast/lion",
+      "controller": "animations",
+      "animation_trigger": "king",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "King"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "King",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "King.Commands": {
+      "type": "palladium:command",
+      "title": "King of the Jungle",
+      "icon": "eop:textures/gui/king.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "first_tick_commands": [
+        "playsound eop:werewolf master @a ~ ~ ~ 3 0.5",
+        "scale multiply pehkui:height 1.3",
+        "scale multiply pehkui:width 1.3"
+      ],
+      "last_tick_commands": [
+        "scale divide pehkui:height 1.3",
+        "scale divide pehkui:width 1.3"
+      ],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "King"
+          }
+        ]
+      }
+    },
+    "King.Stats": {
+      "type": "eop:multi_attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attributes": [
+        "minecraft:generic.attack_damage",
+        "minecraft:generic.movement_speed"
+      ],
+      "amounts": [
+        9,
+        1.4
+      ],
+      "operations": [
+        "addition",
+        "multiply_base"
+      ],
+      "modifier_uuids": [
+        "363f31f0-a5d1-485a-8ee3-392ece024f5d",
+        "78488ed8-72df-48d5-b2a8-35890ead6804"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "King"
+          }
+        ]
+      }
+    },
+    "King.Resistance": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "reduction": 0.6,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "King"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed3": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "e9077616-fc25-46a8-b08c-c6eb4e82fd69",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "King"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "King",
+            "property": "value",
+            "min": 1,
+            "max": 54
+          }
+        ]
+      }
+    },
+    "No.Jumping3": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "389d281b-2bd4-4fb4-b5f9-0bc613ce698f",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "King"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "King",
+            "property": "value",
+            "min": 1,
+            "max": 54
+          }
+        ]
+      }
+    },
+    "ECOS.Maestro.B": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_bestias_aceptada"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_bestias_g2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_bestias_g2"
+          }
+        ]
+      }
+    }
+  }
+}

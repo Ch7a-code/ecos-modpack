@@ -1,0 +1,2892 @@
+{
+  "name": "Stone Mimicry",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/rock.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "abilities": {
+    "Thing": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Thing",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "scoreboard objectives add EOP.Minion dummy",
+        "execute unless entity @s[tag=EOP.NoNewMinion] run scoreboard players add ID.Number EOP.Minion 1",
+        "execute unless entity @s[tag=EOP.NoNewMinion] run scoreboard players operation @s EOP.Minion = ID.Number EOP.Minion",
+        "tag @s add EOP.NoNewMinion",
+        "scoreboard objectives add SM.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Thing",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Stone.Mimicry": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/rock.png",
+      "title": "Stone Mimicry",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to convert your tissue into a stone-like substance"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:thing @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{thing:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Stone Mimicry\",\"color\":\"#bdb7ac\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "SM.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s SM.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "SM.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "SM.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s SM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "SM.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "SM.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s SM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "SM.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Damage": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 1 more damage point",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "4bd0ac09-aa56-499f-9797-eaf0851275f9",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Stone.Mimicry"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "SM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/rock.png",
+            "description": {
+              "text": "Stone Mimicry Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 1 more damage point",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "8d1cd1ba-82d9-4fb4-832c-cb707df08d18",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "SM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/rock.png",
+            "description": {
+              "text": "Stone Mimicry Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 1 more damage point",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "36c99a3b-7c46-436e-b0d1-8e5727589efa",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "SM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/rock.png",
+            "description": {
+              "text": "Stone Mimicry Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 1 more damage point",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "9790b216-996f-41fb-bf1e-9ea24a84a8f0",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "SM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/rock.png",
+            "description": {
+              "text": "Stone Mimicry Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Seismic Sense",
+      "description": "Detect entities currently in contact with the ground. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/stone_sink.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Entity.Sense": {
+      "type": "palladium:entity_glow",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "mode": "others",
+      "color": "#825A2F",
+      "distance": 60,
+      "property_key": "EOP.onGround",
+      "property_value": "true",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 1200,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:thing"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_power",
+                "power": "eop:effects/fantastic_thing"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Entity.Sense.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:diamond_transform master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [
+        "playsound eop:diamond_transform master @a ~ ~ ~ 1 2"
+      ],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Entity.Sense"
+          }
+        ]
+      }
+    },
+    "Transform.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/stone_transform.png",
+      "title": "Stone Skin",
+      "description": "Cover your body in a rocky substance, being able to choose between §9Dense Form §fand §9Brittle Form §fwhile §dsneaking",
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 4,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Stone.Mimicry"
+          }
+        ]
+      }
+    },
+    "Transform.Dense": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/stone_transform.png",
+      "title": "Stone Skin: Dense form",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "start_value": 0,
+      "max_value": 16,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:thing"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "palladium:crouching"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Dense"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Brittle"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Stone.Colossus"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_power",
+                "power": "eop:effects/fantastic_thing"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hide.Layers": {
+      "type": "palladium:hide_body_part",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "body_parts": [
+        "right_arm",
+        "left_arm",
+        "right_leg",
+        "left_leg",
+        "head",
+        "chest",
+        "cape"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Transform.Dense",
+                    "property": "value",
+                    "min": 15,
+                    "max": 18
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform.Dense"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Transform.Brittle",
+                    "property": "value",
+                    "min": 15,
+                    "max": 18
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform.Brittle"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hide.Layers2": {
+      "type": "palladium:hide_body_part",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head_overlay",
+        "chest_overlay"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Dense"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Brittle"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Stone.Skin.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:thing/stone_skin",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          },
+          {
+            "type": "palladium:and",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Roll"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Roll",
+                "property": "value",
+                "min": 0,
+                "max": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Stone.Skin.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:diamond_transform master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [
+        "playsound eop:diamond_transform master @a ~ ~ ~ 1 1"
+      ],
+      "commands": [
+        "effect clear @s eop:shock",
+        "effect clear @s eop:shock_stronger"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Dense"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Brittle"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Tool.Hands": {
+      "type": "palladium:tool_hands",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "drop_block_tags": [
+        "minecraft:mineable/pickaxe",
+        "minecraft:needs_stone_tool"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Dense"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Brittle"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hand.Mine": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:destroy_speed",
+      "amount": 3,
+      "operation": 0,
+      "uuid": "1734ff08-4ba7-4547-b25a-0f5e9a0f51c6",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Dense"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Brittle"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Reduced.Fall.Damage": {
+      "type": "eop:reduce_fall",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "division_amount": 1.3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Dense"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Brittle"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Armor": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 16,
+      "operation": 0,
+      "uuid": "531586d4-6bc8-43fc-ba87-0e3aea71862b",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Dense"
+          }
+        ]
+      }
+    },
+    "Knockback.Resistance": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 0.5,
+      "operation": 0,
+      "uuid": "6cb29e79-757d-478d-b089-bea82b701537",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Dense"
+          }
+        ]
+      }
+    },
+    "Punch.Damage": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "hidden": true,
+      "amount": 2,
+      "uuid": "ee8f3b0f-64cb-4afa-ba63-a44f6d20968e",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Dense"
+          }
+        ]
+      }
+    },
+    "Sink": {
+      "type": "eop:sink",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "sink_strength": -0.12,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "eop:gamemode_check",
+                "gamemode": "creative"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Dense"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Brittle"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Stone.Colossus"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Damage.Immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "damage_sources": [
+        "eop:diamond_immune",
+        "eop:tacz_guns",
+        "eop:scorched_guns"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Dense"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Brittle"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Stone.Colossus"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transform.Brittle": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/stone_transform.png",
+      "title": "Stone Skin: Brittle Form",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "start_value": 0,
+      "max_value": 16,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:thing"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:crouching"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Brittle"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Dense"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Stone.Colossus"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_power",
+                "power": "eop:effects/fantastic_thing"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Armor.Brittle": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 10,
+      "operation": 0,
+      "uuid": "14df29aa-d221-4da9-84aa-854af85f8686",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Brittle"
+          }
+        ]
+      }
+    },
+    "Knockback.Resistance.Brittle": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 0.2,
+      "operation": 0,
+      "uuid": "708ebd6b-e63d-4aeb-babc-3bad284500ab",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Brittle"
+          }
+        ]
+      }
+    },
+    "Punch.Damage.Brittle": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "hidden": true,
+      "amount": 5,
+      "uuid": "c2b0babe-b685-4fcb-befc-46ee254cd364",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Brittle"
+          }
+        ]
+      }
+    },
+    "Speed.Brittle": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.movement_speed",
+      "hidden": true,
+      "amount": 0.2,
+      "operation": 1,
+      "uuid": "1c84d266-0ad7-48da-bccd-8c2088be2b86",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Brittle"
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform.Brittle"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform.Dense"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Store.Armor": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": false,
+      "hide_offhand": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform.Brittle"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform.Dense"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Restrict.Slots": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs",
+        "head"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Catapult.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/stone_hammer.png",
+      "title": "Catapult",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Launch stone projectiles that cause targets to get slowed and knocked back on impact",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "SM.Score",
+            "score": 3,
+            "icon": "eop:textures/gui/rock.png",
+            "description": {
+              "text": "Stone Mimicry Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Catapult": {
+      "type": "palladium:projectile",
+      "icon": "eop:textures/gui/stone_hammer.png",
+      "title": "Catapult",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "main_arm",
+      "inaccuracy": 0,
+      "velocity": 1.5,
+      "damage_from_player": false,
+      "entity_data": {
+        "Size": 0.5,
+        "Gravity": 0.02,
+        "Damage": 6,
+        "DamageType": "eop:basic",
+        "ExplosionRadius": 1,
+        "ExplosionBlockInteraction": "KEEP",
+        "ExplosionCausesFire": false,
+        "Lifetime": 100,
+        "CommandOnEntityHit": "effect give @e[type=!armor_stand,type=!item,distance=..5,tag=!Infinity,tag=!EOP.Phasing] slowness 3 1 true",
+        "KnockbackStrength": 2.5,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:block",
+            "Options": " stone",
+            "Spread": 0,
+            "Amount": 10
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 200,
+            "ticks": 20,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Catapult.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_power",
+                "power": "eop:effects/fantastic_thing"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Roll"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Stone.Colossus"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Catapult.Comamnds": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/stone_hammer.png",
+      "title": "Catapult",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 1 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Catapult"
+          }
+        ]
+      }
+    },
+    "Dash.Roll.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/chimera_dash.png",
+      "title": "Boulder Roll",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Curl up into a ball and charge forward, damaging targets in your path. Speed and damage varies between stone forms",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Catapult.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "SM.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/rock.png",
+            "description": {
+              "text": "Stone Mimicry Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Dash": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/chimera_dash.png",
+      "title": "Boulder Roll",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 50,
+            "ticks": 10,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:thing"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Dash.Roll.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Brittle"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Dense"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_power",
+                "power": "eop:effects/fantastic_thing"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Stone.Colossus"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Dash.Motion": {
+      "type": "eop:motion",
+      "title": "Dash",
+      "motion_scale": 1.5,
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Dash"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "Dash.Damage": {
+      "type": "eop:aoe_damage",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 3,
+      "damage": 2,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Dash.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Roll": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/dodge.png",
+      "title": "Boulder Roll",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform.Brittle",
+                "property": "value",
+                "min": 16,
+                "max": 16
+              },
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform.Dense",
+                "property": "value",
+                "min": 16,
+                "max": 16
+              }
+            ]
+          },
+          {
+            "type": "palladium:toggle",
+            "cooldown": 200,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:thing"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:in_water"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Dash.Roll.Unlock"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Dense"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Brittle"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_power",
+                "power": "eop:effects/fantastic_thing"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Stone.Colossus"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Roll.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Roll",
+        "playsound eop:diamond_transform master @a ~ ~ ~ 1 2",
+        "scale set pehkui:hitbox_height 0.5",
+        "scale set pehkui:eye_height 0.5",
+        "scale set pehkui:step_height 2"
+      ],
+      "last_tick_commands": [
+        "tag @s remove EOP.Roll",
+        "scale reset @s"
+      ],
+      "commands": [
+        "particle minecraft:campfire_cosy_smoke ~ ~ ~ 0.1 0.1 0.1 0.05 3 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Roll"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed.Roll": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "239fa24c-92cd-44f4-8091-de9f93653a85",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Roll"
+          }
+        ]
+      }
+    },
+    "No.Jumping.Roll": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "a2cf4be0-a354-4273-8d4c-3b3a8ba7cc35",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Roll"
+          }
+        ]
+      }
+    },
+    "Stone.Skin.Render.Roll": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:thing/stone_skin_roll",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Roll"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Dense"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Brittle"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Stone.Skin.Render.Roll2": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:thing/stone_skin_roll_end",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          },
+          {
+            "type": "palladium:and",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Roll"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Roll",
+                "property": "value",
+                "min": 1,
+                "max": 100
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Dense"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Brittle"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Roll.Damage": {
+      "type": "eop:aoe_damage",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 3,
+      "damage": 5,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "cone": false,
+      "cone_angle": 90,
+      "create_explosion": false,
+      "explosion_radius": 3,
+      "destroy_blocks": true,
+      "explosion_drop_items": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Roll"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Roll",
+            "property": "value",
+            "min": 8,
+            "max": 100
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform.Dense"
+          }
+        ]
+      }
+    },
+    "Roll.Knockback": {
+      "type": "eop:aoe_knockback",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 3,
+      "knockback": 6,
+      "invert": false,
+      "crush": false,
+      "cone": false,
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Roll"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Roll",
+            "property": "value",
+            "min": 8,
+            "max": 100
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform.Dense"
+          }
+        ]
+      }
+    },
+    "Roll.Knocback.Resistance": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "2b20b1af-9967-40de-9af8-49e6396b0bda",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Roll"
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Brittle"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform.Dense"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Roll.Damage2": {
+      "type": "eop:aoe_damage",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 3,
+      "damage": 2,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "cone": false,
+      "cone_angle": 90,
+      "create_explosion": false,
+      "explosion_radius": 3,
+      "destroy_blocks": true,
+      "explosion_drop_items": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Roll"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Roll",
+            "property": "value",
+            "min": 8,
+            "max": 100
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform.Brittle"
+          }
+        ]
+      }
+    },
+    "Roll.Knockback2": {
+      "type": "eop:aoe_knockback",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 3,
+      "knockback": 2,
+      "invert": false,
+      "crush": false,
+      "cone": false,
+      "ignore_same_team": true,
+      "ignore_pets": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Roll"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Roll",
+            "property": "value",
+            "min": 8,
+            "max": 100
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform.Brittle"
+          }
+        ]
+      }
+    },
+    "Roll.Motion.Start": {
+      "type": "eop:roll",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "motion_scale": 0.2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Roll"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Roll",
+            "property": "value",
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "Roll.Motion": {
+      "type": "eop:roll",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "motion_scale": 0.6,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Roll"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Roll",
+            "property": "value",
+            "min": 8,
+            "max": 100
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform.Dense"
+          }
+        ]
+      }
+    },
+    "Roll.Motion2": {
+      "type": "eop:roll",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "motion_scale": 1.2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Roll"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Roll",
+            "property": "value",
+            "min": 8,
+            "max": 100
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform.Brittle"
+          }
+        ]
+      }
+    },
+    "Touch.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/petrify.png",
+      "title": "Petrifying Touch",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 3,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Cause a target to solidify just enough to slow them down",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Dash.Roll.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "SM.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/rock.png",
+            "description": {
+              "text": "Stone Mimicry Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.B"
+          }
+        ]
+      }
+    },
+    "Touch": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/petrify.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": "Petrifying Touch",
+      "first_tick_commands": [
+        "playsound minecraft:entity.evoker.cast_spell master @a ~ ~ ~ 1 2",
+        "tag @s add EOP.Petrify"
+      ],
+      "last_tick_commands": [
+        "tag @s remove EOP.Petrify"
+      ],
+      "commands": [],
+      "list_index": 3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 200,
+            "ticks": 100,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Touch.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_power",
+                "power": "eop:effects/fantastic_thing"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Stone.Colossus"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Colossus.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/stone_colossus.png",
+      "title": "Stone Colossus",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Shape your form, becoming bigger and more powerful",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Touch.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Damage4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "SM.Score",
+            "score": 15,
+            "icon": "eop:textures/gui/rock.png",
+            "description": {
+              "text": "Stone Mimicry Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "Stone.Colossus": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/stone_colossus.png",
+      "title": "Stone Colossus",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "start_value": 0,
+      "max_value": 40,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 1200,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Colossus.Unlock"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:thing"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_power",
+                "power": "eop:effects/fantastic_thing"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Roll"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Save.Health": {
+      "type": "eop:transform_stat_save",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Stone.Colossus"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Golem.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:thing/colossus",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Stone.Colossus.Hide.Body": {
+      "type": "palladium:hide_body_part",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head_overlay",
+        "chest_overlay",
+        "right_arm",
+        "left_arm",
+        "right_leg",
+        "left_leg",
+        "head",
+        "chest",
+        "cape"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Stone.Colossus",
+            "property": "value",
+            "min": 12,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "Stone.Colossus.Sounds": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound eop:diamond_transform master @a ~ ~ ~ 1 0.7",
+        "particle block cobblestone ~ ~1 ~ 0.5 0.5 0.5 0 150 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Stone.Colossus",
+            "property": "value",
+            "min": 1,
+            "max": 39
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 5
+          }
+        ]
+      }
+    },
+    "Stone.Colossus.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scale set pehkui:eye_height 1.4",
+        "tag @s add EOP.Non.Humanoid.Model",
+        "scale set pehkui:reach 1.7",
+        "scale set pehkui:hitbox_width 2.3",
+        "scale set pehkui:hitbox_height 1.4",
+        "scale set pehkui:height 1.9",
+        "scale set pehkui:width 1.9",
+        "scale set pehkui:held_item 0",
+        "tag @s add Stone.Colossus"
+      ],
+      "last_tick_commands": [
+        "tag @s remove EOP.Non.Humanoid.Model",
+        "scale reset @s",
+        "tag @s remove Stone.Colossus"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Stone.Colossus"
+          }
+        ]
+      }
+    },
+    "Effect.Immunity": {
+      "type": "eop:effect_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "effects": [
+        "eop:shock",
+        "eop:shock_stronger"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Stone.Colossus"
+          }
+        ]
+      }
+    },
+    "Bone.Skeleton.Stats2": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "reduction": 0.4,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Stone.Colossus"
+          }
+        ]
+      }
+    },
+    "Creature.Name": {
+      "type": "palladium:name_change",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "name": {
+        "text": "Stone Colossus"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Stone.Colossus",
+            "property": "value",
+            "min": 3,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "Punch.Damage.Golem": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "hidden": true,
+      "amount": 10,
+      "uuid": "cc9b82b8-fcd8-41ed-b2ef-708b2493379e",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Stone.Colossus",
+            "property": "value",
+            "min": 3,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "Health.Golem": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 15,
+      "operation": 0,
+      "uuid": "cc1d16de-b8a6-41e9-9e1f-5d247c4e83ae",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Stone.Colossus"
+          }
+        ]
+      }
+    },
+    "Armor.Golem": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 20,
+      "operation": 0,
+      "uuid": "49fb358f-cfd9-4d89-be62-b0aed796948c",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Stone.Colossus",
+            "property": "value",
+            "min": 3,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "Knockback.Resistance.Golem": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 5,
+      "operation": 0,
+      "uuid": "22624126-44f4-4247-ace4-9d3f633ed8fd",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Stone.Colossus",
+            "property": "value",
+            "min": 3,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer2": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Stone.Colossus"
+          }
+        ]
+      }
+    },
+    "Store.Armor2": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Stone.Colossus"
+          }
+        ]
+      }
+    },
+    "Restrict.Slots2": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs",
+        "head",
+        "mainhand",
+        "offhand"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer2",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Stone.Colossus.Smash": {
+      "type": "palladium:animation_timer",
+      "title": "Smash",
+      "icon": "eop:textures/gui/diamond_smash.png",
+      "start_value": 0,
+      "max_value": 30,
+      "list_index": 0,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 40,
+            "ticks": 35,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:on_ground"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Stone.Colossus.Smash"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Stone.Colossus",
+            "property": "value",
+            "min": 40,
+            "max": 40
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Smash.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:thing/colossus",
+      "controller": "smash",
+      "animation_trigger": "smash",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Stone.Colossus.Smash",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Stone.Colossus.Smash"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "812661fa-cc50-4d8a-99ab-7fbdd34ab0d1",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Stone.Colossus.Smash"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "a1a6e481-aa78-4b72-8ed1-7ae7d6434818",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Stone.Colossus.Smash"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Golem.Clap.Damage": {
+      "type": "eop:aoe_damage_once",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 3,
+      "damage": 10,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Stone.Colossus.Smash",
+            "property": "value",
+            "min": 17,
+            "max": 17
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Stone.Colossus.Smash"
+          }
+        ]
+      }
+    },
+    "Golem.Clap.Part": {
+      "type": "palladium:command",
+      "icon": "minecraft:command_block",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "particle minecraft:explosion ~ ~ ~ 1.5 1 1.5 0 5",
+        "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Golem.Clap.Damage"
+          }
+        ]
+      }
+    },
+    "Summon.Minion": {
+      "type": "eop:summon_minions",
+      "title": "Stone Golems",
+      "icon": "eop:textures/gui/stone_golem.png",
+      "list_index": 1,
+      "wolf_superpower": "eop:models/stone_golem_base",
+      "piglin_superpower": "eop:models/stone_golem",
+      "minion_count": 3,
+      "lifetime": 30000,
+      "despawn_particle": "block stone",
+      "despawn_particle_count": 60,
+      "despawn_sound": "eop:diamond_transform",
+      "despawn_sound_pitch": 1,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Stone.Colossus",
+            "property": "value",
+            "min": 40,
+            "max": 40
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Golems.Command": {
+      "type": "palladium:command",
+      "icon": "eop:textures/gui/stone_gole.png",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound minecraft:entity.warden.emerge master @a ~ ~ ~ 1 2"
+      ],
+      "list_index": 3,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Summon.Minion"
+          }
+        ]
+      }
+    },
+    "ECOS.Maestro.B": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_materia_aceptada"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_materia_g2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_materia_g2"
+          }
+        ]
+      }
+    }
+  }
+}

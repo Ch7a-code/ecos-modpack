@@ -1,0 +1,1988 @@
+{
+  "name": "Bone Manipulation",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/bone.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "energy_bars": {
+    "bone_percent": {
+      "color": "#efefef",
+      "max": 100,
+      "synced_value": {
+        "type": "score",
+        "objective": "Bone.Amount",
+        "fallback": 0
+      }
+    }
+  },
+  "abilities": {
+    "Marrow": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Marrow",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "tag @s add EOP.Allows.Metal.Bones",
+        "scoreboard objectives add Bone.Amount dummy",
+        "scoreboard players add @s Bone.Amount 0",
+        "scoreboard objectives add BM.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Marrow",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove EOP.Allows.Metal.Bones",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "clear @s eop:bone_sword",
+        "clear @s eop:bone_shield",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Bone.Manipulation": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/bone.png",
+      "title": "Bone Manipulation",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to manipulation and control your bones"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:marrow @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{marrow:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Bone Manipulation\",\"color\":\"white\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "BM.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s BM.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "BM.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s BM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "BM.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s BM.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "BM.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Armor": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Armor",
+      "description": "Grants 2 more armor points",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "4f75a848-06e8-4394-95e2-799829b0e9f6",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Bone.Manipulation"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "BM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/bone.png",
+            "description": {
+              "text": "Bone Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Armor2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Armor",
+      "description": "Grants 2 more armor points",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "554ccce6-9576-49a6-8562-fbe3c0dfdc6b",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Armor"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "BM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/bone.png",
+            "description": {
+              "text": "Bone Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Armor3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Armor",
+      "description": "Grants 2 more armor points",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "d1b2efd1-44b8-4391-a682-a426d2a81835",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Armor2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "BM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/bone.png",
+            "description": {
+              "text": "Bone Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Armor4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/resistance.png",
+      "title": "Enhanced Armor",
+      "description": "Grants 2 more armor points",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "ab334707-1c29-497f-b36a-1f1aaccd8316",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Armor3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "BM.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/bone.png",
+            "description": {
+              "text": "Bone Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Wall.Climb": {
+      "type": "eop:wall_climb",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "climb_speed": 0.1,
+      "jump_force": 1.2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Climbing.On"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Set.Scoreboard.Max": {
+      "type": "eop:set_scoreboard",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "scoreboard_objective": "Bone.Amount",
+      "scoreboard_value": 100
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "icon": "eop:textures/gui/bone_bullets.png",
+      "title": "Bone Bullets",
+      "description": "Shoot sharp bones from your hands. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Machine.Gun": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Bone.Amount",
+            "min_score": 3,
+            "max_score": 1000
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:marrow"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Machine.Gun.Mainhand": {
+      "type": "palladium:aim",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "time": 10,
+      "arm": "main_arm",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Machine.Gun"
+          }
+        ]
+      }
+    },
+    "Machine.Gun.Offhand": {
+      "type": "palladium:aim",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "time": 10,
+      "arm": "off_arm",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Machine.Gun"
+          }
+        ]
+      }
+    },
+    "Show.Arms": {
+      "type": "palladium:show_both_arms",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Machine.Gun"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Shards.Amount.Infinite": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players set @s Bone.Amount 100"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Bone.Amount",
+            "min_score": -1000,
+            "max_score": 99
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Inf.Energy"
+          }
+        ]
+      }
+    },
+    "Shards.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players add @s Bone.Amount 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 3
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "Ability.Being.Used"
+              }
+            ]
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Bone.Amount",
+            "min_score": -100,
+            "max_score": 99
+          }
+        ]
+      }
+    },
+    "Shoot.Gun": {
+      "type": "palladium:projectile",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "none",
+      "velocity": 5,
+      "inaccuracy": 0,
+      "damage_from_player": false,
+      "entity_data": {
+        "Size": 0.5,
+        "Gravity": 0,
+        "Damage": 5,
+        "DamageType": "eop:basic_projectile",
+        "Lifetime": 100,
+        "Appearances": [
+          {
+            "Type": "renderLayer",
+            "RenderLayer": "eop:marrow/bone_bullet"
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Machine.Gun",
+            "property": "value",
+            "min": 10,
+            "max": 10
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Bone.Type",
+            "min_score": 0,
+            "max_score": 0
+          }
+        ]
+      }
+    },
+    "Shoot.Gun2": {
+      "type": "palladium:projectile",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "none",
+      "velocity": 5,
+      "inaccuracy": 0,
+      "damage_from_player": false,
+      "entity_data": {
+        "Size": 0.5,
+        "Gravity": 0,
+        "Damage": 5,
+        "DamageType": "eop:basic_projectile",
+        "Lifetime": 100,
+        "Appearances": [
+          {
+            "Type": "renderLayer",
+            "RenderLayer": "eop:marrow/bone_bullet_right"
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Machine.Gun",
+            "property": "value",
+            "min": 10,
+            "max": 10
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Bone.Type",
+            "min_score": 0,
+            "max_score": 0
+          }
+        ]
+      }
+    },
+    "Shoot.Gun.M": {
+      "type": "palladium:projectile",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "none",
+      "velocity": 5,
+      "inaccuracy": 0,
+      "damage_from_player": false,
+      "entity_data": {
+        "Size": 0.5,
+        "Gravity": 0,
+        "Damage": 10,
+        "DamageType": "eop:basic_projectile",
+        "Lifetime": 100,
+        "Appearances": [
+          {
+            "Type": "renderLayer",
+            "RenderLayer": "eop:marrow/bone_bullet"
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Machine.Gun",
+            "property": "value",
+            "min": 10,
+            "max": 10
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Bone.Type",
+            "min_score": 1,
+            "max_score": 1
+          }
+        ]
+      }
+    },
+    "Shoot.Gun2.M": {
+      "type": "palladium:projectile",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 1,
+      "entity_type": "palladium:custom_projectile",
+      "swinging_arm": "none",
+      "velocity": 5,
+      "inaccuracy": 0,
+      "damage_from_player": false,
+      "entity_data": {
+        "Size": 0.5,
+        "Gravity": 0,
+        "Damage": 10,
+        "DamageType": "eop:basic_projectile",
+        "Lifetime": 100,
+        "Appearances": [
+          {
+            "Type": "renderLayer",
+            "RenderLayer": "eop:marrow/bone_bullet_right"
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Machine.Gun",
+            "property": "value",
+            "min": 10,
+            "max": 10
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Bone.Type",
+            "min_score": 1,
+            "max_score": 1
+          }
+        ]
+      }
+    },
+    "Sound.Shoot.Gun": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Ability.Being.Used",
+        "playsound minecraft:block.stone.break master @a ~ ~ ~ 1 1.8"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Ability.Being.Used"
+      ],
+      "commands": [
+        "scoreboard players remove @s Bone.Amount 3",
+        "execute if score @s Bone.Amount matches ..0 run scoreboard players set @s Bone.Amount 0"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Shoot.Gun"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Shoot.Gun.M"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transform.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/bone_form.png",
+      "title": "Bone Protrusion",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "description": "Manipulate the bones in your body to form sharp spikes",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Bone.Manipulation"
+          }
+        ]
+      }
+    },
+    "Transform": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/bone_form.png",
+      "title": "Bone Protrusion",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:marrow"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Bones.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:marrow/bone_form",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Bones.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "execute if score @s EOP.Bone.Type matches 0 run playsound eop:diamond_transform master @a ~ ~ ~ 1 2",
+        "execute if score @s EOP.Bone.Type matches 1 run playsound eop:claw master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [
+        "execute if score @s EOP.Bone.Type matches 0 run playsound eop:diamond_transform master @a ~ ~ ~ 1 2",
+        "execute if score @s EOP.Bone.Type matches 1 run playsound eop:claw master @a ~ ~ ~ 1 2"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Blade.Damage": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 4,
+      "operation": 0,
+      "uuid": "c734f55e-9cfc-4a75-802b-177962e30342",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Bone.Type",
+            "min_score": 0,
+            "max_score": 0
+          }
+        ]
+      }
+    },
+    "Blade.Damage2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 10,
+      "operation": 0,
+      "uuid": "97908610-e66e-4061-8445-c87ade1eb608",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Bone.Type",
+            "min_score": 1,
+            "max_score": 1
+          }
+        ]
+      }
+    },
+    "Thornmail": {
+      "type": "eop:aoe_damage_once",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 3,
+      "damage": 2,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "eop:damaged"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Bone.Slice": {
+      "type": "palladium:animation_timer",
+      "start_value": 0,
+      "max_value": 6,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 60,
+            "ticks": 14,
+            "key_type": "right_click"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Bone.Slice2": {
+      "type": "palladium:animation_timer",
+      "start_value": 0,
+      "max_value": 12,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "ability": "Bone.Slice",
+            "property": "value",
+            "min": 4,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "Bone.Slice.Damage": {
+      "type": "eop:aoe_damage",
+      "hidden": true,
+      "radius": 2,
+      "damage": 10,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Bone.Slice2"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "ability": "Bone.Slice2",
+            "property": "value",
+            "min": 5,
+            "max": 5
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Bone.Type",
+            "min_score": 0,
+            "max_score": 0
+          }
+        ]
+      }
+    },
+    "Bone.Slice.Damage2": {
+      "type": "eop:aoe_damage",
+      "hidden": true,
+      "radius": 2,
+      "damage": 18,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Bone.Slice2"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "ability": "Bone.Slice2",
+            "property": "value",
+            "min": 5,
+            "max": 5
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Bone.Type",
+            "min_score": 1,
+            "max_score": 1
+          }
+        ]
+      }
+    },
+    "Bone.Slice.Dash": {
+      "type": "eop:motion",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "motion_scale": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Bone.Slice.Damage"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Bone.Slice.Damage2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Bone.Slice.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound minecraft:entity.player.attack.knockback player @a ~ ~ ~ 1 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Bone.Slice.Damage"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Bone.Slice.Damage2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Bone.Weapons.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/bone_weapons.png",
+      "title": "Bone Weapons",
+      "description": "Create a sword and shield made of bone",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "BM.Score",
+            "score": 3,
+            "icon": "eop:textures/gui/bone.png",
+            "description": {
+              "text": "Bone Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Bone.Sword": {
+      "type": "eop:give_item",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "icon": "eop:textures/gui/bone_weapons.png",
+      "title": "Bone Weapons",
+      "list_index": 1,
+      "enable_mainhand": true,
+      "mainhand_item": "eop:bone_sword",
+      "enable_offhand": true,
+      "offhand_item": "eop:bone_shield",
+      "sound": "eop:diamond_transform",
+      "give_particles": "minecraft:spit",
+      "remove_particles": "minecraft:spit",
+      "score_cost": 0,
+      "score_objective": "Bone.Amount",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Bone.Weapons.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Bone.Type",
+            "min_score": 0,
+            "max_score": 0
+          }
+        ]
+      }
+    },
+    "Bone.Sword2": {
+      "type": "eop:give_item",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "icon": "eop:textures/gui/bone_weapons.png",
+      "title": "Metallic Weapons",
+      "list_index": 1,
+      "enable_mainhand": true,
+      "mainhand_item": "eop:metal_sword",
+      "enable_offhand": true,
+      "offhand_item": "eop:metal_shield",
+      "sound": "eop:diamond_transform",
+      "give_particles": "minecraft:spit",
+      "remove_particles": "minecraft:spit",
+      "score_cost": 0,
+      "score_objective": "Bone.Amount",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Bone.Weapons.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Bone.Type",
+            "min_score": 1,
+            "max_score": 1
+          }
+        ]
+      }
+    },
+    "Spikes.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/bone_spikes.png",
+      "title": "Bone Spikes",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Send a wave of pointy bones in the direction you are facing",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Bone.Weapons.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "BM.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/bone.png",
+            "description": {
+              "text": "Bone Manipulation Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Spikes": {
+      "type": "palladium:command",
+      "title": "Bone Spikes",
+      "icon": "eop:textures/gui/bone_spikes.png",
+      "list_index": 2,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "first_tick_commands": [
+        "scoreboard players remove @s Bone.Amount 20",
+        "execute if score @s EOP.Bone.Type matches 0 run playsound eop:diamond_transform master @a ~ ~ ~ 1 1",
+        "execute if score @s EOP.Bone.Type matches 1 run playsound eop:claw master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [
+        "execute if score @s EOP.Bone.Type matches 0 run scoreboard players set @e[type=armor_stand,limit=20,distance=..20] EOP.Bone.Type 0",
+        "execute if score @s EOP.Bone.Type matches 1 run scoreboard players set @e[type=armor_stand,limit=20,distance=..20] EOP.Bone.Type 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 2,
+            "cooldown": 200,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Bone.Amount",
+            "min_score": 20,
+            "max_score": 150
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Spikes.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Spikes.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Spikes"
+          }
+        ]
+      }
+    },
+    "Spikes.Ability": {
+      "type": "eop:spike_wave",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "spacing": 1.7,
+      "count": 5,
+      "cone_width": 4,
+      "line_spacing": 0.5,
+      "cone_radius": 2.5,
+      "rise_height": 2,
+      "rise_speed": 0.3,
+      "spawn_depth": 1.9,
+      "lifetime": 4800,
+      "damage": 4,
+      "damage_radius": 2.6,
+      "damage_type": "eop:basic",
+      "spike_superpower": "eop:models/bone_wave",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Spikes"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Spikes.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "Healing.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/bone_heal.png",
+      "title": "Marrow Regeneration",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Harness the regenerative properties of your own bone structure to heal injuries",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Spikes.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "BM.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/bone.png",
+            "description": {
+              "text": "Bone Manipulation Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.B"
+          }
+        ]
+      }
+    },
+    "Healing": {
+      "type": "palladium:healing",
+      "icon": "eop:textures/gui/bone_heal.png",
+      "title": "Marrow Regeneration",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "frequency": 20,
+      "amount": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Bone.Amount",
+            "min_score": 3,
+            "max_score": 250
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Healing.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Healing.Usage": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Bone.Amount 3",
+        "execute if score @s EOP.Bone.Type matches 0 run playsound minecraft:entity.skeleton.death master @a ~ ~ ~ 1 2",
+        "execute if score @s EOP.Bone.Type matches 1 run playsound minecraft:entity.iron_golem.hurt master @a ~ ~ ~ 1 2"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Healing"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 10
+          },
+          {
+            "type": "eop:health_below_percent",
+            "percentage": 0.99
+          }
+        ]
+      }
+    },
+    "Bone.Healing": {
+      "type": "palladium:command",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "bodydamage @s heal ALL 3"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Healing"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 10
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          }
+        ]
+      }
+    },
+    "Healing.Usage.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Ability.Being.Used"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Ability.Being.Used"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Healing"
+          }
+        ]
+      }
+    },
+    "Exoskeleton.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/exoskeleton.png",
+      "title": "Exoskeleton",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Create an exoskeleton around you, making you much stronger",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Healing.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Armor4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "BM.Score",
+            "score": 15,
+            "icon": "eop:textures/gui/bone.png",
+            "description": {
+              "text": "Bone Manipulation Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "Exoskeleton": {
+      "type": "palladium:command",
+      "title": "Exoskeleton",
+      "icon": "eop:textures/gui/exoskeleton.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "first_tick_commands": [
+        "execute if score @s EOP.Bone.Type matches 0 run playsound eop:diamond_transform master @a ~ ~ ~ 1 2",
+        "execute if score @s EOP.Bone.Type matches 1 run playsound eop:claw master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [
+        "execute if score @s EOP.Bone.Type matches 0 run playsound eop:diamond_transform master @a ~ ~ ~ 1 2",
+        "execute if score @s EOP.Bone.Type matches 1 run playsound eop:claw master @a ~ ~ ~ 1 2"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 1200,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Exoskeleton.Unlock"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:marrow"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Exoskeleton.Stats": {
+      "type": "eop:multi_attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attributes": [
+        "minecraft:generic.attack_damage",
+        "minecraft:generic.movement_speed"
+      ],
+      "amounts": [
+        9,
+        1
+      ],
+      "operations": [
+        "addition",
+        "multiply_base"
+      ],
+      "modifier_uuids": [
+        "38b18932-feb6-4f8e-a999-3d847e345e44",
+        "5080e988-601c-46d0-80d4-43eaab9a6a01"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Bone.Type",
+            "min_score": 0,
+            "max_score": 0
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Exoskeleton"
+          }
+        ]
+      }
+    },
+    "Exoskeleton.Stats2": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "reduction": 0.5,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Bone.Type",
+            "min_score": 0,
+            "max_score": 0
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Exoskeleton"
+          }
+        ]
+      }
+    },
+    "Exoskeleton.Stats.Metal": {
+      "type": "eop:multi_attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attributes": [
+        "minecraft:generic.attack_damage",
+        "minecraft:generic.movement_speed"
+      ],
+      "amounts": [
+        12,
+        1.2
+      ],
+      "operations": [
+        "addition",
+        "multiply_base"
+      ],
+      "modifier_uuids": [
+        "b0624bac-e086-4b0d-aa08-15ab253e74b0",
+        "cfa93353-c31f-42ff-9485-9dc72cf845b0"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Bone.Type",
+            "min_score": 1,
+            "max_score": 1
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Exoskeleton"
+          }
+        ]
+      }
+    },
+    "Exoskeleton.Stats.Metal2": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "reduction": 0.65,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "EOP.Bone.Type",
+            "min_score": 1,
+            "max_score": 1
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Exoskeleton"
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Exoskeleton"
+          }
+        ]
+      }
+    },
+    "Store.Armor": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": false,
+      "hide_offhand": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Exoskeleton"
+          }
+        ]
+      }
+    },
+    "Restrict.Slots": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs",
+        "head"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Armor.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:marrow/bone_armor",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Bone.Armor.Animation": {
+      "type": "palladium:animation_timer",
+      "start_value": 0,
+      "max_value": 13,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Exoskeleton"
+          }
+        ]
+      }
+    },
+    "ECOS.Maestro.B": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_espiritu_aceptada"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_espiritu_g2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_espiritu_g2"
+          }
+        ]
+      }
+    }
+  }
+}

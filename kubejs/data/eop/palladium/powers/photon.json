@@ -1156,6 +1156,10 @@
             "description": {
               "text": "Light Manipulation Skill Point"
             }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.B"
           }
         ]
       }
@@ -1256,6 +1260,10 @@
             "description": {
               "text": "Light Manipulation Skill Point"
             }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.C"
           }
         ]
       }
@@ -1367,6 +1375,10 @@
             "description": {
               "text": "Light Manipulation Skill Point"
             }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
           }
         ]
       }
@@ -1502,6 +1514,63 @@
             "type": "palladium:ability_enabled",
             "power": "null",
             "ability": "Crush.Animation"
+          }
+        ]
+      }
+    },
+    "ECOS.Maestro.B": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_elementales_aceptada"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_elementales_g2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Maestro.C": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_elementales_p3"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_elementales_g2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_elementales_g2"
           }
         ]
       }

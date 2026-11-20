@@ -1,0 +1,1986 @@
+{
+  "name": "Elasticity",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/rubber.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "abilities": {
+    "Contortionist": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Contortionist",
+        "tag @s add EOP.Has.BM",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.Power",
+        "scoreboard objectives add Diamond.Shards dummy",
+        "scoreboard players set @s Diamond.Shards 100",
+        "scoreboard objectives add E.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Contortionist",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Elasticity": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/rubber.png",
+      "title": "Elasticity",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to expand and stretch your body"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:contortionist @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{contortionist:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Elasticity\",\"color\":\"#656999\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "E.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s E.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "E.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "E.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s E.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "E.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "E.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s E.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "E.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Damage": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 1 more damage point",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "29387a40-f342-4a89-a7cb-3e6132d2b5c9",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Elasticity"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "E.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/rubber.png",
+            "description": {
+              "text": "Elasticity Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 1 more damage point",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "c9b22c40-7e04-443d-acda-9a6028b66742",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "E.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/rubber.png",
+            "description": {
+              "text": "Elasticity Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 1 more damage point",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "769e4d05-f5e1-45f7-853f-1a4060a96a81",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "E.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/rubber.png",
+            "description": {
+              "text": "Elasticity Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Damage4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/strength.png",
+      "title": "Enhanced Strength",
+      "description": "Grants 1 more damage point",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 1,
+      "operation": 0,
+      "uuid": "f7b2f7b3-b7eb-4244-a0ed-6de9a4a7c59d",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Damage3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "E.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/rubber.png",
+            "description": {
+              "text": "Elasticity Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Reach": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 3,
+      "first_tick_commands": [
+        "scale set pehkui:reach 10 @s"
+      ],
+      "last_tick_commands": [
+        "scale reset pehkui:reach @s"
+      ],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Extra.Reach.On"
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:contortionist"
+          }
+        ]
+      }
+    },
+    "Base.Resistance": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "reduction": 0.4
+    },
+    "Reach": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "scale set pehkui:reach 3 @s"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 50
+          }
+        ]
+      }
+    },
+    "Effect.Immunity": {
+      "type": "eop:effect_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "effects": [
+        "eop:shock",
+        "eop:shock_stronger"
+      ]
+    },
+    "Rubber.Immune": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "eop:rubber",
+        "minecraft:is_lightning",
+        "minecraft:is_explosion"
+      ]
+    },
+    "Gear4.Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:contortionist/gear4",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Buff.Form"
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:straw_hat"
+            },
+            "slot": "head"
+          }
+        ]
+      }
+    },
+    "Gear4.Effects": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 1",
+        "particle poof ~ ~ ~ 1 1 1 0.1 400 force"
+      ],
+      "last_tick_commands": [
+        "playsound minecraft:block.fire.extinguish master @a ~ ~ ~ 1 1",
+        "particle poof ~ ~ ~ 1 1 1 0 400 force"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Buff.Form"
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:straw_hat"
+            },
+            "slot": "head"
+          }
+        ]
+      }
+    },
+    "Gear4.Particles": {
+      "type": "palladium:particles",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "emitter": "eop:general_body",
+      "particle_type": "minecraft:poof",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Buff.Form"
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:straw_hat"
+            },
+            "slot": "head"
+          }
+        ]
+      }
+    },
+    "Effects.Immune.Mods": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "bodydamage @s heal ALL 100"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:mod_loaded",
+            "mod_id": "legendarysurvivaloverhaul"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 20
+          }
+        ]
+      }
+    },
+    "Super.Jump": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s jump_boost"
+      ],
+      "commands": [
+        "effect give @s jump_boost 1 6 true"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "eop:looking_direction",
+            "mode": "up"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Super.Jump.On"
+          }
+        ]
+      }
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Stretchy Smash",
+      "description": "Stretch your arms and smash them together. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/diamond_smash.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Clap": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "title": "Stretchy Smash",
+      "icon": "eop:textures/gui/diamond_smash.png",
+      "list_index": 0,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 50,
+            "ticks": 30,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:command_result",
+                "command": "execute if block ~ ~ ~ minecraft:powder_snow",
+                "comparison": "!=",
+                "compare_to": 1,
+                "log": false
+              },
+              {
+                "type": "palladium:command_result",
+                "command": "execute if block ~ ~1 ~ minecraft:powder_snow",
+                "comparison": "!=",
+                "compare_to": 1,
+                "log": false
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "eop:freeze"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "eop:freeze_stronger"
+              }
+            ]
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:contortionist"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Bounce"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Clap2": {
+      "type": "palladium:animation_timer",
+      "start_value": 0,
+      "max_value": 6,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Clap",
+            "property": "value",
+            "min": 9,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Show.Arms": {
+      "type": "palladium:show_both_arms",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Clap"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Clap.Damage": {
+      "type": "eop:aoe_damage_once",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 7,
+      "damage": 4,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Clap2",
+            "property": "value",
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "Clap.Part": {
+      "type": "palladium:command",
+      "icon": "minecraft:command_block",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "particle minecraft:explosion ~ ~ ~ 5 1 5 0 5",
+        "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 2",
+        "playsound minecraft:entity.ghast.shoot master @a ~ ~ ~ 1 2"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Clap.Damage"
+          }
+        ]
+      }
+    },
+    "Transform.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/elastic_shield.png",
+      "title": "Stretchy Shield",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "description": "Stretch your body, gaining a defensive tactical advantage",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Elasticity"
+          }
+        ]
+      }
+    },
+    "Transform": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/elastic_shield.png",
+      "title": "Stretchy Shield",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Bounce"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transform.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scale set pehkui:hitbox_height 1.5",
+        "scale set pehkui:hitbox_width 1.3",
+        "scale set pehkui:eye_height 1.5",
+        "playsound eop:inflate master @a ~ ~ ~ 1 1.6"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Transformation.On",
+        "scale reset @s",
+        "playsound eop:inflate master @a ~ ~ ~ 1 1.6"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Rubber.Shield.Immune": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "minecraft:is_projectile"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "e2272cba-5b80-412d-8560-7c4caa260f87",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "72781336-dc00-481e-91cc-68f26d196ad8",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Knockback.Resistance": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 50,
+      "operation": 0,
+      "uuid": "dd587e35-7a2b-4f48-897a-392311d244b8",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Water.Golem"
+          }
+        ]
+      }
+    },
+    "Store.Armor": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": false,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": false,
+      "hide_offhand": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Transform"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Buff.Form"
+              },
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "Bounce"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Restrict.Slots": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Giant.Hands.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/elastic_arms.png",
+      "title": "Giant Hands",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Enlarge your arms, gaining extra damage",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "E.Score",
+            "score": 3,
+            "icon": "eop:textures/gui/rubber.png",
+            "description": {
+              "text": "Elasticity Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Giant.Hands": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/elastic_arms.png",
+      "title": "Giant Hands",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "start_value": 0,
+      "max_value": 5,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "Stretchy"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Bounce"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Buff.Form"
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:command_result",
+                "command": "execute if block ~ ~ ~ minecraft:powder_snow",
+                "comparison": "!=",
+                "compare_to": 1,
+                "log": false
+              },
+              {
+                "type": "palladium:command_result",
+                "command": "execute if block ~ ~1 ~ minecraft:powder_snow",
+                "comparison": "!=",
+                "compare_to": 1,
+                "log": false
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Giant.Hands.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "eop:freeze"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "eop:freeze_stronger"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Bounce"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Giant.Hands.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:inflate master @a ~ ~ ~ 1 1.6"
+      ],
+      "last_tick_commands": [
+        "playsound eop:inflate master @a ~ ~ ~ 1 1.6"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Giant.Hands"
+          }
+        ]
+      }
+    },
+    "Hands.Strength": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 3,
+      "operation": 0,
+      "uuid": "e708173b-8297-4e87-a03d-7f8ae929d461",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Giant.Hands"
+          }
+        ]
+      }
+    },
+    "Spin.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/elastic_spin.png",
+      "title": "Elastic Spin",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Spin rapidly, dealing damage around you",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Giant.Hands.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "E.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/rubber.png",
+            "description": {
+              "text": "Elasticity Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Dash.Spin": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title": "Elastic Spin",
+      "icon": "eop:textures/gui/elastic_spin.png",
+      "list_index": 2,
+      "start_value": 0,
+      "max_value": 100,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 600,
+            "ticks": 105,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "Stretchy"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Bounce"
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:command_result",
+                "command": "execute if block ~ ~ ~ minecraft:powder_snow",
+                "comparison": "!=",
+                "compare_to": 1,
+                "log": false
+              },
+              {
+                "type": "palladium:command_result",
+                "command": "execute if block ~ ~1 ~ minecraft:powder_snow",
+                "comparison": "!=",
+                "compare_to": 1,
+                "log": false
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Spin.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Bounce"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "eop:freeze"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "eop:freeze_stronger"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Dash.Arms": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 16,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash.Spin",
+            "property": "value",
+            "min": 6,
+            "max": 1600
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Dash.Spin"
+          }
+        ]
+      }
+    },
+    "Dash.Damage": {
+      "type": "eop:aoe_damage",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage": 1,
+      "radius": 6,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash.Spin",
+            "property": "value",
+            "min": 7,
+            "max": 1600
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Dash.Spin"
+          }
+        ]
+      }
+    },
+    "Dash.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "playsound minecraft:entity.player.attack.weak master @a ~ ~ ~ 1 2"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Dash.Spin"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash.Spin",
+            "property": "value",
+            "min": 7,
+            "max": 1200
+          }
+        ]
+      }
+    },
+    "Slow.Fall": {
+      "type": "palladium:slowfall",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Dash.Spin"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash.Spin",
+            "property": "value",
+            "min": 7,
+            "max": 1200
+          }
+        ]
+      }
+    },
+    "Buff.Form.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/elastic_buff.png",
+      "title": "Elastic Strength",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Inflate your body, giving you a strong buff appearance and making you stronger",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Spin.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "E.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/rubber.png",
+            "description": {
+              "text": "Elasticity Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.B"
+          }
+        ]
+      }
+    },
+    "Buff.Form": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/elastic_buff.png",
+      "title": "Elastic Strength",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "Stretchy"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Giant.Hands"
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:command_result",
+                "command": "execute if block ~ ~ ~ minecraft:powder_snow",
+                "comparison": "!=",
+                "compare_to": 1,
+                "log": false
+              },
+              {
+                "type": "palladium:command_result",
+                "command": "execute if block ~ ~1 ~ minecraft:powder_snow",
+                "comparison": "!=",
+                "compare_to": 1,
+                "log": false
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Buff.Form.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "eop:freeze"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "eop:freeze_stronger"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Bounce"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Buff.Form.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Armor.Store",
+        "playsound eop:inflate master @a ~ ~ ~ 1 1.6",
+        "scale set pehkui:eye_height 1.3",
+        "scale set pehkui:hitbox_height 1.3",
+        "scale set pehkui:hitbox_width 1.5"
+      ],
+      "last_tick_commands": [
+        "tag @s add EOP.Armor.Add",
+        "playsound eop:inflate master @a ~ ~ ~ 1 1.6",
+        "scale reset @s",
+        "effect clear @s jump_boost"
+      ],
+      "commands": [
+        "effect give @s jump_boost 1 2 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Buff.Form"
+          }
+        ]
+      }
+    },
+    "Buff.Form.Damage": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 9,
+      "operation": 0,
+      "uuid": "0c78a9a9-2c6c-405d-a4c1-91d54c2ed5a3",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Buff.Form"
+          }
+        ]
+      }
+    },
+    "Buff.Form.Resistance": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "reduction": 0.6,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Buff.Form"
+          }
+        ]
+      }
+    },
+    "Bounce.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/elastic_bounce.png",
+      "title": "Bounce",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Stretch yourself into a ball and deal damage with each bounce",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Buff.Form.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Damage4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "E.Score",
+            "score": 15,
+            "icon": "eop:textures/gui/rubber.png",
+            "description": {
+              "text": "Elasticity Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "Bounce": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/elastic_bounce.png",
+      "title": "Bounce",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "cooldown": 1800,
+            "ticks": 200,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "Stretchy"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Giant.Hands"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Buff.Form"
+              }
+            ]
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:command_result",
+                "command": "execute if block ~ ~ ~ minecraft:powder_snow",
+                "comparison": "!=",
+                "compare_to": 1,
+                "log": false
+              },
+              {
+                "type": "palladium:command_result",
+                "command": "execute if block ~ ~1 ~ minecraft:powder_snow",
+                "comparison": "!=",
+                "compare_to": 1,
+                "log": false
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Bounce.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "eop:freeze"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "eop:freeze_stronger"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Bounce.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound eop:inflate master @a ~ ~ ~ 1 1.6",
+        "scale set pehkui:eye_height 1.3",
+        "scale set pehkui:hitbox_height 1.3",
+        "scale set pehkui:hitbox_width 1.5",
+        "tag @s add EOP.Bounce"
+      ],
+      "last_tick_commands": [
+        "playsound eop:inflate master @a ~ ~ ~ 1 1.6",
+        "scale reset pehkui:eye_height @s",
+        "scale reset pehkui:hitbox_height @s",
+        "scale reset pehkui:hitbox_width @s",
+        "effect clear @s jump_boost",
+        "tag @s remove EOP.Bounce"
+      ],
+      "commands": [
+        "effect give @s jump_boost 1 5 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Bounce"
+          }
+        ]
+      }
+    },
+    "Bounce.Resistance": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "reduction": 0.8,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Bounce"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "77b6489b-b214-4a82-8f48-6107ca7c309f",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Bounce"
+          }
+        ]
+      }
+    },
+    "No.Move.Knockback": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 10,
+      "operation": 0,
+      "uuid": "9011715f-189b-41ec-bd6e-712d7cad233d",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Bounce"
+          }
+        ]
+      }
+    },
+    "Bounce.Armor": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 20,
+      "operation": 0,
+      "uuid": "1ab456ee-e0ac-4523-89e7-aba86dd67585",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Bounce"
+          }
+        ]
+      }
+    },
+    "Bounce.Damage": {
+      "type": "eop:aoe_damage_once",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 5,
+      "damage": 12,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Bounce"
+          },
+          {
+            "type": "palladium:on_ground"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_under_water"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Maestro.B": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_impulso_aceptada"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_impulso_g2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_impulso_g2"
+          }
+        ]
+      }
+    }
+  }
+}

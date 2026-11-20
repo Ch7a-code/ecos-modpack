@@ -1,0 +1,2428 @@
+{
+  "name": "Tauroanthropy",
+  "background": "minecraft:textures/block/gray_concrete_powder.png",
+  "icon": "eop:textures/gui/bull.png",
+  "ability_bar_texture": "eop:textures/gui/ability_bars/eop_powers.png",
+  "persistent_data": true,
+  "energy_bars": {
+    "ice_percent": {
+      "color": "#de6356",
+      "max": 100,
+      "synced_value": {
+        "type": "score",
+        "objective": "Run.Amount",
+        "fallback": 0
+      }
+    }
+  },
+  "abilities": {
+    "Bull": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "tag @s add Bull",
+        "tag @s add EOP.Has.Power",
+        "tag @s add EOP.NGP",
+        "tag @s add EOP.Has.BM",
+        "scoreboard objectives add Run.Amount dummy",
+        "scoreboard players set @s Run.Amount 0",
+        "scale reset @s",
+        "effect clear @s",
+        "scoreboard objectives add TA.Score dummy"
+      ],
+      "last_tick_commands": [
+        "tag @s remove Bull",
+        "tag @s remove EOP.NGP",
+        "tag @s remove EOP.Has.BM",
+        "tag @s remove EOP.Remove.DNA.Change",
+        "tag @s remove Mimic.Mob",
+        "tag @s remove EOP.Has.Power",
+        "scale reset @s"
+      ],
+      "commands": []
+    },
+    "Tauroanthropy": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/bull.png",
+      "title": "Tauroanthropy",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "You have obtained the power to turn into a minotaur"
+    },
+    "Power.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.Power"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.Power"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "BM.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Has.BM"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Has.BM"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Mimic.Mob.Tag": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 15
+          }
+        ]
+      }
+    },
+    "Revert.Delay": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2
+    },
+    "Revert.Genetic.Manip": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "superpower remove eop:bull @s",
+        "tag @s remove Mimic.Mob"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Revert.Delay",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Power.Erased"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "EOP.Remove.DNA.Change"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "Mimic.Mob"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Get.DNA": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": "null",
+      "description": "null",
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 2",
+        "item replace entity @s weapon.mainhand with eop:dna_capsule{bull:\"eop_true\",display:{Name:'[\"\",{\"text\":\"Tauroanthropy\",\"color\":\"#76430d\",\"italic\":false},{\"text\":\" DNA Capsule\",\"italic\":false}]'}}"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "eop:empty_dna_capsule"
+            },
+            "slot": "mainhand"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "Mimic"
+          }
+        ]
+      }
+    },
+    "TA.Scoreboard.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard players add @s TA.Score 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 1200
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "TA.Score",
+                "min_score": 5,
+                "max_score": 200
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "TA.Scoreboard.Gain2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s TA.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 4800
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "TA.Score",
+            "min_score": 5,
+            "max_score": 9
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "TA.Scoreboard.Gain3": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scoreboard players add @s TA.Score 1"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 9600
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "TA.Score",
+            "min_score": 10,
+            "max_score": 14
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.SP"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Extra.Health": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        0.5,
+        -0.75
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "280f69b1-5642-4c01-9358-52e66e63743d",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Tauroanthropy"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TA.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/bull.png",
+            "description": {
+              "text": "Tauroanthropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health2": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        1,
+        -1.5
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "dcd1b819-446d-4e2d-a442-c7154a1591e6",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TA.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/bull.png",
+            "description": {
+              "text": "Tauroanthropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health3": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        1.5,
+        -2.25
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "c5e0dc4b-0413-4c1e-bbec-0650f7e6fbdd",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health2"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TA.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/bull.png",
+            "description": {
+              "text": "Tauroanthropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Extra.Health4": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:textures/mob_effect/health_boost.png",
+      "title": "Enhanced Health",
+      "description": "Grants 1 additional heart",
+      "gui_position": [
+        0.75,
+        -3
+      ],
+      "hidden": false,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 2,
+      "operation": 0,
+      "uuid": "e8b6611c-54cd-4dbf-9ade-8eef2417baa7",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Extra.Health3"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TA.Score",
+            "score": 2,
+            "icon": "eop:textures/gui/bull.png",
+            "description": {
+              "text": "Tauroanthropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Reduced.Fall.Damage": {
+      "type": "eop:reduce_fall",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "division_amount": 1.4,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Reduced.Hunger": {
+      "type": "eop:slower_hunger",
+      "reduction_factor": 0.3,
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Effect.Immunity": {
+      "type": "eop:effect_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "effects": [
+        "minecraft:hunger"
+      ]
+    },
+    "Secondary.Ability": {
+      "type": "palladium:dummy",
+      "gui_position": [
+        1.25,
+        -0.75
+      ],
+      "title": "Battle Roar",
+      "description": "Let out a fearsome roar, slowing enemies down. §dBattlemode §fmust be enabled via keybind. §dRight Click §fto use this ability",
+      "icon": "eop:textures/gui/narga_roar.png",
+      "hidden": false,
+      "hidden_in_bar": true
+    },
+    "Roar": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/narga_roar.png",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "title": "Roar",
+      "start_value": 0,
+      "max_value": 50,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 300,
+            "ticks": 50,
+            "key_type": "right_click"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_under_water"
+              }
+            ]
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "eop:power_selected",
+            "power": "eop:bull"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Battle.Mode"
+          }
+        ]
+      }
+    },
+    "Roar.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:bull/minotaur",
+      "controller": "animations",
+      "animation_trigger": "roar",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Roar"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Roar",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Roar.AOE.Commands": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.ravager.roar master @a ~ ~ ~ 3 0.5"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Roar",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Roar"
+          }
+        ]
+      }
+    },
+    "Roar.AOE.Commands2": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "particle explosion ~ ~ ~ 15 10 15 0 50 force"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Roar"
+          }
+        ]
+      }
+    },
+    "Roar.AOE.Custom": {
+      "type": "eop:aoe_command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 15,
+      "commands": [
+        "effect give @s[tag=!Infinity] slowness 5 2 true"
+      ],
+      "include_caster": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Roar"
+          }
+        ]
+      }
+    },
+    "Transform.Unlock": {
+      "type": "palladium:dummy",
+      "title": "Bull form",
+      "description": "Transform into your bull form. §dAbilities only work while transformed",
+      "icon": "eop:textures/gui/bull_transform.png",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "gui_position": [
+        -0.5,
+        -0.75
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Tauroanthropy"
+          }
+        ]
+      }
+    },
+    "Transform": {
+      "type": "palladium:animation_timer",
+      "title": "Bull form",
+      "icon": "eop:textures/gui/bull_transform.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "start_value": 0,
+      "max_value": 20,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "eop:power_selected",
+            "power": "eop:bull"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transform.Animal.Model": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 13,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Transform.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:bull/minotaur",
+      "controller": "animations",
+      "animation_trigger": "transform",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:and",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_integer_property",
+                    "power": "null",
+                    "ability": "Transform.Animal.Model",
+                    "property": "value",
+                    "min": 1,
+                    "max": 1
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "Transform.Animal.Model"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Render": {
+      "type": "palladium:render_layer",
+      "render_layer": "eop:bull/minotaur",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:invisibility"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Hide.Body": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head_overlay",
+        "chest_overlay",
+        "right_arm",
+        "left_arm",
+        "right_leg",
+        "left_leg",
+        "head",
+        "chest",
+        "cape"
+      ],
+      "affects_first_person": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 19,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "Transform.Stats": {
+      "type": "eop:multi_attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attributes": [
+        "minecraft:generic.attack_damage",
+        "minecraft:generic.movement_speed",
+        "forge:nametag_distance",
+        "minecraft:generic.armor"
+      ],
+      "amounts": [
+        4,
+        0.2,
+        -1000,
+        20
+      ],
+      "operations": [
+        "addition",
+        "multiply_base",
+        "addition",
+        "addition"
+      ],
+      "modifier_uuids": [
+        "c2fd05ba-70e5-4ebd-846a-95fec2c94f6b",
+        "60e55bae-578e-4e3d-9b5e-c96ba6368877",
+        "4de010b4-9fec-43cf-a66d-7fe8c9bfa0e1",
+        "32ae6ef9-9542-4371-98db-b19bc74a1515"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Restrict.Items.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Store.Armor": {
+      "type": "eop:store_gear",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "hide_head": true,
+      "hide_chest": true,
+      "hide_legs": true,
+      "hide_feet": true,
+      "hide_mainhand": true,
+      "hide_offhand": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Restrict.Slots": {
+      "type": "palladium:restrict_slots",
+      "icon": "minecraft:blaze_rod",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+        "chest",
+        "feet",
+        "legs",
+        "head",
+        "mainhand",
+        "offhand"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Restrict.Items.Timer",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "Transform.No.Move.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 52,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "IFrame.Transform": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+        "eop:phase_immune"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "No.Move.Speed": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "60a14cfa-bec4-40cc-8b97-e4fd54199d1d",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "No.Jumping": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "5aa489fc-faff-444e-9202-4116097624fd",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 1,
+            "max": 51
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Creature.Name": {
+      "type": "palladium:name_change",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "name": {
+        "text": "Minotaur"
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "null",
+                "ability": "Transform",
+                "property": "value",
+                "min": 15,
+                "max": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Transform.Effects": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "tag @s add EOP.Minotaur",
+        "tag @s add EOP.Non.Humanoid.Model",
+        "scale set pehkui:hitbox_height 1.3",
+        "scale set pehkui:hitbox_width 1.5",
+        "scale set pehkui:height 1.2",
+        "scale set pehkui:width 1.2",
+        "scale set pehkui:reach 1.1",
+        "scale set pehkui:eye_height 1.35",
+        "scale set pehkui:held_item 0"
+      ],
+      "last_tick_commands": [
+        "tag @s remove EOP.Minotaur",
+        "tag @s remove EOP.Non.Humanoid.Model",
+        "scale reset @s"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          }
+        ]
+      }
+    },
+    "Transform.Night.Vision": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "effect clear @s night_vision"
+      ],
+      "commands": [
+        "effect give @s minecraft:night_vision 20 1 true"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform",
+            "property": "value",
+            "min": 1,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.Night.Vision.On"
+          }
+        ]
+      }
+    },
+    "Transform.Roar": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.ravager.roar master @a ~ ~ ~ 3 0.5"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.Animal.Model",
+            "property": "value",
+            "min": 3,
+            "max": 20
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform.Animal.Model"
+          }
+        ]
+      }
+    },
+    "Dash.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/chimera_dash.png",
+      "title": "Horn Gore",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        -1.5
+      ],
+      "description": "Dash forward, piercing anything in front of you",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Transform.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TA.Score",
+            "score": 3,
+            "icon": "eop:textures/gui/bull.png",
+            "description": {
+              "text": "Tauroanthropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Dash": {
+      "type": "palladium:animation_timer",
+      "icon": "eop:textures/gui/chimera_dash.png",
+      "title": "Ferocious Dash",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "start_value": 0,
+      "max_value": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 100,
+            "ticks": 10,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Dash.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Dash.Motion": {
+      "type": "eop:motion",
+      "title": "Dash",
+      "motion_scale": 1,
+      "list_index": 1,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Dash"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "Dash.Damage": {
+      "type": "eop:aoe_damage_once",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 3,
+      "damage": 12,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Dash"
+          }
+        ]
+      }
+    },
+    "Dash.Sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 1 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Dash",
+            "property": "value",
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "Stampede.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/tail_spin.png",
+      "title": "Stampede Rush",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -1.5,
+        -2.25
+      ],
+      "description": "Charge forward with great momentum, trampling everything in your path",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Dash.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TA.Score",
+            "score": 5,
+            "icon": "eop:textures/gui/bull.png",
+            "description": {
+              "text": "Tauroanthropy Skill Point"
+            }
+          }
+        ]
+      }
+    },
+    "Stampede": {
+      "type": "palladium:command",
+      "title": "Stampede Rush",
+      "icon": "eop:textures/gui/tail_spin.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:toggle",
+            "cooldown": 0,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Stampede.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Momentum.Gain": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players add @s Run.Amount 2",
+        "effect clear @s slowness"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Stampede"
+          },
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Run.Amount",
+            "min_score": -100,
+            "max_score": 99
+          }
+        ]
+      }
+    },
+    "Momentum.Lose": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scoreboard players remove @s Run.Amount 3"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "palladium:sprinting"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_enabled",
+                    "ability": "Stampede"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "palladium:objective_score",
+            "objective": "Run.Amount",
+            "min_score": 1,
+            "max_score": 1000
+          }
+        ]
+      }
+    },
+    "Speed.Increase.Power": {
+      "type": "eop:attribute_increase",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "score_value": "Run.Amount",
+      "division_amount": "1200",
+      "attribute": "minecraft:generic.movement_speed",
+      "uuid": "af78983f-0379-4828-bd81-cf9450b32bcf",
+      "modifier": "addition",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Stampede"
+          }
+        ]
+      }
+    },
+    "Run.Knockback": {
+      "type": "eop:aoe_knockback",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 1,
+      "knockback": 30,
+      "invert": false,
+      "crush": false,
+      "cone": false,
+      "ignore_same_team": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Run.Amount",
+            "min_score": 20,
+            "max_score": 150
+          },
+          {
+            "type": "palladium:sprinting"
+          }
+        ]
+      }
+    },
+    "Run.Damage": {
+      "type": "eop:aoe_damage",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 1,
+      "damage": 2,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Run.Amount",
+            "min_score": 20,
+            "max_score": 40
+          },
+          {
+            "type": "palladium:sprinting"
+          }
+        ]
+      }
+    },
+    "Run.Damage2": {
+      "type": "eop:aoe_damage",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 1,
+      "damage": 3,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Run.Amount",
+            "min_score": 40,
+            "max_score": 60
+          },
+          {
+            "type": "palladium:sprinting"
+          }
+        ]
+      }
+    },
+    "Run.Damage3": {
+      "type": "eop:aoe_damage",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 1,
+      "damage": 4,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Run.Amount",
+            "min_score": 60,
+            "max_score": 80
+          },
+          {
+            "type": "palladium:sprinting"
+          }
+        ]
+      }
+    },
+    "Run.Damage4": {
+      "type": "eop:aoe_damage",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 1,
+      "damage": 6,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Run.Amount",
+            "min_score": 80,
+            "max_score": 150
+          },
+          {
+            "type": "palladium:sprinting"
+          }
+        ]
+      }
+    },
+    "Run.Damage.Frenzy": {
+      "type": "eop:aoe_damage",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 1,
+      "damage": 2,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Run.Amount",
+            "min_score": 20,
+            "max_score": 40
+          },
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Fury"
+          }
+        ]
+      }
+    },
+    "Run.Damage2.Frenzy": {
+      "type": "eop:aoe_damage",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 1,
+      "damage": 3,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Run.Amount",
+            "min_score": 40,
+            "max_score": 60
+          },
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Fury"
+          }
+        ]
+      }
+    },
+    "Run.Damage3.Frenzy": {
+      "type": "eop:aoe_damage",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 1,
+      "damage": 4,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Run.Amount",
+            "min_score": 60,
+            "max_score": 80
+          },
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Fury"
+          }
+        ]
+      }
+    },
+    "Run.Damage4.Frenzy": {
+      "type": "eop:aoe_damage",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "radius": 1,
+      "damage": 6,
+      "set_on_fire_seconds": 0,
+      "damage_type": "eop:basic",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Run.Amount",
+            "min_score": 80,
+            "max_score": 150
+          },
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Fury"
+          }
+        ]
+      }
+    },
+    "Run.Destroy.Blocks": {
+      "type": "eop:area_destroy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "radius": 2,
+      "cooldown": 3,
+      "drop_items": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Run.Amount",
+            "min_score": 80,
+            "max_score": 150
+          },
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:is_under_water"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.No.Destroy"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Step.Assist": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [],
+      "last_tick_commands": [
+        "scale reset pehkui:step_height @s"
+      ],
+      "commands": [
+        "scale set pehkui:step_height 2 @s"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Run.Amount",
+            "min_score": 80,
+            "max_score": 150
+          },
+          {
+            "type": "palladium:sprinting"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "EOP.No.Destroy"
+          }
+        ]
+      }
+    },
+    "No.Jumping.Run": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "ca3f62f9-1854-4c51-90de-591f45f75ca7",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Run.Amount",
+            "min_score": 1,
+            "max_score": 150
+          },
+          {
+            "type": "palladium:sprinting"
+          }
+        ]
+      }
+    },
+    "Knockback.Resistance2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 30,
+      "operation": 0,
+      "uuid": "e363e758-5820-4547-9757-8795637c481a",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "Run.Amount",
+            "min_score": 1,
+            "max_score": 150
+          },
+          {
+            "type": "palladium:sprinting"
+          }
+        ]
+      }
+    },
+    "Defense.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/shark_skin.png",
+      "title": "Iron Hide",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        -0.75,
+        -3
+      ],
+      "description": "Toughen your skin for increased defense",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Stampede.Unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TA.Score",
+            "score": 7,
+            "icon": "eop:textures/gui/bull.png",
+            "description": {
+              "text": "Tauroanthropy Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.B"
+          }
+        ]
+      }
+    },
+    "Defense": {
+      "type": "palladium:animation_timer",
+      "title": "Iron Hide",
+      "icon": "eop:textures/gui/shark_skin.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "start_value": 0,
+      "max_value": 40,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 800,
+            "ticks": 600,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Defense.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Defense.Animation.Timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 4,
+      "start_value": 0,
+      "max_value": 40,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Defense",
+            "property": "value",
+            "min": 1,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "Defense.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:bull/minotaur",
+      "controller": "animations",
+      "animation_trigger": "defense",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Defense"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Defense",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "No.Move.Speed2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "3be0c1d5-5757-45f7-9079-f8207a0e5cae",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Defense",
+            "property": "value",
+            "min": 1,
+            "max": 39
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Defense"
+          }
+        ]
+      }
+    },
+    "No.Jumping2": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "de1408e8-d63e-46c9-9b3e-07cd3a17db3c",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Defense",
+            "property": "value",
+            "min": 1,
+            "max": 39
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Defense"
+          }
+        ]
+      }
+    },
+    "Defense.Commands": {
+      "type": "palladium:command",
+      "title": "Iron Hide",
+      "icon": "eop:textures/gui/shark_skin.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 0.7"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Defense"
+          }
+        ]
+      }
+    },
+    "Defense.Resistance": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "reduction": 0.6,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Defense"
+          }
+        ]
+      }
+    },
+    "Fury.Unlock": {
+      "type": "palladium:dummy",
+      "icon": "eop:textures/gui/bull_fury.png",
+      "title": "Unstoppable Fury",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": 2,
+      "gui_position": [
+        0,
+        -2.5
+      ],
+      "description": "Enter a frenzied state, channeling pure rage to become an unrelenting force of destruction",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Defense.Unlock"
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "Extra.Health4"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "TA.Score",
+            "score": 15,
+            "icon": "eop:textures/gui/bull.png",
+            "description": {
+              "text": "Tauroanthropy Skill Point"
+            }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
+          }
+        ]
+      }
+    },
+    "Fury.Not.Work": {
+      "type": "palladium:command",
+      "title": "Unstoppable Fury",
+      "icon": "eop:textures/gui/bull_fury.png",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "first_tick_commands": [
+        "title @s actionbar [\"\",{\"text\":\"Must be transformed!\",\"color\":\"red\",\"bold\":true}]",
+        "playsound minecraft:block.note_block.didgeridoo master @s ~ ~ ~ 1 0.5"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 20,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Fury.Unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "ability": "Transform"
+              }
+            ]
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Fury": {
+      "type": "palladium:animation_timer",
+      "title": "Unstoppable Fury",
+      "icon": "eop:textures/gui/bull_fury.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "start_value": 0,
+      "max_value": 50,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Transform.No.Move.Timer",
+            "property": "value",
+            "min": 52,
+            "max": 52
+          },
+          {
+            "type": "palladium:activation",
+            "cooldown": 1200,
+            "ticks": 300,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "Fury.Unlock"
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Transform"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "EOP.Power.Erased"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Fury.Third.Person": {
+      "type": "palladium:animation_timer",
+      "title": "Unstoppable Fury",
+      "icon": "eop:textures/gui/bull_fury.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "start_value": 0,
+      "max_value": 1,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Fury"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Fury",
+            "property": "value",
+            "min": 0,
+            "max": 49
+          }
+        ]
+      }
+    },
+    "Fury.Animation": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "eop:bull/minotaur",
+      "controller": "animations",
+      "animation_trigger": "fury",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Fury"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Fury",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "No.Move.Speed3": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "3cda5024-2ad1-4988-a5f1-b22054d32a63",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Fury",
+            "property": "value",
+            "min": 1,
+            "max": 49
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Fury"
+          }
+        ]
+      }
+    },
+    "No.Jumping3": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:jump_power",
+      "amount": -1000,
+      "operation": 0,
+      "uuid": "752cd046-6d68-4c17-a147-4b717712502b",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "Fury",
+            "property": "value",
+            "min": 1,
+            "max": 49
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Fury"
+          }
+        ]
+      }
+    },
+    "Fury.Commands": {
+      "type": "palladium:command",
+      "title": "Unstoppable Fury",
+      "icon": "eop:textures/gui/bull_fury.png",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "first_tick_commands": [
+        "playsound minecraft:block.beacon.power_select master @a ~ ~ ~ 1 0.7",
+        "playsound minecraft:entity.ravager.roar master @a ~ ~ ~ 3 0.5"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Fury"
+          }
+        ]
+      }
+    },
+    "Fury.Stats": {
+      "type": "eop:multi_attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attributes": [
+        "minecraft:generic.attack_damage",
+        "minecraft:generic.movement_speed"
+      ],
+      "amounts": [
+        12,
+        0.8
+      ],
+      "operations": [
+        "addition",
+        "multiply_base"
+      ],
+      "modifier_uuids": [
+        "daef87f7-b2f5-4b37-8899-2f8707f371e2",
+        "e464edfa-e29b-41b9-8cd3-82b5aa671707"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Fury"
+          }
+        ]
+      }
+    },
+    "Fury.Defense": {
+      "type": "eop:damage_resistance",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "reduction": 0.8,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "Fury"
+          }
+        ]
+      }
+    },
+    "HP.Regen.Ult": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 15,
+      "amount": 1,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "Fury"
+          }
+        ]
+      }
+    },
+    "ECOS.Maestro.B": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_bestias_aceptada"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_bestias_g2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_bestias_g2"
+          }
+        ]
+      }
+    }
+  }
+}

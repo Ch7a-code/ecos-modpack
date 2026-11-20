@@ -1603,6 +1603,10 @@
             "description": {
               "text": "Umbrakinesis Skill Point"
             }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Maestro.C"
           }
         ]
       }
@@ -1770,6 +1774,10 @@
             "description": {
               "text": "Umbrakinesis Skill Point"
             }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
           }
         ]
       }
@@ -2096,6 +2104,10 @@
             "description": {
               "text": "Umbrakinesis Skill Point"
             }
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ECOS.Marca"
           }
         ]
       }
@@ -2582,6 +2594,41 @@
       "whitelist": "eop:domain",
       "hidden": true,
       "hidden_in_bar": true
+    },
+    "ECOS.Maestro.C": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_espiritu_p3"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "ecos_maestro_espiritu_g2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ECOS.Marca": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:has_tag",
+            "tag": "ecos_maestro_espiritu_g2"
+          }
+        ]
+      }
     }
   }
 }
