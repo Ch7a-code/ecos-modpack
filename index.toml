@@ -4849,6 +4849,11 @@ hash = "1fda5f8f014f41b439d5b9866d9b2b51ce6405c3ba46c11db75c7620e4e9cfc5"
 metafile = true
 
 [[files]]
+file = "resourcepacks/optimum-realism.pw.toml"
+hash = "34505f7c28d6315d0276024d21a7c41c39939aeca6affc5ba5374f525866aa52"
+metafile = true
+
+[[files]]
 file = "resourcepacks/patrix-32x.pw.toml"
 hash = "651fc4b215955ce32aa57014d8b30769eb1547e866996c1ad39511047f544008"
 metafile = true
@@ -4866,6 +4871,11 @@ metafile = true
 [[files]]
 file = "resourcepacks/spbr.pw.toml"
 hash = "ec2f6f1eb72eb0434eda941ac29f40cacff10bdcd2bc2e7231c23fbb6c8de13d"
+metafile = true
+
+[[files]]
+file = "resourcepacks/vanilla-realism-forsakenstudios.pw.toml"
+hash = "5bf6594bbb21e2aa47682c4280f3908ac4a86b2838d53b1bd8f9838f3e974767"
 metafile = true
 
 [[files]]

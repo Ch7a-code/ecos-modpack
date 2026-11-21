@@ -1,0 +1,13 @@
+name = "Vanilla Realism"
+filename = "VanillaRealism_U24_32x.zip"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/zGeaY0zG/versions/3taEP4Q9/VanillaRealism_U24_32x.zip"
+hash-format = "sha512"
+hash = "72d80f4bac534058d91d026f0568154735e35afaefee63d5cfc2979b9f218540fd752b759dac96e37b80f36f982fcc14f4c489e9f846c7ca4736a972c0020f48"
+
+[update]
+[update.modrinth]
+mod-id = "zGeaY0zG"
+version = "3taEP4Q9"

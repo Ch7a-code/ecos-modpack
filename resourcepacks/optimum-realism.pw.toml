@@ -1,0 +1,13 @@
+name = "Optimum Realism"
+filename = "Optimum Realism R4.2.2 64x 4.2.1.zip"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/jbhXFk8s/versions/xhB2qi02/Optimum%20Realism%20R4.2.2%2064x%204.2.1.zip"
+hash-format = "sha512"
+hash = "f4ba7babc8a5b7d47e39b51bb40d63268a25f1c197597c40d3452bb69cb10b8e48b3a0bd421c437dd566f3c28183b2d10c205bdf35dcc718343a572b6bddf441"
+
+[update]
+[update.modrinth]
+mod-id = "jbhXFk8s"
+version = "xhB2qi02"
