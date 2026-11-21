@@ -265,7 +265,7 @@
 		}
 		{
 			dependencies: ["5C69F91D02C5D7EC"]
-			description: ["&#19E6E6Zykna:&r &oAl cruzar, tu astilla se quedó callada: lo que sabías hacer en el laboratorio era prestado. Cada nivel de Conciencia la despierta un poco y te da puntos para tu árbol. Todo cuenta: pelear, minar, fundir, pescar.", "", "&6Qué hacer:&r Llega a Conciencia 10. Escribe conciencia en el chat para ver cuánto te falta.", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, lapislázuli o amatista.", "&5A veces (7 %):&r un montón de frascos de experiencia."]
+			description: ["&#19E6E6Zykna:&r &oAl cruzar, tu astilla se quedó callada: lo que sabías hacer en el laboratorio era prestado. Cada nivel de Conciencia la despierta un poco y te da puntos para tu árbol. Todo cuenta: pelear, minar, fundir, pescar.", "", "&6Qué hacer:&r Llega a Conciencia 10. Abre Shift + F → Mi Eco para ver cuánto te falta.", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, lapislázuli o amatista.", "&5A veces (7 %):&r un montón de frascos de experiencia."]
 			disable_toast: true
 			icon: "minecraft:amethyst_shard"
 			id: "119FE285F1B2736A"
@@ -288,7 +288,7 @@
 		}
 		{
 			dependencies: ["119FE285F1B2736A"]
-			description: ["&#19E6E6Zykna:&r &oEl Templo de la Conciencia es la única forma de volver a coser a la Primera Mente. Se enciende nivel por nivel, y cada nivel antes de la Cumbre pide ocho ofrendas, una por pilar. Sube a la cima: que una de esas voces sea la tuya.", "", "&6Qué hacer:&r Entrega una ofrenda en el altar de la cima del Templo: clic derecho con ella en la mano. Escribe obras para ver qué pide el nivel.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, frascos de experiencia o velas.", "&5A veces (7 %):&r dos manzanas doradas."]
+			description: ["&#19E6E6Zykna:&r &oEl Templo de la Conciencia es la única forma de volver a coser a la Primera Mente. Se enciende nivel por nivel, y cada nivel antes de la Cumbre pide ocho ofrendas, una por pilar. Sube a la cima: que una de esas voces sea la tuya.", "", "&6Qué hacer:&r Entrega una ofrenda en el altar de la cima del Templo: clic derecho con ella en la mano. Abre el libro de misiones, capítulo Las Obras para ver qué pide el nivel.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, frascos de experiencia o velas.", "&5A veces (7 %):&r dos manzanas doradas."]
 			disable_toast: true
 			icon: "minecraft:crying_obsidian"
 			id: "41A425EA72C21293"
@@ -311,7 +311,7 @@
 		}
 		{
 			dependencies: ["41A425EA72C21293"]
-			description: ["&#19E6E6Zykna:&r &oLos fragmentos más grandes de la Primera Mente se metieron en los cuerpos más fuertes: así nacieron los Portadores. Cuando cae el primero y se enciende el Cimiento del Templo, el mundo entero sube a la Era I. Ya no se trata solo de sobrevivir.", "", "&6Qué hacer:&r Entre todos: venzan al Ferrous Wroughtnaut, o a la Naga y al Lich, y enciendan el Cimiento del Templo. Escribe obras para ver qué falta.", "", "&6Premio:&r 2 cosas al azar: hierro, pólvora o frascos de experiencia.", "&5A veces (7 %):&r un peto de hierro encantado con Protección."]
+			description: ["&#19E6E6Zykna:&r &oLos fragmentos más grandes de la Primera Mente se metieron en los cuerpos más fuertes: así nacieron los Portadores. Cuando cae el primero y se enciende el Cimiento del Templo, el mundo entero sube a la Era I. Ya no se trata solo de sobrevivir.", "", "&6Qué hacer:&r Entre todos: venzan al Ferrous Wroughtnaut, o a la Naga y al Lich, y enciendan el Cimiento del Templo. Abre el libro de misiones, capítulo Las Obras para ver qué falta.", "", "&6Premio:&r 2 cosas al azar: hierro, pólvora o frascos de experiencia.", "&5A veces (7 %):&r un peto de hierro encantado con Protección."]
 			disable_toast: true
 			icon: "mowziesmobs:wrought_axe"
 			id: "021D2E878FA32987"
@@ -357,7 +357,7 @@
 		}
 		{
 			dependencies: ["7002E57824CBD582"]
-			description: ["&#19E6E6Zykna:&r &oSiete Maestros siguen vivos, uno por familia de dones, cada uno donde pocos llegan. Tu Maestro despierta cuando cae el guardián de su hogar. Llega hasta ahí y acepta su Prueba: lo que sigue ya no te lo enseño yo.", "", "&6Qué hacer:&r Escribe mision para saber quién es tu Maestro y dónde vive. Vence al guardián de su hogar, habla con tu Maestro y acepta su Prueba.", "", "&6Los siete Maestros:", "&7· Bestias: Ocelotzin, la Última Domadora, en el Cuenco de los Huesos (cuevas primordiales de Alex's Caves: hay que excavar hondo).", "&7· Elementales: Citlali, la Tejedora de Tormentas, en las islas altas del Aether.", "&7· Sangre y cuerpo: Yolotl, la Curandera de Hueso, en el Domo Envenenado de Everdawn (Blue Skies).", "&7· Mente y espacio: Mixtli, el Archivista del Silencio, en la Otra Orilla (Otherside de Deeper and Darker).", "&7· Materia: Tepoztli, el Herrero de la Roca, en las Cuevas de los Gigantes (Tierras Altas del Bosque Crepuscular).", "&7· Espíritu y sombra: Yohualli, el Custodio de la Vela, en la Torre Oscura (Born in Chaos: taiga, bosque o llanura).", "&7· Impulso y adaptación: Cuauhtli, la Corredora de Cielos, en las Islas Altas de Everbright (Blue Skies).", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, una manzana dorada o esmeraldas.", "&5A veces (7 %):&r una espada de diamante encantada con Filo."]
+			description: ["&#19E6E6Zykna:&r &oSiete Maestros siguen vivos, uno por familia de dones, cada uno donde pocos llegan. Tu Maestro despierta cuando cae el guardián de su hogar. Llega hasta ahí y acepta su Prueba: lo que sigue ya no te lo enseño yo.", "", "&6Qué hacer:&r Abre Shift + F → Misiones para saber quién es tu Maestro y dónde vive. Vence al guardián de su hogar, habla con tu Maestro y acepta su Prueba.", "", "&6Los siete Maestros:", "&7· Bestias: Ocelotzin, la Última Domadora, en el Cuenco de los Huesos (cuevas primordiales de Alex's Caves: hay que excavar hondo).", "&7· Elementales: Citlali, la Tejedora de Tormentas, en las islas altas del Aether.", "&7· Sangre y cuerpo: Yolotl, la Curandera de Hueso, en el Domo Envenenado de Everdawn (Blue Skies).", "&7· Mente y espacio: Mixtli, el Archivista del Silencio, en la Otra Orilla (Otherside de Deeper and Darker).", "&7· Materia: Tepoztli, el Herrero de la Roca, en las Cuevas de los Gigantes (Tierras Altas del Bosque Crepuscular).", "&7· Espíritu y sombra: Yohualli, el Custodio de la Vela, en la Torre Oscura (Born in Chaos: taiga, bosque o llanura).", "&7· Impulso y adaptación: Cuauhtli, la Corredora de Cielos, en las Islas Altas de Everbright (Blue Skies).", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, una manzana dorada o esmeraldas.", "&5A veces (7 %):&r una espada de diamante encantada con Filo."]
 			disable_toast: true
 			icon: "minecraft:compass"
 			id: "2F05CBDA56653977"

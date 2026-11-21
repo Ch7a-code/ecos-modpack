@@ -11,7 +11,7 @@
     "color": "aqua"
    },
    "text": {
-    "text": "¿En qué te ayudo? Elige un tema. Me abres cuando quieras escribiendo guia en el chat."
+    "text": "¿En qué te ayudo? Elige un tema. Me abres cuando quieras abriendo Shift + F → Guía."
    },
    "portraits": [
     {
@@ -458,7 +458,7 @@
     "color": "aqua"
    },
    "text": {
-    "text": "Luego tu Prueba: escribe mision y ahí salen tus 5 pasos. Al cumplirlos recibes la marca de tu Maestro y 10 puntos de habilidad. Junten a su grupo: solos duran poco."
+    "text": "Luego tu Prueba: abre Shift + F → Misiones y ahí salen tus 5 pasos. Al cumplirlos recibes la marca de tu Maestro y 10 puntos de habilidad. Junten a su grupo: solos duran poco."
    },
    "portraits": [
     {
@@ -574,7 +574,7 @@
     "color": "aqua"
    },
    "text": {
-    "text": "Aquí estoy. Escribe guia cuando me necesites."
+    "text": "Aquí estoy. Abre Shift + F → Guía cuando me necesites."
    },
    "portraits": [
     {

@@ -65,7 +65,7 @@
     "color": "aqua"
    },
    "text": {
-    "text": "Tu Maestro es Mixtli, el Archivista del Silencio. Vive en la Otra Orilla. Su prueba te da 10 puntos de habilidad y su marca. Escribe mision para ver los pasos."
+    "text": "Tu Maestro es Mixtli, el Archivista del Silencio. Vive en la Otra Orilla. Su prueba te da 10 puntos de habilidad y su marca. Abre Shift + F → Misiones para ver los pasos."
    },
    "portraits": [
     {
@@ -101,7 +101,7 @@
     "color": "aqua"
    },
    "text": {
-    "text": "Si lo olvidas, escribe poder en el chat y te lo repito. Para las teclas de combate, escribe combate."
+    "text": "Si lo olvidas, abre Shift + F → Guía → Mi poder y te lo repito. Para las teclas de combate, abre Shift + F → Guía → Combate."
    },
    "portraits": [
     {

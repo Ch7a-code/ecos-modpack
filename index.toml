@@ -423,7 +423,7 @@ hash = "acaa4620fb9aa8dbaf257aeea901ad790f2f9035953ec21e236356cda6026116"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/inicio.snbt"
-hash = "1d322fff5e24d5e76ce87c16f70d81d0fd79c2903a2fdfdc1e8fe680fd955874"
+hash = "7f1270815700ec349d4344c54faa6ddc4db16165d91e6629776b33eb70bd9d99"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/libro_02_laboratorio.snbt"
@@ -439,7 +439,7 @@ hash = "007137a63d29e16f3403ed6a2e2d261554a68e014bfbf4531f44baf42ecd4335"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/libro_05_don.snbt"
-hash = "19d81072ce4cd281028ba6640e9e2570e27a87410bba1dc6e5302db9ce6d8844"
+hash = "f382099cff76e6769a06ddac69fa80dc56116f6cc1725485026ef32144301c91"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/libro_06_grimorio.snbt"
@@ -597,7 +597,7 @@ hash = "4c824243e057a355d88a5effc88afc46d573e62d5b13a3be23ee4de111f11dc5"
 
 [[files]]
 file = "config/waystones-common.toml"
-hash = "ea13b5f00eb2d746f10c0c981abc1da2561c07c070a26a4520e8430b3b17849e"
+hash = "21b2664f93c30c13201db999e7dce011cf27eb40777fb2fffd481edb60599acc"
 
 [[files]]
 file = "config/xaerohud.txt"
@@ -1073,7 +1073,7 @@ hash = "5e67648384f50f7156a821b277a1eaf892a035cd5c476d7c785a62ede5d31ce8"
 
 [[files]]
 file = "kubejs/client_scripts/ecos_teclas_ars.js"
-hash = "2d90e427300ade69e0da35544b6334cbb9e86cf23e0b29001016684fccf31e7f"
+hash = "ce3907aff04871dc2a47b4e8fa339975275636e1d24cca2966e4e54ef1b50858"
 
 [[files]]
 file = "kubejs/client_scripts/ecos_ui_cliente.js"
@@ -1189,7 +1189,7 @@ hash = "95c1215489dd314fb3a8f0ab907877bdbd21dc2e923ee00630f4a9f7c9c816ee"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/guia_zykna.json"
-hash = "4c682d31d1a8269f80d5302695706ccd3c28ffcf1fd1e31074be4371f547e87e"
+hash = "df0035612872b763f66cad86a4a34dd0c55eb141f3d560e6b2d27e9899fddb6f"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/intro_opcion.json"
@@ -1201,39 +1201,39 @@ hash = "2d6a8f384b63df36f2fdb4a0aa9306b6b0c79ba51f3ccfb6583734a689d2b4e4"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_aberrant.json"
-hash = "68c2c74268dd76cb0d3c0bcbc32ab0754df0f82bd01f37ecece680e66f71f0dc"
+hash = "5b84c8038ae9178d8d6dad29b0f1132592d90b254ad76ff6eaa77ae76c2b7d30"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_beast.json"
-hash = "7147d7c8ff0ec1ded74fd11d0afb68c5039d102fc97c978c851749cf9044bcda"
+hash = "8a061aeb7733006570e14ee8f8e21c8394977ed387e2ffeb183bd6b5ee99ce34"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_beyonder.json"
-hash = "e9d3ac58f144aae09e99f8c8eedea72a00fa1044ebfb551725a4760ce8721ead"
+hash = "99cac46c10ff72cbd72bd4803c2a7b00f8dcd0e38073c75b2c541cc37b988432"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_bloodsucker.json"
-hash = "7c9c5849a2033fe5130b99226843b4866185ef0cae851fe0c45ff651880430b5"
+hash = "93465c718c7cf95265e5605e1edd5414fe56fad8484276805750cb1e62e74225"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_bloodweaver.json"
-hash = "285c5a675ed04d40b5eb1c96525c1125256d78b0295c8b649a9e3e264eefe5da"
+hash = "7548c741efcb95f9ade1522ff31a83d93c50356ef2f5d8f825379e3a7e12471c"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_bull.json"
-hash = "90e2fedd8ab03feefbbb4afd2aba6b885e9b2655bf1071005ac90281f6c4291c"
+hash = "3329b276fab5f86c55eee1f6b8f0e99547f617f7b54335be2cc0401bc44f6f16"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_canine.json"
-hash = "f057d0b7a13a3346347b8d583990361610d5fe2b69e589d58fac461c4fc73be1"
+hash = "18092c36453f48f93bca82ed0586fde1704f21a826a4f8b2492ec05a77ce6a40"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_cannibal.json"
-hash = "30f7f926ce20719f2ab66fd4a8ac2095dc7fad6c47e68cd94a753c78843a9127"
+hash = "ccb57cbadc49ad1b8ed5bc65ea9690db92f22f504d5dd67d6c17864d538b959c"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_champion.json"
-hash = "e9aaa569b1179a4aa4ca7172b4a690dcdfc4e556dc8d968d094ba32ffd59c0ca"
+hash = "6dddd2a54fc26057553f24ac60577afa4aa61937d45f9b2496ab6956136b30ea"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_combate.json"
@@ -1241,119 +1241,119 @@ hash = "952e75fdaf77f7c83dc7e6e6778224f68f0dd95c89be2f5cacd6e8cea69db80f"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_contortionist.json"
-hash = "dc4bdbbb34c505b7101623f4a88c19ef382d66db04014e1f96982a445ee1079c"
+hash = "0c00dbcebe809cdd00ed2cb7cb466b5e9df26449f9478016d8e9e3642a6ec98b"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_drifter.json"
-hash = "08a0abf017494e4dafa503cdc1b927e8a0bd54b4201604dd16286da68034a7d2"
+hash = "00bac6cdb8447bd9dffd0ca0a268e528e38d5fa26aa3019cd289de9222241159"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_experiment.json"
-hash = "91fd8a42b1f7f2700bc916346b22ac2b73c0a4edcd2f44c88528884c5da2ea19"
+hash = "debd09dd78db62b80ef1264a6440767d79580adb93d7251e4f1265e3f8b0e652"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_fortress.json"
-hash = "0347f5f18a206663c38f34634351c3f0887b5b0e54c50f8f88b48b2f83c81e5f"
+hash = "2f3bcd3566ff373412505f8055b6aeeb92ba2a6152f1a790e4ed77bc6436b076"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_icicle.json"
-hash = "07db3ae78a7adfb0f66c1d01c505c55d1ca24248581070982c02fb2ceaeb7513"
+hash = "9f7c3c6f4de587e60afbdd6085208c4ffd8087818baa5da509b8411860a725ab"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_magma.json"
-hash = "f1ec6ca5a545645c629eedc205bd2e9c0f3fa5e1c62d5e9cb069be683e4dc752"
+hash = "43a131a5edc98cb828821d11f79a38658a91bff474ce9be41febf7b58060fc53"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_marine.json"
-hash = "a6042f1338d598d97458ab8fbaf93e90128aa808a3489f69fd84b863f576a825"
+hash = "fd61e803842082013e05760f497981cda1eaa2e23b177d7b62b9b7de9e3ca151"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_marrow.json"
-hash = "72f5afc2717dc03ea358daab372f86ec915c7e56235fad74426d89a5094323be"
+hash = "61764500db552d81e95be74db19b4188b4b1ba59706c5e257fa367bfcd093096"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_mender.json"
-hash = "1fcae8d8b7cdfa6ae7ea8d09111d815fa0572399db1253024cb0e3ac9b10cb18"
+hash = "4e1cf8fd7e7107014e88ec5cca6daf97828c03232d78904a5336f5c54dd87807"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_mimic.json"
-hash = "0a9c528c1159559f9820a8699afff87c8b412c116d2750d3898b90c1d2e45a66"
+hash = "587b79abe969ac582c108f3756c0f8ae8e1a510d02c26afc2806c5d6e2d6d255"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_monster.json"
-hash = "6447e839fcd9f645e6c7a9dacc022b8a6f80b62527a159eccd5dbfeb07f04242"
+hash = "3d12aff765d46063055e78ae14ba96192b47212f4d2eaae5e774aa375c7c9bfa"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_parasite.json"
-hash = "e55b0bd5c18801608329069ba85f9b17ac49f1f3cce04fe16983cba0bb757bd5"
+hash = "3efa093f3b60d8258a3166e2d04acc44bc299bbf3b0b73153c950a676795b13b"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_phobia.json"
-hash = "741eca60176644e0f18b22ab81d18ade20c284104acd0e1c282ad534bbd6a48e"
+hash = "ef18eac3fd594ba4f8b176056f61d1a33e0e5b9b63b2162ebf842b642249baf6"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_phoenix.json"
-hash = "bfdc71c66b9c6ddf0db8e7f638ff50b454d12ab695b682112b8d8babe32b687c"
+hash = "7cd8f3720d95f840773c1a3d042c7eba0d2e507c294f76d62f505474db0260e8"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_photon.json"
-hash = "6100ccf54466e882b2b4fe67838d73a294749da8c06025bf18e39ab4503dc029"
+hash = "678a3ce4575ebe3ff382e31bc989330faa3524ddac64fa963070372a4d172848"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_pitch.json"
-hash = "784ff5540cda114d56022a43cdacf87795c2e5620ba57b08b50110338a81e246"
+hash = "c41133bed151b9c2f91eb0f529c69e72b7c841a9ebe893786a30e646c8f517e8"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_predator.json"
-hash = "aaf8422fa8dfdf1bd7b049ebe5557d106ba00ef24c632cd4bd1866960a0f369e"
+hash = "6ff9572b28f1478cae40c77dbdb22dc40c5079dd266fb515bf80d4e65ab9146d"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_reptile.json"
-hash = "129a8d33c2b46256a63b0d78c3160fe9b954ea4cd57e31aa8fa1d7fe910ddb70"
+hash = "c52f5e7ec2edf5a8ee8a0b34cd3bacd9e41d27643643d73afa072c4b5ca3e907"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_rock.json"
-hash = "cdbd2e189c3e2161ee228442996ec017ccde0dbc3f00d25e076dadbc0a419f15"
+hash = "a3590bda57d3ba247984e65fcdc6f59bd047f2b0885dbe62ebdd65307d07c881"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_smith.json"
-hash = "ce70d501a731b9ea69dc02eb810843e0de7a586902b7a64a15c6447869d20b30"
+hash = "408ed5c6d3b8f785fee1ff468b820a7d00a0d369beec8fb89286e63cdb881db0"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_spark.json"
-hash = "1e0e8c08dc69e1c091ca1d65b7d270bb2f176a4524bd7132bf39fa34415508ab"
+hash = "495c469736999da6ed2e508d0c4707dfd31f0f5d7251177c245e221faf9faaba"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_speedster.json"
-hash = "70f975914fbab99f184b54133e1c191eedc0d76ff2e390723e6000d9345bbec2"
+hash = "2717ed255cc117f4bd2dbaaf10b47ffa21f1cbd90ad300a465b989ce60be43ce"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_tempest.json"
-hash = "0984556e7137b156f8c396a27cfea6f85bbf2bf4e9bed1375984fd4da4c8d18b"
+hash = "97c1aeaac90114da0f2529845175d309dd6d3f6e208495a33e6fb20d604370bb"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_thing.json"
-hash = "3aed1432a6e083991921efa402a14f8f5af58b2685483781dcde2a50f3fd9e06"
+hash = "32f47e32413b1c0a5b342f1860463469f948affb2ad4efa2e5db97497a9a6fc4"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_threshold.json"
-hash = "96041d464181743760701c32af237b2486405949d2d939677c4013cd8e267275"
+hash = "f67846cb713f89a474087bed4474af3ec14113f3d224dd7b4e68c97d8b1dd1b0"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_toxin.json"
-hash = "599211153370be0c5c03c078e26a356fe517c82027d70a977a13e67f1119d8e0"
+hash = "efbdb5ffa9fe20defd133635700d4da797dd87072d03097e4398a82cc087e635"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_veilbinder.json"
-hash = "ff640511f14380d568ae013ab68222185d0e091b409cefe5947e12a8b99f5fbd"
+hash = "56d92c05250a1e14704c85236b3a0275d44c6e7e4ec65d1dcf49a9fc23f962e8"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_vitrum.json"
-hash = "2d7dab48da48f47a72fc0bd8b24660cd5a87981e3e6a6152091ae38460d9f744"
+hash = "aacc54d4a305b40dbf5c264cc0a89ab466a761f9cf32fe15708aa3616cc55172"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/tutorial_wyvern.json"
-hash = "816f2c6042228979f413b310ddf36a30085adbc48753ac529afa4ee06b0eab36"
+hash = "652463478fab443fc9a853b252ad66510af44de1f53f5cfc6dc54eb3320b02b8"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/zykna_despertar.json"

@@ -56,7 +56,7 @@
 		}
 		{
 			dependencies: ["625B0679CF3146BA"]
-			description: ["&#19E6E6Zykna:&r &oCada nivel de Conciencia despierta tu astilla un poco más y te da puntos para tu árbol. A Conciencia 20 ya no eres el clon frágil que cruzó la Fractura.", "", "&6Qué hacer:&r Llega a Conciencia 20. Escribe conciencia en el chat para ver cuánto te falta.", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, lapislázuli, oro o esmeraldas.", "&5A veces (7 %):&r una manzana dorada."]
+			description: ["&#19E6E6Zykna:&r &oCada nivel de Conciencia despierta tu astilla un poco más y te da puntos para tu árbol. A Conciencia 20 ya no eres el clon frágil que cruzó la Fractura.", "", "&6Qué hacer:&r Llega a Conciencia 20. Abre Shift + F → Mi Eco para ver cuánto te falta.", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, lapislázuli, oro o esmeraldas.", "&5A veces (7 %):&r una manzana dorada."]
 			disable_toast: true
 			icon: "minecraft:experience_bottle"
 			id: "75A92DD0025A2016"
@@ -79,7 +79,7 @@
 		}
 		{
 			dependencies: ["75A92DD0025A2016"]
-			description: ["&#19E6E6Zykna:&r &oLos siete Maestros siguen vivos, uno por familia de dones, y despiertan cuando cae el guardián de su hogar. El primer paso de su Prueba es llegar hasta allá.", "", "&6Qué hacer:&r Llega al hogar de tu Maestro y vence a su guardián. Escribe mision para saber dónde vive y quién lo cuida.", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, esmeraldas, hierro o comida.", "&5A veces (7 %):&r una espada de hierro encantada con Filo."]
+			description: ["&#19E6E6Zykna:&r &oLos siete Maestros siguen vivos, uno por familia de dones, y despiertan cuando cae el guardián de su hogar. El primer paso de su Prueba es llegar hasta allá.", "", "&6Qué hacer:&r Llega al hogar de tu Maestro y vence a su guardián. Abre Shift + F → Misiones para saber dónde vive y quién lo cuida.", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, esmeraldas, hierro o comida.", "&5A veces (7 %):&r una espada de hierro encantada con Filo."]
 			disable_toast: true
 			icon: "minecraft:compass"
 			id: "6929E1642D1C0CFC"
@@ -102,7 +102,7 @@
 		}
 		{
 			dependencies: ["6929E1642D1C0CFC"]
-			description: ["&#19E6E6Zykna:&r &oCada familia tiene su manera de probar a quien quiere su marca. La primera tarea es de oficio: algo que toda la familia debe saber hacer antes de pedir más.", "", "&6Qué hacer:&r Cumple la primera tarea de la Prueba de tu Maestro. Escribe mision para ver cuál es la de tu familia.", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, esmeraldas, oro o pan.", "&5A veces (7 %):&r una manzana dorada."]
+			description: ["&#19E6E6Zykna:&r &oCada familia tiene su manera de probar a quien quiere su marca. La primera tarea es de oficio: algo que toda la familia debe saber hacer antes de pedir más.", "", "&6Qué hacer:&r Cumple la primera tarea de la Prueba de tu Maestro. Abre Shift + F → Misiones para ver cuál es la de tu familia.", "", "&6Premio:&r 2 cosas al azar: frascos de experiencia, esmeraldas, oro o pan.", "&5A veces (7 %):&r una manzana dorada."]
 			disable_toast: true
 			icon: "minecraft:writable_book"
 			id: "6B91396AA9CF2A54"
@@ -148,7 +148,7 @@
 		}
 		{
 			dependencies: ["7E29D647F2AD156C"]
-			description: ["&#19E6E6Zykna:&r &oLa segunda tarea ya no es de oficio: es de carácter. Cada familia le pide algo difícil de conseguir, y por eso casi nadie la termina sin ayuda.", "", "&6Qué hacer:&r Cumple la segunda tarea de la Prueba de tu Maestro. Escribe mision para ver cuál es la de tu familia.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, frascos de experiencia o un diamante.", "&5A veces (7 %):&r un diamante."]
+			description: ["&#19E6E6Zykna:&r &oLa segunda tarea ya no es de oficio: es de carácter. Cada familia le pide algo difícil de conseguir, y por eso casi nadie la termina sin ayuda.", "", "&6Qué hacer:&r Cumple la segunda tarea de la Prueba de tu Maestro. Abre Shift + F → Misiones para ver cuál es la de tu familia.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, frascos de experiencia o un diamante.", "&5A veces (7 %):&r un diamante."]
 			disable_toast: true
 			icon: "minecraft:book"
 			id: "62C98CEE6E298E48"
@@ -171,7 +171,7 @@
 		}
 		{
 			dependencies: ["62C98CEE6E298E48"]
-			description: ["&#19E6E6Zykna:&r &oLa tercera tarea es solo tuya: depende de qué poder lleva tu astilla. Dos Ecos de la misma familia reciben pruebas distintas, porque sus dones tampoco son iguales.", "", "&6Qué hacer:&r Cumple la tarea propia de tu poder en la Prueba del Maestro. Escribe mision para saber cuál es.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, frascos de experiencia o un diamante.", "&5A veces (7 %):&r un diamante."]
+			description: ["&#19E6E6Zykna:&r &oLa tercera tarea es solo tuya: depende de qué poder lleva tu astilla. Dos Ecos de la misma familia reciben pruebas distintas, porque sus dones tampoco son iguales.", "", "&6Qué hacer:&r Cumple la tarea propia de tu poder en la Prueba del Maestro. Abre Shift + F → Misiones para saber cuál es.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, frascos de experiencia o un diamante.", "&5A veces (7 %):&r un diamante."]
 			disable_toast: true
 			icon: "minecraft:enchanted_book"
 			id: "1E71F4530BC68C85"
@@ -194,7 +194,7 @@
 		}
 		{
 			dependencies: ["1E71F4530BC68C85"]
-			description: ["&#19E6E6Zykna:&r &oLa última tarea es un enfrentamiento: un Portador de otra familia, elegido por tu Maestro. Los Portadores cargan fragmentos de la Primera Mente; vencerlos es una manera de tomarlos en serio.", "", "&6Qué hacer:&r Vence al jefe que te pide tu Maestro. Escribe mision para saber cuál es. Puede ser una pelea para varias personas.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, frascos de experiencia o un diamante.", "&5A veces (7 %):&r dos diamantes."]
+			description: ["&#19E6E6Zykna:&r &oLa última tarea es un enfrentamiento: un Portador de otra familia, elegido por tu Maestro. Los Portadores cargan fragmentos de la Primera Mente; vencerlos es una manera de tomarlos en serio.", "", "&6Qué hacer:&r Vence al jefe que te pide tu Maestro. Abre Shift + F → Misiones para saber cuál es. Puede ser una pelea para varias personas.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, frascos de experiencia o un diamante.", "&5A veces (7 %):&r dos diamantes."]
 			disable_toast: true
 			icon: "minecraft:iron_sword"
 			id: "2CAE177D4B15EF53"
@@ -248,7 +248,7 @@
 		}
 		{
 			dependencies: ["2ACBAA0FC759DCCD"]
-			description: ["&#19E6E6Zykna:&r &oCon Conciencia 50 tu astilla ya no es un secreto del pecho: se oye cuando hablas. Lo que sigue depende menos de la experiencia y más de lo que decidas hacer con ella.", "", "&6Qué hacer:&r Llega a Conciencia 50. Escribe conciencia en el chat para ver cuánto te falta.", "", "&6Premio:&r 2 cosas al azar: diamantes, frascos de experiencia, esmeraldas o chatarra de netherita.", "&5A veces (7 %):&r tres diamantes."]
+			description: ["&#19E6E6Zykna:&r &oCon Conciencia 50 tu astilla ya no es un secreto del pecho: se oye cuando hablas. Lo que sigue depende menos de la experiencia y más de lo que decidas hacer con ella.", "", "&6Qué hacer:&r Llega a Conciencia 50. Abre Shift + F → Mi Eco para ver cuánto te falta.", "", "&6Premio:&r 2 cosas al azar: diamantes, frascos de experiencia, esmeraldas o chatarra de netherita.", "&5A veces (7 %):&r tres diamantes."]
 			disable_toast: true
 			icon: "minecraft:experience_bottle"
 			id: "16209E95DA2E14B0"
@@ -316,6 +316,6 @@
 			y: 0.00d
 		}
 	]
-	subtitle: ["Tu astilla, tu árbol de poderes y la Prueba de tu Maestro, paso por paso.", "Escribe conciencia o mision en el chat para ver cómo vas."]
+	subtitle: ["Tu astilla, tu árbol de poderes y la Prueba de tu Maestro, paso por paso.", "Abre Shift + F → Mi Eco o mision en el chat para ver cómo vas."]
 	title: "Tu don y los Maestros"
 }

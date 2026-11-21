@@ -112,21 +112,51 @@ function _earMoverUno(IC, KMod, marcaArchivo, estado, fabrica, nueva, etiqueta) 
   console.info('[ECOS-TECLAS] ' + etiqueta + ': ' + movidas + ' movidas');
 }
 
-ClientEvents.tick(function () {
-  if (EAR.hecho && EST.hecho && EBD.hecho && ETB.hecho) return;
+// Crash 21-nov 01:59 (Cha: «le doy a la M para el mapa, sale guardando mundo y se cierra»). Saint Seiya (MCreator) ignora el
+// modificador: su KeyMapping.setDown dispara la acción con la letra sola, así que Alt+M se activaba con la M del mapa de Xaero, abría
+// su pantalla en bucle y tumbaba el juego (StackOverflowError en SkillthreeshowOnKeyPressedProcedure). Las 3 que abren pantalla
+// (javap: Skillthreeshow, Mission, Dimensions) y el sexto sentido (chocaba con S = caminar atrás) pasan a teclas que nadie usa.
+var ESX = { hecho: false };
+var ESX_MOVER = { 'key.saint_seiya_nouvelle_generation.skillthreeshow': ['key.keyboard.m', 'key.keyboard.insert'],
+  'key.saint_seiya_nouvelle_generation.mission': ['key.keyboard.p', 'key.keyboard.home'],
+  'key.saint_seiya_nouvelle_generation.dimensions': ['key.keyboard.y', 'key.keyboard.end'],
+  'key.saint_seiya_nouvelle_generation.six_senth': ['key.keyboard.s', 'key.keyboard.backslash'] };
+function _esxMover(IC, KMod) {
+  if (ESX.hecho) return;
+  var marca = null;
+  try { marca = JsonIO.read('kubejs/config/ecos_teclas_seiya2.json'); } catch (e0) {}
+  if (marca && marca.hecho) { ESX.hecho = true; return; }
+  if (!Client.options) return;
+  var lista = Client.options.keyMappings, n = 0, hay = false;
+  for (var i = 0; i < lista.length; i++) {
+    var k = lista[i], m = ESX_MOVER[String(k.getName())];
+    if (!m) continue;
+    hay = true;
+    if (String(k.getKey().getName()) != m[0]) continue;   // el jugador ya la cambió a otra letra: se respeta
+    k.setKeyModifierAndCode(KMod.NONE, IC.getKey(m[1]));
+    n++;
+  }
+  ESX.hecho = true;
+  if (!hay) return;
+  JsonIO.write('kubejs/config/ecos_teclas_seiya2.json', { hecho: true, movidas: n });
+  console.info('[ECOS-TECLAS] Saint Seiya sin crash: ' + n + ' teclas a Insert/Inicio/Fin/\\');
+}
+
+ClientEvents.tick(function () {  if (EAR.hecho && EST.hecho && EBD.hecho && ETB.hecho && ESX.hecho) return;
   if (++EAR.t % 20) return;                 // una vez por segundo hasta lograr las 3
-  if (EAR.t > 20 * 600) { EAR.hecho = true; EST.hecho = true; EBD.hecho = true; ETB.hecho = true; return; }   // 10 min sin lograrlo: se rinde sin llenar el log
+  if (EAR.t > 20 * 600) { EAR.hecho = true; EST.hecho = true; EBD.hecho = true; ETB.hecho = true; ESX.hecho = true; return; }   // 10 min sin lograrlo: se rinde sin llenar el log
   try {
     if (!Client.options) return;
     var IC = Java.loadClass('com.mojang.blaze3d.platform.InputConstants');
     var KMod = Java.loadClass('net.minecraftforge.client.settings.KeyModifier');
     var KM = Java.loadClass('net.minecraft.client.KeyMapping');
-    var antes = EAR.hecho && EST.hecho && EBD.hecho && ETB.hecho;
+    var antes = EAR.hecho && EST.hecho && EBD.hecho && ETB.hecho && ESX.hecho;
     _earMoverUno(IC, KMod, 'kubejs/config/ecos_teclas_ars.json', EAR, EAR_FABRICA, EAR_NUEVA, 'Ars (libro Alt+C, menu radial Alt+V)');
     _earMoverUno(IC, KMod, 'kubejs/config/ecos_teclas_seiya.json', EST, EST_FABRICA, EST_NUEVA, 'Saint Seiya (11 a Alt)');
     _earMoverUno(IC, KMod, 'kubejs/config/ecos_teclas_bod.json', EBD, EBD_FABRICA, EBD_NUEVA, 'Book of Dragons (5 a Alt, 2 sin tecla)');
     _earMoverUno(IC, KMod, 'kubejs/config/ecos_teclas_b.json', ETB, ETB_FABRICA, ETB_NUEVA, 'B solo para el modo batalla (Vital y Toms sin tecla)');
-    if (!antes && EAR.hecho && EST.hecho && EBD.hecho && ETB.hecho) { KM.resetMapping(); Client.options.save(); }
+    _esxMover(IC, KMod);   // después de EST: si Saint Seiya aún estaba de fábrica, primero pasa a Alt y aquí a su tecla libre
+    if (!antes && EAR.hecho && EST.hecho && EBD.hecho && ETB.hecho && ESX.hecho) { KM.resetMapping(); Client.options.save(); }
   } catch (e) {
     if (EAR.t % 600 == 0) console.info('[ECOS-TECLAS] ' + e);
   }
