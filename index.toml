@@ -163,31 +163,31 @@ hash = "4b52c006f1b7427a600393e24598d426e54029edcc297a66d6f2cc1066e76b26"
 
 [[files]]
 file = "config/fancymenu/assets/archivo/fondo_bestiario.png"
-hash = "854c6dee68dc9407f06dd457d7b242a540d78260808f856d29269ea276fec23d"
+hash = "1e1244e023a61389e4c2b61b88eab1db755422d000ecd46ab9d48c96b54d4a93"
 
 [[files]]
 file = "config/fancymenu/assets/archivo/fondo_continuar.png"
-hash = "2ad16a0a2a367a0551ca3ef27a87315b5a7fb50099125b4cd3da58bcbb510443"
+hash = "c02fe7f3f1e2936688ce9e00540fef8f487a79e1c307dc9db73e94c8e261a42e"
 
 [[files]]
 file = "config/fancymenu/assets/archivo/fondo_cosmos.png"
-hash = "bae96e5ca99879cc1a621bd1c75dee89f180a52d756cfcd6ead2017b14542ffb"
+hash = "cb7bab51cc73154f6e906ba5efdc7580513147738bf3cb72c4f0e371937f8b43"
 
 [[files]]
 file = "config/fancymenu/assets/archivo/fondo_cronica.png"
-hash = "33bd4189507f62487f7238b92b58239ce5c4c86c3fa8e8f13574dcb95e1e734b"
+hash = "6032cbdb3fc1732f86c1174c1971a1af99a233fb792e64473603a1fd21c24735"
 
 [[files]]
 file = "config/fancymenu/assets/archivo/fondo_eco.png"
-hash = "670eb569e95baa63666399934fa38cf50e70ff5ceab8a38f396e3f042eab43bb"
+hash = "3d29da7ea1e219fffb250a190259c2b8cb5870746ee65127bbf0a7e8cad6fdee"
 
 [[files]]
 file = "config/fancymenu/assets/archivo/fondo_misiones.png"
-hash = "5dfdb32f7aede4b324d0b1e512c7b44381cc95928e7ae27e67d8a2dcc0d9aa47"
+hash = "e72e8ccd90360f1ed34a919d886972997f9fd6a7248eed49038dafc474547514"
 
 [[files]]
 file = "config/fancymenu/assets/archivo/fondo_texto.png"
-hash = "af44727aa7047c973a2219bec118ce0ffe3ccca981ce40d5f092b7c492cd53e8"
+hash = "938ffc9a59f25de1e132aca806e702dd470723d71ae7799b2f6cf04d7498c467"
 
 [[files]]
 file = "config/fancymenu/assets/archivo/hover_103_19.png"
@@ -375,31 +375,31 @@ hash = "209d9cc9fe71122377c969be0cd3927a42df2c0227b20ee2c4ebca07706fa420"
 
 [[files]]
 file = "config/fancymenu/customization/archivo_bestiario.txt"
-hash = "dd436351e46140c80a5dc1224a0e852ff7b443e821011dc3d0d67b9f8835ff7a"
+hash = "468f2cb000cfd318449324e9f77bdf67d727827e04a2fca34268f6d1013f619e"
 
 [[files]]
 file = "config/fancymenu/customization/archivo_continuar.txt"
-hash = "e3aca53c5b2ce78c2e4b7f1145a227d80c8bd85c26da8cf2df560631e955ec70"
+hash = "42c83d8d060a1b89d90de0cc69ee4b0f84657ef5ae7cf6d878fd9f63925bbe7c"
 
 [[files]]
 file = "config/fancymenu/customization/archivo_cosmos.txt"
-hash = "ecf54612fd2c96db71230c8902768e0ea4da634e5649e08632f9c6e576bacd22"
+hash = "b933dbdb22366c09e1d9377c81d543c6edf67a559ebdba72920dc832553f2849"
 
 [[files]]
 file = "config/fancymenu/customization/archivo_cronica.txt"
-hash = "e5717f9537dc2893e1f70081aa52dcecc2f99c6369466aebd0321d543991891e"
+hash = "02f90f296154cc225301750ef8348536d05d57862f8ec5f17096e2fa481cac60"
 
 [[files]]
 file = "config/fancymenu/customization/archivo_eco.txt"
-hash = "90c1af51a7e317cb17c6a2e1c7fa12e3e0756da19552b3b2097c5be16d8eff68"
+hash = "2330282a7aa63fd84c647312b860199cc64581cfb98db8a9b7cdaa6fbb3e43a5"
 
 [[files]]
 file = "config/fancymenu/customization/archivo_misiones.txt"
-hash = "c67a9a72ed6bc455c67f3b3d4c7e33bf417017b899b168153e26a76525afc888"
+hash = "5fd7e1062feed0328a216f25da937eab03a852c12451a9a2437dee19429fb6f8"
 
 [[files]]
 file = "config/fancymenu/customization/archivo_texto.txt"
-hash = "b2bd0b0b6f4cca11d8894e8c3531244d27ba06bce511bc880e8f9a03a5b7c240"
+hash = "66948992b4b5a6d4fb643df8e14632846f2e421951af4291f5b79b9c60194ab1"
 
 [[files]]
 file = "config/fancymenu/customization/ecos_loading_screen.txt"

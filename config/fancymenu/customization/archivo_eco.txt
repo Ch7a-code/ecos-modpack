@@ -21,7 +21,7 @@ element {
   repeat_texture = false
   nine_slice_texture = false
   element_type = image
-  instance_identifier = 62226580-c829-4b87-a63e-f66c70379dff-1795000000000
+  instance_identifier = f64f8fa1-8ed6-41cb-80b2-045fbc3744a5-1795000000000
   custom_element_layer_name = Oscurecer
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -40,8 +40,8 @@ element {
   stretch_x = true
   stretch_y = true
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 9b5d50ab-5755-4288-b33e-794333c30509-1795000000000
-  [loading_requirement_container_meta:9b5d50ab-5755-4288-b33e-794333c30509-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 739bdd57-e618-483d-b996-e4fcd35b8ba2-1795000000000
+  [loading_requirement_container_meta:739bdd57-e618-483d-b996-e4fcd35b8ba2-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -51,7 +51,7 @@ element {
   nine_slice_texture_border_x = 5
   nine_slice_texture_border_y = 5
   element_type = image
-  instance_identifier = 275f2390-9a23-48af-8d86-46cb0877fc5a-1795000000000
+  instance_identifier = 4392677e-baf8-4285-8b32-40084460f3df-1795000000000
   custom_element_layer_name = Fondo
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -70,8 +70,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 876cc5a4-ec9d-48f9-b80c-891f8bc03486-1795000000000
-  [loading_requirement_container_meta:876cc5a4-ec9d-48f9-b80c-891f8bc03486-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 486cbaeb-0f2a-49fb-bb94-10f2249fa200-1795000000000
+  [loading_requirement_container_meta:486cbaeb-0f2a-49fb-bb94-10f2249fa200-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -79,7 +79,7 @@ element {
   repeat_texture = false
   nine_slice_texture = false
   element_type = image
-  instance_identifier = 76a31831-fdd3-45cb-8752-0ee73f4e6f23-1795000000000
+  instance_identifier = 626b07b4-f56d-4086-b6f3-9a208a81bbd7-1795000000000
   custom_element_layer_name = Titulo destello
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -98,8 +98,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = b45303ac-a5ee-4622-89d9-8366d9a66464-1795000000000
-  [loading_requirement_container_meta:b45303ac-a5ee-4622-89d9-8366d9a66464-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = a1ae7874-e663-448b-bc06-d06e0252fa9a-1795000000000
+  [loading_requirement_container_meta:a1ae7874-e663-448b-bc06-d06e0252fa9a-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -117,7 +117,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = 1308bc9d-7ac5-4fb1-a444-23ca86bcee6c-1795000000000
+  instance_identifier = 7362921e-3ff6-436c-ae80-2abebc83727c-1795000000000
   custom_element_layer_name = av_nc_txt
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -136,14 +136,14 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 1a713541-e127-4785-8363-13b37a0a0c5c-1795000000000
-  [loading_requirement_container_meta:1a713541-e127-4785-8363-13b37a0a0c5c-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = e6a73459-edf1-4367-92ac-1cedcb2c0782-1795000000000
+  [loading_requirement_container_meta:e6a73459-edf1-4367-92ac-1cedcb2c0782-1795000000000] = [groups:][instances:]
 }
 
 element {
-  button_element_executable_block_identifier = d1b6374a-47c2-430b-9340-ebad021c78dc-1795000000000
-  [executable_action_instance:f15ded46-f818-4a8c-a46c-88c1c902b1b1-1795000000000][action_type:sendmessage] = /zykna av continuar
-  [executable_block:d1b6374a-47c2-430b-9340-ebad021c78dc-1795000000000][type:generic] = [executables:f15ded46-f818-4a8c-a46c-88c1c902b1b1-1795000000000;]
+  button_element_executable_block_identifier = e912c19b-7a55-465d-906a-fe378d978b87-1795000000000
+  [executable_action_instance:9d15d11a-d8a1-494f-8223-127adaaf777d-1795000000000][action_type:sendmessage] = /zykna av continuar
+  [executable_block:e912c19b-7a55-465d-906a-fe378d978b87-1795000000000][type:generic] = [executables:9d15d11a-d8a1-494f-8223-127adaaf777d-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_67_19.png
   restartbackgroundanimations = true
@@ -155,7 +155,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = 1c604f7d-f487-468d-ab60-2d3960ee97a2-1795000000000
+  instance_identifier = fdb8dc13-047d-4f60-a051-838fe93d0680-1795000000000
   custom_element_layer_name = boton /zykna av continuar
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -174,14 +174,14 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 420fa54e-605c-405e-81e1-adb72453102b-1795000000000
-  [loading_requirement_container_meta:420fa54e-605c-405e-81e1-adb72453102b-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 566637a7-d674-4339-a320-9ed49839cb4c-1795000000000
+  [loading_requirement_container_meta:566637a7-d674-4339-a320-9ed49839cb4c-1795000000000] = [groups:][instances:]
 }
 
 element {
-  button_element_executable_block_identifier = 94fc64cd-974b-4c42-82f9-ed974918489f-1795000000000
-  [executable_action_instance:93c99eab-bd21-4595-aebc-1e458dd6ff9f-1795000000000][action_type:sendmessage] = /zykna av misiones
-  [executable_block:94fc64cd-974b-4c42-82f9-ed974918489f-1795000000000][type:generic] = [executables:93c99eab-bd21-4595-aebc-1e458dd6ff9f-1795000000000;]
+  button_element_executable_block_identifier = 9a6e6365-f350-4074-9242-aa798b69dbce-1795000000000
+  [executable_action_instance:a5f5804b-4781-44aa-81b4-62148afe9f0a-1795000000000][action_type:sendmessage] = /zykna av misiones
+  [executable_block:9a6e6365-f350-4074-9242-aa798b69dbce-1795000000000][type:generic] = [executables:a5f5804b-4781-44aa-81b4-62148afe9f0a-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_67_19.png
   restartbackgroundanimations = true
@@ -193,7 +193,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = 857ae1c2-de94-4bff-b38d-e6262cce762b-1795000000000
+  instance_identifier = e234ddf4-7ffc-4c17-928c-72cbea38f3c9-1795000000000
   custom_element_layer_name = boton /zykna av misiones
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -212,14 +212,14 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 9979b290-f14d-4469-8eb1-8b74b3df8db4-1795000000000
-  [loading_requirement_container_meta:9979b290-f14d-4469-8eb1-8b74b3df8db4-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = ef9ffd0b-de27-413c-b0e4-ff223c8b8978-1795000000000
+  [loading_requirement_container_meta:ef9ffd0b-de27-413c-b0e4-ff223c8b8978-1795000000000] = [groups:][instances:]
 }
 
 element {
-  button_element_executable_block_identifier = b4f52547-7f31-4498-b16c-3ed8f71d07f4-1795000000000
-  [executable_action_instance:92a81948-3368-4e4b-9dab-84ddf8052a25-1795000000000][action_type:sendmessage] = /zykna av cronica
-  [executable_block:b4f52547-7f31-4498-b16c-3ed8f71d07f4-1795000000000][type:generic] = [executables:92a81948-3368-4e4b-9dab-84ddf8052a25-1795000000000;]
+  button_element_executable_block_identifier = a530037f-452d-4615-9f5c-4f0b1b729035-1795000000000
+  [executable_action_instance:b93a315b-58bd-4636-bcab-c7f0a02aabb5-1795000000000][action_type:sendmessage] = /zykna av cronica
+  [executable_block:a530037f-452d-4615-9f5c-4f0b1b729035-1795000000000][type:generic] = [executables:b93a315b-58bd-4636-bcab-c7f0a02aabb5-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_67_19.png
   restartbackgroundanimations = true
@@ -231,7 +231,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = 245fdfa9-bf9a-44bb-9c73-98dedb709762-1795000000000
+  instance_identifier = 59ed7d78-a7a9-4cef-89dc-bdb16802c7ac-1795000000000
   custom_element_layer_name = boton /zykna av cronica
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -250,14 +250,14 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 1c35a151-439e-4bd2-a60a-37e1338e7e23-1795000000000
-  [loading_requirement_container_meta:1c35a151-439e-4bd2-a60a-37e1338e7e23-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = c30dd155-7c9e-43fa-8d93-b0579d1801b9-1795000000000
+  [loading_requirement_container_meta:c30dd155-7c9e-43fa-8d93-b0579d1801b9-1795000000000] = [groups:][instances:]
 }
 
 element {
-  button_element_executable_block_identifier = 3cba76da-0710-4c53-8890-1fd3df5f5884-1795000000000
-  [executable_action_instance:bfdb2870-c4bf-4cd5-8af0-f0e40b5b99bf-1795000000000][action_type:sendmessage] = /zykna av cosmos
-  [executable_block:3cba76da-0710-4c53-8890-1fd3df5f5884-1795000000000][type:generic] = [executables:bfdb2870-c4bf-4cd5-8af0-f0e40b5b99bf-1795000000000;]
+  button_element_executable_block_identifier = 9296c779-0d72-4b33-a483-d495f6c4c992-1795000000000
+  [executable_action_instance:f6a7118f-0383-4f9f-b808-216e2651a148-1795000000000][action_type:sendmessage] = /zykna av cosmos
+  [executable_block:9296c779-0d72-4b33-a483-d495f6c4c992-1795000000000][type:generic] = [executables:f6a7118f-0383-4f9f-b808-216e2651a148-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_67_19.png
   restartbackgroundanimations = true
@@ -269,7 +269,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = 7e49bad8-92e4-4565-a582-13bda2da87b0-1795000000000
+  instance_identifier = 369b1c42-7d03-4826-8558-58d15ac8ebf2-1795000000000
   custom_element_layer_name = boton /zykna av cosmos
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -288,14 +288,14 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 6484cec9-6cbc-41c9-99ee-66c8ef1469d1-1795000000000
-  [loading_requirement_container_meta:6484cec9-6cbc-41c9-99ee-66c8ef1469d1-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 7f541628-4a18-44f7-a844-3dfe17629abb-1795000000000
+  [loading_requirement_container_meta:7f541628-4a18-44f7-a844-3dfe17629abb-1795000000000] = [groups:][instances:]
 }
 
 element {
-  button_element_executable_block_identifier = 8ec3c301-f7f6-4a87-9cdd-a99cd4077d9c-1795000000000
-  [executable_action_instance:5c707360-850d-46eb-b358-1e248a898a79-1795000000000][action_type:sendmessage] = /zykna av bestiario
-  [executable_block:8ec3c301-f7f6-4a87-9cdd-a99cd4077d9c-1795000000000][type:generic] = [executables:5c707360-850d-46eb-b358-1e248a898a79-1795000000000;]
+  button_element_executable_block_identifier = 790726a8-f774-47f5-baf4-7b5d31c9ba93-1795000000000
+  [executable_action_instance:4d06bb62-cf7a-4b06-827d-ec243438b132-1795000000000][action_type:sendmessage] = /zykna av bestiario
+  [executable_block:790726a8-f774-47f5-baf4-7b5d31c9ba93-1795000000000][type:generic] = [executables:4d06bb62-cf7a-4b06-827d-ec243438b132-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_67_19.png
   restartbackgroundanimations = true
@@ -307,7 +307,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = 2369a2dd-9158-4d6a-a3c3-3b715bdaf6de-1795000000000
+  instance_identifier = aeed32df-4d34-48a7-8c1f-1f744c6f8bf1-1795000000000
   custom_element_layer_name = boton /zykna av bestiario
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -326,14 +326,14 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 74f5085e-168d-4c84-a42c-f7c65aad57e2-1795000000000
-  [loading_requirement_container_meta:74f5085e-168d-4c84-a42c-f7c65aad57e2-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 8fdb89d0-0a6e-4777-8704-e87f31db4e77-1795000000000
+  [loading_requirement_container_meta:8fdb89d0-0a6e-4777-8704-e87f31db4e77-1795000000000] = [groups:][instances:]
 }
 
 element {
-  button_element_executable_block_identifier = 701ed5d5-6e8e-4abd-8aeb-27b72bc38726-1795000000000
-  [executable_action_instance:1a4f0e6d-5db5-4d6f-80f1-ae4f7e7b7532-1795000000000][action_type:sendmessage] = /zykna av prep
-  [executable_block:701ed5d5-6e8e-4abd-8aeb-27b72bc38726-1795000000000][type:generic] = [executables:1a4f0e6d-5db5-4d6f-80f1-ae4f7e7b7532-1795000000000;]
+  button_element_executable_block_identifier = b446ea8d-a367-43d0-832b-7e445d2fba77-1795000000000
+  [executable_action_instance:5b362d84-7902-4743-98f7-e5322ef1a20a-1795000000000][action_type:sendmessage] = /zykna av prep
+  [executable_block:b446ea8d-a367-43d0-832b-7e445d2fba77-1795000000000][type:generic] = [executables:5b362d84-7902-4743-98f7-e5322ef1a20a-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_70_14.png
   restartbackgroundanimations = true
@@ -345,7 +345,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = cb37f08f-f7f4-480d-80db-b5df57ea7657-1795000000000
+  instance_identifier = 4050028c-17fc-4653-864e-2d1bbdd5770b-1795000000000
   custom_element_layer_name = boton /zykna av prep
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -357,21 +357,21 @@ element {
   auto_sizing = false
   sticky_anchor = false
   anchor_point = mid-centered
-  x = -210
+  x = -145
   y = 114
   width = 70
   height = 14
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 3ddf550d-3826-4c98-914e-93b7626ad74b-1795000000000
-  [loading_requirement_container_meta:3ddf550d-3826-4c98-914e-93b7626ad74b-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = d92f0c77-2124-4813-86c4-dd8fd502946c-1795000000000
+  [loading_requirement_container_meta:d92f0c77-2124-4813-86c4-dd8fd502946c-1795000000000] = [groups:][instances:]
 }
 
 element {
-  button_element_executable_block_identifier = 1f39abe1-c9d3-4c7c-9392-3a4b850abc17-1795000000000
-  [executable_action_instance:5aad30f3-6c05-4d2b-8117-3e28e8e41f53-1795000000000][action_type:sendmessage] = /zykna av guia
-  [executable_block:1f39abe1-c9d3-4c7c-9392-3a4b850abc17-1795000000000][type:generic] = [executables:5aad30f3-6c05-4d2b-8117-3e28e8e41f53-1795000000000;]
+  button_element_executable_block_identifier = 344fca39-3378-4ba3-8dcc-3be63f9dff9d-1795000000000
+  [executable_action_instance:ed1e52d3-91fa-4463-9a8b-47478a339215-1795000000000][action_type:sendmessage] = /zykna av guia
+  [executable_block:344fca39-3378-4ba3-8dcc-3be63f9dff9d-1795000000000][type:generic] = [executables:ed1e52d3-91fa-4463-9a8b-47478a339215-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_29_14.png
   restartbackgroundanimations = true
@@ -383,7 +383,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = 1fb76cd7-aee0-49ea-8462-ac19bbd38ba8-1795000000000
+  instance_identifier = cf4cc38e-7f91-45ec-a16c-aeedcbc16635-1795000000000
   custom_element_layer_name = boton /zykna av guia
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -395,21 +395,21 @@ element {
   auto_sizing = false
   sticky_anchor = false
   anchor_point = mid-centered
-  x = -136
+  x = -71
   y = 114
   width = 29
   height = 14
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 01b3ac83-af56-4c4e-86d5-f8040ceb17b6-1795000000000
-  [loading_requirement_container_meta:01b3ac83-af56-4c4e-86d5-f8040ceb17b6-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = c7664f65-84df-444d-ae4c-862915b3fbf7-1795000000000
+  [loading_requirement_container_meta:c7664f65-84df-444d-ae4c-862915b3fbf7-1795000000000] = [groups:][instances:]
 }
 
 element {
-  button_element_executable_block_identifier = 3f6bed75-f285-4fd8-addc-5179cb94be53-1795000000000
-  [executable_action_instance:15d95f59-3da7-47cc-829f-9da049ed63fb-1795000000000][action_type:sendmessage] = /zykna av progreso
-  [executable_block:3f6bed75-f285-4fd8-addc-5179cb94be53-1795000000000][type:generic] = [executables:15d95f59-3da7-47cc-829f-9da049ed63fb-1795000000000;]
+  button_element_executable_block_identifier = d8af96de-b7b8-4d71-bdd0-445a75f8e8fa-1795000000000
+  [executable_action_instance:571fc008-e2da-4e7a-ab0a-e4326cd667df-1795000000000][action_type:sendmessage] = /zykna av escuadra
+  [executable_block:d8af96de-b7b8-4d71-bdd0-445a75f8e8fa-1795000000000][type:generic] = [executables:571fc008-e2da-4e7a-ab0a-e4326cd667df-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_56_14.png
   restartbackgroundanimations = true
@@ -421,8 +421,8 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = 71de011f-1a5b-45a7-8da7-ce450aae5853-1795000000000
-  custom_element_layer_name = boton /zykna av progreso
+  instance_identifier = a7902277-0208-4103-8a4d-831f925beda4-1795000000000
+  custom_element_layer_name = boton /zykna av escuadra
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
   fade_in_v2 = no_fading
@@ -433,21 +433,21 @@ element {
   auto_sizing = false
   sticky_anchor = false
   anchor_point = mid-centered
-  x = 154
+  x = -38
   y = 114
   width = 56
   height = 14
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 06682737-99ce-4567-a874-43aa9d24c259-1795000000000
-  [loading_requirement_container_meta:06682737-99ce-4567-a874-43aa9d24c259-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 706c7ad6-6c98-4e6f-8c8d-46fb9cfe02f1-1795000000000
+  [loading_requirement_container_meta:706c7ad6-6c98-4e6f-8c8d-46fb9cfe02f1-1795000000000] = [groups:][instances:]
 }
 
 element {
-  button_element_executable_block_identifier = 34bcd4d0-f9a0-4f99-8b0d-72863ecd2ff5-1795000000000
-  [executable_action_instance:caa7a1df-68e8-42d7-a758-d5db25d091a4-1795000000000][action_type:sendmessage] = /zykna av titulos
-  [executable_block:34bcd4d0-f9a0-4f99-8b0d-72863ecd2ff5-1795000000000][type:generic] = [executables:caa7a1df-68e8-42d7-a758-d5db25d091a4-1795000000000;]
+  button_element_executable_block_identifier = fbbef437-e1d9-49fe-afe2-d7402d965429-1795000000000
+  [executable_action_instance:6b77080d-2e2f-4c88-9a7f-da691f8d2f95-1795000000000][action_type:sendmessage] = /zykna av titulos
+  [executable_block:fbbef437-e1d9-49fe-afe2-d7402d965429-1795000000000][type:generic] = [executables:6b77080d-2e2f-4c88-9a7f-da691f8d2f95-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_42_14.png
   restartbackgroundanimations = true
@@ -459,7 +459,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = 3a901fc0-7ae8-4919-9bcc-e1e345e4d71f-1795000000000
+  instance_identifier = f4972e5e-58bc-4eb7-84af-95c1c8049f0c-1795000000000
   custom_element_layer_name = boton /zykna av titulos
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -471,15 +471,53 @@ element {
   auto_sizing = false
   sticky_anchor = false
   anchor_point = mid-centered
-  x = 108
+  x = 42
   y = 114
   width = 42
   height = 14
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = f18bde9d-2c31-4db1-a479-a517b9a25fab-1795000000000
-  [loading_requirement_container_meta:f18bde9d-2c31-4db1-a479-a517b9a25fab-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = c222147e-7618-4455-ac31-560d7adf440b-1795000000000
+  [loading_requirement_container_meta:c222147e-7618-4455-ac31-560d7adf440b-1795000000000] = [groups:][instances:]
+}
+
+element {
+  button_element_executable_block_identifier = 39eea2b2-2147-4c27-8cf5-eee4804453a1-1795000000000
+  [executable_action_instance:194465e7-a83f-4b83-b14d-56bcb10cdfc5-1795000000000][action_type:sendmessage] = /zykna av progreso
+  [executable_block:39eea2b2-2147-4c27-8cf5-eee4804453a1-1795000000000][type:generic] = [executables:194465e7-a83f-4b83-b14d-56bcb10cdfc5-1795000000000;]
+  backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
+  backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_56_14.png
+  restartbackgroundanimations = true
+  nine_slice_custom_background = false
+  nine_slice_border_x = 5
+  nine_slice_border_y = 5
+  navigatable = true
+  label = 
+  hoverlabel = 
+  transparent_background = false
+  element_type = custom_button
+  instance_identifier = e7257413-1668-4ef7-979f-9282019a3500-1795000000000
+  custom_element_layer_name = boton /zykna av progreso
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  sticky_anchor = false
+  anchor_point = mid-centered
+  x = 88
+  y = 114
+  width = 56
+  height = 14
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = false
+  element_loading_requirement_container_identifier = 02d7a29e-8bf6-45b5-ba5a-4a99823dc67a-1795000000000
+  [loading_requirement_container_meta:02d7a29e-8bf6-45b5-ba5a-4a99823dc67a-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -488,7 +526,7 @@ element {
   enchanted = false
   show_tooltip = false
   element_type = item
-  instance_identifier = 9c4d1d98-40a9-4d6b-b75a-a1f40c816dfd-1795000000000
+  instance_identifier = aa253a88-5548-438a-84bc-ad336d66f98b-1795000000000
   custom_element_layer_name = av_cabeza
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -507,8 +545,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = a94d96aa-31dc-447e-b6e2-d520a9bb7131-1795000000000
-  [loading_requirement_container_meta:a94d96aa-31dc-447e-b6e2-d520a9bb7131-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = c4d3b2bb-9204-4f0c-93cd-a97a9262b8f7-1795000000000
+  [loading_requirement_container_meta:c4d3b2bb-9204-4f0c-93cd-a97a9262b8f7-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -526,7 +564,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = 74d7553e-e347-421e-afea-e7bd674ae54b-1795000000000
+  instance_identifier = 24ccbaf8-c0e9-44fa-aa35-9597cfd1c3df-1795000000000
   custom_element_layer_name = av_jugador
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -545,8 +583,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 3aa55957-42d3-4761-90f9-31304345734e-1795000000000
-  [loading_requirement_container_meta:3aa55957-42d3-4761-90f9-31304345734e-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 5524937f-cf8a-4cb2-9edf-03834ac42ff5-1795000000000
+  [loading_requirement_container_meta:5524937f-cf8a-4cb2-9edf-03834ac42ff5-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -564,7 +602,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = 4e25b670-35ea-45f7-ba1c-5d4f3e4e1ed3-1795000000000
+  instance_identifier = 089bb6d9-1050-42ff-8dcd-0db321ec975b-1795000000000
   custom_element_layer_name = av_don
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -583,8 +621,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = bcf29e62-77d6-4880-8cec-f895e763f6d9-1795000000000
-  [loading_requirement_container_meta:bcf29e62-77d6-4880-8cec-f895e763f6d9-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 96071435-562c-4161-b627-9fb2fbf9361c-1795000000000
+  [loading_requirement_container_meta:96071435-562c-4161-b627-9fb2fbf9361c-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -602,7 +640,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = 5f2766ae-0d71-44ac-b4db-c1df4d8f7c74-1795000000000
+  instance_identifier = 17ad2902-dff7-4c9d-88e7-0d45cac12f00-1795000000000
   custom_element_layer_name = av_nc
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -621,8 +659,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 006346e2-56fa-4991-b699-7236864aaf08-1795000000000
-  [loading_requirement_container_meta:006346e2-56fa-4991-b699-7236864aaf08-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 423e19ee-def4-4bda-a40d-6012c15061f4-1795000000000
+  [loading_requirement_container_meta:423e19ee-def4-4bda-a40d-6012c15061f4-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -635,7 +673,7 @@ element {
   value_mode = percentage
   smooth_filling_animation = true
   element_type = progress_bar
-  instance_identifier = 3da48e4d-752e-413c-9ba6-682fc72768a2-1795000000000
+  instance_identifier = 620e28e4-1768-4ba1-aa02-10fed429fd56-1795000000000
   custom_element_layer_name = av_xp_prog
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -654,8 +692,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 7cf2b50a-cc08-4cd1-ac90-899d643f59fc-1795000000000
-  [loading_requirement_container_meta:7cf2b50a-cc08-4cd1-ac90-899d643f59fc-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = b2a3c888-4258-47d1-8170-16c077c028a8-1795000000000
+  [loading_requirement_container_meta:b2a3c888-4258-47d1-8170-16c077c028a8-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -673,7 +711,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = 5bb21fec-74c7-43b7-93d8-f333947e832b-1795000000000
+  instance_identifier = 0c8c18aa-e337-4746-a25b-cd2b25bebcd5-1795000000000
   custom_element_layer_name = av_xp_txt
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -692,8 +730,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 227ca106-e554-408f-bf3f-fc94404e03eb-1795000000000
-  [loading_requirement_container_meta:227ca106-e554-408f-bf3f-fc94404e03eb-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = be9f4d07-6ab1-4e39-a1e1-8998311d99a1-1795000000000
+  [loading_requirement_container_meta:be9f4d07-6ab1-4e39-a1e1-8998311d99a1-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -711,7 +749,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = e340a9e9-668f-4b5c-ab22-df33e634378b-1795000000000
+  instance_identifier = 397d1ae3-6361-4ce1-8197-af5e76844306-1795000000000
   custom_element_layer_name = av_arbol
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -730,8 +768,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = c67f0db0-71c5-451c-82f7-d0c79867520f-1795000000000
-  [loading_requirement_container_meta:c67f0db0-71c5-451c-82f7-d0c79867520f-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 57d864f6-6bc6-41e0-bf9e-84b86a45ea49-1795000000000
+  [loading_requirement_container_meta:57d864f6-6bc6-41e0-bf9e-84b86a45ea49-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -749,7 +787,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = e0bf47fc-bbda-4cff-9550-eecf9d3bdc84-1795000000000
+  instance_identifier = 06f0a33e-3262-4f03-88d2-d48ad7128e0d-1795000000000
   custom_element_layer_name = av_arbol_txt
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -768,14 +806,14 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 86df35ea-36b7-4ffe-8671-2c1b3e698b0a-1795000000000
-  [loading_requirement_container_meta:86df35ea-36b7-4ffe-8671-2c1b3e698b0a-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 8aa26583-1d4a-4110-84fe-0533a9ba5274-1795000000000
+  [loading_requirement_container_meta:8aa26583-1d4a-4110-84fe-0533a9ba5274-1795000000000] = [groups:][instances:]
 }
 
 element {
-  button_element_executable_block_identifier = f4752be7-19d0-407e-97d3-49f8f7a65883-1795000000000
-  [executable_action_instance:4cdfa137-6130-461f-ba28-146e5e3bed1e-1795000000000][action_type:sendmessage] = /zykna av inventario
-  [executable_block:f4752be7-19d0-407e-97d3-49f8f7a65883-1795000000000][type:generic] = [executables:4cdfa137-6130-461f-ba28-146e5e3bed1e-1795000000000;]
+  button_element_executable_block_identifier = 31223142-e9bf-42f0-a0eb-acd6fa0d51c9-1795000000000
+  [executable_action_instance:7f733599-9915-417c-b220-e2da319ab338-1795000000000][action_type:sendmessage] = /zykna av inventario
+  [executable_block:31223142-e9bf-42f0-a0eb-acd6fa0d51c9-1795000000000][type:generic] = [executables:7f733599-9915-417c-b220-e2da319ab338-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_120_16.png
   restartbackgroundanimations = true
@@ -787,7 +825,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = edb7a262-f28f-4d65-85a2-45ef82b25583-1795000000000
+  instance_identifier = 5da5fb0f-ef0f-4344-88a7-27ad1bc17b38-1795000000000
   custom_element_layer_name = boton /zykna av inventario
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -806,8 +844,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 98d6fefa-016d-42c6-acaf-f866d12e4ef3-1795000000000
-  [loading_requirement_container_meta:98d6fefa-016d-42c6-acaf-f866d12e4ef3-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = c964023d-bcf9-46f4-9c59-67b501a23bb5-1795000000000
+  [loading_requirement_container_meta:c964023d-bcf9-46f4-9c59-67b501a23bb5-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -825,7 +863,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = 9e4e4dbd-6f68-4fb9-ba05-203ef24fa426-1795000000000
+  instance_identifier = 4943b22d-f2e9-4879-b5e6-6577e71df353-1795000000000
   custom_element_layer_name = av_stat
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -844,14 +882,14 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 6306ae5c-78df-41ce-aab4-0bfbf72edbe9-1795000000000
-  [loading_requirement_container_meta:6306ae5c-78df-41ce-aab4-0bfbf72edbe9-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 8669dbdf-4567-4e3e-9325-da95de742c44-1795000000000
+  [loading_requirement_container_meta:8669dbdf-4567-4e3e-9325-da95de742c44-1795000000000] = [groups:][instances:]
 }
 
 element {
-  button_element_executable_block_identifier = 5a19f695-6eda-4a0e-82cf-097f8e6a7ca0-1795000000000
-  [executable_action_instance:e0ea58f2-7269-419f-8f5c-75b25661801b-1795000000000][action_type:sendmessage] = /zykna av repartir
-  [executable_block:5a19f695-6eda-4a0e-82cf-097f8e6a7ca0-1795000000000][type:generic] = [executables:e0ea58f2-7269-419f-8f5c-75b25661801b-1795000000000;]
+  button_element_executable_block_identifier = f90c7c6e-22f3-48b8-b9a4-9cda525e181c-1795000000000
+  [executable_action_instance:89e33fae-1421-47f6-a2a3-b8b2f9d8135a-1795000000000][action_type:sendmessage] = /zykna av repartir
+  [executable_block:f90c7c6e-22f3-48b8-b9a4-9cda525e181c-1795000000000][type:generic] = [executables:89e33fae-1421-47f6-a2a3-b8b2f9d8135a-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_120_16.png
   restartbackgroundanimations = true
@@ -863,7 +901,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = a40264cf-de37-443e-9f22-5d848abcf69d-1795000000000
+  instance_identifier = c87911c6-4439-4937-9256-7b6392a4f613-1795000000000
   custom_element_layer_name = boton /zykna av repartir
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -882,8 +920,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = e7b323e0-0c91-42a4-8ba3-d995366de76b-1795000000000
-  [loading_requirement_container_meta:e7b323e0-0c91-42a4-8ba3-d995366de76b-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 4a3130e4-a8be-4c8f-a29c-a410d1f303ec-1795000000000
+  [loading_requirement_container_meta:4a3130e4-a8be-4c8f-a29c-a410d1f303ec-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -901,7 +939,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = 2516b75b-dc7d-4567-8810-ec45e3ddb983-1795000000000
+  instance_identifier = 260f5314-8b90-4fa5-ac88-acf170ccfe14-1795000000000
   custom_element_layer_name = av_st_vida
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -920,8 +958,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 87a242be-cd39-4b3d-8955-154cae90bd78-1795000000000
-  [loading_requirement_container_meta:87a242be-cd39-4b3d-8955-154cae90bd78-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = c0ef32a9-5a43-469b-8db6-02c48996396f-1795000000000
+  [loading_requirement_container_meta:c0ef32a9-5a43-469b-8db6-02c48996396f-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -929,7 +967,7 @@ element {
   repeat_texture = false
   nine_slice_texture = false
   element_type = image
-  instance_identifier = 62c81bfc-ff61-4032-a946-e976acf5c133-1795000000000
+  instance_identifier = d6b48544-8cbe-40dd-a1b6-3b4ae8a5aec1-1795000000000
   custom_element_layer_name = av_rep
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -948,15 +986,15 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = c0498bef-24b2-416f-9d6f-f95592e2e118-1795000000000
-  [loading_requirement_container_meta:c0498bef-24b2-416f-9d6f-f95592e2e118-1795000000000] = [groups:][instances:2b082653-3646-4bb8-828d-bb189d1b94c2-1795000000000;]
-  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:2b082653-3646-4bb8-828d-bb189d1b94c2-1795000000000] = av_rep:1
+  element_loading_requirement_container_identifier = 3ad88737-52cc-4230-bacf-51c6f75083ad-1795000000000
+  [loading_requirement_container_meta:3ad88737-52cc-4230-bacf-51c6f75083ad-1795000000000] = [groups:][instances:2558b289-b338-4cad-a7ed-2d7155eade46-1795000000000;]
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:2558b289-b338-4cad-a7ed-2d7155eade46-1795000000000] = av_rep:1
 }
 
 element {
-  button_element_executable_block_identifier = 96a1a774-4b3d-4a1a-a325-5e943fc6724a-1795000000000
-  [executable_action_instance:2ac48663-0cf4-42d4-a1bb-000a14e1702b-1795000000000][action_type:sendmessage] = /zykna av subir vida
-  [executable_block:96a1a774-4b3d-4a1a-a325-5e943fc6724a-1795000000000][type:generic] = [executables:2ac48663-0cf4-42d4-a1bb-000a14e1702b-1795000000000;]
+  button_element_executable_block_identifier = 3a9b9524-5c33-4e78-acfa-4f490a85cb09-1795000000000
+  [executable_action_instance:0902efa9-d750-47c4-bb43-5ca0f312f55d-1795000000000][action_type:sendmessage] = /zykna av subir vida
+  [executable_block:3a9b9524-5c33-4e78-acfa-4f490a85cb09-1795000000000][type:generic] = [executables:0902efa9-d750-47c4-bb43-5ca0f312f55d-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_78_17.png
   restartbackgroundanimations = true
@@ -968,7 +1006,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = 64f80acb-ec86-42f4-807f-bc2ad32853ea-1795000000000
+  instance_identifier = 0b539c31-5014-4b3c-aee7-2619888c7f13-1795000000000
   custom_element_layer_name = boton /zykna av subir vida
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -987,8 +1025,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = d940c6f5-632e-49e7-bc03-3d317fa605c1-1795000000000
-  [loading_requirement_container_meta:d940c6f5-632e-49e7-bc03-3d317fa605c1-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = c8d193c0-fcc1-4712-938c-e72a5ac7057c-1795000000000
+  [loading_requirement_container_meta:c8d193c0-fcc1-4712-938c-e72a5ac7057c-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1006,7 +1044,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = 0ce7d063-a68e-4d48-8211-19d0435da78d-1795000000000
+  instance_identifier = 9a311348-030a-4e99-9db7-e2941a4047da-1795000000000
   custom_element_layer_name = av_st_fuerza
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1025,8 +1063,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = e09529e1-269f-4c3a-a4ba-d2cb738d6251-1795000000000
-  [loading_requirement_container_meta:e09529e1-269f-4c3a-a4ba-d2cb738d6251-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 572d239a-a333-4c37-bc63-f1167149f4ec-1795000000000
+  [loading_requirement_container_meta:572d239a-a333-4c37-bc63-f1167149f4ec-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1034,7 +1072,7 @@ element {
   repeat_texture = false
   nine_slice_texture = false
   element_type = image
-  instance_identifier = 5fca1ae4-5334-4a00-82d5-a2e58a1777f2-1795000000000
+  instance_identifier = 9c086de7-30e8-468d-a502-a639db5e312d-1795000000000
   custom_element_layer_name = av_rep
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1053,15 +1091,15 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 0052a388-e22e-4bb9-96c8-fa0b41197aeb-1795000000000
-  [loading_requirement_container_meta:0052a388-e22e-4bb9-96c8-fa0b41197aeb-1795000000000] = [groups:][instances:bebce911-48fc-4ea6-9d83-8c8fb22b3073-1795000000000;]
-  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:bebce911-48fc-4ea6-9d83-8c8fb22b3073-1795000000000] = av_rep:1
+  element_loading_requirement_container_identifier = 592a4e52-d022-47ca-98ed-22bee16687e5-1795000000000
+  [loading_requirement_container_meta:592a4e52-d022-47ca-98ed-22bee16687e5-1795000000000] = [groups:][instances:f1ce0039-9033-4fa7-889f-e388e1af123b-1795000000000;]
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:f1ce0039-9033-4fa7-889f-e388e1af123b-1795000000000] = av_rep:1
 }
 
 element {
-  button_element_executable_block_identifier = 84e7bcb1-c83a-4a8d-b7dc-e67efdd6c74d-1795000000000
-  [executable_action_instance:a0f7d5ef-0fc9-48ba-92fd-866e3f5f4e51-1795000000000][action_type:sendmessage] = /zykna av subir fuerza
-  [executable_block:84e7bcb1-c83a-4a8d-b7dc-e67efdd6c74d-1795000000000][type:generic] = [executables:a0f7d5ef-0fc9-48ba-92fd-866e3f5f4e51-1795000000000;]
+  button_element_executable_block_identifier = 7b5cda2e-fb24-4e70-96e7-f9e911e4ed30-1795000000000
+  [executable_action_instance:cf0f2da0-5818-48b5-bec9-3f1c2c58cfae-1795000000000][action_type:sendmessage] = /zykna av subir fuerza
+  [executable_block:7b5cda2e-fb24-4e70-96e7-f9e911e4ed30-1795000000000][type:generic] = [executables:cf0f2da0-5818-48b5-bec9-3f1c2c58cfae-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_78_17.png
   restartbackgroundanimations = true
@@ -1073,7 +1111,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = a9216a27-6301-4c74-a548-7a28c452191d-1795000000000
+  instance_identifier = 990e5195-2a58-4fff-89f6-831c81e93eb8-1795000000000
   custom_element_layer_name = boton /zykna av subir fuerza
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1092,8 +1130,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 27c09619-0a7f-43ea-83f8-b661f9556042-1795000000000
-  [loading_requirement_container_meta:27c09619-0a7f-43ea-83f8-b661f9556042-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 8011eae8-ca61-4070-b096-674dd0372c1b-1795000000000
+  [loading_requirement_container_meta:8011eae8-ca61-4070-b096-674dd0372c1b-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1111,7 +1149,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = ee5598b5-eacf-4411-a72f-f838e51b5497-1795000000000
+  instance_identifier = 82d845d2-ef34-4635-a44f-be5407e616be-1795000000000
   custom_element_layer_name = av_st_defensa
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1130,8 +1168,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 77a8a06b-e58f-4d37-9d28-e7903b287917-1795000000000
-  [loading_requirement_container_meta:77a8a06b-e58f-4d37-9d28-e7903b287917-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = c9a98db8-4242-4826-8221-817a89a25b2d-1795000000000
+  [loading_requirement_container_meta:c9a98db8-4242-4826-8221-817a89a25b2d-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1139,7 +1177,7 @@ element {
   repeat_texture = false
   nine_slice_texture = false
   element_type = image
-  instance_identifier = ddf08aa9-0d1e-427e-9c0c-b6514ac782ca-1795000000000
+  instance_identifier = f0e4368a-af01-44aa-91d1-45fa261b7710-1795000000000
   custom_element_layer_name = av_rep
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1158,15 +1196,15 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = e106944c-8ac3-4bcc-976c-a50801453f7a-1795000000000
-  [loading_requirement_container_meta:e106944c-8ac3-4bcc-976c-a50801453f7a-1795000000000] = [groups:][instances:b3e0ca87-1d7f-4b59-b19c-416900cb2364-1795000000000;]
-  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:b3e0ca87-1d7f-4b59-b19c-416900cb2364-1795000000000] = av_rep:1
+  element_loading_requirement_container_identifier = 19a04f2f-f8c6-4f74-b76a-7e8aae92a058-1795000000000
+  [loading_requirement_container_meta:19a04f2f-f8c6-4f74-b76a-7e8aae92a058-1795000000000] = [groups:][instances:1f588bda-8385-47bc-b5e3-419f72943091-1795000000000;]
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:1f588bda-8385-47bc-b5e3-419f72943091-1795000000000] = av_rep:1
 }
 
 element {
-  button_element_executable_block_identifier = 7198e743-c6d4-4548-8096-1d701f0eb383-1795000000000
-  [executable_action_instance:cbe01eb3-1b86-4671-ac36-d3ab4723057b-1795000000000][action_type:sendmessage] = /zykna av subir defensa
-  [executable_block:7198e743-c6d4-4548-8096-1d701f0eb383-1795000000000][type:generic] = [executables:cbe01eb3-1b86-4671-ac36-d3ab4723057b-1795000000000;]
+  button_element_executable_block_identifier = 15f9ff45-4148-41d2-8360-998496962716-1795000000000
+  [executable_action_instance:96e8e628-fa09-497b-bcb9-72710d38e6d5-1795000000000][action_type:sendmessage] = /zykna av subir defensa
+  [executable_block:15f9ff45-4148-41d2-8360-998496962716-1795000000000][type:generic] = [executables:96e8e628-fa09-497b-bcb9-72710d38e6d5-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_78_17.png
   restartbackgroundanimations = true
@@ -1178,7 +1216,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = 3c055ec3-982f-4d32-9398-8ccb91518ef0-1795000000000
+  instance_identifier = 9864e5ba-d2de-4205-ba97-54bcb96237eb-1795000000000
   custom_element_layer_name = boton /zykna av subir defensa
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1197,8 +1235,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 180b8dd2-80f4-4c8c-8c47-5481836ef8fe-1795000000000
-  [loading_requirement_container_meta:180b8dd2-80f4-4c8c-8c47-5481836ef8fe-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = d78e0658-5bb0-4a30-bead-aa5598225efd-1795000000000
+  [loading_requirement_container_meta:d78e0658-5bb0-4a30-bead-aa5598225efd-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1216,7 +1254,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = 346494a7-6d20-4fdd-9c6b-7b11772e7e47-1795000000000
+  instance_identifier = 5bd8fc49-66e4-4430-9e2f-8e2909d5b55a-1795000000000
   custom_element_layer_name = av_st_estamina
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1235,8 +1273,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = cdb24cce-01b1-46df-b2d3-5a073f596714-1795000000000
-  [loading_requirement_container_meta:cdb24cce-01b1-46df-b2d3-5a073f596714-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = d6410a1a-3897-44d9-b6a5-6a60f669c369-1795000000000
+  [loading_requirement_container_meta:d6410a1a-3897-44d9-b6a5-6a60f669c369-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1244,7 +1282,7 @@ element {
   repeat_texture = false
   nine_slice_texture = false
   element_type = image
-  instance_identifier = 10e75b1f-5271-409a-8b24-8a20cb68233d-1795000000000
+  instance_identifier = e753c814-ae48-4b58-812d-586589407afb-1795000000000
   custom_element_layer_name = av_rep
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1263,15 +1301,15 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = a46dafaa-c4a8-4d20-8044-47d5b7a8e5bd-1795000000000
-  [loading_requirement_container_meta:a46dafaa-c4a8-4d20-8044-47d5b7a8e5bd-1795000000000] = [groups:][instances:ca0c0dba-3345-49aa-a9a7-7cb8a7d49887-1795000000000;]
-  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:ca0c0dba-3345-49aa-a9a7-7cb8a7d49887-1795000000000] = av_rep:1
+  element_loading_requirement_container_identifier = a3c06f1a-8600-4b8a-a616-470bab9a498c-1795000000000
+  [loading_requirement_container_meta:a3c06f1a-8600-4b8a-a616-470bab9a498c-1795000000000] = [groups:][instances:a3000517-5569-4140-9256-38afb84e3895-1795000000000;]
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:a3000517-5569-4140-9256-38afb84e3895-1795000000000] = av_rep:1
 }
 
 element {
-  button_element_executable_block_identifier = 20e7b14b-5c70-4111-b941-84377015336e-1795000000000
-  [executable_action_instance:58238c4d-4db8-40cf-887e-91975b050a7d-1795000000000][action_type:sendmessage] = /zykna av subir estamina
-  [executable_block:20e7b14b-5c70-4111-b941-84377015336e-1795000000000][type:generic] = [executables:58238c4d-4db8-40cf-887e-91975b050a7d-1795000000000;]
+  button_element_executable_block_identifier = 327ebae1-1535-4f5c-973b-6e99bc1ad273-1795000000000
+  [executable_action_instance:9e1b3b6e-a04c-463b-8957-c9ef6c94b481-1795000000000][action_type:sendmessage] = /zykna av subir estamina
+  [executable_block:327ebae1-1535-4f5c-973b-6e99bc1ad273-1795000000000][type:generic] = [executables:9e1b3b6e-a04c-463b-8957-c9ef6c94b481-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_78_17.png
   restartbackgroundanimations = true
@@ -1283,7 +1321,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = e5fc9cd7-aa1a-4051-8d2b-a7ca041b2103-1795000000000
+  instance_identifier = 04d61e27-ffe3-4310-b548-4d2c8310d3fb-1795000000000
   custom_element_layer_name = boton /zykna av subir estamina
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1302,8 +1340,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = e1a14937-7065-454b-9b98-c1647c078eaf-1795000000000
-  [loading_requirement_container_meta:e1a14937-7065-454b-9b98-c1647c078eaf-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 676c448d-ddb9-44ce-bcb3-32f21458da5d-1795000000000
+  [loading_requirement_container_meta:676c448d-ddb9-44ce-bcb3-32f21458da5d-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1321,7 +1359,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = d767efc0-d18a-4d52-88c3-0f49fa0ad720-1795000000000
+  instance_identifier = dd2d756b-fe96-4e14-862c-b7d9682581f2-1795000000000
   custom_element_layer_name = av_st_ataque
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1340,8 +1378,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 5305b849-189e-4ca5-b1b4-4534067b9ff1-1795000000000
-  [loading_requirement_container_meta:5305b849-189e-4ca5-b1b4-4534067b9ff1-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 91d93878-10f4-45cb-bffb-4cb12ddd5932-1795000000000
+  [loading_requirement_container_meta:91d93878-10f4-45cb-bffb-4cb12ddd5932-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1349,7 +1387,7 @@ element {
   repeat_texture = false
   nine_slice_texture = false
   element_type = image
-  instance_identifier = 17391649-cb25-4a54-9948-5105f9afd198-1795000000000
+  instance_identifier = c2f4c280-9d93-4375-9ec0-31263ab27bf5-1795000000000
   custom_element_layer_name = av_rep
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1368,15 +1406,15 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 2304e571-73b0-4899-b9a8-2efbdef49dd4-1795000000000
-  [loading_requirement_container_meta:2304e571-73b0-4899-b9a8-2efbdef49dd4-1795000000000] = [groups:][instances:1af4454c-10d0-4e56-b7e9-2c759d812c98-1795000000000;]
-  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:1af4454c-10d0-4e56-b7e9-2c759d812c98-1795000000000] = av_rep:1
+  element_loading_requirement_container_identifier = fbbc144a-48d0-4f29-9027-e506ef18985c-1795000000000
+  [loading_requirement_container_meta:fbbc144a-48d0-4f29-9027-e506ef18985c-1795000000000] = [groups:][instances:24937432-f9d6-489e-8035-1613124b7d83-1795000000000;]
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:24937432-f9d6-489e-8035-1613124b7d83-1795000000000] = av_rep:1
 }
 
 element {
-  button_element_executable_block_identifier = bf7a6561-d4dd-49ae-a6e4-83746b6ab6c0-1795000000000
-  [executable_action_instance:fd7fbabd-fedc-4649-9416-a2315ee0d106-1795000000000][action_type:sendmessage] = /zykna av subir ataque
-  [executable_block:bf7a6561-d4dd-49ae-a6e4-83746b6ab6c0-1795000000000][type:generic] = [executables:fd7fbabd-fedc-4649-9416-a2315ee0d106-1795000000000;]
+  button_element_executable_block_identifier = ab6f5364-a0f7-43a9-b877-9a8cf3b2b536-1795000000000
+  [executable_action_instance:ee7f394f-81dc-44aa-b27d-64f605b15d79-1795000000000][action_type:sendmessage] = /zykna av subir ataque
+  [executable_block:ab6f5364-a0f7-43a9-b877-9a8cf3b2b536-1795000000000][type:generic] = [executables:ee7f394f-81dc-44aa-b27d-64f605b15d79-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_78_17.png
   restartbackgroundanimations = true
@@ -1388,7 +1426,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = 2dde785d-75fc-4425-8e65-39c57cd6a00c-1795000000000
+  instance_identifier = db265dea-d122-4270-b7e4-10ba98c055f8-1795000000000
   custom_element_layer_name = boton /zykna av subir ataque
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1407,8 +1445,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = f676f607-1050-472e-9fbf-dd60b0a95289-1795000000000
-  [loading_requirement_container_meta:f676f607-1050-472e-9fbf-dd60b0a95289-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 734a6823-837f-4e6d-a8f7-94b2d9e74024-1795000000000
+  [loading_requirement_container_meta:734a6823-837f-4e6d-a8f7-94b2d9e74024-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1426,7 +1464,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = 82744168-cb42-4a29-853e-90f90b7717af-1795000000000
+  instance_identifier = 53171dc2-6c0c-4f66-b0ff-7dc6ea3a54b4-1795000000000
   custom_element_layer_name = av_st_inteligencia
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1445,8 +1483,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 54c79f2b-5277-44dc-a5db-d4d36c91c528-1795000000000
-  [loading_requirement_container_meta:54c79f2b-5277-44dc-a5db-d4d36c91c528-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = adb34b63-4e24-415b-a30e-74277bbec250-1795000000000
+  [loading_requirement_container_meta:adb34b63-4e24-415b-a30e-74277bbec250-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1454,7 +1492,7 @@ element {
   repeat_texture = false
   nine_slice_texture = false
   element_type = image
-  instance_identifier = 414530a0-efbc-4b7b-9658-3aa830432ecc-1795000000000
+  instance_identifier = 345b4be9-74e8-4ef7-9b59-774a102b21ac-1795000000000
   custom_element_layer_name = av_rep
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1473,15 +1511,15 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = bb2a789d-d015-48d5-b028-4f2b51444fd6-1795000000000
-  [loading_requirement_container_meta:bb2a789d-d015-48d5-b028-4f2b51444fd6-1795000000000] = [groups:][instances:525c22a3-c801-419b-a82e-d098b758463a-1795000000000;]
-  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:525c22a3-c801-419b-a82e-d098b758463a-1795000000000] = av_rep:1
+  element_loading_requirement_container_identifier = a210a29a-40a4-44df-81dd-f45943505c01-1795000000000
+  [loading_requirement_container_meta:a210a29a-40a4-44df-81dd-f45943505c01-1795000000000] = [groups:][instances:9d8e1e09-ff14-4041-bd52-573c199654e7-1795000000000;]
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:9d8e1e09-ff14-4041-bd52-573c199654e7-1795000000000] = av_rep:1
 }
 
 element {
-  button_element_executable_block_identifier = 19351b01-ae03-48ec-b720-bf3431d00802-1795000000000
-  [executable_action_instance:dae75c88-1723-408b-85c0-eacf16bb29cf-1795000000000][action_type:sendmessage] = /zykna av subir inteligencia
-  [executable_block:19351b01-ae03-48ec-b720-bf3431d00802-1795000000000][type:generic] = [executables:dae75c88-1723-408b-85c0-eacf16bb29cf-1795000000000;]
+  button_element_executable_block_identifier = 00650515-22f7-45c7-aaf3-085c5b4c3b8c-1795000000000
+  [executable_action_instance:6c5dae83-e8d1-4f86-a661-bce523bb2109-1795000000000][action_type:sendmessage] = /zykna av subir inteligencia
+  [executable_block:00650515-22f7-45c7-aaf3-085c5b4c3b8c-1795000000000][type:generic] = [executables:6c5dae83-e8d1-4f86-a661-bce523bb2109-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_78_17.png
   restartbackgroundanimations = true
@@ -1493,7 +1531,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = 27330414-cc09-4162-80a5-c7da657fd04e-1795000000000
+  instance_identifier = 8075a7ce-e076-46e1-96ff-af91897abf38-1795000000000
   custom_element_layer_name = boton /zykna av subir inteligencia
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1512,8 +1550,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = cb964364-6ee0-42ee-9c6d-23ee1820786f-1795000000000
-  [loading_requirement_container_meta:cb964364-6ee0-42ee-9c6d-23ee1820786f-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 96cb31cc-ed75-4c82-be16-04453d4886ca-1795000000000
+  [loading_requirement_container_meta:96cb31cc-ed75-4c82-be16-04453d4886ca-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1531,7 +1569,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = 3c7682ab-1356-4ae5-bc76-fb86658ce6f4-1795000000000
+  instance_identifier = 4c6185cf-af55-4788-b1e6-3046c23f3c3a-1795000000000
   custom_element_layer_name = av_st_mana
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1550,8 +1588,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = ed21737a-b2ab-452a-9a07-3394a46f342f-1795000000000
-  [loading_requirement_container_meta:ed21737a-b2ab-452a-9a07-3394a46f342f-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = f6a4df20-5f25-458d-890e-aaf8a8fdd363-1795000000000
+  [loading_requirement_container_meta:f6a4df20-5f25-458d-890e-aaf8a8fdd363-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1559,7 +1597,7 @@ element {
   repeat_texture = false
   nine_slice_texture = false
   element_type = image
-  instance_identifier = 63caaf36-ebc8-4218-a431-b3bc73ae2c59-1795000000000
+  instance_identifier = 0971ee05-be28-4095-8f48-2544e1715634-1795000000000
   custom_element_layer_name = av_rep
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1578,15 +1616,15 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 7dd6e564-c8ef-43fc-8cc0-63dbdc039176-1795000000000
-  [loading_requirement_container_meta:7dd6e564-c8ef-43fc-8cc0-63dbdc039176-1795000000000] = [groups:][instances:cef32c3d-ef86-4850-a975-e29fd82bb7fa-1795000000000;]
-  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:cef32c3d-ef86-4850-a975-e29fd82bb7fa-1795000000000] = av_rep:1
+  element_loading_requirement_container_identifier = 36be9058-00c7-4f6a-b408-c15014139dde-1795000000000
+  [loading_requirement_container_meta:36be9058-00c7-4f6a-b408-c15014139dde-1795000000000] = [groups:][instances:3d734754-a069-41d4-a4f2-40cd06318d0b-1795000000000;]
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:3d734754-a069-41d4-a4f2-40cd06318d0b-1795000000000] = av_rep:1
 }
 
 element {
-  button_element_executable_block_identifier = f158e057-723a-44f9-b4e9-3dfa22505685-1795000000000
-  [executable_action_instance:0f857f08-1732-4096-bafd-5dfc8a73169b-1795000000000][action_type:sendmessage] = /zykna av subir mana
-  [executable_block:f158e057-723a-44f9-b4e9-3dfa22505685-1795000000000][type:generic] = [executables:0f857f08-1732-4096-bafd-5dfc8a73169b-1795000000000;]
+  button_element_executable_block_identifier = a5c552cb-acdc-4114-ac0d-d828069107b3-1795000000000
+  [executable_action_instance:1f1dbcb5-d32c-4fb3-9250-69f1b3e3af8c-1795000000000][action_type:sendmessage] = /zykna av subir mana
+  [executable_block:a5c552cb-acdc-4114-ac0d-d828069107b3-1795000000000][type:generic] = [executables:1f1dbcb5-d32c-4fb3-9250-69f1b3e3af8c-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_78_17.png
   restartbackgroundanimations = true
@@ -1598,7 +1636,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = c536ce41-dd67-4fad-abe7-79d722ed9546-1795000000000
+  instance_identifier = e515acc3-a35c-4dea-bf53-a39a9f294f00-1795000000000
   custom_element_layer_name = boton /zykna av subir mana
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1617,8 +1655,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 72a2a5ee-d67c-476d-8b9a-a293d0b6c3e5-1795000000000
-  [loading_requirement_container_meta:72a2a5ee-d67c-476d-8b9a-a293d0b6c3e5-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 79d3160c-91c1-4bdd-8ede-2902db6c0957-1795000000000
+  [loading_requirement_container_meta:79d3160c-91c1-4bdd-8ede-2902db6c0957-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1636,7 +1674,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = f5f6b45b-b686-4efc-bf4c-d515fb068c1c-1795000000000
+  instance_identifier = 95d6552b-c9e8-4a7a-8191-ff336de998f0-1795000000000
   custom_element_layer_name = av_st_critico
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1655,8 +1693,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = fd12eeef-b3cd-47b9-8428-b2b598fb33c0-1795000000000
-  [loading_requirement_container_meta:fd12eeef-b3cd-47b9-8428-b2b598fb33c0-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 83edecb1-8bdf-4271-9ec7-5144ff3b5d00-1795000000000
+  [loading_requirement_container_meta:83edecb1-8bdf-4271-9ec7-5144ff3b5d00-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1664,7 +1702,7 @@ element {
   repeat_texture = false
   nine_slice_texture = false
   element_type = image
-  instance_identifier = de7388d3-e61b-4d62-8956-a0c4086e4afe-1795000000000
+  instance_identifier = 07551020-b377-4cdc-9886-2d623f927a13-1795000000000
   custom_element_layer_name = av_rep
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1683,15 +1721,15 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 08d93be9-f370-464c-a161-c668f5172e86-1795000000000
-  [loading_requirement_container_meta:08d93be9-f370-464c-a161-c668f5172e86-1795000000000] = [groups:][instances:a866c031-15e2-4b38-a075-e37389a0ca35-1795000000000;]
-  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:a866c031-15e2-4b38-a075-e37389a0ca35-1795000000000] = av_rep:1
+  element_loading_requirement_container_identifier = 850a3d36-4298-464b-a78e-29c8af924dd2-1795000000000
+  [loading_requirement_container_meta:850a3d36-4298-464b-a78e-29c8af924dd2-1795000000000] = [groups:][instances:e30e2e2f-b60b-4e99-be89-1571ecd35dd7-1795000000000;]
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:e30e2e2f-b60b-4e99-be89-1571ecd35dd7-1795000000000] = av_rep:1
 }
 
 element {
-  button_element_executable_block_identifier = 97809a15-dc81-4e29-a0e8-2ed7d7af4904-1795000000000
-  [executable_action_instance:648df8bd-5f3f-4181-a469-6ef01209dab3-1795000000000][action_type:sendmessage] = /zykna av subir critico
-  [executable_block:97809a15-dc81-4e29-a0e8-2ed7d7af4904-1795000000000][type:generic] = [executables:648df8bd-5f3f-4181-a469-6ef01209dab3-1795000000000;]
+  button_element_executable_block_identifier = 979c2c34-74d6-4f8f-a747-41a261d9b5fc-1795000000000
+  [executable_action_instance:507c163d-9b56-4129-beb1-411262a74e58-1795000000000][action_type:sendmessage] = /zykna av subir critico
+  [executable_block:979c2c34-74d6-4f8f-a747-41a261d9b5fc-1795000000000][type:generic] = [executables:507c163d-9b56-4129-beb1-411262a74e58-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_78_17.png
   restartbackgroundanimations = true
@@ -1703,7 +1741,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = eb786126-edd6-4cc3-8a53-846769fccbe8-1795000000000
+  instance_identifier = 3ad7fd50-ca2a-4526-8854-4ca72725f432-1795000000000
   custom_element_layer_name = boton /zykna av subir critico
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1722,8 +1760,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = bfb12c4d-6746-40a1-9637-1e5d3fffea12-1795000000000
-  [loading_requirement_container_meta:bfb12c4d-6746-40a1-9637-1e5d3fffea12-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = f8dff387-8a69-4182-8a41-88efd95a7ded-1795000000000
+  [loading_requirement_container_meta:f8dff387-8a69-4182-8a41-88efd95a7ded-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1741,7 +1779,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = c09e9462-503a-443c-80a0-7ef3bc288fab-1795000000000
+  instance_identifier = f9ed2120-0f78-4a11-94af-4eb747625491-1795000000000
   custom_element_layer_name = av_st_arco
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1760,8 +1798,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 069758c3-8bad-4f38-b296-e02a9261aaab-1795000000000
-  [loading_requirement_container_meta:069758c3-8bad-4f38-b296-e02a9261aaab-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 75959456-d799-41ca-ac16-809298317e78-1795000000000
+  [loading_requirement_container_meta:75959456-d799-41ca-ac16-809298317e78-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1769,7 +1807,7 @@ element {
   repeat_texture = false
   nine_slice_texture = false
   element_type = image
-  instance_identifier = 33a1b378-e950-425d-a91b-fb3640942c09-1795000000000
+  instance_identifier = 74d9da52-d44b-44b9-b4e0-0bcb5e7fce4b-1795000000000
   custom_element_layer_name = av_rep
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1788,15 +1826,15 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 07392cde-43c2-4af6-b380-a8d71359d0b2-1795000000000
-  [loading_requirement_container_meta:07392cde-43c2-4af6-b380-a8d71359d0b2-1795000000000] = [groups:][instances:a8906a4c-fd4d-4e03-9a07-a82b0b3c0b5a-1795000000000;]
-  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:a8906a4c-fd4d-4e03-9a07-a82b0b3c0b5a-1795000000000] = av_rep:1
+  element_loading_requirement_container_identifier = 80fee67d-5b46-4a1f-907d-25f0a529f24c-1795000000000
+  [loading_requirement_container_meta:80fee67d-5b46-4a1f-907d-25f0a529f24c-1795000000000] = [groups:][instances:3760d6c3-3625-4d6b-b8b0-d43bb4a3a74b-1795000000000;]
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:3760d6c3-3625-4d6b-b8b0-d43bb4a3a74b-1795000000000] = av_rep:1
 }
 
 element {
-  button_element_executable_block_identifier = b9e9aef7-3397-4c20-ad01-90cc6dd0fd31-1795000000000
-  [executable_action_instance:2159a383-0476-435c-9f6b-90a0f4cf0dd7-1795000000000][action_type:sendmessage] = /zykna av subir arco
-  [executable_block:b9e9aef7-3397-4c20-ad01-90cc6dd0fd31-1795000000000][type:generic] = [executables:2159a383-0476-435c-9f6b-90a0f4cf0dd7-1795000000000;]
+  button_element_executable_block_identifier = 90687406-be59-4148-849c-6e3d8a52bad3-1795000000000
+  [executable_action_instance:bfbc46e4-aefa-4c5c-b02b-d88f1c3c86ca-1795000000000][action_type:sendmessage] = /zykna av subir arco
+  [executable_block:90687406-be59-4148-849c-6e3d8a52bad3-1795000000000][type:generic] = [executables:bfbc46e4-aefa-4c5c-b02b-d88f1c3c86ca-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_78_17.png
   restartbackgroundanimations = true
@@ -1808,7 +1846,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = f6240492-5ee4-44f2-8c29-a61a7cf03fd8-1795000000000
+  instance_identifier = 2f7ebc5d-e813-4ea1-aba5-daba9ad86796-1795000000000
   custom_element_layer_name = boton /zykna av subir arco
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1827,8 +1865,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 43221c51-2f8b-4b74-aa26-0f553feb620c-1795000000000
-  [loading_requirement_container_meta:43221c51-2f8b-4b74-aa26-0f553feb620c-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 22037312-4cd4-4100-a66e-f0e0a0af6756-1795000000000
+  [loading_requirement_container_meta:22037312-4cd4-4100-a66e-f0e0a0af6756-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1846,7 +1884,7 @@ element {
   line_spacing = 1
   alignment = left
   element_type = text_v2
-  instance_identifier = 091694f6-15c7-4f5a-93b8-d9bcdb78eed4-1795000000000
+  instance_identifier = ab46d03d-26f2-4739-9f56-1f18d8f0549f-1795000000000
   custom_element_layer_name = av_st_velocidad
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1865,8 +1903,8 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = c788f74a-81e3-4aa6-876d-c70663880767-1795000000000
-  [loading_requirement_container_meta:c788f74a-81e3-4aa6-876d-c70663880767-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = 3082a82a-8226-4672-9541-07bbaacae585-1795000000000
+  [loading_requirement_container_meta:3082a82a-8226-4672-9541-07bbaacae585-1795000000000] = [groups:][instances:]
 }
 
 element {
@@ -1874,7 +1912,7 @@ element {
   repeat_texture = false
   nine_slice_texture = false
   element_type = image
-  instance_identifier = eb70ea71-7ed2-4bb6-a83c-0a2775d79fa1-1795000000000
+  instance_identifier = 57542aa2-c720-47b4-8095-d97827960387-1795000000000
   custom_element_layer_name = av_rep
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1893,15 +1931,15 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = cb4b64f7-f19e-474d-80d1-088d171ec99e-1795000000000
-  [loading_requirement_container_meta:cb4b64f7-f19e-474d-80d1-088d171ec99e-1795000000000] = [groups:][instances:4ba53b93-250f-4666-b97e-560fe6d56292-1795000000000;]
-  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:4ba53b93-250f-4666-b97e-560fe6d56292-1795000000000] = av_rep:1
+  element_loading_requirement_container_identifier = 7f4f7abb-0355-45e8-a8a7-79d16c258598-1795000000000
+  [loading_requirement_container_meta:7f4f7abb-0355-45e8-a8a7-79d16c258598-1795000000000] = [groups:][instances:703e3be2-3770-40c4-9ae7-ec55f18658ea-1795000000000;]
+  [loading_requirement:fancymenu_visibility_requirement_is_variable_value][requirement_mode:if][req_id:703e3be2-3770-40c4-9ae7-ec55f18658ea-1795000000000] = av_rep:1
 }
 
 element {
-  button_element_executable_block_identifier = 4cde2a3f-761f-43e9-bd3b-7b0e364bdd70-1795000000000
-  [executable_action_instance:8a25d597-e3b2-4dda-9eb7-a493f980d222-1795000000000][action_type:sendmessage] = /zykna av subir velocidad
-  [executable_block:4cde2a3f-761f-43e9-bd3b-7b0e364bdd70-1795000000000][type:generic] = [executables:8a25d597-e3b2-4dda-9eb7-a493f980d222-1795000000000;]
+  button_element_executable_block_identifier = 370625d4-84aa-44fb-9dfe-316d8b022666-1795000000000
+  [executable_action_instance:e353e0af-fd2c-4d7f-b533-6b76884f0f78-1795000000000][action_type:sendmessage] = /zykna av subir velocidad
+  [executable_block:370625d4-84aa-44fb-9dfe-316d8b022666-1795000000000][type:generic] = [executables:e353e0af-fd2c-4d7f-b533-6b76884f0f78-1795000000000;]
   backgroundnormal = [source:local]/config/fancymenu/assets/archivo/vacio.png
   backgroundhovered = [source:local]/config/fancymenu/assets/archivo/hover_78_17.png
   restartbackgroundanimations = true
@@ -1913,7 +1951,7 @@ element {
   hoverlabel = 
   transparent_background = false
   element_type = custom_button
-  instance_identifier = 548f94bb-88a4-424d-b295-051468bc7648-1795000000000
+  instance_identifier = 445658a1-a512-4f79-a186-a248114a6c3d-1795000000000
   custom_element_layer_name = boton /zykna av subir velocidad
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
@@ -1932,6 +1970,6 @@ element {
   stretch_x = false
   stretch_y = false
   stay_on_screen = false
-  element_loading_requirement_container_identifier = 1085f52a-c813-4357-877a-7af68d28bece-1795000000000
-  [loading_requirement_container_meta:1085f52a-c813-4357-877a-7af68d28bece-1795000000000] = [groups:][instances:]
+  element_loading_requirement_container_identifier = a12bc295-aea1-46a1-b166-f0ca7ce04a2f-1795000000000
+  [loading_requirement_container_meta:a12bc295-aea1-46a1-b166-f0ca7ce04a2f-1795000000000] = [groups:][instances:]
 }
