@@ -23,3 +23,6 @@ archivo_cosmos {
 
 archivo_bestiario {
 }
+
+archivo_texto {
+}
