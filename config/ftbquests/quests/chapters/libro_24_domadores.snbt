@@ -1,0 +1,221 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: "circle"
+	filename: "libro_24_domadores"
+	group: "2A4B6750AD6AF7B2"
+	icon: "minecraft:lead"
+	id: "6A03C5FE8913E8EB"
+	order_index: 24
+	progression_mode: "flexible"
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["&#19E6E6Zykna:&r &oLa Última Domadora dice que una criatura no se doma: se gana. Antes de buscar nidos, escucha su lección, que es para todos los dones.", "", "&6Qué hacer:&r Completa la lección de Ocelotzin en la Gran Ronda y vuelve con ella para cerrarla. Escribe zykna ronda para ver los pasos.", "", "&6Premio:&r 2 cosas al azar: correas, carne cocinada, trigo o cuero.", "&5A veces (7 %):&r una montura de silla de montar."]
+			disable_toast: true
+			icon: "minecraft:lead"
+			id: "4CAD639FC0C8F367"
+			shape: "hexagon"
+			size: 1.30d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "22BE3A607DDC316B"
+					icon: "minecraft:lead"
+					stage: "ecos_l_domadores_puerta_leccion"
+					title: "Cierra la lección de Ocelotzin"
+					type: "gamestage"
+				}
+			]
+			title: "Lo que enseña Ocelotzin"
+			x: 0.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["4CAD639FC0C8F367"]
+			description: ["&#19E6E6Zykna:&r &oLos huevos más cercanos están bajo tierra, en las cuevas primordiales: filtraciones de otra era. Los nidos van sobre piedra caliza y paja de helecho, y los padres no andan lejos.", "", "&6Qué hacer:&r Llega a las cuevas primordiales de Alex's Caves. Busca un nido de paja de helecho con huevos y míralo desde lejos.", "", "&6Premio:&r 2 cosas al azar: cuero, hierro, carne cocinada o cuerda.", "&5A veces (7 %):&r un catalejo."]
+			disable_toast: true
+			icon: "minecraft:spyglass"
+			id: "40323C5126BB79A5"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era 0 · El Despertar"
+			tasks: [
+				{
+					disable_toast: true
+					id: "01F98472B68DDC5F"
+					icon: "minecraft:spyglass"
+					stage: "ecos_l_domadores_cuevas_bioma"
+					title: "Entra a las cuevas primordiales"
+					type: "gamestage"
+				}
+			]
+			title: "Cuevas primordiales"
+			x: 0.00d
+			y: 1.40d
+		}
+		{
+			dependencies: ["40323C5126BB79A5"]
+			description: ["&#19E6E6Zykna:&r &oUn huevo robado no se lleva a escondidas: los padres lo oyen. Quien lo levanta entero se queda con una cría; quien lo rompe se queda con enemigos.", "", "&6Qué hacer:&r Levanta un huevo de dinosaurio de su nido con un pico con Toque de seda. Sin Toque de seda el huevo se rompe. Los padres te van a perseguir.", "", "&6Premio:&r 2 cosas al azar: carne cocinada, hierro, cuero o zanahorias doradas.", "&5A veces (7 %):&r una zanahoria dorada de más."]
+			disable_toast: true
+			icon: "alexscaves:subterranodon_egg"
+			id: "1A25916C611A75CB"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "43F39C0DC053C6A0"
+					icon: "alexscaves:subterranodon_egg"
+					stage: "ecos_l_domadores_huevo_robar"
+					title: "Levanta un huevo entero de un nido"
+					type: "gamestage"
+				}
+			]
+			title: "El huevo sin romper"
+			x: 2.50d
+			y: 0.00d
+		}
+		{
+			dependencies: ["1A25916C611A75CB"]
+			description: ["&#19E6E6Zykna:&r &oTras el robo, los padres siguen tu rastro unos segundos. Corre, sube a un sitio alto o enfréntalos juntos: cualquier camino sirve, menos quedarte quieto.", "", "&6Qué hacer:&r Sobrevive a la persecución de los padres después de levantar el huevo. Cuando te pierdan el rastro, Zykna te avisa.", "", "&6Premio:&r 2 cosas al azar: hierro, carne cocinada, escudos o cuero.", "&5A veces (7 %):&r un escudo."]
+			disable_toast: true
+			icon: "minecraft:shield"
+			id: "451532ECE33D095B"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "18F3B5DEE07238E2"
+					icon: "minecraft:shield"
+					stage: "ecos_l_domadores_escape_huir"
+					title: "Escapa de los padres"
+					type: "gamestage"
+				}
+			]
+			title: "Los padres van detrás"
+			x: 2.50d
+			y: 1.40d
+		}
+		{
+			dependencies: ["451532ECE33D095B"]
+			description: ["&#19E6E6Zykna:&r &oUna cría que nace cerca de ti te toma por familia. Es lo más cerca que está la Fractura de dejar algo vivo sin que sea una amenaza.", "", "&6Qué hacer:&r Coloca el huevo y quédate cerca hasta que eclosione. La cría nace domada y se queda contigo.", "", "&6Premio:&r 2 cosas al azar: paja, carne cocinada, correas o cuero.", "&5A veces (7 %):&r una silla de montar."]
+			disable_toast: true
+			icon: "minecraft:hay_block"
+			id: "6AEA8F775A9880A6"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "084334A0C694CB2C"
+					icon: "minecraft:hay_block"
+					stage: "ecos_l_domadores_cria_nacer"
+					title: "Que nazca tu cría"
+					type: "gamestage"
+				}
+			]
+			title: "Nace una cría"
+			x: 2.50d
+			y: 2.80d
+		}
+		{
+			dependencies: ["6AEA8F775A9880A6"]
+			description: ["&#19E6E6Zykna:&r &oLos dragones pequeños no se ganan con fuerza: se ganan con la comida que prefieren y con paciencia. Cada especie pide algo distinto.", "", "&6Qué hacer:&r Doma un dragón del Book of Dragons dándole la comida que acepta. La ficha del libro del mod dice cuál es.", "", "&6Premio:&r 2 cosas al azar: carne cocinada, pescado cocinado, cuero o hierro.", "&5A veces (7 %):&r una silla de montar."]
+			disable_toast: true
+			icon: "minecraft:cooked_beef"
+			id: "030C8AB012AAF0A9"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "61FD1EFB64B7F0FD"
+					icon: "minecraft:cooked_beef"
+					stage: "ecos_l_domadores_dragon_domar"
+					title: "Doma un dragón con comida"
+					type: "gamestage"
+				}
+			]
+			title: "Un dragón con paciencia"
+			x: 2.50d
+			y: 4.20d
+		}
+		{
+			dependencies: ["030C8AB012AAF0A9"]
+			description: ["&#19E6E6Zykna:&r &oLos dragones vuelven a un mismo sitio a dormir. Las guaridas están a la vista de quien sabe buscar, y los aldeanos venden mapas que las señalan.", "", "&6Qué hacer:&r Encuentra y entra a una guarida de dragones del Book of Dragons: en acantilados, cuevas, claros, pantanos o páramos.", "", "&6Premio:&r 2 cosas al azar: carne cocinada, cuero, hierro o cuerda.", "&5A veces (7 %):&r un catalejo."]
+			disable_toast: true
+			icon: "minecraft:spyglass"
+			id: "422EC4585359E935"
+			shape: "circle"
+			size: 1.00d
+			subtitle: "Era I · La Resistencia"
+			tasks: [
+				{
+					disable_toast: true
+					id: "55EDADE725E40D1B"
+					icon: "minecraft:spyglass"
+					stage: "ecos_l_domadores_guarida_entrar"
+					title: "Entra a una guarida de dragones"
+					type: "gamestage"
+				}
+			]
+			title: "Una guarida de dragones"
+			x: 2.50d
+			y: 5.60d
+		}
+		{
+			dependencies: ["422EC4585359E935"]
+			description: ["&#19E6E6Zykna:&r &oDomar es el primer paso. Lo que sigue es acompañar, alimentar y defender hasta que la criatura te elija. Eso no se apresura.", "", "&6Qué hacer:&r Cuida y acompaña a tu dragón hasta que su ficha en el Book of Dragons diga Bonded.", "", "&6Premio:&r 2 cosas al azar: manzanas doradas, oro, esmeraldas o carne cocinada.", "&5A veces (7 %):&r un diamante."]
+			disable_toast: true
+			icon: "minecraft:golden_apple"
+			id: "4EA729E6E89DD67E"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "7F17E122E4365969"
+					icon: "minecraft:golden_apple"
+					stage: "ecos_l_domadores_vinculo_vincular"
+					title: "Vincula un dragón"
+					type: "gamestage"
+				}
+			]
+			title: "Vínculo"
+			x: 5.00d
+			y: 0.00d
+		}
+		{
+			dependencies: ["4EA729E6E89DD67E"]
+			description: ["&#19E6E6Zykna:&r &oCuando llegan los mutantes, una criatura que te sigue demuestra por qué. No hace falta ordenarle nada: la base también es suya.", "", "&6Qué hacer:&r Durante un asedio declarado, deja que una criatura domada derribe a un mutante. Tu dragón o tu cría sirven.", "", "&6Premio:&r 2 cosas al azar: oro, esmeraldas, manzanas doradas o carne cocinada.", "&5A veces (7 %):&r un diamante."]
+			disable_toast: true
+			icon: "minecraft:shield"
+			id: "02448E6C8F49937C"
+			shape: "square"
+			size: 1.00d
+			subtitle: "Era II · Los Cielos"
+			tasks: [
+				{
+					disable_toast: true
+					id: "5D8002C30F0F2EF4"
+					icon: "minecraft:shield"
+					stage: "ecos_l_domadores_manada_defender"
+					title: "Que tu criatura derribe a un mutante del asedio"
+					type: "gamestage"
+				}
+			]
+			title: "La manada defiende la base"
+			x: 5.00d
+			y: 1.40d
+		}
+	]
+	subtitle: ["Las criaturas que dejó la Fractura se pueden vincular al Eco.", "Un huevo, una cría, un dragón y una manada que defiende la base."]
+	title: "Domadores del Eco"
+}

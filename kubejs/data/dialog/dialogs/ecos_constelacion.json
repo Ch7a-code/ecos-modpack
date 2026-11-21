@@ -1,0 +1,1203 @@
+{
+  "id": "ecos_constelacion",
+  "title": "Tu constelación",
+  "description": "Pregunta del signo, una vez por jugador (ecos_constelacion.js). Solo se guarda el signo.",
+  "start": "inicio",
+  "entries": [
+    {
+      "id": "inicio",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Cada Eco que cruza la Fractura trae un cielo propio. El del Santuario también cruzó, y con él las Cloth de oro: una por constelación.",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Con tu signo te digo cuál es tu constelación y cuál de las doce Cloth de oro responde a ella. ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "No guardo tu fecha de nacimiento: solo el signo.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "☉  Por mi mes de nacimiento",
+          "target": "mes"
+        },
+        {
+          "text": "✦  Elijo mi signo a mano",
+          "target": "mano"
+        },
+        {
+          "text": "✖  Ahora no",
+          "target": "fin_luego"
+        }
+      ]
+    },
+    {
+      "id": "mes",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "¿En qué mes naciste?",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Solo el mes. El día no me lo digas ni lo anoto.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "Enero",
+          "target": "dia_01"
+        },
+        {
+          "text": "Febrero",
+          "target": "dia_02"
+        },
+        {
+          "text": "Marzo",
+          "target": "dia_03"
+        },
+        {
+          "text": "Abril",
+          "target": "dia_04"
+        },
+        {
+          "text": "Mayo",
+          "target": "dia_05"
+        },
+        {
+          "text": "Junio",
+          "target": "dia_06"
+        },
+        {
+          "text": "Julio",
+          "target": "dia_07"
+        },
+        {
+          "text": "Agosto",
+          "target": "dia_08"
+        },
+        {
+          "text": "Septiembre",
+          "target": "dia_09"
+        },
+        {
+          "text": "Octubre",
+          "target": "dia_10"
+        },
+        {
+          "text": "Noviembre",
+          "target": "dia_11"
+        },
+        {
+          "text": "Diciembre",
+          "target": "dia_12"
+        },
+        {
+          "text": "←  Volver",
+          "target": "inicio"
+        },
+        {
+          "text": "✖  Cerrar",
+          "target": "fin_luego"
+        }
+      ]
+    },
+    {
+      "id": "dia_01",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Naciste en ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Enero",
+          "color": "#19E6E6"
+        },
+        {
+          "text": ".",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "El signo cambia el día 20. No me digas tu día exacto: solo de qué lado del 20 caes.",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Si naciste justo en el corte, el día exacto cambia un poco según el año. En ese caso elige tu signo a mano.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "Antes del día 20",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo capricorne"
+          ]
+        },
+        {
+          "text": "Del día 20 en adelante",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo verseau"
+          ]
+        },
+        {
+          "text": "←  Otro mes",
+          "target": "mes"
+        },
+        {
+          "text": "✦  Elijo a mano",
+          "target": "mano"
+        }
+      ]
+    },
+    {
+      "id": "dia_02",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Naciste en ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Febrero",
+          "color": "#19E6E6"
+        },
+        {
+          "text": ".",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "El signo cambia el día 19. No me digas tu día exacto: solo de qué lado del 19 caes.",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Si naciste justo en el corte, el día exacto cambia un poco según el año. En ese caso elige tu signo a mano.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "Antes del día 19",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo verseau"
+          ]
+        },
+        {
+          "text": "Del día 19 en adelante",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo poisson"
+          ]
+        },
+        {
+          "text": "←  Otro mes",
+          "target": "mes"
+        },
+        {
+          "text": "✦  Elijo a mano",
+          "target": "mano"
+        }
+      ]
+    },
+    {
+      "id": "dia_03",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Naciste en ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Marzo",
+          "color": "#19E6E6"
+        },
+        {
+          "text": ".",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "El signo cambia el día 21. No me digas tu día exacto: solo de qué lado del 21 caes.",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Si naciste justo en el corte, el día exacto cambia un poco según el año. En ese caso elige tu signo a mano.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "Antes del día 21",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo poisson"
+          ]
+        },
+        {
+          "text": "Del día 21 en adelante",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo belier"
+          ]
+        },
+        {
+          "text": "←  Otro mes",
+          "target": "mes"
+        },
+        {
+          "text": "✦  Elijo a mano",
+          "target": "mano"
+        }
+      ]
+    },
+    {
+      "id": "dia_04",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Naciste en ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Abril",
+          "color": "#19E6E6"
+        },
+        {
+          "text": ".",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "El signo cambia el día 20. No me digas tu día exacto: solo de qué lado del 20 caes.",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Si naciste justo en el corte, el día exacto cambia un poco según el año. En ese caso elige tu signo a mano.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "Antes del día 20",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo belier"
+          ]
+        },
+        {
+          "text": "Del día 20 en adelante",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo taureau"
+          ]
+        },
+        {
+          "text": "←  Otro mes",
+          "target": "mes"
+        },
+        {
+          "text": "✦  Elijo a mano",
+          "target": "mano"
+        }
+      ]
+    },
+    {
+      "id": "dia_05",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Naciste en ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Mayo",
+          "color": "#19E6E6"
+        },
+        {
+          "text": ".",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "El signo cambia el día 21. No me digas tu día exacto: solo de qué lado del 21 caes.",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Si naciste justo en el corte, el día exacto cambia un poco según el año. En ese caso elige tu signo a mano.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "Antes del día 21",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo taureau"
+          ]
+        },
+        {
+          "text": "Del día 21 en adelante",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo gemeaux"
+          ]
+        },
+        {
+          "text": "←  Otro mes",
+          "target": "mes"
+        },
+        {
+          "text": "✦  Elijo a mano",
+          "target": "mano"
+        }
+      ]
+    },
+    {
+      "id": "dia_06",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Naciste en ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Junio",
+          "color": "#19E6E6"
+        },
+        {
+          "text": ".",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "El signo cambia el día 21. No me digas tu día exacto: solo de qué lado del 21 caes.",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Si naciste justo en el corte, el día exacto cambia un poco según el año. En ese caso elige tu signo a mano.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "Antes del día 21",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo gemeaux"
+          ]
+        },
+        {
+          "text": "Del día 21 en adelante",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo cancer"
+          ]
+        },
+        {
+          "text": "←  Otro mes",
+          "target": "mes"
+        },
+        {
+          "text": "✦  Elijo a mano",
+          "target": "mano"
+        }
+      ]
+    },
+    {
+      "id": "dia_07",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Naciste en ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Julio",
+          "color": "#19E6E6"
+        },
+        {
+          "text": ".",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "El signo cambia el día 23. No me digas tu día exacto: solo de qué lado del 23 caes.",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Si naciste justo en el corte, el día exacto cambia un poco según el año. En ese caso elige tu signo a mano.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "Antes del día 23",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo cancer"
+          ]
+        },
+        {
+          "text": "Del día 23 en adelante",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo lion"
+          ]
+        },
+        {
+          "text": "←  Otro mes",
+          "target": "mes"
+        },
+        {
+          "text": "✦  Elijo a mano",
+          "target": "mano"
+        }
+      ]
+    },
+    {
+      "id": "dia_08",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Naciste en ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Agosto",
+          "color": "#19E6E6"
+        },
+        {
+          "text": ".",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "El signo cambia el día 23. No me digas tu día exacto: solo de qué lado del 23 caes.",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Si naciste justo en el corte, el día exacto cambia un poco según el año. En ese caso elige tu signo a mano.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "Antes del día 23",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo lion"
+          ]
+        },
+        {
+          "text": "Del día 23 en adelante",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo vierge"
+          ]
+        },
+        {
+          "text": "←  Otro mes",
+          "target": "mes"
+        },
+        {
+          "text": "✦  Elijo a mano",
+          "target": "mano"
+        }
+      ]
+    },
+    {
+      "id": "dia_09",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Naciste en ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Septiembre",
+          "color": "#19E6E6"
+        },
+        {
+          "text": ".",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "El signo cambia el día 23. No me digas tu día exacto: solo de qué lado del 23 caes.",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Si naciste justo en el corte, el día exacto cambia un poco según el año. En ese caso elige tu signo a mano.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "Antes del día 23",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo vierge"
+          ]
+        },
+        {
+          "text": "Del día 23 en adelante",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo balance"
+          ]
+        },
+        {
+          "text": "←  Otro mes",
+          "target": "mes"
+        },
+        {
+          "text": "✦  Elijo a mano",
+          "target": "mano"
+        }
+      ]
+    },
+    {
+      "id": "dia_10",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Naciste en ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Octubre",
+          "color": "#19E6E6"
+        },
+        {
+          "text": ".",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "El signo cambia el día 23. No me digas tu día exacto: solo de qué lado del 23 caes.",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Si naciste justo en el corte, el día exacto cambia un poco según el año. En ese caso elige tu signo a mano.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "Antes del día 23",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo balance"
+          ]
+        },
+        {
+          "text": "Del día 23 en adelante",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo scorpion"
+          ]
+        },
+        {
+          "text": "←  Otro mes",
+          "target": "mes"
+        },
+        {
+          "text": "✦  Elijo a mano",
+          "target": "mano"
+        }
+      ]
+    },
+    {
+      "id": "dia_11",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Naciste en ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Noviembre",
+          "color": "#19E6E6"
+        },
+        {
+          "text": ".",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "El signo cambia el día 22. No me digas tu día exacto: solo de qué lado del 22 caes.",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Si naciste justo en el corte, el día exacto cambia un poco según el año. En ese caso elige tu signo a mano.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "Antes del día 22",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo scorpion"
+          ]
+        },
+        {
+          "text": "Del día 22 en adelante",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo sagittaire"
+          ]
+        },
+        {
+          "text": "←  Otro mes",
+          "target": "mes"
+        },
+        {
+          "text": "✦  Elijo a mano",
+          "target": "mano"
+        }
+      ]
+    },
+    {
+      "id": "dia_12",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Naciste en ",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Diciembre",
+          "color": "#19E6E6"
+        },
+        {
+          "text": ".",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "El signo cambia el día 22. No me digas tu día exacto: solo de qué lado del 22 caes.",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "\n\n",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Si naciste justo en el corte, el día exacto cambia un poco según el año. En ese caso elige tu signo a mano.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "Antes del día 22",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo sagittaire"
+          ]
+        },
+        {
+          "text": "Del día 22 en adelante",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo capricorne"
+          ]
+        },
+        {
+          "text": "←  Otro mes",
+          "target": "mes"
+        },
+        {
+          "text": "✦  Elijo a mano",
+          "target": "mano"
+        }
+      ]
+    },
+    {
+      "id": "mano",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Elige tu signo.",
+          "color": "#E8F3F3"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "Aries",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo belier"
+          ]
+        },
+        {
+          "text": "Tauro",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo taureau"
+          ]
+        },
+        {
+          "text": "Géminis",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo gemeaux"
+          ]
+        },
+        {
+          "text": "Cáncer",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo cancer"
+          ]
+        },
+        {
+          "text": "Leo",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo lion"
+          ]
+        },
+        {
+          "text": "Virgo",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo vierge"
+          ]
+        },
+        {
+          "text": "Libra",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo balance"
+          ]
+        },
+        {
+          "text": "Escorpio",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo scorpion"
+          ]
+        },
+        {
+          "text": "Sagitario",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo sagittaire"
+          ]
+        },
+        {
+          "text": "Capricornio",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo capricorne"
+          ]
+        },
+        {
+          "text": "Acuario",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo verseau"
+          ]
+        },
+        {
+          "text": "Piscis",
+          "target": "fin_ok",
+          "command": [
+            "zykna constelacion signo poisson"
+          ]
+        },
+        {
+          "text": "←  Volver",
+          "target": "inicio"
+        },
+        {
+          "text": "✖  Cerrar",
+          "target": "fin_luego"
+        }
+      ]
+    },
+    {
+      "id": "fin_ok",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Anotado. Dame un momento.",
+          "color": "#E8F3F3"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ]
+    },
+    {
+      "id": "fin_luego",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Cuando quieras: escribe ",
+          "color": "#8FA2A8"
+        },
+        {
+          "text": "/zykna constelacion",
+          "color": "#19E6E6"
+        },
+        {
+          "text": ". Clic para cerrar.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ]
+    }
+  ]
+}

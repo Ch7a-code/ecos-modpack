@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": ["minecraft:bamboo_jungle"],
+  "spawners": [
+    { "type": "alexsmobs:gorilla", "weight": 3, "minCount": 1, "maxCount": 3 },
+    { "type": "alexsmobs:capuchin_monkey", "weight": 4, "minCount": 2, "maxCount": 4 }
+  ]
+}

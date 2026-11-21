@@ -63,7 +63,8 @@ var ECOS_EST = { golpe: 0.15, extra: 0.5, extraMax: 2, recibir: 0.25, escudo: 0.
 var _ecosGolpes = new (Java.loadClass('java.util.WeakHashMap'))();   // jugador -> [tick, enemigos extra cobrados]
 function ecosTipoDano(src) {
   try { return String(src.typeHolder().unwrapKey().get().location()); } catch (e) {}
-  try { var m = String(src.getMsgId()); return ECOS_EOP_DANO[m] ? 'eop:' + m : m; } catch (e2) {}
+  try { var m = String(src.getType()); return ECOS_EOP_DANO[m] ? 'eop:' + m : m; } catch (e2) {}   // KubeJS: getMsgId se llama getType
+  try { var m2 = String(src.getMsgId()); return ECOS_EOP_DANO[m2] ? 'eop:' + m2 : m2; } catch (e3) {}
   return '';
 }
 function ecosEsJugador(x) { try { return !!x && x.isPlayer(); } catch (e) { return false; } }
@@ -135,6 +136,15 @@ function ecosUnicosEnMano(p) {
 }
 function ecosUN() { try { return global.ecosUnicos && global.ecosUnicos.num ? global.ecosUnicos.num : null; } catch (e) { return null; } }
 // entidad directa del daño (la flecha/bala, no quien disparó): mismo orden de respaldos que ecos_puntos_debiles.js (KubeJS getImmediate)
+// quien causó el daño. KubeJS renombra DamageSource.getEntity() a getActual() (javap DamageSourceMixin, @RemapForJS):
+// src.getEntity() truena en Rhino y el try lo tragaba, así que el atacante salía siempre null (lección de ecos_sin_fuego_amigo.js:115).
+function ecosAtacante(s) {
+  if (!s) return null;
+  try { var a = s.getActual(); if (a) return a; } catch (e1) {}
+  try { var a2 = s.actual; if (a2) return a2; } catch (e2) {}
+  try { return s.getEntity(); } catch (e3) {}
+  return null;
+}
 function ecosDirecta(s) {
   if (!s) return null;
   try { var d = s.getImmediate(); if (d) return d; } catch (e1) {}
@@ -144,7 +154,7 @@ function ecosDirecta(s) {
 
 ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', function (e) {
   var ent = e.getEntity(), src = null, atq = null;
-  try { src = e.getSource(); atq = src ? src.getEntity() : null; } catch (e0) {}
+  try { src = e.getSource(); atq = ecosAtacante(src); } catch (e0) {}
   try {
     if (atq && atq.getTags().contains('ecos_lab') && e.getAmount() > ECOS_LAB_TOPE) e.setAmount(ECOS_LAB_TOPE);
   } catch (errLab) {}
@@ -202,7 +212,7 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', fu
   try {
     var UN = ecosUN();
     if (UN && ecosEsJugador(atq) && atq !== ent) {
-      var U = ecosUnicosEnMano(atq), mu = 1, ahoraU = Date.now(), melee = tipo.split(':').pop() == 'player';
+      var U = ecosUnicosEnMano(atq), mu = 1, ahoraU = Date.now(), melee = /^player(_attack)?$/.test(tipo.split(':').pop());   // registro: minecraft:player_attack · msgId: player
       var directo = ecosDirecta(src);
       if (U.filo && melee) {
         var pos = _ecosFilo.get(atq), dq = 1e9, aliado = false;
@@ -276,7 +286,7 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', fu
   try {
     var dmg = pdBase !== null ? pdBase : e.getAmount();   // el tiro letal no cuesta toda la estamina
     if (ecosEsJugador(ent) && atq && !ecosEsJugador(atq)) ecosCansar(ent, dmg * ECOS_EST.recibir);   // golpe de una criatura (caídas y fuego no)
-    if (ecosEsJugador(atq) && tipo.split(':').pop() == 'player' && atq !== ent) {
+    if (ecosEsJugador(atq) && /^player(_attack)?$/.test(tipo.split(':').pop()) && atq !== ent) {
       var tk = Number(atq.level.getGameTime()), g = _ecosGolpes.get(atq);
       if (!g || g[0] != tk) { _ecosGolpes.put(atq, [tk, 0]); ecosCansar(atq, dmg * ECOS_EST.golpe); }
       else if (g[1] < ECOS_EST.extraMax) { g[1] += ECOS_EST.extra; ecosCansar(atq, ECOS_EST.extra); }
@@ -286,7 +296,7 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingHurtEvent', fu
 ForgeEvents.onEvent('net.minecraftforge.event.entity.living.ShieldBlockEvent', function (e) {
   // S10b: Flecha que Cruza el Vacío -> el escudo del blanco no bloquea el disparo (y entonces no cuesta estamina bloquear)
   try {
-    var s = e.getDamageSource ? e.getDamageSource() : null, a = s ? s.getEntity() : null, d = ecosDirecta(s);
+    var s = e.getDamageSource ? e.getDamageSource() : null, a = ecosAtacante(s), d = ecosDirecta(s);
     if (ecosEsJugador(a) && d && d !== a && ecosUN() && ecosUnicosEnMano(a).flecha) { e.setCanceled(true); return; }
   } catch (errF) {}
   try { var p = e.getEntity(); if (ecosEsJugador(p)) ecosCansar(p, Number(e.getBlockedDamage()) * ECOS_EST.escudo); } catch (err) {}
@@ -399,8 +409,8 @@ ForgeEvents.onEvent('net.minecraftforge.event.brewing.PotionBrewEvent$Post', fun
 
 // --- Book of Dragons (Anexo 14, DECIDE 3b): volar es una llave que se gana (regla de oro, ECOS-modpack-diseno.md:69-70).
 // 9 de las 10 especies vuelan (data/bookofdragons/fauna/species/*.json: movement.AIR con valor; el Speed Stinger no).
-// Sin la marca de su Maestro (etapa ecos_maestro_<familia>_g2, la misma que abre volar en los poderes) no se montan los que
-// vuelan. Domar (es con comida), alimentar y ordenarles no se toca; el Speed Stinger se monta libre.
+// Sin la marca de su Maestro (etapa ecos_maestro_<familia>_g2, la misma que abre volar en los poderes) no se VUELA en los
+// que vuelan; montar en tierra, domar (con comida), alimentar y ordenarles no se toca. Tablas vigentes en ecos_dragon_vuelo.js.
 // Ajuste a la recomendación del Estudio (decía solo ecos_maestro_impulso_g2): esa marca SOLO la puede ganar quien es de la
 // familia Impulso (ecos_maestros.js:134-149), y así el resto nunca volaría. Vale la marca de CUALQUIER Maestro.
 var ECOS_DRAGON_VUELA = { 'bookofdragons:deadlynadder': 1, 'bookofdragons:gronckle': 1, 'bookofdragons:hideous_zippleback': 1,
@@ -415,23 +425,8 @@ function ecosTieneMarca(p) {
   }
   return false;
 }
-var ECOS_CLS_JUG = null, ECOS_CLS_ET = null;
-ForgeEvents.onEvent('net.minecraftforge.event.entity.EntityMountEvent', function (e) {
-  try {
-    if (!e.isMounting()) return;
-    if (!ECOS_CLS_JUG) {
-      ECOS_CLS_JUG = Java.loadClass('net.minecraft.server.level.ServerPlayer');   // solo del lado del servidor
-      ECOS_CLS_ET = Java.loadClass('net.minecraft.world.entity.EntityType');
-    }
-    var p = e.getEntityMounting(), m = e.getEntityBeingMounted();
-    if (!p || !m || !(p instanceof ECOS_CLS_JUG)) return;   // (Rhino: Java.loadClass no trae isInstance; level es propiedad, no función)
-    var tipo = String(ECOS_CLS_ET.getKey(m.getType()));
-    if (!ECOS_DRAGON_VUELA[tipo] || ecosTieneMarca(p)) return;
-    e.setCanceled(true);
-    console.info('[ECOS-FORGE] dragón sin marca: ' + p.getGameProfile().getName() + ' no monta ' + tipo);
-    try { p.displayClientMessage(Text.gold('Este dragón vuela: para montarlo necesitas la marca de tu Maestro.'), true); } catch (m2) {}
-  } catch (err) { console.info('[ECOS-FORGE] dragón: ' + err); }
-});
+// 20-nov 21:40 (auditoría): ya NO se cancela el montaje. La orden dice «montar en tierra no se toca»; el candado ahora es
+// solo del VUELO y vive en server_scripts/ecos_dragon_vuelo.js (baja al jinete sin marca cuando el dragón despega).
 
 // --- Cliente: Enhanced Celestials abre "¡Ya llegó Enhanced Celestials 2!" en CADA inicio de sesión y no trae opción
 // para apagarlo (EC2AnnouncementTrigger.onLogin pone pending=true sin revisar config; javap 16-nov). Se cancela al abrirse.

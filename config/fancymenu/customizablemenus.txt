@@ -17,3 +17,9 @@ archivo_eco {
 
 archivo_cronica {
 }
+
+archivo_cosmos {
+}
+
+archivo_bestiario {
+}

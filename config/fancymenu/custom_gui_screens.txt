@@ -44,5 +44,27 @@ custom_gui {
   popup_mode_background_overlay = false
 }
 
+custom_gui {
+  identifier = archivo_cosmos
+  title = 
+  allow_esc = true
+  transparent_world_background = true
+  transparent_world_background_overlay = true
+  pause_game = false
+  popup_mode = false
+  popup_mode_background_overlay = false
+}
+
+custom_gui {
+  identifier = archivo_bestiario
+  title = 
+  allow_esc = true
+  transparent_world_background = true
+  transparent_world_background_overlay = true
+  pause_game = false
+  popup_mode = false
+  popup_mode_background_overlay = false
+}
+
 overridden_screens {
 }

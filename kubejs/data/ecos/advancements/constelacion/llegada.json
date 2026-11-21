@@ -1,0 +1,59 @@
+{
+  "criteria": {
+    "sanctuaire": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "saint_seiya_nouvelle_generation:sanctuaire"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "tour_jamir": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "saint_seiya_nouvelle_generation:tour_jamir"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "grece": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "saint_seiya_nouvelle_generation:structure_2_grece"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sanctuaire",
+      "tour_jamir",
+      "grece"
+    ]
+  ]
+}

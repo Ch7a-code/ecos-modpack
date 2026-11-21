@@ -74,6 +74,13 @@
           ]
         },
         {
+          "text": "✧  Tu constelación",
+          "target": "fin",
+          "command": [
+            "zykna constelacion"
+          ]
+        },
+        {
           "text": "▤  Crónica",
           "target": "menu",
           "command": [

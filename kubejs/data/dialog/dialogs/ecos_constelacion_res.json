@@ -1,0 +1,98 @@
+{
+  "id": "ecos_constelacion_res",
+  "title": "Tu constelación",
+  "description": "Resultado y misión «Tu constelación» (texto variable en storage ecos:constelacion)",
+  "start": "res",
+  "entries": [
+    {
+      "id": "res",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "nbt": "actual.cab",
+          "storage": "ecos:constelacion",
+          "interpret": true
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "nbt": "actual.cuerpo",
+          "storage": "ecos:constelacion",
+          "interpret": true
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ],
+      "options": [
+        {
+          "text": "✦  Mi misión",
+          "target": "res",
+          "command": [
+            "zykna constelacion mision"
+          ]
+        },
+        {
+          "text": "↺  Corregir mi signo",
+          "target": "res",
+          "command": [
+            "zykna constelacion corregir"
+          ]
+        },
+        {
+          "text": "✖  Cerrar",
+          "target": "fin"
+        }
+      ]
+    },
+    {
+      "id": "fin",
+      "speaker": {
+        "text": "Zykna  ·  Tu constelación",
+        "color": "#19E6E6",
+        "bold": true
+      },
+      "text": [
+        {
+          "text": "",
+          "color": "#E8F3F3"
+        },
+        {
+          "text": "Listo. Escribe ",
+          "color": "#8FA2A8"
+        },
+        {
+          "text": "/zykna constelacion",
+          "color": "#19E6E6"
+        },
+        {
+          "text": " para volver a verla. Clic para cerrar.",
+          "color": "#8FA2A8"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "zykna.png",
+          "position": "LEFT",
+          "brightness": 1.0
+        }
+      ]
+    }
+  ]
+}

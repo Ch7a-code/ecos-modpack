@@ -118,7 +118,7 @@
 		}
 		{
 			dependencies: ["1D39A33A2BCAD030"]
-			description: ["&#19E6E6Zykna:&r &oLas máquinas, las naves, los cohetes: todo eso es tecnología del Proyecto Éter, y se reconstruye desde las ruinas. Pero antes de un motor va un horno. Funde tu primer hierro.", "", "&6Qué hacer:&r Funde un lingote de hierro y consigue un pico de hierro.", "", "&6Premio:&r 2 cosas al azar: hierro, carbón, una cubeta o cobre.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
+			description: ["&#19E6E6Zykna:&r &oLas máquinas, las naves, los cohetes: todo eso es tecnología del Proyecto Éter. Pero antes de un motor hay una elección: el que forja confía en el fuego; el que caza confía en su propio filo. Elige cómo consigues tu primera arma de verdad.", "", "&6Qué hacer:&r Funde un lingote de hierro. Luego elige: forja un pico de hierro, o vence a un monstruo con un arma de madera o piedra.", "", "&6Premio:&r 2 cosas al azar: hierro, carbón, una cubeta o cobre.", "&5A veces (7 %):&r un pico de hierro encantado con Eficiencia."]
 			disable_toast: true
 			icon: "minecraft:iron_pickaxe"
 			id: "6FBF4ADAB3D26A91"
@@ -139,7 +139,7 @@
 					id: "7C003362F0235AEC"
 					icon: "minecraft:iron_pickaxe"
 					stage: "ecos_i_hierro_pico"
-					title: "Consigue un pico de hierro"
+					title: "Forja un pico de hierro, o caza un monstruo con arma de madera o piedra"
 					type: "gamestage"
 				}
 			]

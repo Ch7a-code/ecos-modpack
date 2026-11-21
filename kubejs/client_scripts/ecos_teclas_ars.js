@@ -82,6 +82,13 @@ var EBD_NUEVA = {
   // debug_toggle y roost_lines: sin entrada = se quitan (KMod.NONE + UNKNOWN), igual que los 3 slots de Ars sin reemplazo.
 };
 
+// Cha 20-nov 22:12: «en la B es para prender y apagar la vida de los monstruos, esa tecla es totalmente inútil». La B tenía 3 cosas:
+// modo batalla de Echoes (se queda), barras de jefe de Vital y terminal de Tom's Storage (las dos quedan sin tecla; Alt+B ya es el
+// séptimo sentido de Saint Seiya). Quien las quiera, las asigna en Controles.
+var ETB = { hecho: false, t: 0 };
+var ETB_FABRICA = { 'key.vital.toggle_boss_bars': 'key.keyboard.b', 'key.toms_storage.open_terminal': 'key.keyboard.b' };
+var ETB_NUEVA = {};
+
 function _earMoverUno(IC, KMod, marcaArchivo, estado, fabrica, nueva, etiqueta) {
   if (estado.hecho) return;
   var marca = null;
@@ -106,19 +113,20 @@ function _earMoverUno(IC, KMod, marcaArchivo, estado, fabrica, nueva, etiqueta) 
 }
 
 ClientEvents.tick(function () {
-  if (EAR.hecho && EST.hecho && EBD.hecho) return;
+  if (EAR.hecho && EST.hecho && EBD.hecho && ETB.hecho) return;
   if (++EAR.t % 20) return;                 // una vez por segundo hasta lograr las 3
-  if (EAR.t > 20 * 600) { EAR.hecho = true; EST.hecho = true; EBD.hecho = true; return; }   // 10 min sin lograrlo: se rinde sin llenar el log
+  if (EAR.t > 20 * 600) { EAR.hecho = true; EST.hecho = true; EBD.hecho = true; ETB.hecho = true; return; }   // 10 min sin lograrlo: se rinde sin llenar el log
   try {
     if (!Client.options) return;
     var IC = Java.loadClass('com.mojang.blaze3d.platform.InputConstants');
     var KMod = Java.loadClass('net.minecraftforge.client.settings.KeyModifier');
     var KM = Java.loadClass('net.minecraft.client.KeyMapping');
-    var antes = EAR.hecho && EST.hecho && EBD.hecho;
+    var antes = EAR.hecho && EST.hecho && EBD.hecho && ETB.hecho;
     _earMoverUno(IC, KMod, 'kubejs/config/ecos_teclas_ars.json', EAR, EAR_FABRICA, EAR_NUEVA, 'Ars (libro Alt+C, menu radial Alt+V)');
     _earMoverUno(IC, KMod, 'kubejs/config/ecos_teclas_seiya.json', EST, EST_FABRICA, EST_NUEVA, 'Saint Seiya (11 a Alt)');
     _earMoverUno(IC, KMod, 'kubejs/config/ecos_teclas_bod.json', EBD, EBD_FABRICA, EBD_NUEVA, 'Book of Dragons (5 a Alt, 2 sin tecla)');
-    if (!antes && EAR.hecho && EST.hecho && EBD.hecho) { KM.resetMapping(); Client.options.save(); }
+    _earMoverUno(IC, KMod, 'kubejs/config/ecos_teclas_b.json', ETB, ETB_FABRICA, ETB_NUEVA, 'B solo para el modo batalla (Vital y Toms sin tecla)');
+    if (!antes && EAR.hecho && EST.hecho && EBD.hecho && ETB.hecho) { KM.resetMapping(); Client.options.save(); }
   } catch (e) {
     if (EAR.t % 600 == 0) console.info('[ECOS-TECLAS] ' + e);
   }

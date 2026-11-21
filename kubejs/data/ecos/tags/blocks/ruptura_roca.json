@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "#ecos:ruptura_blanda",
+    "#minecraft:base_stone_overworld",
+    "#minecraft:terracotta",
+    "#minecraft:stone_bricks",
+    "minecraft:cobblestone",
+    "minecraft:mossy_cobblestone",
+    "minecraft:cobbled_deepslate",
+    "minecraft:netherrack",
+    "minecraft:basalt",
+    "minecraft:blackstone",
+    "minecraft:calcite",
+    "minecraft:dripstone_block",
+    "minecraft:soul_sand",
+    "minecraft:soul_soil"
+  ]
+}

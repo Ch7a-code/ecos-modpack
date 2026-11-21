@@ -162,24 +162,36 @@ file = "config/fancymenu/assets/archivo/era_sin.apng"
 hash = "4b52c006f1b7427a600393e24598d426e54029edcc297a66d6f2cc1066e76b26"
 
 [[files]]
+file = "config/fancymenu/assets/archivo/fondo_bestiario.png"
+hash = "854c6dee68dc9407f06dd457d7b242a540d78260808f856d29269ea276fec23d"
+
+[[files]]
 file = "config/fancymenu/assets/archivo/fondo_continuar.png"
-hash = "a53bbc5cfc93b90027b4a0e18603fc32aa9da5559924302fc1f8e6e8a9c4b8d3"
+hash = "2ad16a0a2a367a0551ca3ef27a87315b5a7fb50099125b4cd3da58bcbb510443"
+
+[[files]]
+file = "config/fancymenu/assets/archivo/fondo_cosmos.png"
+hash = "bae96e5ca99879cc1a621bd1c75dee89f180a52d756cfcd6ead2017b14542ffb"
 
 [[files]]
 file = "config/fancymenu/assets/archivo/fondo_cronica.png"
-hash = "2789fec93c42eacd9cdd5f29a7a5e2e38f2cba8915f29455a29343973cf4b038"
+hash = "33bd4189507f62487f7238b92b58239ce5c4c86c3fa8e8f13574dcb95e1e734b"
 
 [[files]]
 file = "config/fancymenu/assets/archivo/fondo_eco.png"
-hash = "d255c4245af204d12cc82a95e0dc48698eaea4da9c582fac163cc2f729243213"
+hash = "670eb569e95baa63666399934fa38cf50e70ff5ceab8a38f396e3f042eab43bb"
 
 [[files]]
 file = "config/fancymenu/assets/archivo/fondo_misiones.png"
-hash = "8bc76b5812132f40832465816e132dfa156ab510cac7ff455ccf94712361c754"
+hash = "5dfdb32f7aede4b324d0b1e512c7b44381cc95928e7ae27e67d8a2dcc0d9aa47"
 
 [[files]]
 file = "config/fancymenu/assets/archivo/hover_103_19.png"
 hash = "5c647ec58134a2d346b2900a5a439159dc7d9477af49b857d1ce2960eae2f4d1"
+
+[[files]]
+file = "config/fancymenu/assets/archivo/hover_108_16.png"
+hash = "51289db1f5473afd1c0e3f1c79e67f2a675ac1b00c0193c59a1f102ec3cf4806"
 
 [[files]]
 file = "config/fancymenu/assets/archivo/hover_118_18.png"
@@ -194,6 +206,14 @@ file = "config/fancymenu/assets/archivo/hover_124_16.png"
 hash = "7aaad3ecd83f0af262d94c13f1d677cbddcf184c16ea10522eefdddef5c6ef28"
 
 [[files]]
+file = "config/fancymenu/assets/archivo/hover_142_42.png"
+hash = "edadf3afcfed5136eae93d902392d856a3ef081241c082a401f7cf514fe34757"
+
+[[files]]
+file = "config/fancymenu/assets/archivo/hover_149_16.png"
+hash = "00a7068f2f2ae6dca99832ad791f48f91e5c70d96696cf945b371a9b82a23476"
+
+[[files]]
 file = "config/fancymenu/assets/archivo/hover_176_42.png"
 hash = "bff42c32c893cce0631d80766634ecd1708780f227a9e50ecf9be37d1bde8988"
 
@@ -202,12 +222,36 @@ file = "config/fancymenu/assets/archivo/hover_20_14.png"
 hash = "75730b811a46227b34e51fd191b8c9f95ddc64fbc9390c70ef7fe19e7f1e674b"
 
 [[files]]
+file = "config/fancymenu/assets/archivo/hover_29_14.png"
+hash = "4b7b17a999017ff5b6733cee0923dc5f0527bece5938364ec307295a1b887219"
+
+[[files]]
+file = "config/fancymenu/assets/archivo/hover_42_14.png"
+hash = "b06f48b72f807748a31848e360812fc1eea644672649f7334c6c0f934baf8cc3"
+
+[[files]]
+file = "config/fancymenu/assets/archivo/hover_56_14.png"
+hash = "d5a68ff27ef7ad01fe384f457fc199b84f2e5d63cad431e8640198451266ec6a"
+
+[[files]]
+file = "config/fancymenu/assets/archivo/hover_67_19.png"
+hash = "b8e4a51594a7776457fc828ded7948e056fbce7bb5cba74eb0e7a231b25d7672"
+
+[[files]]
+file = "config/fancymenu/assets/archivo/hover_70_14.png"
+hash = "f5a6b37aa181b1a1a6821a68e4e371aa4765d1a201f10056fdb2ffc313835294"
+
+[[files]]
 file = "config/fancymenu/assets/archivo/hover_78_17.png"
 hash = "9d5a7a1d5bbad595f2f2d42176eb254a9b348e7d009d460f98114c5dbe0e4703"
 
 [[files]]
 file = "config/fancymenu/assets/archivo/hover_84_30.png"
 hash = "f301a98f11f80a627243942be25bf26a22dabecc68ad13bbe5702bd4d15f42b5"
+
+[[files]]
+file = "config/fancymenu/assets/archivo/marca_142_42.png"
+hash = "8266cf96b3d430599cc6970387fb9153a5fa0521c067acbffcc8790851bc538c"
 
 [[files]]
 file = "config/fancymenu/assets/archivo/marca_176_42.png"
@@ -307,27 +351,35 @@ hash = "8581061aa10c200b0dd4eb604566e2c377b367cf3aa3d10df13556ff61b43fff"
 
 [[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
-hash = "ab467a690bcffe98022fc61fb766535f73514857638feca7bf7612851634df0d"
+hash = "6bde7850ebe4efdc112e72b24d6af19f5bd1ba8be1254efa987733c8188a9ca6"
 
 [[files]]
 file = "config/fancymenu/customizablemenus.txt"
-hash = "97e79c5f0c4cfdee03f4046518dac72fa77713f5d83447897ca38193a3fd68f5"
+hash = "69ac7f1edb26f507ca065cdc8b9b9f473822fffbc8812f9a62b0e8d89565361b"
+
+[[files]]
+file = "config/fancymenu/customization/archivo_bestiario.txt"
+hash = "1448d1af66600684d0183cfd48df2fd4bc9d8bce95de683a0f3541e0057d7910"
 
 [[files]]
 file = "config/fancymenu/customization/archivo_continuar.txt"
-hash = "318f36b4723cd4bf9dc6ec8e2691dcee1ea06300981c9231bd8ce73ca53cb715"
+hash = "a6c292ac550f73270987c7e9193006a4ca6f734afac8e3762fdcb46e457a743d"
+
+[[files]]
+file = "config/fancymenu/customization/archivo_cosmos.txt"
+hash = "63b414369c4dd1184e9e074af8ec1b40633521ad53c7cf209ea0b402ff9b2d0f"
 
 [[files]]
 file = "config/fancymenu/customization/archivo_cronica.txt"
-hash = "36628abda02c9ee1b016f186247fa2a9350c604a320b092af29e537b6e942f53"
+hash = "84952934d71b7a5667b3e3a5423f7d429d7793db9713cbdc9b860d25b36819d8"
 
 [[files]]
 file = "config/fancymenu/customization/archivo_eco.txt"
-hash = "39030202a03c52fe974440cc1564f6313bb87058a788e714cec8d74a254e7472"
+hash = "980428b5aaca20b6de9077ca4c0d2c6ded6cb95923915207e5f944f77edf0da8"
 
 [[files]]
 file = "config/fancymenu/customization/archivo_misiones.txt"
-hash = "6619bff61756f08dd428fd5685bf73f6a0e102a3286942bfdd871e5d28981abf"
+hash = "461d26c90ca92d80e494f5bf5c19159d4c1c87ff90c2d16988e00d18e3e7c1a5"
 
 [[files]]
 file = "config/fancymenu/customization/ecos_loading_screen.txt"
@@ -351,7 +403,7 @@ hash = "acaa4620fb9aa8dbaf257aeea901ad790f2f9035953ec21e236356cda6026116"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/inicio.snbt"
-hash = "450d514a8ed475a095b3a35a62f63e878d1068f423afc7d86def35caf29572f4"
+hash = "1d322fff5e24d5e76ce87c16f70d81d0fd79c2903a2fdfdc1e8fe680fd955874"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/libro_02_laboratorio.snbt"
@@ -440,6 +492,10 @@ hash = "26504bbf923e7f5e1f79a87448f375c2af9136791d947203ce6f6d52aaa8cc89"
 [[files]]
 file = "config/ftbquests/quests/chapters/libro_23_bestias.snbt"
 hash = "7a3050f99e07cb9a6ac0892a67f9317ec7bcd3ce4460782095bf88c79ec916df"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/libro_24_domadores.snbt"
+hash = "d3aac70c9b90f13de88f256fe6a6837d78ef631581dea30ee18a48ff5eaee9d5"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/obras.snbt"
@@ -997,7 +1053,7 @@ hash = "5e67648384f50f7156a821b277a1eaf892a035cd5c476d7c785a62ede5d31ce8"
 
 [[files]]
 file = "kubejs/client_scripts/ecos_teclas_ars.js"
-hash = "d7b3bd082191a78606530cd55f953685424b86fe10517fd34e655d0aa21a192a"
+hash = "2d90e427300ade69e0da35544b6334cbb9e86cf23e0b29001016684fccf31e7f"
 
 [[files]]
 file = "kubejs/client_scripts/ecos_ui_cliente.js"
@@ -1064,6 +1120,14 @@ file = "kubejs/data/dialog/dialogs/ecos_cerrar.json"
 hash = "b09391e6975c3e92c0d8df73e100dfaa81259ece6599107207d98f8dbc2feba0"
 
 [[files]]
+file = "kubejs/data/dialog/dialogs/ecos_constelacion.json"
+hash = "ae01c811c183e03560395b8a6fe0d3a59d52fa5b1b57c49a2f64cb01fdf67133"
+
+[[files]]
+file = "kubejs/data/dialog/dialogs/ecos_constelacion_res.json"
+hash = "d87d66824334567201739117e1072a881dccad007b0fa95ff61659bcece54c5f"
+
+[[files]]
 file = "kubejs/data/dialog/dialogs/ecos_cronica.json"
 hash = "af7a0983052faeacc05e00940a596cd7bd9409a71c5c9f41a95a4ee51e06f0aa"
 
@@ -1077,7 +1141,7 @@ hash = "f8ddd44e224f5ee26dc1217ac99ef8888f8e813b7978e711dadb7d72c8de4967"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_mv_menu.json"
-hash = "7e056e2bcfc188c985a8d994feb900e7c9e41c274cfca014439f2c7d43e9be5a"
+hash = "afd50dc684f002ba64afbda0f781d1b69aa295be7ba33a55eadf809586a02305"
 
 [[files]]
 file = "kubejs/data/dialog/dialogs/ecos_mv_mision.json"
@@ -1656,6 +1720,10 @@ file = "kubejs/data/dungeons_arise/loot_tables/chests/undead_pirate_ship/undead_
 hash = "b5e81d80ec1cc458442dc3a1b979a29f29b6e7ff39900fa781c9e00306c7cc0a"
 
 [[files]]
+file = "kubejs/data/ecos/advancements/constelacion/llegada.json"
+hash = "31c0999bbf1f6113734b879f0b6bc5dff1eb05774d8ef75d1941d26af16e6358"
+
+[[files]]
 file = "kubejs/data/ecos/advancements/libro/atlas/aether_pisar.json"
 hash = "4d7bb7b701d2bd892b27b5020ad5338d02676b510742c65e3f96800c3a237122"
 
@@ -1732,6 +1800,10 @@ file = "kubejs/data/ecos/advancements/libro/atlas/venus_pisar.json"
 hash = "9f9b3146a57b918fa27db2efe06a3f176f13904bb464175ed4e4945fe69409d9"
 
 [[files]]
+file = "kubejs/data/ecos/advancements/libro/domadores/cuevas_bioma.json"
+hash = "7be6f9c1ca699118f87a55516976091a283d748ba3fcf52bdb7a5f02c019ccab"
+
+[[files]]
 file = "kubejs/data/ecos/advancements/libro/planetas/glacio_dimglacio.json"
 hash = "5c5eb57bf0774a825375785d3a46f859b3f7d82158e909d4350617292056579b"
 
@@ -1802,6 +1874,22 @@ hash = "4440c02a4a0d16e5ae6498b0cd507796515902ca66bdf110b8c8a6a363df3551"
 [[files]]
 file = "kubejs/data/ecos/easy_npc/preset/maestro_sangre.npc.snbt"
 hash = "23bc874323a0c6157cff3b911881140466bd4010b2f1ba397344c51ada242a8f"
+
+[[files]]
+file = "kubejs/data/ecos/forge/biome_modifier/fauna_arido.json"
+hash = "bb80b7e2c543a60d61e6a428a8bf288a5e4d69f5dd88c830e6feaf7e15754350"
+
+[[files]]
+file = "kubejs/data/ecos/forge/biome_modifier/fauna_frio_alce.json"
+hash = "4d8f6e90c47755db2dc0611f39f425fe294f0b4e5b0f921627a6c56d0c9a0c5c"
+
+[[files]]
+file = "kubejs/data/ecos/forge/biome_modifier/fauna_frio_oso.json"
+hash = "d35cf0dbb838e23efe33683dafea1ea00f74283bd13436f8647851bf67bd8c43"
+
+[[files]]
+file = "kubejs/data/ecos/forge/biome_modifier/fauna_selva.json"
+hash = "35612f8c922acdebaaf223a834693da219a9c32bd62ae2bee3fb89b587a360a0"
 
 [[files]]
 file = "kubejs/data/ecos/functions/carga/lab_0.mcfunction"
@@ -3380,6 +3468,14 @@ file = "kubejs/data/ecos/structures/templo_n5.nbt"
 hash = "beec71738302e97130728994fad261f70c9199b2f595ee463351284c79567f1c"
 
 [[files]]
+file = "kubejs/data/ecos/tags/blocks/ruptura_blanda.json"
+hash = "df952655f75c75d7e7e509cc4caab04793b41455069ff71a694abbc2f615bc25"
+
+[[files]]
+file = "kubejs/data/ecos/tags/blocks/ruptura_roca.json"
+hash = "2dec04737b20a0c7093ba5ceafc74a2dcf46963e0eaaad44b4cd0c6289459383"
+
+[[files]]
 file = "kubejs/data/ecos/tags/entity_types/acechadores.json"
 hash = "27f896fc2a567cf90f278486c963f56a2d79f1a7e1465e447aeb3bc6bcd9bea1"
 
@@ -3872,6 +3968,10 @@ file = "kubejs/museo/zykna_retrato.json"
 hash = "3c96e8ffe119b137e5c6bfb2844b1eaa9438d004235c0d37a32d093bb513b173"
 
 [[files]]
+file = "kubejs/startup_scripts/ecos_afinidades.js"
+hash = "46866f59e584fce8355afafa30e545ec17eae3f05f0ec075b5686d796acfdf37"
+
+[[files]]
 file = "kubejs/startup_scripts/ecos_boton_inventario.js"
 hash = "425efe2c1ae0a1b4394eb88d00b6a8f9bb984a578c05698ad5d2871bde0d0c6b"
 
@@ -3881,7 +3981,7 @@ hash = "83c245f093d8ee9ab302e527dd59d8b2e81502f1debb9d20aed120d2e8b13154"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_forge.js"
-hash = "48c08bd81cb027cd295f81dcad53abfad4855b97f5ad970217c79bcf8e42ce57"
+hash = "3c2848da684813d599ebada7982aa13583fa509653ca88af903490a0db4d660c"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_items.js"
