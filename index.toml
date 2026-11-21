@@ -720,10 +720,6 @@ file = "kubejs/assets/firstaid/lang/es_es.json"
 hash = "a62797cd2069013667bf5baa7dcd398d2475b8fb19366382b1e2483ac125705e"
 
 [[files]]
-file = "kubejs/assets/firstaid/textures/gui/simple_health.png"
-hash = "a0c59071016d78a03801cab3ea7e91031edf3acc28b42fec68fe7331e5b2eede"
-
-[[files]]
 file = "kubejs/assets/ftblibrary/lang/es_es.json"
 hash = "3c0eeb9a21e1a7b2f8dda612f3a6a41501fced2d3037c3555ca473d8e5731aed"
 
@@ -852,10 +848,6 @@ file = "kubejs/assets/ftbquests/textures/shapes/square/shape.png.mcmeta"
 hash = "a4f5e3c3235dd128ee6d2ce397217e8c77037dbcf641aaa5bef65824e3b4b168"
 
 [[files]]
-file = "kubejs/assets/irons_spellbooks/textures/gui/icons.png"
-hash = "8115c1639aaa738089421a4e5be823ab776d6af690d070bc90d5a479c26dd241"
-
-[[files]]
 file = "kubejs/assets/jade/jade_themes/dark.json"
 hash = "c3509a05de504546aece494f6eb0a23516dc51758f80ed0b7930b80fd7418637"
 
@@ -902,10 +894,6 @@ hash = "3570250e09a06eac40f390f580e18ba4ce501f3c0d849be3cf194e3594e13fae"
 [[files]]
 file = "kubejs/assets/minecraft/textures/gui/container/shulker_box.png"
 hash = "b2f8756994b52ead3ec1d1b8e0645d547ac2b4d0fef5e3bbee3d45bab259b5fe"
-
-[[files]]
-file = "kubejs/assets/minecraft/textures/gui/icons.png"
-hash = "46f4ed64464c43211fba110e0025ea4b4bfa029cba2f15d6af8b1f9a5e4da5d7"
 
 [[files]]
 file = "kubejs/assets/minecraft/textures/gui/recipe_button.png"
