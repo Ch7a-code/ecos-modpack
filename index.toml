@@ -3881,7 +3881,7 @@ hash = "83c245f093d8ee9ab302e527dd59d8b2e81502f1debb9d20aed120d2e8b13154"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_forge.js"
-hash = "7befdc5baa128cbef6fa4b5f6c6535e583a20a46771a61ef292233e429b4a0bf"
+hash = "48c08bd81cb027cd295f81dcad53abfad4855b97f5ad970217c79bcf8e42ce57"
 
 [[files]]
 file = "kubejs/startup_scripts/ecos_items.js"

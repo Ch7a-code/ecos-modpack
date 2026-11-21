@@ -323,7 +323,9 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.living.LivingSwapItemsEvent
     if (!ecosEsJugador(p) || p.level.isClientSide()) return;
     if (p.isShiftKeyDown()) {
       e.setCanceled(true);
-      p.server.runCommandSilent('execute as ' + p.username + ' run zykna mv menu');
+      // 20-nov 21:04 (Cha: «Shift+F me sigue abriendo la interfaz vieja… no se puede cerrar con Esc»): abre el ARCHIVO VIVO
+      // (ecos_archivo.js + FancyMenu, pestañas aprobadas el 19-nov), ya no la ventana vieja de VNDialog (zykna mv menu).
+      p.server.runCommandSilent('execute as ' + p.username + ' run zykna av');
       return;
     }
     // 18-nov: Ctrl + F → stats (el cliente avisa si tiene Ctrl apretado: server_scripts/ecos_teclas.js)
